@@ -9,6 +9,12 @@
   ],
   "contributors": [],
   "dependencies": {
+    "leaflet": "~0.7.3",
+    "leaflet.markercluster": "~0.4.0",
+    "lunr": "^0.5.6",
+    "mosaic-commons": "0.0.15",
+    "mosaic-core": "0.0.8",
+    "mosaic-teleport": "0.0.21",
     "react": "^0.12.0"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     var configurator = new UmxGruntConfig(require, grunt);
     var options = {
         main : './app/js/index.js',
-        files : [ './app/js/**/*.js', './app/js/**/*.jsx' ],
+        files : [ './app/js/**/*.jsx', './app/js/**/*.js' ],
         dist : './app/dist',
         externals : [],
         lessPaths : [ './app/css/**/*.less', './app/css/**/*.css',
@@ -12,6 +12,7 @@ module.exports = function(grunt) {
         watchTasks : [ 'default' ],
 
         // Webpack config
+        debug : false,
         module : {
             loaders : [ {
                 test : /\.jsx$/,

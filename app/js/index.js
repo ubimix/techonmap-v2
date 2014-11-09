@@ -1,8 +1,10 @@
 // techonmap
-var L = require('leaflet');
-var React = require('react');
-var MainView = require('./MainView.jsx');
+var MainApp = require('./MainApp');
+var Config = require('./index.config');
 
-var mainView = new MainView({});
-var element = document.querySelector('body');
-React.render(mainView, element);
+var app = new MainApp(Config);
+app.start().then(function() {
+    console.log('App started.')
+}, function(err) {
+    console.log('Error!', err.stack);
+});
