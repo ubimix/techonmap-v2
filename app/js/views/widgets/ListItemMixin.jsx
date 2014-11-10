@@ -2,7 +2,7 @@
 var _ = require('underscore');
 var React = require('react');
 var TagsMixin = require('./TagsMixin.jsx');
-var Formats = require('../Formats');
+var Formats = require('../utils/Formats');
 
 module.exports = _.extend({
 

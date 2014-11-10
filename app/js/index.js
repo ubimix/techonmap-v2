@@ -1,4 +1,3 @@
-// techonmap
 var MainApp = require('./MainApp');
 var Config = require('./index.config');
 

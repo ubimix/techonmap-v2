@@ -1,8 +1,6 @@
 var expect = require('expect.js');
-var techonmap = require('../app/dist/techonmap');
-describe('techonmap', function() {
-    it('should say hello', function() {
-        expect(!!techonmap.sayHello).to.be(true);
-        expect(techonmap.sayHello()).to.eql('Hello, techonmap!');
+describe('App test', function() {
+    it('should calculate values', function() {
+        expect(2 + 2).to.eql(4);
     });
 });

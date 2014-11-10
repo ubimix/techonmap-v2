@@ -1,4 +1,3 @@
-// techonmap
 var _ = require('underscore');
 var React = require('react');
 var Mosaic = require('mosaic-commons');
@@ -7,8 +6,8 @@ var MainView = require('./views/MainView.jsx');
 
 // var SelectionModule = require('./models/selection/Selection.Module');
 // var SearchModule = require('./models/search/Search.Module');
-// var I18NModule = require('./models/i18n/I18N.Module');
-// var MapModule = require('./models/map/Map.Module');
+var I18NModule = require('./models/i18n/I18N.Module');
+var MapModule = require('./models/map/Map.Module');
 // var UIModule = require('./models/ui/UI.Module');
 
 var initWidgets = require('./views/widgets/registration');
@@ -21,10 +20,10 @@ module.exports = Mosaic.App.extend({
         this.viewManager = new Mosaic.Core.ViewManager();
         initWidgets(this);
         var modules = {
-        // map : MapModule,
-        // search : SearchModule,
-        // selection : SelectionModule,
-        // i18n : I18NModule,
+            map : MapModule,
+            // search : SearchModule,
+            // selection : SelectionModule,
+            i18n : I18NModule,
         // ui : UIModule
         };
         this.apis = [];
