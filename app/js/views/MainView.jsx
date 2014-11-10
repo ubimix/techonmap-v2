@@ -11,7 +11,7 @@ module.exports = React.createClass({
     render : function() {
         var app = this.props.app;
         return (
-            <div className='prm'>
+            <div className='techonmap container'>
                 <TopZoneView app={app} />
                 <MiddleZoneView app={app} />
                 <BottomZoneView app={app} />

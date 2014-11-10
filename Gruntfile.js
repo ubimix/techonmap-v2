@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         watchTasks : [ 'default' ],
 
         // Webpack config
-        debug : false,
+        debug : true,
         module : {
             loaders : [ {
                 test : /\.jsx$/,
