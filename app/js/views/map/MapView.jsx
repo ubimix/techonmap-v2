@@ -10,6 +10,8 @@ var Mosaic = require('mosaic-commons');
 var MapViewport = Mosaic.Leaflet.MapViewport;
 
 var MapBackgroundLayer = require('./MapBackgroundLayer');
+var MapDataLayer = require('./MapDataLayer');
+var MapDebugLayer = require('./MapDebugLayer');
 
 /**
  * This class is responsible for creation of a map and showing data on it.
@@ -56,10 +58,6 @@ module.exports = React.createClass({
      */
     _onMapAdd : function(map) {
         this._map = map;
-        map.on('click', function(e) {
-            console.log(map.getZoom() + ':[' + e.latlng.lng + ',' +
-                    e.latlng.lat + ']');
-        });
         this._viewport = new MapViewport({
             map : map
         });
@@ -107,11 +105,15 @@ module.exports = React.createClass({
     _registerLayers : function(map) {
         var that = this;
         var app = this._getApp();
-        var mapOptions = app.map.getMapOptions();
-        that._layers = {};
-        that._layers.tiles = new MapBackgroundLayer({
+        var options = {
+            parent : this,
             app : app
-        });
+        };
+        that._layers = {};
+        that._layers.debug = new MapDebugLayer(options)
+        that._layers.tiles = new MapBackgroundLayer(options);
+        that._layers.data = new MapDataLayer(options);
+
         // Add all layers to the map
         _.each(this._layers, function(layer, key) {
             map.addLayer(layer);
