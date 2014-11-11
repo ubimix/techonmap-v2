@@ -7,6 +7,7 @@ var _ = require('underscore');
 var React = require('react');
 var L = require('leaflet');
 var Mosaic = require('mosaic-commons');
+var MapLayerTiles = require('./MapLayerTiles');
 
 var MapViewport = Mosaic.Leaflet.MapViewport;
 
@@ -64,8 +65,9 @@ module.exports = React.createClass({
         });
         this._registerLayers(map);
         this._registerHandlers(map);
-        this._updateLayersVisibility();
+        this._resetMapView();
     },
+
     /**
      * This method is called by the Mosaic.Leaflet.ReactMap to notify that the
      * map component was removed.
@@ -104,16 +106,16 @@ module.exports = React.createClass({
     /** Adds new layers to the map */
     _registerLayers : function(map) {
         var that = this;
-        var app = that.props.app;
+        var app = this._getApp();
         var mapOptions = app.map.getMapOptions();
         that._layers = {};
-        that._layers.tiles = this._newTilesLayer(mapOptions.tilesUrl,
-                mapOptions.tilesAttribution);
+        that._layers.tiles = new MapLayerTiles({
+            app : app
+        });
         // Add all layers to the map
-        _.each(this._layers, function(layer) {
+        _.each(this._layers, function(layer, key) {
             map.addLayer(layer);
         }, this);
-
     },
 
     /** Removes all layers from the map */
@@ -122,21 +124,6 @@ module.exports = React.createClass({
             map.removeLayer(layer);
         }, this);
         delete this._layers;
-    },
-
-    /** Creates and returns background tiles layer */
-    _newTilesLayer : function(tilesUrl, attribution) {
-        var app = this.options.app;
-        var mapOptions = app.map.getMapOptions();
-        var maxZoom = mapOptions.maxZoom;
-        var minZoom = mapOptions.minZoom;
-        var tilesLayer = L.tileLayer(tilesUrl, {
-            attribution : attribution,
-            maxZoom : maxZoom,
-            minZoom : minZoom,
-            zIndex : this.options.zIndex || 0
-        });
-        return tilesLayer;
     },
 
     // -------------------------------------------------------------------
@@ -181,5 +168,17 @@ module.exports = React.createClass({
             layer.updateLayerVisibility();
         }, this);
     },
+
+    /** Resets (initializes) the initial map view. */
+    _resetMapView : function() {
+        var app = this._getApp();
+        var mapOptions = app.map.getMapOptions();
+        var zoom = mapOptions.zoom || 8;
+        var center = mapOptions.center || [ 0, 0 ];
+        var latlng = L.latLng(center[1], center[0]);
+        this._map.setView(latlng, zoom);
+        this._updateLayersVisibility();
+        this._map.invalidateSize();
+    }
 
 });

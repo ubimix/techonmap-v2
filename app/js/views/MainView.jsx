@@ -11,10 +11,10 @@ module.exports = React.createClass({
     render : function() {
         var app = this.props.app;
         return (
-            <div className='main container-fluid'>
-                <TopZoneView app={app} />
-                <MiddleZoneView app={app} />
-                <BottomZoneView app={app} />
+            <div className='main-zone container-fluid'>
+                <TopZoneView app={app} className="top-zone"/>
+                <MiddleZoneView app={app} className="middle-zone"/>
+                <BottomZoneView app={app} className="bottom-zone"/>
             </div>
         );
     }

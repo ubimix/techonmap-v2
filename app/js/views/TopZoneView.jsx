@@ -33,6 +33,7 @@ module.exports = React.createClass({
     render : function() {
         var app = this.props.app;
         return (
+          <div className={this.props.className}>
           <nav className="navbar navbar-default" role="navigation">
               <div className="navbar-header">
                 <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
@@ -83,6 +84,7 @@ module.exports = React.createClass({
                 </ul>
               </div>
           </nav>
+          </div>
         );
     }
 });

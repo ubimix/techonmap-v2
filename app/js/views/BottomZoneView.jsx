@@ -6,7 +6,7 @@ module.exports = React.createClass({
     render : function() {
         var app = this.props.app;
         return (
-            <div>Bottom zone</div>
+            <div className={this.props.className}>Bottom zone</div>
         );
     }
 });

@@ -3,6 +3,7 @@ var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PanelSizeTracker = require('./utils/PanelSizeTracker');
+var MapView = require('./map/MapView.jsx');
 
 module.exports = React.createClass({
     displayName : 'MiddleZoneView',
@@ -14,12 +15,8 @@ module.exports = React.createClass({
     render : function() {
         var app = this.props.app;
         return (
-            <div className="map">
-                <PanelSizeTracker container={this}>
-                    <div style={{backgroundColor:'gray', width: '30%'}}>
-                        <button className="btn" onClick={this._onClick}>Info</button>
-                    </div>
-                </PanelSizeTracker>
+            <div className={this.props.className}>
+                <MapView app={app} className="map" ref="map"/>
             </div>
         );
     }

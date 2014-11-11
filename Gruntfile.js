@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     var configurator = new UmxGruntConfig(require, grunt);
     var options = {
         main : './app/js/index.js',
-        files : [ './app/js/**/*.jsx', './app/js/**/*.js' ],
+        files : [ './app/js/**/*.js', './app/js/**/*.jsx' ],
         dist : './app/dist',
         externals : [],
         lessPaths : [ './app/css/**/*.less', './app/css/**/*.css',

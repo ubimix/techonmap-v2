@@ -49,7 +49,7 @@ var DomUtils = {
         minSize = minSize || 0;
         var height = container.offsetHeight;
         var pos = DomUtils._getPosition(container, element);
-        var size = Math.max(minSize, Math.min(height - pos.left));
+        var size = Math.max(minSize, Math.min(height - pos.top));
         element.style.height = size + 'px';
     },
 

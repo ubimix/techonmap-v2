@@ -1,0 +1,31 @@
+.fit(@top:0px, @right:0px, @bottom:0px, @left:0px) {
+    position: absolute;
+    top : @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+}
+
+&.container-fluid {
+    width: 100%;
+    padding: 0;
+}
+
+@top-height: 50px;
+@bottom-height: 20px;
+ 
+.top-zone {
+    .fit(0px, 0px, auto, 0px);
+    height: @bottom-height;
+}
+.bottom-zone {
+    .fit(auto, 0px, 0px, 0px);
+    height: @bottom-height;
+}
+.middle-zone {
+    .fit(@top-height, 0px, @bottom-height, 0px);
+    
+    .map {
+        .fit();
+    }
+}
