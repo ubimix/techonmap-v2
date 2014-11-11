@@ -7,7 +7,7 @@ var MiddleZoneView =  require('./MiddleZoneView.jsx');
 var BottomZoneView = require('./BottomZoneView.jsx');
  
 module.exports = React.createClass({
-        displayName : 'MainView',
+    displayName : 'MainView',
     render : function() {
         var app = this.props.app;
         return (

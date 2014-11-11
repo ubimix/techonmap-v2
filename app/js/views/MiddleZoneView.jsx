@@ -14,11 +14,13 @@ module.exports = React.createClass({
     render : function() {
         var app = this.props.app;
         return (
-            <PanelSizeTracker container={this}>
-                <div>
-                    <button className="btn" onClick={this._onClick}>Info</button>
-                </div>
-            </PanelSizeTracker>
+            <div className="map">
+                <PanelSizeTracker container={this}>
+                    <div style={{backgroundColor:'gray', width: '30%'}}>
+                        <button className="btn" onClick={this._onClick}>Info</button>
+                    </div>
+                </PanelSizeTracker>
+            </div>
         );
     }
 });
