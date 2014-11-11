@@ -8,6 +8,7 @@ var MainView = require('./views/MainView.jsx');
 // var SearchModule = require('./models/search/Search.Module');
 var I18NModule = require('./models/i18n/I18N.Module');
 var MapModule = require('./models/map/Map.Module');
+var SitesModule = require('./models/sites/Sites.Module');
 // var UIModule = require('./models/ui/UI.Module');
 
 var initWidgets = require('./views/widgets/registration');
@@ -16,11 +17,13 @@ module.exports = Mosaic.App.extend({
     /**
      * This function loads and initializes all modules of this application.
      */
+
     initModules : function() {
         this.viewManager = new Mosaic.Core.ViewManager();
         initWidgets(this);
         var modules = {
             map : MapModule,
+            sites : SitesModule,
             // search : SearchModule,
             // selection : SelectionModule,
             i18n : I18NModule,

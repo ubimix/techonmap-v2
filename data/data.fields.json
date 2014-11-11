@@ -1,0 +1,40 @@
+{
+  "fields" : {
+      "name": { 
+        "type" : "field",
+        "boost": 10
+      },
+      "description" : {
+        "type" : "field",
+        "boost": 5
+      },
+      "category": {
+        "type" : "field",
+        "boost" : 3
+      },
+      "tags": {
+        "type" : "field",
+        "boost" : 3
+      },
+      "address" : {
+        "type" : "field",
+        "boost": 1
+      },
+      "postcode" : {
+        "type" : "field",
+        "boost": 1
+      },
+      "city" : {
+        "type" : "field",
+        "boost": 2
+      },
+      "url" : {
+        "type" : "ref",
+        "boost": 1
+      },
+      "id" : {
+        "type" : "ref",
+        "boost": 1
+      }
+   }
+}

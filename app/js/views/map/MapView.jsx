@@ -7,9 +7,9 @@ var _ = require('underscore');
 var React = require('react');
 var L = require('leaflet');
 var Mosaic = require('mosaic-commons');
-var MapLayerTiles = require('./MapLayerTiles');
-
 var MapViewport = Mosaic.Leaflet.MapViewport;
+
+var MapBackgroundLayer = require('./MapBackgroundLayer');
 
 /**
  * This class is responsible for creation of a map and showing data on it.
@@ -109,7 +109,7 @@ module.exports = React.createClass({
         var app = this._getApp();
         var mapOptions = app.map.getMapOptions();
         that._layers = {};
-        that._layers.tiles = new MapLayerTiles({
+        that._layers.tiles = new MapBackgroundLayer({
             app : app
         });
         // Add all layers to the map

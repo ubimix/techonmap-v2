@@ -3,6 +3,7 @@ var Mosaic = require('mosaic-commons');
 
 module.exports = {
 
+
     /** Returns type for the specified resource. */
     getResourceType : function(resource) {
         if (!resource)

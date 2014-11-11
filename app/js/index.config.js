@@ -2,6 +2,8 @@ module.exports = {
     baseUrl : '../',
     searchServiceUrl : '../service/organizations',
     messages : 'data/messages.json',
+    dataUrl : 'data/data.json',
+    dataFieldsUrl : 'data/data.fields.json',
     containers : {
         main : document.querySelector('body')
     },
