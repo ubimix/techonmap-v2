@@ -3,6 +3,7 @@ module.exports = [ {
     type : '',
     widgets : {
         'list' : require('./List.jsx'),
-        'popup' : require('./Popup.jsx'),
+        'mapPopup' : require('./MapPopup.jsx'),
+        'mapIcon' : require('./MapIcon')
     }
 } ];

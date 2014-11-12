@@ -8,7 +8,7 @@ module.exports = {
     getResourceType : function(resource) {
         if (!resource)
             return null;
-        var props = this._getFirstProperty(resource, 'type');
+        var type = this._getFirstProperty(resource, 'type');
         return type;
     },
 

@@ -3,11 +3,19 @@ var _= require('underscore');
 var React = require('react');
 var TagsMixin = require('../TagsMixin.jsx');
 module.exports = React.createClass({
-    displayName : 'Popup.Default',
+    displayName : 'MapPopup.Default',
     mixins: [TagsMixin],
     _getProperties : function(){
         var resource = this.props.resource;
         return resource.properties || {};
+    },
+    _getResourceType : function(){
+        var app = this.props.app;
+        return app.sites.getResourceType(this.props.resource);
+    },
+    _getResourceId : function(){
+        var app = this.props.app;
+        return app.sites.getResourceId(this.props.resource);
     },
     _renderName : function(){
         var props = this._getProperties();
@@ -16,17 +24,11 @@ module.exports = React.createClass({
         </h3>
     },
     render: function() {
-        var resourceId = this.props.resourceId;
-        var resourceType = this.props.resourceType;
+        var resourceId = this._getResourceId();
+        var resourceType = this._getResourceType();
         var resourceProperties = this._getProperties();
-        var pos = this.props.pos + 1;
-        var metadata = resourceType.split('/');
-        var typeClass = resourceType;
-        if (metadata && metadata.length > 1)
-            typeClass = metadata[1];
-        
         return (
-            <div className="" key={resourceId}>
+            <div key={resourceId}>
                 {this._renderName()}
                 {this._renderTags()}
             </div>

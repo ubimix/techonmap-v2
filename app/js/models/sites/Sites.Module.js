@@ -37,6 +37,7 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Searches sites and updates the list of sites in the store. */
     searchSites : Api.intent(function(intent) {
+        var that = this;
         intent.resolve(Mosaic.P.then(function() {
             return that._searchSites(intent.params);
         })).then(function() {
@@ -55,6 +56,7 @@ module.exports = Api.extend({}, ResourceUtils, {
      * the selected site.
      */
     selectSite : Api.intent(function(intent) {
+        var that = this;
         intent.resolve(that._findSiteById(intent.params.siteId))//
         .then(function(site) {
             that._selectedSite = site;

@@ -2,6 +2,7 @@ var _ = require('underscore');
 var L = require('leaflet');
 require('leaflet.markercluster');
 var AbstractMapLayer = require('./AbstractMapLayer');
+var React = require('react');
 
 /** */
 module.exports = AbstractMapLayer.extend({
@@ -47,8 +48,8 @@ module.exports = AbstractMapLayer.extend({
      */
     _registerHandlers : function() {
         var app = this._getApp();
-        app.sites.addChangeListener(this._redrawMarkers);
-        app.sites.addSelectListener(this._onSelectResource);
+        app.sites.addChangeListener(this._redrawMarkers, this);
+        app.sites.addSelectListener(this._onSelectResource, this);
     },
 
     /**
@@ -57,8 +58,8 @@ module.exports = AbstractMapLayer.extend({
      */
     _removeHandlers : function(map) {
         var app = this._getApp();
-        app.sites.removeChangeListener(this._redrawMarkers);
-        app.sites.removeSelectListener(this._onSelectResource);
+        app.sites.removeChangeListener(this._redrawMarkers, this);
+        app.sites.removeSelectListener(this._onSelectResource, this);
     },
 
     // -----------------------------------------------------------------------
@@ -102,11 +103,11 @@ module.exports = AbstractMapLayer.extend({
         var app = this._getApp();
         var data = app.sites.getSites();
         var that = this;
+        var options = {};
         _.each(data, function(d) {
             var id = app.sites.getResourceId(d);
             if (!id)
                 return;
-
             var marker;
             L.GeoJSON.geometryToLayer(d, function(resource, latlng) {
                 marker = that._newMarker(latlng, resource);
@@ -126,24 +127,47 @@ module.exports = AbstractMapLayer.extend({
 
     /** Creates and returns a new marker for the specified resource. */
     _newMarker : function(latlng, resource) {
-        // FIXME: use app.viewManager to get the marker
-        var options = {};
-        return new L.Marker(latlng, options)
+        var app = this._getApp();
+        var type = app.sites.getResourceType(resource);
+        var icon = app.viewManager.newView('mapIcon', type, {
+            app : app,
+            resource : resource,
+        });
+        if (!icon)
+            return null;
+        var marker = new L.Marker(latlng, {
+            icon : icon
+        })
+        marker.on('click', function() {
+            var id = app.sites.getResourceId(resource);
+            app.sites.selectSite({
+                siteId : id
+            });
+        });
+        var that = this;
+        marker.on('mouseover', _.debounce(function() {
+            that._showMarkerPopup(marker, resource, {
+                selected : false
+            });
+        }, 100));
+        return marker;
     },
 
     /** Creates and returns a new popup for the specified resource */
-    _newPopup : function(latlng, resource) {
+    _newPopup : function(latlng, resource, options) {
         var app = this._getApp();
-        var type = app.sites.getType(resource);
-        var view = app.viewManager.newView('popup', type, {
+        var type = app.sites.getResourceType(resource);
+        var view = app.viewManager.newView('mapPopup', type, _.extend({
             app : app,
-            data : resource,
+            resource : resource,
             onClick : function() {
-                // FIXME: add a real focus action
-                console.log('Clicked in popup!');
+                var id = app.sites.getResourceId(resource);
+                app.sites.selectSite({
+                    siteId : id
+                });
             },
             selected : true
-        });
+        }, options));
         var popup;
         if (view) {
             var popupElement = L.DomUtil.create('div');
@@ -190,14 +214,11 @@ module.exports = AbstractMapLayer.extend({
         var that = this;
         that._clearSelectedMarker();
         that._selectedMarker = marker;
-        // TODO: add specific styles
-        var latlng = marker.getLatLng();
+        var app = this._getApp();
         var resource = app.sites.getSelectedSite();
-        var popup = that._newPopup(latlng, resource);
-        if (popup) {
-            marker.bindPopup(popup);
-            marker.openPopup();
-        }
+        this._showMarkerPopup(marker, resource, {
+            selected : true
+        });
     },
 
     /** Removes specific styles for the selected marker. */
@@ -218,5 +239,18 @@ module.exports = AbstractMapLayer.extend({
         app.sites.selectSite({
             siteId : siteId
         });
+    },
+
+    /** Shows a popup on top of the specified marker */
+    _showMarkerPopup : function(marker, resource, options) {
+        var that = this;
+        var latlng = marker.getLatLng();
+        var app = that._getApp();
+        var popup = that._newPopup(latlng, resource);
+        if (popup) {
+            marker.bindPopup(popup);
+            marker.openPopup();
+        }
+
     }
 });

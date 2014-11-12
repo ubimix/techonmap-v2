@@ -20,7 +20,7 @@ module.exports = AbstractMapLayer.extend({
     },
 
     _onClick : function(e) {
-        console.log(map.getZoom() + ':[' + e.latlng.lng + ',' + e.latlng.lat +
+        console.log(this._map.getZoom() + ':[' + e.latlng.lng + ',' + e.latlng.lat +
                 ']');
     }
 
