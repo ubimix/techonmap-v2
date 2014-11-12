@@ -19,8 +19,9 @@ module.exports = React.createClass({
     },
     _renderName : function(){
         var props = this._getProperties();
-        return <h3 className="name">
-            <a href="#">{props.name}</a>
+        var selected = this.props.selected ? ' * ' : '';
+        return <h3 className="name" onClick={this.props.onClick}>
+            <a href="#">{selected}{props.name}</a>
         </h3>
     },
     render: function() {

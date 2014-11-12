@@ -141,14 +141,13 @@ module.exports = AbstractMapLayer.extend({
         marker.on('click', function() {
             var id = app.sites.getResourceId(resource);
             app.sites.selectSite({
-                siteId : id
+                siteId : id,
+                force : true
             });
         });
         var that = this;
         marker.on('mouseover', _.debounce(function() {
-            that._showMarkerPopup(marker, resource, {
-                selected : false
-            });
+            that._showMarkerPopup(marker, resource);
         }, 100));
         return marker;
     },
@@ -157,6 +156,8 @@ module.exports = AbstractMapLayer.extend({
     _newPopup : function(latlng, resource, options) {
         var app = this._getApp();
         var type = app.sites.getResourceType(resource);
+        var id = app.sites.getResourceId(resource);
+        var selected = id === app.sites.getSelectedSiteId();
         var view = app.viewManager.newView('mapPopup', type, _.extend({
             app : app,
             resource : resource,
@@ -166,7 +167,7 @@ module.exports = AbstractMapLayer.extend({
                     siteId : id
                 });
             },
-            selected : true
+            selected : selected
         }, options));
         var popup;
         if (view) {
@@ -216,9 +217,7 @@ module.exports = AbstractMapLayer.extend({
         that._selectedMarker = marker;
         var app = this._getApp();
         var resource = app.sites.getSelectedSite();
-        this._showMarkerPopup(marker, resource, {
-            selected : true
-        });
+        this._showMarkerPopup(marker, resource);
     },
 
     /** Removes specific styles for the selected marker. */
@@ -246,7 +245,7 @@ module.exports = AbstractMapLayer.extend({
         var that = this;
         var latlng = marker.getLatLng();
         var app = that._getApp();
-        var popup = that._newPopup(latlng, resource);
+        var popup = that._newPopup(latlng, resource, options);
         if (popup) {
             marker.bindPopup(popup);
             marker.openPopup();
