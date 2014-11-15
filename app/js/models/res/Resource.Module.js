@@ -1,12 +1,11 @@
 var _ = require('underscore');
 var Lunr = require('lunr');
 var Mosaic = require('mosaic-commons');
-require('mosaic-core');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
+var App = require('mosaic-core').App;
+var Api = App.Api;
 
-var Api = Mosaic.App.Api;
-
-/** This module is responsible for management of organizations (sites). */
+/** This module is responsible for management of resources. */
 module.exports = Api.extend({}, ResourceUtils, {
 
     /** Initializes fields */
@@ -15,8 +14,8 @@ module.exports = Api.extend({}, ResourceUtils, {
         that._fields = {
             fields : {}
         };
-        that._sites = [];
-        that._selectedSite = null;
+        that._resources = [];
+        that._selectedResource = null;
     },
 
     // ------------------------------------------------------------------
@@ -35,64 +34,72 @@ module.exports = Api.extend({}, ResourceUtils, {
     // ------------------------------------------------------------------
     // Actions
 
-    /** Searches sites and updates the list of sites in the store. */
-    searchSites : Api.intent(function(intent) {
+    /** Searches resources and updates the list of resources in the store. */
+    searchResources : Api.intent(function(intent) {
         var that = this;
         intent.resolve(Mosaic.P.then(function() {
-            return that._searchSites(intent.params);
+            return that._searchResources(intent.params);
         })).then(function() {
-            var selectedSiteId = that.getSelectedSiteId();
+            var selectedResourceId = that.getSelectedResourceId();
             that.notify();
-            if (selectedSiteId !== undefined) {
-                return that.selectSite({
-                    siteId : selectedSiteId
+            if (selectedResourceId !== undefined) {
+                return that.selectResource({
+                    resourceId : selectedResourceId
                 });
             }
         });
     }),
 
     /**
-     * Selects a site by an identifier and sets it in the store. Notifies about
-     * the selected site.
+     * Selects a resource by an identifier and sets it in the store. Notifies
+     * about the selected resource.
      */
-    selectSite : Api.intent(function(intent) {
+    selectResource : Api.intent(function(intent) {
         var that = this;
-        intent.resolve(that._findSiteById(intent.params.siteId))//
-        .then(function(site) {
-            that._selectedSite = site;
+        intent.resolve(that._findResourceById(intent.params.resourceId))//
+        .then(function(resource) {
+            that._selectedResource = resource;
             that.notifySelection();
         });
     }),
 
     // ------------------------------------------------------------------
 
-    /** Returns a list of all sites. */
-    getSites : function() {
-        return this._sites;
+    /** Returns a list of all resources. */
+    getResources : function() {
+        return this._resources;
     },
 
-    /** Returns the currently selected site */
-    getSelectedSite : function() {
-        return this._selectedSite;
-    },
-
-    /**
-     * Returns the identifier of the selected site or <code>null</code> if not
-     * sites were selected.
-     */
-    getSelectedSiteId : function() {
-        return this.getResourceId(this._selectedSite);
+    /** Returns the currently selected resource */
+    getSelectedResource : function() {
+        return this._selectedResource;
     },
 
     /**
-     * Returns position of the selected site in the list.
+     * Returns <code>true</code> if a resource with the specified identifier
+     * is selected.
      */
-    getSelectedSitePos : function() {
+    isSelectedResource : function(id) {
+        return id == this.getSelectedResourceId();
+    },
+
+    /**
+     * Returns the identifier of the selected resource or <code>null</code> if
+     * not resources were selected.
+     */
+    getSelectedResourceId : function() {
+        return this.getResourceId(this._selectedResource);
+    },
+
+    /**
+     * Returns position of the selected resource in the list.
+     */
+    getSelectedResourcePos : function() {
         var result = -1;
-        var selectedId = this.getSelectedSiteId();
+        var selectedId = this.getSelectedResourceId();
         if (selectedId !== null) {
-            _.find(this._sites, function(site, i) {
-                if (this.getResourceId(site) === selectedId) {
+            _.find(this._resources, function(resource, i) {
+                if (this.getResourceId(resource) === selectedId) {
                     result = i;
                     return true;
                 }
@@ -129,7 +136,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         return Mosaic.P.then(function() {
             return that._loadDataMapping();
         }).then(function() {
-            return that._loadSites();
+            return that._loadResources();
         }).then(function() {
             return that._buildIndex();
         });
@@ -148,19 +155,19 @@ module.exports = Api.extend({}, ResourceUtils, {
         });
     },
 
-    /** Loads all sites and returns a promise for results */
-    _loadSites : function(options) {
+    /** Loads all resources and returns a promise for results */
+    _loadResources : function(options) {
         var that = this;
         return that._getGeoJsonArray(_.extend({}, options, {
             path : that.app.options.dataUrl
-        })).then(function(sites) {
-            that._allSites = {};
-            _.map(sites, function(d) {
+        })).then(function(resources) {
+            that._allResources = {};
+            _.map(resources, function(d) {
                 var id = that.getResourceId(d);
-                that._allSites[id] = d;
+                that._allResources[id] = d;
             });
-            that._selectedSite = null;
-            that._resetSites();
+            that._selectedResource = null;
+            that._resetResources();
         });
     },
 
@@ -178,7 +185,7 @@ module.exports = Api.extend({}, ResourceUtils, {
             }, this);
         });
         setTimeout(function() {
-            _.each(that._allSites, function(d, id) {
+            _.each(that._allResources, function(d, id) {
                 var props = d.properties;
                 index.add({
                     id : id,
@@ -190,47 +197,47 @@ module.exports = Api.extend({}, ResourceUtils, {
         }, 10);
     },
 
-    /** Returns a site corresponding to the specified identifier. */
-    _findSiteById : function(siteId) {
+    /** Returns a resource corresponding to the specified identifier. */
+    _findResourceById : function(resourceId) {
         var that = this;
         return Mosaic.P.then(function() {
-            if (!siteId)
-                throw new Error('Site ID is not defined.');
-            var sites = that.getSites();
-            return _.find(sites, function(site) {
-                return site.properties.id === siteId;
+            if (!resourceId)
+                throw new Error('Resource ID is not defined.');
+            var resources = that.getResources();
+            return _.find(resources, function(resource) {
+                return resource.properties.id === resourceId;
             });
         });
     },
 
-    /** Resets search results and sets all existing sites in this store. */
-    _resetSites : function() {
+    /** Resets search results and sets all existing resources in this store. */
+    _resetResources : function() {
         var that = this;
-        that._sites = _.values(that._allSites);
+        that._resources = _.values(that._allResources);
     },
 
     /**
-     * Searches sites corresponding to the specified search criteria and returns
-     * a promise with search results.
+     * Searches resources corresponding to the specified search criteria and
+     * returns a promise with search results.
      */
-    _searchSites : function(options) {
+    _searchResources : function(options) {
         var that = this;
         return Mosaic.P.then(function() {
             var q = options.q;
             if (!q || q == '') {
-                that._resetSites();
+                that._resetResources();
                 return;
             }
             var result = [];
             var list = that._index.search(q);
             _.each(list, function(r) {
                 var id = r.ref;
-                var site = that._allSites[id]
-                if (site) {
-                    result.push(site);
+                var resource = that._allResources[id]
+                if (resource) {
+                    result.push(resource);
                 }
             });
-            that._sites = result;
+            that._resources = result;
             return result;
         });
     },

@@ -24,11 +24,11 @@ module.exports = function(grunt) {
     configurator.initBump(options);
     configurator.initWebpack(options);
     configurator.initWatch(options);
-    configurator.initJshint(options);
-    configurator.initMochaTest(options);
-    configurator.initUglify(options);
+//    configurator.initJshint(options);
+//    configurator.initMochaTest(options);
+//    configurator.initUglify(options);
     configurator.initLess(options);
-    configurator.registerBumpTasks(options);
+//    configurator.registerBumpTasks(options);
 
     configurator.config.copy = {
         main : {
@@ -42,8 +42,8 @@ module.exports = function(grunt) {
 
     grunt.initConfig(configurator.config);
     grunt.registerTask('test', [ 'build', 'mochaTest' ]);
-    grunt.registerTask('build', [ 'webpack', 'less', 'copy' ]);
-    grunt.registerTask('build-min', [ 'build', 'uglify' ]);
-    grunt.registerTask('commit', [ 'build-min', 'bump-commit' ]);
-    grunt.registerTask('default', [ 'build-min' ]);
+    grunt.registerTask('build', [ 'webpack', 'copy' ]);
+//    grunt.registerTask('build-min', [ 'build', 'uglify' ]);
+  //  grunt.registerTask('commit', [ 'build-min', 'bump-commit' ]);
+    grunt.registerTask('default', [ 'build' ]);
 }

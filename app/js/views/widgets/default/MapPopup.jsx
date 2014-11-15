@@ -11,11 +11,11 @@ module.exports = React.createClass({
     },
     _getResourceType : function(){
         var app = this.props.app;
-        return app.sites.getResourceType(this.props.resource);
+        return app.res.getResourceType(this.props.resource);
     },
     _getResourceId : function(){
         var app = this.props.app;
-        return app.sites.getResourceId(this.props.resource);
+        return app.res.getResourceId(this.props.resource);
     },
     _renderName : function(){
         var props = this._getProperties();

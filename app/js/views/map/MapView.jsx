@@ -1,13 +1,14 @@
 /**
  * @jsx React.DOM
  */
-
 'use strict';
 var _ = require('underscore');
 var React = require('react');
 var L = require('leaflet');
 var Mosaic = require('mosaic-commons');
-var MapViewport = Mosaic.Leaflet.MapViewport;
+var MosaicLeaflet = require('mosaic-core').Leaflet;
+var ReactMap = MosaicLeaflet.ReactMap;
+var MapViewport = MosaicLeaflet.MapViewport;
 
 var MapBackgroundLayer = require('./MapBackgroundLayer');
 var MapDataLayer = require('./MapDataLayer');
@@ -34,7 +35,7 @@ module.exports = React.createClass({
     render : function() {
         var app = this._getApp();
         var mapOptions = {};
-        return (Mosaic.Leaflet.ReactMap({
+        return (ReactMap({
             id : this.props.id,
             className : this.props.className,
             app : this.props.app,

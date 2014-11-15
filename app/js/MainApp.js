@@ -1,29 +1,30 @@
 var _ = require('underscore');
 var React = require('react');
 var Mosaic = require('mosaic-commons');
-require('mosaic-core');
+var App = require('mosaic-core').App;
+var ViewManager = require('mosaic-core').Core.ViewManager;
 var MainView = require('./views/MainView.jsx');
 
 // var SelectionModule = require('./models/selection/Selection.Module');
 // var SearchModule = require('./models/search/Search.Module');
 var I18NModule = require('./models/i18n/I18N.Module');
 var MapModule = require('./models/map/Map.Module');
-var SitesModule = require('./models/sites/Sites.Module');
+var ResourceModule = require('./models/res/Resource.Module');
 // var UIModule = require('./models/ui/UI.Module');
 
 var initWidgets = require('./views/widgets/registration');
-module.exports = Mosaic.App.extend({
+module.exports = App.extend({
 
     /**
      * This function loads and initializes all modules of this application.
      */
 
     initModules : function() {
-        this.viewManager = new Mosaic.Core.ViewManager();
+        this.viewManager = new ViewManager();
         initWidgets(this);
         var modules = {
             map : MapModule,
-            sites : SitesModule,
+            res : ResourceModule,
             // search : SearchModule,
             // selection : SelectionModule,
             i18n : I18NModule,

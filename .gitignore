@@ -5,3 +5,5 @@ libs
 app/libs
 /design/
 npm-debug.log
+/template/
+/tmp/

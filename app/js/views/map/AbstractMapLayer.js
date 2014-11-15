@@ -14,6 +14,10 @@ module.exports = L.Class.extend({
         this.app = this.options.app;
     },
 
+    /**
+     * Creates and returns a new tiles-based layer with the specified URL and
+     * attribution text.
+     */
     _newTilesLayer : function(tilesUrl, attribution) {
         var app = this.options.app;
         var mapOptions = app.map.getMapOptions();

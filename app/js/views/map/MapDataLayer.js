@@ -48,8 +48,8 @@ module.exports = AbstractMapLayer.extend({
      */
     _registerHandlers : function() {
         var app = this._getApp();
-        app.sites.addChangeListener(this._redrawMarkers, this);
-        app.sites.addSelectListener(this._onSelectResource, this);
+        app.res.addChangeListener(this._redrawMarkers, this);
+        app.res.addSelectListener(this._onSelectResource, this);
     },
 
     /**
@@ -58,8 +58,8 @@ module.exports = AbstractMapLayer.extend({
      */
     _removeHandlers : function(map) {
         var app = this._getApp();
-        app.sites.removeChangeListener(this._redrawMarkers, this);
-        app.sites.removeSelectListener(this._onSelectResource, this);
+        app.res.removeChangeListener(this._redrawMarkers, this);
+        app.res.removeSelectListener(this._onSelectResource, this);
     },
 
     // -----------------------------------------------------------------------
@@ -94,18 +94,18 @@ module.exports = AbstractMapLayer.extend({
     },
 
     /**
-     * This method is called when the data in the store is updated
+     * This method is called when the data are updated
      */
     _redrawMarkers : function() {
         this._removeMarkers();
         this._initMarkers();
 
         var app = this._getApp();
-        var data = app.sites.getSites();
+        var data = app.res.getResources();
         var that = this;
         var options = {};
         _.each(data, function(d) {
-            var id = app.sites.getResourceId(d);
+            var id = app.res.getResourceId(d);
             if (!id)
                 return;
             var marker;
@@ -128,7 +128,7 @@ module.exports = AbstractMapLayer.extend({
     /** Creates and returns a new marker for the specified resource. */
     _newMarker : function(latlng, resource) {
         var app = this._getApp();
-        var type = app.sites.getResourceType(resource);
+        var type = app.res.getResourceType(resource);
         var icon = app.viewManager.newView('mapIcon', type, {
             app : app,
             resource : resource,
@@ -139,9 +139,9 @@ module.exports = AbstractMapLayer.extend({
             icon : icon
         })
         marker.on('click', function() {
-            var id = app.sites.getResourceId(resource);
-            app.sites.selectSite({
-                siteId : id,
+            var id = app.res.getResourceId(resource);
+            app.res.selectResource({
+                resourceId : id,
                 force : true
             });
         });
@@ -155,16 +155,16 @@ module.exports = AbstractMapLayer.extend({
     /** Creates and returns a new popup for the specified resource */
     _newPopup : function(latlng, resource, options) {
         var app = this._getApp();
-        var type = app.sites.getResourceType(resource);
-        var id = app.sites.getResourceId(resource);
-        var selected = id === app.sites.getSelectedSiteId();
+        var type = app.res.getResourceType(resource);
+        var id = app.res.getResourceId(resource);
+        var selected = id === app.res.getSelectedResourceId();
         var view = app.viewManager.newView('mapPopup', type, _.extend({
             app : app,
             resource : resource,
             onClick : function() {
-                var id = app.sites.getResourceId(resource);
-                app.sites.selectSite({
-                    siteId : id
+                var id = app.res.getResourceId(resource);
+                app.res.selectResource({
+                    resourceId : id
                 });
             },
             selected : selected
@@ -192,7 +192,7 @@ module.exports = AbstractMapLayer.extend({
         that._clearSelectedMarker();
 
         var app = this._getApp();
-        var selectedId = app.sites.getSelectedSiteId();
+        var selectedId = app.res.getSelectedResourceId();
         var marker = that._index[selectedId];
         if (!marker)
             return;
@@ -216,7 +216,7 @@ module.exports = AbstractMapLayer.extend({
         that._clearSelectedMarker();
         that._selectedMarker = marker;
         var app = this._getApp();
-        var resource = app.sites.getSelectedSite();
+        var resource = app.res.getSelectedResource();
         this._showMarkerPopup(marker, resource);
     },
 
@@ -233,10 +233,10 @@ module.exports = AbstractMapLayer.extend({
      * This method is called when user clicks on individual markers. This method
      * to launches a select resource intent.
      */
-    _selectResource : function(siteId) {
+    _selectResource : function(resourceId) {
         var app = this._getApp();
-        app.sites.selectSite({
-            siteId : siteId
+        app.res.selectResource({
+            resourceId : resourceId
         });
     },
 

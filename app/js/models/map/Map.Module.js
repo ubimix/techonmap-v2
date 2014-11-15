@@ -1,8 +1,7 @@
 var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
-require('mosaic-core');
-
-var Api = Mosaic.App.Api;
+var App = require('mosaic-core').App;
+var Api = App.Api;
 
 /** An API allowing to manage Map layers visibility. */
 module.exports = Api.extend({
