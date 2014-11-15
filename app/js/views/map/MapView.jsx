@@ -46,10 +46,16 @@ module.exports = React.createClass({
     },
 
     /** Sets a new viewport bounding box for this map. */
-    setViewport : function(tl, br) {
+    setViewport : function(topLeft, bottomRight, focusPosition) {
         if (this._viewport) {
-            var bounds = L.bounds(tl, br);
+            var bounds = L.bounds(topLeft, bottomRight);
             this._viewport.setViewport(bounds);
+            if (focusPosition) {
+                this._viewport.setFocusPosition({
+                    top : focusPosition[1],
+                    left : focusPosition[0]
+                });
+            }
         }
     },
 
@@ -108,7 +114,8 @@ module.exports = React.createClass({
         var app = this._getApp();
         var options = {
             parent : this,
-            app : app
+            app : app,
+            viewport : this._viewport
         };
         that._layers = {};
         that._layers.debug = new MapDebugLayer(options)

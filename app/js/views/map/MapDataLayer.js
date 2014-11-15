@@ -196,16 +196,13 @@ module.exports = AbstractMapLayer.extend({
         var marker = that._index[selectedId];
         if (!marker)
             return;
-        var latlng = marker.getLatLng();
-        if (latlng) {
-            // FIXME: use the map viewport of the parent
-            // FIXME: use promises to get predictable operations
-            // ex: viewport.panTo(latlng).then(function(){ return
-            // viewport.zoom(level) }).then(function(){ return
-            // viewport.openPopup(); });
-            that._map.panTo(latlng);
-        }
         that._clusterLayer.zoomToShowLayer(marker, function() {
+            var latlng = marker.getLatLng();
+            if (that.options.viewport) {
+                that.options.viewport.focusTo(latlng);
+            } else {
+                that._map.panTo(latlng);
+            }
             that._setSelectedMarker(marker);
         });
     },
