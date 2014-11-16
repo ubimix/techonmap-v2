@@ -2,6 +2,7 @@ var _ = require('underscore');
 var L = require('leaflet');
 require('leaflet.markercluster');
 var AbstractMapLayer = require('./AbstractMapLayer');
+var ResourceUtilsMixin = require('../../tools/ResourceUtilsMixin');
 var React = require('react');
 
 /** */
@@ -48,7 +49,7 @@ module.exports = AbstractMapLayer.extend({
      */
     _registerHandlers : function() {
         var app = this._getApp();
-        app.res.addChangeListener(this._redrawMarkers, this);
+        app.res.addChangeListener(this._onSearchUpdated, this);
         app.res.addSelectListener(this._onSelectResource, this);
     },
 
@@ -58,7 +59,7 @@ module.exports = AbstractMapLayer.extend({
      */
     _removeHandlers : function(map) {
         var app = this._getApp();
-        app.res.removeChangeListener(this._redrawMarkers, this);
+        app.res.removeChangeListener(this._onSearchUpdated, this);
         app.res.removeSelectListener(this._onSelectResource, this);
     },
 
@@ -183,6 +184,24 @@ module.exports = AbstractMapLayer.extend({
     },
 
     // -----------------------------------------------------------------------
+
+    /**
+     * This method is called when search results are updated.
+     */
+    _onSearchUpdated : function() {
+        var app = this._getApp();
+        var data = app.res.getResources();
+        var bbox = ResourceUtilsMixin.getBoundingBox(data);
+        var sw = L.GeoJSON.coordsToLatLng(bbox[0]);
+        var ne = L.GeoJSON.coordsToLatLng(bbox[1]);
+        var bounds = L.latLngBounds(sw, ne);
+        if (this.options.viewport) {
+            this.options.viewport.fitBounds(bounds);
+        } else {
+            this._map.fitBounds(bounds);
+        }
+        this._redrawMarkers();
+    },
 
     /**
      * This method is called to highlight currently active marker

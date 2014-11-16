@@ -15,6 +15,7 @@ module.exports = Api.extend({}, ResourceUtils, {
             fields : {}
         };
         that._resources = [];
+        that._allResources = [];
         that._selectedResource = null;
     },
 
@@ -30,10 +31,12 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Pre-loads map-related information. */
     start : function() {
         var that = this;
+        var app = that.getApp();
+        app.nav.addChangeListener(that._searchResources, that);
         return Mosaic.P.then(function() {
-            var app = that.getApp();
-            app.nav.addChangeListener(that._searchResources, that);
-            return that._loadAllInfo();
+            return that._loadAllInfo().then(function() {
+                return that._searchResources();
+            });
         });
     },
 
@@ -59,6 +62,17 @@ module.exports = Api.extend({}, ResourceUtils, {
     }),
 
     // ------------------------------------------------------------------
+
+    /** Returns the number of currently found results. */
+    getResourceNumber : function() {
+        return this._resources.length;
+    },
+
+    /** Returns the total resource number. */
+    getTotalResourceNumber : function() {
+        var keys = _.keys(this._allResources);
+        return keys.length;
+    },
 
     /** Returns a list of all resources. */
     getResources : function() {
@@ -202,7 +216,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         var that = this;
         return Mosaic.P.then(function() {
             if (!resourceId)
-                throw new Error('Resource ID is not defined.');
+                return null;
             var resources = that.getResources();
             return _.find(resources, function(resource) {
                 return resource.properties.id === resourceId;
@@ -224,22 +238,24 @@ module.exports = Api.extend({}, ResourceUtils, {
         var that = this;
         return Mosaic.P.then(function() {
             var app = that.getApp();
-            var q = app.nav.getSearchQuery();
+            var criteria = app.nav.getSearchCriteria();
+            var q = criteria.q || '';
+            var result;
             if (!q || q == '') {
-                that._resetResources();
-                return;
+                result = _.values(that._allResources);
+            } else {
+                result = [];
+                var list = that._index.search(q);
+                _.each(list, function(r) {
+                    var id = r.ref;
+                    var resource = that._allResources[id]
+                    if (resource) {
+                        result.push(resource);
+                    }
+                });
             }
-            var result = [];
-            var list = that._index.search(q);
-            _.each(list, function(r) {
-                var id = r.ref;
-                var resource = that._allResources[id]
-                if (resource) {
-                    result.push(resource);
-                }
-            });
-            that._resources = result;
-            return result;
+            that._resources = that._filterResources(result, criteria);
+            return that._resources;
         }).then(function() {
             var selectedResourceId = that.getSelectedResourceId();
             that.notify();
@@ -249,6 +265,51 @@ module.exports = Api.extend({}, ResourceUtils, {
                 });
             }
         });
+    },
+
+    /** Removes all resources not matching to the specified search criteria. */
+    _filterResources : function(resources, criteria) {
+        var filter = this._getFilterFunction(criteria);
+        if (!filter)
+            return resources;
+        return _.filter(resources, function(resource) {
+            return filter(resource);
+        });
+    },
+
+    /**
+     * Transforms the specified search criteria into a filtering function
+     * accepting or not a given resource.
+     */
+    _getFilterFunction : function(criteria) {
+        var that = this;
+        var filters = [];
+        var app = that.getApp();
+        _.each(that._fields.fields, function(info, field) {
+            info = info || {};
+            if (!info.filter)
+                return;
+            var filter = criteria[field];
+            if (!filter)
+                return;
+            filter = app.nav.prepareFilterValues(filter);
+            filters.push(function(resource) {
+                var properties = resource.properties;
+                var value = properties[field];
+                var result = app.nav.filterValues(value, filter);
+                return result;
+            });
+        });
+        if (!filters.length) {
+            return null;
+        }
+        return filters.length == 1 ? filters[0] : function(resource) {
+            var result = true;
+            for (var i = 0; result && i < filters.length; i++) {
+                result &= filters[i](resource);
+            }
+            return result;
+        };
     },
 
 });

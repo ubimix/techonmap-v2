@@ -5,6 +5,7 @@ var DomUtils = require('./utils/DomUtils');
 var PanelSizeTracker = require('./utils/PanelSizeTracker');
 var MapView = require('./map/MapView.jsx');
 var ListView = require('./list/ListView.jsx');
+var SearchResultsInfoView = require('./SearchResultsInfoView.jsx');
 
 module.exports = React.createClass({
     displayName : 'MiddleZoneView',
@@ -32,6 +33,7 @@ module.exports = React.createClass({
             <div className={this.props.className}>
                 <MapView app={app} className="map" ref="map" />
                 <div className="search-results" ref="searchPanel">
+                    <SearchResultsInfoView app={app} className="stats"/>
                     <ListView app={app} />
                 </div>
             </div>

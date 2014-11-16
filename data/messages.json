@@ -2,8 +2,12 @@
     "defaultLanguage" : "fr",
     "messages" : {
         "fr" : {
+            "search.label.results" : "Résultats:",
+            "search.label.results.numbers" : "{0} / {1}"
         },
         "en" : {
+            "search.label.results" : "Results:",
+            "search.label.results.numbers" : "{0} / {1}"
         }
     }
 }

@@ -10,11 +10,13 @@
       },
       "category": {
         "type" : "field",
-        "boost" : 3
+        "boost" : 3,
+        "filter" : true
       },
       "tags": {
         "type" : "field",
-        "boost" : 3
+        "boost" : 3,
+        "filter" : true
       },
       "address" : {
         "type" : "field",

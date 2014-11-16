@@ -31,10 +31,34 @@
     .search-results {
         .fit(30px, 25px, 0px, 75%);
         background-color: white;
-        .list {
-            .fit();
+        .stats {
+            .fit(0px, 0px, auto, 0px);
+            height: 2em;
+            span {
+                line-height: 2em;
+                font-size: 1.5em;
+                padding : 0px 0.5em;
+                &.count {
+                    .fit(0px, 0px, 0px, auto);
+                }
+            }
+        }
+        .list-group {
+            .fit(2em);
             overflow-x: hidden;
             overflow-y: auto;
+            .list-group-item {
+                border: 1px solid transparent;
+                margin-top: 0px;
+            }
         } 
+    }
+    
+    .tags {
+        .tag {
+            &.selected {
+                background-color: #eee;
+            }
+        }
     }
 }

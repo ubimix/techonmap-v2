@@ -7,6 +7,6 @@ module.exports = {
     _getLabel : function(labelKey) {
         var app = this.getApp();
         var i18n = app.i18n;
-        return i18n.getMessage(labelKey);
+        return i18n.getMessage.apply(i18n, arguments);
     },
 };

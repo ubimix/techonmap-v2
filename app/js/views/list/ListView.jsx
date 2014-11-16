@@ -14,7 +14,7 @@ var ListView = React.createClass({
         var app = this.props.app;
         var scrollStyle = this._getScrollStyles();
         return InfiniteScroll({
-            className : 'list',
+            className : 'list-group',
             style : scrollStyle,
             pageSize : 15,
             itemHeight : 75,
@@ -39,11 +39,6 @@ var ListView = React.createClass({
 
     // -----------------------------------------------------------------------
     // Private methods
-
-    /** Updates the internal state */
-    _updateState : function() {
-        this.setState(this._newState());
-    },
 
     /** Returns the underlying store (module). */
     _getStore : function() {

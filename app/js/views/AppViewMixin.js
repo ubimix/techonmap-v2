@@ -12,6 +12,9 @@ function(require) {
         getInitialState : function() {
             return this._newState();
         },
+        _updateState : function(options){
+            this.setState(this._newState(options));
+        },
         componentDidMount : function() {
             // this._onUpdate = _.debounce(this._onUpdate, 5);
             var store = this._getStore();
@@ -23,7 +26,7 @@ function(require) {
         },
         _onUpdate : function() {
             if (this.isMounted()) {
-                this.setState(this._newState());
+                this._updateState();
                 if (this._onStoreUpdate) {
                     this._onStoreUpdate();
                 }

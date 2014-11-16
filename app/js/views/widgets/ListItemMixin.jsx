@@ -23,9 +23,9 @@ module.exports = _.extend({
     
     _renderName : function(){
         var props = this._getProperties();
-        return <h3 className="name">
-            <a href="#">{props.name}</a>
-        </h3>
+        return (
+           <span className="name">{props.name}</span>
+        );
     },
     
     _renderUrl : function(){

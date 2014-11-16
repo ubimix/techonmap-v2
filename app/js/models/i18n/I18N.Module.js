@@ -45,15 +45,17 @@ module.exports = Api.extend({
         if (!msg) {
             msg = key;
         }
-        if (msg.indexOf('{') > 0) {
-            var args = _.toArray(arguments);
-            args.splice(0, 1);
+        var args = _.toArray(arguments);
+        args.splice(0, 1);
+        if (msg.indexOf('{') >= 0) {
             msg = msg.replace(/\{(\d+)\}/gim, function() {
+                console.log('REPLACE: ', msg, arguments);
                 return args[arguments[1]];
             });
-            var templ = _.template(msg);
-            msg = templ.apply(this, args);
         }
+        console.log('XXXX', arguments, msg, args);
+        var templ = _.template(msg);
+        msg = templ.apply(this, args);
         return msg;
     },
 
@@ -70,15 +72,8 @@ module.exports = Api.extend({
     },
 
     _loadMessages : function() {
+        var that = this;
         return Mosaic.P.then(function() {
-            // FIXME:
-            return {
-                defaultLanguage : 'en',
-                "messages" : {
-                    "fr" : {},
-                    "en" : {}
-                }
-            };
             return that._getJson({
                 path : that.app.options.messages
             })
