@@ -3,6 +3,7 @@
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
+var SearchBoxView = require('./SearchBoxView.jsx');
 
 module.exports = React.createClass({
     displayName : 'TopZoneView',
@@ -29,62 +30,50 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
-    
     render : function() {
         var app = this.props.app;
+        var className = this.props.className + " navbar navbar-default";
         return (
-          <div className={this.props.className}>
-          <nav className="navbar navbar-default" role="navigation">
-              <div className="navbar-header">
-                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
-                  <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                  <span className="icon-bar"></span>
-                </button>
-                <a className="navbar-brand" href="#">Brand</a>
-              </div>
-    
-              <div className="collapse navbar-collapse" ref="navbar">
-                <ul className="nav navbar-nav">
-                  <li className="active"><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li className="dropdown">
-                    <a href="#" className="dropdown-toggle" onClick={this._toggleMenu} data-toggle="dropdown">Dropdown <span className="caret"></span></a>
-                    <ul className="dropdown-menu" role="menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li className="divider"></li>
-                      <li><a href="#">Separated link</a></li>
-                      <li className="divider"></li>
-                      <li><a href="#">One more separated link</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <ul className="nav navbar-nav navbar-right">
-                  <li><a href="#">Link</a></li>
-                  <li className="dropdown">
-                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"  onClick={this._toggleMenu} >Dropdown <span className="caret"></span></a>
-                    <ul className="dropdown-menu" role="menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li>
-                          <form className="navbar-form navbar-left" role="search" style={{whiteSpace: 'nowrap'}}>
-                              <div className="form-group">
-                                <input type="text" className="form-control" placeholder="Search" />
-                              </div>
-                              <button type="submit" className="btn btn-default">Submit</button>
-                        </form>
-                      </li>
-                      <li className="divider"></li>
-                      <li><a href="#">Separated link</a></li>
-                    </ul>
-                  </li>
-                </ul>
+            <nav className={className} role="navigation">
+              <div className="container-fluid">
+                  <div className="row">
+                      <div className="col-xs-3">
+                          <div className="navbar-header">
+                              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
+                                <span className="sr-only">Toggle navigation</span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                                <span className="icon-bar"></span>
+                              </button>
+                              <a className="navbar-brand" href="#">Brand</a>
+                          </div>
+                      </div>
+                      <div className="col-xs-6">
+
+                          <ul className="nav navbar-nav navbar-right">
+                              <li><a href="#"><i className="glyphicon glyphicon-info"></i>&nbsp;Info</a></li>
+                              <li className="dropdown">
+                                  <a href="#" className="dropdown-toggle" data-toggle="dropdown"  onClick={this._toggleMenu} >
+                                      <i className="glyphicon glyphicon-search"></i>
+                                      <span className="caret"></span>
+                                  </a>
+                                  <ul className="dropdown-menu" role="menu">
+                                      <li>
+                                          <SearchBoxView app={app} className="navbar-form navbar-left"/>
+                                      </li>
+                                  </ul>
+                              </li>
+                          </ul>
+
+                      </div>
+                      <div className="col-xs-3">
+                          <ul className="nav">
+                              <button type="button" className="btn btn-default navbar-btn">Sign in</button>
+                          </ul>
+                      </div>
+                  </div>
               </div>
           </nav>
-          </div>
         );
     }
 });

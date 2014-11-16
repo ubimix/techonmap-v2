@@ -18,37 +18,32 @@ module.exports = Api.extend({}, ResourceUtils, {
         that._selectedResource = null;
     },
 
+    /**
+     * Returns the parent application.
+     */
+    getApp : function() {
+        return this.options.app;
+    },
+
     // ------------------------------------------------------------------
 
     /** Pre-loads map-related information. */
     start : function() {
         var that = this;
         return Mosaic.P.then(function() {
+            var app = that.getApp();
+            app.nav.addChangeListener(that._searchResources, that);
             return that._loadAllInfo();
         });
     },
 
     stop : function() {
+        var app = this.getApp();
+        app.nav.removeChangeListener(this._searchResources, this);
     },
 
     // ------------------------------------------------------------------
     // Actions
-
-    /** Searches resources and updates the list of resources in the store. */
-    searchResources : Api.intent(function(intent) {
-        var that = this;
-        intent.resolve(Mosaic.P.then(function() {
-            return that._searchResources(intent.params);
-        })).then(function() {
-            var selectedResourceId = that.getSelectedResourceId();
-            that.notify();
-            if (selectedResourceId !== undefined) {
-                return that.selectResource({
-                    resourceId : selectedResourceId
-                });
-            }
-        });
-    }),
 
     /**
      * Selects a resource by an identifier and sets it in the store. Notifies
@@ -175,7 +170,7 @@ module.exports = Api.extend({}, ResourceUtils, {
     _buildIndex : function() {
         var that = this;
         var index = that._index = Lunr(function() {
-            _.each(that._fields.fields, function(field, info) {
+            _.each(that._fields.fields, function(info, field) {
                 info = info || {};
                 var boost = info.boost || 1;
                 var type = info.type || 'field';
@@ -187,12 +182,17 @@ module.exports = Api.extend({}, ResourceUtils, {
         setTimeout(function() {
             _.each(that._allResources, function(d, id) {
                 var props = d.properties;
-                index.add({
-                    id : id,
-                    name : props.name,
-                    city : props.city,
-                    address : props.address
+                var entry = {
+                    id : id
+                };
+                _.each(that._fields.fields, function(info, field) {
+                    var value = props[field];
+                    if (_.isArray(value)) {
+                        value = value.join(' ');
+                    }
+                    entry[field] = value;
                 });
+                index.add(entry);
             });
         }, 10);
     },
@@ -220,10 +220,11 @@ module.exports = Api.extend({}, ResourceUtils, {
      * Searches resources corresponding to the specified search criteria and
      * returns a promise with search results.
      */
-    _searchResources : function(options) {
+    _searchResources : function() {
         var that = this;
         return Mosaic.P.then(function() {
-            var q = options.q;
+            var app = that.getApp();
+            var q = app.nav.getSearchQuery();
             if (!q || q == '') {
                 that._resetResources();
                 return;
@@ -239,6 +240,14 @@ module.exports = Api.extend({}, ResourceUtils, {
             });
             that._resources = result;
             return result;
+        }).then(function() {
+            var selectedResourceId = that.getSelectedResourceId();
+            that.notify();
+            if (selectedResourceId !== undefined) {
+                return that.selectResource({
+                    resourceId : selectedResourceId
+                });
+            }
         });
     },
 
