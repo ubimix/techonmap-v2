@@ -2,10 +2,10 @@
 var _ = require('underscore');
 var React = require('react');
 var InfiniteScroll = require('mosaic-core').Core.InfiniteScroll;
-var AppViewMixin = require('../AppViewMixin');
+var AppViewMixin = require('./AppViewMixin');
 
 var ListView = React.createClass({
-    displayName : 'ListView',
+    displayName : 'SearchResultsListView',
 
     mixins : [ AppViewMixin ],
 

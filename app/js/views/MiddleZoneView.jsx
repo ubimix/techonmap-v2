@@ -4,8 +4,7 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PanelSizeTracker = require('./utils/PanelSizeTracker');
 var MapView = require('./map/MapView.jsx');
-var ListView = require('./list/ListView.jsx');
-var SearchResultsInfoView = require('./SearchResultsInfoView.jsx');
+var SearchResultsView = require('./SearchResultsView.jsx');
 
 module.exports = React.createClass({
     displayName : 'MiddleZoneView',
@@ -32,10 +31,7 @@ module.exports = React.createClass({
         return (
             <div className={this.props.className}>
                 <MapView app={app} className="map" ref="map" />
-                <div className="search-results" ref="searchPanel">
-                    <SearchResultsInfoView app={app} className="stats"/>
-                    <ListView app={app} />
-                </div>
+                <SearchResultsView app={app} ref="searchResults" />
             </div>
         );
     },
@@ -45,12 +41,12 @@ module.exports = React.createClass({
         var mapPanelElm = mapPanel.getDOMNode();
         var mapPanelBox = mapPanelElm.getBoundingClientRect();
         
-        var searchPanel = this.refs.searchPanel;
-        var searchPanelElm = searchPanel.getDOMNode();
-        var searchPanelBox = searchPanelElm.getBoundingClientRect();
+        var searchResults = this.refs.searchResults;
+        var searchResultsElm = searchResults.getDOMNode();
+        var searchResultsBox = searchResultsElm.getBoundingClientRect();
         
         var topLeft = [0, 0];
-        var bottomRight = [searchPanelBox.left - mapPanelBox.left, 
+        var bottomRight = [searchResultsBox.left - mapPanelBox.left, 
                            mapPanelBox.bottom];
         var focusPos = [bottomRight[0] / 2, bottomRight[1] * 2 / 3];
         this.refs.map.setViewport(topLeft, bottomRight, focusPos);

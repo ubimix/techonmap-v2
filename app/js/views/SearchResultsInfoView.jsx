@@ -22,13 +22,14 @@ module.exports = React.createClass({
     
     render : function() {
         return (
-            <div className={this.props.className}>
-                {this._getLabel('search.label.results')}
+            <div className={this.props.className} onClick={this.props.onToggleResults}>
                 <span className="count">
-                    {this._getLabel('search.label.results.numbers', 
-                            this.state.currentNumber, 
-                            this.state.totalNumber)}
+                    <span className="current">{this.state.currentNumber}</span>
+                    /
+                    <span className="total">{this.state.totalNumber}</span>
                 </span>
+                <span className="label">{this._getLabel('search.label.results')}</span>
+                <a href="#" className="switcher"></a>
             </div>
         );
     },
