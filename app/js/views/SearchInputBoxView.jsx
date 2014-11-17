@@ -14,7 +14,7 @@ function(require) {
     var AppViewMixin = require('./AppViewMixin');
 
     return React.createClass({
-        displayName : 'SearchBoxView',
+        displayName : 'SearchInputBoxView',
         render : function(){
             var value = this.state.value||'';
             return (

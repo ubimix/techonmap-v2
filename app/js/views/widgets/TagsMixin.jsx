@@ -7,11 +7,15 @@ module.exports =  {
         app.nav.toggleTags([tag]);
         ev.stopPropagation();
         ev.preventDefault();
-    },        
+    },
     _renderTags : function(){
         var props = this._getProperties();
+        var tags = props.tags;
+        return this._renderTagList(tags);
+    },
+    _renderTagList : function(tags) {
         var app = this.props.app;
-        var tags = _.map(props.tags, function(tag) {
+        var tags = _.map(tags, function(tag) {
             var selected = app.nav.isTagSelected(tag);
             var className = selected ? 'tag selected' : 'tag';
             return (
@@ -24,6 +28,6 @@ module.exports =  {
         }, this);
         if (!tags.length)
             return '';
-        return <div className="tags">{tags}</div>
+        return <span className="tags">{tags}</span>
     },
 };
