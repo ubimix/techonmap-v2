@@ -4,6 +4,7 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PanelSizeTracker = require('./utils/PanelSizeTracker');
 var MapView = require('./map/MapView.jsx');
+var LeftToolbar = require('./LeftToolbar.jsx');
 var SearchResultsView = require('./SearchResultsView.jsx');
 
 module.exports = React.createClass({
@@ -30,6 +31,7 @@ module.exports = React.createClass({
         var app = this.props.app;
         return (
             <div className={this.props.className}>
+                <LeftToolbar app={app} className="toolbar" />
                 <MapView app={app} className="map" ref="map" />
                 <SearchResultsView app={app} ref="searchResults" />
             </div>

@@ -74,6 +74,8 @@ module.exports = Api.extend({}, ResourceUtils, {
      */
     toggleTags : function(tags) {
         var existing = this.getFilterTags();
+        existing = this.prepareFilterValues(existing);
+        tags = this.prepareFilterValues(tags);
         var intersection = _.intersection(existing, tags);
         var newTags = _.difference(_.union(existing, tags), intersection);
         return this.updateSearchCriteria({
@@ -100,10 +102,10 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Returns true if the values matches to the given filters criteria. */
     filterValues : function(value, filters) {
-        if (!value)
-            return false;
         if (!filters || !filters.length)
             return true;
+        if (!value)
+            return false;
         var values = this.prepareFilterValues(value);
         var result = false;
         for (var i = 0; !result && i < values.length; i++) {

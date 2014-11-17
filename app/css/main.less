@@ -5,7 +5,11 @@
     bottom: @bottom;
     left: @left;
 }
-
+.box-shadow(@arguments) {
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    box-shadow: @arguments;
+}
 &.container-fluid {
     width: 100%;
     padding: 0;
@@ -13,6 +17,7 @@
 
 @top-height: 50px;
 @bottom-height: 20px;
+@panel-margin: 10px;
 @bar-size : 40px;
  
 .top-zone {
@@ -24,16 +29,36 @@
     height: @bottom-height;
 }
 .middle-zone {
-    .fit(@top-height, 0px, @bottom-height, 0px);
+    .fit(@top-height, 0px, 0px, 0px);
     
     .map {
         .fit();
     }
+    .toolbar {
+        .fit(@panel-margin, auto, auto, @panel-margin);
+        width: 35px;
+        z-index: 1;
+        display: block;
+        
+        .dropdown-menu {
+            top: -2px;
+            left: 100%;
+            margin: 0px;
+            margin-left: -2px;
+            min-width: inherit;
+        }
+        .btn-group-vertical {
+            .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
+            margin-top: @panel-margin;
+            &:first-child {
+                margin-top: 0px;
+            }
+        }
+    }
     .search-results {
-        .fit(30px, 25px, 0px, 75%);
+        .fit(@panel-margin, @panel-margin, 1px, 75%);
+        display: block;
         background-color: white;
-        border: 1px solid #eee;
-        border-bottom: none;
         .stats {
             .fit(0px, 0px, auto, 0px);
             height: @bar-size;
@@ -88,6 +113,22 @@
         .tag {
             &.selected {
                 background-color: #eee;
+            }
+        }
+    }
+    
+    .popover-container {
+        .popover {
+            .fit(auto, auto, auto, 100%);
+            min-width: 300px;
+            display: block;
+            &.top {
+                top: 0px;
+                .arrow { top: 6px; }
+            }
+            &.bottom {
+                bottom: 0px;
+                .arrow { bottom: 6px; }
             }
         }
     }

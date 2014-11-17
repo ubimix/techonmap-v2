@@ -8,6 +8,11 @@ var React = require('react');
 /** */
 module.exports = AbstractMapLayer.extend({
 
+    initialize : function(options) {
+        AbstractMapLayer.prototype.initialize.apply(this, arguments)
+        // this._showMarkerPopup = _.debounce(this._showMarkerPopup, 200);
+    },
+
     // -----------------------------------------------------------------------
 
     /** This method is called when this layer is added to the map. */
@@ -149,7 +154,7 @@ module.exports = AbstractMapLayer.extend({
         var that = this;
         marker.on('mouseover', _.debounce(function() {
             that._showMarkerPopup(marker, resource);
-        }, 100));
+        }, 250));
         return marker;
     },
 

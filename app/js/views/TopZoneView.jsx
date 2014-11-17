@@ -4,6 +4,7 @@ var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var SearchBoxView = require('./SearchBoxView.jsx');
+var PopupPanel = require('./utils/PopupPanel.jsx');
 
 module.exports = React.createClass({
     displayName : 'TopZoneView',
@@ -30,6 +31,18 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
+    _showInfo : function(){
+        var title = (<span>This is a title</span>);
+        var body = (<div><p>This is a content</p><p>Second paragraph</p></div>);
+        var footer = (<div>Just a message</div>);
+        
+        PopupPanel.openPopup({
+            title : title,
+            body : body,
+            footer : footer
+        });
+    },
+    
     render : function() {
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
@@ -51,7 +64,7 @@ module.exports = React.createClass({
                       <div className="col-xs-6">
 
                           <ul className="nav navbar-nav navbar-right">
-                              <li><a href="#"><i className="glyphicon glyphicon-info"></i>&nbsp;Info</a></li>
+                              <li><a href="#" onClick={this._showInfo}><i className="glyphicon glyphicon-info"></i>&nbsp;Info</a></li>
                               <li className="dropdown">
                                   <a href="#" className="dropdown-toggle" data-toggle="dropdown"  onClick={this._toggleMenu} >
                                       <i className="glyphicon glyphicon-search"></i>
