@@ -3,7 +3,6 @@
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
-var SearchBoxView = require('./SearchBoxView.jsx');
 var PopupPanel = require('./utils/PopupPanel.jsx');
 
 module.exports = React.createClass({
@@ -62,22 +61,9 @@ module.exports = React.createClass({
                           </div>
                       </div>
                       <div className="col-xs-6">
-
                           <ul className="nav navbar-nav navbar-right">
                               <li><a href="#" onClick={this._showInfo}><i className="glyphicon glyphicon-info"></i>&nbsp;Info</a></li>
-                              <li className="dropdown">
-                                  <a href="#" className="dropdown-toggle" data-toggle="dropdown"  onClick={this._toggleMenu} >
-                                      <i className="glyphicon glyphicon-search"></i>
-                                      <span className="caret"></span>
-                                  </a>
-                                  <ul className="dropdown-menu" role="menu">
-                                      <li>
-                                          <SearchBoxView app={app} className="navbar-form navbar-left"/>
-                                      </li>
-                                  </ul>
-                              </li>
                           </ul>
-
                       </div>
                       <div className="col-xs-3">
                           <ul className="nav">

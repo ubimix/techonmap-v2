@@ -48,10 +48,16 @@
             min-width: inherit;
         }
         .btn-group-vertical {
-            .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
             margin-top: @panel-margin;
             &:first-child {
                 margin-top: 0px;
+            }
+            .btn {
+                .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
+            }
+            > form {
+                .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
+                width: 200px;
             }
         }
     }
@@ -112,7 +118,7 @@
     .tags {
         .tag {
             &.selected {
-                background-color: #eee;
+                background-color: silver;
             }
         }
     }

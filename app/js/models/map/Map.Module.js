@@ -51,6 +51,20 @@ module.exports = Api.extend({
 
     // ------------------------------------------------------------------
 
+    /** Returns minimal zoom level */
+    getMinZoomLevel : function() {
+        var mapOptions = this.getMapOptions();
+        return mapOptions.minZoom || 0;
+    },
+
+    /** Returns maximal zoom level */
+    getMaxZoomLevel : function() {
+        var mapOptions = this.getMapOptions();
+        return mapOptions.maxZoom || 22;
+    },
+
+    // ------------------------------------------------------------------
+
     /** Returns the initial zoom level for the map. */
     getInitialMapZoom : function() {
         var mapOptions = this.getMapOptions();
@@ -81,7 +95,11 @@ module.exports = Api.extend({
 
     /** Updates the zoom level. Used internally by the Module class. */
     _setMapZoomLevel : function(zoom) {
-        this._mapZoomLevel = Math.max(3, Math.min(zoom, 18));
+        var prevZoom = this._mapZoomLevel;
+        var minZoom = this.getMinZoomLevel();
+        var maxZoom = this.getMaxZoomLevel();
+        this._mapZoomLevel = Math.max(minZoom, Math.min(zoom, maxZoom));
+        return prevZoom != this._mapZoomLevel;
     },
 
 });

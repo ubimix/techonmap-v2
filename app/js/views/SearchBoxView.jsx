@@ -20,15 +20,20 @@ function(require) {
             return (
                 <form className={this.props.className} role="search" id={this.props.id}>
                    <div className="input-group">
+                       <span className="input-group-btn">
+                           <button ref="button" className="btn btn-default" type="button"
+                               onClick={_.bind(function(){
+                                   var value = this.state.value;
+                                   this._setQuery(value);
+                               }, this)}>
+                               <i className="glyphicon glyphicon-search"></i>
+                           </button>
+                       </span>
                        <input ref="inputBox" type="text" className="form-control"
                            onChange={this._onInputChange}
                            onKeyDown={this._onKeyDown}
                            value={value}/>
                        <span className="input-group-btn">
-                           <button ref="button" className="btn btn-default" type="button"
-                               onClick={this._startSearch}>
-                               <i className="glyphicon glyphicon-search"></i>
-                           </button>
                            {this._renderClearButton()}
                        </span>
                    </div>
@@ -52,6 +57,7 @@ function(require) {
         },
         componentWillMount : function(){
             var app = this.props.app;
+            this._setQuery = _.debounce(this._setQuery, 500);
             app.nav.addChangeListener(this._onSearch);
         },
         componentWillUnmount : function(){
@@ -62,26 +68,31 @@ function(require) {
             this.setState(this._newState({
                 value : ''
             }));
-            this._doSearch('');
+            this._setQuery('');
         },
         _setQuery : function(query){
-            this.setState(this._newState({
-                value : query
-             }));
+            var app = this.props.app;
+            app.nav.setSearchQuery(query);
         },
         _newState : function(options){
+            var query = this.props.app.nav.getSearchQuery();
             return _.extend({ 
-                value : ''
+                value : query
             }, this.state, options); 
         },
         _onInputChange : function(ev){
-            this._setQuery(ev.target.value);
+            var query = ev.target.value;
+            this._setQuery(query);
+            this.setState(this._newState({
+                value : query
+             }));
         },
         _onKeyDown : function(ev) {
             var code = ev.which;
             var cancel = false;
             if (code === 13) { // ENTER
-                this._startSearch();
+                var value = this.state.value;
+                this._setQuery(value);
                 cancel = true;
             } else if (code === 27) { // ESC
                 this._clearSearch();
@@ -94,16 +105,10 @@ function(require) {
         },
         _onSearch : function(){
             var query = this.props.app.nav.getSearchQuery();
-            this._setQuery(query);
+            this.setState(this._newState({
+                value : query
+             }));
         },
-        _startSearch : function(){
-            var value = this.state.value;
-            this._doSearch(value);
-        }, 
-        _doSearch : function(value){
-            var app = this.props.app;
-            app.nav.setSearchQuery(value);
-        }
     });
    
    

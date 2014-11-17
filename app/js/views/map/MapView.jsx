@@ -34,7 +34,7 @@ module.exports = React.createClass({
     /** Main rendering method of this class. */
     render : function() {
         var app = this._getApp();
-        var mapOptions = {};
+        var mapOptions = app.map.getMapOptions();
         return (ReactMap({
             id : this.props.id,
             className : this.props.className,
