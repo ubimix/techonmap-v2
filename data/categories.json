@@ -1,0 +1,32 @@
+[
+    {
+        "key" : "tierslieux",
+        "label" : "TIERS LIEUX",
+        "tags" : ["coworking", "fablab", "hackerspace", "bureaux partagés", "télécentre" ]
+    },
+    {
+        "key" : "ecoles",
+        "label" : "ECOLES",
+        "tags" : ["ingénieur", "développeur", "manager", "audiovisuel", "webdesign", "informatique", "telecoms", "jeux vidéo", "opensource"]
+    },
+    {
+        "key" : "communautes",
+        "label" : "COMMUNAUTES",
+        "tags" : ["association", "syndicat", "fédération", "cluster"]
+    },
+    {
+        "key" : "incubateurs",
+        "label" : "INCUBATEURS",
+        "tags" : []
+    },
+    {
+        "key" : "investisseurs",
+        "label" : "INVESTISSEURS",
+        "tags" : ["Venture capitalist", "Business angel", "Hightech", "Cleantech"]
+    },
+    {
+        "key" : "acteurspublics",
+        "label" : "ACTEURS PUBLICS",
+        "tags" : []
+    }
+]

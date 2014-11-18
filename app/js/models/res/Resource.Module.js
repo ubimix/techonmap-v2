@@ -260,9 +260,9 @@ module.exports = Api.extend({}, ResourceUtils, {
             var selectedResourceId = that.getSelectedResourceId();
             that.notify();
             if (selectedResourceId !== undefined) {
-                return that.selectResource({
-                    resourceId : selectedResourceId
-                });
+                // return that.selectResource({
+                // resourceId : selectedResourceId
+                // });
             }
         });
     },

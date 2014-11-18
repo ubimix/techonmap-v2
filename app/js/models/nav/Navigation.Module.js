@@ -11,18 +11,41 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Initializes fields */
     _initFields : function() {
         this._criteria = {};
+        this._categories = {};
     },
 
     // ------------------------------------------------------------------
 
     /** Pre-loads map-related information. */
     start : function() {
-        return this.updateSearchCriteria({
-            q : '',
+        var that = this;
+        return Mosaic.P.then(function() {
+            return that._loadCategories().then(function() {
+                return that.updateSearchCriteria({
+                    q : '',
+                });
+            });
         });
     },
 
     stop : function() {
+    },
+
+    // ------------------------------------------------------------------
+    // Data loading
+
+    /**
+     * Loads all categories used by this application
+     */
+    _loadCategories : function() {
+        var that = this;
+        return Mosaic.P.then(function() {
+            return that._getJson(_.extend({}, {
+                path : that.options.app.options.categoriesUrl
+            })).then(function(categories) {
+                that._categories = categories;
+            });
+        });
     },
 
     // ------------------------------------------------------------------
@@ -39,6 +62,11 @@ module.exports = Api.extend({}, ResourceUtils, {
     }),
 
     // ------------------------------------------------------------------
+
+    /** Returns all categories for this application. */
+    getCategories : function() {
+        return this._categories;
+    },
 
     /** Returns all search criteria */
     getSearchCriteria : function() {

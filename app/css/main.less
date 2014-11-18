@@ -46,6 +46,12 @@
             margin: 0px;
             margin-left: -2px;
             min-width: inherit;
+            &.categories {
+                bottom: auto;
+                top: -150px;
+                min-width: 450px;
+                padding: 1em;
+            }
         }
         .btn-group-vertical {
             margin-top: @panel-margin;
@@ -117,6 +123,9 @@
     
     .tags {
         .tag {
+            display: inline-block;
+            padding: 0.1em 0.2em;
+            margin-right: 0.1em;
             &.selected {
                 background-color: silver;
             }

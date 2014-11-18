@@ -5,6 +5,9 @@ module.exports =  {
     _selectTag : function(tag, ev) {
         var app = this.props.app;
         app.nav.toggleTags([tag]);
+        if (this._onSelectTag){
+            this._onSelectTag(ev);
+        }
         ev.stopPropagation();
         ev.preventDefault();
     },

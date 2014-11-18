@@ -4,6 +4,7 @@ module.exports = {
     messages : 'data/messages.json',
     dataUrl : 'data/data.json',
     dataFieldsUrl : 'data/data.fields.json',
+    categoriesUrl : 'data/categories.json',
     containers : {
         main : document.querySelector('body')
     },
