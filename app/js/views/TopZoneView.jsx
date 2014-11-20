@@ -4,10 +4,14 @@ var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PopupPanel = require('./utils/PopupPanel.jsx');
+var I18NMixin = require('./utils/I18NMixin');
 
 module.exports = React.createClass({
     displayName : 'TopZoneView',
-    mixins : [ DomUtils ],
+    mixins : [ DomUtils, I18NMixin ],
+    getApp : function(){
+        return this.props.app;
+    },
     _toggleNavigation : function(ref, ev) {
         var nav = this.refs[ref];
         if (nav) {
@@ -30,18 +34,23 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _showInfo : function(){
+    _showInfo : function(ev){
+        ev.stopPropagation();
+        ev.preventDefault();
         var title = (<span>This is a title</span>);
         var body = (<div><p>This is a content</p><p>Second paragraph</p></div>);
         var footer = (<div>Just a message</div>);
-        
         PopupPanel.openPopup({
             title : title,
             body : body,
             footer : footer
         });
     },
-    
+    _showAboutInfo : function(ev){
+        console.log('About...');
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
     render : function() {
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
@@ -63,12 +72,39 @@ module.exports = React.createClass({
                       <div className="col-xs-6">
                           <ul className="nav navbar-nav navbar-right">
                               <li><a href="#" onClick={this._showInfo}><i className="glyphicon glyphicon-info"></i>&nbsp;Info</a></li>
+                              <li>
+                                  <a href="#" className="icon about" onClick={this._showAboutInfo}>
+                                      <span className="label">{this._getLabel('topmenu.label.about')}</span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" className="icon about" onClick={this._showAboutInfo}>
+                                      <span className="label">{this._getLabel('topmenu.label.about')}</span>
+                                  </a>
+                              </li>
+                              <li className="dropdown open">
+                                  <a href="#" className="icon about dropdown-toggle" onClick={this._showAboutInfo}>
+                                      <span className="label">{this._getLabel('topmenu.label.about')}</span>
+                                  </a>
+                                  <ul className="dropdown-menu" role="menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li className="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                  </ul>
+                              </li>
                           </ul>
                       </div>
                       <div className="col-xs-3">
-                          <ul className="nav">
-                              <button type="button" className="btn btn-default navbar-btn">Sign in</button>
-                          </ul>
+                          <div className="navbar-form navbar-right">
+                              <div className="btn-group">
+                                  <button type="button" className="btn btn-primary">{this._getLabel('topmenu.btn.add')}</button>
+                                  <button type="button" className="btn btn-primary dropdown-toggle">
+                                      <span className="caret"></span>
+                                  </button>
+                              </div>
+                          </div>
                       </div>
                   </div>
               </div>

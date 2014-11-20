@@ -2,10 +2,14 @@
     "defaultLanguage" : "fr",
     "messages" : {
         "fr" : {
-            "search.label.results" : "Résultats:"
+            "search.label.results" : "Résultats:",
+            "topmenu.label.about" : "Au propos",
+            "topmenu.btn.add" : "Ajouter une organisation sur la carte"
         },
         "en" : {
-            "search.label.results" : "Results:"
+            "search.label.results" : "Results:",
+            "topmenu.label.about" : "About",
+            "topmenu.btn.add" : "Add a new organization"
         }
     }
 }

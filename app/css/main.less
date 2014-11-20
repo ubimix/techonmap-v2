@@ -15,14 +15,57 @@
     padding: 0;
 }
 
-@top-height: 50px;
+@top-height: 60px;
 @bottom-height: 20px;
 @panel-margin: 10px;
 @bar-size : 40px;
  
 .top-zone {
     .fit(0px, 0px, auto, 0px);
+    z-index: 1001; // To be just before floating bootstrap elements
     height: @top-height;
+    background-color: white;
+    border-radius: 0;
+    ul.nav.navbar-nav.navbar-right {
+        z-index: 1002;
+        > li {
+            a.icon {
+                text-align: center;
+                background-repeat: no-repeat;
+                // background-attachment: fixed;
+                background-position: 50% 0%;
+                margin: 0;
+                margin-top: 0.5em;
+                padding: 0 0.5em;
+                border: 1px solid transparent;
+
+                &.about {
+                    background-image: url("../images/icons/icon-about.svg");
+                }
+                > .label {
+                    padding: 0px;
+                    display: inline-block;
+                    font-size: smaller;
+                    font-weight: normal;
+                    margin-top: 35px;
+                    color: gray;
+                }
+            }
+            &.dropdown.open > a {
+                background-color: white;
+                border-color: silver;
+                border-bottom-color: transparent;
+            }
+            .dropdown-menu {
+                margin-top: -1px;
+                border-radius: 0;
+                z-index: -1;
+            }
+        }
+    }
+    .btn-group {
+        white-space: nowrap;
+    }
 }
 .bottom-zone {
     .fit(auto, 0px, 0px, 0px);
