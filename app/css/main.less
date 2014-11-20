@@ -1,3 +1,8 @@
+height: 100%;
+width: 100%;
+line-height: 1;
+font-family: 'Open Sans', sans-serif;
+
 .fit(@top:0px, @right:0px, @bottom:0px, @left:0px) {
     position: absolute;
     top : @top;
@@ -14,22 +19,192 @@
     width: 100%;
     padding: 0;
 }
+ 
+// -------------------------------------------------------------------------- 
+// Common styles
 
-@top-height: 50px;
+.clear {
+    width: 100%;
+    visibility: hidden;
+    clear: both;
+    height: 0px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+// -------------------------------------------------------------------------- 
+// TOM-specific common styles 
+
+.btn-blue {
+    font-size: 16px;
+    color: #fff;
+    background: #385f98;
+    border: 1px solid #253f5f;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    padding-left: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 45px;
+}
+
+// -------------------------------------------------------------------------- 
+// Layout styles 
+
+@topbar-height: 100px;
+@topbar-social-height: 25px;
 @bottom-height: 20px;
 @panel-margin: 10px;
 @bar-size : 40px;
- 
-.top-zone {
-    .fit(0px, 0px, auto, 0px);
-    height: @top-height;
+
+// Topbar 
+.topbar {
+    min-width: 320px;
+    height: @topbar-height;
+    border-bottom: 1px solid #dddddd;
+    background: #fff;
+    z-index: 3;
+
+    // Red twitter bar at the top
+    .social {
+        height: @topbar-social-height;
+        line-height: @topbar-social-height;
+        background: #eb6564;
+        border-bottom: 1px solid #d40308;
+        color: #fff;
+        font-size: 14px;
+        padding: 0 10px;
+        overflow: hidden;
+        .left {
+            a {
+                color: #fff;
+                text-decoration: underline;
+                &.lastTweetAuthor {
+                    font-weight: 700;
+                }
+            }
+        }
+        .right a {
+            color: #fff;
+            font-weight: 300;
+            font-size: 14px;
+            padding-left: 4px;
+            background: #A44646;
+            display: inline-block;
+            padding: 0 17px;
+        }
+    }
+   
+    // The main header
+    .header {
+        h1 {
+            display: block;
+            margin: 0px;
+            margin-top: 12px;
+            margin-left: 15px;
+        }
+        h2 {
+            font-size: 13px;
+            color: #666666;
+            display: block;
+            margin: 0px;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+        .aside {
+            float: right;
+            text-align: right;
+            padding-right: 10px;
+            .btn-blue {
+                margin-top: 18px;
+                background: url(../images/btn-blue-plus.png) 100% 50% no-repeat #385f98;
+                &:hover {
+                    background-color: #253F5F;
+                }
+                .btn-gray {
+                    background-color: #CCCCCC;
+                }
+            } 
+        }
+        .ban {
+            width: auto;
+            margin-right: 360px;
+            height: @topbar-height - @topbar-social-height;
+            .menu {
+                margin-top: 15px;
+                margin-right: 15px;
+                li.level-1 {
+                    display: inline-block;
+                    zoom: 1;
+                    *display: inline;
+                    width: 41px;
+                    height: 41px;
+                    cursor: pointer;
+                    position: relative;
+                    .hide-shadow { /*hide the shadow*/
+                        display: none;
+                    }
+                    &.active {
+                        box-shadow: 0px 0px 2px silver;
+                        .hide-shadow {
+                            /*hide the shadow*/
+                            height: 4px;
+                            width: 100%;
+                            background: #fff;
+                            position: absolute;
+                            top: 39px;
+                            z-index: 11;
+                            display: block;
+                        }
+                    }
+                }
+                .menu-mask {
+                    overflow: hidden;
+                    display: block;
+                    position: absolute;
+                    top: 41px;
+                    background: #fff;
+                    width: 185px;
+                    box-shadow: 0px 0px 2px silver;
+                    height: 0;
+                    z-index: 10;
+                }
+                .open-left .menu-mask {
+                    left: -144px; /*185 - 41*/
+                }
+            }
+        }
+    }
 }
+
+// The middle zone with the main content
+.middle-zone {
+    .fit(@topbar-height, 0px, @bottom-height, 0px);
+    
+    .map {
+        .fit();
+    }
+}
+
+// Bottom zone containing copyrights etcs
 .bottom-zone {
     .fit(auto, 0px, 0px, 0px);
     height: @bottom-height;
 }
-.middle-zone {
-    .fit(@top-height, 0px, 0px, 0px);
+
+
+
+
+// -->8---->8---->8---->8---->8---->8---->8---->8---->8---->8---->8--
+.middle-zone1 {
+    .fit(@topbar-height, 0px, @bottom-height, 0px);
     
     .map {
         .fit();
