@@ -73,7 +73,7 @@ module.exports = React.createClass({
                           <ul className="nav navbar-nav navbar-right">
                               <li><a href="#" onClick={this._showInfo}><i className="glyphicon glyphicon-info"></i>&nbsp;Info</a></li>
                               <li>
-                                  <a href="#" className="icon about" onClick={this._showAboutInfo}>
+                                  <a href="#" className="icon icon-about" onClick={this._showAboutInfo}>
                                       <span className="label">{this._getLabel('topmenu.label.about')}</span>
                                   </a>
                               </li>
