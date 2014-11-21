@@ -9,7 +9,7 @@ var I18NMixin = require('./utils/I18NMixin');
 module.exports = React.createClass({
     render : function(){
         return ( 
-          <div className="container">
+          <div className="container-fluid">
               <div className="row social">
                   <div className="col-xs-9 twitter">
                       <div className="left">

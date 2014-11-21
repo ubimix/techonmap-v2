@@ -66,7 +66,7 @@ module.exports = React.createClass({
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                               </button>
-                              <a className="navbar-brand" href="#">Brand</a>
+                              <a className="navbar-brand" href="#"><img src="images/banner.png" /></a>
                           </div>
                       </div>
                       <div className="col-xs-6">
