@@ -4,6 +4,6 @@ module.exports = [ {
     widgets : {
         'listItem' : require('./ListItem.jsx'),
         'mapPopup' : require('./MapPopup.jsx'),
-        'mapIcon' : require('./MapIcon')
+        'mapMarker' : require('./MapMarker')
     }
 } ];

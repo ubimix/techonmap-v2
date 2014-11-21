@@ -56,6 +56,7 @@ module.exports = AbstractMapLayer.extend({
         var app = this._getApp();
         app.res.addChangeListener(this._onSearchUpdated, this);
         app.res.addSelectListener(this._onSelectResource, this);
+        this._map.on('zoomend', this._onZoomEnd, this);
     },
 
     /**
@@ -66,6 +67,7 @@ module.exports = AbstractMapLayer.extend({
         var app = this._getApp();
         app.res.removeChangeListener(this._onSearchUpdated, this);
         app.res.removeSelectListener(this._onSelectResource, this);
+        this._map.off('zoomend', this._onZoomEnd, this);
     },
 
     // -----------------------------------------------------------------------
@@ -135,15 +137,13 @@ module.exports = AbstractMapLayer.extend({
     _newMarker : function(latlng, resource) {
         var app = this._getApp();
         var type = app.res.getResourceType(resource);
-        var icon = app.viewManager.newView('mapIcon', type, {
+        var marker = app.viewManager.newView('mapMarker', type, {
             app : app,
             resource : resource,
+            latlng : latlng
         });
-        if (!icon)
+        if (!marker)
             return null;
-        var marker = new L.Marker(latlng, {
-            icon : icon
-        })
         marker.on('click', function() {
             var id = app.res.getResourceId(resource);
             app.res.selectResource({
@@ -230,6 +230,14 @@ module.exports = AbstractMapLayer.extend({
                 that._map.panTo(latlng);
             }
             that._setSelectedMarker(marker);
+        });
+    },
+    
+    _onZoomEnd : function() {
+        var zoom = this._map.getZoom();
+        _.each(this._index, function(marker) {
+            if (marker && marker.updateZoom)
+                marker.updateZoom(zoom);
         });
     },
 

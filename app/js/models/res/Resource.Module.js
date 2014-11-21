@@ -67,6 +67,12 @@ module.exports = Api.extend({}, ResourceUtils, {
     getResourceNumber : function() {
         return this._resources.length;
     },
+    
+    getResourceType : function(resource) {
+        var props = resource.properties || {};
+        var category = props.category || 'default';
+        return category.toLowerCase();
+    },
 
     /** Returns the total resource number. */
     getTotalResourceNumber : function() {
