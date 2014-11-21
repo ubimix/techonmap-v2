@@ -15,17 +15,35 @@
     padding: 0;
 }
 
+@social-height: 25px;
 @top-height: 60px;
 @bottom-height: 20px;
 @panel-margin: 10px;
 @bar-size : 40px;
  
-.top-zone {
+.social {
     .fit(0px, 0px, auto, 0px);
+    height: @social-height;
+    line-height: @social-height;
+    background: #eb6564;
+    border-bottom: 1px solid #d40308;
+    color: #fff;
+    font-size: 1.0em;
+    padding-left: 0.1em;
+    display: inline-block;
+    padding: 0 1.5em;
+    a {
+        color: white;
+    }
+}
+ 
+.top-zone {
+    .fit(@social-height, 0px, auto, 0px);
     z-index: 1001; // To be just before floating bootstrap elements
     height: @top-height;
     background-color: white;
     border-radius: 0;
+    
     ul.nav.navbar-nav.navbar-right {
         z-index: 1002;
         > li {
@@ -72,7 +90,7 @@
     height: @bottom-height;
 }
 .middle-zone {
-    .fit(@top-height, 0px, 0px, 0px);
+    .fit(@top-height + @social-height, 0px, 0px, 0px);
     
     .map {
         .fit();
