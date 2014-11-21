@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<rect fill="#EE6565" width="40" height="40"/>
+<rect x="9" y="13" fill="#B54D4D" width="22" height="20"/>
+<rect x="8" y="13" fill="#F7EDED" width="3" height="20"/>
+<rect x="14" y="13" fill="#F7EDED" width="3" height="20"/>
+<path fill="#C6B9B9" d="M14,13v2.208c0.553,0,1-0.208,1-1.208h1c0,1,0.447,1.208,1,1.208V13H14z"/>
+<path fill="#C6B9B9" d="M8,13v2.208C8.553,15.208,9,15,9,14h1c0,1,0.447,1.208,1,1.208V13H8z"/>
+<rect x="23" y="13" fill="#F7EDED" width="3" height="20"/>
+<path fill="#C6B9B9" d="M23,13v2.208c0.553,0,1-0.208,1-1.208h1c0,1,0.447,1.208,1,1.208V13H23z"/>
+<rect x="29" y="13" fill="#F7EDED" width="3" height="20"/>
+<path fill="#C6B9B9" d="M29,13v2.208c0.553,0,1-0.208,1-1.208h1c0,1,0.447,1.208,1,1.208V13H29z"/>
+<circle fill="#E2D0D0" cx="8" cy="14" r="1"/>
+<circle fill="#E2D0D0" cx="11" cy="14" r="1"/>
+<circle fill="#E2D0D0" cx="14" cy="14" r="1"/>
+<circle fill="#E2D0D0" cx="17" cy="14" r="1"/>
+<circle fill="#E2D0D0" cx="22.937" cy="14" r="1"/>
+<circle fill="#E2D0D0" cx="26" cy="14" r="1"/>
+<path fill="#E2D0D0" d="M32,13h-3c-0.553,0-1,0.448-1,1s0.447,1,1,1s1-0.448,1-1h1c0,0.552,0.447,1,1,1s1-0.448,1-1S32.553,13,32,13
+	z"/>
+<circle fill="#C6B9B9" cx="29" cy="14" r="0.396"/>
+<circle fill="#C6B9B9" cx="32" cy="14" r="0.396"/>
+<rect x="4" y="35" fill="#F7EDED" width="32" height="1"/>
+<rect x="5" y="34" fill="#C6B9B9" width="30" height="1"/>
+<rect x="6" y="33" fill="#E2D0D0" width="28" height="1"/>
+<rect x="8" y="13" fill="#E2D0D0" width="3" height="1"/>
+<rect x="14" y="13" fill="#E2D0D0" width="3" height="1"/>
+<rect x="23" y="13" fill="#E2D0D0" width="3" height="1"/>
+<circle fill="#C6B9B9" cx="8" cy="14" r="0.396"/>
+<circle fill="#C6B9B9" cx="11" cy="14" r="0.396"/>
+<circle fill="#C6B9B9" cx="14.062" cy="14" r="0.396"/>
+<circle fill="#C6B9B9" cx="16.938" cy="14" r="0.396"/>
+<circle fill="#C6B9B9" cx="22.937" cy="14" r="0.396"/>
+<circle fill="#C6B9B9" cx="26" cy="14" r="0.396"/>
+<rect x="6" y="12" fill="#C6B9B9" width="28" height="1"/>
+<polygon fill="#F7EDED" points="5,10.656 20,3.399 35,10.656 35,12 5,12 "/>
+<polygon fill="#E2D0D0" points="8,10.05 20,5.336 32,10.05 32,11 8,11 "/>
+<polyline fill="#C6B9B9" points="8,10.025 20,6.083 32,10.05 32,10 20,5.336 8,10.05 "/>
+<rect x="7" y="31" fill="#F7EDED" width="5" height="2"/>
+<rect x="13" y="31" fill="#F7EDED" width="5" height="2"/>
+<rect x="22" y="31" fill="#F7EDED" width="5" height="2"/>
+<rect x="28" y="31" fill="#F7EDED" width="5" height="2"/>
+<polygon fill="#C6B9B9" points="7,33 12,32 12,33 "/>
+<polygon fill="#C6B9B9" points="13,33 18,32 18,33 "/>
+<polygon fill="#C6B9B9" points="22,33 27,32 27,33 "/>
+<polygon fill="#C6B9B9" points="28,33 33,32 33,33 "/>
+<polygon fill="#E2D0D0" points="8,31 11,31 11,30 "/>
+<polygon fill="#E2D0D0" points="14,31 17,31 17,30 "/>
+<polygon fill="#E2D0D0" points="23,31 26,31 26,30 "/>
+<polygon fill="#E2D0D0" points="29,31 32,31 32,30 "/>
+<circle fill="#F7EDED" cx="5" cy="11.087" r="0.913"/>
+<circle fill="#F7EDED" cx="35" cy="11.087" r="0.913"/>
+</svg>
