@@ -7,6 +7,7 @@ var MainView = require('./views/MainView.jsx');
 
 // var SelectionModule = require('./models/selection/Selection.Module');
 // var SearchModule = require('./models/search/Search.Module');
+var ContentModule = require('./models/content/Content.Module');
 var I18NModule = require('./models/i18n/I18N.Module');
 var MapModule = require('./models/map/Map.Module');
 var NavigationModule = require('./models/nav/Navigation.Module');
@@ -23,6 +24,7 @@ module.exports = App.extend({
         this.viewManager = new ViewManager();
         initWidgets(this);
         var modules = {
+            content : ContentModule,
             map : MapModule,
             nav : NavigationModule,
             res : ResourceModule,

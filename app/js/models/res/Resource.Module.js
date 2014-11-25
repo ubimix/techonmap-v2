@@ -335,9 +335,9 @@ module.exports = Api.extend({}, ResourceUtils, {
             inverted = this._sortByDate < 0;
         }
         if (getField) {
-            that._resources = _.sortBy(that._resources, getField, this);
+            this._resources = _.sortBy(this._resources, getField, this);
             if (inverted) {
-                that._resources.reverse();
+                this._resources.reverse();
             }
         }
     },

@@ -10,6 +10,22 @@
     -moz-box-shadow: @arguments;
     box-shadow: @arguments;
 }
+
+.icon(@size:32px) {
+    font-size: @size;
+    line-height: @size;
+    width: @size;
+    height: @size;
+    display: inline-block;
+    background-size: @size @size;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: transparent;
+}
+.icon-image(@url){
+    background-image: url( @url );
+}
+
 &.container-fluid {
     width: 100%;
     padding: 0;
@@ -20,11 +36,10 @@
 @bottom-height: 20px;
 @panel-margin: 10px;
 @bar-size : 40px;
+@nav-size : 30px;
 @red-main: #eb6564;
 @red-dark: #d40308;
 
-@import "icons.less";
- 
 .social {
     height: @social-height;
     line-height: @social-height;
@@ -55,8 +70,25 @@
                 margin-bottom: 0;
                 margin-right: 0;
                 > i.icon {
-                    font-size: 36px;
-                    display: inline-block;
+                    .icon(32px);
+                    &.icon-info {
+                        .icon-image('../images/icons-mono/info-mono.svg');
+                    }
+                    &.icon-about {
+                        .icon-image('../images/icons-mono/about-mono.svg');
+                    }
+                    &.icon-share {
+                        .icon-image('../images/icons-mono/share-mono.svg');
+                    }
+                    &.icon-export {
+                        .icon-image('../images/icons-mono/export-mono.svg');
+                    }
+                    &.icon-heatmap {
+                        .icon-image('../images/icons-mono/heatmap-mono.svg');
+                    }
+                    &.icon-search {
+                        .icon-image('../images/icons-mono/search-mono.svg');
+                    }
                 }
                 > span.label {
                     display: block;
@@ -175,8 +207,21 @@
                 .total { color: red; padding: 0em 0.25em; }
             }
         }
+        > .nav {
+            .fit(@bar-size, 0px, auto, 0px);
+            > li {
+                font-size: smaller;
+                > * {
+                    height: @nav-size;
+                    line-height: @nav-size;
+                    padding: 0.2em 0.5em;
+                    border-top: none;
+                    border-radius: 0;
+                }
+            }
+        }
         .list-group {
-            .fit(@bar-size + 1);
+            .fit(@bar-size + @nav-size + 2);
             overflow-x: hidden;
             overflow-y: auto;
             .list-group-item {

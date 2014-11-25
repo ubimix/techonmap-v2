@@ -77,28 +77,45 @@ module.exports = React.createClass({
             footer : footer
         });
     },
+    
+    _showContentDialog : function(href) {
+        var app = this.getApp();
+        app.content.loadContent(href).then(function(obj){
+            var title = obj.getAsHtml('title');
+            var content = obj.getContentAsHtml();
+            var footer = obj.getAsHtml('footer');
+            var titleElm = (<span dangerouslySetInnerHTML={{__html: title}} ></span>);
+            var bodyElm = (<div dangerouslySetInnerHTML={{__html: content}} ></div>);
+            var footerElm = (<div dangerouslySetInnerHTML={{__html: footer}} ></div>);
+            PopupPanel.openPopup({
+                title : titleElm,
+                body : bodyElm,
+                footer : footerElm
+            });
+        });
+    },
     _showAboutInfo : function(ev){
-        console.log('About...');
+        this._showContentDialog('about.md');
         ev.stopPropagation();
         ev.preventDefault();
     },
     _showHelp : function(ev){
-        console.log('Help...');
+        this._showContentDialog('help.md');
         ev.stopPropagation();
         ev.preventDefault();
     },
     _showShareDialog : function(ev){
-        console.log('Share dialog box...');
+        this._showContentDialog('share.md');
         ev.stopPropagation();
         ev.preventDefault();
     },
     _showExportDialog : function(ev) {
-        console.log('Show export dialog...');
+        this._showContentDialog('export.md');
         ev.stopPropagation();
         ev.preventDefault();
     },
     _showHeatmap : function(ev) {
-        console.log('Show export dialog...');
+        console.log('Show/hide heatmap...');
         ev.stopPropagation();
         ev.preventDefault();
     },
@@ -110,7 +127,7 @@ module.exports = React.createClass({
             DomUtils._toggleClass(elm, 'open');
         }
     },
-    render : function() {
+    render : function() {       
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
         return (

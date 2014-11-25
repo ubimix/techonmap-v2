@@ -15,9 +15,11 @@
     "lunr": "^0.5.6",
     "mosaic-commons": "0.0.15",
     "mosaic-core": "0.0.12",
-    "mosaic-teleport": "^0.0.21",
+    "mosaic-teleport": "^0.0.22",
     "mosaic-teleport-server": "0.0.7",
-    "react": "^0.12.0"
+    "react": "^0.12.1",
+    "marked": "~0.3.2",
+    "js-yaml": "~3.2.3"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
@@ -29,9 +31,9 @@
     "grunt-contrib-less": "^0.12.0",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-mocha-test": "^0.12.3",
+    "grunt-mocha-test": "^0.12.4",
     "grunt-webpack": "^1.0.8",
-    "jsx-loader": "^0.12.1",
+    "jsx-loader": "^0.12.2",
     "mocha": "^2.0.1",
     "umx-grunt-config": "0.0.16"
   },
