@@ -96,8 +96,7 @@ module.exports = Api.extend({}, ResourceUtils, {
     },
 
     getSortByName : function() {
-        return thi
-        s._sortByName;
+        return this._sortByName;
     },
 
     getSortByDate : function() {
@@ -322,7 +321,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         var getField;
         if (this._sortByName !== 0) {
             getField = function(r) {
-                return r.properties.name;
+                return (r.properties.name + '').toLowerCase();
             }
             inverted = this._sortByName < 0;
         } else if (this._sortByDate !== 0) {
