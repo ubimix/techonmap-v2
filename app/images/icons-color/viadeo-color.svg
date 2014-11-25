@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="36"
+   height="36"
+   viewBox="0 0 36 36"
+   id="Calque_1"
+   xml:space="preserve"><metadata
+     id="metadata10971"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs10969" /><rect
+     width="36"
+     height="36"
+     x="0"
+     y="1.7763568e-15"
+     id="rect10946"
+     style="fill:#afafaf" /><g
+     transform="scale(0.65454545,0.65454545)"
+     id="g10948"><g
+       id="logo_1_"><g
+         id="feuille_1_"><path
+           d="m 25.704,7.5 c 0,0 4.728,3.135 5.542,11.751 0,0 1.598,20.7 -9.113,24.761 0,0 0.959,0.179 2.039,0.129 0,0 13.244,-8.354 7.169,-24.57 0,-0.001 -1.818,-5.661 -5.637,-12.071 z"
+           id="path10952"
+           style="fill:#f39c21" /><linearGradient
+           x1="38.039101"
+           y1="23.6826"
+           x2="38.039101"
+           y2="1.0398999"
+           id="SVGID_2_"
+           gradientUnits="userSpaceOnUse"><stop
+             id="stop10955"
+             style="stop-color:#f29a2c;stop-opacity:1"
+             offset="0" /><stop
+             id="stop10957"
+             style="stop-color:#f29a2a;stop-opacity:1"
+             offset="0.64209998" /><stop
+             id="stop10959"
+             style="stop-color:#f29823;stop-opacity:1"
+             offset="0.87309998" /><stop
+             id="stop10961"
+             style="stop-color:#f2961b;stop-opacity:1"
+             offset="1" /></linearGradient><path
+           d="m 32.618,21.639 c 0,0 -2.469,-3.818 0.664,-6.966 0,0 1.096,-1.208 4.228,-2.004 0,0 3.131,-0.667 4.821,-4.261 0,0 3.509,4.896 1.352,11.344 0,0 -1.069,2.901 -3.296,4.227 -1.68,1 -4.224,1.314 -6.887,-1.293 0,0 8.048,-4.409 8.35,-8.143 0,0 -2.472,5.558 -9.232,7.096 z"
+           id="path10963"
+           style="fill:url(#SVGID_2_)" /></g><path
+         d="m 34.669,33.223 c 0,1.984 -0.475,3.833 -1.421,5.549 -0.947,1.716 -2.228,3.04 -3.839,3.973 -1.613,0.934 -3.383,1.4 -5.312,1.4 -1.929,0 -3.697,-0.467 -5.309,-1.4 -1.614,-0.933 -2.893,-2.257 -3.841,-3.973 -0.946,-1.716 -1.421,-3.564 -1.421,-5.549 0,-3.079 1.038,-5.703 3.115,-7.871 2.078,-2.17 4.562,-3.254 7.455,-3.254 1.375,0 2.661,0.25 3.854,0.746 0.12,-1.256 0.562,-2.426 1.051,-3.381 -1.505,-0.546 -3.134,-0.822 -4.893,-0.822 -4.181,0 -7.641,1.539 -10.378,4.616 -2.486,2.792 -3.73,6.088 -3.73,9.889 0,3.834 1.314,7.187 3.945,10.053 2.629,2.869 6.017,4.302 10.165,4.302 4.131,0 7.512,-1.433 10.142,-4.302 2.63,-2.866 3.944,-6.219 3.944,-10.053 0,-2.051 -0.363,-3.954 -1.081,-5.71 -1.208,0.743 -2.355,1.133 -3.305,1.33 0.572,1.361 0.859,2.845 0.859,4.457 z"
+         id="path10965" /></g></g></svg>
