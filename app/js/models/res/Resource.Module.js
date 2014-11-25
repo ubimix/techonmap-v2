@@ -67,13 +67,13 @@ module.exports = Api.extend({}, ResourceUtils, {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
             var params = intent.params;
-            var inverse = params.desc;
+            var direct = params.direct;
             that._sortByName = 0;
             that._sortByDate = 0;
             if (params.sortBy === 'name') {
-                that._sortByName = inverse ? -1 : 1;
+                that._sortByName = direct ? 1 : -1;
             } else if (params.sortBy === 'date') {
-                that._sortByDate = inverse ? -1 : 1;
+                that._sortByDate = direct ? 1 : -1;
             }
             that._sortResults();
         })).then(function() {
@@ -81,22 +81,23 @@ module.exports = Api.extend({}, ResourceUtils, {
         });
     }),
 
-    sortResourcesByName : function(inc) {
-        return sortResources({
+    sortResourcesByName : function(direct) {
+        return this.sortResources({
             sortBy : 'name',
-            inverse : !inc
+            direct : direct
         });
     },
 
-    sortResourcesByDate : function(inc) {
-        return sortResources({
+    sortResourcesByDate : function(direct) {
+        return this.sortResources({
             sortBy : 'date',
-            inverse : !inc
+            direct : direct
         });
     },
 
     getSortByName : function() {
-        return this._sortByName;
+        return thi
+        s._sortByName;
     },
 
     getSortByDate : function() {

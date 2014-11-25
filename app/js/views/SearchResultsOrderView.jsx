@@ -22,13 +22,46 @@ module.exports = React.createClass({
             sortByDate : sortByDate
         };
     },
+
+    _sortByName : function(ev) {
+        var app = this.getApp();
+        app.res.sortResourcesByName(!(this.state.sortByName <= 0));
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
+    _sortByDate : function(ev) {
+        var app = this.getApp();
+        app.res.sortResourcesByDate(!(this.state.sortByDate <= 0));
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
     
+    _getArrow : function(val){
+        if (val === 0)
+            return '';
+        var className = val > 0 
+            ? 'glyphicon glyphicon-arrow-down'
+            : 'glyphicon glyphicon-arrow-up';   
+        return (<i className={className} />);
+    },
     render : function() {
+        var nameActive = this.state.sortByName != 0 ? 'active' : '';
+        var dateActive = this.state.sortByDate != 0 ? 'active' : '';
         return (
             <ul className="nav nav-tabs">
                 <li><span>{this._getLabel('search.label.sort')}</span></li>
-                <li className="active"><a href="#">{this._getLabel('search.label.sort.name')}</a></li>
-                <li><a href="#">{this._getLabel('search.label.sort.date')}</a></li>
+                <li className={nameActive}>
+                    <a href="#" onClick={this._sortByName}>
+                        {this._getLabel('search.label.sort.name')}
+                        {this._getArrow(this.state.sortByName)}
+                    </a>
+                </li>
+                <li className={dateActive}>
+                    <a href="#" onClick={this._sortByDate}>
+                        {this._getLabel('search.label.sort.date')}
+                        {this._getArrow(this.state.sortByDate)}
+                    </a>
+                </li>
             </ul>
         );
     },
