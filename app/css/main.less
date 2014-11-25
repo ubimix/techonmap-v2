@@ -20,14 +20,16 @@
 @bottom-height: 20px;
 @panel-margin: 10px;
 @bar-size : 40px;
+@red-main: #eb6564;
+@red-dark: #d40308;
 
 @import "icons.less";
  
 .social {
     height: @social-height;
     line-height: @social-height;
-    background: #eb6564;
-    border-bottom: 1px solid #d40308;
+    background: @red-main;
+    border-bottom: 1px solid @red-dark;
     color: #fff;
     a {
         color: white;
@@ -43,39 +45,49 @@
     
     ul.nav.navbar-nav.navbar-right {
         z-index: 1002;
+        margin-right: 0px;
         > li {
-            a.icon {
-                text-align: center;
-                background-repeat: no-repeat;
-                // background-attachment: fixed;
-                background-position: 50% 0%;
-                margin: 0;
-                margin-top: 0.5em;
-                padding: 0 0.5em;
+            > a {
                 border: 1px solid transparent;
-
-                &.about {
-                    background-image: url("../images/icons/icon-about.svg");
-                }
-                > .label {
-                    padding: 0px;
+                padding: 5px 2px 8px 2px;
+                text-align: center;
+                margin: 0.25em;
+                margin-bottom: 0;
+                margin-right: 0;
+                > i.icon {
+                    font-size: 36px;
                     display: inline-block;
+                }
+                > span.label {
+                    display: block;
                     font-size: smaller;
                     font-weight: normal;
-                    margin-top: 35px;
+                    line-height: 1;
+                    text-align: center;
+                    white-space: nowrap;
+                    margin: -0.75em 0.1em;
                     color: gray;
                 }
             }
-            &.dropdown.open > a {
-                background-color: white;
-                border-color: silver;
-                border-bottom-color: transparent;
+            &.dropdown {
+                > .dropdown-menu {
+                    display: none;
+                    margin-top: -1px;
+                    z-index: -1;
+                    border-bottom: 2px solid @red-main;
+                }
+                &.open {
+                    > a {
+                        background-color: white;
+                        border-color: #eee;
+                        border-bottom-color: white;
+                        }
+                    > .dropdown-menu {
+                        display: block;
+                    }
+                }
             }
-            .dropdown-menu {
-                margin-top: -1px;
-                border-radius: 0;
-                z-index: -1;
-            }
+            
         }
     }
     .btn-group {
@@ -93,12 +105,13 @@
         .fit();
         
         .icon-container {
-            color: white;
-            
-            &.entreprise {
+            .icon {
+                color: white;
+                background-color: red;
+            }
+            &.entreprise  > .icon {
                 background-color: green;
             }
-            
         }
     }
     .toolbar {
@@ -113,6 +126,7 @@
             margin: 0px;
             margin-left: -2px;
             min-width: inherit;
+            border-bottom: 2px solid @red-main;
             &.categories {
                 bottom: auto;
                 top: -150px;
@@ -188,17 +202,6 @@
         }
     }
     
-    .tags {
-        .tag {
-            display: inline-block;
-            padding: 0.1em 0.2em;
-            margin-right: 0.1em;
-            &.selected {
-                background-color: silver;
-            }
-        }
-    }
-    
     .popover-container {
         .popover {
             .fit(auto, auto, auto, 100%);
@@ -215,3 +218,55 @@
         }
     }
 }
+
+// Common styles reusable in different contexts
+
+.panel.panel-search {
+    border: none;
+    .box-shadow(none);
+    margin-bottom: 0px;
+    width: 350px;
+    .form-group {
+        &:last-child {
+            margin-bottom: 0px  ;
+        }
+        // Labels for the search input box and for the block with zones/categories
+        > label {
+            color: @red-main;
+            font-weight: normal;
+        }
+        // Search input box
+        .input-group {
+            input {
+                .box-shadow(none);
+                &:focus {
+                    border-color: #ccc;
+                }
+            }
+            .search-clear {
+                background-color: transparent;
+                border-left: transparent;
+            }
+        }
+        // Categories / zones
+        .list-group {
+            margin-bottom: 0px;
+            .list-group-item {
+                padding: 0.25em 0;
+                border: none;
+            }
+        }
+    }
+}
+
+.tags {
+    .tag {
+        display: inline-block;
+        padding: 0.1em 0.2em;
+        margin-right: 0.1em;
+        &.selected {
+            background-color: silver;
+        }
+    }
+}
+

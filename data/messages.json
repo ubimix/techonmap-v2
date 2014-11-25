@@ -2,12 +2,28 @@
     "defaultLanguage" : "fr",
     "messages" : {
         "fr" : {
+            "search.panel.label.input" : "Rechercher:",
+            "search.panel.label.filters" : "Filterer par:",
+            "search.panel.placeholder.input" : "Taper votre recherche ou des tags (séparés par une vergule) ici",
             "search.label.results" : "Résultats:",
+            "topmenu.label.export" : "Export",
+            "topmenu.label.heatmap" : "Heatmap",
+            "topmenu.label.search" : "Recherche",
+            "topmenu.label.share" : "Partager",
+            "topmenu.label.help" :  "Aide",
             "topmenu.label.about" : "Au propos",
             "topmenu.btn.add" : "Ajouter une organisation sur la carte"
         },
         "en" : {
+            "search.panel.label.input" : "Rechercher:",
+            "search.panel.label.filters" : "Filters:",
+            "search.panel.placeholder.input" : "Enter your keywords separated by commas",
             "search.label.results" : "Results:",
+            "topmenu.label.export" : "Export",
+            "topmenu.label.heatmap" : "Heatmap",
+            "topmenu.label.search" : "Search",
+            "topmenu.label.share" : "Share",
+            "topmenu.label.help" :  "Help",
             "topmenu.label.about" : "About",
             "topmenu.btn.add" : "Add a new organization"
         }

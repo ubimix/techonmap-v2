@@ -5,6 +5,37 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PopupPanel = require('./utils/PopupPanel.jsx');
 var I18NMixin = require('./utils/I18NMixin');
+var SearchInputBoxView = require('./SearchInputBoxView.jsx');
+
+var SearchPanel = React.createClass({
+    displayName : 'SearchPanel',
+    mixins : [ DomUtils, I18NMixin ],
+    getApp : function(){
+        return this.props.app;
+    },
+    render : function(){
+        var app = this.props.app;
+        return (
+            <div className="panel panel-search">
+                <div className="panel-body">
+                    <div className="form-group">
+                        <label className="control-label">{this._getLabel('search.panel.label.input')}</label>
+                        <SearchInputBoxView app={app}/>
+                    </div>
+                    <div className="form-group">
+                        <label className="control-label">{this._getLabel('search.panel.label.filters')}</label>
+                        <ul className="list-group">
+                            <li className="list-group-item">Zone: Toutes</li>
+                            <li className="list-group-item">Catégories: Toutes</li>
+                            <li className="list-group-item">Tags: Toutes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+});
+
 
 module.exports = React.createClass({
     displayName : 'TopZoneView',
@@ -51,6 +82,34 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
+    _showHelp : function(ev){
+        console.log('Help...');
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
+    _showShareDialog : function(ev){
+        console.log('Share dialog box...');
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
+    _showExportDialog : function(ev) {
+        console.log('Show export dialog...');
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
+    _showHeatmap : function(ev) {
+        console.log('Show export dialog...');
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
+    _switchSearchBlock : function(ev){
+        ev.stopPropagation();
+        ev.preventDefault();
+        var elm = DomUtils._searchParent(ev.target, 'dropdown');
+        if (elm) {
+            DomUtils._toggleClass(elm, 'open');
+        }
+    },
     render : function() {
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
@@ -71,28 +130,45 @@ module.exports = React.createClass({
                       </div>
                       <div className="col-xs-6">
                           <ul className="nav navbar-nav navbar-right">
-                              <li><a href="#" onClick={this._showInfo}><i className="glyphicon glyphicon-info"></i>&nbsp;Info</a></li>
                               <li>
                                   <a href="#" onClick={this._showAboutInfo}>
-                                      <i className="icon icon-about"></i>
+                                      <i className="icon icon-info"></i>
                                       <span className="label">{this._getLabel('topmenu.label.about')}</span>
                                   </a>
                               </li>
                               <li>
-                                  <a href="#" className="icon about" onClick={this._showAboutInfo}>
-                                      <span className="label">{this._getLabel('topmenu.label.about')}</span>
+                                  <a href="#" onClick={this._showHelp}>
+                                      <i className="icon icon-about"></i>
+                                      <span className="label">{this._getLabel('topmenu.label.help')}</span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" onClick={this._showShareDialog}>
+                                      <i className="icon icon-share"></i>
+                                      <span className="label">{this._getLabel('topmenu.label.share')}</span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" onClick={this._showExportDialog}>
+                                      <i className="icon icon-export"></i>
+                                      <span className="label">{this._getLabel('topmenu.label.export')}</span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" onClick={this._showHeatmap}>
+                                      <i className="icon icon-heatmap"></i>
+                                      <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
                                   </a>
                               </li>
                               <li className="dropdown open">
-                                  <a href="#" className="icon about dropdown-toggle" onClick={this._showAboutInfo}>
-                                      <span className="label">{this._getLabel('topmenu.label.about')}</span>
+                                  <a href="#" className="icon about dropdown-toggle" onClick={this._switchSearchBlock}>
+                                      <i className="icon icon-search"></i>
+                                      <span className="label">{this._getLabel('topmenu.label.search')}</span>
                                   </a>
                                   <ul className="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li className="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li>
+                                        <SearchPanel app={app} />
+                                    </li>
                                   </ul>
                               </li>
                           </ul>

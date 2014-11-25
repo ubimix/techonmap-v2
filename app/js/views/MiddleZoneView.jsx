@@ -37,7 +37,7 @@ module.exports = React.createClass({
             </div>
         );
     },
-    
+
     _updateMapViewport : function(){
         var mapPanel = this.refs.map;
         var mapPanelElm = mapPanel.getDOMNode();

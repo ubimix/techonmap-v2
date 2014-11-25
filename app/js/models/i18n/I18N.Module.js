@@ -53,7 +53,6 @@ module.exports = Api.extend({
                 return args[arguments[1]];
             });
         }
-        console.log('XXXX', arguments, msg, args);
         var templ = _.template(msg);
         msg = templ.apply(this, args);
         return msg;

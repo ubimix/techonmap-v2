@@ -4,6 +4,7 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var SearchResultsListView = require('./SearchResultsListView.jsx');
 var SearchResultsInfoView = require('./SearchResultsInfoView.jsx');
+var SearchResultsOrderView = require('./SearchResultsOrderView.jsx');
 
 module.exports = React.createClass({
     displayName : 'SearchResultsView',
@@ -27,6 +28,7 @@ module.exports = React.createClass({
         return (
             <div className={className}>
                 <SearchResultsInfoView app={app} className="stats" onToggleResults={this._toggleList}/>
+                <SearchResultsOrderView app={app} />
                 <SearchResultsListView app={app} />
             </div>
         );

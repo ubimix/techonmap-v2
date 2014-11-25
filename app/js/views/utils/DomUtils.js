@@ -84,6 +84,17 @@ var DomUtils = {
         return height;
     },
 
+    /**
+     * Returns a parent of the specified element containing the given class name
+     * or <code>null</code> if no such a parent was found.
+     */
+    _searchParent : function(elm, className) {
+        while (elm && !DomUtils._hasClass(elm, className)) {
+            elm = elm.parentNode;
+        }
+        return elm;
+    },
+
     // ---------------------------------------------------------------------
     // Window resize listener
 

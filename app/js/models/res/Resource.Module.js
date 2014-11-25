@@ -10,13 +10,14 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Initializes fields */
     _initFields : function() {
-        var that = this;
-        that._fields = {
+        this._fields = {
             fields : {}
         };
-        that._resources = [];
-        that._allResources = [];
-        that._selectedResource = null;
+        this._resources = [];
+        this._allResources = [];
+        this._selectedResource = null;
+        this._sortByName = 1;
+        this._sortByDate = 0;
     },
 
     /**
@@ -54,20 +55,60 @@ module.exports = Api.extend({}, ResourceUtils, {
      */
     selectResource : Api.intent(function(intent) {
         var that = this;
-        intent.resolve(that._findResourceById(intent.params.resourceId))//
+        return intent.resolve(that._findResourceById(intent.params.resourceId))//
         .then(function(resource) {
             that._selectedResource = resource;
             that.notifySelection();
         });
     }),
 
+    /** Sort resources by name or by modification date. */
+    sortResources : Api.intent(function(intent) {
+        var that = this;
+        return intent.resolve(Mosaic.P.then(function() {
+            var params = intent.params;
+            var inverse = params.desc;
+            that._sortByName = 0;
+            that._sortByDate = 0;
+            if (params.sortBy === 'name') {
+                that._sortByName = inverse ? -1 : 1;
+            } else if (params.sortBy === 'date') {
+                that._sortByDate = inverse ? -1 : 1;
+            }
+            that._sortResults();
+        })).then(function() {
+            that.notify();
+        });
+    }),
+
+    sortResourcesByName : function(inc) {
+        return sortResources({
+            sortBy : 'name',
+            inverse : !inc
+        });
+    },
+
+    sortResourcesByDate : function(inc) {
+        return sortResources({
+            sortBy : 'date',
+            inverse : !inc
+        });
+    },
+
+    getSortByName : function() {
+        return this._sortByName;
+    },
+
+    getSortByDate : function() {
+        return this._sortByDate;
+    },
     // ------------------------------------------------------------------
 
     /** Returns the number of currently found results. */
     getResourceNumber : function() {
         return this._resources.length;
     },
-    
+
     getResourceType : function(resource) {
         var props = resource.properties || {};
         var category = props.category || 'default';
@@ -261,6 +302,7 @@ module.exports = Api.extend({}, ResourceUtils, {
                 });
             }
             that._resources = that._filterResources(result, criteria);
+            that._sortResults();
             return that._resources;
         }).then(function() {
             var selectedResourceId = that.getSelectedResourceId();
@@ -271,6 +313,33 @@ module.exports = Api.extend({}, ResourceUtils, {
                 // });
             }
         });
+    },
+
+    /** Sorts search results by the currently defined fields. */
+    _sortResults : function() {
+        var inverted = false;
+        var getField;
+        if (this._sortByName !== 0) {
+            getField = function(r) {
+                return r.properties.name;
+            }
+            inverted = this._sortByName < 0;
+        } else if (this._sortByDate !== 0) {
+            getField = function(r) {
+                var sys = r.sys;
+                var changes = sys.updated || sys.created || {
+                    timestamp : new Date().getTime()
+                };
+                return changes.timestamp;
+            }
+            inverted = this._sortByDate < 0;
+        }
+        if (getField) {
+            that._resources = _.sortBy(that._resources, getField, this);
+            if (inverted) {
+                that._resources.reverse();
+            }
+        }
     },
 
     /** Removes all resources not matching to the specified search criteria. */
