@@ -26,7 +26,7 @@ module.exports = React.createClass({
     render : function() {
         return (
             <ul className="nav nav-tabs">
-                <li>{this._getLabel('search.label.sort')}</li>
+                <li><span>{this._getLabel('search.label.sort')}</span></li>
                 <li className="active"><a href="#">{this._getLabel('search.label.sort.name')}</a></li>
                 <li><a href="#">{this._getLabel('search.label.sort.date')}</a></li>
             </ul>

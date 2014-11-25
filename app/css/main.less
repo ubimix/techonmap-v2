@@ -62,13 +62,15 @@
         z-index: 1002;
         margin-right: 0px;
         > li {
+            width: 72px;
+            
             > a {
                 border: 1px solid transparent;
-                padding: 5px 2px 8px 2px;
+                padding: 0px;
+                padding-bottom: 1em;
                 text-align: center;
-                margin: 0.25em;
-                margin-bottom: 0;
-                margin-right: 0;
+                margin: 0px;
+                margin-top: 0.25em;
                 > i.icon {
                     .icon(32px);
                     &.icon-info {
@@ -107,6 +109,11 @@
                     margin-top: -1px;
                     z-index: -1;
                     border-bottom: 2px solid @red-main;
+                    .panel {
+                        .panel-body {
+                                padding: 7px 15px;
+                        }
+                    }
                 }
                 &.open {
                     > a {
@@ -197,6 +204,9 @@
                 .fit(0px, 0px, auto, auto);
                 width: @bar-size;
                 height: @bar-size;
+                line-height: @bar-size;
+                vertical-align: middle;
+                text-align: center;
                 border-left: 1px solid #eee;
             }
             .count {
@@ -210,13 +220,16 @@
         > .nav {
             .fit(@bar-size, 0px, auto, 0px);
             > li {
-                font-size: smaller;
                 > * {
+                    font-size: smaller;
                     height: @nav-size;
                     line-height: @nav-size;
-                    padding: 0.2em 0.5em;
+                    padding: 0 0.5em;
                     border-top: none;
                     border-radius: 0;
+                }
+                &.active > * {
+                    color: @red-main;
                 }
             }
         }
@@ -241,6 +254,9 @@
         &.reduced {
             top: auto;
             height: @bar-size;
+             > .nav {
+                display: none; 
+             }
             .list-group {
                 display: none; 
             }
@@ -309,6 +325,11 @@
         display: inline-block;
         padding: 0.1em 0.2em;
         margin-right: 0.1em;
+        vertical-align: middle;
+        > .glyphicon {
+            vertical-align: middle;
+            top: 0;
+        }      
         &.selected {
             background-color: silver;
         }

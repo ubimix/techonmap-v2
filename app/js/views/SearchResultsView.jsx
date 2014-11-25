@@ -27,7 +27,11 @@ module.exports = React.createClass({
         }
         return (
             <div className={className}>
-                <SearchResultsInfoView app={app} className="stats" onToggleResults={this._toggleList}/>
+                <SearchResultsInfoView
+                    app={app}
+                    className="stats"
+                    onToggleResults={this._toggleList}
+                    open={this.state.showList} />
                 <SearchResultsOrderView app={app} />
                 <SearchResultsListView app={app} />
             </div>

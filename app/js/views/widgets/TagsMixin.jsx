@@ -21,11 +21,12 @@ module.exports =  {
         var tags = _.map(tags, function(tag) {
             var selected = app.nav.isTagSelected(tag);
             var className = selected ? 'tag selected' : 'tag';
+            var suffix = selected ? <i className="glyphicon glyphicon-remove"></i> : '';
             return (
                 <a href="#"
                     onClick={_.bind(this._selectTag, this, tag)}
                     className={className}>
-                    #{tag + ' '}
+                    #{tag + ' '}{suffix}
                 </a>
             );
         }, this);

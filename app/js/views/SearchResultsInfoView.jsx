@@ -21,6 +21,9 @@ module.exports = React.createClass({
     },
     
     render : function() {
+        var iconClassName = this.props.open
+            ? "glyphicon glyphicon-chevron-down"
+            : "glyphicon glyphicon-chevron-up";
         return (
             <div className={this.props.className} onClick={this.props.onToggleResults}>
                 <span className="count">
@@ -29,7 +32,7 @@ module.exports = React.createClass({
                     <span className="total">{this.state.totalNumber}</span>
                 </span>
                 <span className="label">{this._getLabel('search.label.results')}</span>
-                <a href="#" className="switcher"></a>
+                <a href="#" className="switcher"><i className={iconClassName} /></a>
             </div>
         );
     },
