@@ -7,7 +7,7 @@
       "type": "MIT"
     }
   ],
-  "contributors": [],
+  "contributors": [],   
   "dependencies": {
     "es5-shim": "^4.0.3",
     "leaflet": "~0.7.3",
@@ -19,7 +19,8 @@
     "mosaic-teleport-server": "0.0.7",
     "react": "^0.12.1",
     "marked": "~0.3.2",
-    "js-yaml": "~3.2.3"
+    "js-yaml": "~3.2.3",
+    "underscore": "~1.7.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",

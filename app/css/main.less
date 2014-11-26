@@ -154,36 +154,37 @@
         }
     }
     .toolbar {
-        .fit(@panel-margin, auto, auto, @panel-margin);
-        width: 35px;
-        z-index: 1;
-        display: block;
-        
-        .dropdown-menu {
-            top: -2px;
-            left: 100%;
-            margin: 0px;
-            margin-left: -2px;
-            min-width: inherit;
-            border-bottom: 2px solid @red-main;
-            &.categories {
-                bottom: auto;
-                top: -150px;
-                min-width: 450px;
-                padding: 1em;
+        @button-height: 40px;        
+        .map-control {
+            z-index: 1;
+            .fit(@panel-margin, auto, auto, @panel-margin);
+            button {
+                width: @button-height;
+                height: @button-height;
             }
         }
-        .btn-group-vertical {
-            margin-top: @panel-margin;
-            &:first-child {
-                margin-top: 0px;
+
+        .list-group {
+            z-index: 1;
+            .fit(auto, auto, auto, @panel-margin);
+            height: @button-height;
+            > li { 
+                padding: 6px 0.5em;
             }
-            .btn {
-                .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
+            &.search-input-box {
+                > li { 
+                    padding: 0;
+                    max-width: 250px;
+                }
+                top: @button-height * 2 + @panel-margin * 2;
             }
-            > form {
-                .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
-                width: 200px;
+    
+            &.search-tags {
+                top: @button-height * 3 + @panel-margin * 2;
+            }
+             
+            &.search-categories {
+                top: @button-height * 4 + @panel-margin * 2;
             }
         }
     }
@@ -286,11 +287,34 @@
 
 // Common styles reusable in different contexts
 
+form[role="search"] {
+    > .input-group {
+        background-color: white;
+        .input-group-addon {
+            border-radius: 0;
+            padding-left: 0.4em;
+            padding-right: 0.4em;
+            color: silver;
+            background-color: transparent;
+        }
+        input {
+            .box-shadow(none);
+            border-left: none;
+            border-right: none;
+            &:first-child { border-left: 1px solid #ccc; }
+            &:last-child { border-right: 1px solid #ccc; }
+            &:focus { border-color: #ccc; }
+            padding-left: 0;
+            border-radius: 0;
+        }
+        
+    }
+}   
+
 .panel.panel-search {
     border: none;
-    .box-shadow(none);
-    margin-bottom: 0px;
     width: 350px;
+    margin-bottom: 0px;
     .form-group {
         &:last-child {
             margin-bottom: 0px  ;
@@ -299,19 +323,6 @@
         > label {
             color: @red-main;
             font-weight: normal;
-        }
-        // Search input box
-        .input-group {
-            input {
-                .box-shadow(none);
-                &:focus {
-                    border-color: #ccc;
-                }
-            }
-            .search-clear {
-                background-color: transparent;
-                border-left: transparent;
-            }
         }
         // Categories / zones
         .list-group {

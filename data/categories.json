@@ -1,32 +1,57 @@
 [
     {
-        "key" : "tierslieux",
-        "label" : "TIERS LIEUX",
+        "key" : "Entreprise",
+        "label" : "Entreprises",
+        "tags" : [
+            "Ecommerce",
+            "B2B",
+            "Marketplace",
+            "Santé",
+            "Education",
+            "Culture",
+            "Environnement",
+            "Mobilité",
+            "Tourisme",
+            "Big Data",
+            "Applications mobiles",
+            "Services de proximité",
+            "Indépendants",
+            "Webdesign",
+            "Design",
+            "Graphisme",
+            "Marketing",
+            "Communication",
+            "Conseil"
+         ]
+    },
+    {
+        "key" : "Tiers-lieu",
+        "label" : "Tiers-lieux",
         "tags" : ["coworking", "fablab", "hackerspace", "bureaux partagés", "télécentre" ]
     },
     {
-        "key" : "ecoles",
-        "label" : "ECOLES",
+        "key" : "École",
+        "label" : "Écoles",
         "tags" : ["ingénieur", "développeur", "manager", "audiovisuel", "webdesign", "informatique", "telecoms", "jeux vidéo", "opensource"]
     },
     {
-        "key" : "communautes",
-        "label" : "COMMUNAUTES",
+        "key" : "Communauté",
+        "label" : "Communautés",
         "tags" : ["association", "syndicat", "fédération", "cluster"]
     },
     {
-        "key" : "incubateurs",
-        "label" : "INCUBATEURS",
+        "key" : "Incubateur",
+        "label" : "Incubateurs",
         "tags" : []
     },
     {
-        "key" : "investisseurs",
-        "label" : "INVESTISSEURS",
+        "key" : "Investisseur",
+        "label" : "Investisseurs",
         "tags" : ["Venture capitalist", "Business angel", "Hightech", "Cleantech"]
     },
     {
-        "key" : "acteurspublics",
-        "label" : "ACTEURS PUBLICS",
+        "key" : "Acteur public",
+        "label" : "Acteurs publics",
         "tags" : []
     }
 ]

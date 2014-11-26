@@ -177,7 +177,7 @@ module.exports = React.createClass({
                                       <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
                                   </a>
                               </li>
-                              <li className="dropdown open">
+                              <li className="dropdown">
                                   <a href="#" className="icon about dropdown-toggle" onClick={this._switchSearchBlock}>
                                       <i className="icon icon-search"></i>
                                       <span className="label">{this._getLabel('topmenu.label.search')}</span>

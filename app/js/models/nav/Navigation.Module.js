@@ -11,7 +11,7 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Initializes fields */
     _initFields : function() {
         this._criteria = {};
-        this._categories = {};
+        this._categories = [];
     },
 
     // ------------------------------------------------------------------
@@ -100,6 +100,21 @@ module.exports = Api.extend({}, ResourceUtils, {
      * Toggle tags in the search criteria. This methods sets all new tags and
      * removes already existing tags from the specified tag array.
      */
+    toggleCategories : function(categories) {
+        var existing = this.getFilterCategoryKeys();
+        existing = this.prepareFilterValues(existing);
+        categories = this.prepareFilterValues(categories);
+        var intersection = _.intersection(existing, categories);
+        var newCategories = _.difference(_.union(existing, categories),
+                intersection);
+        return this.updateSearchCriteria({
+            category : newCategories
+        });
+    },
+    /**
+     * Toggle tags in the search criteria. This methods sets all new tags and
+     * removes already existing tags from the specified tag array.
+     */
     toggleTags : function(tags) {
         var existing = this.getFilterTags();
         existing = this.prepareFilterValues(existing);
@@ -111,9 +126,38 @@ module.exports = Api.extend({}, ResourceUtils, {
         });
     },
 
+    /** Returns true if a category key is used to filter values. */
+    isFilteredByCategory : function(key) {
+        var categories = this.getFilterCategoryKeys();
+        return !!_.find(categories, function(k) {
+            return k === key;
+        });
+    },
+
     /** Returns an array of tags used as a search criteria. */
     getFilterTags : function() {
         return this._criteria.tags || [];
+    },
+
+    /** Returns an array of categories used as a search criteria. */
+    getFilterCategories : function() {
+        var keys = this.getFilterCategoryKeys();
+        return _.map(keys, function(key) {
+            return this.getCategoryByKey(key);
+        }, this);
+    },
+
+    /** Returns a list of category keys used to filter objects. */
+    getFilterCategoryKeys : function() {
+        return this._criteria.category;
+    },
+
+    /** Returns a category object corresponding to the specified key. */
+    getCategoryByKey : function(key) {
+        var result = _.find(this._categories, function(category) {
+            return category.key === key;
+        });
+        return result;
     },
 
     /**
