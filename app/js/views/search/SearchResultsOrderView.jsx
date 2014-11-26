@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
 var _ = require('underscore');
 var React = require('react');
-var I18NMixin = require('./utils/I18NMixin');
-var AppViewMixin = require('./AppViewMixin');
+var I18NMixin = require('../utils/I18NMixin');
+var AppViewMixin = require('../AppViewMixin');
 
 module.exports = React.createClass({
     displayName : 'SearchResultsOrderView',

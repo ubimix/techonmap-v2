@@ -5,7 +5,7 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PopupPanel = require('./utils/PopupPanel.jsx');
 var I18NMixin = require('./utils/I18NMixin');
-var SearchInputBoxView = require('./SearchInputBoxView.jsx');
+var SearchInputBoxView = require('./search/SearchInputBoxView.jsx');
 
 var SearchPanel = React.createClass({
     displayName : 'SearchPanel',

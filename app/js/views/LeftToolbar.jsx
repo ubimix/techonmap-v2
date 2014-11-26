@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 var _ = require('underscore');
 var React = require('react');
-var SearchInputBoxView = require('./SearchInputBoxView.jsx');
-var SearchTagsView = require('./SearchTagsView.jsx');
-var SearchCategoriesView = require('./SearchCategoriesView.jsx');
+var SearchInputBoxView = require('./search/SearchInputBoxView.jsx');
+var SearchTagsView = require('./search/SearchTagsView.jsx');
+var SearchCategoriesView = require('./search/SearchCategoriesView.jsx');
 var DomUtils= require('./utils/DomUtils');
 
 module.exports = React.createClass({

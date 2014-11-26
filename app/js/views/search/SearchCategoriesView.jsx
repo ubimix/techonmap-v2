@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
 var _ = require('underscore');
 var React = require('react');
-var AppViewMixin = require('./AppViewMixin');
-var TagsMixin = require('./widgets/TagsMixin.jsx');
+var AppViewMixin = require('../AppViewMixin');
+var TagsMixin = require('../widgets/TagsMixin.jsx');
 
 module.exports = React.createClass({
     displayName : 'SearchCategoriesView',

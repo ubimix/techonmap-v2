@@ -5,7 +5,7 @@ var DomUtils = require('./utils/DomUtils');
 var PanelSizeTracker = require('./utils/PanelSizeTracker');
 var MapView = require('./map/MapView.jsx');
 var LeftToolbar = require('./LeftToolbar.jsx');
-var SearchResultsView = require('./SearchResultsView.jsx');
+var SearchResultsView = require('./search/SearchResultsView.jsx');
 
 module.exports = React.createClass({
     displayName : 'MiddleZoneView',

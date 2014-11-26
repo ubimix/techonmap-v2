@@ -4,8 +4,8 @@
 var _ = require('underscore');
 var React = require('react');
 var Mosaic = require('mosaic-commons');
-var AppViewMixin = require('./AppViewMixin');
-var I18NMixin = require('./utils/I18NMixin');
+var AppViewMixin = require('../AppViewMixin');
+var I18NMixin = require('../utils/I18NMixin');
 
 var SearchInputBoxView = React.createClass({
     displayName : 'SearchInputBoxView',
@@ -52,7 +52,7 @@ var SearchInputBoxView = React.createClass({
     },
     componentWillMount : function(){
         var app = this.props.app;
-        this._setQuery = _.debounce(this._setQuery, 500);
+        this._setQuery = _.debounce(this._setQuery, 250);
         app.nav.addChangeListener(this._onSearch);
     },
     componentWillUnmount : function(){
