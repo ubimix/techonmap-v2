@@ -99,7 +99,8 @@ var SearchPanel = React.createClass({
         return this._renderPanelGroup('zones', this._renderReturnButton(), 'Zones panels');
     },
     _renderTagsPanel : function(){
-        return this._renderPanelGroup('tags', this._renderReturnButton(), 'Tags panel');
+        var app = this.getApp();
+        return this._renderPanelGroup('tags', this._renderReturnButton(), <SearchPanelTags app={app} />);
     },
     _renderCategoriesPanel : function(){
         return this._renderPanelGroup('categories', this._renderReturnButton(), 'MLKJL');

@@ -17,19 +17,20 @@ module.exports =  {
         var tags = ResourceUtils.getResourceTags(this.props.resource);
         return this._renderTagList(tags);
     },
-    _renderTagList : function(tags) {
+    _renderTag : function(tag){
         var app = this.props.app;
-        var tags = _.map(tags, function(tag) {
-            var selected = app.nav.isTagSelected(tag);
-            var className = selected ? 'tag selected' : 'tag';
-            return (
-                <span
-                    onClick={_.bind(this._selectTag, this, tag)}
-                    className={className}>
-                    {tag + ' '}
-                </span>
-            );
-        }, this);
+        var selected = app.nav.isTagSelected(tag);
+        var className = selected ? 'tag selected' : 'tag';
+        return (
+            <span
+                onClick={_.bind(this._selectTag, this, tag)}
+                className={className}>
+                {tag + ' '}
+            </span>
+        );
+    },
+    _renderTagList : function(tags) {
+        var tags = _.map(tags, this._renderTag, this);
         if (!tags.length) {
             tags = [this._getLabel('filter.label.tags.all')];
         }

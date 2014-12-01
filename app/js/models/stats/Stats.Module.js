@@ -45,8 +45,6 @@ module.exports = Api.extend({
     _onUpdate : function() {
         this._fullStats = this._calculateStats(this.app.res.getAllResources());
         this._stats = this._calculateStats(this.app.res.getResources());
-        console.log('* STATS: ', JSON.stringify(this._stats), JSON
-                .stringify(this._fullStats));
         this.notify();
     },
 
