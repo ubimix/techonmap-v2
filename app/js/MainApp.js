@@ -12,6 +12,7 @@ var I18NModule = require('./models/i18n/I18N.Module');
 var MapModule = require('./models/map/Map.Module');
 var NavigationModule = require('./models/nav/Navigation.Module');
 var ResourceModule = require('./models/res/Resource.Module');
+var StatsModule = require('./models/stats/Stats.Module');
 
 var initWidgets = require('./views/widgets/registration');
 module.exports = App.extend({
@@ -28,6 +29,7 @@ module.exports = App.extend({
             map : MapModule,
             nav : NavigationModule,
             res : ResourceModule,
+            stats : StatsModule,
             // search : SearchModule,
             // selection : SelectionModule,
             i18n : I18NModule,

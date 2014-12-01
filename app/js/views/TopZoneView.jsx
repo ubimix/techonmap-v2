@@ -9,6 +9,8 @@ var SearchCategoriesView = require('./search/SearchCategoriesView.jsx');
 var SearchInputBoxView = require('./search/SearchInputBoxView.jsx');
 var SearchInfoZoneView = require('./search/SearchInfoZoneView.jsx');
 var SearchInfoTagsView = require('./search/SearchInfoTagsView.jsx');
+var SearchPanelTags = require('./search/SearchPanelTags.jsx');
+
 var SearchInfoCategoriesView = require('./search/SearchInfoCategoriesView.jsx');
 var PanelSwitcher = require('./PanelSwitcher');
 

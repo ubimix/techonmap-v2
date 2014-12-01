@@ -3,33 +3,32 @@ var _= require('underscore');
 var React = require('react');
 var TagsMixin = require('../TagsMixin.jsx');
 var I18NMixin = require('../../utils/I18NMixin');
+var ResourceUtils = require('../../../tools/ResourceUtilsMixin');
 
 module.exports = React.createClass({
     displayName : 'MapPopup.Default',
     mixins: [TagsMixin, I18NMixin],
-    _getProperties : function(){
-        var resource = this.props.resource;
-        return resource.properties || {};
+    getApp : function(){
+        return this.props.app;
     },
     _getResourceType : function(){
-        var app = this.props.app;
+        var app = this.getApp();
         return app.res.getResourceType(this.props.resource);
     },
     _getResourceId : function(){
-        var app = this.props.app;
+        var app = this.getApp();
         return app.res.getResourceId(this.props.resource);
     },
     _renderName : function(){
-        var props = this._getProperties();
+        var name = ResourceUtils.getResourceName(this.props.resource);
         var selected = this.props.selected ? ' * ' : '';
         return <h3 className="name" onClick={this.props.onClick}>
-            <a href="#">{selected}{props.name}</a>
+            <a href="#">{selected}{name}</a>
         </h3>
     },
     render: function() {
         var resourceId = this._getResourceId();
         var resourceType = this._getResourceType();
-        var resourceProperties = this._getProperties();
         return (
             <div key={resourceId}>
                 {this._renderName()}

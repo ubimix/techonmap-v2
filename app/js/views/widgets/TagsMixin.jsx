@@ -1,6 +1,8 @@
 /** @jsx React.DOM */
 var _ = require('underscore');
 var React = require('react');
+var ResourceUtils = require('../../tools/ResourceUtilsMixin');
+
 module.exports =  {
     _selectTag : function(tag, ev) {
         var app = this.props.app;
@@ -12,8 +14,7 @@ module.exports =  {
         ev.preventDefault();
     },
     _renderTags : function(){
-        var props = this._getProperties();
-        var tags = props.tags;
+        var tags = ResourceUtils.getResourceTags(this.props.resource);
         return this._renderTagList(tags);
     },
     _renderTagList : function(tags) {

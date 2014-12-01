@@ -4,17 +4,13 @@ var React = require('react');
 var TagsMixin = require('./TagsMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 var Formats = require('../utils/Formats');
+var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 
 module.exports = _.extend({
 
      getApp : function() {
          return this.props.app;
      },
-    _getProperties : function(){
-        var resource = this.props.resource;
-        return resource.properties || {};
-    },
-    
     _selectResource : function(ev){
         var app = this.getApp();
         var resourceId = this.props.resourceId;
@@ -26,15 +22,15 @@ module.exports = _.extend({
     },
     
     _renderName : function(){
-        var props = this._getProperties();
+        var name = ResourceUtils.getResourceName(this.props.resource);
         return (
-           <span className="name">{props.name}</span>
+           <span className="name">{name}</span>
         );
     },
     
     _renderUrl : function(){
-        var props = this._getProperties();
-        var url = Formats._formatUrl(props.url);
+        var urlStr = ResourceUtils._getFirstProperty(this.props.resource, 'url');
+        var url = Formats._formatUrl(urlStr);
         return <div className="url">
             <a href={url.url} className="website" target="_blank">{url.label}</a>
         </div>

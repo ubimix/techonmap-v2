@@ -34,7 +34,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         var that = this;
         var app = that.getApp();
         app.nav.addChangeListener(that._searchResources, that);
-        setTimeout(function(){
+        setTimeout(function() {
             return that._loadAllInfo().then(function() {
                 return that._searchResources();
             });
@@ -112,15 +112,18 @@ module.exports = Api.extend({}, ResourceUtils, {
     },
 
     getResourceType : function(resource) {
-        var props = resource.properties || {};
-        var category = props.category || 'default';
-        return category.toLowerCase();
+        return ResourceUtils.getResourceType(resource);
     },
 
     /** Returns the total resource number. */
     getTotalResourceNumber : function() {
         var keys = _.keys(this._allResources);
         return keys.length;
+    },
+
+    /** Returns a list of all loaded resources. */
+    getAllResources : function() {
+        return _.values(this._allResources);
     },
 
     /** Returns a list of all resources. */

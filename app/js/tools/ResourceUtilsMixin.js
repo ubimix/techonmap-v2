@@ -3,23 +3,75 @@ var Mosaic = require('mosaic-commons');
 
 module.exports = {
 
+    /** Returns a list of normalized tags for the specified resource. */
+    getResourceTags : function(resource) {
+        var values = this._getPropertyArray(resource, 'tags');
+        return this._filterToLowerCase(values);
+    },
+
+    /** Returns a list of normalized categories for the specified resource. */
+    getResourceCategories : function(resource) {
+        var values = this._getPropertyArray(resource, 'category');
+        return this._filterToLowerCase(values);
+    },
+
+    /** Returns a geographic zone for this resource. */
+    getResourceZone : function(resource) {
+        var code = this._getFirstProperty(resource, 'postcode');
+        if (code && code.length > 2) {
+            code = code.substring(0, 2);
+        }
+        return code;
+    },
+
+    /** Returns the name of this resource. */
+    getResourceName : function(resource) {
+        if (!resource)
+            return null;
+        var type = this._getFirstProperty(resource, 'name');
+        return type;
+    },
 
     /** Returns type for the specified resource. */
     getResourceType : function(resource) {
         if (!resource)
             return null;
-        var type = this._getFirstProperty(resource, 'type');
-        return type;
+        var categories = this.getResourceCategories(resource);
+        return categories.length ? categories[0] : 'default';
+        // var type = this._getFirstProperty(resource, 'type');
+        // return type;
     },
 
     /** Returns first value of a property with the specified key. */
     _getFirstProperty : function(resource, key, defaultValue) {
+        var values = this._getPropertyArray(resource, key);
+        var value = defaultValue;
+        if (values.length) {
+            value = values[0];
+        }
+        return value;
+    },
+
+    /**
+     * Returns a resource property with the specified key as an array. The
+     * returned values is always an array (which can be empty).
+     */
+    _getPropertyArray : function(resource, key) {
         var props = (resource ? resource.properties : null) || {};
         var array = props[key] || [];
-        if (array && array.length) {
-            return array[0];
-        }
-        return defaultValue !== undefined ? defaultValue : 'default';
+        return _.isArray(array) ? _.toArray(array) : [ array ];
+    },
+
+    /**
+     * This utility method transforms all values of the specified array to lower
+     * case.
+     */
+    _filterToLowerCase : function(array) {
+        if (!array)
+            return [];
+        return _.map(array, function(value) {
+            return (value + '').toLowerCase();
+        });
     },
 
     /** Returns a unique identifier of this resource. */
