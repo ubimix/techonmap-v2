@@ -34,9 +34,13 @@ module.exports = React.createClass({
         return _.map(list, function(info) {
             var stats = info.current + ' / ' + info.full;
             return (
-                <div>
-                    {this._renderTag(info.tag)}
-                    <span className="badge">{stats}</span>
+                <div className="row">
+                    <div className="col-xs-10">
+                        {this._renderTag(info.tag)}
+                    </div>
+                    <div className="col-xs-2">
+                        <span className="label label-default pull-right">{stats}</span>
+                    </div>
                 </div>
             );
         }, this);
