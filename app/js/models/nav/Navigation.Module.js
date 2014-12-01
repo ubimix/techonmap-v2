@@ -85,58 +85,47 @@ module.exports = Api.extend({}, ResourceUtils, {
         });
     },
 
-    /** Adds the specified tags to the list of filters. */
-    filterByTags : function(tags) {
-        if (!tags)
-            tags = [];
-        else
-            tags = _.isArray(tags) ? tags : [ tags ];
-        return this.updateSearchCriteria({
-            tags : tags
-        });
-    },
-
     /**
      * Toggle tags in the search criteria. This methods sets all new tags and
      * removes already existing tags from the specified tag array.
      */
     toggleCategories : function(categories) {
-        var existing = this.getFilterCategoryKeys();
-        existing = this.prepareFilterValues(existing);
-        categories = this.prepareFilterValues(categories);
-        var intersection = _.intersection(existing, categories);
-        var newCategories = _.difference(_.union(existing, categories),
-                intersection);
-        return this.updateSearchCriteria({
-            category : newCategories
-        });
+        this._toggleSearchCriteria('categories', categories);
     },
+
     /**
      * Toggle tags in the search criteria. This methods sets all new tags and
      * removes already existing tags from the specified tag array.
      */
     toggleTags : function(tags) {
-        var existing = this.getFilterTags();
-        existing = this.prepareFilterValues(existing);
-        tags = this.prepareFilterValues(tags);
-        var intersection = _.intersection(existing, tags);
-        var newTags = _.difference(_.union(existing, tags), intersection);
-        return this.updateSearchCriteria({
-            tags : newTags
-        });
+        this._toggleSearchCriteria('tags', tags);
+    },
+
+    /** Toggles geographic zones. */
+    toggleZones : function(zones) {
+        this._toggleSearchCriteria('zones', zones);
     },
 
     /** Returns true if a category key is used to filter values. */
     isFilteredByCategory : function(key) {
+        var array = this.prepareFilterValues(key);
+        if (!array.length)
+            return false;
+        key = array[0];
         var categories = this.getFilterCategoryKeys();
         return !!_.find(categories, function(k) {
-            return k === key;
+            return k == key;
         });
     },
 
     /** Returns an array of tags used as a search criteria. */
     getFilterTags : function() {
         return this._criteria.tags || [];
+    },
+
+    /** Returns a list of all zones used to fileter values. */
+    getFilterZones : function() {
+        return this._criteria.zones || [];
     },
 
     /** Returns an array of categories used as a search criteria. */
@@ -195,11 +184,25 @@ module.exports = Api.extend({}, ResourceUtils, {
      * array of lower case strings used to filter resource values.
      */
     prepareFilterValues : function(value) {
-        value = _.isArray(value) ? _.toArray(value) : [ value ];
-        value = _.map(value, function(f) {
-            return ('' + f).toLowerCase();
-        });
+        if (!value) {
+            value = [];
+        } else {
+            value = _.isArray(value) ? _.toArray(value) : [ value ];
+            value = _.map(value, function(f) {
+                return ('' + f).toLowerCase();
+            });
+        }
         return value;
-    }
+    },
+
+    _toggleSearchCriteria : function(key, values) {
+        var existing = this._criteria[key];
+        existing = this.prepareFilterValues(existing);
+        values = this.prepareFilterValues(values);
+        var intersection = _.intersection(existing, values);
+        var options = {};
+        options[key] = _.difference(_.union(existing, values), intersection);
+        return this.updateSearchCriteria(options);
+    },
 
 });

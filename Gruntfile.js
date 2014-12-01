@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         lessPaths : [ './app/css/**/*.less', './app/css/**/*.css',
                 './app/libs/**/*.css' ],
         lessFile : './app/css/index.less',
-        watchTasks : [ 'default' ],
+        watchTasks : [ 'less' ],
 
         // Webpack config
         debug : false,

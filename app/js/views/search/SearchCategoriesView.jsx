@@ -3,10 +3,11 @@ var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
 var TagsMixin = require('../widgets/TagsMixin.jsx');
+var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
     displayName : 'SearchCategoriesView',
-    mixins : [AppViewMixin, TagsMixin],
+    mixins : [AppViewMixin, TagsMixin, I18NMixin],
     _newState : function(options){
         var app = this.getApp();
         var tags = app.nav.getFilterTags();
@@ -14,17 +15,6 @@ module.exports = React.createClass({
     },
     _getStore : function(){
         return this.props.app.nav;
-    },
-    _onSelectTag : function(){
-        var elm = this.refs.categories.getDOMNode();
-        DomUtils._removeClass(elm, 'open');
-    },
-    _toggleCategories : function(ev){
-        var app = this.props.app;
-        var elm = this.refs.categories.getDOMNode();
-        DomUtils._toggleClass(elm, 'open');
-        ev.stopPropagation();
-        ev.preventDefault();
     },
     _onCategoryClick : function(category, ev) {
         var key = category.key;
@@ -46,36 +36,42 @@ module.exports = React.createClass({
          </a>
        );
     },
+    render1 : function(){
+        var app = this.props.app;
+        var categories = app.nav.getCategories();
+        return (
+            <ul className="list-group categories">
+                {_.map(categories, function(category){
+                    return (
+                       <li className="list-group-item">
+                           {this._renderCategory(category)}
+                       </li>
+                    );
+                }, this)}
+            </ul>
+        );
+    },
     render : function(){
         var app = this.props.app;
         var categories = app.nav.getCategories();
-        var array = [];
-        _.each(categories, function(category, i){
+        var array = _.map(categories, function(category, i){
             var key = category.key;
             var tags = category.tags;
-            array.push(
-                <div key={key}>
-                    <h4>{this._renderCategory(category)}</h4>
-                    <div>{this._renderTagList(tags)}</div>
+            var active = app.nav.isFilteredByCategory(category.key);
+            var body = active
+                ? (<div className="panel-body">{this._renderTagList(tags)}</div>)
+                : '';
+            return (
+                <div className="panel category">
+                    <div className="panel-heading">
+                      <h3 className="panel-title">{this._renderCategory(category)}</h3>
+                    </div>
+                    {body}
                 </div>
             );
         }, this);
-        if (array.length % 2){
-            array.push('');
-        }
-        var selectedCategories = app.nav.getFilterCategories();
         return (
-            <div className="">
-                {
-                    _.map(selectedCategories, function(category){
-                        return this._renderCategory(category);
-                    }, this)
-                }
-                <div className="row">
-                    <div className="col-xs-6">{_.filter(array, function(v, i) { return i % 2 == 0; })}</div>
-                    <div className="col-xs-6">{_.filter(array, function(v, i) { return i % 2 == 1; })}</div>
-                </div>
-            </div>
+            <div className="panel-group categories">{array}</div>
          );
     }
 });

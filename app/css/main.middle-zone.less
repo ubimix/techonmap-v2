@@ -1,0 +1,147 @@
+.middle-zone {
+    .fit(@top-height + @social-height, 0px, 0px, 0px);
+    
+    .map {
+        .fit();
+        
+        .icon-container {
+            .icon {
+                color: white;
+                background-color: red;
+            }
+            &.entreprise  > .icon {
+                background-color: green;
+            }
+        }
+    }
+    .toolbar {
+        @button-height: 40px;        
+        .map-control {
+            z-index: 1;
+            .fit(@panel-margin, auto, auto, @panel-margin);
+            button {
+                width: @button-height;
+                height: @button-height;
+            }
+        }
+
+        > .list-group {
+            z-index: 1;
+            .fit(auto, auto, auto, @panel-margin);
+            height: @button-height;
+            > li { 
+                padding: 6px 0.5em;
+            }
+            &.search-input-box {
+                > li { 
+                    padding: 0;
+                    max-width: 250px;
+                }
+                top: @button-height * 2 + @panel-margin * 2;
+            }
+    
+            &.search-tags {
+                top: @button-height * 3 + @panel-margin * 2;
+            }
+             
+            &.search-categories {
+                top: @button-height * 4 + @panel-margin * 2;
+            }
+        }
+    }
+    .search-results {
+        .fit(@panel-margin, @panel-margin, 1px, 75%);
+        display: block;
+        background-color: white;
+        > .stats {
+            .fit(0px, 0px, auto, 0px);
+            height: @bar-size;
+            border-bottom: 1px solid #eee;
+            .label {
+                font-size: 1em;
+                color: gray;
+                line-height: @bar-size;
+            }
+            .switcher {
+                .fit(0px, 0px, auto, auto);
+                width: @bar-size;
+                height: @bar-size;
+                line-height: @bar-size;
+                vertical-align: middle;
+                text-align: center;
+                border-left: 1px solid #eee;
+            }
+            .count {
+                .fit(0px, @bar-size, 0px, auto);
+                font-size: 1.2em;
+                line-height: @bar-size;
+                .current { color: black; padding: 0em 0.25em; }
+                .total { color: red; padding: 0em 0.25em; }
+            }
+        }
+        > .nav {
+            .fit(@bar-size, 0px, auto, 0px);
+            > li {
+                > * {
+                    font-size: smaller;
+                    height: @nav-size;
+                    line-height: @nav-size;
+                    padding: 0 0.5em;
+                    border-top: none;
+                    border-radius: 0;
+                }
+                &.active > * {
+                    color: @red-main;
+                    .glyphicon {
+                        padding-left: 0.5em;
+                        font-size: 0.6em;
+                    }
+                }
+            }
+        }
+       > .list-group {
+            .fit(@bar-size + @nav-size + 2);
+            overflow-x: hidden;
+            overflow-y: auto;
+            .list-group-item {
+                min-height: 100px;
+                border: 1px solid transparent;
+                border-bottom: 1px solid #eee;
+                margin-top: 0px;
+                &.selected {
+                    background-color: #eee;
+                }
+                .media-left img {
+                    height: 36px;
+                    height: 36px;
+                }
+            }
+        }
+        &.reduced {
+            top: auto;
+            height: @bar-size;
+             > .nav {
+                display: none; 
+             }
+            .list-group {
+                display: none; 
+            }
+        }
+    }
+    
+    .popover-container {
+        .popover {
+            .fit(auto, auto, auto, 100%);
+            min-width: 300px;
+            display: block;
+            &.top {
+                top: 0px;
+                .arrow { top: 6px; }
+            }
+            &.bottom {
+                bottom: 0px;
+                .arrow { bottom: 6px; }
+            }
+        }
+    }
+}

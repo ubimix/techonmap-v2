@@ -1,0 +1,176 @@
+.top-zone {
+    .fit(@social-height, 0px, auto, 0px);
+    z-index: 1001; // To be just before floating bootstrap elements
+    height: @top-height;
+    background-color: white;
+    border-radius: 0;
+    
+    ul.nav.navbar-nav.navbar-right {
+        z-index: 1002;
+        margin-right: 0px;
+        > li {
+            width: 72px;
+            
+            > a {
+                border: 1px solid transparent;
+                padding: 0px;
+                padding-bottom: 1em;
+                text-align: center;
+                margin: 0px;
+                margin-top: 0.25em;
+                > i.icon {
+                    .icon(32px);
+                    &.icon-info {
+                        .icon-image('../images/icons-mono/info-mono.svg');
+                    }
+                    &.icon-about {
+                        .icon-image('../images/icons-mono/about-mono.svg');
+                    }
+                    &.icon-share {
+                        .icon-image('../images/icons-mono/share-mono.svg');
+                    }
+                    &.icon-export {
+                        .icon-image('../images/icons-mono/export-mono.svg');
+                    }
+                    &.icon-heatmap {
+                        .icon-image('../images/icons-mono/heatmap-mono.svg');
+                    }
+                    &.icon-search {
+                        .icon-image('../images/icons-mono/search-mono.svg');
+                    }
+                }
+                > span.label {
+                    display: block;
+                    font-size: smaller;
+                    font-weight: normal;
+                    line-height: 1;
+                    text-align: center;
+                    white-space: nowrap;
+                    margin: -0.75em 0.1em;
+                    color: gray;
+                }
+            }
+            /* Drop-down search panel  */
+            &.dropdown {
+                // Search panel: default (closed) style
+                > .dropdown-menu {
+                    display: none;
+                    margin-top: -1px;
+                    z-index: -1;
+                    border-bottom: 2px solid @red-main;
+                }
+                // Open search panel
+                &.open {
+                    > a {
+                        background-color: white;
+                        border-color: #eee;
+                        border-bottom-color: white;
+                        }
+                    > .dropdown-menu {
+                        display: block;
+                    }
+                    
+                    // Container for top menu panels
+                    .container {
+                        max-width: 450px;
+                        
+                        // Individual panels in the dropdown
+                        > .panel-group {
+                           margin: 0px;
+                           > .panel {
+                                .box-shadow(none);
+                                > .panel-heading {
+                                    padding: 0px;
+                                    padding-top: 1em;
+                                    padding-bottom: 0.5em;
+                                    .panel-title {
+                                        color: @red-main;
+                                    }
+                                }
+                                > .panel-body {
+                                    padding: 0px;
+                                }
+                            }
+                            // Individual items in lists
+                            .list-group {
+                                margin: 0px;
+                                .list-group-item {
+                                    padding: 0px;
+                                    border: none;
+                                    a { 
+                                        display: block;
+                                        padding: 0.5em 0px;
+                                        color: #767676;
+                                        &.return {
+                                            font-size: 1.2em;
+                                            line-height: 1.2em;
+                                            border-bottom: 1px solid #ccc;
+                                            margin-bottom: 0.5em;
+                                            color: #767676;
+                                            i.glyphicon { margin-right: 0.3em; }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    .btn-group {
+        white-space: nowrap;
+    }
+}
+
+
+form[role="search"] {
+    > .input-group {
+        background-color: white;
+        .input-group-addon {
+            border-radius: 0;
+            color: silver;
+            background-color: transparent;
+        }
+        input {
+            .box-shadow(none);
+            border-left: none;
+            border-right: none;
+            &:first-child { border-left: 1px solid #ccc; }
+            &:last-child { border-right: 1px solid #ccc; }
+            &:focus { border-color: #ccc; }
+            padding-left: 0;
+            border-radius: 0;
+        }
+        
+    }
+}
+
+/* * /
+.categories {
+    min-width: 250px;
+    max-height: 250px;
+    overflow-y: auto;
+    margin: 0;
+    .category {
+        .box-shadow(none);
+        .panel-heading {
+            .panel-title {
+                a {
+                    padding: 0.25em;
+                    &.active {
+                        background-color: #eee;
+                    } 
+                }
+            }
+        }
+        .panel-body {
+            padding: 0px;
+            .tags {
+                .tag { font-size: small; }
+            }
+        }
+    }
+}
+// */

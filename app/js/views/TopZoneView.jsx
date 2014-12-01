@@ -5,35 +5,130 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PopupPanel = require('./utils/PopupPanel.jsx');
 var I18NMixin = require('./utils/I18NMixin');
+var SearchCategoriesView = require('./search/SearchCategoriesView.jsx');
 var SearchInputBoxView = require('./search/SearchInputBoxView.jsx');
+var SearchInfoZoneView = require('./search/SearchInfoZoneView.jsx');
+var SearchInfoTagsView = require('./search/SearchInfoTagsView.jsx');
+var SearchInfoCategoriesView = require('./search/SearchInfoCategoriesView.jsx');
+var PanelSwitcher = require('./PanelSwitcher');
 
 var SearchPanel = React.createClass({
     displayName : 'SearchPanel',
     mixins : [ DomUtils, I18NMixin ],
+    componentDidMount : function(){
+        this._togglePanel('main');
+    },
+    activate : function(key) {
+        this.setState(this._newState({
+            active: key
+        }));
+    },
     getApp : function(){
         return this.props.app;
     },
     render : function(){
-        var app = this.props.app;
         return (
-            <div className="panel panel-search">
-                <div className="panel-body">
-                    <div className="form-group">
-                        <label className="control-label">{this._getLabel('search.panel.label.input')}</label>
-                        <SearchInputBoxView app={app}/>
-                    </div>
-                    <div className="form-group">
-                        <label className="control-label">{this._getLabel('search.panel.label.filters')}</label>
-                        <ul className="list-group">
-                            <li className="list-group-item">Zone: Toutes</li>
-                            <li className="list-group-item">Catégories: Toutes</li>
-                            <li className="list-group-item">Tags: Toutes</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+          <PanelSwitcher className="container search-menu" ref="panels">
+              {this._renderMainPanel()}
+              {this._renderZonesPanel()}
+              {this._renderCategoriesPanel()}
+              {this._renderTagsPanel()}
+          </PanelSwitcher>
+         );
+    },
+    _togglePanel : function(panelKey, ev) {
+        this.refs.panels.activate(panelKey);
+        if (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+        }
+    },
+    _renderButtons : function(){
+        return (        
+                <ul className="list-group">
+                {_.map(arguments, function(val) {
+                    return <li className="list-group-item">{val}</li>
+                })}
+                </ul>
         );
-    }
+    },
+    _renderReturnButton : function(){
+        return this._renderButtons(
+            <a href="#" className="return" onClick={_.bind(this._togglePanel, this, 'main')}>
+                <i className="glyphicon glyphicon-chevron-left pull-left"/>
+                {this._getLabel('search.panel.button.return')}
+            </a>
+        );
+    },
+
+    _renderPanel : function(){
+        var args = _.toArray(arguments);
+        var title = args[0];
+        args.splice(0, 1);
+        var valBlock = args.length 
+            ? <div className="panel-body">{args}</div> : null; 
+        return (
+             <div className="panel">
+                 <div className="panel-heading">
+                     <h3 className="panel-title">
+                         {title}
+                     </h3>
+                 </div>
+                 {valBlock}
+             </div>
+        );
+    },
+    _renderPanelGroup : function(){
+        var args = _.toArray(arguments);
+        var ref = args[0];
+        args.splice(0, 1);
+        return (<div className="panel-group" ref={ref}>{args}</div>);
+    },
+    _renderStats : function(labelKey, panelKey, view) {
+        return (
+           <a href="#" onClick={_.bind(this._togglePanel, this, panelKey)}>
+               {this._getLabel(labelKey)}
+               <i className="glyphicon glyphicon-chevron-right pull-right"/>
+           </a>
+        );
+    },
+    _renderZonesPanel : function(){
+        return this._renderPanelGroup('zones', this._renderReturnButton(), 'Zones panels');
+    },
+    _renderTagsPanel : function(){
+        return this._renderPanelGroup('tags', this._renderReturnButton(), 'Tags panel');
+    },
+    _renderCategoriesPanel : function(){
+        return this._renderPanelGroup('categories', this._renderReturnButton(), 'MLKJL');
+    },
+    _renderMainPanel : function(){
+        var app = this.props.app;
+        return this._renderPanelGroup(
+           'main', 
+           this._renderPanel(
+               this._getLabel('search.panel.label.input'), 
+               <SearchInputBoxView app={app}/>
+           ), 
+           this._renderPanel(
+               this._getLabel('search.panel.label.filters'),
+               this._renderButtons(
+                   this._renderStats(
+                           'search.panel.label.zones',
+                           'zones',
+                           <SearchInfoZoneView app={app} />),
+                   this._renderStats(
+                           'search.panel.label.categories',
+                           'categories',
+                           <SearchInfoCategoriesView app={app} />),
+                   this._renderStats(
+                           'search.panel.label.tags',
+                           'tags',
+                           <SearchInfoTagsView app={app} />)
+               )
+           )
+        );
+    },
+    
 });
 
 
@@ -65,19 +160,6 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _showInfo : function(ev){
-        ev.stopPropagation();
-        ev.preventDefault();
-        var title = (<span>This is a title</span>);
-        var body = (<div><p>This is a content</p><p>Second paragraph</p></div>);
-        var footer = (<div>Just a message</div>);
-        PopupPanel.openPopup({
-            title : title,
-            body : body,
-            footer : footer
-        });
-    },
-    
     _showContentDialog : function(href) {
         var app = this.getApp();
         app.content.loadContent(href).then(function(obj){

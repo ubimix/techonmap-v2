@@ -34,10 +34,12 @@ module.exports = Api.extend({}, ResourceUtils, {
         var that = this;
         var app = that.getApp();
         app.nav.addChangeListener(that._searchResources, that);
-        return Mosaic.P.then(function() {
+        setTimeout(function(){
             return that._loadAllInfo().then(function() {
                 return that._searchResources();
             });
+        }, 100);
+        return Mosaic.P.then(function() {
         });
     },
 
