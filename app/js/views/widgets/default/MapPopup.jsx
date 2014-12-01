@@ -2,9 +2,11 @@
 var _= require('underscore');
 var React = require('react');
 var TagsMixin = require('../TagsMixin.jsx');
+var I18NMixin = require('../../utils/I18NMixin');
+
 module.exports = React.createClass({
     displayName : 'MapPopup.Default',
-    mixins: [TagsMixin],
+    mixins: [TagsMixin, I18NMixin],
     _getProperties : function(){
         var resource = this.props.resource;
         return resource.properties || {};

@@ -8,7 +8,7 @@ module.exports = React.createClass({
     mixins : [AppViewMixin],
     _newState : function(options){
         var nav = this._getStore();
-        var zones = app.nav.getFilterZones();
+        var zones = nav.getFilterZones();
         return { zones : zones };
     },
     _getStore : function(){

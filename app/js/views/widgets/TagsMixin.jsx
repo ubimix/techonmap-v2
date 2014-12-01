@@ -21,17 +21,17 @@ module.exports =  {
         var tags = _.map(tags, function(tag) {
             var selected = app.nav.isTagSelected(tag);
             var className = selected ? 'tag selected' : 'tag';
-            var suffix = selected ? <i className="glyphicon glyphicon-remove"></i> : '';
             return (
-                <a href="#"
+                <span
                     onClick={_.bind(this._selectTag, this, tag)}
                     className={className}>
-                    #{tag + ' '}{suffix}
-                </a>
+                    {tag + ' '}
+                </span>
             );
         }, this);
-        if (!tags.length)
-            return '';
+        if (!tags.length) {
+            tags = [this._getLabel('filter.label.tags.all')];
+        }
         return <span className="tags">{tags}</span>
     },
 };

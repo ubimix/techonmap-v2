@@ -8,7 +8,7 @@ module.exports = React.createClass({
     mixins : [AppViewMixin],
     _newState : function(options){
         var nav = this._getStore();
-        var categories = app.nav.getFilterCategories();
+        var categories = nav.getFilterCategories();
         return { categories : categories };
     },
     _getStore : function(){

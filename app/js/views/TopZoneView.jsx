@@ -87,8 +87,9 @@ var SearchPanel = React.createClass({
     _renderStats : function(labelKey, panelKey, view) {
         return (
            <a href="#" onClick={_.bind(this._togglePanel, this, panelKey)}>
-               {this._getLabel(labelKey)}
                <i className="glyphicon glyphicon-chevron-right pull-right"/>
+               {this._getLabel(labelKey)}
+               {view}
            </a>
         );
     },

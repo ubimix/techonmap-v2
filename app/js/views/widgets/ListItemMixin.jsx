@@ -2,17 +2,21 @@
 var _ = require('underscore');
 var React = require('react');
 var TagsMixin = require('./TagsMixin.jsx');
+var I18NMixin = require('../utils/I18NMixin');
 var Formats = require('../utils/Formats');
 
 module.exports = _.extend({
 
+     getApp : function() {
+         return this.props.app;
+     },
     _getProperties : function(){
         var resource = this.props.resource;
         return resource.properties || {};
     },
     
     _selectResource : function(ev){
-        var app = this.props.app;
+        var app = this.getApp();
         var resourceId = this.props.resourceId;
         app.selection.toggleResource({
             resourceId : resourceId
@@ -58,4 +62,4 @@ module.exports = _.extend({
             </div>
         );
     },
-}, TagsMixin);
+}, TagsMixin, I18NMixin);
