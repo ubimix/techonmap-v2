@@ -2,6 +2,7 @@
 var _ = require('underscore');
 var React = require('react');
 
+
 var CategoryMixin = {
     _selectCategory : function(category, ev) {
         var app = this.props.app;
@@ -18,6 +19,7 @@ var CategoryMixin = {
             <span
                 onClick={_.bind(this._selectCategory, this, category)}
                 className={className}>
+                <i className={'icon ' + category.icon} />
                 {categoryLabel + ' '}
             </span>
         );

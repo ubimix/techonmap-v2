@@ -1,21 +1,19 @@
 var _ = require('underscore');
 var L = require('leaflet');
 
-var icons = {
-    'entreprise' : 'icon-company',
-    'incubateur' : 'icon-incubator',
-    'default' : 'icon-company'
-};
-
 module.exports = function(options) {
     var app = options.app;
     var mapOptions = app.options.map;
     var resource = options.resource;
     var type = app.res.getResourceType(resource);
-    var typeIcon = icons[type] || icons['default'];
+    var iconType = type;
+    // FIXME: remove it! 
+    iconType = 'icon-community-mono';
+    
     var size = '30px';
+    var iconSize = '24px';
     var style = _.map({
-        'font-size' : size,
+        'font-size' : iconSize,
         'line-height' : size,
         'width' : size,
         'height' : size,
@@ -29,8 +27,8 @@ module.exports = function(options) {
 
     var icon = L.divIcon({
         className : '',
-        html : '<div class="icon-container ' + type + '">' + '<i class="icon ' +
-                typeIcon + '" style="' + style + '"></i>' + '</div>',
+        html : '<div class="icon-container ' + type + '">'
+            + '<i class="icon ' + iconType + '" style="' + style + '"></i>' + '</div>',
         iconSize : [ 28, 28 ],
         iconAnchor : [ 14, 14 ],
         popupAnchor : [ 0, -14 ]

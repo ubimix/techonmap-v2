@@ -82,7 +82,9 @@ module.exports = AbstractMapLayer.extend({
         var clusterOptions = _.extend({
             spiderfyOnMaxZoom : true,
             showCoverageOnHover : false,
-            zoomToBoundsOnClick : true
+            zoomToBoundsOnClick : true,
+            maxClusterRadius : 120,
+            iconCreateFunction : _.bind(this._newClusterMarker, this)
         }, mapOptions.cluster, {});
         this._clusterLayer = new L.MarkerClusterGroup(clusterOptions);
         this._map.addLayer(this._clusterLayer);
@@ -132,6 +134,17 @@ module.exports = AbstractMapLayer.extend({
 
     // -----------------------------------------------------------------------
     // Resource-specific views
+
+    /** Creates and returns a new cluster marker for the specified resource. */
+    _newClusterMarker : function(cluster) {
+        var app = this._getApp();
+        var type = 'default';
+        var marker = app.viewManager.newView('mapClusterMarker', type, {
+            app : app,
+            cluster : cluster
+        });
+        return marker;
+    },
 
     /** Creates and returns a new marker for the specified resource. */
     _newMarker : function(latlng, resource) {
@@ -232,7 +245,7 @@ module.exports = AbstractMapLayer.extend({
             that._setSelectedMarker(marker);
         });
     },
-    
+
     _onZoomEnd : function() {
         var zoom = this._map.getZoom();
         _.each(this._index, function(marker) {

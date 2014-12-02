@@ -47,10 +47,11 @@
         cursor: pointer;
         display: inline-block;
         padding: 0.1em 0.2em;
-        margin-right: 0.1em;
+        margin: 0.1em;
         vertical-align: middle;
         white-space: nowrap;
         border: 1px solid transparent;
+        font-size: smaller;
         &::before {
             content: " #";
         }
@@ -71,22 +72,31 @@
     }
 }
 
-.categories {
-    .category {
-        cursor: pointer;
-        display: inline-block;
-        padding: 0.1em 0.2em;
-        margin-right: 0.1em;
-        vertical-align: middle;
-        white-space: nowrap;
-        border: 1px solid transparent;
-        &.selected {
-            background-color: white;
-            border: 1px solid #eee;
-            &::after {
-                content: " × ";
-            }
+.category {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.1em 0.2em;
+    margin-right: 0.1em;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    &.selected {
+        background-color: white;
+        border: 1px solid #eee;
+        &::after {
+            content: " × ";
         }
+    }
+    > .icon {
+        .icon(32px);
+        &.toute { .icon-image('../images/icons/pin.svg'); }
+        &.entreprise { .icon-image('../images/icons/company.svg'); }
+        &.tiers-lieu { .icon-image('../images/icons/coworking.svg'); }
+        &.ecole { .icon-image('../images/icons/pin.svg'); }
+        &.communaute { .icon-image('../images/icons/community.svg'); }
+        &.incubateur { .icon-image('../images/icons/incubator.svg'); }
+        &.investisseur { .icon-image('../images/icons/investor.svg'); }
+        &.acteur-public { .icon-image('../images/icons/org.svg'); }
     }
 }
 

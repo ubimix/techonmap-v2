@@ -3,7 +3,7 @@ var _ = require('underscore');
 var React = require('react');
 var SearchInputBoxView = require('./search/SearchInputBoxView.jsx');
 var SearchTagsView = require('./search/SearchTagsView.jsx');
-var SearchCategoriesView = require('./search/SearchCategoriesView.jsx');
+var SearchInfoCategoriesView = require('./search/SearchInfoCategoriesView.jsx');
 var DomUtils= require('./utils/DomUtils');
 
 module.exports = React.createClass({
@@ -46,7 +46,7 @@ module.exports = React.createClass({
 
                 <ul className="list-group search-categories">
                     <li className="list-group-item">
-                        Categories: <SearchCategoriesView app={app}/>
+                        Categories: <SearchInfoCategoriesView app={app}/>
                     </li>
                 </ul>                
 
