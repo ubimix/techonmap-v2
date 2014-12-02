@@ -90,7 +90,8 @@ module.exports = Api.extend({}, ResourceUtils, {
      * removes already existing tags from the specified tag array.
      */
     toggleCategories : function(categories) {
-        this._toggleSearchCriteria('categories', categories);
+        categories = _.map(categories, this._getCategoryKey, this);
+        this._toggleSearchCriteria('category', categories);
     },
 
     /**
@@ -108,6 +109,7 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Returns true if a category key is used to filter values. */
     isFilteredByCategory : function(key) {
+        key = this._getCategoryKey(key);
         var array = this.prepareFilterValues(key);
         if (!array.length)
             return false;
@@ -117,7 +119,7 @@ module.exports = Api.extend({}, ResourceUtils, {
             return k == key;
         });
     },
-
+    
     /** Returns an array of tags used as a search criteria. */
     getFilterTags : function() {
         return this._criteria.tags || [];
@@ -143,9 +145,12 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Returns a category object corresponding to the specified key. */
     getCategoryByKey : function(key) {
+        var criteria = this.prepareFilterValues(key);
         var result = _.find(this._categories, function(category) {
-            return category.key === key;
-        });
+            var key = this._getCategoryKey(category);
+            var keys = this.prepareFilterValues(key);
+            return this.filterValues(criteria, keys);
+        }, this);
         return result;
     },
 
@@ -165,7 +170,8 @@ module.exports = Api.extend({}, ResourceUtils, {
      */
     isCategorySelected : function(category) {
         var criteria = this.prepareFilterValues(this.getFilterCategoryKeys());
-        var categories = this.prepareFilterValues(category);
+        var key = this._getCategoryKey(category);
+        var categories = this.prepareFilterValues(key);
         return this.filterValues(criteria, categories);
     },
 
@@ -214,5 +220,13 @@ module.exports = Api.extend({}, ResourceUtils, {
         options[key] = _.difference(_.union(existing, values), intersection);
         return this.updateSearchCriteria(options);
     },
+    
+    /** Returns the key of the specified category. */
+    _getCategoryKey : function(category) {
+        var key = _.isObject(category) ? category.key : category;
+        return key;
+    },
+
+
 
 });

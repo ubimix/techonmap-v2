@@ -23,18 +23,16 @@ var MenuMixin = {
     },
     _renderMenuPanel : function(){
         var args = toArray(arguments);
-        var title = args[0];
+        var heading = args[0];
         args.splice(0, 1);
-        var valBlock = args.length 
-            ? <div className="panel-body">{args}</div> : null; 
+        args = _.filter(args, function(val){
+            return !!val;
+        });
+        var body = args.length ? <div className="panel-body">{args}</div> : null;
         return (
              <div className="panel">
-                 <div className="panel-heading">
-                     <h3 className="panel-title">
-                         {title}
-                     </h3>
-                 </div>
-                 {valBlock}
+                 <div className="panel-heading">{heading}</div>
+                 {body}
              </div>
         );
     },
@@ -42,6 +40,7 @@ var MenuMixin = {
         var args = toArray(arguments);
         var ref = args[0];
         args.splice(0, 1);
+        args = toArray(args);
         return (<div className="panel-group" ref={ref}>{args}</div>);
     },
     _renderMenuPanels : function(){

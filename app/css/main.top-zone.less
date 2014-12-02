@@ -73,17 +73,21 @@
                     // Container for top menu panels
                     .container {
                         max-width: 450px;
+                        max-height: 250px;
+                        overflow-y: auto;
                         
                         // Individual panels in the dropdown
-                        > .panel-group {
+                        .panel-group {
                            margin: 0px;
+                           padding-bottom: 0.5em;
                            > .panel {
                                 .box-shadow(none);
                                 > .panel-heading {
                                     padding: 0px;
-                                    padding-top: 1em;
-                                    padding-bottom: 0.5em;
                                     .panel-title {
+                                        paddin: 0px;
+                                        padding-top: 1em;
+                                        padding-bottom: 0.5em;
                                         color: @red-main;
                                     }
                                 }

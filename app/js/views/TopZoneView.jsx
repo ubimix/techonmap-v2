@@ -56,11 +56,15 @@ var SearchPanel = React.createClass({
         return this._renderMenuPanelGroup(
            'main', 
            this._renderMenuPanel(
-               this._getLabel('search.panel.label.input'), 
+               <h3 className="panel-title">
+                   {this._getLabel('search.panel.label.input')}
+               </h3>, 
                <SearchInputBoxView app={app}/>
            ), 
            this._renderMenuPanel(
-               this._getLabel('search.panel.label.filters'),
+               <h3 className="panel-title">
+                   {this._getLabel('search.panel.label.filters')}
+               </h3>,
                this._renderMenuItems(
                    this._renderMenuRef(
                            'search.panel.label.zones',

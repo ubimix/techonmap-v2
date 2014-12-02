@@ -12,7 +12,7 @@ var CategoryMixin = {
     _renderCategory : function(category){
         var app = this.props.app;
         var selected = app.nav.isCategorySelected(category);
-        var categoryLabel = category + '';
+        var categoryLabel = category.label;
         var className = selected ? 'category selected' : 'category';
         return (
             <span
