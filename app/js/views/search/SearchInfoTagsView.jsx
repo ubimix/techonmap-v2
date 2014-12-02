@@ -2,7 +2,7 @@
 var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
-var TagsMixin = require('../widgets/TagsMixin.jsx');
+var TagsMixin = require('../utils/TagsMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
