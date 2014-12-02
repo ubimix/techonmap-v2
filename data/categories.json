@@ -1,7 +1,7 @@
 [
     {
         "key" : "Entreprise",
-        "icon" : "entreprise",
+        "icon" : "company-mono",
         "label" : "Entreprises",
         "tags" : [
             "Ecommerce",
@@ -27,37 +27,37 @@
     },
     {
         "key" : "Tiers-lieu",
-        "icon" : "tiers-lieu",
+        "icon" : "coworking-mono",
         "label" : "Tiers-lieux",
         "tags" : ["coworking", "fablab", "hackerspace", "bureaux partagés", "télécentre" ]
     },
     {
         "key" : "École",
-        "icon" : "ecole",
+        "icon" : "education-mono",
         "label" : "Écoles",
         "tags" : ["ingénieur", "développeur", "manager", "audiovisuel", "webdesign", "informatique", "telecoms", "jeux vidéo", "opensource"]
     },
     {
         "key" : "Communauté",
-        "icon" : "communaute",
+        "icon" : "community-mono",
         "label" : "Communautés",
         "tags" : ["association", "syndicat", "fédération", "cluster"]
     },
     {
         "key" : "Incubateur",
-        "icon" : "incubateur",
+        "icon" : "incubator-mono",
         "label" : "Incubateurs",
         "tags" : []
     },
     {
         "key" : "Investisseur",
-        "icon" : "investisseur",
+        "icon" : "investor-mono",
         "label" : "Investisseurs",
         "tags" : ["Venture capitalist", "Business angel", "Hightech", "Cleantech"]
     },
     {
         "key" : "Acteur public",
-        "icon" : "acteur-public",
+        "icon" : "org-mono",
         "label" : "Acteurs publics",
         "tags" : []
     }

@@ -197,7 +197,7 @@ module.exports = React.createClass({
                               </li>
                               <li>
                                   <a href="#" onClick={this._showShareDialog}>
-                                      <i className="icon icon-share"></i>
+                                      <i className="icon icon-share-1"></i>
                                       <span className="label">{this._getLabel('topmenu.label.share')}</span>
                                   </a>
                               </li>

@@ -40,6 +40,7 @@
 @nav-size : 30px;
 @red-main: #eb6564;
 @red-dark: #d40308;
+@gray: #7d7d7d;
 
 // Common styles reusable in different contexts
 .tags {
@@ -89,6 +90,8 @@
     }
     > .icon {
         .icon(32px);
+        vertical-align: middle;
+        color: @gray;
         &.toute { .icon-image('../images/icons/pin.svg'); }
         &.entreprise { .icon-image('../images/icons/company.svg'); }
         &.tiers-lieu { .icon-image('../images/icons/coworking.svg'); }
@@ -97,6 +100,12 @@
         &.incubateur { .icon-image('../images/icons/incubator.svg'); }
         &.investisseur { .icon-image('../images/icons/investor.svg'); }
         &.acteur-public { .icon-image('../images/icons/org.svg'); }
+    }
+    
+    .category-label {
+        padding-left: 0.5em;
+        color: @gray;
+        font-size: 1.2em;
     }
 }
 

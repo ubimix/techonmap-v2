@@ -19,8 +19,8 @@ var CategoryMixin = {
             <span
                 onClick={_.bind(this._selectCategory, this, category)}
                 className={className}>
-                <i className={'icon ' + category.icon} />
-                {categoryLabel + ' '}
+                <i className={'icon icon-' + category.icon} />
+                <span className='category-label'>{categoryLabel + ' '}</span>
             </span>
         );
     },
