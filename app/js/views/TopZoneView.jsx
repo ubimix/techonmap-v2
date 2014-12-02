@@ -230,7 +230,7 @@ module.exports = React.createClass({
                           <div className="navbar-form navbar-right">
                               <div className="btn-group">
                                   <button type="button" className="btn btn-primary">{this._getLabel('topmenu.btn.add')}</button>
-                                  <button type="button" className="btn btn-primary dropdown-toggle">
+                                  <button type="button" className="btn btn-primary btn-add">
                                       <span className="caret"></span>
                                   </button>
                               </div>

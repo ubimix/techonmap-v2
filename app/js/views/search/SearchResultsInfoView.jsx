@@ -20,11 +20,11 @@ module.exports = React.createClass({
             totalNumber : app.res.getTotalResourceNumber()
         };
     },
-    
+
     render : function() {
         var iconClassName = this.props.open
-            ? "glyphicon glyphicon-chevron-down"
-            : "glyphicon glyphicon-chevron-up";
+            ? "icon chevron-down"
+            : "icon chevron-up";
         return (
             <div className={this.props.className} onClick={this.props.onToggleResults}>
                 <span className="count">

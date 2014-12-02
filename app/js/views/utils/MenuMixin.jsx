@@ -61,7 +61,7 @@ var MenuMixin = {
     _renderMenuRef : function(labelKey, panelKey, view) {
         return (
            <a href="#" onClick={_.bind(this._toggleMenuPanel, this, panelKey)}>
-               <i className="glyphicon glyphicon-chevron-right pull-right"/>
+               <i className="chevron-right pull-right"/>
                {this._getLabel(labelKey)}
                {view}
            </a>
@@ -71,7 +71,7 @@ var MenuMixin = {
         key = key || 'main';
         return this._renderMenuItems(
             <a href="#" className="return" onClick={_.bind(this._toggleMenuPanel, this, key)}>
-                <i className="glyphicon glyphicon-chevron-left pull-left"/>
+                <i className="chevron-left pull-left"/>
                 {this._getLabel('search.panel.button.return')}
             </a>
         );

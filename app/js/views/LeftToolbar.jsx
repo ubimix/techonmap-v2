@@ -40,13 +40,13 @@ module.exports = React.createClass({
 
                 <ul className="list-group search-tags">
                     <li className="list-group-item">
-                        Tags : <SearchTagsView app={app}/>
+                        Tag(s) : <SearchTagsView app={app}/>
                     </li>
                 </ul>                
 
                 <ul className="list-group search-categories">
                     <li className="list-group-item">
-                        Categories: <SearchInfoCategoriesView app={app}/>
+                        Catégorie(s) : <SearchInfoCategoriesView app={app}/>
                     </li>
                 </ul>                
 

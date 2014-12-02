@@ -24,7 +24,7 @@
             "topmenu.label.share" : "Partager",
             "topmenu.label.help" :  "Aide",
             "topmenu.label.about" : "À propos",
-            "topmenu.btn.add" : "Ajouter une organisation sur la carte"
+            "topmenu.btn.add" : "Ajouter une organisation"
         },
         "en" : {
             "filter.label.tags.all" : "All",
