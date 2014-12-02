@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "tom-icons";
-  src: url("./tom-icons_4aff1af0ec00b94e7ad7ea2f32301376.eot");
-  src: url("./tom-icons_4aff1af0ec00b94e7ad7ea2f32301376.eot?#iefix") format("embedded-opentype"),
-       url("./tom-icons_4aff1af0ec00b94e7ad7ea2f32301376.woff") format("woff"),
-       url("./tom-icons_4aff1af0ec00b94e7ad7ea2f32301376.ttf") format("truetype"),
-       url("./tom-icons_4aff1af0ec00b94e7ad7ea2f32301376.svg#tom-icons") format("svg");
+  src: url("./tom-icons_d727557c85669dd65ceda69fb4dd49e3.eot");
+  src: url("./tom-icons_d727557c85669dd65ceda69fb4dd49e3.eot?#iefix") format("embedded-opentype"),
+       url("./tom-icons_d727557c85669dd65ceda69fb4dd49e3.woff") format("woff"),
+       url("./tom-icons_d727557c85669dd65ceda69fb4dd49e3.ttf") format("truetype"),
+       url("./tom-icons_d727557c85669dd65ceda69fb4dd49e3.svg#tom-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,43 +16,42 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "tom-icons";
-    src: url("./tom-icons_4aff1af0ec00b94e7ad7ea2f32301376.svg#tom-icons") format("svg");
+    src: url("./tom-icons_d727557c85669dd65ceda69fb4dd49e3.svg#tom-icons") format("svg");
   }
 }
 
 [data-icon]:before { content: attr(data-icon); }
 
 [data-icon]:before,
-.icon-Sans-titre---3-37:before,
-.icon-about-mono:before,
-.icon-b2b:before,
-.icon-community-mono:before,
-.icon-company-mono:before,
-.icon-contact-mono:before,
-.icon-coworking-mono:before,
-.icon-edit-mono:before,
-.icon-education-mono:before,
-.icon-export-mono:before,
-.icon-facebook-mono:before,
-.icon-faq-mono:before,
+.icon-about:before,
+.icon-community:before,
+.icon-company:before,
+.icon-contact:before,
+.icon-coworking:before,
+.icon-edit:before,
+.icon-export:before,
+.icon-facebook:before,
+.icon-faq:before,
 .icon-google-plus:before,
-.icon-heatmap-mono:before,
-.icon-incubator-mono:before,
-.icon-info-mono:before,
-.icon-investor-mono:before,
+.icon-heatmap:before,
+.icon-icon-about:before,
+.icon-incubator:before,
+.icon-info:before,
+.icon-investor:before,
 .icon-linkedin:before,
 .icon-list:before,
 .icon-map:before,
-.icon-org-mono:before,
-.icon-pin-mono:before,
+.icon-org:before,
+.icon-pin:before,
+.icon-school:before,
+.icon-search:before,
 .icon-search-mobile:before,
-.icon-search-mono:before,
 .icon-share:before,
 .icon-switch-list:before,
 .icon-switch-map:before,
-.icon-twitter-mono:before,
+.icon-twitter:before,
 .icon-viadeo:before,
-.icon-web-mono:before {
+.icon-web:before {
   display: inline-block;
   font-family: "tom-icons";
   font-style: normal;
@@ -67,33 +66,32 @@
   font-smoothing: antialiased;
 }
 
-.icon-Sans-titre---3-37:before { content: "\f100"; }
-.icon-about-mono:before { content: "\f101"; }
-.icon-b2b:before { content: "\f102"; }
-.icon-community-mono:before { content: "\f103"; }
-.icon-company-mono:before { content: "\f104"; }
-.icon-contact-mono:before { content: "\f105"; }
-.icon-coworking-mono:before { content: "\f106"; }
-.icon-edit-mono:before { content: "\f107"; }
-.icon-education-mono:before { content: "\f108"; }
-.icon-export-mono:before { content: "\f109"; }
-.icon-facebook-mono:before { content: "\f10a"; }
-.icon-faq-mono:before { content: "\f10b"; }
-.icon-google-plus:before { content: "\f10c"; }
-.icon-heatmap-mono:before { content: "\f10d"; }
-.icon-incubator-mono:before { content: "\f10e"; }
-.icon-info-mono:before { content: "\f10f"; }
-.icon-investor-mono:before { content: "\f110"; }
-.icon-linkedin:before { content: "\f111"; }
-.icon-list:before { content: "\f112"; }
-.icon-map:before { content: "\f113"; }
-.icon-org-mono:before { content: "\f114"; }
-.icon-pin-mono:before { content: "\f115"; }
+.icon-about:before { content: "\f100"; }
+.icon-community:before { content: "\f101"; }
+.icon-company:before { content: "\f102"; }
+.icon-contact:before { content: "\f103"; }
+.icon-coworking:before { content: "\f104"; }
+.icon-edit:before { content: "\f105"; }
+.icon-export:before { content: "\f106"; }
+.icon-facebook:before { content: "\f107"; }
+.icon-faq:before { content: "\f108"; }
+.icon-google-plus:before { content: "\f109"; }
+.icon-heatmap:before { content: "\f10a"; }
+.icon-icon-about:before { content: "\f10b"; }
+.icon-incubator:before { content: "\f10c"; }
+.icon-info:before { content: "\f10d"; }
+.icon-investor:before { content: "\f10e"; }
+.icon-linkedin:before { content: "\f10f"; }
+.icon-list:before { content: "\f110"; }
+.icon-map:before { content: "\f111"; }
+.icon-org:before { content: "\f112"; }
+.icon-pin:before { content: "\f113"; }
+.icon-school:before { content: "\f114"; }
+.icon-search:before { content: "\f115"; }
 .icon-search-mobile:before { content: "\f116"; }
-.icon-search-mono:before { content: "\f117"; }
-.icon-share:before { content: "\f118"; }
-.icon-switch-list:before { content: "\f119"; }
-.icon-switch-map:before { content: "\f11a"; }
-.icon-twitter-mono:before { content: "\f11b"; }
-.icon-viadeo:before { content: "\f11c"; }
-.icon-web-mono:before { content: "\f11d"; }
+.icon-share:before { content: "\f117"; }
+.icon-switch-list:before { content: "\f118"; }
+.icon-switch-map:before { content: "\f119"; }
+.icon-twitter:before { content: "\f11a"; }
+.icon-viadeo:before { content: "\f11b"; }
+.icon-web:before { content: "\f11c"; }

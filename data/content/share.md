@@ -1,7 +1,23 @@
-title: Share
+title: <i class="icon icon-share"></i>Partager la carte
 ----
-Share, share, share... <a href="http://www.google.com">Google</a>
 
-* item 1
-* item 2
-* item 3
+## Partager par URL
+
+### URL de partage
+
+### Partager sur les réseaux
+
+
+## Intégrer la carte sur un site
+
+### Intégrer
+
+### Choisir un style
+
+### Choisir une taille
+
+### Code d'intégration à copier
+
+<button type="button" class="btn btn-primary">Afficher un aperçu</button> <button type="button" class="btn btn-primary">Valider</button> 
+
+## Générer une image de la carte

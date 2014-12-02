@@ -12,21 +12,6 @@
 }
 
 
-.icon(@size:32px) {
-    font-size: @size;
-    line-height: @size;
-    width: @size;
-    height: @size;
-    display: inline-block;
-    background-size: @size @size;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-color: transparent;
-}
-.icon-image(@url){
-    background-image: url( @url );
-}
-
 &.container-fluid {
     width: 100%;
     padding: 0;
@@ -38,12 +23,6 @@
 @panel-margin: 10px;
 @bar-size : 40px;
 @nav-size : 30px;
-
-@red-main: #eb6565;
-@red-dark: #d40308;
-@gray: #7d7d7d;
-@dark-gray: #999999;
-@blue: #385f98;
 
 // Common styles reusable in different contexts
 .tags {
@@ -103,16 +82,6 @@
         padding-left: 0.5em;
         color: @gray;
     }
-}
-
-button {
-    &.btn-primary {
-        color: #fff;
-        background-color: @blue;
-        border-color: @blue;
-        border-radius: 0px;
-    }
-    
 }
 
 

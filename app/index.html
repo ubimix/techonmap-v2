@@ -8,34 +8,36 @@
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"></link>
 <link href="./dist/mapapp.css" rel="stylesheet"></link>
 </head>
+<style>
+
+body {
+    font-family: 'Open Sans', 'sans-serif';
+}
+
+.well {
+    background-color: #fafafa;
+}
+
+</style>
 <body>
-	<script src="./dist/mapapp.js" type="text/javascript"></script>
+   <script src="./dist/mapapp.js" type="text/javascript"></script>
 <script>
 
-    var msg = '<p style="text-align:center;">Chargement de TechOnMap...</p>';
+    var msg = '<p style="text-align:center;">Chargement en cours</p>';
 
     document.write('' +
-     '<div class="">'+
-    '<div class="zone-dialogs visible">'+
-        '<div class="modals">'+
-            '<div class="modal-bg"></div>'+
-            '<div class="modal-container">'+
-                '<div class="modal-border">'+
-                    '<div class="modal-inner">'+
-                        '<div class="modal-content">'+
-                            '<div class="align-center">'+
-                                '<div class="modal-welcome">'+
-                                    '<div class="dialog welcome">'+
-                                    msg+'<p></p>' +
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
-               '</div>'+
-            '</div>'+
-        '</div>'+
-    '</div>'+
+     '<div class="container">' +
+     '<div class="row"><p>&nbsp;</p><p>&nbsp;</p></div>' +
+     '<div class="row">' +
+     '<div class="col-xs-3"></div>' +
+     '<div class="col-xs-6">' +
+     '<div class="well">'+
+     '<p style="text-align:center;"><img src="images/banner.png" /></p>' +
+    msg+'<p></p>' +
+    '</div>' +
+    '<div class="col-xs-3"></div>' +
+    '</div>' +
+    '</div>' +
     '</div>'
      );
 </script>	

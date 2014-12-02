@@ -1,0 +1,158 @@
+{
+  "checksum": {
+    "previous": "d727557c85669dd65ceda69fb4dd49e38fa6b99aaad486051c17f18187781885",
+    "current": "d727557c85669dd65ceda69fb4dd49e38fa6b99aaad486051c17f18187781885"
+  },
+  "fonts": [
+    "tom-icons/tom-icons_d727557c85669dd65ceda69fb4dd49e3.ttf",
+    "tom-icons/tom-icons_d727557c85669dd65ceda69fb4dd49e3.svg",
+    "tom-icons/tom-icons_d727557c85669dd65ceda69fb4dd49e3.woff",
+    "tom-icons/tom-icons_d727557c85669dd65ceda69fb4dd49e3.eot"
+  ],
+  "glyphs": {
+    "about": {
+      "codepoint": 61696,
+      "source": "./about.svg"
+    },
+    "community": {
+      "codepoint": 61697,
+      "source": "./community.svg"
+    },
+    "company": {
+      "codepoint": 61698,
+      "source": "./company.svg"
+    },
+    "contact": {
+      "codepoint": 61699,
+      "source": "./contact.svg"
+    },
+    "coworking": {
+      "codepoint": 61700,
+      "source": "./coworking.svg"
+    },
+    "edit": {
+      "codepoint": 61701,
+      "source": "./edit.svg"
+    },
+    "export": {
+      "codepoint": 61702,
+      "source": "./export.svg"
+    },
+    "facebook": {
+      "codepoint": 61703,
+      "source": "./facebook.svg"
+    },
+    "faq": {
+      "codepoint": 61704,
+      "source": "./faq.svg"
+    },
+    "google-plus": {
+      "codepoint": 61705,
+      "source": "./google-plus.svg"
+    },
+    "heatmap": {
+      "codepoint": 61706,
+      "source": "./heatmap.svg"
+    },
+    "icon-about": {
+      "codepoint": 61707,
+      "source": "./icon-about.svg"
+    },
+    "incubator": {
+      "codepoint": 61708,
+      "source": "./incubator.svg"
+    },
+    "info": {
+      "codepoint": 61709,
+      "source": "./info.svg"
+    },
+    "investor": {
+      "codepoint": 61710,
+      "source": "./investor.svg"
+    },
+    "linkedin": {
+      "codepoint": 61711,
+      "source": "./linkedin.svg"
+    },
+    "list": {
+      "codepoint": 61712,
+      "source": "./list.svg"
+    },
+    "map": {
+      "codepoint": 61713,
+      "source": "./map.svg"
+    },
+    "org": {
+      "codepoint": 61714,
+      "source": "./org.svg"
+    },
+    "pin": {
+      "codepoint": 61715,
+      "source": "./pin.svg"
+    },
+    "school": {
+      "codepoint": 61716,
+      "source": "./school.svg"
+    },
+    "search": {
+      "codepoint": 61717,
+      "source": "./search.svg"
+    },
+    "search-mobile": {
+      "codepoint": 61718,
+      "source": "./search-mobile.svg"
+    },
+    "share": {
+      "codepoint": 61719,
+      "source": "./share.svg"
+    },
+    "switch-list": {
+      "codepoint": 61720,
+      "source": "./switch-list.svg"
+    },
+    "switch-map": {
+      "codepoint": 61721,
+      "source": "./switch-map.svg"
+    },
+    "twitter": {
+      "codepoint": 61722,
+      "source": "./twitter.svg"
+    },
+    "viadeo": {
+      "codepoint": 61723,
+      "source": "./viadeo.svg"
+    },
+    "web": {
+      "codepoint": 61724,
+      "source": "./web.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": false,
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_name": "tom-icons",
+    "force": false,
+    "input": {
+      "templates": ".",
+      "vectors": "."
+    },
+    "no_hash": false,
+    "output": {
+      "css": "tom-icons",
+      "fonts": "tom-icons",
+      "preview": "tom-icons"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "templates": [
+      "css",
+      "preview"
+    ]
+  },
+  "templates": [
+    "tom-icons/tom-icons.css",
+    "tom-icons/tom-icons-preview.html"
+  ]
+}

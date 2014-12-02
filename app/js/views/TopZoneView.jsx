@@ -184,37 +184,37 @@ module.exports = React.createClass({
                       <div className="col-xs-6">
                           <ul className="nav navbar-nav navbar-right">
                               <li>
-                                  <a href="#" onClick={this._showAboutInfo}>
+                                  <a href="#" className="menu-info" onClick={this._showAboutInfo}>
                                       <i className="icon icon-info"></i>
                                       <span className="label">{this._getLabel('topmenu.label.about')}</span>
                                   </a>
                               </li>
                               <li>
-                                  <a href="#" onClick={this._showHelp}>
-                                      <i className="icon icon-about"></i>
+                                  <a href="#" className="menu-faq" onClick={this._showHelp}>
+                                      <i className="icon icon-faq"></i>
                                       <span className="label">{this._getLabel('topmenu.label.help')}</span>
                                   </a>
                               </li>
                               <li>
-                                  <a href="#" onClick={this._showShareDialog}>
-                                      <i className="icon icon-share-1"></i>
+                                  <a href="#" className="menu-share" onClick={this._showShareDialog}>
+                                      <i className="icon icon-share"></i>
                                       <span className="label">{this._getLabel('topmenu.label.share')}</span>
                                   </a>
                               </li>
                               <li>
-                                  <a href="#" onClick={this._showExportDialog}>
+                                  <a href="#" className="menu-export" onClick={this._showExportDialog}>
                                       <i className="icon icon-export"></i>
                                       <span className="label">{this._getLabel('topmenu.label.export')}</span>
                                   </a>
                               </li>
                               <li>
-                                  <a href="#" onClick={this._showHeatmap}>
+                                  <a href="#" className="menu-heatmap" onClick={this._showHeatmap}>
                                       <i className="icon icon-heatmap"></i>
                                       <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
                                   </a>
                               </li>
                               <li className="dropdown">
-                                  <a href="#" className="icon about dropdown-toggle" onClick={this._switchSearchBlock}>
+                                  <a href="#" className="menu-search icon about dropdown-toggle" onClick={this._switchSearchBlock}>
                                       <i className="icon icon-search"></i>
                                       <span className="label">{this._getLabel('topmenu.label.search')}</span>
                                   </a>

@@ -19,25 +19,7 @@
                 margin: 0px;
                 margin-top: 0.25em;
                 > i.icon {
-                    .icon(32px);
-                    &.icon-info {
-                        .icon-image('../images/icons-mono/info-mono.svg');
-                    }
-                    &.icon-about {
-                        .icon-image('../images/icons/icon-about.svg');
-                    }
-                    &.icon-share-1 {
-                        .icon-image('../images/icons-mono/share-mono.svg');
-                    }
-                    &.icon-export {
-                        .icon-image('../images/icons-mono/export-mono.svg');
-                    }
-                    &.icon-heatmap {
-                        .icon-image('../images/icons-mono/heatmap-mono.svg');
-                    }
-                    &.icon-search {
-                        .icon-image('../images/icons-mono/search-mono.svg');
-                    }
+                    .icon(38px);
                 }
                 > span.label {
                     display: block;
@@ -48,6 +30,32 @@
                     white-space: nowrap;
                     margin: -0.75em 0.1em;
                     color: gray;
+                }
+                &:hover {
+                    > span.label {
+                        color: black;
+                    }
+                    &.menu-info {
+                        color: @blue;
+                    }
+                    &.menu-faq {
+                        color: #a880c2;
+                    }
+                    &.menu-share {
+                        color: #69a387;
+                    }
+                    
+                    &.menu-export {
+                        color: #d1c37e;
+                    }
+                    &.menu-heatmap {
+                        color: #b76555;
+                    }
+                    
+                    &.menu-search {
+                        color: @red-main;
+                    }
+                    
                 }
             }
             /* Drop-down search panel  */
