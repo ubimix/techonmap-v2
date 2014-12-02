@@ -12,6 +12,7 @@ module.exports = Api.extend({}, ResourceUtils, {
     _initFields : function() {
         this._criteria = {};
         this._categories = [];
+        this._zones = [];
     },
 
     // ------------------------------------------------------------------
@@ -20,11 +21,13 @@ module.exports = Api.extend({}, ResourceUtils, {
     start : function() {
         var that = this;
         return Mosaic.P.then(function() {
-            return that._loadCategories().then(function() {
-                return that.updateSearchCriteria({
-                    q : '',
-                });
-            });
+            return Mosaic.P.all(
+                    [ that._loadCategories(), that._loadGeographicZones() ])
+                    .then(function() {
+                        return that.updateSearchCriteria({
+                            q : ''
+                        });
+                    });
         });
     },
 
@@ -32,8 +35,21 @@ module.exports = Api.extend({}, ResourceUtils, {
     },
 
     // ------------------------------------------------------------------
-    // Data loading
+    // Private methods responsible for data loading.
 
+    /**
+     * Loads definitions of geographic zones used by this application
+     */
+    _loadGeographicZones : function() {
+        var that = this;
+        return Mosaic.P.then(function() {
+            return that._getJson(_.extend({}, {
+                path : that.options.app.options.zonesUrl
+            })).then(function(zones) {
+                that._zones = zones;
+            });
+        });
+    },
     /**
      * Loads all categories used by this application
      */
@@ -68,23 +84,6 @@ module.exports = Api.extend({}, ResourceUtils, {
         return this._categories;
     },
 
-    /** Returns all search criteria */
-    getSearchCriteria : function() {
-        return this._criteria;
-    },
-
-    /** Returns currently applyed search criteria. */
-    getSearchQuery : function() {
-        return this._criteria.q || '';
-    },
-
-    /** Sets a new search query */
-    setSearchQuery : function(value) {
-        return this.updateSearchCriteria({
-            q : value
-        });
-    },
-
     /**
      * Toggle tags in the search criteria. This methods sets all new tags and
      * removes already existing tags from the specified tag array.
@@ -92,19 +91,6 @@ module.exports = Api.extend({}, ResourceUtils, {
     toggleCategories : function(categories) {
         categories = _.map(categories, this._getCategoryKey, this);
         this._toggleSearchCriteria('category', categories);
-    },
-
-    /**
-     * Toggle tags in the search criteria. This methods sets all new tags and
-     * removes already existing tags from the specified tag array.
-     */
-    toggleTags : function(tags) {
-        this._toggleSearchCriteria('tags', tags);
-    },
-
-    /** Toggles geographic zones. */
-    toggleZones : function(zones) {
-        this._toggleSearchCriteria('zones', zones);
     },
 
     /** Returns true if a category key is used to filter values. */
@@ -118,16 +104,6 @@ module.exports = Api.extend({}, ResourceUtils, {
         return !!_.find(categories, function(k) {
             return k == key;
         });
-    },
-    
-    /** Returns an array of tags used as a search criteria. */
-    getFilterTags : function() {
-        return this._criteria.tags || [];
-    },
-
-    /** Returns a list of all zones used to fileter values. */
-    getFilterZones : function() {
-        return this._criteria.zones || [];
     },
 
     /** Returns an array of categories used as a search criteria. */
@@ -155,16 +131,6 @@ module.exports = Api.extend({}, ResourceUtils, {
     },
 
     /**
-     * Returns <code>true</code> if the specified tag is selected (it is
-     * present in the search criteria).
-     */
-    isTagSelected : function(tag) {
-        var criteria = this.prepareFilterValues(this.getFilterTags());
-        var tags = this.prepareFilterValues(tag);
-        return this.filterValues(criteria, tags);
-    },
-
-    /**
      * Returns <code>true</code> if the specified category is selected (it is
      * present in the search criteria).
      */
@@ -175,6 +141,97 @@ module.exports = Api.extend({}, ResourceUtils, {
         return this.filterValues(criteria, categories);
     },
 
+    // ------------------------------------------------------------------
+
+    /** Returns all geographic zones for this application. */
+    getZones : function() {
+        return this._zones;
+    },
+
+    /** Toggles geographic zones. */
+    toggleZones : function(zones) {
+        zones = _.map(zones, this._getZoneKey, this);
+        this._toggleSearchCriteria('postcode', zones);
+    },
+
+    /** Returns filtering zones */
+    getFilterZones : function() {
+        var keys = this.getFilterZoneKeys();
+        return _.map(keys, function(key) {
+            return this.getZoneByKey(key);
+        }, this);
+    },
+
+    /** Returns a list of all zones used to fileter values. */
+    getFilterZoneKeys : function() {
+        return this._criteria.postcode || [];
+    },
+
+    /** Returns a zone description corresponding to the specified key. */
+    getZoneByKey : function(key) {
+        var criteria = this.prepareFilterValues(key);
+        var result = _.find(this._zones, function(zone) {
+            var key = this._getZoneKey(zone);
+            var keys = this.prepareFilterValues(key);
+            return this.filterValues(criteria, keys);
+        }, this);
+        return result;
+    },
+
+    /**
+     * Returns <code>true</code> if the specified zone is selected (it is
+     * present in the search criteria).
+     */
+    isZoneSelected : function(zone) {
+        var zones = this.prepareFilterValues(this.getFilterZoneKeys());
+        var key = this._getZoneKey(zone);
+        var value = this.prepareFilterValues(key);
+        return this.filterValues(value, zones);
+    },
+
+    // ------------------------------------------------------------------
+
+    /**
+     * Toggle tags in the search criteria. This methods sets all new tags and
+     * removes already existing tags from the specified tag array.
+     */
+    toggleTags : function(tags) {
+        this._toggleSearchCriteria('tags', tags);
+    },
+
+    /** Returns an array of tags used as a search criteria. */
+    getFilterTags : function() {
+        return this._criteria.tags || [];
+    },
+
+    /**
+     * Returns <code>true</code> if the specified tag is selected (it is
+     * present in the search criteria).
+     */
+    isTagSelected : function(tag) {
+        var criteria = this.prepareFilterValues(this.getFilterTags());
+        var tags = this.prepareFilterValues(tag);
+        return this.filterValues(criteria, tags);
+    },
+
+    // ------------------------------------------------------------------
+
+    /** Returns all search criteria */
+    getSearchCriteria : function() {
+        return this._criteria;
+    },
+
+    /** Returns currently applyed search criteria. */
+    getSearchQuery : function() {
+        return this._criteria.q || '';
+    },
+
+    /** Sets a new search query */
+    setSearchQuery : function(value) {
+        return this.updateSearchCriteria({
+            q : value
+        });
+    },
     // ------------------------------------------------------------------
 
     /** Returns true if the values matches to the given filters criteria. */
@@ -189,7 +246,11 @@ module.exports = Api.extend({}, ResourceUtils, {
             var value = values[i];
             for (var j = 0; !result && j < filters.length; j++) {
                 var filter = filters[j];
-                result = filter === value;
+                if (_.isFunction(filter)) {
+                    result = filter(value);
+                } else {
+                    result = filter === value;
+                }
             }
         }
         return result;
@@ -211,6 +272,9 @@ module.exports = Api.extend({}, ResourceUtils, {
         return value;
     },
 
+    // ------------------------------------------------------------------
+    // Private methods
+
     _toggleSearchCriteria : function(key, values) {
         var existing = this._criteria[key];
         existing = this.prepareFilterValues(existing);
@@ -220,13 +284,17 @@ module.exports = Api.extend({}, ResourceUtils, {
         options[key] = _.difference(_.union(existing, values), intersection);
         return this.updateSearchCriteria(options);
     },
-    
+
     /** Returns the key of the specified category. */
-    _getCategoryKey : function(category) {
+    _getCategoryKey : function(category) {
         var key = _.isObject(category) ? category.key : category;
         return key;
     },
 
-
+    /** Returns key of the specified zone. */
+    _getZoneKey : function(zone) {
+        var key = _.isObject(zone) ? zone.key : zone;
+        return key;
+    },
 
 });

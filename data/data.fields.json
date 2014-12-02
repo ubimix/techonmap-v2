@@ -24,7 +24,8 @@
       },
       "postcode" : {
         "type" : "field",
-        "boost": 1
+        "boost": 1,
+        "filter" : "prefix"
       },
       "city" : {
         "type" : "field",

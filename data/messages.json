@@ -4,6 +4,7 @@
         "fr" : {
             "filter.label.tags.all" : "Tous",
             "filter.label.categories.all" : "Toutes",
+            "filter.label.zones.all" : "Toutes",
             "search.panel.label.input" : "Rechercher : ",
             "search.panel.label.filters" : "Filtrer par : ",
             "search.panel.label.zones" : "Zones : ",
@@ -29,6 +30,7 @@
         "en" : {
             "filter.label.tags.all" : "All",
             "filter.label.categories.all" : "All",
+            "filter.label.zones.all" : "All",
             "search.panel.label.input" : "Search:",
             "search.panel.label.filters" : "Filters:",
             "search.panel.label.zones" : "Zones:",

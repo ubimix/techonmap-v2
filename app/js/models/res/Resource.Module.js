@@ -373,6 +373,14 @@ module.exports = Api.extend({}, ResourceUtils, {
             if (!filter)
                 return;
             filter = app.nav.prepareFilterValues(filter);
+            if (info.filter === 'prefix') { // FIXME : generalize it!
+                filter = _.map(filter, function(f) {
+                    return function(value) {
+                        var str = '' + value;
+                        return str.indexOf(f) === 0;
+                    };
+                });
+            }
             filters.push(function(resource) {
                 var properties = resource.properties;
                 var value = properties[field];
