@@ -19,13 +19,49 @@
 }
 
 .modal {
+
      .modal-backdrop {
         bottom: 0px;
      }
      .modal-dialog {
         .modal-content {
+            border-radius: 0px;
+            font-family: 'Open Sans', sans-serif;
+            color: #666666;
+            
+            .modal-header {
+                padding: 0px;
+                height: 45px;
+                
+                .modal-title {
+                    padding: 0.4em;
+                    font-size: 1.5em;
+                }
+                
+                button.close {
+                    width: 45px;
+                    height: 100%;
+                    background: url('../images/close.png') 50% 50% no-repeat;
+                    font-size: 0px;
+                    margin-top: 0px;
+                    border-left: 1px solid #eee;
+                    opacity: 1;
+                }
+                
+                p {
+                    margin: 0px;
+                }
+                
+            }
+        
             .modal-body {
                 overflow-y: auto;
+                padding-top: 20px;
+                font-size: 1em;
+                font-weight: 300;
+                line-height: 1.3em;
+                padding-left: 30px;
+                padding-right: 30px;
             }
         }
     }
