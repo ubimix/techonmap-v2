@@ -3,11 +3,15 @@ var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
 var TagsMixin = require('../widgets/TagsMixin.jsx');
+var MenuMixin = require('../utils/MenuMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
     displayName : 'SearchCategoriesView',
-    mixins : [AppViewMixin, TagsMixin, I18NMixin],
+    mixins : [AppViewMixin, TagsMixin, I18NMixin, MenuMixin],
+    componentDidMount : function(){
+        this._toggleMenuPanel('main');
+    },
     _newState : function(options){
         var app = this.getApp();
         var tags = app.nav.getFilterTags();
@@ -36,24 +40,40 @@ module.exports = React.createClass({
          </a>
        );
     },
-    render1 : function(){
+    _renderCategoryPanels : function(){
         var app = this.props.app;
         var categories = app.nav.getCategories();
-        return (
-            <ul className="list-group categories">
-                {_.map(categories, function(category){
-                    return (
-                       <li className="list-group-item">
-                           {this._renderCategory(category)}
-                       </li>
-                    );
-                }, this)}
-            </ul>
-        );
+        return [
+            this._renderMenuPanelGroup('first', this._renderMenuReturnRef(), 'FIRST PANEL'),
+            this._renderMenuPanelGroup('second', this._renderMenuReturnRef(), 'SECOND PANEL'),
+            this._renderMenuPanelGroup('third', this._renderMenuReturnRef(), 'THIRD PANEL'),
+        ];
+    },
+    _renderMainPanel : function(){
+        return this._renderMenuPanelGroup(
+            'main', 
+            this._renderMenuItems(
+                this._renderMenuRef(
+                        'search.panel.label.zones',
+                        'first',
+                        'FIRST'),
+                this._renderMenuRef(
+                        'search.panel.label.categories',
+                        'second',
+                        'SECOND'),
+                this._renderMenuRef(
+                        'search.panel.label.tags',
+                        'third',
+                        'THIRD')
+            )
+       );
     },
     render : function(){
-        var app = this.props.app;
-        var categories = app.nav.getCategories();
+        var categoryPanels = this._renderCategoryPanels();
+        var panels = [this._renderMainPanel()].concat(categoryPanels);
+        return this._renderMenuPanels(panels);
+        
+        
         var array = _.map(categories, function(category, i){
             var key = category.key;
             var tags = category.tags;

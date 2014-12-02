@@ -5,20 +5,19 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PopupPanel = require('./utils/PopupPanel.jsx');
 var I18NMixin = require('./utils/I18NMixin');
+var MenuMixin = require('./utils/MenuMixin.jsx');
 var SearchCategoriesView = require('./search/SearchCategoriesView.jsx');
 var SearchInputBoxView = require('./search/SearchInputBoxView.jsx');
 var SearchInfoZoneView = require('./search/SearchInfoZoneView.jsx');
 var SearchInfoTagsView = require('./search/SearchInfoTagsView.jsx');
 var SearchPanelTags = require('./search/SearchPanelTags.jsx');
-
 var SearchInfoCategoriesView = require('./search/SearchInfoCategoriesView.jsx');
-var PanelSwitcher = require('./PanelSwitcher');
 
 var SearchPanel = React.createClass({
     displayName : 'SearchPanel',
-    mixins : [ DomUtils, I18NMixin ],
+    mixins : [ DomUtils, I18NMixin, MenuMixin ],
     componentDidMount : function(){
-        this._togglePanel('main');
+        this._toggleMenuPanel('main');
     },
     activate : function(key) {
         this.setState(this._newState({
@@ -29,102 +28,49 @@ var SearchPanel = React.createClass({
         return this.props.app;
     },
     render : function(){
-        return (
-          <PanelSwitcher className="container search-menu" ref="panels">
-              {this._renderMainPanel()}
-              {this._renderZonesPanel()}
-              {this._renderCategoriesPanel()}
-              {this._renderTagsPanel()}
-          </PanelSwitcher>
-         );
-    },
-    _togglePanel : function(panelKey, ev) {
-        this.refs.panels.activate(panelKey);
-        if (ev) {
-            ev.preventDefault();
-            ev.stopPropagation();
-        }
-    },
-    _renderButtons : function(){
-        return (        
-                <ul className="list-group">
-                {_.map(arguments, function(val) {
-                    return <li className="list-group-item">{val}</li>
-                })}
-                </ul>
-        );
-    },
-    _renderReturnButton : function(){
-        return this._renderButtons(
-            <a href="#" className="return" onClick={_.bind(this._togglePanel, this, 'main')}>
-                <i className="glyphicon glyphicon-chevron-left pull-left"/>
-                {this._getLabel('search.panel.button.return')}
-            </a>
-        );
-    },
-
-    _renderPanel : function(){
-        var args = _.toArray(arguments);
-        var title = args[0];
-        args.splice(0, 1);
-        var valBlock = args.length 
-            ? <div className="panel-body">{args}</div> : null; 
-        return (
-             <div className="panel">
-                 <div className="panel-heading">
-                     <h3 className="panel-title">
-                         {title}
-                     </h3>
-                 </div>
-                 {valBlock}
-             </div>
-        );
-    },
-    _renderPanelGroup : function(){
-        var args = _.toArray(arguments);
-        var ref = args[0];
-        args.splice(0, 1);
-        return (<div className="panel-group" ref={ref}>{args}</div>);
-    },
-    _renderStats : function(labelKey, panelKey, view) {
-        return (
-           <a href="#" onClick={_.bind(this._togglePanel, this, panelKey)}>
-               <i className="glyphicon glyphicon-chevron-right pull-right"/>
-               {this._getLabel(labelKey)}
-               {view}
-           </a>
-        );
+        return this._renderMenuPanels(
+            this._renderMainPanel(),
+            this._renderZonesPanel(),
+            this._renderCategoriesPanel(),
+            this._renderTagsPanel());
     },
     _renderZonesPanel : function(){
-        return this._renderPanelGroup('zones', this._renderReturnButton(), 'Zones panels');
+        return this._renderMenuPanelGroup('zones',
+                this._renderMenuReturnRef(),
+                'Zones panels');
     },
     _renderTagsPanel : function(){
         var app = this.getApp();
-        return this._renderPanelGroup('tags', this._renderReturnButton(), <SearchPanelTags app={app} />);
+        return this._renderMenuPanelGroup('tags',
+                this._renderMenuReturnRef(),
+                <SearchPanelTags app={app} />);
     },
     _renderCategoriesPanel : function(){
-        return this._renderPanelGroup('categories', this._renderReturnButton(), 'MLKJL');
+        var app = this.getApp();
+        return this._renderMenuPanelGroup('categories',
+                this._renderMenuReturnRef(),
+                <SearchCategoriesView app={app}/>);
     },
     _renderMainPanel : function(){
         var app = this.props.app;
-        return this._renderPanelGroup(
+        return this._renderMenuPanelGroup(
            'main', 
-           this._renderPanel(
+           this._renderMenuPanel(
                this._getLabel('search.panel.label.input'), 
                <SearchInputBoxView app={app}/>
            ), 
-           this._renderPanel(
+           this._renderMenuPanel(
                this._getLabel('search.panel.label.filters'),
-               this._renderButtons(
-                   this._renderStats(
+               this._renderMenuItems(
+                   this._renderMenuRef(
                            'search.panel.label.zones',
                            'zones',
                            <SearchInfoZoneView app={app} />),
-                   this._renderStats(
+                   this._renderMenuRef(
                            'search.panel.label.categories',
                            'categories',
                            <SearchInfoCategoriesView app={app} />),
-                   this._renderStats(
+                   this._renderMenuRef(
                            'search.panel.label.tags',
                            'tags',
                            <SearchInfoTagsView app={app} />)

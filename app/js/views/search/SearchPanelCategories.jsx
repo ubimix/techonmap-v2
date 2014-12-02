@@ -2,50 +2,18 @@
 var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
-var TagsMixin = require('../widgets/TagsMixin.jsx');
+var CategoryMixin = require('../widgets/CategoryMixin);
 var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
-    displayName : 'SearchPanelTags',
-    mixins : [ AppViewMixin, TagsMixin, I18NMixin ],
-    componentWillMount : function() {
-        var app = this.props.app;
-        app.stats.addChangeListener(this._updateStats, this);
-    },
-    componentWillUnmount : function() {
-        var app = this.props.app;
-        app.stats.removeChangeListener(this._updateStats, this);
-    },
+    displayName : 'SearchPanelCategories',
+    mixins : [ AppViewMixin, CategoryMixin, I18NMixin ],
     _updateStats : function() {
         this.setState(this._newState());
-    },
-    _newState : function(options) {
-        var nav = this._getStore();
-        var stats = this.props.app.stats;
-        return _.extend({}, this.state, {
-            fullStats : stats.getFullStats(),
-            stats : stats.getStats()
-        });
     },
     _getStore : function() {
         return this.props.app.nav;
     },
-    _renderTagsInfo : function(list){
-        return _.map(list, function(info) {
-            var stats = info.count;
-            return (
-                <div className="row">
-                    <div className="col-xs-10">
-                        {this._renderTag(info.tag)}
-                    </div>
-                    <div className="col-xs-2">
-                        <span className="label label-default pull-right">{stats}</span>
-                    </div>
-                </div>
-            );
-        }, this);
-    },
-
     render : function() {
         var list = [];
         var currentTags = this.state.stats.tags;

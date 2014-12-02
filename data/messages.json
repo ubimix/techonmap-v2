@@ -2,7 +2,8 @@
     "defaultLanguage" : "fr",
     "messages" : {
         "fr" : {
-            "filter.label.tags.all" : "Toutes", 
+            "filter.label.tags.all" : "Toutes",
+            "filter.label.categories.all" : "Toutes",
             "search.panel.label.input" : "Rechercher : ",
             "search.panel.label.filters" : "Filterer par : ",
             "search.panel.label.zones" : "Zones : ",
@@ -26,7 +27,8 @@
             "topmenu.btn.add" : "Ajouter une organisation sur la carte"
         },
         "en" : {
-            "filter.label.tags.all" : "All", 
+            "filter.label.tags.all" : "All",
+            "filter.label.categories.all" : "All",
             "search.panel.label.input" : "Rechercher:",
             "search.panel.label.filters" : "Filters:",
             "search.panel.label.zones" : "Zones:",

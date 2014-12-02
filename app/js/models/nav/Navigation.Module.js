@@ -159,6 +159,16 @@ module.exports = Api.extend({}, ResourceUtils, {
         return this.filterValues(criteria, tags);
     },
 
+    /**
+     * Returns <code>true</code> if the specified category is selected (it is
+     * present in the search criteria).
+     */
+    isCategorySelected : function(category) {
+        var criteria = this.prepareFilterValues(this.getFilterCategoryKeys());
+        var categories = this.prepareFilterValues(category);
+        return this.filterValues(criteria, categories);
+    },
+
     // ------------------------------------------------------------------
 
     /** Returns true if the values matches to the given filters criteria. */
