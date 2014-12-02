@@ -11,7 +11,7 @@ var icons = {
     'acteur public': 'org'
 };
 
-function getIcon(type) {
+function getIconType(type) {
     var icon = icons[type];
     return icon ? icon : 'company';
 }
@@ -21,9 +21,8 @@ module.exports = function(options) {
     var mapOptions = app.options.map;
     var resource = options.resource;
     var type = app.res.getResourceType(resource);
-    var iconType = getIcon(type);
-    // FIXME: remove it!
-    iconType = 'icon-' + iconType + '-mono';
+    var iconType = getIconType(type);
+    var iconClass = 'icon-' + iconType + '-mono';
 
     var size = '30px';
     var iconSize = '24px';
@@ -40,14 +39,21 @@ module.exports = function(options) {
         return key + ': ' + value + ';';
     }).join(' ');
 
-    var icon = L.divIcon({
-        className : '',
-        html : '<div class="icon-container ' + type + '">' + '<i class="icon ' + iconType + '" style="'
-                + style + '"></i>' + '</div>',
-        iconSize : [ 28, 28 ],
-        iconAnchor : [ 14, 14 ],
-        popupAnchor : [ 0, -14 ]
-    });
+//    var icon = L.divIcon({
+//        className : '',
+//        html : '<div class="icon-container ' + iconType + '">' + '<i class="icon ' + iconClass + '" style="'
+//                + style + '"></i>' + '</div>',
+//        iconSize : [ 28, 28 ],
+//        iconAnchor : [ 14, 14 ],
+//        popupAnchor : [ 0, -14 ]
+//    });
+    
+    var icon = L.icon({
+        iconUrl : './images/markers/'+iconType+'.png',
+        iconSize : [ 33, 40 ],
+        iconAnchor : [ 16, 20 ],
+        popupAnchor : [ 0, -20 ]
+    })
     var latlng = options.latlng;
 
     var marker = new L.Marker(latlng, {

@@ -28,8 +28,8 @@ module.exports = React.createClass({
             <div className={this.props.className}>
             
                 <div className="btn-group-vertical map-control" role="group">
-                    <button type="button" className="btn btn-default" onClick={this._incZoomLevel}><i className="glyphicon glyphicon-plus"></i></button>
-                    <button type="button" className="btn btn-default" onClick={this._decZoomLevel}><i className="glyphicon glyphicon-minus"></i></button>
+                    <button type="button" className="btn btn-default" onClick={this._incZoomLevel}><i className="icon-zoom-in"></i></button>
+                    <button type="button" className="btn btn-default" onClick={this._decZoomLevel}><i className="icon-zoom-out"></i></button>
                 </div>
 
                 <ul className="list-group search-input-box">

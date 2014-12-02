@@ -29,7 +29,7 @@ module.exports = React.createClass({
             <div className={this.props.className} onClick={this.props.onToggleResults}>
                 <span className="count">
                     <span className="current">{this.state.currentNumber}</span>
-                    /
+                    <span className="separator">/</span>
                     <span className="total">{this.state.totalNumber}</span>
                 </span>
                 <span className="label">{this._getLabel('search.label.results')}</span>

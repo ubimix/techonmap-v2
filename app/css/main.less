@@ -38,9 +38,12 @@
 @panel-margin: 10px;
 @bar-size : 40px;
 @nav-size : 30px;
-@red-main: #eb6564;
+
+@red-main: #eb6565;
 @red-dark: #d40308;
 @gray: #7d7d7d;
+@dark-gray: #999999;
+@blue: #385f98;
 
 // Common styles reusable in different contexts
 .tags {
@@ -92,14 +95,6 @@
         .icon(32px);
         vertical-align: middle;
         color: @gray;
-        &.toute { .icon-image('../images/icons/pin.svg'); }
-        &.entreprise { .icon-image('../images/icons/company.svg'); }
-        &.tiers-lieu { .icon-image('../images/icons/coworking.svg'); }
-        &.ecole { .icon-image('../images/icons/pin.svg'); }
-        &.communaute { .icon-image('../images/icons/community.svg'); }
-        &.incubateur { .icon-image('../images/icons/incubator.svg'); }
-        &.investisseur { .icon-image('../images/icons/investor.svg'); }
-        &.acteur-public { .icon-image('../images/icons/org.svg'); }
     }
     
     .category-label {
@@ -109,8 +104,20 @@
     }
 }
 
+button {
+    &.btn-primary {
+        color: #fff;
+        background-color: @blue;
+        border-color: @blue;
+        border-radius: 0px;
+    }
+    
+}
+
+
 @import url('./main.twitter.less');
 @import url('./main.top-zone.less');
 @import url('./main.bottom-zone.less');
 @import url('./main.middle-zone.less');
+@import url('./main.leaflet.less');
 
