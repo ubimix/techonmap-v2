@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var _= require('underscore');
 var React = require('react');
-var TagsMixin = require('../TagsMixin.jsx');
+var TagsMixin = require('../../utils/TagsMixin.jsx');
 var I18NMixin = require('../../utils/I18NMixin');
 var ResourceUtils = require('../../../tools/ResourceUtilsMixin');
 

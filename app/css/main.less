@@ -48,11 +48,12 @@
         cursor: pointer;
         display: inline-block;
         padding: 0.1em 0.2em;
-        margin: 0.1em;
+        margin: 0.2em 0.1em;
         vertical-align: middle;
         white-space: nowrap;
         border: 1px solid transparent;
         font-size: smaller;
+        background-color: white;
         &::before {
             content: " #";
         }
@@ -77,9 +78,10 @@
     cursor: pointer;
     display: inline-block;
     padding: 0.1em 0.2em;
-    margin-right: 0.1em;
+    margin: 0.2em 0.1em;
     vertical-align: middle;
     white-space: nowrap;
+    font-size: smaller;
     border: 1px solid transparent;
     &.selected {
         background-color: white;
@@ -89,8 +91,8 @@
         }
     }
     > .icon {
-        .icon(32px);
         vertical-align: middle;
+        font-size: 1.2em;
         color: @gray;
         &.toute { .icon-image('../images/icons/pin.svg'); }
         &.entreprise { .icon-image('../images/icons/company.svg'); }
@@ -105,7 +107,6 @@
     .category-label {
         padding-left: 0.5em;
         color: @gray;
-        font-size: 1.2em;
     }
 }
 

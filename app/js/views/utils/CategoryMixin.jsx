@@ -2,7 +2,6 @@
 var _ = require('underscore');
 var React = require('react');
 
-
 var CategoryMixin = {
     _selectCategory : function(category, ev) {
         var app = this.props.app;
