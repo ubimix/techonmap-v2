@@ -52,7 +52,7 @@ module.exports = function(options) {
         iconUrl : './images/markers/'+iconType+'.png',
         iconSize : [ 33, 40 ],
         iconAnchor : [ 16, 20 ],
-        popupAnchor : [ 0, -20 ]
+        popupAnchor : [ 0, -30 ]
     })
     var latlng = options.latlng;
 
