@@ -68,7 +68,7 @@ module.exports = React.createClass({
             return i < max && ((i % 2) === 1);
         }));
         return (
-            <div className="row tags tags-block">
+            <div className="row">
                 <div className="col-xs-6">{left}</div>
                 <div className="col-xs-6">{right}</div>
             </div>

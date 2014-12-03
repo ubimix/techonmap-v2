@@ -1,7 +1,8 @@
 /** @jsx React.DOM */
 var _ = require('underscore');
 var React = require('react');
-var InfiniteScroll = require('mosaic-core').Core.InfiniteScroll;
+var InfiniteScrollFactory = React
+        .createFactory(require('mosaic-core').Core.InfiniteScroll);
 var AppViewMixin = require('../AppViewMixin');
 
 var ListView = React.createClass({
@@ -13,7 +14,7 @@ var ListView = React.createClass({
     render : function() {
         var app = this.props.app;
         var scrollStyle = this._getScrollStyles();
-        return InfiniteScroll({
+        return InfiniteScrollFactory({
             className : 'list-group',
             style : scrollStyle,
             pageSize : 15,

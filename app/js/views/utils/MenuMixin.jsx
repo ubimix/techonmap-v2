@@ -28,9 +28,17 @@ var MenuMixin = {
         args = _.filter(args, function(val){
             return !!val;
         });
-        var body = args.length ? <div className="panel-body">{args}</div> : null;
+        var body = null;
+        var key;
+        if (args.length) {
+            body = <div className="panel-body">{args}</div>;
+            key = args[0].key;
+        }
+        if (!key) {
+            key = _.uniqueId('menu-');
+        }
         return (
-             <div className="panel">
+             <div className="panel" key={key    }>
                  <div className="panel-heading">{heading}</div>
                  {body}
              </div>
@@ -41,7 +49,8 @@ var MenuMixin = {
         var ref = args[0];
         args.splice(0, 1);
         args = toArray(args);
-        return (<div className="panel-group" ref={ref}>{args}</div>);
+        var className = "panel-group " + ref;
+        return (<div className={className} ref={ref}>{args}</div>);
     },
     _renderMenuPanels : function(){
         var panels = toArray(arguments);

@@ -7,7 +7,7 @@ var React = require('react');
 var L = require('leaflet');
 var Mosaic = require('mosaic-commons');
 var MosaicLeaflet = require('mosaic-core').Leaflet;
-var ReactMap = MosaicLeaflet.ReactMap;
+var ReactMapFactory = React.createFactory(MosaicLeaflet.ReactMap);
 var MapViewport = MosaicLeaflet.MapViewport;
 
 var MapBackgroundLayer = require('./MapBackgroundLayer');
@@ -35,7 +35,7 @@ module.exports = React.createClass({
     render : function() {
         var app = this._getApp();
         var mapOptions = app.map.getMapOptions();
-        return (ReactMap({
+        return (ReactMapFactory({
             id : this.props.id,
             className : this.props.className,
             app : this.props.app,

@@ -2,10 +2,12 @@
 var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
+var ZonesMixin = require('../utils/ZonesMixin.jsx');
+var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
     displayName : 'SearchInfoZoneView',
-    mixins : [AppViewMixin],
+    mixins : [AppViewMixin, ZonesMixin, I18NMixin],
     _newState : function(options){
         var nav = this._getStore();
         var zones = nav.getFilterZones();
@@ -14,17 +16,7 @@ module.exports = React.createClass({
     _getStore : function(){
         return this.props.app.nav;
     },
-    _renderZonesList : function(zones) {
-        return _.map(zones, function(zone){
-            return <span>{zone}</span>;
-        });
-    },
     render : function() {
-        var app = this.props.app;
-        return (
-            <span className={this.props.className}>
-                {this._renderZonesList(this.state.zones)}
-            </span>
-        );
+        return this._renderZoneList(this.state.zones);
     }
 });
