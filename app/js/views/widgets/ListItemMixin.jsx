@@ -28,6 +28,15 @@ module.exports = _.extend({
         );
     },
     
+    _renderShortDescription : function(type) {
+        type = ResourceUtils.getResourceTypeLabel(type);
+        var creationYear = ResourceUtils.getResourceCreationYear(this.props.resource);
+        var creationYearText = creationYear ? 'créé(e) en '+creationYear : ''; 
+        return <div className="short-description">
+            {type} {creationYearText}
+        </div>
+    },
+    
     _renderUrl : function(){
         var urlStr = ResourceUtils._getFirstProperty(this.props.resource, 'url');
         var url = Formats._formatUrl(urlStr);
@@ -35,7 +44,53 @@ module.exports = _.extend({
             <a href={url.url} className="website" target="_blank">{url.label}</a>
         </div>
     },
+    
+    _renderAddress : function() {
+        var resource = this.props.resource;
+        var address = Formats._formatAddr(resource.properties);
+        return <div className="address">
+            {address}
+        </div>
+    },
 
+    _renderSocialNetworks : function() {
+        return <div className="social-networks">
+            {this._getIconLink('url')}
+            {this._getIconLink('twitter')}
+            {this._getIconLink('facebook')}
+            {this._getIconLink('viadeo')}
+            {this._getIconLink('linkedin')}
+            {this._getIconLink('googleplus')}
+        </div>
+    },
+    
+    _getIconLink : function(propName) {
+        var propIcons = {'url':'web', 'googleplus': 'google-plus'};
+        var propValue = ResourceUtils._getFirstProperty(this.props.resource, propName);
+        if (propName == 'twitter')
+            propValue = this._getTwitterUrl(propValue);
+        var iconName = propIcons[propName] ? propIcons[propName] : propName;
+        var iconClassName = "icon icon-"+iconName;
+        if (propValue) {
+            return <a href={propValue} target="_blank">
+            <i className={iconClassName}></i>
+            </a>    
+        } else {
+            iconClassName += " icon-off";
+            return <i className={iconClassName}></i>;
+        }
+        
+    },
+    
+    _getTwitterUrl : function(account) {
+        if (!account)
+            return null;
+        if (account.indexOf('http') != 0)
+            return 'https://twitter.com/'+account;
+        return account;
+        
+    },
+    
     /** Renders an icon element. */
     _renderIcon  : function(iconOptions) {
         var src = iconOptions.src;

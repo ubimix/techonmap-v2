@@ -31,6 +31,13 @@ module.exports = {
         var type = this._getFirstProperty(resource, 'name');
         return type;
     },
+    
+    getResourceCreationYear : function(resource) {
+        if (!resource)
+            return null;
+        var creationYear = this._getFirstProperty(resource, 'creationyear');
+        return creationYear;
+    },
 
     /** Returns type for the specified resource. */
     getResourceType : function(resource) {
@@ -40,6 +47,13 @@ module.exports = {
         return categories.length ? categories[0] : 'default';
         // var type = this._getFirstProperty(resource, 'type');
         // return type;
+    },
+    
+    getResourceTypeLabel : function(type) {
+        if (!type || type.length == 0)
+            return 'default';
+        var label = type.substring(0,1).toUpperCase() + type.substring(1);
+        return label;
     },
 
     /** Returns first value of a property with the specified key. */

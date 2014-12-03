@@ -41,9 +41,11 @@ module.exports = React.createClass({
                 <div className={pictoClassName}>
                 </div>
                 <div className="media-body">
-                  <h4 className="media-heading">{selected ? ' * ' : ''}{this._renderName()}</h4>
-                  {this._renderUrl()}
+                  <h4 className="media-heading">{this._renderName()}</h4>
+                  {this._renderShortDescription(resourceType)}
                   {this._renderTags()}
+                  {this._renderAddress()}
+                  {this._renderSocialNetworks()}
                 </div>
             </div>
         );            

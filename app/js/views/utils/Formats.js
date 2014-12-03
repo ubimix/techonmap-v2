@@ -3,7 +3,10 @@ var React = require('react');
 var _ = require('underscore');
 module.exports = {
     _formatAddr : function(props) {
-        var arr = [ props.address, props.postcode, props.city ];
+        var cityInfo = [props.postcode, props.city];
+        cityInfo = _.filter(cityInfo, notEmpty);
+        cityInfo = cityInfo.length ? cityInfo.join(' ') : undefined;
+        var arr = [ props.address, cityInfo];
         arr = _.filter(arr, notEmpty);
         return arr.length ? arr.join(', ') : undefined;
     },

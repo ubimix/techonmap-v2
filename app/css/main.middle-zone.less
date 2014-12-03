@@ -182,7 +182,8 @@
                 border-bottom: 1px solid #eee;
                 margin-top: 0px;
                 margin-bottom: 0px;
-                &.selected {
+                cursor: pointer;
+                &.selected, &:hover {
                     background-color: #eee;
                 }
                 
@@ -192,7 +193,6 @@
                     width: 51px;
                     height: 51px;
                     border-radius: 4px;
-                    cursor: pointer;
                     
                     &.community {
                         background: url(../images/sprite.png) -51px -51px no-repeat;
@@ -225,6 +225,11 @@
                         .name {
                             color: @dark-gray;
                         }
+                        margin-bottom: 0px;
+                    }
+                    
+                    .short-description {
+                        color: @dark-gray;
                     }
                     
                     .tags {
@@ -234,7 +239,28 @@
                             font-size: inherit;
                             padding: 0em;
                             margin: 0em;
+                            background-color: transparent;
                         }
+                    }
+                    
+                    .address {
+                        font-size: small;
+                        color: @gray;
+                    }
+                    
+                    .social-networks {
+                        font-size: 1.6em;
+                        color: #3f3f3f;
+                        
+                        a {
+                            color: #3f3f3f;
+                        }
+                        
+                        .icon-off {
+                            color: #ccc;
+                        }  
+                        
+                        
                     }
                 }
             }
