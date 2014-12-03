@@ -2,44 +2,34 @@
 var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
-var CategoryMixin = require('../utils/CategoryMixin);
+var TagsMixin = require('../utils/TagsMixin.jsx');
+var CategoryMixin = require('../utils/CategoryMixin.jsx');
+var MenuMixin = require('../utils/MenuMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
     displayName : 'SearchPanelCategories',
-    mixins : [ AppViewMixin, CategoryMixin, I18NMixin ],
-    _updateStats : function() {
-        this.setState(this._newState());
+    mixins : [ AppViewMixin, I18NMixin, TagsMixin, CategoryMixin, MenuMixin ],
+    _newState : function(options) {
+        var app = this.getApp();
+        var tags = app.nav.getFilterTags();
+        return {
+            tags : tags
+        };
     },
     _getStore : function() {
         return this.props.app.nav;
     },
     render : function() {
-        var list = [];
-        var currentTags = this.state.stats.tags;
-        _.each(currentTags, function(count, tag) {
-            list.push({
-                tag : tag,
-                count : count
-            });
-        });
-        list = _.sortBy(list, function(info) {
-            return -info.count;
-        });
-        var max = 16;
-        max = Math.min(max, list.length);
-        list = list.slice(0, max);
-        var left = this._renderTagsInfo(_.filter(list, function(info, i){
-            return i < max && ((i % 2) === 0);
-        }));
-        var right = this._renderTagsInfo(_.filter(list, function(info, i){
-            return i < max && ((i % 2) === 1);
-        }));
-        return (
-            <div className="row tags tags-block">
-                <div className="col-xs-6">{left}</div>
-                <div className="col-xs-6">{right}</div>
-            </div>
-       );
+        var app = this.props.app;
+        var categories = app.nav.getCategories();
+        var array = _.map(categories, function(category, i) {
+            var key = category.key;
+            var tags = category.tags;
+            var active = app.nav.isFilteredByCategory(category);
+            var body = active ? this._renderTagList(tags) : null;
+            return this._renderMenuPanel(this._renderCategory(category), body);
+        }, this);
+        return this._renderMenuPanelGroup('main', array);
     }
 });

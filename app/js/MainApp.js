@@ -3,7 +3,7 @@ var React = require('react');
 var Mosaic = require('mosaic-commons');
 var App = require('mosaic-core').App;
 var ViewManager = require('mosaic-core').Core.ViewManager;
-var MainView = require('./views/MainView.jsx');
+var MainViewFactory = React.createFactory(require('./views/MainView.jsx'));
 
 // var SelectionModule = require('./models/selection/Selection.Module');
 // var SearchModule = require('./models/search/Search.Module');
@@ -16,7 +16,6 @@ var StatsModule = require('./models/stats/Stats.Module');
 
 var initWidgets = require('./views/widgets/registration');
 module.exports = App.extend({
-
     /**
      * This function loads and initializes all modules of this application.
      */
@@ -89,10 +88,10 @@ module.exports = App.extend({
             console.log('[ERROR] Initialization failed.', err);
         }
         var containers = this.options.containers;
-        this.mainView = new MainView({
+        this.mainView = MainViewFactory({
             app : this
         });
-        React.renderComponent(this.mainView, containers.main);
+        React.render(this.mainView, containers.main);
     }
 
 });

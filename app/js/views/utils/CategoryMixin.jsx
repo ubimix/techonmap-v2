@@ -11,13 +11,15 @@ var CategoryMixin = {
     },
     _renderCategory : function(category){
         var app = this.props.app;
-        var selected = app.nav.isCategorySelected(category);
+        var selected = app.nav.isFilteredByCategory(category);
+        var categoryKey = app.nav.getCategoryKey(category);
         var categoryLabel = category.label;
         var className = selected ? 'category selected' : 'category';
         return (
             <span
                 onClick={_.bind(this._selectCategory, this, category)}
-                className={className}>
+                className={className}
+                key={categoryKey}>
                 <i className={'icon icon-' + category.icon} />
                 <span className='category-label'>{categoryLabel + ' '}</span>
             </span>
@@ -28,7 +30,7 @@ var CategoryMixin = {
         if (!list.length) {
             list = [this._getLabel('filter.label.categories.all')];
         }
-        return <span className="categories">{list}</span>
+        return <span className="categories categories-inline">{list}</span>
     },
 };
 

@@ -19,12 +19,14 @@ module.exports =  {
     },
     _renderTag : function(tag){
         var app = this.props.app;
-        var selected = app.nav.isTagSelected(tag);
+        var selected = app.nav.isFilteredByTag(tag);
+        tag = app.nav.getTagKey(tag);
         var className = selected ? 'tag selected' : 'tag';
         return (
             <span
                 onClick={_.bind(this._selectTag, this, tag)}
-                className={className}>
+                className={className}
+                key={tag}>
                 {tag + ' '}
             </span>
         );
@@ -34,6 +36,6 @@ module.exports =  {
         if (!tags.length) {
             tags = [this._getLabel('filter.label.tags.all')];
         }
-        return <span className="tags">{tags}</span>
+        return <span className="tags tags-inline">{tags}</span>
     },
 };
