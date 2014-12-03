@@ -152,6 +152,26 @@
     }
     .btn-group {
         white-space: nowrap;
+        height: 34px;
+        
+        .btn {
+            outline: none;
+        }
+        
+        .btn-add {
+            background: url(../images/plus.png) 50% 50% no-repeat @blue;
+            display: inline-block;
+            width: 45px;
+            height: 100%;
+        }
+        
+        &:hover {
+            .btn, .btn-add {
+                background-color: darken(@blue, 10%);
+                border-color: darken(@blue, 10%);
+            }
+        }
+            
     }
 }
 
