@@ -6,9 +6,10 @@ var DomUtils = require('./utils/DomUtils');
 var PopupPanel = require('./utils/PopupPanel.jsx');
 var I18NMixin = require('./utils/I18NMixin');
 var MenuMixin = require('./utils/MenuMixin.jsx');
-var SearchCategoriesView = require('./search/SearchCategoriesView.jsx');
+var SearchPanelCategories = require('./search/SearchPanelCategories.jsx');
 var SearchInputBoxView = require('./search/SearchInputBoxView.jsx');
 var SearchInfoZoneView = require('./search/SearchInfoZoneView.jsx');
+var SearchPanelZones = require('./search/SearchPanelZones.jsx'); 
 var SearchInfoTagsView = require('./search/SearchInfoTagsView.jsx');
 var SearchPanelTags = require('./search/SearchPanelTags.jsx');
 var SearchInfoCategoriesView = require('./search/SearchInfoCategoriesView.jsx');
@@ -35,9 +36,10 @@ var SearchPanel = React.createClass({
             this._renderTagsPanel());
     },
     _renderZonesPanel : function(){
+        var app = this.getApp();
         return this._renderMenuPanelGroup('zones',
                 this._renderMenuReturnRef(),
-                'Zones panels');
+                <SearchPanelZones app={app} />);
     },
     _renderTagsPanel : function(){
         var app = this.getApp();
@@ -49,7 +51,7 @@ var SearchPanel = React.createClass({
         var app = this.getApp();
         return this._renderMenuPanelGroup('categories',
                 this._renderMenuReturnRef(),
-                <SearchCategoriesView app={app}/>);
+                <SearchPanelCategories app={app}/>);
     },
     _renderMainPanel : function(){
         var app = this.props.app;

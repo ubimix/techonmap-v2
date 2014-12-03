@@ -42,46 +42,19 @@
 @red-dark: #d40308;
 @gray: #7d7d7d;
 
-// Common styles reusable in different contexts
-.tags {
-    .tag {
-        cursor: pointer;
-        display: inline-block;
-        padding: 0.1em 0.2em;
-        margin: 0.2em 0.1em;
-        vertical-align: middle;
-        white-space: nowrap;
-        border: 1px solid transparent;
-        font-size: smaller;
-        background-color: white;
-        &::before {
-            content: " #";
-        }
-        &.selected {
-            border: 1px solid #eee;
-            &::after {
-                content: " × ";
-            }
-        }
-    }
-    &.tags-block {
-        .tag {
-        }
-        .label.label-default {
-            background-color: #eee;
-            color: gray;
-        }
-    }
+.text-size(@font-size:1em){
+    font-size: @font-size;
+    line-height: @font-size;
 }
-
-.category {
+.closable-tag(){
     cursor: pointer;
     display: inline-block;
     padding: 0.1em 0.2em;
-    margin: 0px;
+    margin: 0.2em 0.1em;
     vertical-align: middle;
     white-space: nowrap;
     border: 1px solid transparent;
+    background-color: white;
     &.selected {
         background-color: white;
         border: 1px solid #eee;
@@ -89,10 +62,28 @@
             content: " × ";
         }
     }
+}
+
+.closable-tag-icon(){
+    vertical-align: middle;
+    font-size: 1.2em;
+    color: @gray;
+}
+
+// Common styles reusable in different contexts
+.tag {
+    .closable-tag;
+    &::before {
+        content: " #";
+    }
+}
+.tags { .tag { .text-size(0.9em); } }
+.tags-inline { .tag { .text-size(0.9em); } }
+
+.category {
+    .closable-tag;
     > .icon {
-        vertical-align: middle;
-        font-size: 1.2em;
-        color: @gray;
+        .closable-tag-icon;
         &.toute { .icon-image('../images/icons/pin.svg'); }
         &.entreprise { .icon-image('../images/icons/company.svg'); }
         &.tiers-lieu { .icon-image('../images/icons/coworking.svg'); }
@@ -102,12 +93,26 @@
         &.investisseur { .icon-image('../images/icons/investor.svg'); }
         &.acteur-public { .icon-image('../images/icons/org.svg'); }
     }
-    
     .category-label {
         padding-left: 0.5em;
         color: @gray;
     }
 }
+.categories { .category { .text-size(1.2em); } }
+.categories-inline { .category { .text-size(0.9em); } }
+
+.zone {
+    .closable-tag;
+    > .icon {
+        .closable-tag-icon;
+    }
+    .zone-label {
+        padding-left: 0.5em;
+        color: @gray;
+    }
+}
+.zones { .zone { .text-size(1.2em); } }
+.zones-inline { .zone { .text-size(0.9em); } }
 
 @import url('./main.twitter.less');
 @import url('./main.top-zone.less');

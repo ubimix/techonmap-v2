@@ -89,21 +89,8 @@ module.exports = Api.extend({}, ResourceUtils, {
      * removes already existing tags from the specified tag array.
      */
     toggleCategories : function(categories) {
-        categories = _.map(categories, this._getCategoryKey, this);
+        categories = _.map(categories, this.getCategoryKey, this);
         this._toggleSearchCriteria('category', categories);
-    },
-
-    /** Returns true if a category key is used to filter values. */
-    isFilteredByCategory : function(key) {
-        key = this._getCategoryKey(key);
-        var array = this.prepareFilterValues(key);
-        if (!array.length)
-            return false;
-        key = array[0];
-        var categories = this.getFilterCategoryKeys();
-        return !!_.find(categories, function(k) {
-            return k == key;
-        });
     },
 
     /** Returns an array of categories used as a search criteria. */
@@ -123,7 +110,7 @@ module.exports = Api.extend({}, ResourceUtils, {
     getCategoryByKey : function(key) {
         var criteria = this.prepareFilterValues(key);
         var result = _.find(this._categories, function(category) {
-            var key = this._getCategoryKey(category);
+            var key = this.getCategoryKey(category);
             var keys = this.prepareFilterValues(key);
             return this.filterValues(criteria, keys);
         }, this);
@@ -134,11 +121,17 @@ module.exports = Api.extend({}, ResourceUtils, {
      * Returns <code>true</code> if the specified category is selected (it is
      * present in the search criteria).
      */
-    isCategorySelected : function(category) {
+    isFilteredByCategory : function(category) {
         var criteria = this.prepareFilterValues(this.getFilterCategoryKeys());
-        var key = this._getCategoryKey(category);
+        var key = this.getCategoryKey(category);
         var categories = this.prepareFilterValues(key);
         return this.filterValues(criteria, categories);
+    },
+
+    /** Returns the key of the specified category. */
+    getCategoryKey : function(category) {
+        var key = _.isObject(category) ? category.key : category;
+        return key;
     },
 
     // ------------------------------------------------------------------
@@ -150,7 +143,7 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Toggles geographic zones. */
     toggleZones : function(zones) {
-        zones = _.map(zones, this._getZoneKey, this);
+        zones = _.map(zones, this.getZoneKey, this);
         this._toggleSearchCriteria('postcode', zones);
     },
 
@@ -171,20 +164,28 @@ module.exports = Api.extend({}, ResourceUtils, {
     getZoneByKey : function(key) {
         var criteria = this.prepareFilterValues(key);
         var result = _.find(this._zones, function(zone) {
-            var key = this._getZoneKey(zone);
+            var key = this.getZoneKey(zone);
             var keys = this.prepareFilterValues(key);
             return this.filterValues(criteria, keys);
         }, this);
         return result;
     },
 
+    /** Returns key of the specified zone. */
+    getZoneKey : function(zone) {
+        var key = _.isObject(zone) ? zone.key : zone;
+        return key;
+    },
+
     /**
      * Returns <code>true</code> if the specified zone is selected (it is
      * present in the search criteria).
      */
-    isZoneSelected : function(zone) {
+    isFilteredByZone : function(zone) {
         var zones = this.prepareFilterValues(this.getFilterZoneKeys());
-        var key = this._getZoneKey(zone);
+        if (!zones.length)
+            return false;
+        var key = this.getZoneKey(zone);
         var value = this.prepareFilterValues(key);
         return this.filterValues(value, zones);
     },
@@ -208,10 +209,16 @@ module.exports = Api.extend({}, ResourceUtils, {
      * Returns <code>true</code> if the specified tag is selected (it is
      * present in the search criteria).
      */
-    isTagSelected : function(tag) {
+    isFilteredByTag : function(tag) {
         var criteria = this.prepareFilterValues(this.getFilterTags());
         var tags = this.prepareFilterValues(tag);
         return this.filterValues(criteria, tags);
+    },
+
+    /** Returns a "normalized" tag representation */
+    getTagKey : function(tag) {
+        var tags = this.prepareFilterValues(tag);
+        return tags.length ? tags[0] : null;
     },
 
     // ------------------------------------------------------------------
@@ -283,18 +290,6 @@ module.exports = Api.extend({}, ResourceUtils, {
         var options = {};
         options[key] = _.difference(_.union(existing, values), intersection);
         return this.updateSearchCriteria(options);
-    },
-
-    /** Returns the key of the specified category. */
-    _getCategoryKey : function(category) {
-        var key = _.isObject(category) ? category.key : category;
-        return key;
-    },
-
-    /** Returns key of the specified zone. */
-    _getZoneKey : function(zone) {
-        var key = _.isObject(zone) ? zone.key : zone;
-        return key;
     },
 
 });

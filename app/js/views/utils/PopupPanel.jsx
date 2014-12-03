@@ -20,7 +20,7 @@ var PopupPanel = React.createClass({
                 document.body.appendChild(this._popupDiv);
             }
             var panel = PopupPanel.apply(this, arguments);
-            React.renderComponent(panel, this._popupDiv);
+            React.render(panel, this._popupDiv);
         },
      },
      mixins : [DomUtils],

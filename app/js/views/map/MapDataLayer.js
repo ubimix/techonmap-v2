@@ -191,7 +191,7 @@ module.exports = AbstractMapLayer.extend({
         var popup;
         if (view) {
             var popupElement = L.DomUtil.create('div');
-            React.renderComponent(view, popupElement);
+            React.render(view, popupElement);
             popup = L.popup();
             popup.setContent(popupElement);
             popup.on('close', function() {
