@@ -65,6 +65,7 @@
                     display: none;
                     margin-top: -1px;
                     z-index: -1;
+                    border: 1px solid #eee;
                     border-bottom: 2px solid @red-main;
                 }
                 // Open search panel
@@ -73,6 +74,12 @@
                         background-color: white;
                         border-color: #eee;
                         border-bottom-color: white;
+                            &.menu-search {
+                                color: @red-main;
+                            }
+                            > span.label {
+                                color: black;
+                            }
                         }
                     > .dropdown-menu {
                         display: block;
