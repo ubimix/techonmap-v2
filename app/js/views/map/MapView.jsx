@@ -11,6 +11,7 @@ var ReactMapFactory = React.createFactory(MosaicLeaflet.ReactMap);
 var MapViewport = MosaicLeaflet.MapViewport;
 
 var MapBackgroundLayer = require('./MapBackgroundLayer');
+var MapHeatmapLayer = require('./MapHeatmapLayer');
 var MapDataLayer = require('./MapDataLayer');
 var MapDebugLayer = require('./MapDebugLayer');
 
@@ -121,6 +122,7 @@ module.exports = React.createClass({
         that._layers.debug = new MapDebugLayer(options)
         that._layers.tiles = new MapBackgroundLayer(options);
         that._layers.data = new MapDataLayer(options);
+        that._layers.heatmap = new MapHeatmapLayer(options);
 
         // Add all layers to the map
         _.each(this._layers, function(layer, key) {
