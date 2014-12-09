@@ -153,7 +153,8 @@ module.exports = React.createClass({
         ev.preventDefault();
     },
     _showHeatmap : function(ev) {
-        console.log('Show/hide heatmap...');
+        var app = this.props.app;
+        app.map.toggleHeatmapLayer();
         ev.stopPropagation();
         ev.preventDefault();
     },

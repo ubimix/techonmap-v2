@@ -70,7 +70,7 @@ module.exports = AbstractMapLayer.extend({
     /** Remove the heatmap from the map. */
     _removeHeatmap : function() {
         if (this._heatmap) {
-            this._map.remove(this._heatmap);
+            this._map.removeLayer(this._heatmap);
             delete this._heatmap;
         }
     },
@@ -86,7 +86,7 @@ module.exports = AbstractMapLayer.extend({
             var points = [];
             _.each(data, function(d) {
                 var coords = d.geometry.coordinates;
-                var point = [ coords[1], coords[0], 100 ]
+                var point = [ coords[1], coords[0], 100 ];
                 points.push(point);
             }, this);
             this._heatmap = L.heatLayer(points, {

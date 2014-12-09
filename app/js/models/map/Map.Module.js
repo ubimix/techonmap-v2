@@ -11,6 +11,10 @@ module.exports = Api.extend({
      */
     _initFields : function(options) {
         this._mapZoomLevel = this.getInitialMapZoom();
+        this._layerVisibility = {
+            heatmap : false,
+            data : true
+        };
     },
 
     /** Pre-loads map-related information. */
@@ -62,6 +66,66 @@ module.exports = Api.extend({
         var mapOptions = this.getMapOptions();
         return mapOptions.maxZoom || 22;
     },
+
+    // ------------------------------------------------------------------
+
+    /** Returns <code>true</code> if the heatmap is visible. */
+    isHeatmapLayerVisible : function() {
+        return this._layerVisibility.heatmap;
+    },
+
+    /** Returns <code>true</code> if the heatmap is visible. */
+    toggleHeatmapLayer : function() {
+        this.setLayersVisibility({
+            heatmap : !this._layerVisibility.heatmap,
+            data : !!this._layerVisibility.heatmap
+        });
+    },
+
+    // --------
+
+    /** Returns <code>true</code> if the datalayer is visible. */
+    isDataLayerVisible : function() {
+        return this._layerVisibility.data;
+    },
+
+    /** Returns <code>true</code> if the heatmap is visible. */
+    toggleDataLayer : function() {
+        this.setLayersVisibility({
+            heatmap : !!this._layerVisibility.data,
+            data : !this._layerVisibility.data
+        });
+    },
+
+    // --------
+
+    /** Returns <code>true</code> if a layer with the specified key is visible. */
+    isLayerVisible : function(key) {
+        var value = this._layerVisibility[key];
+        return value === undefined || !!value;
+    },
+
+    /** Updates visibility of the specified map layers. */
+    setLayersVisibility : Api.intent(function(intent) {
+        var that = this;
+        var changed = false;
+        intent.resolve(
+                Mosaic.P.then(function() {
+                    var visibility = intent.params;
+                    var values = _
+                            .extend({}, that._layerVisibility, visibility);
+                    if (JSON.stringify(values) != JSON
+                            .stringify(that._layerVisibility)) {
+                        changed = true;
+                        that._layerVisibility = values;
+                    }
+                }))//
+        .then(function() {
+            if (changed) {
+                that._notifyMapChanges();
+            }
+        });
+    }),
 
     // ------------------------------------------------------------------
 

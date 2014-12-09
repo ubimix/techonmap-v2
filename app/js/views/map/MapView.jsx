@@ -29,7 +29,7 @@ module.exports = React.createClass({
     componentWillMount : function() {
         var timeout = 50;
         this._onZoomEnd = _.debounce(this._onZoomEnd, timeout);
-        this._updateZoomLevel = _.debounce(this._updateZoomLevel, timeout);
+        this._onMapModelChange = _.debounce(this._onMapModelChange, timeout);
     },
 
     /** Main rendering method of this class. */
@@ -93,7 +93,7 @@ module.exports = React.createClass({
      */
     _registerHandlers : function(map) {
         var app = this._getApp();
-        app.map.addMapChangeListener(this._updateZoomLevel, this);
+        app.map.addMapChangeListener(this._onMapModelChange, this);
         map.on('zoomend', this._onZoomEnd, this);
     },
 
@@ -104,7 +104,7 @@ module.exports = React.createClass({
     _removeHandlers : function(map) {
         var app = this._getApp();
         map.off('zoomend', this._onZoomEnd, this);
-        app.map.removeMapChangeListener(this._updateZoomLevel, this);
+        app.map.removeMapChangeListener(this._onMapModelChange, this);
     },
 
     // -------------------------------------------------------------------
@@ -121,13 +121,11 @@ module.exports = React.createClass({
         that._layers = {};
         that._layers.debug = new MapDebugLayer(options)
         that._layers.tiles = new MapBackgroundLayer(options);
+
         that._layers.data = new MapDataLayer(options);
         that._layers.heatmap = new MapHeatmapLayer(options);
 
-        // Add all layers to the map
-        _.each(this._layers, function(layer, key) {
-            map.addLayer(layer);
-        }, this);
+        this._updateLayersVisibility();
     },
 
     /** Removes all layers from the map */
@@ -148,20 +146,22 @@ module.exports = React.createClass({
         app.map.changeMapZoom({
             zoom : this._map.getZoom()
         });
-        this._updateLayersVisibility();
     },
 
     /**
      * Handles notifications about zoom changes requests and changes the zoom
      * level on the map.
      */
-    _updateZoomLevel : function() {
+    _onMapModelChange : function() {
+        console.log('* _onMapModelChange');
+
         var app = this._getApp();
         var zoom = app.map.getMapZoomLevel();
         var oldZoom = this._map.getZoom();
         if (zoom != oldZoom) {
             this._map.setZoom(zoom);
         }
+        this._updateLayersVisibility();
     },
 
     /**
@@ -169,15 +169,19 @@ module.exports = React.createClass({
      * level.
      */
     _updateLayersVisibility : function() {
-        var that = this;
-        if (!that._map)
+        if (!this._map)
             return;
-        var zoom = that._map.getZoom();
-        _.each(this._layers, function(layer) {
-            if (!layer.updateLayerVisibility) {
-                return;
+        var zoom = this._map.getZoom();
+        var app = this._getApp();
+        _.each(this._layers, function(layer, layerKey) {
+            if (app.map.isLayerVisible(layerKey)) {
+                this._map.addLayer(layer);
+                if (layer.updateLayerVisibility) {
+                    layer.updateLayerVisibility();
+                }
+            } else {
+                this._map.removeLayer(layer);
             }
-            layer.updateLayerVisibility();
         }, this);
     },
 
