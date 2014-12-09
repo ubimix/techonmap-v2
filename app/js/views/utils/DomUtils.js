@@ -116,6 +116,18 @@ var DomUtils = {
     // ---------------------------------------------------------------------
     // Element class name manipulations
 
+    /** Returns <code>true</code> if an element has the specified parent. */
+    _hasParent : function(el, parent) {
+        var result = false;
+        if (el && parent) {
+            while (!result && el) {
+                result = el === parent;
+                el = el.parentNode;
+            }
+        }
+        return result;
+    },
+
     _toggleClass : function(el, name) {
         if (DomUtils._hasClass(el, name)) {
             DomUtils._removeClass(el, name);

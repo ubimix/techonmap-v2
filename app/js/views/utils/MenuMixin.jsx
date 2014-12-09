@@ -76,12 +76,13 @@ var MenuMixin = {
            </a>
         );
     },
-    _renderMenuReturnRef : function(key){
+    _renderMenuReturnRef : function(key, labelKey){
         key = key || 'main';
+        labelKey  = labelKey || 'search.panel.button.return';
         return this._renderMenuItems(
             <a href="#" className="return" onClick={_.bind(this._toggleMenuPanel, this, key)}>
                 <i className="chevron-left pull-left"/>
-                {this._getLabel('search.panel.button.return')}
+                {this._getLabel(labelKey)}
             </a>
         );
     },
