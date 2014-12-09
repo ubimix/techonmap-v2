@@ -5,88 +5,7 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PopupPanel = require('./utils/PopupPanel.jsx');
 var I18NMixin = require('./utils/I18NMixin');
-var MenuMixin = require('./utils/MenuMixin.jsx');
-var SearchPanelCategories = require('./search/SearchPanelCategories.jsx');
-var SearchInputBoxView = require('./search/SearchInputBoxView.jsx');
-var SearchInfoZoneView = require('./search/SearchInfoZoneView.jsx');
-var SearchPanelZones = require('./search/SearchPanelZones.jsx'); 
-var SearchInfoTagsView = require('./search/SearchInfoTagsView.jsx');
-var SearchPanelTags = require('./search/SearchPanelTags.jsx');
-var SearchInfoCategoriesView = require('./search/SearchInfoCategoriesView.jsx');
-
-var SearchPanel = React.createClass({
-    displayName : 'SearchPanel',
-    mixins : [ DomUtils, I18NMixin, MenuMixin ],
-    componentDidMount : function(){
-        this._toggleMenuPanel('main');
-    },
-    activate : function(key) {
-        this.setState(this._newState({
-            active: key
-        }));
-    },
-    getApp : function(){
-        return this.props.app;
-    },
-    render : function(){
-        return this._renderMenuPanels(
-            this._renderMainPanel(),
-            this._renderZonesPanel(),
-            this._renderCategoriesPanel(),
-            this._renderTagsPanel());
-    },
-    _renderZonesPanel : function(){
-        var app = this.getApp();
-        return this._renderMenuPanelGroup('zones',
-                this._renderMenuReturnRef(),
-                <SearchPanelZones app={app} />);
-    },
-    _renderTagsPanel : function(){
-        var app = this.getApp();
-        return this._renderMenuPanelGroup('tags',
-                this._renderMenuReturnRef(),
-                <SearchPanelTags app={app} />);
-    },
-    _renderCategoriesPanel : function(){
-        var app = this.getApp();
-        return this._renderMenuPanelGroup('categories',
-                this._renderMenuReturnRef(),
-                <SearchPanelCategories app={app}/>);
-    },
-    _renderMainPanel : function(){
-        var app = this.props.app;
-        return this._renderMenuPanelGroup(
-           'main', 
-           this._renderMenuPanel(
-               <h3 className="panel-title">
-                   {this._getLabel('search.panel.label.input')}
-               </h3>, 
-               <SearchInputBoxView app={app}/>
-           ), 
-           this._renderMenuPanel(
-               <h3 className="panel-title">
-                   {this._getLabel('search.panel.label.filters')}
-               </h3>,
-               this._renderMenuItems(
-                   this._renderMenuRef(
-                           'search.panel.label.zones',
-                           'zones',
-                           <SearchInfoZoneView app={app} />),
-                   this._renderMenuRef(
-                           'search.panel.label.categories',
-                           'categories',
-                           <SearchInfoCategoriesView app={app} />),
-                   this._renderMenuRef(
-                           'search.panel.label.tags',
-                           'tags',
-                           <SearchInfoTagsView app={app} />)
-               )
-           )
-        );
-    },
-    
-});
-
+var SearchPanel = require('./search/SearchPanel.jsx');
 
 module.exports = React.createClass({
     displayName : 'TopZoneView',
@@ -94,24 +13,17 @@ module.exports = React.createClass({
     getApp : function(){
         return this.props.app;
     },
+    componentDidMount : function(){
+        document.addEventListener('click', this._closeOpenSearchBlock, true);  
+    },
+    componentWillUnmount : function(){
+        document.removeEventListener('click', this._closeOpenSearchBlock, true);  
+    },
     _toggleNavigation : function(ref, ev) {
         var nav = this.refs[ref];
         if (nav) {
             var node = nav.getDOMNode();
             this._toggleClass(node, 'in');
-        }
-        ev.stopPropagation();
-        ev.preventDefault();
-    },
-    _toggleMenu : function(ev) {
-        var node = ev.target;
-        while (node) {
-            if (this._hasClass(node, 'dropdown'))
-                break;
-            node = node.parentNode;
-        }
-        if (node) {
-            this._toggleClass(node, 'open');
         }
         ev.stopPropagation();
         ev.preventDefault();
@@ -153,16 +65,27 @@ module.exports = React.createClass({
         ev.preventDefault();
     },
     _showHeatmap : function(ev) {
-        console.log('Show/hide heatmap...');
+        var app = this.props.app;
+        app.map.toggleHeatmapLayer();
         ev.stopPropagation();
         ev.preventDefault();
     },
     _switchSearchBlock : function(ev){
         ev.stopPropagation();
         ev.preventDefault();
-        var elm = DomUtils._searchParent(ev.target, 'dropdown');
+        if (!this.isMounted())
+            return;
+        var elm = this.refs.search.getDOMNode();
         if (elm) {
             DomUtils._toggleClass(elm, 'open');
+        }
+    },
+    _closeOpenSearchBlock : function(ev) {
+        var elm = ev.target;
+        var searchBlock = this.refs.search.getDOMNode();
+        if (!DomUtils._hasParent(elm, searchBlock) &&
+                DomUtils._hasClass(searchBlock, 'open')) {
+            DomUtils._toggleClass(searchBlock, 'open');
         }
     },
     render : function() {       
@@ -215,7 +138,7 @@ module.exports = React.createClass({
                                       <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
                                   </a>
                               </li>
-                              <li className="dropdown">
+                              <li className="dropdown" ref="search">
                                   <a href="#" className="menu-search icon about dropdown-toggle" onClick={this._switchSearchBlock}>
                                       <i className="icon icon-search"></i>
                                       <span className="label">{this._getLabel('topmenu.label.search')}</span>

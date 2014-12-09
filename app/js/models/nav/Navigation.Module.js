@@ -90,7 +90,10 @@ module.exports = Api.extend({}, ResourceUtils, {
      */
     toggleCategories : function(categories) {
         categories = _.map(categories, this.getCategoryKey, this);
-        this._toggleSearchCriteria('category', categories);
+        var options = this._toggleSearchCriteriaObject(this._criteria,
+                'category', categories);
+        options.tags = [];
+        return this.updateSearchCriteria(options);
     },
 
     /** Returns an array of categories used as a search criteria. */
@@ -128,6 +131,15 @@ module.exports = Api.extend({}, ResourceUtils, {
         return this.filterValues(criteria, categories);
     },
 
+    /**
+     * Returns <code>true</code> if the current search criteria applies a
+     * category filter.
+     */
+    hasCategoryFilteredApplied : function() {
+        var keys = this.getFilterCategoryKeys();
+        return keys && keys.length > 0;
+    },
+
     /** Returns the key of the specified category. */
     getCategoryKey : function(category) {
         var key = _.isObject(category) ? category.key : category;
@@ -144,7 +156,7 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Toggles geographic zones. */
     toggleZones : function(zones) {
         zones = _.map(zones, this.getZoneKey, this);
-        this._toggleSearchCriteria('postcode', zones);
+        return this._toggleSearchCriteria('postcode', zones);
     },
 
     /** Returns filtering zones */
@@ -197,7 +209,7 @@ module.exports = Api.extend({}, ResourceUtils, {
      * removes already existing tags from the specified tag array.
      */
     toggleTags : function(tags) {
-        this._toggleSearchCriteria('tags', tags);
+        return this._toggleSearchCriteria('tags', tags);
     },
 
     /** Returns an array of tags used as a search criteria. */
@@ -282,13 +294,22 @@ module.exports = Api.extend({}, ResourceUtils, {
     // ------------------------------------------------------------------
     // Private methods
 
-    _toggleSearchCriteria : function(key, values) {
-        var existing = this._criteria[key];
+    _toggleSearchCriteriaObject : function(criteria, key, values) {
+        var existing = criteria[key];
         existing = this.prepareFilterValues(existing);
         values = this.prepareFilterValues(values);
-        var intersection = _.intersection(existing, values);
+        if (existing[0] === values[0]) {
+            values = [];
+        }
         var options = {};
-        options[key] = _.difference(_.union(existing, values), intersection);
+        options[key] = values;
+        options = _.extend({}, existing, options);
+        return options;
+    },
+
+    _toggleSearchCriteria : function(key, values) {
+        var options = this._toggleSearchCriteriaObject(this._criteria, key,
+                values);
         return this.updateSearchCriteria(options);
     },
 
