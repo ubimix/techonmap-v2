@@ -64,7 +64,8 @@ var SearchPanel = React.createClass({
         return this._renderMenuPanelGroup('selected-category',
                 this._renderMenuReturnRef('categories',
                         'search.panel.button.return.to.categories'),
-                <SearchSelectedCategoryPanel app={app}/>);
+                <SearchSelectedCategoryPanel app={app}
+                    onExit={_.bind(this._toggleMenuPanel, this, 'categories')}/>);
     },
     _renderMainPanel : function(){
         var app = this.props.app;

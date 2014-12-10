@@ -104,6 +104,12 @@ module.exports = Api.extend({}, ResourceUtils, {
         }, this);
     },
 
+    /** Returns a category used to filter object. */
+    getFilterCategory : function() {
+        var categories = this.getFilterCategories();
+        return categories.length ? categories[0] : null;
+    },
+    
     /** Returns a list of category keys used to filter objects. */
     getFilterCategoryKeys : function() {
         return this._criteria.category;
@@ -111,6 +117,8 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Returns a category object corresponding to the specified key. */
     getCategoryByKey : function(key) {
+        if (!key)
+            return null;
         var criteria = this.prepareFilterValues(key);
         var result = _.find(this._categories, function(category) {
             var key = this.getCategoryKey(category);
@@ -144,6 +152,14 @@ module.exports = Api.extend({}, ResourceUtils, {
     getCategoryKey : function(category) {
         var key = _.isObject(category) ? category.key : category;
         return key;
+    },
+
+    /** Returns tags associated with the specified category. */
+    getCategoryTags : function(category) {
+        var key = this.getCategoryKey(category);
+        var category = this.getCategoryByKey(key);
+        var tags = (category && category.tags) || [];
+        return this.prepareFilterValues(tags);
     },
 
     // ------------------------------------------------------------------

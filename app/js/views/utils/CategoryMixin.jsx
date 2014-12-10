@@ -15,15 +15,26 @@ var CategoryMixin = {
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _renderCategory : function(category){
+    _renderCategory : function(category, options){
         var app = this.props.app;
         var selected = app.nav.isFilteredByCategory(category);
         var categoryKey = app.nav.getCategoryKey(category);
         var categoryLabel = category.label;
+        options = options || {};
         var className = selected ? 'category selected' : 'category';
+        var that = this;
         return (
             <span
-                onClick={_.bind(this._selectCategory, this, category)}
+                onClick={function(ev) {
+                    var select = true;
+                    if (options && options.onClick) {
+                        var r = options.onClick(category);
+                        select = (r === undefined) || !!r;
+                    }
+                    if (select){
+                        that._selectCategory(category, ev);
+                    }
+                }}
                 className={className}
                 key={categoryKey}>
                 <i className={'icon icon-' + category.icon} />
