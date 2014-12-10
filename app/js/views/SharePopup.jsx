@@ -58,7 +58,7 @@ var ShareConfigPanel = React.createClass({
         var result =  this._exportTemplate(this.state);
         return result;
     },
-    getWidth : function(){I18NMixin
+    getWidth : function(){
         return this.state.width;
     },
     getHeight : function(){
