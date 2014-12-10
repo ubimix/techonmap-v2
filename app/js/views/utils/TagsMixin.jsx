@@ -34,7 +34,11 @@ module.exports =  {
     _renderTagList : function(tags) {
         var tags = _.map(tags, this._renderTag, this);
         if (!tags.length) {
-            tags = [this._getLabel('filter.label.tags.all')];
+            tags = [
+               <span className="tag none">
+                   {this._getLabel('filter.label.tags.all')}
+               </span>
+            ];
         }
         return <span className="tags tags-inline">{tags}</span>
     },

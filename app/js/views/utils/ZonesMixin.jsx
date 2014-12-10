@@ -27,7 +27,13 @@ var ZoneMixin = {
     _renderZoneList : function(zones) {
         var list = _.map(zones, this._renderZone, this);
         if (!list.length) {
-            list = [this._getLabel('filter.label.zones.all')];
+            list = [
+                <span className="zone none">
+                    <span className="zone-label">
+                        {this._getLabel('filter.label.zones.all')}
+                    </span>
+                </span>
+            ];
         }
         return <span className="zones zones-inline">{list}</span>
     },

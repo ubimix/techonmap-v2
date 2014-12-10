@@ -34,7 +34,13 @@ var CategoryMixin = {
     _renderCategoryList : function(categories) {
         var list = _.map(categories, this._renderCategory, this);
         if (!list.length) {
-            list = [this._getLabel('filter.label.categories.all')];
+            list = [
+               <span className="category none">
+                   <span className="category-label">
+                       {this._getLabel('filter.label.categories.all')}
+                   </span>
+               </span>
+            ];
         }
         return <span className="categories categories-inline">{list}</span>
     },

@@ -36,7 +36,10 @@
             "topmenu.label.share" : "Partager",
             "topmenu.label.help" :  "Aide",
             "topmenu.label.about" : "À propos",
-            "topmenu.btn.add" : "Ajouter une organisation"
+            "topmenu.btn.add" : "Ajouter une organisation",
+            "toolbar.left.label.tags" : "Tag(s) : ",
+            "toolbar.left.label.categories" : "Catégorie(s) : ",
+            "toolbar.left.label.zone" : "Departement : "
         },
         "en" : {
             "dialog.share.title" : "Embed Map",
@@ -73,7 +76,10 @@
             "topmenu.label.share" : "Share",
             "topmenu.label.help" :  "Help",
             "topmenu.label.about" : "About",
-            "topmenu.btn.add" : "Add a new organization"
+            "topmenu.btn.add" : "Add a new organization",
+            "toolbar.left.label.tags" : "Tag: ",
+            "toolbar.left.label.categories" : "Category: ",
+            "toolbar.left.label.zone" : "Department: "
         }
     }
 }
