@@ -7,20 +7,22 @@ var React = require('react');
 var DomUtils = require('./DomUtils');
 
 var PopupPanel = React.createClass({
+     displayName : "PopupPanel",
      statics : {
+        divStack : [],
         closePopup : function(options){
-            if (!this._popupDiv)
+            var div = this.divStack.pop();
+            if (!div)
                 return ;
-            React.unmountComponentAtNode(this._popupDiv);
+            document.body.removeChild(div);
+            React.unmountComponentAtNode(div);
         },
         openPopup : function(){
-            this.closePopup();
-            if (!this._popupDiv){
-                this._popupDiv = document.createElement('div');
-                document.body.appendChild(this._popupDiv);
-            }
+            var div = document.createElement('div');
+            document.body.appendChild(div);
+            this.divStack.push(div);
             var panel = PopupPanel.apply(this, arguments);
-            React.render(panel, this._popupDiv);
+            React.render(panel, div);
         },
      },
      mixins : [DomUtils],

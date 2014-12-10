@@ -3,13 +3,14 @@
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
-var PopupPanel = require('./utils/PopupPanel.jsx');
 var I18NMixin = require('./utils/I18NMixin');
+var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var SearchPanel = require('./search/SearchPanel.jsx');
+var SharePopup = require('./SharePopup.jsx');
 
 module.exports = React.createClass({
     displayName : 'TopZoneView',
-    mixins : [ DomUtils, I18NMixin ],
+    mixins : [ DomUtils, I18NMixin, ContentPopupMixin ],
     getApp : function(){
         return this.props.app;
     },
@@ -28,22 +29,6 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _showContentDialog : function(href) {
-        var app = this.getApp();
-        app.content.loadContent(href).then(function(obj){
-            var title = obj.getAsHtml('title');
-            var content = obj.getContentAsHtml();
-            var footer = obj.getAsHtml('footer');
-            var titleElm = (<span dangerouslySetInnerHTML={{__html: title}} ></span>);
-            var bodyElm = (<div dangerouslySetInnerHTML={{__html: content}} ></div>);
-            var footerElm = (<div dangerouslySetInnerHTML={{__html: footer}} ></div>);
-            PopupPanel.openPopup({
-                title : titleElm,
-                body : bodyElm,
-                footer : footerElm
-            });
-        });
-    },
     _showAboutInfo : function(ev){
         this._showContentDialog('about.md');
         ev.stopPropagation();
@@ -55,7 +40,10 @@ module.exports = React.createClass({
         ev.preventDefault();
     },
     _showShareDialog : function(ev){
-        this._showContentDialog('share.md');
+        var sharePopup = new SharePopup({
+            app : this.props.app
+        });
+        sharePopup.open();
         ev.stopPropagation();
         ev.preventDefault();
     },
@@ -98,7 +86,6 @@ module.exports = React.createClass({
                       <div className="col-xs-3">
                           <div className="navbar-header">
                               <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
-                                <span className="sr-only">Toggle navigation</span>
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
