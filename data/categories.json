@@ -4,38 +4,43 @@
         "icon" : "company",
         "label" : "Entreprises",
         "tags" : [
-            "Ecommerce",
+            "ecommerce",
             "B2B",
-            "Marketplace",
-            "Santé",
-            "Education",
-            "Culture",
-            "Environnement",
-            "Mobilité",
-            "Tourisme",
-            "Big Data",
-            "Applications mobiles",
-            "Services de proximité",
-            "Indépendants",
-            "Webdesign",
-            "Design",
-            "Graphisme",
-            "Marketing",
-            "Communication",
-            "Conseil"
+            "marketplace",
+            "santé",
+            "éducation",
+            "culture",
+            "environnement",
+            "mobilité",
+            "tourisme",
+            "big data",
+            "applications mobiles",
+            "services de proximité",
+            "indépendants",
+            "webdesign",
+            "graphisme",
+            "marketing",
+            "communication",
+            "conseil",
+            "telecoms",
+            "SSII",
+            "opensource",
+            "jeux vidéo",
+            "réseau social",
+            "cloud"
          ]
     },
     {
         "key" : "Tiers-lieu",
         "icon" : "coworking",
         "label" : "Tiers-lieux",
-        "tags" : ["coworking", "fablab", "hackerspace", "bureaux partagés", "télécentre" ]
+        "tags" : ["fablab", "makerspace", "hackerspace", "coworking", "bureaux partagés", "télécentre" ]
     },
     {
         "key" : "École",
         "icon" : "education",
         "label" : "Écoles",
-        "tags" : ["ingénieur", "développeur", "manager", "audiovisuel", "webdesign", "informatique", "telecoms", "jeux vidéo", "opensource"]
+        "tags" : ["ingénieur", "développeur", "manager", "audiovisuel", "webdesign", "informatique", "telecoms", "jeux vidéo"]
     },
     {
         "key" : "Communauté",
@@ -47,13 +52,13 @@
         "key" : "Incubateur",
         "icon" : "incubator",
         "label" : "Incubateurs",
-        "tags" : []
+        "tags" : ["pépinière", "couveuse", "accélérateur", "incubateur"]
     },
     {
         "key" : "Investisseur",
         "icon" : "investor",
         "label" : "Investisseurs",
-        "tags" : ["Venture capitalist", "Business angel", "Hightech", "Cleantech"]
+        "tags" : ["venture capitalist", "business angel", "hightech", "cleantech"]
     },
     {
         "key" : "Acteur public",
