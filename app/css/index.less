@@ -17,6 +17,9 @@
 .icon-image(@url){
     background-image: url( @url );
 }
+.default-fonts(){
+    font-family: 'Open Sans', sans-serif;
+}
 
 @import url('./icons.less');
 
@@ -26,17 +29,14 @@
 @dark-gray: #666666;
 @blue: #385f98;
 
-
-button {
+.btn {
+    border-radius: 0px;
+    outline: none;
     &.btn-primary {
         color: #fff;
         background-color: @blue;
         border-color: @blue;
-        border-radius: 0px;
-        outline: none;
-    
     }
-    
 }
 
 .main-zone {
@@ -48,94 +48,7 @@ button {
     @import (less) url('../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css');
 
     @import url('./main.less');
-    
-    font-family: 'Open Sans', sans-serif;
-}
 
-.modal {
-
-     .modal-backdrop {
-        bottom: 0px;
-     }
-     .modal-dialog {
-        .modal-content {
-            border-radius: 0px;
-            font-family: 'Open Sans', sans-serif;
-            color: #666666;
-            i.icon {
-               .icon(38px);
-               vertical-align: middle;
-               
-               &.icon-info {
-                 color: @blue;
-               }
-                
-               &.icon-faq {
-                 color: #a880c2;
-               }
-               
-               &.icon-share {
-                 color: #69a387;
-               }
-                    
-               &.icon-export {
-                 color: #d1c37e;
-               }
-            }
-            
-            .modal-header {
-                padding: 0px;
-                height: 45px;
-                
-                .modal-title {
-                    padding: 0.4em;
-                    font-size: 1.5em;
-                }
-                
-                button.close {
-                    width: 45px;
-                    height: 100%;
-                    background: url('../images/close.png') 50% 50% no-repeat;
-                    font-size: 0px;
-                    margin-top: 0px;
-                    border-left: 1px solid #eee;
-                    opacity: 1;
-                }
-                
-                p {
-                    margin: 0px;
-                }
-                
-            }
-        
-            .modal-body {
-                overflow-y: auto;
-                padding-top: 20px;
-                font-size: 1em;
-                font-weight: 300;
-                line-height: 1.3em;
-                padding-left: 30px;
-                padding-right: 30px;
-                
-                h2 {
-                    font-size: 16px;
-                    margin-top: 0px;
-                }
-                
-                h3 {
-                
-                    font-size:14px;
-                
-                    &.more-info {
-                        float: left;
-                        margin-top: 0px;
-                        margin-right: 1em;
-                        margin-bottom: 0px;
-                        line-height: 2em;
-                        font-size: 18px;
-                    }
-                }
-            }
-        }
-    }
+    .default-fonts();
 }
+@import url('./main.modals.less');

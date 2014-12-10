@@ -36,6 +36,27 @@ var DomUtils = {
         };
     },
 
+    _selectText : function(elem, start, end) {
+        elem.focus();
+        end = end || start;
+        if (_.isNumber(elem.selectionStart) && _.isNumber(elem.selectionEnd)) {
+            elem.selectionStart = start
+            elem.selectionEnd = end
+        } else if (document.selection &&
+                _.isFunction(document.selection.createRange) &&
+                _.isFunction(elem.createTextRange)) {
+            // Create a new range in the element
+            var range = elem.createTextRange();
+            // Move the range to the start of the element
+            range.collapse = true;
+            // Move the positions to the place specified in characters
+            range.moveEnd('character', end - lineHandler(elem, end));
+            range.moveStart('character', start - lineHandler(elem, start));
+            // Select the range so that it is visible
+            range.select();
+        }
+    },
+
     // ---------------------------------------------------------------------
     // Sizes
 
