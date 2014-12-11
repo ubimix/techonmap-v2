@@ -13,11 +13,6 @@ var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var ShareConfigPanel = React.createClass({
     displayName: "ShareConfigPanel",
     mixins : [I18NMixin],
-    _exportTemplate :_.template('<iframe ' + 
-            'width="<%=width%>" ' + 
-            'height="<%=height%> ' + 
-            'src="http://techonmap.fr/' + 
-            '?mode=<%=embedMode%>&" frameborder="0"></iframe>'), 
     componentWillMount : function(){
         this.props.events.on('preview', this._showPreview, this);
     },
@@ -34,29 +29,31 @@ var ShareConfigPanel = React.createClass({
             embedMode : 'embed-full' 
         }, this.state, options);
     },
+    _getExportUrl : function(){
+        var embedMode = this.state.embedMode;
+        var url = encodeURI('http://techonmap.fr/?mode=') + embedMode;
+        return url;
+    },
     _showPreview : function(ev){
         var width = this.state.width;
         var height = this.state.height;
-        var code = this._renderCode();
-        // code = code.replace(/([\/\\])/gim, '\\$1');
-        code = '' + 
-        '<html><head>\n' + 
-        '<title></title>\n' + 
-        '<style>body { margin: 0; padding: 0; overflow: hidden; }</style>\n' +
-        '</head><body>\n' +
-        code + '\n' +
-        '</body></html>';
-        var wnd = window.open('','name',
+        var url = this._getExportUrl(); 
+        var wnd = window.open(url,'name',
                 'height=' + (height) + 'px,width=' + (width) + 'px');
-        wnd.document.write(code);
-        wnd.document.close();
     },
     getInitialState : function(){
         return this._newState();
     },
     _renderCode : function(){
-        var result =  this._exportTemplate(this.state);
-        return result;
+        var url = this._getExportUrl();
+        var width = this.state.width;
+        var height = this.state.height;
+        return '<iframe ' + 
+                'width="' + width + '" ' + 
+                'height="' + height + '" ' +
+                'src="' + url + '" ' + 
+                'frameborder="0">' + 
+                '</iframe>';
     },
     getWidth : function(){
         return this.state.width;

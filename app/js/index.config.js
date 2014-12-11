@@ -16,6 +16,8 @@ module.exports = {
         // 'http://{s}.tiles.mapbox.com/v3/ubimix.in6p41ic/{z}/{x}/{y}.png',
         tilesUrl : '/tiles/{z}/{x}/{y}.png',
         tilesUrl : 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        tilesUrl : 'http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png',
+        tilesUrl : 'http://techonmap.ubimix.com/tiles/{z}/{x}/{y}.png',
         tilesAttribution : '&copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors',
         zoom : 9,
         maxZoom : 18,

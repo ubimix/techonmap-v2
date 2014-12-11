@@ -17,6 +17,10 @@ var SearchPanel = React.createClass({
     mixins : [ DomUtils, I18NMixin, MenuMixin ],
     componentDidMount : function(){
         this._toggleMenuPanel('main');
+    }, 
+    componentDidUpdate : function(){
+        console.log('UPDATE MENU PANEL');
+        this._toggleMenuPanel('main');
     },
     activate : function(key) {
         this.setState(this._newState({
@@ -89,11 +93,7 @@ var SearchPanel = React.createClass({
                    this._renderMenuRef(
                            'search.panel.label.categories',
                            'categories',
-                           <SearchInfoCategoriesView app={app} />),
-                   this._renderMenuRef(
-                           'search.panel.label.tags',
-                           'tags',
-                           <SearchInfoTagsView app={app} />)
+                           <SearchInfoCategoriesView app={app} />)
                )
            )
         );
