@@ -7,7 +7,7 @@ module.exports = function(options) {
     var markers = cluster.getAllChildMarkers();
     var number = markers.length;
     var fullNumber = app.res.getResourceNumber();
-    var maxSize = 60;
+    var maxSize = 80;
     var minSize = 40;
     var size = minSize +
             Math.round((maxSize - minSize) * (number / fullNumber));
