@@ -1,5 +1,5 @@
 {
-  "name": "techonmap",
+  "name": "mapapp",
   "version": "0.0.1",
   "main": "src",
   "licenses": [
@@ -14,8 +14,10 @@
     "lunr": "^0.5.6",
     "mosaic-commons": "0.0.15",
     "mosaic-core": "0.0.8",
-    "mosaic-teleport": "0.0.21",
-    "react": "^0.12.0"
+    "mosaic-teleport": "^0.0.22",
+    "mosaic-teleport-server": "0.0.8",
+    "react": "^0.12.0",
+    "underscore": "~1.7.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
@@ -33,6 +35,7 @@
     "umx-grunt-config": "*"
   },
   "scripts": {
+    "start": "node ./node_modules/mosaic-teleport-server/src/Server.js -port 9888 -path ''",
     "test": "mocha -R spec ./test/*_spec.js"
   }
 }
