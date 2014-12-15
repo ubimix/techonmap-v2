@@ -31,7 +31,12 @@ var ShareConfigPanel = React.createClass({
     },
     _getExportUrl : function(){
         var embedMode = this.state.embedMode;
-        var url = encodeURI('http://techonmap.fr/?mode=') + embedMode;
+        var useQuery = true;
+        var url = this.props.app.nav.getExportUrl({
+            embedMode : embedMode,
+            useQuery : useQuery
+        });
+        url = encodeURI(url);
         return url;
     },
     _showPreview : function(ev){
