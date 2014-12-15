@@ -83,7 +83,7 @@ module.exports = AbstractMapLayer.extend({
             spiderfyOnMaxZoom : true,
             showCoverageOnHover : false,
             zoomToBoundsOnClick : true,
-            maxClusterRadius : 120,
+            maxClusterRadius : 220,
             iconCreateFunction : _.bind(this._newClusterMarker, this)
         }, mapOptions.cluster, {});
         this._clusterLayer = new L.MarkerClusterGroup(clusterOptions);

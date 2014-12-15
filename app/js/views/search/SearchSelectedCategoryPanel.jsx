@@ -26,12 +26,12 @@ module.exports = React.createClass({
         var category = nav.getFilterCategory();
         var filterCategoryTags = nav.getCategoryTags(category);
         var fullStats = stats.getFullStats();
+        var stats = stats.getStats();
         
         // Statistics for tags associated with selected categories
         var filterStats = {};
-        var stats = stats.getStats();
         var restStats = {};
-        var tagStats = fullStats.tags;
+        var tagStats = stats.tags;
         _.each(filterCategoryTags, function(tag) {
             filterStats[tag] = tagStats[tag] || 0;
         });
@@ -53,20 +53,24 @@ module.exports = React.createClass({
     _renderTagsInfo : function(list){
         return _.map(list, function(info) {
             var stats = info.count;
+            var className = 'label label-default pull-right';
+            if (!stats) {
+                className += ' label-empty';
+            }
             return (
                 <div className="row" key={info.tag}>
                     <div className="col-xs-10">
                         {this._renderTag(info.tag)}
                     </div>
                     <div className="col-xs-2">
-                        <span className="label label-default pull-right">{stats}</span>
+                        <span className={className}>{stats}</span>
                     </div>
                 </div>
             );
         }, this);
     },
 
-    _renderTagStats : function(currentTags) {
+    _renderTagStats : function(currentTags, sort) {
         var list = [];
         _.each(currentTags, function(count, tag) {
             list.push({
@@ -74,20 +78,16 @@ module.exports = React.createClass({
                 count : count
             });
         });
-        if (!list.length)
+        var len = list.length;
+        if (!len)
             return null;
-        list = _.sortBy(list, function(info) {
-            return -info.count;
-        });
-        var max = 16;
-        max = Math.min(max, list.length);
-        list = list.slice(0, max);
-        var left = this._renderTagsInfo(_.filter(list, function(info, i){
-            return i < max && ((i % 2) === 0);
-        }));
-        var right = this._renderTagsInfo(_.filter(list, function(info, i){
-            return i < max && ((i % 2) === 1);
-        }));
+        if (sort)  {
+            list = _.sortBy(list, function(info) {
+                return -info.count;
+            });
+        }
+        var left = this._renderTagsInfo(list.splice(0, (len + 1) / 2));
+        var right = this._renderTagsInfo(list);
         return (
             <div className="row tags">
                 <div className="col-xs-6">{left}</div>
@@ -108,7 +108,7 @@ module.exports = React.createClass({
             return <div />;
         }
         var list = [];
-        var otherTags = this._renderTagStats(this.state.stats);
+        var otherTags = this._renderTagStats(this.state.stats, true);
         if (otherTags) {
             list.push(<hr />);
             list.push(otherTags);
@@ -116,7 +116,7 @@ module.exports = React.createClass({
         return (
             <div>
                 <div>{this._renderCategory(this.state.category, { onClick : this._onExit })}</div>
-                {this._renderTagStats(this.state.filterStats)}
+                {this._renderTagStats(this.state.filterStats, false)}
                 {list}
             </div>
         );
