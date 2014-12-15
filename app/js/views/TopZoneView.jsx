@@ -6,7 +6,8 @@ var DomUtils = require('./utils/DomUtils');
 var I18NMixin = require('./utils/I18NMixin');
 var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var SearchPanel = require('./search/SearchPanel.jsx');
-var SharePopup = require('./SharePopup.jsx');
+var SharePopup = require('./dialogs/SharePopup.jsx');
+var ExportPopup = require('./dialogs/ExportPopup.jsx');
 
 module.exports = React.createClass({
     displayName : 'TopZoneView',
@@ -48,7 +49,10 @@ module.exports = React.createClass({
         ev.preventDefault();
     },
     _showExportDialog : function(ev) {
-        this._showContentDialog('export.md');
+        var exportPopup = new ExportPopup({
+            app : this.props.app
+        });
+        exportPopup.open();
         ev.stopPropagation();
         ev.preventDefault();
     },

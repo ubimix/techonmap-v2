@@ -5,13 +5,13 @@
 var _ = require('underscore');
 var React = require('react');
 var Mosaic = require('mosaic-commons');
-var DomUtils = require('./utils/DomUtils');
-var I18NMixin = require('./utils/I18NMixin');
-var PopupPanel = require('./utils/PopupPanel.jsx');
-var ContentPopupMixin = require('./utils/ContentPopupMixin');
+var DomUtils = require('../utils/DomUtils');
+var I18NMixin = require('../utils/I18NMixin');
+var PopupPanel = require('../utils/PopupPanel.jsx');
+var ContentPopupMixin = require('../utils/ContentPopupMixin');
 
-var ShareConfigPanel = React.createClass({
-    displayName: "ShareConfigPanel",
+var ExportConfigPanel = React.createClass({
+    displayName: "ExportConfigPanel",
     mixins : [I18NMixin],
     componentWillMount : function(){
         this.props.events.on('preview', this._showPreview, this);
@@ -31,7 +31,7 @@ var ShareConfigPanel = React.createClass({
     },
     _getExportUrl : function(){
         var embedMode = this.state.embedMode;
-        var useQuery = true;
+        var useQuery = false;
         var url = this.props.app.nav.getExportUrl({
             embedMode : embedMode,
             useQuery : useQuery
@@ -118,14 +118,14 @@ var ShareConfigPanel = React.createClass({
         return (
            <div>
                 <div className="configuration-zone">
-                        <h3>{this._getLabel("dialog.share.title.style")}</h3>
+                        <h3>{this._getLabel("dialog.export.title.style")}</h3>
                         <div className="row">
                             <div className="col-xs-6">
                                 <a href="#"
                                     ref="shortView"
                                     className="embed-type embed-readonly embed-type-active"
                                     onClick={_.bind(this._updateLayout, this, false)}>
-                                    {this._getLabel('dialog.share.label.nomenu')}
+                                    {this._getLabel('dialog.export.label.nomenu')}
                                 </a>
                             </div>
                             <div className="col-xs-6">
@@ -133,14 +133,14 @@ var ShareConfigPanel = React.createClass({
                                     className="embed-type embed-full"
                                     ref="fullView"
                                     onClick={_.bind(this._updateLayout, this, true)}>
-                                    {this._getLabel('dialog.share.label.withmenu')}
+                                    {this._getLabel('dialog.export.label.withmenu')}
                                 </a>
                             </div>
                         </div>
-                        <h3>{this._getLabel("dialog.share.title.size")}</h3>
+                        <h3>{this._getLabel("dialog.export.title.size")}</h3>
                         <div className="row">
                             <div className="col-xs-6 form-inline">
-                                <label className="">{this._getLabel("dialog.share.label.width")}</label>
+                                <label className="">{this._getLabel("dialog.export.label.width")}</label>
                                 <input
                                     type="text"
                                     className="embed-width"
@@ -149,7 +149,7 @@ var ShareConfigPanel = React.createClass({
                                     value={this.state.width} />
                             </div>
                             <div className="col-xs-6">
-                                <label className="">{this._getLabel("dialog.share.label.height")}</label>
+                                <label className="">{this._getLabel("dialog.export.label.height")}</label>
                                 <input
                                     type="text"
                                     className="embed-height"
@@ -160,7 +160,7 @@ var ShareConfigPanel = React.createClass({
                         </div>
                 </div>
                 <div className="active-zone">
-                    <h3>{this._getLabel("dialog.share.title.code")}</h3>
+                    <h3>{this._getLabel("dialog.export.title.code")}</h3>
                     <div className="row">
                         <div className="col-xs-12">
                             <textarea className="code embed"
@@ -175,7 +175,7 @@ var ShareConfigPanel = React.createClass({
     }
 });
 
-var SharePopup = Mosaic.Class.extend(I18NMixin, ContentPopupMixin, {
+var ExportPopup = Mosaic.Class.extend(I18NMixin, ContentPopupMixin, {
     initialize : function(options){
         this.setOptions(options);
     },
@@ -185,26 +185,30 @@ var SharePopup = Mosaic.Class.extend(I18NMixin, ContentPopupMixin, {
     open : function() {
         var title = (
             <span>
-                <i className="icon icon-share"></i>
-                {this._getLabel('dialog.share.title')}
+                <i className="icon icon-export"></i>
+                {this._getLabel('dialog.export.title')}
             </span>
         );
         var app = this.getApp();
         var events = new Mosaic.Events();
-        this._panel = (<ShareConfigPanel app={app} events={events}/>);
-        var showPreview = this._getLabel('dialog.share.btn.preview');
-        var closePopup = this._getLabel('dialog.share.btn.close');
+        this._panel = (<ExportConfigPanel app={app} events={events}/>);
         var that = this;
         var footerElm = (
            <div>
-               <button className="btn btn-primary"
-                   onClick={function() { events.fire('preview'); }}>
-                   {showPreview}
-               </button>
-               <button className="btn"
-                   onClick={function(){ PopupPanel.closePopup(); }}>
-                   {closePopup}
-               </button>
+               <div className="row">
+                   <div className="col-xs-6">
+                       <button type="button" className="btn btn-primary"
+                           onClick={function() { events.fire('export-csv'); }}>
+                           {this._getLabel('dialog.export.btn.csv')}
+                       </button> 
+                   </div>
+                   <div className="col-xs-6">
+                       <button type="button" className="btn btn-primary"
+                           onClick={function() { events.fire('export-json'); }}>
+                           {this._getLabel('dialog.export.btn.json')}
+                       </button>        
+                   </div>
+               </div>
            </div>
         );
         PopupPanel.openPopup({
@@ -217,4 +221,4 @@ var SharePopup = Mosaic.Class.extend(I18NMixin, ContentPopupMixin, {
  
 });
 
-module.exports = SharePopup;
+module.exports = ExportPopup;
