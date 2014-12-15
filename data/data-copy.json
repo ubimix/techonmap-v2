@@ -1163,8 +1163,8 @@
       "category": "Entreprise",
       "tags": [
         "location",
-        "voyage",
-        "hebergement"
+        "tourisme",
+        "hébergement"
       ],
       "address": "27 rue du Chemin Vert",
       "postcode": "75011",
@@ -1180,9 +1180,9 @@
     "sys": {
       "path": "MorningCroissant",
       "updated": {
-        "versionId": "62c4e89e80a98df46e45feb3d54b08b7d98ac538",
-        "timestamp": 1391587895000,
-        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "c5636691a36ebb8329f265d45955514b4f521553",
@@ -1340,7 +1340,8 @@
       "tags": [
         "réseau social",
         "géolocalisation",
-        "twitter"
+        "twitter",
+        "mobilité"
       ],
       "creationyear": "2013",
       "url": "http://parismappartient.fr/",
@@ -1354,9 +1355,9 @@
     "sys": {
       "path": "Paris m'appartient",
       "updated": {
-        "versionId": "d25fd21f8927e010fbd631b037239e901777f7e6",
-        "timestamp": 1412694746000,
-        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "e822f7d24308c34bc866612a311be74c237c2829",
@@ -1658,6 +1659,48 @@
     }
   },
   {
+    "id": "WWnet Consulting",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        2.2526981900004444,
+        48.916508843000486
+      ]
+    },
+    "properties": {
+      "name": "CHAARI Services EIRL",
+      "id": "WWnet Consulting",
+      "email": "wwnetconsulting@gmail.com",
+      "category": "Entreprise",
+      "tags": [
+        "Recrutement",
+        "It",
+        "Cabinet"
+      ],
+      "address": "104 Avenue Henri BARBUSSE",
+      "postcode": "92700",
+      "city": "Colombes",
+      "creationyear": "2013",
+      "url": "http://www.lescadres-it.fr",
+      "facebook": "https://www.facebook.com/LesCadresIt",
+      "description": "WWnet Consulting est un cabinet de recrutement et une Société de Service aux entreprises qui a lancé ses activités en 2014 en France, et étendra ses activités à l’international prochainement."
+    },
+    "sys": {
+      "path": "WWnet Consulting",
+      "updated": {
+        "versionId": "1d134f554e9b2cb8136b87bdc5d9b2a94b3f6fcd",
+        "timestamp": 1417021168000,
+        "author": "WWnet Consulting <wwnetconsulting@gmail.com>"
+      },
+      "created": {
+        "versionId": "0535b3a61bc708df91b203b10b2ff3668a66bf27",
+        "timestamp": 1417021168000,
+        "author": "system <system@system>"
+      }
+    }
+  },
+  {
     "id": "WorldCraze",
     "type": "Feature",
     "geometry": {
@@ -1674,11 +1717,9 @@
       "city": "Paris",
       "tags": [
         "ecommerce",
-        "economie collaborative"
+        "économie collaborative"
       ],
-      "creationyear": null,
       "url": "https://worldcraze.com",
-      "linkedin": null,
       "id": "WorldCraze",
       "category": "Entreprise",
       "description": "Founded in December 2012 and based in Paris, WorldCraze is a Crowd-Shopping community platform that puts regular travelers and those who are passionate about trends and wish to buy exclusive or cheaper products in relation with each other all over the world."
@@ -1686,9 +1727,9 @@
     "sys": {
       "path": "WorldCraze",
       "updated": {
-        "versionId": "457d5bf287ae4bfb0b8da2ce6d045d9282c80d83",
-        "timestamp": 1412693504000,
-        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "990498807e7d30bb7f09479c2142873c76cbfdff",
@@ -1919,7 +1960,7 @@
       "tags": [
         "TIC",
         "conception",
-        "ingénierie"
+        "SSII"
       ],
       "address": "20 rue Troyon",
       "postcode": "92310",
@@ -1935,9 +1976,9 @@
     "sys": {
       "path": "abaxia-htc",
       "updated": {
-        "versionId": "9d28dc2f8a426a955b675432878a0d70e84d69e6",
-        "timestamp": 1399960193000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "9fb1fd4b9d5091ca723792798b2cc227713b7eaa",
@@ -2846,7 +2887,7 @@
       "category": "Entreprise",
       "name": "Adler Technologies",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "126, rue de Brie",
       "postcode": "94000",
@@ -2857,9 +2898,9 @@
     "sys": {
       "path": "adler-technologies",
       "updated": {
-        "versionId": "a7ff62f757d2fc7a308974943e3ce84d6b701914",
-        "timestamp": 1389989563000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "087a3855a6b169e286a9c6991cc3cabe4c4c8192",
@@ -2925,7 +2966,7 @@
       "category": "Entreprise",
       "name": "Advanced Track And Trace",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "99 avenue de La Châtaigneraie",
       "postcode": "92504",
@@ -2937,9 +2978,9 @@
     "sys": {
       "path": "advanced-track-and-trace",
       "updated": {
-        "versionId": "dcd9b31a4d92e59a8f7543bbd6fd969af1ad85f9",
-        "timestamp": 1389989563000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "2ac52643e30a32dc731f5181155f505afcec651d",
@@ -3001,7 +3042,7 @@
       "category": "Entreprise",
       "name": "Advestigo",
       "tags": [
-        "securite",
+        "sécurité",
         "empreinte"
       ],
       "address": "1 rue Royale",
@@ -3014,9 +3055,9 @@
     "sys": {
       "path": "advestigo",
       "updated": {
-        "versionId": "08da2349d3cdc387576e76431b6086678f4f4367",
-        "timestamp": 1389989563000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "84820c31ab3cc5f7218e68be5230dce471952742",
@@ -3283,7 +3324,7 @@
       "category": "Entreprise",
       "name": "Affordance",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "20 rue de la fontaine du but",
       "postcode": "75018",
@@ -3295,9 +3336,9 @@
     "sys": {
       "path": "affordance",
       "updated": {
-        "versionId": "7085948c568ad7790207b041f04498e25648e2f8",
-        "timestamp": 1389989563000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "a1cba2041da8845e024300d4d856a63da81e30ad",
@@ -3522,7 +3563,7 @@
       "category": "Entreprise",
       "name": "Agoralogie",
       "tags": [
-        "semantique"
+        "sémantique"
       ],
       "address": "6  rue de Candie",
       "postcode": "75011",
@@ -3534,9 +3575,9 @@
     "sys": {
       "path": "agoralogie",
       "updated": {
-        "versionId": "e70834a4ef5f92a9e4b79e4c8dea9fa314b8ca9c",
-        "timestamp": 1389989563000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "a43a0d0543e985d7f58e04ba26eee39564e124ec",
@@ -4050,7 +4091,7 @@
       "category": "Entreprise",
       "name": "Alcatel-Lucent",
       "tags": [
-        "equipement",
+        "équipement",
         "telecoms"
       ],
       "address": "7 route de Villejust",
@@ -4065,9 +4106,9 @@
     "sys": {
       "path": "alcatel-lucent",
       "updated": {
-        "versionId": "442ebc6c2a525694ac413cbd542f09d36121ac22",
-        "timestamp": 1389989564000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "82b0516448600358e863c1109ee36bdbbf7b3ba8",
@@ -4328,7 +4369,7 @@
       "category": "Entreprise",
       "name": "Alert.Us",
       "tags": [
-        "securite",
+        "sécurité",
         "enfants",
         "mobile"
       ],
@@ -4344,9 +4385,9 @@
     "sys": {
       "path": "alertus",
       "updated": {
-        "versionId": "8b6d8e738275d5eb02cae0e9bf8b1140b5eb448b",
-        "timestamp": 1389989564000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "f1fb7d4671b9206460cc54b0f388c9fe51e3b69f",
@@ -4568,7 +4609,7 @@
       "tags": [
         "réseau social",
         "loisirs",
-        "ingenierie"
+        "SSII"
       ],
       "address": "17 rue Raymond Queneau",
       "postcode": "92500",
@@ -4584,8 +4625,8 @@
     "sys": {
       "path": "all-together",
       "updated": {
-        "versionId": "99b3e0d81b3ddd7f08d9abdd0c33fc007d72ccfa",
-        "timestamp": 1416162903000,
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
         "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
@@ -4854,7 +4895,7 @@
       "category": "Entreprise",
       "name": "AlphaUi",
       "tags": [
-        "equipement",
+        "équipement",
         "mobile",
         "interface"
       ],
@@ -4869,9 +4910,9 @@
     "sys": {
       "path": "alphaui",
       "updated": {
-        "versionId": "373d19011f2cf2a80ccddf8a54525635a6ffe730",
-        "timestamp": 1389989564000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "133012eba82fc91e27c5e9e494c348681e2d6f50",
@@ -5340,7 +5381,7 @@
       "category": "Entreprise",
       "name": "Altis Semiconductor",
       "tags": [
-        "securite",
+        "sécurité",
         "ocds"
       ],
       "address": "224 boulevard John Kennedy, Cedex",
@@ -5353,9 +5394,9 @@
     "sys": {
       "path": "altis-semiconductor",
       "updated": {
-        "versionId": "6628a701cab2123a0565a709eb039c86c7cefc08",
-        "timestamp": 1389989565000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "d4d73e7a8bb92d1f7338b47ff9a6f0b871e4e37c",
@@ -5550,7 +5591,7 @@
       "category": "Entreprise",
       "name": "Alyotech France",
       "tags": [
-        "securite",
+        "sécurité",
         "ocds"
       ],
       "address": "2-6 Place du Général de Gaulle",
@@ -5563,9 +5604,9 @@
     "sys": {
       "path": "alyotech-france",
       "updated": {
-        "versionId": "b86a5a34e0200413dc31d222057f6c0859db0dd5",
-        "timestamp": 1389989565000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "180a30db97f9e45b709d1331f6e37185cf842afb",
@@ -5660,7 +5701,7 @@
       "category": "Entreprise",
       "name": "Amen",
       "tags": [
-        "hebergement",
+        "hébergement",
         "ecommerce"
       ],
       "address": "12 rond point des Champs Elysées",
@@ -5676,9 +5717,9 @@
     "sys": {
       "path": "amen",
       "updated": {
-        "versionId": "477ff624f57e59e098a862e14080e1b1a9841fa7",
-        "timestamp": 1389989565000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "ce63ab2976bac1b1d766d803ca0e284a6224c68e",
@@ -6349,7 +6390,7 @@
       "tags": [
         "richmedia",
         "diffusion",
-        "securite"
+        "sécurité"
       ],
       "address": "3 avenue du Canada",
       "postcode": "91940",
@@ -6361,9 +6402,9 @@
     "sys": {
       "path": "apach-network",
       "updated": {
-        "versionId": "c4b516f9f5ca24f873c3051bed7e38df0124655c",
-        "timestamp": 1389989566000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "ea7e4360caff285a6bde70b6ee232d1af8cfa590",
@@ -6387,7 +6428,7 @@
       "category": "Entreprise",
       "name": "APCFC",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "12, rue d'Uzes",
       "postcode": "75002",
@@ -6399,9 +6440,9 @@
     "sys": {
       "path": "apcfc",
       "updated": {
-        "versionId": "bc2125c72f3fb2fc5c268e9b8690634ec85f1073",
-        "timestamp": 1389989566000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "35ac167501e8be9014246981ee9a5360828b1c36",
@@ -6425,9 +6466,10 @@
       "category": "Entreprise",
       "name": "Apila",
       "tags": [
-        "geolocalisation",
+        "géolocalisation",
         "mobile",
-        "stationnement"
+        "stationnement",
+        "mobilité"
       ],
       "address": "15 rue Jean-Baptiste Berlier",
       "postcode": "75013",
@@ -6441,9 +6483,9 @@
     "sys": {
       "path": "apila",
       "updated": {
-        "versionId": "965c8f2b826352a5c91baadd99edb2e8a8774cf0",
-        "timestamp": 1389989566000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "800ae06fe234fc962cd926645ffa4baef580b0a8",
@@ -7256,7 +7298,7 @@
       "category": "Entreprise",
       "name": "Archos",
       "tags": [
-        "equipement",
+        "équipement",
         "mobile"
       ],
       "address": "12 rue Ampère",
@@ -7272,9 +7314,9 @@
     "sys": {
       "path": "archos",
       "updated": {
-        "versionId": "501e544f018be996d9e0d844a45f4ca007b543cd",
-        "timestamp": 1389989567000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "bac9f5550ea0def1111b9239564b3a14dae315fe",
@@ -7416,7 +7458,7 @@
       "category": "Entreprise",
       "name": "Argia",
       "tags": [
-        "cloudcomputing",
+        "cloud",
         "soa",
         "api"
       ],
@@ -7432,9 +7474,9 @@
     "sys": {
       "path": "argia",
       "updated": {
-        "versionId": "97bd6e003159f48c1df0d83c365eda99f68d08ab",
-        "timestamp": 1389989567000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "5cf55b3498dddc1cb9d7e0515572dc09ebeca070",
@@ -7459,7 +7501,7 @@
       "name": "Aria Technologies",
       "tags": [
         "pollutionair",
-        "ingénierie",
+        "SSII",
         "conception de logiciels"
       ],
       "address": "8 rue de la Ferme",
@@ -7473,9 +7515,9 @@
     "sys": {
       "path": "aria-technologies",
       "updated": {
-        "versionId": "494b2c18caf02ba5f2446be066fb23239eac7583",
-        "timestamp": 1399960196000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "2072c905c444f8d7f473ff7e9f91e4c4362cb674",
@@ -7783,7 +7825,7 @@
       "category": "Entreprise",
       "name": "Arkoon Network Security",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "220 Av. Pierre Brossolette, Immeuble Le Pélissier",
       "postcode": "92240",
@@ -7795,9 +7837,9 @@
     "sys": {
       "path": "arkoon-network-security",
       "updated": {
-        "versionId": "62666608019b7473c6737ab242031906f8e5ff04",
-        "timestamp": 1389989567000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "903236170910680340dcaaa2e7e2ed2c1c711ac7",
@@ -8530,8 +8572,9 @@
       "email": "tiphaine.vidal@braillenet.org",
       "category": "Communauté",
       "tags": [
-        "Handicap",
-        "Innovation"
+        "handicap",
+        "innovation",
+        "association"
       ],
       "address": "UPMC BN 23 9 quai Saint-Bernard",
       "postcode": "75005",
@@ -8543,8 +8586,8 @@
     "sys": {
       "path": "association-braillenet",
       "updated": {
-        "versionId": "63a80eaf87932ab22b4fdd47461c1c63297351af",
-        "timestamp": 1415182832000,
+        "versionId": "ff97075c9f43573d426b64fb17916714fdc27809",
+        "timestamp": 1418190105000,
         "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
@@ -8962,7 +9005,7 @@
       "category": "Entreprise",
       "name": "Atermes",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "4 avenue des Trois Peuples",
       "postcode": "78180",
@@ -8974,9 +9017,9 @@
     "sys": {
       "path": "atermes",
       "updated": {
-        "versionId": "5c3754e2b4581fdd713f32e76c8b73dc5275a0f9",
-        "timestamp": 1389989568000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "69a826bede9f59bdc2e5cdfe3261102a687a755e",
@@ -9899,8 +9942,7 @@
       "category": "Entreprise",
       "name": "Azurever",
       "tags": [
-        "tourisme",
-        "voyage"
+        "tourisme"
       ],
       "address": "2 rue Daunou",
       "postcode": "75002",
@@ -9913,9 +9955,9 @@
     "sys": {
       "path": "azurever",
       "updated": {
-        "versionId": "310a754163396dea6506a84dab6d1abd4aa4cbaf",
-        "timestamp": 1389989569000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "10bfc105246c5bfab0f758238b49f4594e61f30e",
+        "timestamp": 1418672880000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "d72839873f268ff8df4e65215bcea3d0608bf852",
@@ -10152,7 +10194,8 @@
       "tags": [
         "réseau social",
         "mobile",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "33 rue des Jeuneurs",
       "postcode": "75002",
@@ -10167,8 +10210,8 @@
     "sys": {
       "path": "badtech",
       "updated": {
-        "versionId": "99b3e0d81b3ddd7f08d9abdd0c33fc007d72ccfa",
-        "timestamp": 1416162903000,
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
         "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
@@ -10511,7 +10554,7 @@
       "category": "Entreprise",
       "name": "Bearstech",
       "tags": [
-        "hebergement",
+        "hébergement",
         "developpement",
         "applications mobiles"
       ],
@@ -10527,8 +10570,8 @@
     "sys": {
       "path": "bearstech",
       "updated": {
-        "versionId": "831ff11e971ec632a028c23cab55e9e47bc84501",
-        "timestamp": 1416161867000,
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
         "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
@@ -10632,7 +10675,7 @@
       "name": "BeeChannels",
       "tags": [
         "réseau social",
-        "education",
+        "éducation",
         "socialschool"
       ],
       "address": "28 rue Eugène Sue",
@@ -10648,8 +10691,8 @@
     "sys": {
       "path": "beechannels",
       "updated": {
-        "versionId": "99b3e0d81b3ddd7f08d9abdd0c33fc007d72ccfa",
-        "timestamp": 1416162903000,
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
         "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
@@ -10716,7 +10759,8 @@
       "name": "Beepjob",
       "tags": [
         "emploi",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "97 rue la Fayette",
       "postcode": "7501",
@@ -10732,9 +10776,9 @@
     "sys": {
       "path": "beepjob",
       "updated": {
-        "versionId": "77d48c969ae548745ab504b2773461ce9b8aab78",
-        "timestamp": 1391077896000,
-        "author": "Pierre Doublet <pierdoub@gmail.com>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "7e99d1bbe6fedecfb2d090c12bfa041f097993a2",
@@ -11500,7 +11544,7 @@
       "name": "Bluelinea",
       "tags": [
         "ocds",
-        "sante"
+        "santé"
       ],
       "address": "60 boulevard Pereire",
       "postcode": "75017",
@@ -11512,9 +11556,9 @@
     "sys": {
       "path": "bluelinea",
       "updated": {
-        "versionId": "5190180a884f3596f341b3ce8f38836b9fb410e5",
-        "timestamp": 1389989575000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "1d83899bb6cf4d75b445a0c5e92220c41034f458",
@@ -11821,7 +11865,7 @@
       "tags": [
         "ebook",
         "liseuse",
-        "equipement"
+        "équipement"
       ],
       "address": "27 rue de la Vistule",
       "postcode": "75013",
@@ -11836,9 +11880,9 @@
     "sys": {
       "path": "bookeen",
       "updated": {
-        "versionId": "632a628219748a5e21a01cd225a177762f9fec9e",
-        "timestamp": 1389989576000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "c092e10153873734010bbe927b09ca903aba488f",
@@ -11980,7 +12024,7 @@
       "name": "Bornup",
       "tags": [
         "tactile",
-        "equipement"
+        "équipement"
       ],
       "address": "43 rue Royale",
       "postcode": "77300",
@@ -11992,9 +12036,9 @@
     "sys": {
       "path": "bornup",
       "updated": {
-        "versionId": "61e6720ba99f4a858f338fe0f2709656d17af435",
-        "timestamp": 1389989576000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "aff6c23a383bc4234d446c92f663f9934f1b233d",
@@ -12064,7 +12108,7 @@
       "tags": [
         "telecom",
         "conseil",
-        "ingenierie"
+        "SSII"
       ],
       "twitter": "@bouyguestelecom",
       "facebook": "https://www.facebook.com/bouyguestelecom",
@@ -12076,8 +12120,8 @@
     "sys": {
       "path": "bouygues-telecom",
       "updated": {
-        "versionId": "99b3e0d81b3ddd7f08d9abdd0c33fc007d72ccfa",
-        "timestamp": 1416162903000,
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
         "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
@@ -12142,7 +12186,7 @@
       "name": "Brain Vision Systems",
       "tags": [
         "camera",
-        "equipement",
+        "équipement",
         "smartvision"
       ],
       "address": "23 rue du Dessous des Berges",
@@ -12155,9 +12199,9 @@
     "sys": {
       "path": "brain-vision-systems",
       "updated": {
-        "versionId": "7c0629ac9e668119b26b78e6d64a681cc0bb7630",
-        "timestamp": 1389989576000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "3f1899e45752f81c699c782032b0057b8f4a5392",
@@ -12559,7 +12603,7 @@
       "category": "Entreprise",
       "name": "BullGuard",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "120 rue Jean Jaurès",
       "postcode": "92300",
@@ -12575,9 +12619,9 @@
     "sys": {
       "path": "bullguard",
       "updated": {
-        "versionId": "48673a8377e00163da53cb58757982db88e5b33f",
-        "timestamp": 1389989577000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "bc0ffa07e4b458c7d718400e62584d4c5ecbd460",
@@ -12771,7 +12815,7 @@
       "tags": [
         "agence",
         "culture",
-        "education"
+        "éducation"
       ],
       "address": "25 rue Drouot",
       "postcode": "75009",
@@ -12786,9 +12830,9 @@
     "sys": {
       "path": "buzzaka",
       "updated": {
-        "versionId": "131927cbd27f15ef42766b478d7d9316380e5aee",
-        "timestamp": 1389989578000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "00816e6fd8ab03350e35e19d24ff940fa7875517",
@@ -13280,7 +13324,7 @@
       "category": "Entreprise",
       "name": "Canberra",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "1, rue des HéronsBois Mouton",
       "postcode": "78180",
@@ -13292,9 +13336,9 @@
     "sys": {
       "path": "canberra",
       "updated": {
-        "versionId": "546156bb1e7af3d6a2d237337b3d50235e7e1bf2",
-        "timestamp": 1389989579000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "649b7663452d6b3137f562de7d0b917e300aa94b",
@@ -13688,7 +13732,7 @@
       "category": "Entreprise",
       "name": "CaptainDash",
       "tags": [
-        "bigdata",
+        "big data",
         "dashboard",
         "marketing"
       ],
@@ -13705,9 +13749,9 @@
     "sys": {
       "path": "captaindash",
       "updated": {
-        "versionId": "fc2bf958a296da2d0b4ea7c70c3d2849e0fcb791",
-        "timestamp": 1389989581000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "cc2c32afee11a1b1094cab341332ea2cfa91100b",
@@ -13809,7 +13853,7 @@
       "tags": [
         "agence",
         "culture",
-        "education"
+        "éducation"
       ],
       "address": "154  rue Oberkampf",
       "postcode": "75011",
@@ -13821,9 +13865,9 @@
     "sys": {
       "path": "carre-multimedia",
       "updated": {
-        "versionId": "c10c8de3acae26752ad7ec27c54315eeb97c3a89",
-        "timestamp": 1389989582000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "1637c08284161d26d65da90a5a463ef41699f8b5",
@@ -14176,7 +14220,7 @@
       "category": "Entreprise",
       "name": "CEA",
       "tags": [
-        "securite",
+        "sécurité",
         "opensource",
         "energie"
       ],
@@ -14189,9 +14233,9 @@
     "sys": {
       "path": "cea",
       "updated": {
-        "versionId": "b0492db409481d1bfef3ade6416c43efed383c0d",
-        "timestamp": 1389989583000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "e1903cb7e68d11beb87d7f934592937472f1ae3f",
@@ -14215,7 +14259,7 @@
       "category": "Entreprise",
       "name": "Cedexis",
       "tags": [
-        "cloudcomputing"
+        "cloud"
       ],
       "address": "27 rue Raymond Lefebvre",
       "postcode": "94250",
@@ -14230,9 +14274,9 @@
     "sys": {
       "path": "cedexis",
       "updated": {
-        "versionId": "02097a5f14e756c14fed670959915d2156d1cf0e",
-        "timestamp": 1389989583000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "654366e9f57a6cc8f5dca78d3380ec43af4ddcc8",
@@ -14256,7 +14300,7 @@
       "category": "Entreprise",
       "name": "Cedralis",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "Immeuble Litwin, 10 rue Jean Jaurès",
       "postcode": "92800",
@@ -14268,9 +14312,9 @@
     "sys": {
       "path": "cedralis",
       "updated": {
-        "versionId": "84510f84d2237536cac46eaaa066cabe96c59857",
-        "timestamp": 1389989583000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "ecc1b00af604e10db56ca35674d56cb354f0838d",
@@ -14335,7 +14379,7 @@
       "category": "Entreprise",
       "name": "Cegedim Prestations Conseil Outsourcing",
       "tags": [
-        "ingénierie",
+        "SSII",
         "santé"
       ],
       "address": "15 rue Paul Dautier",
@@ -14349,9 +14393,9 @@
     "sys": {
       "path": "cegedim-prestations-conseil-outsourcing",
       "updated": {
-        "versionId": "43b8016dbb87f9db870a12a31a4231bdf339baae",
-        "timestamp": 1414163681000,
-        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "88850dea930c87bffc9f0ee23a2e4303629108e9",
@@ -14655,7 +14699,7 @@
       "category": "Entreprise",
       "name": "Checkphone Technologies",
       "tags": [
-        "securite",
+        "sécurité",
         "telecoms"
       ],
       "address": "2-6 rue des Bourets",
@@ -14668,9 +14712,9 @@
     "sys": {
       "path": "checkphone-technologies",
       "updated": {
-        "versionId": "031b62e0a652236bdd7f53211765fc3aadf49d8b",
-        "timestamp": 1389989584000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "5f8f353bb58515b23abb58d256f565ccdfa5d2ce",
@@ -14813,7 +14857,7 @@
       "category": "Entreprise",
       "name": "Chocolapps",
       "tags": [
-        "education",
+        "éducation",
         "mobile",
         "enfants"
       ],
@@ -14831,9 +14875,9 @@
     "sys": {
       "path": "chocolapps",
       "updated": {
-        "versionId": "1b45ed27032a750e8add7ff337bec9a975c4b52c",
-        "timestamp": 1412684318000,
-        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "3b0d358791635e60a085104ae6766e61f943c35e",
@@ -15103,7 +15147,8 @@
       "name": "Cinemur",
       "tags": [
         "films",
-        "cinema"
+        "cinéma",
+        "culture"
       ],
       "address": "35 rue de Châteaudun",
       "postcode": "75009",
@@ -15118,9 +15163,9 @@
     "sys": {
       "path": "cinemur",
       "updated": {
-        "versionId": "56c7ecfafec749a283d3d02b8486364283b10783",
-        "timestamp": 1389989586000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "0ae32db3113181e174e5748f6d90f30607e35595",
@@ -15182,7 +15227,7 @@
       "category": "Entreprise",
       "name": "Cisco Systems",
       "tags": [
-        "equipement",
+        "équipement",
         "informatique"
       ],
       "address": "11 rue Camille Desmoulins",
@@ -15199,9 +15244,9 @@
     "sys": {
       "path": "cisco-systems",
       "updated": {
-        "versionId": "55c8b56d6ee265afbe41f4bf8c48c8da9213ba7b",
-        "timestamp": 1389989586000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "aa76454337a4eb9b2f6117b1619f984a8e450aa1",
@@ -15265,7 +15310,7 @@
       "category": "Entreprise",
       "name": "Citegreen",
       "tags": [
-        "developpementdurable",
+        "environnement",
         "retribution",
         "ecoresponsable"
       ],
@@ -15282,9 +15327,9 @@
     "sys": {
       "path": "citegreen",
       "updated": {
-        "versionId": "0c7ed7a81dde05ebe702d275f4f6dc2d34249aaf",
-        "timestamp": 1389989586000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "c2756d05afd58a13a072c956dee2a1d9b48b2e80",
@@ -15435,7 +15480,7 @@
       "name": "Citrix",
       "tags": [
         "virtualisation",
-        "cloudcomputing"
+        "cloud"
       ],
       "address": "102 esplanade du Général De Gaulle",
       "postcode": "92400",
@@ -15451,9 +15496,9 @@
     "sys": {
       "path": "citrix",
       "updated": {
-        "versionId": "284a1d41aa0a95bd7b09b45b88f5c0203d707e51",
-        "timestamp": 1389989587000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "87e842a397f610860519ef2bd70a173621299872",
@@ -15603,8 +15648,7 @@
       "name": "Cityzeum",
       "tags": [
         "infomediation",
-        "tourisme",
-        "voyage"
+        "tourisme"
       ],
       "address": "24 rue Claude Pouillet",
       "postcode": "75017",
@@ -15618,9 +15662,9 @@
     "sys": {
       "path": "cityzeum",
       "updated": {
-        "versionId": "fdeff28f0b4904cde8e498122a64f6d68eaaaf79",
-        "timestamp": 1389989587000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "10bfc105246c5bfab0f758238b49f4594e61f30e",
+        "timestamp": 1418672880000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "17604f66c2b977e1d066317b2e1e4bff04386a8c",
@@ -16083,7 +16127,7 @@
       "category": "Entreprise",
       "name": "Cloudwatt",
       "tags": [
-        "cloudcomputing",
+        "cloud",
         "IaaS",
         "collaboratif",
         "B2B"
@@ -16103,8 +16147,8 @@
     "sys": {
       "path": "cloudwatt",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
         "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
@@ -16418,7 +16462,8 @@
       "tags": [
         "code",
         "education",
-        "insertion"
+        "insertion",
+        "association"
       ],
       "address": "5 Passage du Buisson Saint-Louis",
       "postcode": "75010",
@@ -16432,9 +16477,9 @@
     "sys": {
       "path": "colombbus",
       "updated": {
-        "versionId": "c7ef548e980ad28c44491d311de258158043480a",
-        "timestamp": 1402580608000,
-        "author": "Colombbus <twitter:colombbus>"
+        "versionId": "c05e05f6daaeaffb12e0bcadbc5191eab65b4d54",
+        "timestamp": 1418190308000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "ec1104dc22043297323e25bb280528f5964bd476",
@@ -17821,7 +17866,7 @@
       "name": "Cristaldata",
       "tags": [
         "informatique",
-        "sante"
+        "santé"
       ],
       "address": "102 route de limours",
       "postcode": "78470",
@@ -17835,9 +17880,9 @@
     "sys": {
       "path": "cristaldata",
       "updated": {
-        "versionId": "7099e108a99135296da1ccf24dd43ee0f9ab5a47",
-        "timestamp": 1389989593000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "9220a5a78e01e93809e4e4440f7f4a6bc9c413e1",
@@ -17905,7 +17950,7 @@
       "category": "Entreprise",
       "name": "Cryptoexperts",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "37 Cours de Vincennes",
       "postcode": "75020",
@@ -17917,9 +17962,9 @@
     "sys": {
       "path": "cryptoexperts",
       "updated": {
-        "versionId": "eb6500fb6320aed7048b9bce72a8cfaf465b18e0",
-        "timestamp": 1389989593000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "648426f48039a121a56102f94ed0e8c149cef981",
@@ -17943,7 +17988,7 @@
       "category": "Entreprise",
       "name": "Cryptolog International",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "6-8 rue Basfroi",
       "postcode": "75011",
@@ -17955,9 +18000,9 @@
     "sys": {
       "path": "cryptolog-international",
       "updated": {
-        "versionId": "06ae4f6a88f06e8e66ff1c8503fcaa8bbabcb109",
-        "timestamp": 1389989593000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "152ff871cd7918a55ee6202c47d0c24c5aeee510",
@@ -17981,7 +18026,7 @@
       "category": "Entreprise",
       "name": "CS",
       "tags": [
-        "securite",
+        "sécurité",
         "opensource",
         "ocds"
       ],
@@ -17995,9 +18040,9 @@
     "sys": {
       "path": "cs",
       "updated": {
-        "versionId": "007a8c6a813f202492d6c51c854a9724ed8b69b4",
-        "timestamp": 1389989594000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "e9264b4dd6fbaf3940434e8e09eaa185b4663e32",
@@ -18270,7 +18315,7 @@
       "tags": [
         "audiovisuel",
         "Conception",
-        "ingénierie"
+        "SSII"
       ],
       "address": "52 rue de Paris",
       "postcode": "92190",
@@ -18284,9 +18329,9 @@
     "sys": {
       "path": "cvs-engineering",
       "updated": {
-        "versionId": "ca0dc5e0c672a89fdec5d7eca799185f4f0b9559",
-        "timestamp": 1399960198000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "b4927164ed59c07370ec8a69fac871c582ba5614",
@@ -18516,8 +18561,8 @@
       "category": "Entreprise",
       "name": "Dashlane",
       "tags": [
-        "mcommerce",
-        "securite",
+        "ecommerce",
+        "sécurité",
         "ewallet"
       ],
       "address": "63 boulevard de Ménilmontant",
@@ -18535,9 +18580,9 @@
     "sys": {
       "path": "dashlane",
       "updated": {
-        "versionId": "4ae44a9a814fc5191487b0e870368421e2d952f4",
-        "timestamp": 1389989596000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "614eed9f29edd7cceb717161b7118bc8d5d53980",
@@ -18605,7 +18650,7 @@
       "name": "Data Publica",
       "tags": [
         "dataviz",
-        "bigdata",
+        "big data",
         "opendata"
       ],
       "address": "47 rue d'Enghien",
@@ -18621,9 +18666,9 @@
     "sys": {
       "path": "data-publica",
       "updated": {
-        "versionId": "0e2353a47b0bf696ef7030b5ef53eb9828271fce",
-        "timestamp": 1389989597000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "3dd3a39bc3ae85afc34137ed0dcf716117a24b51",
@@ -19054,7 +19099,7 @@
       "tags": [
         "television",
         "iptv",
-        "equipement"
+        "équipement"
       ],
       "address": "17 avenue d'Italie",
       "postcode": "75013",
@@ -19066,9 +19111,9 @@
     "sys": {
       "path": "dee-be",
       "updated": {
-        "versionId": "14b9ed8b940817b5c92ac56870597fac176394b0",
-        "timestamp": 1389989598000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "c0aba672d260f063e6b6c790a890b7219a8c65d7",
@@ -19428,9 +19473,10 @@
       "category": "Entreprise",
       "name": "Deveryware",
       "tags": [
-        "geolocalisation",
+        "géolocalisation",
         "api",
-        "geohub"
+        "geohub",
+        "mobilité"
       ],
       "address": "5 rue du Helder",
       "postcode": "75009",
@@ -19444,9 +19490,9 @@
     "sys": {
       "path": "deveryware",
       "updated": {
-        "versionId": "b78cacd6678b7e7303eaf4fdc1c60a9db9640252",
-        "timestamp": 1389989599000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "4cd8e30a67649e9146198f346b951e0ff6b5fd52",
@@ -19549,9 +19595,9 @@
       "category": "Entreprise",
       "name": "Deways",
       "tags": [
-        "marketplaces",
+        "marketplace",
         "autopartage",
-        "economie collaborative"
+        "économie collaborative"
       ],
       "address": "12 rue Riquet",
       "postcode": "75019",
@@ -19566,9 +19612,9 @@
     "sys": {
       "path": "deways",
       "updated": {
-        "versionId": "461a6b254da912d16139e72fd72c5dd20d390126",
-        "timestamp": 1412695019000,
-        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "7bcf73a29afcc7b2a8a13efaba0158d186e8129e",
@@ -19592,7 +19638,7 @@
       "category": "Entreprise",
       "name": "Dhcom",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "2-4 avenue de la Cerisaie",
       "postcode": "94260",
@@ -19603,9 +19649,9 @@
     "sys": {
       "path": "dhcom",
       "updated": {
-        "versionId": "61ec1fb66f8f62b85ad1efbeed041ba1f5c5f2cf",
-        "timestamp": 1389989599000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "2d1b7e927eaf7739964ec0b553a45c230646029b",
@@ -20067,7 +20113,8 @@
       "category": "Entreprise",
       "name": "Digital Simulation",
       "tags": [
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "7 rue Denis Papin",
       "postcode": "95280",
@@ -20082,9 +20129,9 @@
     "sys": {
       "path": "digital-simulation",
       "updated": {
-        "versionId": "98a37a1ebfd68dfc11fc07d91a42bd94bc2e98f1",
-        "timestamp": 1391187650000,
-        "author": "TechOnMap <twitter:techonmap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "239185c7e952c566453bcef4a99e61589f69943a",
@@ -20314,7 +20361,7 @@
       "category": "Entreprise",
       "name": "Diplomeo",
       "tags": [
-        "education",
+        "éducation",
         "orientation",
         "etudiants"
       ],
@@ -20331,9 +20378,9 @@
     "sys": {
       "path": "diplomeo",
       "updated": {
-        "versionId": "8fb882d94c8f8e322452f10a20f738fcaeaad4b5",
-        "timestamp": 1389989600000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "9d8de62300325def2e2a05ae9b40f6a7c9adbfc6",
@@ -21125,7 +21172,7 @@
       "category": "Entreprise",
       "name": "Dotvision",
       "tags": [
-        "securite",
+        "sécurité",
         "energie",
         "telecoms"
       ],
@@ -21139,9 +21186,9 @@
     "sys": {
       "path": "dotvision",
       "updated": {
-        "versionId": "eb7753c42493ba4abee5db47161125116217fa68",
-        "timestamp": 1389989601000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ab2818f1fbb0405e16d5e47b44f07ddadb3c854e",
+        "timestamp": 1418672308000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "e4671b2f76a8ea0cdde2065d7cb610a13b66f98f",
@@ -22501,7 +22548,7 @@
       "category": "Entreprise",
       "name": "EduPad",
       "tags": [
-        "education",
+        "éducation",
         "mobile"
       ],
       "address": "8 passage Brûlon",
@@ -22910,7 +22957,7 @@
       "category": "Entreprise",
       "name": "Egidium Technologies",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "86 rue de Paris",
       "postcode": "91400",
@@ -23739,7 +23786,7 @@
       "name": "eNovance",
       "tags": [
         "opensource",
-        "hebergement",
+        "hébergement",
         "infogerance"
       ],
       "address": "10 rue de la Victoire",
@@ -23781,7 +23828,7 @@
       "category": "Entreprise",
       "name": "ENS Cachan",
       "tags": [
-        "securite",
+        "sécurité",
         "opensource",
         "ocds"
       ],
@@ -24027,7 +24074,7 @@
       "category": "Entreprise",
       "name": "Entertainment Learning",
       "tags": [
-        "education",
+        "éducation",
         "langue"
       ],
       "address": "28 rue du Chemin Vert",
@@ -24068,7 +24115,7 @@
       "category": "Entreprise",
       "name": "Entr'ouvert",
       "tags": [
-        "securite",
+        "sécurité",
         "teleservices",
         "administration"
       ],
@@ -24190,7 +24237,7 @@
       "category": "Entreprise",
       "name": "EOS Innovation",
       "tags": [
-        "securite",
+        "sécurité",
         "ocds"
       ],
       "address": "7 rue Montespan \"Le Magellan\"",
@@ -24524,7 +24571,7 @@
       "tags": [
         "crm",
         "ereputation",
-        "semantique"
+        "sémantique"
       ],
       "address": "95 rue de Bellevue",
       "postcode": "92100",
@@ -24646,7 +24693,7 @@
       "category": "Entreprise",
       "name": "ERCOM",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "6 rue Dewoitine",
       "postcode": "78140",
@@ -24799,7 +24846,7 @@
       "category": "Entreprise",
       "name": "ERTE",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "14, rue de La Truie Qui File Zone Près des Basques",
       "postcode": "91400",
@@ -25612,7 +25659,7 @@
       "name": "Euro Decision",
       "tags": [
         "ocds",
-        "sante"
+        "santé"
       ],
       "address": "9, rue de La Porte du Buc",
       "postcode": "78000",
@@ -25693,7 +25740,7 @@
       "category": "Entreprise",
       "name": "EuroSmart",
       "tags": [
-        "education",
+        "éducation",
         "ATIDex",
         "ExAO"
       ],
@@ -25770,7 +25817,9 @@
       "id": "evaneos",
       "category": "Entreprise",
       "name": "Evaneos",
-      "tags": "voyage",
+      "tags": [
+        "tourisme"
+      ],
       "address": "49 rue du faubourg Montmartre",
       "postcode": "75009",
       "city": "Paris",
@@ -25889,7 +25938,7 @@
       "category": "Entreprise",
       "name": "Evitech",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "3 rue Buffon",
       "postcode": "91400",
@@ -26006,7 +26055,7 @@
       "category": "Entreprise",
       "name": "Exaduo",
       "tags": [
-        "education",
+        "éducation",
         "e-learning",
         "cloud"
       ],
@@ -27300,7 +27349,7 @@
       "category": "Entreprise",
       "name": "FDC",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "10 Cours Louis Lumière",
       "postcode": "94300",
@@ -27382,7 +27431,8 @@
       "tags": [
         "mobile",
         "emotion",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "18 rue Yves Toudic",
       "postcode": "75010",
@@ -27502,8 +27552,8 @@
       "category": "Communauté",
       "name": "Ficam",
       "tags": [
-        "syndicat",
-        "image&son"
+        "fédération",
+        "cinéma"
       ],
       "address": "11 rue de l'Amiral Hamelin",
       "postcode": "75016",
@@ -27515,9 +27565,9 @@
     "sys": {
       "path": "ficam",
       "updated": {
-        "versionId": "3517e7f219d5b84322c8e1eb09d442f5bb8093fa",
-        "timestamp": 1389989609000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "ed680c39723b1a4e655932caaa72fd736a96f20b",
+        "timestamp": 1418190692000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "7e5ddaaa57404f3e5e51d74b02920809114a9253",
@@ -28212,9 +28262,9 @@
       "category": "Entreprise",
       "name": "France Telecom Issy-Les-Moulineaux",
       "tags": [
-        "securite",
+        "sécurité",
         "energie",
-        "sante"
+        "santé"
       ],
       "address": "38-40, rue du Général Leclerc, Cedex 9",
       "postcode": "92794",
@@ -28529,8 +28579,8 @@
       "category": "Entreprise",
       "name": "ftopia",
       "tags": [
-        "securite",
-        "cloudcomputing",
+        "sécurité",
+        "cloud",
         "fichiers"
       ],
       "address": "8 rue Victor Massé",
@@ -28966,7 +29016,7 @@
       "category": "Entreprise",
       "name": "Gemalto SA",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "6, rue de La Verrerie, Cedex",
       "postcode": "92197",
@@ -29041,7 +29091,7 @@
       "category": "Entreprise",
       "name": "Genigraph",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "3, rue Danton",
       "postcode": "92240",
@@ -29117,7 +29167,7 @@
       "category": "Entreprise",
       "name": "Geo 212",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "25 bis rue Jean Dolent",
       "postcode": "75014",
@@ -29155,7 +29205,7 @@
       "category": "Entreprise",
       "name": "Geoconcept",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "52 avenue Aristide Briand",
       "postcode": "92220",
@@ -29233,7 +29283,7 @@
       "category": "Entreprise",
       "name": "Geolsemantics",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "32, rue Brancion",
       "postcode": "75015",
@@ -29488,9 +29538,9 @@
     "sys": {
       "path": "globalis-media-systems",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "2afd63471659399105c9c857e876c9f9b18cdd0a",
+        "timestamp": 1389989613000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "7860261a57c68ea87fc0cb9aa6128c4d01c1b005",
@@ -29656,9 +29706,9 @@
     "sys": {
       "path": "goldstark",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "907f7d5857899fb89b5cc465f78cf5f13303e5ae",
+        "timestamp": 1399473000000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "a038ef5dba6ed82308c15ab26ae3453cfd760b67",
@@ -30059,9 +30109,9 @@
     "sys": {
       "path": "graphinium",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "a060a7f926a51d5eb03db1901924f7e3bce95390",
+        "timestamp": 1398863738000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "654dcf3c0cf3e1dd703fa7717a545798e597060e",
@@ -30165,7 +30215,7 @@
       "name": "Greenbureau",
       "tags": [
         "factures",
-        "securite"
+        "sécurité"
       ],
       "address": "110 rue des Poissonniers",
       "postcode": "75018",
@@ -30338,9 +30388,9 @@
     "sys": {
       "path": "gregory-lardon",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "5be3654a2cc7a366656fa1c2b375ff4530244b6c",
+        "timestamp": 1389989614000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "03870114d40c173d171f88dfab8916d6af665207",
@@ -30421,9 +30471,9 @@
     "sys": {
       "path": "grouek",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "6e82c1f1286b09adf413f253f163425e1e6ad55a",
+        "timestamp": 1389989614000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "261b4aa7bb73d90d4ffeec7efae900504932eb53",
@@ -30618,7 +30668,7 @@
       "category": "Entreprise",
       "name": "Groupement des Cartes Bancaires",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "151 bis rue Saint Honoré",
       "postcode": "75001",
@@ -30658,7 +30708,7 @@
       "tags": [
         "réseau social",
         "echange",
-        "vacances"
+        "tourisme"
       ],
       "address": "110 rue des Poissonniers",
       "postcode": "75018",
@@ -30758,9 +30808,9 @@
     "sys": {
       "path": "guru-guru",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "66f6a96eca81991d0a3a47eeab13a9f892a8f706",
+        "timestamp": 1389989614000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "cbce960c877f5c6da2ebdf269160459ffc314d0a",
@@ -30991,9 +31041,9 @@
     "sys": {
       "path": "handypub",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "20c65f88ece58fa7cbf9df2773bc4be36d1fb6c5",
+        "timestamp": 1398863843000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "02681177a7e9eb9a4ba7e977ba3236ab1e74c7d0",
@@ -31031,9 +31081,9 @@
     "sys": {
       "path": "happy-content",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "08ddb1117639220df14547f695b8fdd316bd1af6",
+        "timestamp": 1389989615000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "45b47219f15258fc92da20f969a3e79a00f61578",
@@ -31553,7 +31603,7 @@
       "category": "Entreprise",
       "name": "Hgh Systemes Infrarouges",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "10 rue Maryse Bastie, ZAC de la Sablière",
       "postcode": "91430",
@@ -31703,7 +31753,7 @@
       "category": "Entreprise",
       "name": "Hitronetic",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "63, boulevard Massena",
       "postcode": "75013",
@@ -31843,9 +31893,9 @@
     "sys": {
       "path": "honeyonlime",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "141af39ddfa88d81fb5b27626cc2558bdd89f644",
+        "timestamp": 1394039730000,
+        "author": "Honey OnLime <honeyonlime@gmail.com>"
       },
       "created": {
         "versionId": "38faad897fa6dc7d4db61c90e003a1a27023ab49",
@@ -32052,9 +32102,9 @@
     "sys": {
       "path": "hub-institute",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "037cb46977d7c7bd6b87b85e4670d3f745e25a4c",
+        "timestamp": 1389989616000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "4de17971e653a68f68ff04f4cbe37e052b9567eb",
@@ -32317,7 +32367,7 @@
       "category": "Entreprise",
       "name": "Hyperpanel Lab",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "4 rue Rene Razel, Domaine technologique de Saclay",
       "postcode": "91400",
@@ -32454,9 +32504,9 @@
     "sys": {
       "path": "i-marginal",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "514483b24c29361cfe62be070e433761616da1a5",
+        "timestamp": 1389989617000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "617f18d002fc7d3c9f28399b777f893f455920b6",
@@ -32731,7 +32781,7 @@
       "category": "Entreprise",
       "name": "IDECSI",
       "tags": [
-        "securite",
+        "sécurité",
         "protection emails"
       ],
       "address": "21 allée du Parc de Garlande",
@@ -33170,7 +33220,7 @@
       "category": "Entreprise",
       "name": "Ilex",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "51 boulevard Voltaire",
       "postcode": "92600",
@@ -33283,7 +33333,7 @@
       "category": "Entreprise",
       "name": "iMediaSante",
       "tags": [
-        "sante",
+        "santé",
         "gratuit"
       ],
       "address": "10 place d'Italie",
@@ -33438,7 +33488,7 @@
       "category": "Entreprise",
       "name": "In-Webo Technologies",
       "tags": [
-        "securite",
+        "sécurité",
         "authentification",
         "identite"
       ],
@@ -33577,9 +33627,9 @@
     "sys": {
       "path": "incognito-interactive",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "6b23c1dff70b6646562684899e265d979c5f3c80",
+        "timestamp": 1389989619000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "cf6cabedad1186ac13947dceb2d37d19ea88d4df",
@@ -33996,7 +34046,7 @@
       "category": "Entreprise",
       "name": "Ineo Defense",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "Bat 8, Zone aéronautique Louis Breguet",
       "postcode": "78457",
@@ -34034,7 +34084,7 @@
       "category": "Entreprise",
       "name": "Inéovation",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "37 rue Collange",
       "postcode": "92300",
@@ -34200,7 +34250,7 @@
       "category": "Entreprise",
       "name": "Ingenico",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "11 rue Curie",
       "postcode": "92150",
@@ -34470,7 +34520,7 @@
       "name": "Inovia-Team",
       "tags": [
         "innovation",
-        "ingenierie",
+        "SSII",
         "startups",
         "B2B"
       ],
@@ -34487,9 +34537,9 @@
     "sys": {
       "path": "inovia-team",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "5073aed0e240c162d591fd4ed8b6d210e29aea8b",
+        "timestamp": 1389989621000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "f63e9236037e86a7491f30371bbc0671f2ac18e0",
@@ -34750,7 +34800,7 @@
       "tags": [
         "logiciel",
         "ia",
-        "education"
+        "éducation"
       ],
       "address": "80 rue des Haies",
       "postcode": "75020",
@@ -34981,8 +35031,8 @@
       "category": "Entreprise",
       "name": "InterCloud",
       "tags": [
-        "cloudcomputing",
-        "securite",
+        "cloud",
+        "sécurité",
         "B2B"
       ],
       "address": "4 place de Valois",
@@ -35063,7 +35113,7 @@
       "name": "Intersec",
       "tags": [
         "mobile",
-        "bigdata"
+        "big data"
       ],
       "address": "37 rue Pierre L'homme",
       "postcode": "92400",
@@ -35719,9 +35769,9 @@
     "sys": {
       "path": "islean-consulting",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "978178952f9311f05d2022a22867a342ec1df011",
+        "timestamp": 1389989623000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "aecb45a6c6b0b5cbe3c6646ddec258f5897df280",
@@ -35790,7 +35840,7 @@
       "category": "Entreprise",
       "name": "Isthma",
       "tags": [
-        "bigdata"
+        "big data"
       ],
       "address": "18 rue Soleillet",
       "postcode": "75020",
@@ -36003,9 +36053,9 @@
     "sys": {
       "path": "items-international",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "a95a480268d4016aa90f3b6bddeba28d5332fc45",
+        "timestamp": 1389989623000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "3563d1d5ccf49173dcac4d1d40158853a5aafd1c",
@@ -36029,7 +36079,7 @@
       "category": "Entreprise",
       "name": "iTOP",
       "tags": [
-        "education",
+        "éducation",
         "informatique",
         "elearning"
       ],
@@ -36070,7 +36120,7 @@
       "category": "Entreprise",
       "name": "Itslearning",
       "tags": [
-        "education",
+        "éducation",
         "ent"
       ],
       "address": "13 rue d'Hauteville",
@@ -36127,9 +36177,9 @@
     "sys": {
       "path": "izimobi",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "66c57b43a9c335263ed820e7914f8030e28d987a",
+        "timestamp": 1389989624000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "7c66b3db9ab3e9978170c8baeef68ca4a13d42c1",
@@ -36394,7 +36444,7 @@
       "name": "Je Rêve d'une Maison",
       "tags": [
         "immobilier",
-        "vacances",
+        "tourisme",
         "collaboratif"
       ],
       "address": "40 rue de Moscou",
@@ -36565,8 +36615,9 @@
       "category": "Entreprise",
       "name": "JOBaProximite",
       "tags": [
-        "geolocalisation",
-        "emploi"
+        "géolocalisation",
+        "emploi",
+        "mobilité"
       ],
       "address": "82 rue d'Hauteville",
       "postcode": "75010",
@@ -36607,7 +36658,7 @@
       "category": "Entreprise",
       "name": "JobProd",
       "tags": [
-        "marketplaces",
+        "marketplace",
         "recrutement",
         "développeurs"
       ],
@@ -36664,9 +36715,9 @@
     "sys": {
       "path": "john-s-graphisme",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "25a2ded35d6ef22bf901178c17d578de00165c15",
+        "timestamp": 1389989624000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "a9e6c50740f67d1716e41de8985dce260d7c3e73",
@@ -36770,7 +36821,7 @@
       "category": "Entreprise",
       "name": "Jolicloud",
       "tags": [
-        "cloudcomputing",
+        "cloud",
         "personalcloud"
       ],
       "address": "23 rue de Cléry",
@@ -36829,9 +36880,9 @@
     "sys": {
       "path": "jolicode",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "316e42829dc7d73de91972014170de193a84b9bc",
+        "timestamp": 1389989625000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "dbc24365b26e3fb77c1f8e8b5c6223814070fbfc",
@@ -36869,9 +36920,9 @@
     "sys": {
       "path": "joue-avec",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "5cf345cd3ca5fca5e803efe377ddb82746a298b9",
+        "timestamp": 1389989625000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "ffa8cabef7e1328a9646f1841c178adad7f12436",
@@ -37654,7 +37705,7 @@
       "tags": [
         "informatique",
         "personnalisation",
-        "semantique"
+        "sémantique"
       ],
       "address": "45 boulevard Vincent Auriol",
       "postcode": "75013",
@@ -38156,7 +38207,7 @@
       "category": "Entreprise",
       "name": "kXen",
       "tags": [
-        "bigdata",
+        "big data",
         "datamining",
         "stats"
       ],
@@ -38362,7 +38413,8 @@
       "tags": [
         "apero",
         "mobile",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "17 rue Ganneron",
       "postcode": "75018",
@@ -38459,9 +38511,9 @@
     "sys": {
       "path": "l-ile-des-medias",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "8e1874664e734db404128dbf99708e59079fd3be",
+        "timestamp": 1389989628000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "70a4990b35b6fc0451719a52762dfde917bb9007",
@@ -38876,9 +38928,9 @@
     "sys": {
       "path": "la-netscouade",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "dc6d44e426978a08d1f5d63aefadb09bcb860232",
+        "timestamp": 1389989628000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "b15c1f5bba4eea4f7f4b4144af08f899afda4824",
@@ -39008,9 +39060,9 @@
     "sys": {
       "path": "la-petite-etoile",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "54f88791ce6b6ec0be182f32b697fa405db902ae",
+        "timestamp": 1391440248000,
+        "author": "TechOnMap <twitter:techonmap>"
       },
       "created": {
         "versionId": "6edaeff1b72a9717c709122ead7dff10f79a03ee",
@@ -39367,9 +39419,9 @@
     "sys": {
       "path": "lacompany",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "4cf1a3bae0bbc2eca6bded663ddf88b43742c4dc",
+        "timestamp": 1389989629000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "5b879ecfe445b826e81b5dbe9ce3a899df880916",
@@ -39410,9 +39462,9 @@
     "sys": {
       "path": "langage-commun",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "6a896e6176a4f1338fa91be6f410e2479e0336cc",
+        "timestamp": 1391439887000,
+        "author": "TechOnMap <twitter:techonmap>"
       },
       "created": {
         "versionId": "d2f72c0ff1b5efc4403ff0d15f023eecacecede6",
@@ -39763,9 +39815,9 @@
       "email": "leo.lenaour@groupe-sos.org",
       "category": "Incubateur",
       "tags": [
-        "emploir",
-        "incuabteur",
-        "jeunes"
+        "accelérateur",
+        "jeunes",
+        "emploi"
       ],
       "address": "17 promenade jean rostand",
       "postcode": "93000",
@@ -39778,9 +39830,9 @@
     "sys": {
       "path": "le-comptoir",
       "updated": {
-        "versionId": "e3177a3246671c6964f897032b6ecdd0661986cf",
-        "timestamp": 1403622242000,
-        "author": "Léo Le Naour <leo.lenaour@gmail.com>"
+        "versionId": "c99206bda99d3ca28ca7ff0aaefe7bd18d9b1d42",
+        "timestamp": 1418134138000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "2abfbfc9c561e14b3705dcbaf89654f62e6d4a36",
@@ -39862,9 +39914,9 @@
     "sys": {
       "path": "le-grand-studio",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "b68179fcf1c3cdf0107c5b4f0545d39aefdd1ff0",
+        "timestamp": 1389989629000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "6c2c23a9b0af9d2af6f78fd63c0cf30e55cbaae3",
@@ -40589,9 +40641,9 @@
     "sys": {
       "path": "les-argonautes",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "cfaa51ffed47a518c1c6c2094d53a01bf4deca67",
+        "timestamp": 1389989632000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "a49fefb9983b8a1fb9dd5936504a893c0b05f532",
@@ -40615,7 +40667,7 @@
       "category": "Entreprise",
       "name": "Les Bons Profs",
       "tags": [
-        "education",
+        "éducation",
         "ressources"
       ],
       "address": "123 rue du Faubourg Saint Antoine",
@@ -40673,9 +40725,9 @@
     "sys": {
       "path": "les-chinois",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "2939069032a7c85776fb43b4e70e0e660e66abc5",
+        "timestamp": 1389989632000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "fa6c2ab79acb5bb9bfdd2df0e6edf393d330a974",
@@ -40873,9 +40925,9 @@
     "sys": {
       "path": "lesmobilizers",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "5912842d0e78fc7000bc80617de25611cd8cd010",
+        "timestamp": 1389989634000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "714b5be7a64a9c4cdc75509758508d492d715e4c",
@@ -40979,7 +41031,7 @@
       "category": "Entreprise",
       "name": "Lheritier",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "Parc St Christophe, 10 avenue de l'Entreprise",
       "postcode": "95862",
@@ -41116,9 +41168,9 @@
     "sys": {
       "path": "linagora",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "9d2da374d8f4a00197b42b40aa703af08913a3ec",
+        "timestamp": 1389989635000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "d74352efa4e4420f4ff4a1c006dc75b1b8b97f02",
@@ -41182,7 +41234,7 @@
       "category": "Entreprise",
       "name": "Lingueo",
       "tags": [
-        "education",
+        "éducation",
         "langues",
         "visioconférence"
       ],
@@ -41407,9 +41459,9 @@
     "sys": {
       "path": "localeo",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "69cceb627ec8ac09bf605cc7cbdf509abe67b35d",
+        "timestamp": 1389989636000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "8374acf013cc4af8baa61263a86365c19d4acae8",
@@ -41516,8 +41568,7 @@
       "category": "Entreprise",
       "tags": [
         "tourisme",
-        "immersion",
-        "voyage"
+        "immersion"
       ],
       "address": "19 quai de l'Oise",
       "postcode": "75019",
@@ -41533,9 +41584,9 @@
     "sys": {
       "path": "lost-in-immersion",
       "updated": {
-        "versionId": "dab79ce88d17de6b878f08687f5bbe0f13232fa9",
-        "timestamp": 1395505208000,
-        "author": "Lost In Immersion <twitter:lostinimmersion>"
+        "versionId": "10bfc105246c5bfab0f758238b49f4594e61f30e",
+        "timestamp": 1418672880000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "82fbc85f1daba1f2c6b812ad7347428711d91e65",
@@ -41677,7 +41728,7 @@
       "category": "Entreprise",
       "name": "Luceor",
       "tags": [
-        "securite",
+        "sécurité",
         "telecoms"
       ],
       "address": "2 Place Jules Gevelot",
@@ -42419,9 +42470,9 @@
     "sys": {
       "path": "make-different",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "7f2d2fb16ac390e60bfd0c22ac067a89c4f3ca89",
+        "timestamp": 1412157086000,
+        "author": "Make Different <twitter:makedifferentfr>"
       },
       "created": {
         "versionId": "e6d9669b2664ac065274cd6d90302f068d521d37",
@@ -42462,15 +42513,15 @@
     },
     "sys": {
       "path": "makeidea",
-      "created": {
-        "versionId": "250f89ac75d905b82b34346de56104861a76c88f",
-        "timestamp": 1416230009000,
-        "author": "system <system@system>"
-      },
       "updated": {
         "versionId": "bcfd3965e5c81af2f36a4a355c7bffdadde67bdb",
         "timestamp": 1416230009000,
         "author": "Makeidea <twitter:makeideaio>"
+      },
+      "created": {
+        "versionId": "250f89ac75d905b82b34346de56104861a76c88f",
+        "timestamp": 1416230009000,
+        "author": "system <system@system>"
       }
     }
   },
@@ -42650,7 +42701,8 @@
       "name": "Mappy",
       "tags": [
         "carte",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "5 rue Maurice Mallet",
       "postcode": "92130 Issy-les-moulineaux",
@@ -42853,7 +42905,7 @@
       "name": "Martec",
       "tags": [
         "transport",
-        "securite",
+        "sécurité",
         "telecoms"
       ],
       "address": "29 avenue de La Baltique, ZA Courtaboeuf",
@@ -43133,7 +43185,7 @@
       "category": "Entreprise",
       "name": "Maxicours",
       "tags": [
-        "education"
+        "éducation"
       ],
       "address": "59 rue Benoît Malon",
       "postcode": "94250",
@@ -43622,9 +43674,9 @@
     "sys": {
       "path": "message-business",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "bb0a1654c844a45a6d37a4f8484a676270eec286",
+        "timestamp": 1401266036000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "b3ad53bf5acf7cfb6cf7709e08ae3af5e718adea",
@@ -43648,7 +43700,7 @@
       "category": "Entreprise",
       "name": "Meta Coaching",
       "tags": [
-        "sante"
+        "santé"
       ],
       "address": "10 rue Pernety",
       "postcode": "75014",
@@ -43772,7 +43824,7 @@
       "tags": [
         "emploi",
         "recrutement",
-        "semantique"
+        "sémantique"
       ],
       "address": "15 rue la Fayette",
       "postcode": "75009",
@@ -43970,7 +44022,7 @@
       "category": "Entreprise",
       "tags": [
         "hotel",
-        "voyage",
+        "tourisme",
         "affaires"
       ],
       "address": "1 rue royale",
@@ -44313,9 +44365,9 @@
     "sys": {
       "path": "miratech",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "385020695eac8781f3ae8d3eb674cdf7623512ac",
+        "timestamp": 1389989649000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "0ac5abbac09480ac00628d46fd3a65c530d3fe36",
@@ -44935,7 +44987,7 @@
       "category": "Entreprise",
       "name": "Mondeca",
       "tags": [
-        "semantique",
+        "sémantique",
         "ged"
       ],
       "address": "3 cité Nollez",
@@ -45059,7 +45111,7 @@
       "category": "Entreprise",
       "name": "Montimage",
       "tags": [
-        "securite",
+        "sécurité",
         "ocds",
         "telecoms"
       ],
@@ -45259,7 +45311,7 @@
       "tags": [
         "innovation",
         "numerique",
-        "education",
+        "éducation",
         "B2B"
       ],
       "address": "14 rue gambetta",
@@ -45272,9 +45324,9 @@
     "sys": {
       "path": "motiv-solutions",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "9c27615378915369930ff19a6e82c44ae3476589",
+        "timestamp": 1389989654000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "3e3bef679c774a203662e80afbe023f929e3fef7",
@@ -45299,7 +45351,7 @@
       "name": "Moviken",
       "tags": [
         "transport",
-        "mobilite"
+        "mobilité"
       ],
       "address": "23 rue Alfred Nobel",
       "postcode": "77420",
@@ -45465,9 +45517,9 @@
       "category": "Entreprise",
       "name": "Mpoware",
       "tags": [
-        "securite",
-        "mobilite",
-        "cloudcomputing"
+        "sécurité",
+        "mobilité",
+        "cloud"
       ],
       "address": "11 place de l'Alouette",
       "postcode": "77700",
@@ -45557,9 +45609,9 @@
     "sys": {
       "path": "multeam",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "3cd564539aa251ae33a9a7f6013a37ca8b9b63ca",
+        "timestamp": 1389989656000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "2735d78bc4b1538a7489f6307fdc39c9a1062f31",
@@ -45916,9 +45968,9 @@
     "sys": {
       "path": "mycityplanner",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "9045e04ca607085b9967ab4ef5b4840d38f16361",
+        "timestamp": 1389989657000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "4b8bc3c2f9aa95497a847afb4cdfb34fc09337fa",
@@ -46378,9 +46430,9 @@
     "sys": {
       "path": "n-sens",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "7af0897a0b8359f79a934e0414ef0754f579be60",
+        "timestamp": 1389989659000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "99af361be59bcb62780c1f4c43af71dc6fd1df65",
@@ -46404,7 +46456,7 @@
       "category": "Entreprise",
       "name": "Nagra France",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "28 rue du Colonel Pierre Avia",
       "postcode": "75015",
@@ -46457,9 +46509,9 @@
     "sys": {
       "path": "navidis",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "3a8f346412e674c6c398777effbc5b81cf6cca1e",
+        "timestamp": 1389989659000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "14bd8346cb8e05815337a1f4e3b5d7abface05bc",
@@ -46543,9 +46595,9 @@
     "sys": {
       "path": "nealite",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "008d140bd17d921469acf7acd36375cb29901b4f",
+        "timestamp": 1412684214000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "c9a48c3d83e4a66cb4d43674ccf46e66cc9f892e",
@@ -46583,9 +46635,9 @@
     "sys": {
       "path": "nearbee",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "6d50c0ccaabe71ad1f2e01a7c9ffdf76168ca053",
+        "timestamp": 1389989660000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "f76855b92026e5be127efef583dea68d210b8e22",
@@ -46858,9 +46910,9 @@
     "sys": {
       "path": "neocamino",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "55912e5dedcba410156bd7357656caab661e69ea",
+        "timestamp": 1389989661000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "5a74f0c32dd68cee2e6ce0535c4a04490517045d",
@@ -47108,9 +47160,9 @@
     "sys": {
       "path": "netdevices",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "2bd2f166f51c63335e89a4b3005468bfa6c0c87e",
+        "timestamp": 1389989662000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "ac37ca8a17508e5f7ede59ae835b7ef20f10fcc8",
@@ -47215,8 +47267,9 @@
       "category": "Entreprise",
       "name": "Netmeno",
       "tags": [
-        "geolocalisation",
-        "mobile"
+        "géolocalisation",
+        "mobile",
+        "mobilité"
       ],
       "address": "32 rue de Civry",
       "postcode": "75016",
@@ -47601,9 +47654,9 @@
     "sys": {
       "path": "new3s",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "352d6d9cda2e3562f90da4baf9c6ea97fbcf1baa",
+        "timestamp": 1389989664000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "36eabe0649a0ed5d4be83d4f1427c4730351e8a2",
@@ -47643,9 +47696,9 @@
     "sys": {
       "path": "newcodecity",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "d216776cf62b778d73bd742520d1154dcc533003",
+        "timestamp": 1391074488000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "7d5f0ce9efcbae6eb898fe54ebba5b234ba5c2b9",
@@ -47792,7 +47845,7 @@
       "name": "Nexter Systems",
       "tags": [
         "transport",
-        "securite"
+        "sécurité"
       ],
       "address": "11 Allée des Marronniers, Cedex",
       "postcode": "78022",
@@ -47845,9 +47898,9 @@
     "sys": {
       "path": "nexway",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "e22a3a794192aa46dcebf84b520bec23928c1b1f",
+        "timestamp": 1389989665000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "18fa98ca745138ccf2b9ec73d25fe77db1811cab",
@@ -47928,9 +47981,9 @@
     "sys": {
       "path": "niji",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "2a316840bce15c5f1d8ace09533d7b90d807f248",
+        "timestamp": 1392995273000,
+        "author": "TechOnMap <twitter:techonmap>"
       },
       "created": {
         "versionId": "784dcc0cdfdfedc04f98b7a328f80e5653a19c5f",
@@ -48032,7 +48085,7 @@
       "name": "NIT",
       "tags": [
         "transport",
-        "securite"
+        "sécurité"
       ],
       "address": "1-4 Impasse de La Noisette, Bat D, 1er Etage",
       "postcode": "91370",
@@ -48085,9 +48138,9 @@
     "sys": {
       "path": "nodesign",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "37114623531b3adbf2e9ae0a9126a91a2211b68d",
+        "timestamp": 1389989666000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "7ac3ed3ffa681cf3cf318d70dc0f7f9a53f09e31",
@@ -48128,9 +48181,9 @@
     "sys": {
       "path": "nokinomo",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "6dbce368740758dc62587fa8402696ca926f1a18",
+        "timestamp": 1389989666000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "84b7911769b6c1cc8aa6742ae62d24d6316ed9ce",
@@ -48356,7 +48409,7 @@
       "category": "Entreprise",
       "name": "Notocord Systems",
       "tags": [
-        "sante"
+        "santé"
       ],
       "address": "113 Chemin de Ronde",
       "postcode": "78290",
@@ -48395,7 +48448,7 @@
       "name": "NourY Solutions",
       "tags": [
         "sgbd",
-        "securite",
+        "sécurité",
         "data"
       ],
       "address": "2 boulevard de la libération",
@@ -48559,7 +48612,7 @@
       "category": "Entreprise",
       "name": "NTX Research",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "111, avenue Victor Hugo",
       "postcode": "75116",
@@ -48640,7 +48693,7 @@
       "category": "Entreprise",
       "name": "Numerique Assistance",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "26 Quai Carnot",
       "postcode": "92210",
@@ -48800,7 +48853,7 @@
       "category": "Entreprise",
       "name": "Oberthur Technologies",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "Immeuble Défense Ouest420 rue d’Estienne d’Orves",
       "postcode": "92700",
@@ -48936,9 +48989,9 @@
     "sys": {
       "path": "octave-octave",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "eab8a6d2ecfd430604a350edc154efd6b357f14f",
+        "timestamp": 1389989668000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "52799438ca05210de90d15806b343818fe52b75e",
@@ -49125,7 +49178,7 @@
       "category": "Entreprise",
       "name": "Olfeo",
       "tags": [
-        "securite",
+        "sécurité",
         "filtrage"
       ],
       "address": "15 boulevard Poissonnière",
@@ -49361,7 +49414,7 @@
       "category": "Entreprise",
       "name": "Onera",
       "tags": [
-        "securite",
+        "sécurité",
         "ocds",
         "telecoms"
       ],
@@ -49815,7 +49868,7 @@
       "name": "OpenDataSoft",
       "tags": [
         "opendata",
-        "bigdata",
+        "big data",
         "api"
       ],
       "address": "130 rue de Lourmel",
@@ -49937,7 +49990,7 @@
       "category": "Entreprise",
       "name": "Oppida",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "4, avenue du Vieil Etang",
       "postcode": "78180",
@@ -50338,7 +50391,7 @@
       "category": "Entreprise",
       "name": "Orolia",
       "tags": [
-        "securite",
+        "sécurité",
         "telecoms"
       ],
       "address": "3, avenue du Canada Parc Technopolis Cedex",
@@ -50493,8 +50546,8 @@
       "category": "Communauté",
       "name": "Ouishare",
       "tags": [
-        "economiecollaborative",
-        "international"
+        "economie collaborative",
+        "association"
       ],
       "address": "29 rue de Meaux",
       "postcode": "75019",
@@ -50509,9 +50562,9 @@
     "sys": {
       "path": "ouishare",
       "updated": {
-        "versionId": "7271a52871dd2af2886d98303bd2a5a8a9c05423",
-        "timestamp": 1389989670000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "4ea556991e848bee7fd90695347a5385c6cd652c",
+        "timestamp": 1418310939000,
+        "author": "Ubimix <twitter:ubimix>"
       },
       "created": {
         "versionId": "8d73104b61d231d08d99c513bfe1c778c875c45d",
@@ -50629,9 +50682,9 @@
     "sys": {
       "path": "oxala-consulting",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "ebeb1f42c34511f0fa7c36ab1b85ad5014bd2f0b",
+        "timestamp": 1389989670000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "9d3be78a26614ff6cc42e75d89497811205de86d",
@@ -50972,7 +51025,7 @@
       "category": "Entreprise",
       "name": "Paraschool",
       "tags": [
-        "education"
+        "éducation"
       ],
       "address": "2 rue des Chantiers",
       "postcode": "75005",
@@ -51488,7 +51541,7 @@
       "category": "Entreprise",
       "name": "Parsys Telemedecine",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "118 avenue de France",
       "postcode": "75013",
@@ -51704,9 +51757,9 @@
     "sys": {
       "path": "pastekecom",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "3153ae4b8e9bccf2706197c37309fc4e6625cae7",
+        "timestamp": 1389989673000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "7f99413c59fd17d2475bb43c756837a7e9894458",
@@ -51731,7 +51784,7 @@
       "email": "contact@patientsworld.com",
       "category": "Entreprise",
       "tags": [
-        "sante",
+        "santé",
         "web"
       ],
       "address": "71 rue réaumur",
@@ -51779,16 +51832,19 @@
       "city": "Boulogne",
       "creationyear": "2009",
       "url": "www.paybyphone.fr",
-      "tags": [],
+      "tags": [
+        "paiement",
+        "mobiité"
+      ],
       "twitter": "paybyphone",
       "description": "PaybyPhone est le service de paiement mobile pour le stationnement, le parking et les transports. Il permet d'effectuer des petits achats de manière simple. Membre de seineouestdigital.fr"
     },
     "sys": {
       "path": "paybyphone",
       "updated": {
-        "versionId": "7d9e044376ff2917b93e5a2264c9020d197967d6",
-        "timestamp": 1392994655000,
-        "author": "TechOnMap <twitter:techonmap>"
+        "versionId": "65b211a69fb077776cf77f0b2af669243ae2a82b",
+        "timestamp": 1418123546000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "0b627a156878111abb18d4eec65dccfac45a6c85",
@@ -52029,9 +52085,9 @@
     "sys": {
       "path": "pepper-cube",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "b0728c7786018111c1e3efe619fe7271b8250375",
+        "timestamp": 1389989673000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "3d6daa5a2cfcbfa0f851cad1511120b584f2e404",
@@ -52289,7 +52345,7 @@
       "category": "Entreprise",
       "name": "Picogiga International",
       "tags": [
-        "securite",
+        "sécurité",
         "telecoms"
       ],
       "address": "Place Marcel RebuffatParc de Villejust Cedex",
@@ -52381,9 +52437,9 @@
     "sys": {
       "path": "pierlis",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "82be70cbedda827dd88a5874fd7ac6c8c53ef421",
+        "timestamp": 1389989674000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "567db0746beb44d148006070f0bcaeba3aad4da4",
@@ -52834,9 +52890,9 @@
     "sys": {
       "path": "pixiolabs",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "e6ffe6fdec61fc30d8990b8c34132eed3097f021",
+        "timestamp": 1396536447000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "e2b8c28ffb21055c0de50b80d13fc3234346ddec",
@@ -53000,9 +53056,9 @@
     "sys": {
       "path": "playsoft",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "0ac0648713107d95a96d6c1db56bbeae1bf65cab",
+        "timestamp": 1389989675000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "8bfe6c05a68ddf2ee1a04e828d1824222c1c15e1",
@@ -53109,7 +53165,8 @@
       "tags": [
         "marketing",
         "coupons",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "118 rue de Tocqueville",
       "postcode": "75017",
@@ -53344,7 +53401,7 @@
       "category": "Entreprise",
       "name": "PPLS",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "1, boulevard Jean Moulin",
       "postcode": "78990",
@@ -53538,7 +53595,7 @@
       "category": "Entreprise",
       "name": "Press'criptum",
       "tags": [
-        "mcommerce"
+        "ecommerce"
       ],
       "address": "20 boulevard Malesherbes",
       "postcode": "75008",
@@ -53592,9 +53649,9 @@
     "sys": {
       "path": "presswall",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "29e42e3b13688c5c203bd80429d4f50dc62ab8a7",
+        "timestamp": 1389989676000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "92be3ed831385021f5ceb89dd057f59eb6726965",
@@ -53827,7 +53884,7 @@
       "category": "Entreprise",
       "name": "Prodomo",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "73 boulevard Richard Lenoir",
       "postcode": "75011",
@@ -53868,7 +53925,7 @@
       "tags": [
         "Informatique",
         "Conseil",
-        "ingenierie"
+        "SSII"
       ],
       "address": "72 avenue Edouard Vaillant",
       "postcode": "92100",
@@ -53907,7 +53964,7 @@
       "category": "Entreprise",
       "name": "Proengin",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "1 rue de L Industrie",
       "postcode": "78210",
@@ -53963,9 +54020,9 @@
     "sys": {
       "path": "profileo",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "a595711b87897b7107b65d876b050f1c64a54270",
+        "timestamp": 1389989677000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "ef97cf25ca0687b7b35dc6df4776d039f4fec768",
@@ -54063,8 +54120,8 @@
       "category": "Entreprise",
       "name": "Promethean",
       "tags": [
-        "education",
-        "equipement"
+        "éducation",
+        "équipement"
       ],
       "address": "45  avenue Victor Hugo",
       "postcode": "93300",
@@ -54211,9 +54268,9 @@
     "sys": {
       "path": "provaltis",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "6f095ecf1d5c1d99ae0f83588e122bc1d2aadeb8",
+        "timestamp": 1391678864000,
+        "author": "Provaltis <twitter:provaltis>"
       },
       "created": {
         "versionId": "a2dda6c73086239eba1d029b775225d906abadd5",
@@ -54237,7 +54294,7 @@
       "category": "Entreprise",
       "name": "Prove&Run",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "77 avenue Niel",
       "postcode": "75017",
@@ -54318,8 +54375,8 @@
       "category": "Entreprise",
       "name": "Proxem",
       "tags": [
-        "semantique",
-        "bigdata",
+        "sémantique",
+        "big data",
         "analytics"
       ],
       "address": "19 boulevard de Magenta",
@@ -54658,9 +54715,9 @@
     "sys": {
       "path": "qublicite-france",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "f18a0f9ccddb79ca11e74361b3bd5adf8ec533c1",
+        "timestamp": 1400855613000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "ac047b06f197fd3afcbc2d48c2a459458c7e8c9e",
@@ -54986,9 +55043,9 @@
     "sys": {
       "path": "reciproque",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "8d1edc8b0c9bed1efe1c55b399460f0ce8130dad",
+        "timestamp": 1389989679000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "ba6184f4946dd7237dd32a66dc928a52634482a8",
@@ -55014,7 +55071,7 @@
       "category": "Entreprise",
       "tags": [
         "buyback",
-        "recommerce"
+        "ecommerce"
       ],
       "address": "54 avenue Lénine",
       "postcode": "94250",
@@ -55175,7 +55232,7 @@
       "category": "Entreprise",
       "name": "Reflex Ces",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "2 rue Gevaudan SILIC 1743",
       "postcode": "91047",
@@ -55408,9 +55465,9 @@
     "sys": {
       "path": "remu",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "62b1f6ffb42041ec063012874851bb945f4e3cab",
+        "timestamp": 1389989680000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "1d0eedbdf56702ae56c3460424466d448858b314",
@@ -55435,7 +55492,8 @@
       "name": "Renaissance Numérique",
       "tags": [
         "thinktank",
-        "fracturenumerique"
+        "fracture numérique",
+        "association"
       ],
       "address": "13 rue Eugène Flachat",
       "postcode": "75017",
@@ -55450,9 +55508,9 @@
     "sys": {
       "path": "renaissance-numerique",
       "updated": {
-        "versionId": "a13def7291246f9aff90f57f09259c254ede130f",
-        "timestamp": 1389989680000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "a6bac0b0f5fed95c249981d93b03144bbb01a004",
+        "timestamp": 1418190010000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "5feb1f7165d21cf70abe2c2b4599a47b84d0cdb4",
@@ -55877,9 +55935,10 @@
       "category": "Entreprise",
       "name": "Rich Analysis",
       "tags": [
-        "geolocalisation",
+        "géolocalisation",
         "dataviz",
-        "bigdata"
+        "big data",
+        "mobilité"
       ],
       "address": "16 rue Kléber",
       "postcode": "92130",
@@ -56041,7 +56100,8 @@
       "tags": [
         "réseau social",
         "mobile",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "17 avenue de la Bourdonnais",
       "postcode": "75007",
@@ -56098,9 +56158,9 @@
     "sys": {
       "path": "safe-company",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "41d80978b82924aa1f4d862559ad98690d528b79",
+        "timestamp": 1399960204000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "3c1eff364d1a469ee241125f507cb3d40071a473",
@@ -56409,7 +56469,8 @@
       "tags": [
         "prevention",
         "maladiechronique",
-        "silvereconomy"
+        "silver économie",
+        "santé"
       ],
       "address": "13 rue Moreau",
       "postcode": "75012",
@@ -56450,7 +56511,7 @@
       "category": "Entreprise",
       "name": "Saphymo",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "5, rue du Théâtre",
       "postcode": "91300",
@@ -56961,7 +57022,7 @@
       "category": "Entreprise",
       "name": "Secure-Ic Sas",
       "tags": [
-        "securite",
+        "sécurité",
         "ocds"
       ],
       "address": "37-39, rue Dareau",
@@ -57122,7 +57183,7 @@
       "category": "Entreprise",
       "name": "Semdee",
       "tags": [
-        "bigdata",
+        "big data",
         "businessintelligence",
         "ereputation"
       ],
@@ -57356,7 +57417,7 @@
       "category": "Entreprise",
       "name": "Sequrenet",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "12 Villa Croix Nivert",
       "postcode": "75015",
@@ -57492,9 +57553,9 @@
     "sys": {
       "path": "servitics",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "c67a058644a3b22fabb081392d143b9d4cb6596b",
+        "timestamp": 1395391086000,
+        "author": "ServiTIC's <twitter:servitics>"
       },
       "created": {
         "versionId": "827070df1efdcecfc363dc379e6d591885b68661",
@@ -57556,7 +57617,8 @@
       "tags": [
         "Jeux vidéo",
         "socialgaming",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "14 avenue de l'Opéra",
       "postcode": "75001",
@@ -57898,9 +57960,9 @@
     "sys": {
       "path": "shm-conseil",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "3cefcf6ae2b534a6c2f27e1f41d7d7f4ace8f4f8",
+        "timestamp": 1399960204000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "39ca4c7b488a98c2f4de4425bd2bc54cc855c484",
@@ -58114,7 +58176,7 @@
       "name": "Sikanmar Interactive",
       "tags": [
         "applications mobiles",
-        "education"
+        "éducation"
       ],
       "address": "26 rue Voltaire",
       "postcode": "92800",
@@ -58590,7 +58652,7 @@
       "category": "Entreprise",
       "name": "Simulity",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "39, boulevard Georges Clémenceau",
       "postcode": "92400",
@@ -58669,7 +58731,7 @@
       "category": "Entreprise",
       "name": "Sispia",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "18, Allée Henri Dunant",
       "postcode": "94300",
@@ -58707,7 +58769,7 @@
       "category": "Entreprise",
       "name": "Sistech",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "28, rue de Caumartin",
       "postcode": "75009",
@@ -58840,9 +58902,9 @@
     "sys": {
       "path": "skeelbox",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "c2db13dcd5aa3b033cb662686b7941ad11395d29",
+        "timestamp": 1389989687000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "7c023d98fbc05885f77c84f736eafe5f1c0ec9ca",
@@ -59065,7 +59127,7 @@
       "category": "Entreprise",
       "name": "Smart Technologies",
       "tags": [
-        "education"
+        "éducation"
       ],
       "address": "15 rue Pagès",
       "postcode": "92150",
@@ -59833,7 +59895,8 @@
       "name": "SoCloz",
       "tags": [
         "shopping",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "15 rue Jean-Baptiste Berlier",
       "postcode": "75013",
@@ -60359,9 +60422,9 @@
     "sys": {
       "path": "spintank",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "91f379b708d06ac951c6e7c80b8d9f0a57f5fed7",
+        "timestamp": 1391510306000,
+        "author": "Spintank <twitter:spintank>"
       },
       "created": {
         "versionId": "6def2287a528119c256c07f8cce56727e297b3af",
@@ -60966,9 +61029,9 @@
     "sys": {
       "path": "steaw",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "4aa36d5c1ce410e3d425900667de8598a9c1b663",
+        "timestamp": 1389989695000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "f8fcceeef8bec98f22cfefe8496e16151bb2d4fa",
@@ -61294,7 +61357,7 @@
       "tags": [
         "audiovisuel",
         "multimedia",
-        "developpementdurable"
+        "environnement"
       ],
       "address": "32 rue des Volontaires",
       "postcode": "75015",
@@ -61506,9 +61569,9 @@
     "sys": {
       "path": "stribe",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "1b585c61182ea00fa3560cbea8a75662e6bbc6cc",
+        "timestamp": 1389989697000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "146b6c87be037e648fae0eada44c29534b28c3eb",
@@ -61627,9 +61690,9 @@
     "sys": {
       "path": "studio-lumini",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "a6edb3a4c39903948fa1b4783b838e15b1052ede",
+        "timestamp": 1389989698000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "6130bca2ba2d1e736c731e7341d3a8f451c77304",
@@ -61947,7 +62010,8 @@
       "tags": [
         "marketplace",
         "cuisine",
-        "geolocalisation"
+        "géolocalisation",
+        "mobilité"
       ],
       "address": "31 rue de la Sourdière",
       "postcode": "75001",
@@ -62233,7 +62297,7 @@
       "category": "Entreprise",
       "name": "Syllabs",
       "tags": [
-        "semantique",
+        "sémantique",
         "data",
         "content"
       ],
@@ -62358,9 +62422,9 @@
       "email": "communication@synesthesie.com",
       "category": "Communauté",
       "tags": [
-        "numerique",
-        "technologie",
-        "social"
+        "association",
+        "art",
+        "numérique"
       ],
       "address": "1 ter Place du Caquet",
       "postcode": "93200",
@@ -62374,8 +62438,8 @@
     "sys": {
       "path": "synesthesie",
       "updated": {
-        "versionId": "8bc7ab644946c06ba98af1efae4cc0c9554ac1ad",
-        "timestamp": 1415180727000,
+        "versionId": "12885f882004ebdc702aa1cec523cae750b84d9d",
+        "timestamp": 1418190581000,
         "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
@@ -62400,7 +62464,7 @@
       "category": "Entreprise",
       "name": "Synomia",
       "tags": [
-        "semantique",
+        "sémantique",
         "moteurderecherche"
       ],
       "address": "3 rue Nationale",
@@ -62540,9 +62604,9 @@
     "sys": {
       "path": "synthorga",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "dd02ba46e2dcc981381f7a54c725126736f37400",
+        "timestamp": 1389989702000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "2f57548489366da2677bb7c3eed0c2fc2444fc53",
@@ -62802,7 +62866,7 @@
       "category": "Entreprise",
       "name": "Talend",
       "tags": [
-        "bigdata",
+        "big data",
         "opensource"
       ],
       "address": "9 rue Pages",
@@ -63131,7 +63195,7 @@
       "category": "Entreprise",
       "name": "Techway",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "19 avenue de Norvège",
       "postcode": "91140",
@@ -63169,8 +63233,8 @@
       "name": "Tekneo",
       "tags": [
         "Jeux vidéo",
-        "sante",
-        "education"
+        "santé",
+        "éducation"
       ],
       "address": "7 rue d'Enghien",
       "postcode": "75010",
@@ -63600,9 +63664,9 @@
     "sys": {
       "path": "telnet-consulting",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "ec910b78405d2a94a01da456cbf7ba1a127f8b71",
+        "timestamp": 1391006961000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "33e9554432f0d4dddf97f6092575202d858f0ee9",
@@ -63639,9 +63703,9 @@
     "sys": {
       "path": "tematys",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "daa354d63dda367e7c95e96ebe0000e2d14697e6",
+        "timestamp": 1398863772000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "61a98f7512aedb0c212c3f3dcd02ba7d5f09dc74",
@@ -63665,8 +63729,8 @@
       "category": "Entreprise",
       "name": "Temis",
       "tags": [
-        "bigdata",
-        "semantique"
+        "big data",
+        "sémantique"
       ],
       "address": "207 rue de Bercy",
       "postcode": "75012",
@@ -64065,7 +64129,7 @@
       "tags": [
         "navigateur",
         "enfants",
-        "securite"
+        "sécurité"
       ],
       "address": "155 rue du Faubourg Saint Denis",
       "postcode": "75010",
@@ -64249,9 +64313,9 @@
     "sys": {
       "path": "thepixelhunt",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "bc8898a4a44e39bbb1922ed11b4f6716f632c636",
+        "timestamp": 1389989709000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "a1f039b353f6b48d375f9da01b5950df63a06f1e",
@@ -64334,9 +64398,9 @@
     "sys": {
       "path": "think-out",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "26b45811929db816362b160d060c3e5118388303",
+        "timestamp": 1389989709000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "0f5d336c79410dd3c90f833cf987967eeee7f61f",
@@ -64841,7 +64905,7 @@
       "name": "Tralalere",
       "tags": [
         "multimedia",
-        "education"
+        "éducation"
       ],
       "address": "4 rue de Braque",
       "postcode": "75003",
@@ -64920,7 +64984,6 @@
       "category": "Entreprise",
       "name": "Travelavenue",
       "tags": [
-        "voyage",
         "tourisme"
       ],
       "address": "21 rue Blondel",
@@ -65004,7 +65067,6 @@
       "name": "Travellution",
       "tags": [
         "tourisme",
-        "voyage",
         "planification"
       ],
       "address": "80 rue des Haies",
@@ -65021,9 +65083,9 @@
     "sys": {
       "path": "travellution",
       "updated": {
-        "versionId": "69cc1f1f6b89a2dc2a6916592a4fd5377b949d0b",
-        "timestamp": 1389989712000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "10bfc105246c5bfab0f758238b49f4594e61f30e",
+        "timestamp": 1418672880000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "db6c649ad5738639c36cf5924a9714a80fcb653b",
@@ -65047,7 +65109,6 @@
       "category": "Entreprise",
       "name": "TravelRoad",
       "tags": [
-        "voyage",
         "tourisme",
         "mobile"
       ],
@@ -65064,9 +65125,9 @@
     "sys": {
       "path": "travelroad",
       "updated": {
-        "versionId": "575b54fa2e1b136b5981016272f659910302bfb2",
-        "timestamp": 1389989712000,
-        "author": "TechOnMap <twitter:TechOnMap>"
+        "versionId": "10bfc105246c5bfab0f758238b49f4594e61f30e",
+        "timestamp": 1418672880000,
+        "author": "Ubimix <slauriere@ubimix.com>"
       },
       "created": {
         "versionId": "dc1d93e47ad6033d9028e210e90b00045a2b381e",
@@ -65146,9 +65207,9 @@
     "sys": {
       "path": "trendybuzz-institut",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "bfac7f0a685c309523e8c20af2c236f3b07be02a",
+        "timestamp": 1389989712000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "af6023fca376ca543b23e9b7c67e255a376d2ba4",
@@ -65330,7 +65391,7 @@
       "category": "Entreprise",
       "name": "Trusted Labs",
       "tags": [
-        "securite",
+        "sécurité",
         "B2B"
       ],
       "address": "5, rue du Bailliage",
@@ -65343,9 +65404,9 @@
     "sys": {
       "path": "trusted-labs",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "1c5540f833b236fc25124dbed6ef64f94fb21652",
+        "timestamp": 1390996490000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "81f76b284ca9a499899ed92e9730dc44164103b5",
@@ -65370,7 +65431,7 @@
       "name": "TrustMission",
       "tags": [
         "tiersdeconfiance",
-        "securite"
+        "sécurité"
       ],
       "address": "20 rue Laffitte",
       "postcode": "75009",
@@ -65409,7 +65470,7 @@
       "category": "Entreprise",
       "name": "TrustSeed",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "Le Lieutel",
       "postcode": "78490",
@@ -65768,7 +65829,7 @@
       "category": "Entreprise",
       "name": "Uint",
       "tags": [
-        "securite",
+        "sécurité",
         "telecoms"
       ],
       "address": "Parc des algorithmes - Bâtiment Aristote route de l'Orme des Merisiers",
@@ -65937,7 +65998,7 @@
       "category": "Entreprise",
       "name": "United Monolithic Semiconductors SAS",
       "tags": [
-        "securite",
+        "sécurité",
         "telecoms"
       ],
       "address": "10 avenue du Quebec, Bâtiment Charmille  - Parc SILIC de Villebon-Courtaboeuf",
@@ -66552,9 +66613,9 @@
     "sys": {
       "path": "user-studio",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "c21e5bda7dc9102118c40e9862443e7b7ce2251b",
+        "timestamp": 1389989720000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "de1bb80b35acb491119e13ba4920860cdc16c1d2",
@@ -66675,9 +66736,9 @@
     "sys": {
       "path": "uzful",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "1c9b5b949095492aabdedfd70db7c5c6544d8e6d",
+        "timestamp": 1389989721000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "fff384e13fb7fbcf97362733f4f73dc2b8a71dac",
@@ -66912,9 +66973,9 @@
     "sys": {
       "path": "vectuel",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "2b55c6d6f60e1bcd8a71289a8478d1bf4c671629",
+        "timestamp": 1391609821000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "9786a8a335649b400f01d5fcd0446d27216e4367",
@@ -67304,7 +67365,7 @@
       "name": "Viavoo",
       "tags": [
         "crm",
-        "semantique"
+        "sémantique"
       ],
       "address": "77 rue de Paris",
       "postcode": "92100",
@@ -67796,9 +67857,9 @@
     "sys": {
       "path": "vivreafond",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "47f46859a5d3c59b4fe51fb4ea15201a3bbfa19d",
+        "timestamp": 1389989725000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "b6781a45791e3205413f33ec02cf1d8111dcb6cb",
@@ -67982,7 +68043,8 @@
       "name": "VodKaster",
       "tags": [
         "réseau social",
-        "cinema"
+        "cinéma",
+        "culture"
       ],
       "address": "16 rue Bleue",
       "postcode": "75009",
@@ -68062,7 +68124,7 @@
       "name": "Voluntis",
       "tags": [
         "ocds",
-        "sante",
+        "santé",
         "telemedicine"
       ],
       "address": "58 avenue de Wagram",
@@ -68144,7 +68206,7 @@
       "category": "Entreprise",
       "name": "Vulnit",
       "tags": [
-        "securite"
+        "sécurité"
       ],
       "address": "75 avenue Victor Hugo",
       "postcode": "92500",
@@ -68241,9 +68303,9 @@
     "sys": {
       "path": "w4",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "bd48dbc5b0eeebf9d77350aa1c04d0a9cdb5720b",
+        "timestamp": 1390993534000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "afddb9fc294481b64db2cb33fe72cb971a42df40",
@@ -68267,7 +68329,7 @@
       "category": "Entreprise",
       "name": "Wallix",
       "tags": [
-        "securite",
+        "sécurité",
         "opensource"
       ],
       "address": "118, rue de Tocqueville",
@@ -68560,9 +68622,9 @@
     "sys": {
       "path": "weblib",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "6846f63dd95a3042d8baaad4e76c8c4aca69fddc",
+        "timestamp": 1390991234000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "1832f38c2dce71cc84f8a855ae13bdd0f953874d",
@@ -68603,9 +68665,9 @@
     "sys": {
       "path": "webnet",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "e2d3e328dba64936cf9c2eb89a6f1571b47afcb7",
+        "timestamp": 1399960207000,
+        "author": "TechOnMap <twitter:TechOnMap>"
       },
       "created": {
         "versionId": "96d3b4d2af23e9baa02463a1a567a560c4dca628",
@@ -68733,9 +68795,9 @@
     "sys": {
       "path": "wedodata",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "202990dca16de68ff903469b1964e697a96314cc",
+        "timestamp": 1390990886000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "d0fdaf246733be92a392750517461403762760ff",
@@ -68760,7 +68822,7 @@
       "name": "Wedrive",
       "tags": [
         "covoiturage",
-        "mobilite"
+        "mobilité"
       ],
       "address": "147 rue Saint-Martin",
       "postcode": "75003",
@@ -69171,7 +69233,7 @@
       "name": "Wipolo",
       "tags": [
         "réseau social",
-        "voyage"
+        "tourisme"
       ],
       "address": "104 rue Réaumur",
       "postcode": "75002",
@@ -69940,9 +70002,9 @@
     "sys": {
       "path": "youand",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "525422791a404014f7b9864ae54e37a4f6a0865b",
+        "timestamp": 1390914562000,
+        "author": "TechOnMap <twitter:techonmap>"
       },
       "created": {
         "versionId": "0f2bdc3780fcac7745bf025af8c38d47df501961",
@@ -70024,9 +70086,9 @@
     "sys": {
       "path": "ypok",
       "updated": {
-        "versionId": "252ef8b9cd56c0501a9b4845d0ed1ba5fc76ba8e",
-        "timestamp": 1416161071000,
-        "author": "Ubimix <slauriere@ubimix.com>"
+        "versionId": "95f57475bed2efd51bf8073b49235d935555f6ec",
+        "timestamp": 1390988504000,
+        "author": "Maria Nadejde <nadejde@lafonderie-idf.fr>"
       },
       "created": {
         "versionId": "5553fe7888d08b760ddaea0b3170f7ac4943eda5",
@@ -70211,7 +70273,6 @@
       "category": "Entreprise",
       "name": "Zenwego",
       "tags": [
-        "voyage",
         "tourisme"
       ],
       "address": "27 rue du Chemin Vert",
