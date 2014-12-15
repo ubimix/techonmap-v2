@@ -39,7 +39,8 @@
             "topmenu.btn.add" : "Ajouter une organisation",
             "toolbar.left.label.tags" : "Tag(s) : ",
             "toolbar.left.label.categories" : "Catégorie(s) : ",
-            "toolbar.left.label.zone" : "Departement : "
+            "toolbar.left.label.zone" : "Departement : ",
+            "toolbar.left.label.query" : "Query : " 
         },
         "en" : {
             "dialog.share.title" : "Embed Map",
@@ -79,7 +80,8 @@
             "topmenu.btn.add" : "Add a new organization",
             "toolbar.left.label.tags" : "Tag: ",
             "toolbar.left.label.categories" : "Category: ",
-            "toolbar.left.label.zone" : "Department: "
+            "toolbar.left.label.zone" : "Department: ",
+            "toolbar.left.label.query" : "Query : " 
         }
     }
 }
