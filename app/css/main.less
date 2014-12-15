@@ -28,6 +28,23 @@
     background-image: url( @url );
 }
 
+
+
+.chevron-down {
+    width: 40px;
+    height: 40px;
+    background: url(../images/chevrons/down.png) 50% 50% no-repeat;
+    display: inline-block;
+
+}
+
+.chevron-up {
+    width: 40px;
+    height: 40px;
+    background: url(../images/chevrons/up.png) 50% 50% no-repeat;
+    display: inline-block;
+
+}
 &.container-fluid {
     width: 100%;
     padding: 0;
@@ -89,6 +106,15 @@
 .tags { .tag { .text-size(@menu-item-size * 0.8); } }
 .tags-inline { .tag { .text-size(@menu-item-size-inline); } }
 .label-empty { background-color: silver; }
+.tags-delimiter {
+    display: block;
+    line-height: 1em;
+    text-align: center;
+    margin: 0.5em 0 0.8em 0;
+    .icon {
+        height: 1em;
+    }
+}
 
 .category {
     .closable-tag;

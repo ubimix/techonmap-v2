@@ -21,7 +21,7 @@ module.exports = React.createClass({
     },
     render : function() {
         var app = this.props.app;
-        var className = 'search-results dropdown-menu';
+        var className = 'search-results';
         if (!this.state.showList){
             className += ' reduced';
         }
