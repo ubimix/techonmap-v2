@@ -11,7 +11,6 @@ var ContentModule = require('./models/content/Content.Module');
 var I18NModule = require('./models/i18n/I18N.Module');
 var MapModule = require('./models/map/Map.Module');
 var NavigationModule = require('./models/nav/Navigation.Module');
-var NavigationBarModule = require('./models/nav/NavigationBar.Module');
 var ResourceModule = require('./models/res/Resource.Module');
 var StatsModule = require('./models/stats/Stats.Module');
 
@@ -28,7 +27,6 @@ module.exports = App.extend({
             content : ContentModule,
             map : MapModule,
             nav : NavigationModule,
-            navbar : NavigationBarModule,
             res : ResourceModule,
             stats : StatsModule,
             // search : SearchModule,

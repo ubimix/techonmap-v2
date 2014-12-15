@@ -2,6 +2,8 @@ var _ = require('underscore');
 var Lunr = require('lunr');
 var Mosaic = require('mosaic-commons');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
+var NavigationRouter = require('./NavigationRouter');
+var URI = require('mosaic-core').Core.URI;
 var App = require('mosaic-core').App;
 var Api = App.Api;
 
@@ -13,6 +15,9 @@ module.exports = Api.extend({}, ResourceUtils, {
         this._criteria = {};
         this._categories = [];
         this._zones = [];
+        this._router = new NavigationRouter();
+        // Disable initial search criteria update
+        this._disableUrlUpdate = true;
     },
 
     // ------------------------------------------------------------------
@@ -20,18 +25,22 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Pre-loads map-related information. */
     start : function() {
         var that = this;
+        this._router.addChangePathListener(this._onUrlChange, this);
+        this.addChangeListener(this._onSearchCriteriaChanged, this);
+        this._router.start();
         return Mosaic.P.then(function() {
             return Mosaic.P.all(
                     [ that._loadCategories(), that._loadGeographicZones() ])
                     .then(function() {
-                        return that.updateSearchCriteria({
-                            q : ''
-                        });
+                        return that._copySearchCriteriaFromUrl();
                     });
         });
     },
 
     stop : function() {
+        this.removeChangeListener(this._onSearchCriteriaChanged, this);
+        this._router.removeChangePathListener(this._onUrlChange, this);
+        this._router.stop();
     },
 
     // ------------------------------------------------------------------
@@ -176,9 +185,9 @@ module.exports = Api.extend({}, ResourceUtils, {
     getZones : function() {
         return this._zones;
     },
-    
+
     /** Returns true if there are geographical filters applied */
-    hasZonesFilter: function() {
+    hasZonesFilter : function() {
         var keys = this.getFilterZoneKeys();
         return !!keys.length;
     },
@@ -325,12 +334,71 @@ module.exports = Api.extend({}, ResourceUtils, {
         if (!value) {
             value = [];
         } else {
+            var newValues = [];
             value = _.isArray(value) ? _.toArray(value) : [ value ];
-            value = _.map(value, function(f) {
-                return ('' + f).toLowerCase();
+            _.each(value, function(f) {
+                var str = ('' + f).toLowerCase();
+                var array = str.split(/\s*[,;]+\s*/gim);
+                newValues = newValues.concat(array);
             });
+            value = newValues;
         }
         return value;
+    },
+
+    // ------------------------------------------------------------------
+    // URL management methods
+
+    _copySearchCriteriaFromUrl : function() {
+        var path = this._router.getPath();
+        var criteria = this._parseSearchCriteria(path);
+        return this.updateSearchCriteria(criteria);
+    },
+
+    _onUrlChange : function(ev) {
+        if (this._disableUrlUpdate)
+            return;
+        if (ev.update) {
+            this._copySearchCriteriaFromUrl();
+        }
+    },
+
+    _onSearchCriteriaChanged : function() {
+        var path = this._serializeSearchCriteria();
+        this._disableUrlUpdate = true;
+        setTimeout(function() {
+            this._router.setPath(path);
+//            this._disableUrlUpdate = false;
+        }.bind(this), 500);
+    },
+
+    _prepareUrlQuery : function(criteria) {
+        var query = {};
+        _.each([ 'tags', 'category', 'postcode', 'q' ], function(key) {
+            var val = this.prepareFilterValues(criteria[key]);
+            if (!val.length)
+                return;
+            query[key] = val;
+        }, this);
+        return query;
+    },
+    
+    _serializeSearchCriteria : function() {
+        var uri = new URI();
+        uri.path = '';
+        var criteria = this.getSearchCriteria();
+        uri.query = this._prepareUrlQuery(criteria);
+        var str = uri + '';
+        return str;
+    },
+
+    _parseSearchCriteria : function(str) {
+        var uri = new URI(str);
+        var query = this._prepareUrlQuery(uri.query);
+        if (query.q) {
+            query.q = query.q[0];
+        }
+        return query;
     },
 
     // ------------------------------------------------------------------

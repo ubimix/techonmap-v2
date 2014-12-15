@@ -32,15 +32,10 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Pre-loads map-related information. */
     start : function() {
         var that = this;
-        var app = that.getApp();
-        app.nav.addChangeListener(that._searchResources, that);
-        setTimeout(function() {
-            return that._loadAllInfo().then(function() {
-                return that._searchResources();
-            });
-        }, 100);
-        return Mosaic.P.then(function() {
-        });
+        var app = this.getApp();
+        app.nav.addChangeListener(this._searchResources, this);
+        this._allResourcesPromise = this._loadAllInfo(); 
+        return this._searchResources();
     },
 
     stop : function() {
@@ -235,21 +230,21 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Builds and returns a full-text search index. */
     _buildIndex : function() {
         var that = this;
-        var index = that._index = Lunr(function() {
-            _.each(that._fields.fields, function(info, field) {
-                info = info || {};
-                var boost = info.boost || 1;
-                var type = info.type || 'field';
-                this[type](field, {
-                    boost : boost
-                });
-            }, this);
-        });
-        setTimeout(function() {
+        return Mosaic.P.then(function(){
+            var index = that._index = Lunr(function() {
+                _.each(that._fields.fields, function(info, field) {
+                    info = info || {};
+                    var boost = info.boost || 1;
+                    var type = info.type || 'field';
+                    this[type](field, {
+                        boost : boost
+                    });
+                }, this);
+            });
             _.each(that._allResources, function(d, id) {
                 var props = d.properties;
                 var entry = {
-                    id : id
+                        id : id
                 };
                 _.each(that._fields.fields, function(info, field) {
                     var value = props[field];
@@ -260,7 +255,7 @@ module.exports = Api.extend({}, ResourceUtils, {
                 });
                 index.add(entry);
             });
-        }, 10);
+        })
     },
 
     /** Returns a resource corresponding to the specified identifier. */
@@ -288,7 +283,7 @@ module.exports = Api.extend({}, ResourceUtils, {
      */
     _searchResources : function() {
         var that = this;
-        return Mosaic.P.then(function() {
+        return that._allResourcesPromise.then(function() {
             var app = that.getApp();
             var criteria = app.nav.getSearchCriteria();
             var q = criteria.q || '';
