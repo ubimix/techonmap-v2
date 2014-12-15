@@ -110,7 +110,13 @@
     }
     .zone-label {}
 }
-.zones { .zone { .text-size(@menu-item-size); } }
+.zones { 
+    .zone { 
+        .text-size(@menu-item-size); 
+        padding-left: 0.7em;
+
+    } 
+}
 .zones-inline { .zone { .text-size(@menu-item-size-inline); } }
 
 @import url('./main.twitter.less');
