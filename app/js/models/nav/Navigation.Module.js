@@ -349,6 +349,13 @@ module.exports = Api.extend({}, ResourceUtils, {
     // ------------------------------------------------------------------
     // URL management methods
 
+    getExportUrl : function(options) {
+        options = options || {};
+        var path = options.useQuery ? this._serializeSearchCriteria() : '';
+        var url = this._router.getFullUrl(path);
+        return url;
+    },
+
     _copySearchCriteriaFromUrl : function() {
         var path = this._router.getPath();
         var criteria = this._parseSearchCriteria(path);
@@ -366,10 +373,8 @@ module.exports = Api.extend({}, ResourceUtils, {
     _onSearchCriteriaChanged : function() {
         var path = this._serializeSearchCriteria();
         this._disableUrlUpdate = true;
-        setTimeout(function() {
-            this._router.setPath(path);
-            // this._disableUrlUpdate = false;
-        }.bind(this), 500);
+        this._router.setPath(path);
+        this._disableUrlUpdate = false;
     },
 
     _prepareUrlQuery : function(criteria) {
@@ -384,7 +389,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         return query;
     },
 
-    _serializeSearchCriteria : function() {
+    _serializeSearchCriteria : function(options) {
         var uri = new URI();
         uri.path = '';
         var criteria = this.getSearchCriteria();

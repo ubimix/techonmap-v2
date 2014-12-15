@@ -67,6 +67,11 @@ var NavigationRouter = Mosaic.Class.extend(Mosaic.Events.prototype, {
             that._force = false;
         }
     },
+    
+    getFullUrl : function(path) {
+        var baseUrl = this._getBaseUrl();
+        return baseUrl.resolve(path);
+    },
 
     /** Notifies all listeners about path changes. */
     _notifyPathChanges : function() {
