@@ -7,20 +7,21 @@
       "type": "MIT"
     }
   ],
-  "contributors": [],   
+  "contributors": [],
   "dependencies": {
     "es5-shim": "^4.0.5",
+    "js-yaml": "~3.2.3",
     "leaflet": "~0.7.3",
+    "leaflet.heat": "git+ssh://git@github.com:Leaflet/Leaflet.heat.git#627ede7c11bbe43a3a8b94a5be0d0745cac71e64",
     "leaflet.markercluster": "~0.4.0",
-    "leaflet.heat" : "git+ssh://git@github.com:Leaflet/Leaflet.heat.git#627ede7c11bbe43a3a8b94a5be0d0745cac71e64",
     "lunr": "^0.5.6",
+    "marked": "~0.3.2",
     "mosaic-commons": "0.0.15",
     "mosaic-core": "0.0.12",
     "mosaic-teleport": "^0.0.22",
     "mosaic-teleport-server": "0.0.8",
+    "page": "^1.5.0",
     "react": "^0.12.1",
-    "marked": "~0.3.2",
-    "js-yaml": "~3.2.3",
     "underscore": "~1.7.0"
   },
   "devDependencies": {
