@@ -368,11 +368,12 @@ module.exports = Api.extend({}, ResourceUtils, {
         this._disableUrlUpdate = true;
         setTimeout(function() {
             this._router.setPath(path);
-//            this._disableUrlUpdate = false;
+            // this._disableUrlUpdate = false;
         }.bind(this), 500);
     },
 
-    _prepareUrlQuery : function(criteria) {
+    _prepareUrlQuery : function(criteria) {
+        criteria = criteria || {};
         var query = {};
         _.each([ 'tags', 'category', 'postcode', 'q' ], function(key) {
             var val = this.prepareFilterValues(criteria[key]);
@@ -382,7 +383,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         }, this);
         return query;
     },
-    
+
     _serializeSearchCriteria : function() {
         var uri = new URI();
         uri.path = '';
