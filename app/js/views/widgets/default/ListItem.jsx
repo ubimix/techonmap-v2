@@ -45,8 +45,10 @@ module.exports = React.createClass({
                   <h4 className="media-heading">{this._renderName()}</h4>
                   {this._renderShortDescription(resourceType)}
                   {this._renderTags()}
+                  {this._renderDescription(selected)}
                   {this._renderAddress()}
-                  {this._renderSocialNetworks()}
+                  {this._renderSocialNetworks(selected)}
+                  {this._renderShare(selected)}
                 </div>
             </div>
         );            
