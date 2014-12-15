@@ -40,12 +40,14 @@ module.exports = React.createClass({
                 restStats[tag] = count;
             }
         });
-        return _.extend({}, this.state, {
+        return _.extend({
+            showExtendedTags : false
+        }, this.state, {
             category : category,
             fullStats : fullStats,
             stats : restStats,
             filterStats : filterStats
-        });
+        }, options);
     },
     _getStore : function() {
         return this.props.app.nav;
@@ -70,6 +72,13 @@ module.exports = React.createClass({
         }, this);
     },
 
+    _toggleExtendedTags : function(ev) {
+        this.setState(this._newState({
+            showExtendedTags : !this.state.showExtendedTags
+        }));
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
     _renderTagStats : function(currentTags, sort) {
         var list = [];
         _.each(currentTags, function(count, tag) {
@@ -95,6 +104,16 @@ module.exports = React.createClass({
             </div>
        );
     },
+    _renderTagsDelimiter : function(){
+        var className = this.state.showExtendedTags
+            ? "icon chevron-up"
+            : "icon chevron-down";
+        return (
+           <a href="#" onClick={this._toggleExtendedTags} className="tags-delimiter">
+               <i className={className}></i>
+           </a>
+        );
+    },
     _renderCategoryLabel : function(category){
         return category
     },
@@ -110,8 +129,10 @@ module.exports = React.createClass({
         var list = [];
         var otherTags = this._renderTagStats(this.state.stats, true);
         if (otherTags) {
-            list.push(<hr />);
-            list.push(otherTags);
+            list.push(this._renderTagsDelimiter());
+            if (this.state.showExtendedTags) {
+                list.push(otherTags);
+            }
         }
         return (
             <div>
