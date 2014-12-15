@@ -32,13 +32,14 @@ module.exports = React.createClass({
         }
         
         var pictoClassName = 'picto ' + types[resourceType];
-        
+        var iconClassName = 'icon icon-'+types[resourceType];
         className += resourceType;
         return (
             <div className={className}
                 key={resourceId}
                 onClick={this.props.onClick}>
                 <div className={pictoClassName}>
+                    <i className={iconClassName}></i>
                 </div>
                 <div className="media-body">
                   <h4 className="media-heading">{this._renderName()}</h4>
