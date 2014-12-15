@@ -25,7 +25,7 @@
             "search.panel.label.tags.all" : "Tous",
             "search.panel.placeholder.input" : "Saisir un nom ou un mot-clef",
             "search.panel.button.return" : "Retour au menu",
-            "search.panel.button.return.to.categories" : "Retour aux categories",
+            "search.panel.button.return.to.categories" : "Retour aux catégories",
             "search.label.results" : "Résultats : ",
             "search.label.sort" : "Trier la liste : ",
             "search.label.sort.name" : "par nom",
@@ -37,9 +37,9 @@
             "topmenu.label.help" :  "Aide",
             "topmenu.label.about" : "À propos",
             "topmenu.btn.add" : "Ajouter une organisation",
-            "toolbar.left.label.tags" : "Tag(s) : ",
-            "toolbar.left.label.categories" : "Catégorie(s) : ",
-            "toolbar.left.label.zone" : "Departement : "
+            "toolbar.left.label.tags" : "Tag : ",
+            "toolbar.left.label.categories" : "Catégorie : ",
+            "toolbar.left.label.zone" : "Département : "
         },
         "en" : {
             "dialog.share.title" : "Embed Map",
