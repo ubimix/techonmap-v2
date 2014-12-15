@@ -22,6 +22,7 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-color: transparent;
+    margin-left: -0.5em;
 }
 .icon-image(@url){
     background-image: url( @url );
@@ -49,7 +50,7 @@
 .text-size(@font-size:1em){
     font-size: @font-size;
     line-height: 1;
-    vertical-align: middle;
+    //vertical-align: middle;
 }
 .closable-tag(){
     cursor: pointer;
@@ -92,8 +93,11 @@
     .closable-tag;
     > .icon {
         .closable-tag-icon;
+        margin-right: 0.7em;
     }
-    .category-label {}
+    .category-label {
+        vertical-align: middle;
+    }
 }
 .categories { .category { .text-size(@menu-item-size); } }
 .categories-inline { .category { .text-size(@menu-item-size-inline); } }
