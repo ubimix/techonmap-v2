@@ -42,6 +42,7 @@ module.exports = React.createClass({
                     <i className={iconClassName}></i>
                 </div>
                 <div className="media-body">
+                  {this._renderEditButton(selected)}
                   <h4 className="media-heading">{this._renderName()}</h4>
                   {this._renderShortDescription(resourceType)}
                   {this._renderTags()}
