@@ -26,18 +26,18 @@ module.exports = function(options) {
 
     var size = '30px';
     var iconSize = '24px';
-    var style = _.map({
-        'font-size' : iconSize,
-        'line-height' : size,
-        'width' : size,
-        'height' : size,
-        'border-radius' : size,
-        'display' : 'inline-block',
-        'vertical-align' : 'middle',
-        'text-align' : 'center'
-    }, function(value, key) {
-        return key + ': ' + value + ';';
-    }).join(' ');
+//    var style = _.map({
+//        'font-size' : iconSize,
+//        'line-height' : size,
+//        'width' : size,
+//        'height' : size,
+//        'border-radius' : size,
+//        'display' : 'inline-block',
+//        'vertical-align' : 'middle',
+//        'text-align' : 'center'
+//    }, function(value, key) {
+//        return key + ': ' + value + ';';
+//    }).join(' ');
 
 //    var icon = L.divIcon({
 //        className : '',
@@ -49,7 +49,7 @@ module.exports = function(options) {
 //    });
     
     var icon = L.icon({
-        iconUrl : './images/markers/'+iconType+'.png',
+        iconUrl : './images/markers/'+iconType+'.svg',
         iconSize : [ 33, 40 ],
         iconAnchor : [ 16, 20 ],
         popupAnchor : [ 0, -30 ]
