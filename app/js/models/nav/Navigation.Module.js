@@ -109,7 +109,15 @@ module.exports = Api.extend({}, ResourceUtils, {
         var categories = this.getFilterCategories();
         return categories.length ? categories[0] : null;
     },
-    
+
+    /**
+     * Returns <code>true</code> if there are filtering criteria.
+     */
+    hasFilterCategories : function() {
+        var categories = this.getFilterCategories();
+        return !!categories.length;
+    },
+
     /** Returns a list of category keys used to filter objects. */
     getFilterCategoryKeys : function() {
         return this._criteria.category;
@@ -167,6 +175,12 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Returns all geographic zones for this application. */
     getZones : function() {
         return this._zones;
+    },
+    
+    /** Returns true if there are geographical filters applied */
+    hasZonesFilter: function() {
+        var keys = this.getFilterZoneKeys();
+        return !!keys.length;
     },
 
     /** Toggles geographic zones. */
@@ -243,6 +257,12 @@ module.exports = Api.extend({}, ResourceUtils, {
         return this.filterValues(criteria, tags);
     },
 
+    /** Returns <code>true</code> if there are tags used in the filters. */
+    hasFilterTags : function() {
+        var tags = this.getFilterTags();
+        return !!tags.length;
+    },
+
     /** Returns a "normalized" tag representation */
     getTagKey : function(tag) {
         var tags = this.prepareFilterValues(tag);
@@ -259,6 +279,12 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Returns currently applyed search criteria. */
     getSearchQuery : function() {
         return this._criteria.q || '';
+    },
+
+    /** Returns <code>true</code> if there is a defined full-text search query. */
+    hasSearchQuery : function() {
+        var query = this.getSearchQuery();
+        return query && query != '';
     },
 
     /** Sets a new search query */
