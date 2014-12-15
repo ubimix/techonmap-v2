@@ -22,7 +22,6 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-color: transparent;
-    margin-left: -0.5em;
 }
 .icon-image(@url){
     background-image: url( @url );
@@ -93,6 +92,7 @@
     margin: 0px;
     padding: 0px;
     color: @gray;
+    vertical-align: middle;
 }
 
 // Common styles reusable in different contexts
@@ -123,7 +123,6 @@
         margin-right: 0.7em;
     }
     .category-label {
-        vertical-align: middle;
     }
 }
 .categories { .category { .text-size(@menu-item-size); } }
@@ -166,7 +165,7 @@
 .zones { 
     .zone { 
         .text-size(@menu-item-size); 
-        padding-left: 0.7em;
+        padding-left: 0.2em;
 
     } 
 }
