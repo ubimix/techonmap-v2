@@ -326,11 +326,8 @@ module.exports = Api.extend({}, ResourceUtils, {
             inverted = this._sortByName < 0;
         } else if (this._sortByDate !== 0) {
             getField = function(r) {
-                var sys = r.sys;
-                var changes = sys.updated || sys.created || {
-                    timestamp : new Date().getTime()
-                };
-                return changes.timestamp;
+                var changes = r.properties.updated || new Date().getTime();
+                return changes;
             }
             inverted = this._sortByDate < 0;
         }
