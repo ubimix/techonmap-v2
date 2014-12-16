@@ -11,7 +11,7 @@ module.exports = {
         main : document.querySelector('body')
     },
     map : {
-        center : [ 3.0444, 48.8177 ],
+        center : [2.33185,48.86246],
         // tilesUrl :
         // 'http://{s}.tiles.mapbox.com/v3/ubimix.in6p41ic/{z}/{x}/{y}.png',
         tilesUrl : '/tiles/{z}/{x}/{y}.png',
@@ -19,9 +19,9 @@ module.exports = {
         tilesUrl : 'http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png',
         tilesUrl : 'http://techonmap.ubimix.com/tiles/{z}/{x}/{y}.png',
         tilesAttribution : '&copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors',
-        zoom : 9,
-        maxZoom : 18,
-        minZoom : 3,
+        zoom : 10,
+        maxZoom : 16,
+        minZoom : 10,
         attribution : '',
         zoomControl : false,
         attributionControl : false

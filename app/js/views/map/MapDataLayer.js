@@ -81,19 +81,14 @@ module.exports = AbstractMapLayer.extend({
         this._index = {};
         var app = this._getApp();
         var type = 'default';
-        var clusterPolygonOptions = //
-        app.viewManager.newView('mapClusterPolygon', type, {
+        var clusterOptions = //
+        app.viewManager.newView('mapClusterOptions', type, {
             app : app
         }) || {};
         var clusterOptions = _.extend({
             spiderfyOnMaxZoom : true,
-            showCoverageOnHover : true,
             zoomToBoundsOnClick : true,
-            // maxClusterRadius : 50,
-            iconCreateFunction : _.bind(this._newClusterMarker, this),
-            polygonOptions : clusterPolygonOptions
-
-        }, mapOptions.cluster, {});
+        }, mapOptions.cluster, clusterOptions);
         this._clusterLayer = new L.MarkerClusterGroup(clusterOptions);
         this._map.addLayer(this._clusterLayer);
     },
@@ -142,17 +137,6 @@ module.exports = AbstractMapLayer.extend({
 
     // -----------------------------------------------------------------------
     // Resource-specific views
-
-    /** Creates and returns a new cluster marker for the specified resource. */
-    _newClusterMarker : function(cluster) {
-        var app = this._getApp();
-        var type = 'default';
-        var marker = app.viewManager.newView('mapClusterMarker', type, {
-            app : app,
-            cluster : cluster
-        });
-        return marker;
-    },
 
     /** Creates and returns a new marker for the specified resource. */
     _newMarker : function(latlng, resource) {

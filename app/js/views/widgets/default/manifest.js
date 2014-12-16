@@ -5,7 +5,7 @@ module.exports = [ {
         'listItem' : require('./ListItem.jsx'),
         'mapPopup' : require('./MapPopup.jsx'),
         'mapMarker' : require('./MapMarker'),
-        'mapClusterMarker' : require('./MapClusterMarker'),
-        'mapClusterPolygon' : require('./MapClusterPolygon')
+        // 'mapClusterMarker' : require('./MapClusterMarker'),
+        'mapClusterOptions' : require('./MapClusterOptions')
     }
 } ];

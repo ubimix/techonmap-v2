@@ -84,12 +84,6 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _showHeatmap : function(ev) {
-        var app = this.props.app;
-        app.map.toggleHeatmapLayer();
-        ev.stopPropagation();
-        ev.preventDefault();
-    },
     _closeOpenSearchBlock : function(ev) {
         var elm = ev.target;
         var searchBlock = this.refs.search.getDOMNode();
@@ -133,6 +127,72 @@ module.exports = React.createClass({
         </li>
         );
     },
+    _renderAboutMenuItem : function(){
+        return (
+        <li>
+            <a href="#" className="menu-info" onClick={this._showAboutInfo}>
+                <i className="icon icon-info"></i>
+                <span className="label">{this._getLabel('topmenu.label.about')}</span>
+            </a>
+        </li>
+        );
+    },
+    _renderHelpMenuItem : function(){
+        return (
+            <li>
+                <a href="#" className="menu-faq" onClick={this._showHelp}>
+                    <i className="icon icon-faq"></i>
+                    <span className="label">{this._getLabel('topmenu.label.help')}</span>
+                </a>
+            </li>
+        );
+    },
+    _renderShareMenuItem : function(){
+        return (
+            <li>
+                <a href="#" className="menu-share" onClick={this._showShareDialog}>
+                    <i className="icon icon-share"></i>
+                    <span className="label">{this._getLabel('topmenu.label.share')}</span>
+                </a>
+            </li>
+        );
+    },
+    _renderExportMenuItem : function(){
+        return (
+            <li>
+                <a href="#" className="menu-export" onClick={this._showExportDialog}>
+                    <i className="icon icon-export"></i>
+                    <span className="label">{this._getLabel('topmenu.label.export')}</span>
+                </a>
+            </li>
+        );
+    },
+
+    _showHeatmap : function(ev) {
+        var that= this;
+        var app = this.props.app;
+        app.map.toggleHeatmapLayer().then(function(){
+            that.setState(that._newState());
+        });
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
+    _renderHeatmapMenuItem : function(){
+        var className = 'menu-heatmap';
+        var app = this.props.app;
+        if (app.map.isHeatmapLayerVisible()) {
+            className += ' open';
+        }
+        return (
+            <li>
+                <a href="#" className={className} onClick={this._showHeatmap}>
+                    <i className="icon icon-heatmap"></i>
+                    <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
+                </a>
+            </li>
+        );
+    },
+
     render : function() {       
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
@@ -152,36 +212,11 @@ module.exports = React.createClass({
                       </div>
                       <div className="col-xs-6">
                           <ul className="nav navbar-nav navbar-right">
-                              <li>
-                                  <a href="#" className="menu-info" onClick={this._showAboutInfo}>
-                                      <i className="icon icon-info"></i>
-                                      <span className="label">{this._getLabel('topmenu.label.about')}</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#" className="menu-faq" onClick={this._showHelp}>
-                                      <i className="icon icon-faq"></i>
-                                      <span className="label">{this._getLabel('topmenu.label.help')}</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#" className="menu-share" onClick={this._showShareDialog}>
-                                      <i className="icon icon-share"></i>
-                                      <span className="label">{this._getLabel('topmenu.label.share')}</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#" className="menu-export" onClick={this._showExportDialog}>
-                                      <i className="icon icon-export"></i>
-                                      <span className="label">{this._getLabel('topmenu.label.export')}</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#" className="menu-heatmap" onClick={this._showHeatmap}>
-                                      <i className="icon icon-heatmap"></i>
-                                      <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
-                                  </a>
-                              </li>
+                              {this._renderAboutMenuItem()}
+                              {this._renderHelpMenuItem()}
+                              {this._renderShareMenuItem()}
+                              {this._renderExportMenuItem()}
+                              {this._renderHeatmapMenuItem()}
                               {this._renderSearchMenuItem()}
                           </ul>
                       </div>

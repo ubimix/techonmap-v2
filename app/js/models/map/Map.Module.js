@@ -76,7 +76,7 @@ module.exports = Api.extend({
 
     /** Returns <code>true</code> if the heatmap is visible. */
     toggleHeatmapLayer : function() {
-        this.setLayersVisibility({
+        return this.setLayersVisibility({
             heatmap : !this._layerVisibility.heatmap,
             data : !!this._layerVisibility.heatmap
         });
@@ -91,7 +91,7 @@ module.exports = Api.extend({
 
     /** Returns <code>true</code> if the heatmap is visible. */
     toggleDataLayer : function() {
-        this.setLayersVisibility({
+        return this.setLayersVisibility({
             heatmap : !!this._layerVisibility.data,
             data : !this._layerVisibility.data
         });
@@ -109,7 +109,7 @@ module.exports = Api.extend({
     setLayersVisibility : Api.intent(function(intent) {
         var that = this;
         var changed = false;
-        intent.resolve(
+        return intent.resolve(
                 Mosaic.P.then(function() {
                     var visibility = intent.params;
                     var values = _
