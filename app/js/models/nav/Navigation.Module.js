@@ -351,7 +351,11 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     getExportUrl : function(options) {
         options = options || {};
-        var path = options.useQuery ? this._serializeSearchCriteria() : '';
+        var additionalParams = {};
+        // FIXME: clean it up
+        var path = options.useQuery ? this._serializeSearchCriteria({
+            embedMode : options.embedMode
+        }) : '?embedMode=' + (options.embedMode || '') ;
         var url = this._router.getFullUrl(path);
         return url;
     },
@@ -394,6 +398,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         uri.path = '';
         var criteria = this.getSearchCriteria();
         uri.query = this._prepareUrlQuery(criteria);
+        _.extend(uri.query, options);
         var str = uri + '';
         return str;
     },

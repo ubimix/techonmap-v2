@@ -1,16 +1,27 @@
 var _ = require('underscore');
 var L = require('leaflet');
 
+function getScale(value, max) {
+    if (!value)
+        return 0;
+    var a = Math.log(value);
+    var b = Math.log(max);
+    var n = 5;
+    var x = Math.round(n * a / b) / n;
+    return x;
+}
+
 module.exports = function(options) {
     var app = options.app;
     var cluster = options.cluster;
     var markers = cluster.getAllChildMarkers();
     var number = markers.length;
-    var fullNumber = app.res.getResourceNumber();
+    var fullNumber = app.res.getTotalResourceNumber();
+    var k = getScale(number, fullNumber);
+    
     var maxSize = 80;
     var minSize = 40;
-    var size = minSize +
-            Math.round((maxSize - minSize) * (number / fullNumber));
+    var size = minSize + k * (maxSize - minSize);
 
     var imageUrl = 'images/cluster.svg';
     var width = size;
