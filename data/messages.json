@@ -19,7 +19,7 @@
             "dialog.export.btn.csv" : "Données au format CSV",
             "dialog.export.btn.json" : "Données au format JSON",
             "dialog.export.msg.prepare" : "Préparation des données...",
-            "dialog.export.label.export.filtered" : "votre séléction de filtrage",
+            "dialog.export.label.export.filtered" : "votre séléction",
             "dialog.export.label.export.all" : "l'intégralité des données",
             "dialog.export.description" : "Dans le prolongement de la démarche régionale d’ouverture des données publiques lancée par la Région Ile-de-France, les données de TechOnMap font l’objet d’une diffusion libre et gratuite sous licence ODbL.",
             "dialog.help.msg.contact" : "Si vous avez une autre question ",

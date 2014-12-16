@@ -98,24 +98,24 @@
                     position: absolute;
                     white-space: nowrap;
                     border-radius: 0px;
-                    padding: 0.2em 0.2em 0.2em 0.5em;
+                    padding: 0.1em 0.2em 0.2em 0.5em;
                     font-size: 1.1em;
                     line-height: 1.1em;
                     height: @button-height - 4;
                     
                     .criteria-reminder-title {
                         color: @light-gray;
-                        vertical-align: middle;
                     }
                     
                     .remove {
                         display: inline-block;
                         width: 29px;
                         height: 15px;
-                        background-image: url(../images/cross-1.png);
+                        background-image: url(../images/cross.png);
                         background-repeat: no-repeat;
                         background-position: 50% 50%;
                         vertical-align: middle;
+                        cursor: pointer;
                     }
                     
                     .bar {
@@ -208,12 +208,20 @@
                     padding: 0 0.5em;
                     border-top: none;
                     border-radius: 0;
+                    color: @dark-gray;
+                    
                 }
                 &.active > * {
                     color: @red-main;
+                    font-weight: bold;
                     .glyphicon {
                         padding-left: 0.5em;
                         font-size: 0.6em;
+                    }
+                    
+                    cursor: pointer;
+                    &:focus {
+                        cursor: pointer;
                     }
                 }
             }

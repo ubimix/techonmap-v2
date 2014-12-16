@@ -79,6 +79,8 @@ module.exports = React.createClass({
     },
     _onClickAdd : function(ev) {
         window.open('http://techonmap.fr/edition.html', '_blank');
+        ev.stopPropagation();
+        ev.preventDefault();
     },
     _switchSearchBlock : function(ev){
         ev.stopPropagation();

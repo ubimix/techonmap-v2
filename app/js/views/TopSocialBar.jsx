@@ -11,7 +11,7 @@ module.exports = React.createClass({
         return ( 
           <div className="container-fluid">
               <div className="row social">
-                  <div className="col-xs-10 twitter">
+                  <div className="col-xs-11 twitter">
                       <div className="left">
                           <a href="https://twitter.com/TechOnMap" className="lastTweetAuthor">
                               @TechOnMap
@@ -21,7 +21,7 @@ module.exports = React.createClass({
                             <a href="https://twitter.com/TechOnMap/status/478119836766461952" className="lastTweetDate">15/6/2014 </a>
                       </div>
                   </div>
-                  <div className="col-xs-2 follow">
+                  <div className="col-xs-1 follow">
                       <a href="https://twitter.com/TechOnMap" target="_blank">Suivez-nous</a>
                   </div>
                   
