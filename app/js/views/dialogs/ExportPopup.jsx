@@ -14,6 +14,10 @@ var ExportTypeSelector = require('./ExportTypeSelector.jsx');
 var FORMAT_CSV = 'csv';
 var FORMAT_JSON = 'json';
 
+var STAGE_NO_DATA = 0;
+var STAGE_LOADING = 1;
+var STAGE_LOADED = 2;
+
 var ExportConfigPanel = React.createClass({
     displayName: "ExportConfigPanel",
     mixins : [I18NMixin],
@@ -29,20 +33,42 @@ var ExportConfigPanel = React.createClass({
     _newState : function(options){
         return _.extend({
             format : FORMAT_CSV,
-            useQuery : true
+            useQuery : true,
+            stage : STAGE_NO_DATA,
+            data : ""
         }, this.state, options);
     },
+    _prepareData : function(useQuery, format){
+        var app = this.getApp();
+        var data = useQuery ? app.res.getResources() : app.res.getAllResources();
+        var result;
+        if (format == FORMAT_CSV) {
+            result = app.serialize.formatAsJson(data); 
+        } else {
+            result = app.serialize.formatAsCSV(data);
+        }
+        return result;
+    },
     _updateExportFormat : function(options) {
-        this.setState(this._newState(options));
+        var state = this._newState(options);
+        state.stage = STAGE_LOADING;
+        state.data = "";
+        var that = this;
+        that.setState(state);
+        setTimeout(function(){
+            state.stage = STAGE_LOADED;
+            state.data = that._prepareData(state.useQuery, state.format);
+            that.setState(state);
+        }, 50);
     },
     _updateDatasetSelection : function(useQuery){
-        this.setState(this._newState({ useQuery : useQuery }));
+        this._updateExportFormat({ useQuery : useQuery });
     },
     getInitialState : function(){
         return this._newState();
     },
     _onTextareaChange : function(){
-        this.setState(this._newState());
+        this._updateExportFormat();
     },
     _selectTextareaContent : function(ev){
         if (!this.isMounted())
@@ -53,18 +79,28 @@ var ExportConfigPanel = React.createClass({
             DomUtils._selectText(elm, 0, len);
         }, 10);
     },
-    _prepareData : function(){
-        var app = this.getApp();
-        var useQuery = this.state.useQuery;
-        var data = useQuery ? app.res.getResources() : app.res.getAllResources();
-        var format = this.state.format;
-        var result;
-        if (format == FORMAT_CSV) {
-            result = app.serialize.formatAsJson(data); 
+    _showData : function(){
+        if (!this.state.stage)
+            return '';
+        var data = '';
+        var disabled = true;
+        if (this.state.stage === STAGE_LOADING) {
+            data = this._getLabel("dialog.export.msg.prepare");
         } else {
-            result = app.serialize.formatAsCSV(data);
+            data = this.state.data;
+            disabled = false;
         }
-        return result;
+        return (
+            <div className="row">
+                <div className="col-xs-12">
+                    <textarea className="code embed"
+                        value={data}
+                        disabled={disabled}
+                        onChange={this._onTextareaChange}
+                        onFocus={this._selectTextareaContent}/>
+                </div>
+            </div>
+        );
     },
     render : function(){
         var leftImageUrl  = "images/export-selected.png";
@@ -83,14 +119,7 @@ var ExportConfigPanel = React.createClass({
                         />
 
                     <h3>{this._getLabel("dialog.export.title.format")}</h3>
-                    <div className="row">
-                        <div className="col-xs-12">
-                            <textarea className="code embed"
-                                value={this._prepareData()}
-                                onChange={this._onTextareaChange}
-                                onFocus={this._selectTextareaContent}/>
-                        </div>
-                    </div>
+                    {this._showData()}
                 </div>
            </div>                
         );

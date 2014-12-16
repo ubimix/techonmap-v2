@@ -57,7 +57,7 @@ var ExportTypeSelector = React.createClass({
                             <label onClick={_.bind(this._onChange, this, true)}>
                                 <input type="radio" checked={leftChecked}
                                     onChange={_.bind(this._onChange, this, true)}/>
-                                votre selection de filterage
+                                {this._getLabel('dialog.export.label.export.filtered')}
                             </label>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ var ExportTypeSelector = React.createClass({
                             <label onClick={_.bind(this._onChange, this, false)}>
                                 <input type="radio" checked={rightChecked}
                                     onChange={_.bind(this._onChange, this, false)}/>
-                                l'intégralité des données
+                                {this._getLabel('dialog.export.label.export.all')}
                             </label>
                         </div>
                     </div>
