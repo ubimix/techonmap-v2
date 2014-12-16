@@ -20,7 +20,13 @@ module.exports = React.createClass({
     },
     componentWillUnmount : function(){
         document.removeEventListener('click', this._closeOpenSearchBlock, true);  
-    },    
+    },
+    getInitialState : function(){
+        return this._newState();
+    },
+    _newState : function(options){
+        return _.extend({ showSearchMenu : false }, this.state, options);
+    },
     _toggleNavigation : function(ref, ev) {
         var nav = this.refs[ref];
         if (nav) {
@@ -62,28 +68,49 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _switchSearchBlock : function(ev){
-        ev.stopPropagation();
-        ev.preventDefault();
-        if (!this.isMounted())
-            return;
-        var elm = this.refs.search.getDOMNode();
-        if (elm) {
-            DomUtils._toggleClass(elm, 'open');
-        }
-    },
     _closeOpenSearchBlock : function(ev) {
         var elm = ev.target;
         var searchBlock = this.refs.search.getDOMNode();
-        if (!DomUtils._hasParent(elm, searchBlock) &&
-                DomUtils._hasClass(searchBlock, 'open')) {
-            DomUtils._toggleClass(searchBlock, 'open');
+        if (!DomUtils._hasParent(elm, searchBlock)) {
+            this.setState(this._newState({
+                showSearchMenu : false
+            }));
         }
     },
     _onClickAdd : function(ev) {
         window.open('http://techonmap.fr/edition.html', '_blank');
     },
-    
+    _switchSearchBlock : function(ev){
+        ev.stopPropagation();
+        ev.preventDefault();
+        if (!this.isMounted())
+            return;
+        this.setState(this._newState({
+            showSearchMenu : !this.state.showSearchMenu
+        }));
+    },
+    _renderSearchMenuItem : function(){
+        var panel = null;
+        var className = 'dropdown';
+        if (this.state.showSearchMenu) {
+            var app = this.getApp();
+            panel = (
+              <ul className="dropdown-menu" role="menu">
+                  <li><SearchPanel app={app} /></li>
+              </ul>
+            );
+            className += ' open';
+        }
+        return (
+        <li className={className} ref="search">
+            <a href="#" className="menu-search icon about dropdown-toggle" onClick={this._switchSearchBlock}>
+                <i className="icon icon-search"></i>
+                <span className="label">{this._getLabel('topmenu.label.search')}</span>
+            </a>
+            {panel}
+        </li>
+        );
+    },
     render : function() {       
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
@@ -133,17 +160,7 @@ module.exports = React.createClass({
                                       <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
                                   </a>
                               </li>
-                              <li className="dropdown" ref="search">
-                                  <a href="#" className="menu-search icon about dropdown-toggle" onClick={this._switchSearchBlock}>
-                                      <i className="icon icon-search"></i>
-                                      <span className="label">{this._getLabel('topmenu.label.search')}</span>
-                                  </a>
-                                  <ul className="dropdown-menu" role="menu">
-                                    <li>
-                                        <SearchPanel app={app} />
-                                    </li>
-                                  </ul>
-                              </li>
+                              {this._renderSearchMenuItem()}
                           </ul>
                       </div>
                       <div className="col-xs-3">
