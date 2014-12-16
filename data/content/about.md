@@ -15,19 +15,14 @@ TechOnMap est entièrement gratuit. Vous pouvez embarquer la carte sur votre sit
 <p>
 Vous ne retrouvez pas votre organisation sur la carte ?  Merci de vous inscrire <a href="http://techonmap.fr/edition.html" target="_blank">ici</a>.
 </p>
+
 <div class="row text-center about">
-    <div class="col-xs-6">
+    <div class="col-xs-6 with-border with-border-right">
         <h2>Conception et design</h2>
-    </div>
-    <div class="col-xs-6">
-        <h2>Développement et intégration</h2>
-    </div>
-</div>
-<div class="row text-center about">
-    <div class="col-xs-6">
         <a href="http://www.lafonderie-idf.fr/"><img src="images/la-fonderie.png" border="0" /></a>
-    </div>
-    <div class="col-xs-6" style="display: table-cell; vertical-align: middle; float: none; height: 119px;">
+   </div>
+    <div class="col-xs-6 with-border umx">
+        <h2>Développement et intégration</h2>
         <a href="http://ubimix.com"><img src="images/ubimix.png" border="0" /></a>
     </div>
 </div>
