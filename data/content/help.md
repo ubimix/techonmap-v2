@@ -1,4 +1,4 @@
-title: <i class="icon icon-faq"></i>FAQ
+title: <i class="icon icon-faq"></i>Foire Aux Questions
 ----
 
 <article>

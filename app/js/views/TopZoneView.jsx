@@ -20,7 +20,7 @@ module.exports = React.createClass({
     },
     componentWillUnmount : function(){
         document.removeEventListener('click', this._closeOpenSearchBlock, true);  
-    },
+    },    
     _toggleNavigation : function(ref, ev) {
         var nav = this.refs[ref];
         if (nav) {
@@ -80,6 +80,10 @@ module.exports = React.createClass({
             DomUtils._toggleClass(searchBlock, 'open');
         }
     },
+    _onClickAdd : function(ev) {
+        window.open('http://techonmap.fr/edition.html', '_blank');
+    },
+    
     render : function() {       
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
@@ -145,8 +149,8 @@ module.exports = React.createClass({
                       <div className="col-xs-3">
                           <div className="navbar-form navbar-right">
                               <div className="btn-group">
-                                  <button type="button" className="btn btn-primary">{this._getLabel('topmenu.btn.add')}</button>
-                                  <button type="button" className="btn btn-primary btn-add"></button>
+                                  <button type="button" className="btn btn-primary" onClick={this._onClickAdd}>{this._getLabel('topmenu.btn.add')}</button>
+                                  <button type="button" className="btn btn-primary btn-add" onClick={this._onClickAdd}></button>
                               </div>
                           </div>
                       </div>

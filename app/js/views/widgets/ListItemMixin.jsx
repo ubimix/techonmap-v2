@@ -182,4 +182,15 @@ module.exports = _.extend({
             </div>
         );
     },
+    
+    _renderEditButton : function(isSelected) {
+        if (isSelected) {
+            var id = ResourceUtils._getFirstProperty(this.props.resource, 'id');
+            var editLink = 'http://techonmap.fr/edition.html#'+id;
+            return <a href={editLink} title="Éditer cette fiche" className="edit picto-edit" target="_blank">
+                <i className="icon icon-edit"></i>
+            </a>;
+        } else 
+            return 
+    }
 }, TagsMixin, I18NMixin);
