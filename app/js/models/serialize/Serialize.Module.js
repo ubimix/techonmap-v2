@@ -36,6 +36,7 @@ module.exports = Api.extend({
 
     /** Returns the specified data set serialized as CSV text. */
     formatAsCSV : function(data) {
+        var fields = [];
         data = this._filterData(data);
         return JSON.stringify(data);
     },
