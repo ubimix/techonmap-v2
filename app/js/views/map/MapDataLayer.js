@@ -79,12 +79,20 @@ module.exports = AbstractMapLayer.extend({
     _initMarkers : function() {
         var mapOptions = this._getMapOptions();
         this._index = {};
+        var app = this._getApp();
+        var type = 'default';
+        var clusterPolygonOptions = //
+        app.viewManager.newView('mapClusterPolygon', type, {
+            app : app
+        }) || {};
         var clusterOptions = _.extend({
             spiderfyOnMaxZoom : true,
-            showCoverageOnHover : false,
+            showCoverageOnHover : true,
             zoomToBoundsOnClick : true,
-            maxClusterRadius : 220,
-            iconCreateFunction : _.bind(this._newClusterMarker, this)
+            // maxClusterRadius : 50,
+            iconCreateFunction : _.bind(this._newClusterMarker, this),
+            polygonOptions : clusterPolygonOptions
+
         }, mapOptions.cluster, {});
         this._clusterLayer = new L.MarkerClusterGroup(clusterOptions);
         this._map.addLayer(this._clusterLayer);

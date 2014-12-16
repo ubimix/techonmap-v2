@@ -67,7 +67,6 @@ title: <i class="icon icon-faq"></i>Foire Aux Questions
         <p>
         Contactez-nous, si vous avez des besoins d’affichages spécifiques !
         </p> 
-    
     </section>
 </article>
 
@@ -122,6 +121,3 @@ title: <i class="icon icon-faq"></i>Foire Aux Questions
         </p> 
     </section>
 </article>
-
-<hr/>
-<h3 class="more-info">Si vous avez une autre question</h3> <button type="button" class="btn btn-primary">Contactez-nous</button> 

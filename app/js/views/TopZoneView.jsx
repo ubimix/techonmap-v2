@@ -37,12 +37,34 @@ module.exports = React.createClass({
         ev.preventDefault();
     },
     _showAboutInfo : function(ev){
-        this._showContentDialog('about.md');
+        var footer = (
+            <div>
+                {this._getLabel('dialog.help.msg.contact')}
+                <button type="button" className="btn btn-primary">
+                    {this._getLabel('dialog.help.btn.contact')}
+                </button>
+            </div>
+        );
+        this._showContentDialog({ 
+            url: 'about.md',
+            footer : footer
+        });
         ev.stopPropagation();
         ev.preventDefault();
     },
     _showHelp : function(ev){
-        this._showContentDialog('help.md');
+        var footer = (
+            <div>
+                {this._getLabel('dialog.help.msg.contact')}
+                <button type="button" className="btn btn-primary">
+                    {this._getLabel('dialog.help.btn.contact')}
+                </button>
+            </div>
+        );
+        this._showContentDialog({
+            url : 'help.md',
+            footer : footer
+        });
         ev.stopPropagation();
         ev.preventDefault();
     },

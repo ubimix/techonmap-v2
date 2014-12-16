@@ -26,10 +26,18 @@ module.exports = Api.extend({}, {
     // ------------------------------------------------------------------
     // Data loading
 
-    loadContent : function(path) {
+    loadContent : function(options) {
         var that = this;
-        return that._loadText(path).then(function(text) {
-            return new ContentResource(text);
+        var href;
+        if (_.isString(options)) {
+            href = options;
+        } else {
+            href = options.url;
+        }
+        return that._loadText(href).then(function(text) {
+            var obj = new ContentResource(text);
+            obj.setOptions(options);
+            return obj;
         });
     },
 
