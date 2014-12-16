@@ -17,7 +17,7 @@ var PopupPanel = React.createClass({
             document.body.removeChild(div);
             React.unmountComponentAtNode(div);
         },
-        openPopup : function(){
+        openPopup : function(options){
             var div = document.createElement('div');
             document.body.appendChild(div);
             this.divStack.push(div);
@@ -31,12 +31,18 @@ var PopupPanel = React.createClass({
         this._updatePopupHeight = _.bind(this._updatePopupHeight, this);
         this._addResizeListener(this._updatePopupHeight);
         this._updatePopupHeight();
+        if (_.isFunction(this.props.onOpen)) {
+            this.props.onOpen(this);
+        }
     },
     componentDidUpdate : function(){
         this._updatePopupHeight();
     },
     componentWillUnmount : function(){
         this._removeResizeListener(this._updatePopupHeight);
+        if (_.isFunction(this.props.onClose)) {
+            this.props.onClose(this);
+        }
     },
     _updatePopupHeight : function(){
         var container = this.refs.container;

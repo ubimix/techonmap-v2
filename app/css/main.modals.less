@@ -63,6 +63,24 @@
                 padding-left: 30px;
                 padding-right: 30px;
                 
+                article{
+                    section{ 
+                        display: none;
+                        padding-left: 0.5em;
+                    }
+                    h2 {
+                        &::before { content: " + "; }
+                        cursor: pointer;
+                    }
+                    &.open{ 
+                        section { display : block; }
+                        h2 {
+                            &::before { content : " - " } 
+                        }
+                    }
+                }
+                
+                
                 h2 {
                     font-size: 16px;
                     @import url('./main.modals.less');

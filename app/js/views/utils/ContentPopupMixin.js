@@ -33,7 +33,9 @@ module.exports = {
             PopupPanel.openPopup({
                 title : titleElm,
                 body : bodyElm,
-                footer : footerElm
+                footer : footerElm,
+                onOpen : options.onOpen,
+                onClose : options.onClose
             });
         });
     },

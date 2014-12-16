@@ -52,22 +52,6 @@ module.exports = React.createClass({
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _showHelp : function(ev){
-        var footer = (
-            <div>
-                {this._getLabel('dialog.help.msg.contact')}
-                <button type="button" className="btn btn-primary">
-                    {this._getLabel('dialog.help.btn.contact')}
-                </button>
-            </div>
-        );
-        this._showContentDialog({
-            url : 'help.md',
-            footer : footer
-        });
-        ev.stopPropagation();
-        ev.preventDefault();
-    },
     _showShareDialog : function(ev){
         var sharePopup = new SharePopup({
             app : this.props.app
@@ -137,6 +121,35 @@ module.exports = React.createClass({
         </li>
         );
     },
+    _showHelp : function(ev){
+      var footer = (
+          <div>
+              {this._getLabel('dialog.help.msg.contact')}
+              <button type="button" className="btn btn-primary">
+                  {this._getLabel('dialog.help.btn.contact')}
+              </button>
+          </div>
+      );
+      this._showContentDialog({
+          url : 'help.md',
+          footer : footer,
+          onOpen : function(dialog) {
+              var node = dialog.getDOMNode();
+              DomUtils.select(node, 'article', function(article){
+                  DomUtils.select(article, 'h2', function(header){
+                      header.addEventListener('click', function(){
+                          DomUtils._toggleClass(article, 'open');
+                      });
+                  });
+              });
+          },
+          onClose : function(dialog){
+              console.log('CLOSE!', dialog);
+          }
+      });
+      ev.stopPropagation();
+      ev.preventDefault();
+  },
     _renderHelpMenuItem : function(){
         return (
             <li>

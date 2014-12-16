@@ -57,6 +57,15 @@ var DomUtils = {
         }
     },
 
+    select : function(elm, selector, callback) {
+        var list = elm.querySelectorAll(selector);
+        var len = list ? list.length : 0;
+        for (var i = 0; i < len; i++) {
+            var item = list.item(i);
+            callback(item, i);
+        }
+    },
+
     // ---------------------------------------------------------------------
     // Sizes
 
@@ -156,9 +165,6 @@ var DomUtils = {
             DomUtils._addClass(el, name);
         }
     },
-
-    // Copied (with modifications) from the Leaflet library (MIT license)
-    // L.DomUtil utility class
 
     _hasClass : function(el, name) {
         if (el.classList !== undefined) {
