@@ -1,4 +1,4 @@
-title: <i class="icon icon-export"></i> Exporter les données
+title: <i class="icon icon-export"></i>Exporter les données
 ----
 
 Dans le prolongement de la démarche régionale d’ouverture des données publiques

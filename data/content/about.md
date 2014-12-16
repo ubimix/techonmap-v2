@@ -1,4 +1,4 @@
-title: <i class="icon icon-info"></i> À propos
+title: <i class="icon icon-info"></i>À propos
 ----
 <p>
 Territoire de référence pour la créativité et l'innovation technologique, la Région Ile-de-France fédère un écosystème numérique particulièrement riche et dynamique.
