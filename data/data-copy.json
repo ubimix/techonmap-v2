@@ -16,7 +16,6 @@
         "category": "École",
         "name": "42",
         "tags": [
-          "developpeur",
           "développeur",
           "heartofcode"
         ],
@@ -156,7 +155,7 @@
         "category": "Investisseur",
         "name": "123 Venture",
         "tags": [
-          "venturecapitalist",
+          "capital risque",
           "mezzanine"
         ],
         "address": "94 rue de la Victoire",
@@ -269,7 +268,7 @@
         "category": "Investisseur",
         "name": "360° Capital Partners",
         "tags": [
-          "venturecapitalist"
+          "capital risque"
         ],
         "address": "16 boulevard Poissonnière",
         "postcode": "75009",
@@ -1547,8 +1546,8 @@
         "category": "Entreprise",
         "name": "Acsys",
         "tags": [
-          "Industrie",
-          "Ingéniérie",
+          "industrie",
+          "SSII",
           "conception"
         ],
         "address": "87 rue Gallieni",
@@ -3711,8 +3710,8 @@
         "category": "Investisseur",
         "name": "Alven Capital",
         "tags": [
-          "venturecapitalist",
-          "ICT"
+          "capital risque",
+          "ict"
         ],
         "address": "1 place André Malraux",
         "postcode": "75001",
@@ -6932,7 +6931,7 @@
         "category": "Investisseur",
         "name": "Banexi Ventures Partners",
         "tags": [
-          "venturecapitalist",
+          "capital risque",
           "hightech"
         ],
         "address": "13 rue Taitbout",
@@ -9030,7 +9029,7 @@
         "tags": [
           "poledecompetitivite",
           "contenus&services",
-          "numerique"
+          "numérique"
         ],
         "address": "74 rue du Faubourg Saint-Antoine",
         "postcode": "75012",
@@ -9085,7 +9084,7 @@
         "category": "Investisseur",
         "name": "CapHorn Invest",
         "tags": [
-          "venturecapitalist"
+          "capital risque"
         ],
         "address": "32 avenue de l'Opéra",
         "postcode": "75002",
@@ -10653,7 +10652,7 @@
         "category": "Investisseur",
         "name": "Cleantech Business Angels",
         "tags": [
-          "businessangel",
+          "business angel",
           "cleantech"
         ],
         "address": "8 terrasse Bellini",
@@ -15616,8 +15615,8 @@
         "category": "Investisseur",
         "name": "Elaia Partners",
         "tags": [
-          "venturecapitalist",
-          "numerique"
+          "capital risque",
+          "numérique"
         ],
         "address": "54 rue de Ponthieu",
         "postcode": "75008",
@@ -20883,8 +20882,7 @@
         "category": "Entreprise",
         "name": "Happy Content",
         "tags": [
-          "prestataire",
-          "plateformes médias, web agency, sites web",
+          "web agency",
           "B2B"
         ],
         "address": "80 rue de la Roquette",
@@ -22117,7 +22115,7 @@
         "category": "Investisseur",
         "name": "IdInvest Partners",
         "tags": [
-          "venturecapitalist",
+          "capital risque",
           "growthequity"
         ],
         "address": "117 avenue des Champs Elysées",
@@ -23226,7 +23224,7 @@
         "tags": [
           "recherche",
           "innovation",
-          "numerique"
+          "numérique"
         ],
         "address": "23 avenue d'Italie",
         "postcode": "75013",
@@ -23638,7 +23636,7 @@
         "category": "Investisseur",
         "name": "Investessor",
         "tags": [
-          "businessangel"
+          "business angel"
         ],
         "address": "146 rue du Château",
         "postcode": "92100",
@@ -23831,8 +23829,8 @@
         "category": "Investisseur",
         "name": "Iris Capital",
         "tags": [
-          "venturecapitalist",
-          "numerique"
+          "capital risque",
+          "numérique"
         ],
         "address": "62 rue Pierre Charron",
         "postcode": "75008",
@@ -23883,7 +23881,7 @@
         "category": "Investisseur",
         "name": "ISAI Capital",
         "tags": [
-          "venturecapitalist",
+          "capital risque",
           "internet"
         ],
         "address": "10 avenue de la Grande Armée",
@@ -24129,8 +24127,8 @@
         "category": "Investisseur",
         "name": "IT Angels",
         "tags": [
-          "businessangel",
-          "ICT"
+          "business angel",
+          "ict"
         ],
         "address": "110 rue des Poissonniers",
         "postcode": "75018",
@@ -24376,7 +24374,7 @@
         "category": "Investisseur",
         "name": "Jaïna Capital",
         "tags": [
-          "venturecapitalist"
+          "capital risque"
         ],
         "address": "1 rue François 1er",
         "postcode": "75008",
@@ -25299,7 +25297,7 @@
         "category": "Investisseur",
         "name": "Kima Ventures",
         "tags": [
-          "venturecapitalist",
+          "capital risque",
           "internet",
           "hightech"
         ],
@@ -26067,7 +26065,7 @@
         "tags": [
           "organismeassocie",
           "conseilregional",
-          "numerique"
+          "numérique"
         ],
         "address": "11 rue de Cambrai",
         "postcode": "75019",
@@ -29738,7 +29736,7 @@
         "name": "Ministère chargé des PME, de l'Innovation et de l'Economie numérique",
         "tags": [
           "economie",
-          "numerique",
+          "numérique",
           "redressement"
         ],
         "address": "139 rue de Bercy",
@@ -32112,7 +32110,7 @@
         "category": "Investisseur",
         "name": "Next World Capital",
         "tags": [
-          "venturecapitalist",
+          "capital risque",
           "hightech"
         ],
         "address": "11 avenue Myron Herrick",
@@ -32928,7 +32926,7 @@
         "tags": [
           "telecoms",
           "conseil",
-          "ingéniérie"
+          "SSII"
         ],
         "address": "23 rue Brongniart",
         "postcode": "92310",
@@ -33063,7 +33061,7 @@
         "category": "Investisseur",
         "name": "Omnes Capital",
         "tags": [
-          "venturecapitalist"
+          "capital risque"
         ],
         "address": "37 rue du Rocher",
         "postcode": "75008",
@@ -33820,8 +33818,8 @@
         "category": "Investisseur",
         "name": "Orkos Capital",
         "tags": [
-          "venturecapitalist",
-          "ICT"
+          "capital risque",
+          "ict"
         ],
         "address": "2 rue Fléchier",
         "postcode": "75009",
@@ -34291,7 +34289,7 @@
         "category": "Investisseur",
         "name": "Paris Angels Capital",
         "tags": [
-          "venturecapitalist"
+          "capital risque"
         ],
         "address": "16 rue de Turbigo",
         "postcode": "75002",
@@ -34317,7 +34315,7 @@
         "category": "Investisseur",
         "name": "Paris Business Angels",
         "tags": [
-          "businessangel"
+          "business angel"
         ],
         "address": "16 rue de Turbigo",
         "postcode": "75002",
@@ -34643,8 +34641,8 @@
         "category": "Investisseur",
         "name": "Partech International",
         "tags": [
-          "venturecapitalist",
-          "ICT"
+          "capital risque",
+          "ict"
         ],
         "address": "12 rue de Penthièvre",
         "postcode": "75008",
@@ -35315,8 +35313,8 @@
         "category": "Investisseur",
         "name": "P.I.Nk",
         "tags": [
-          "venturecapitalist",
-          "ICT"
+          "capital risque",
+          "ict"
         ],
         "address": "17 rue du Faubourg du Temple",
         "postcode": "75010",
@@ -35677,7 +35675,7 @@
         "category": "Investisseur",
         "name": "Pléiade Venture",
         "tags": [
-          "venturecapitalist"
+          "capital risque"
         ],
         "address": "29 rue de Miromesnil",
         "postcode": "75008",
@@ -35759,7 +35757,7 @@
         "category": "Investisseur",
         "name": "Pole Capital",
         "tags": [
-          "venturecapitalist"
+          "capital risque"
         ],
         "address": "41 rue Saint-Dominique",
         "postcode": "75007",
@@ -38598,8 +38596,8 @@
         "category": "Investisseur",
         "name": "Serena Capital",
         "tags": [
-          "venturecapitalist",
-          "ICT"
+          "capital risque",
+          "ict"
         ],
         "address": "21 rue Auber",
         "postcode": "75009",
@@ -40252,7 +40250,7 @@
         "category": "Investisseur",
         "name": "Sofinnova Partners",
         "tags": [
-          "venturecapitalist",
+          "capital risque",
           "technologie",
           "cleantech"
         ],
@@ -41954,7 +41952,7 @@
         "name": "Syntec Numérique",
         "tags": [
           "syndicat",
-          "numerique"
+          "numérique"
         ],
         "address": "3 rue Léon Bonnat",
         "postcode": "75016",
@@ -45071,8 +45069,8 @@
         "category": "Investisseur",
         "name": "Ventech Capital",
         "tags": [
-          "venturecapitalist",
-          "ICT",
+          "capital risque",
+          "ict",
           "biotech"
         ],
         "address": "5 rue de Monttessuy",
@@ -46780,8 +46778,8 @@
         "category": "Investisseur",
         "name": "XAnge Private Equity",
         "tags": [
-          "venturecapitalist",
-          "ICT"
+          "capital risque",
+          "ict"
         ],
         "address": "12 rue Tronchet",
         "postcode": "75008",

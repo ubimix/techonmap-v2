@@ -58,7 +58,7 @@
         "key" : "Investisseur",
         "icon" : "investor",
         "label" : "Investisseurs",
-        "tags" : ["venture capitalist", "business angel", "hightech", "cleantech"]
+        "tags" : ["capital risque", "business angel", "hightech", "cleantech"]
     },
     {
         "key" : "Acteur public",
