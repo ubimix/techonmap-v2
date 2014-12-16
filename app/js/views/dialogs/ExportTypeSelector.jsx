@@ -11,7 +11,7 @@ var I18NMixin = require('../utils/I18NMixin');
 var ExportTypeSelector = React.createClass({
     displayName: "ExportTypeSelector",
     mixins : [I18NMixin],
-    componentWillMount : function(){
+    componentDidMount : function(){
     },
     componentWillUnmount : function(){
     },
@@ -22,32 +22,25 @@ var ExportTypeSelector = React.createClass({
         var state = _.extend({
             useQuery : this.props.useQuery
         }, this.state, options);
-        state.url = this._getExportUrl(state);
         return state;
-    },
-    _getExportUrl : function(state){
-        state = state || this.state;
-        var embedMode = state.embedMode;
-        var useQuery = state.useQuery;
-        var app = this.getApp();
-        var url = app.nav.getExportUrl({
-            embedMode : embedMode,
-            useQuery : useQuery
-        });
-        url = encodeURI(url);
-        return url;
     },
     getInitialState : function(){
         return this._newState();
     },
-    _onUseQuery : function(useQuery, ev){
+    _useQuery : function(useQuery){
         var state = this._newState({useQuery : useQuery});
+        if (this.props.onUpdate){
+            this.props.onUpdate(state.useQuery);
+        }
         this.setState(state);
+    },
+    _onUseQuery : function(useQuery, ev){
+        this._useQuery(useQuery);
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _onChange : function(ev){
-        
+    _onChange : function(useQuery, ev){
+        this._useQuery(useQuery);
     },
     render : function(){
         var leftChecked = !!this.state.useQuery;
@@ -55,24 +48,32 @@ var ExportTypeSelector = React.createClass({
         return (
             <div className="row export-type-selector">
                 <div className="col-xs-6">
-                    <div className="media" onClick={_.bind(this._onUseQuery, this, true)}>
-                        <a className="media-left" href="#">
+                    <div className="media">
+                        <a className="media-left" href="#"
+                            onClick={_.bind(this._onUseQuery, this, true)}>
                             <img alt="" src={this.props.leftImageUrl} />
                         </a>
                         <div className="media-body">
-                            <input type="radio" checked={leftChecked} onChange={this._onChange}/>
-                            votre selection de filterage 
+                            <label onClick={_.bind(this._onChange, this, true)}>
+                                <input type="radio" checked={leftChecked}
+                                    onChange={_.bind(this._onChange, this, true)}/>
+                                votre selection de filterage
+                            </label>
                         </div>
                     </div>
                 </div>
                 <div className="col-xs-6">
-                    <div className="media" onClick={_.bind(this._onUseQuery, this, false)}>
-                        <a className="media-left" href="#">
+                    <div className="media">
+                        <a className="media-left" href="#" 
+                            onClick={_.bind(this._onUseQuery, this, false)}>
                             <img alt="" src={this.props.rightImageUrl} />
                         </a>
                         <div className="media-body">
-                            <input type="radio" checked={rightChecked} onChange={this._onChange}/>
-                            l'intégralité des données 
+                            <label onClick={_.bind(this._onChange, this, false)}>
+                                <input type="radio" checked={rightChecked}
+                                    onChange={_.bind(this._onChange, this, false)}/>
+                                l'intégralité des données
+                            </label>
                         </div>
                     </div>
                 </div>

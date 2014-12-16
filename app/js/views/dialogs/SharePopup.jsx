@@ -27,12 +27,16 @@ var ShareConfigPanel = React.createClass({
         return _.extend({
             width: 1024,
             height: 800,
-            embedMode : 'embed-full' 
+            embedMode : 'embed-full',
+            useQuery : true
         }, this.state, options);
+    },
+    _updateDatasetSelection : function(useQuery){
+        this.setState(this._newState({ useQuery : useQuery }));
     },
     _getExportUrl : function(){
         var embedMode = this.state.embedMode;
-        var useQuery = false;
+        var useQuery = this.state.useQuery;
         var app = this.getApp();
         var url = app.nav.getExportUrl({
             embedMode : embedMode,
@@ -117,60 +121,59 @@ var ShareConfigPanel = React.createClass({
         }, 10);
     },
     render : function(){
-        var leftImageUrl  = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzLjQ2ODc1IiB5PSIzMiIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjY0eDY0PC90ZXh0PjwvZz48L3N2Zz4=";
-        var rightImageUrl = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjEzLjQ2ODc1IiB5PSIzMiIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjY0eDY0PC90ZXh0PjwvZz48L3N2Zz4=";
+        var leftImageUrl  = "images/export-selected.png";
+        var rightImageUrl = "images/export-all.png";
         var app = this.getApp();
         return (
            <div>
                 <div className="configuration-zone">
-                        <h3>{this._getLabel("dialog.share.title.style")}</h3>
-                        <ExportTypeSelector app={app}
-                            leftImageUrl={leftImageUrl}
-                            rightImageUrl={rightImageUrl}
-                            events={this.props.events}
-                            />
-                        <h3>{this._getLabel("dialog.share.title.style")}</h3>
-                        <div className="row">
-                            <div className="col-xs-6">
-                                <a href="#"
-                                    ref="shortView"
-                                    className="embed-type embed-readonly embed-type-active"
-                                    onClick={_.bind(this._updateLayout, this, false)}>
-                                    {this._getLabel('dialog.share.label.nomenu')}
-                                </a>
-                            </div>
-                            <div className="col-xs-6">
-                                <a href="#"
-                                    className="embed-type embed-full"
-                                    ref="fullView"
-                                    onClick={_.bind(this._updateLayout, this, true)}>
-                                    {this._getLabel('dialog.share.label.withmenu')}
-                                </a>
-                            </div>
+                    <h3>{this._getLabel("dialog.share.title.integrate")}</h3>
+                    <ExportTypeSelector app={app}
+                        leftImageUrl={leftImageUrl}
+                        rightImageUrl={rightImageUrl}
+                        useQuery={this.state.useQuery}
+                        onUpdate={this._updateDatasetSelection}
+                        />
+                    <h3>{this._getLabel("dialog.share.title.style")}</h3>
+                    <div className="row">
+                        <div className="col-xs-6">
+                            <a href="#"
+                                ref="shortView"
+                                className="embed-type embed-readonly embed-type-active"
+                                onClick={_.bind(this._updateLayout, this, false)}>
+                                {this._getLabel('dialog.share.label.nomenu')}
+                            </a>
                         </div>
-                        <h3>{this._getLabel("dialog.share.title.size")}</h3>
-                        <div className="row">
-                            <div className="col-xs-6 form-inline">
-                                <label className="">{this._getLabel("dialog.share.label.width")}</label>
-                                <input
-                                    type="text"
-                                    className="embed-width"
-                                    onChange={this._updateWidth}
-                                    onBlur={_.bind(this._onBlur, this, 'width', 770)}
-                                    value={this.state.width} />
-                            </div>
-                            <div className="col-xs-6">
-                                <label className="">{this._getLabel("dialog.share.label.height")}</label>
-                                <input
-                                    type="text"
-                                    className="embed-height"
-                                    onBlur={_.bind(this._onBlur, this, 'height', 400)}
-                                    onChange={this._updateHeight}
-                                    value={this.state.height}/>
-                            </div>
+                        <div className="col-xs-6">
+                            <a href="#"
+                                className="embed-type embed-full"
+                                ref="fullView"
+                                onClick={_.bind(this._updateLayout, this, true)}>
+                                {this._getLabel('dialog.share.label.withmenu')}
+                            </a>
                         </div>
-                </div>
-                <div className="active-zone">
+                    </div>
+                    <h3>{this._getLabel("dialog.share.title.size")}</h3>
+                    <div className="row">
+                        <div className="col-xs-6 form-inline">
+                            <label className="">{this._getLabel("dialog.share.label.width")}</label>
+                            <input
+                                type="text"
+                                className="embed-width"
+                                onChange={this._updateWidth}
+                                onBlur={_.bind(this._onBlur, this, 'width', 770)}
+                                value={this.state.width} />
+                        </div>
+                        <div className="col-xs-6">
+                            <label className="">{this._getLabel("dialog.share.label.height")}</label>
+                            <input
+                                type="text"
+                                className="embed-height"
+                                onBlur={_.bind(this._onBlur, this, 'height', 400)}
+                                onChange={this._updateHeight}
+                                value={this.state.height}/>
+                        </div>
+                    </div>
                     <h3>{this._getLabel("dialog.share.title.code")}</h3>
                     <div className="row">
                         <div className="col-xs-12">

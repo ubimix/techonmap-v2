@@ -45,7 +45,7 @@
         .map-control {
             z-index: 1;
             .fit(@panel-margin, auto, auto, @panel-margin);
-            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+            .box-shadow();
             button {
                 width: @button-height;
                 height: @button-height;
@@ -80,7 +80,8 @@
                 height: @button-height;
                 margin: 0px;
                 width: 0px;
-                > li {  
+                > li {
+                    .box-shadow();
                     position: absolute;
                     white-space: nowrap;
                     border-radius: 0px;
@@ -97,6 +98,7 @@
     }
     .search-results {
         .fit(@panel-margin, @panel-margin, 1px, 75%);
+        .box-shadow();
         display: block;
         background-color: white;
         
