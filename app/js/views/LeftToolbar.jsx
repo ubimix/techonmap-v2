@@ -3,9 +3,9 @@ var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('./AppViewMixin');
 var SearchTagsView = require('./search/SearchTagsView.jsx');
-var SearchInfoQueryView = require('./search/SearchInfoQueryView.jsx');
-var SearchInfoCategoriesView = require('./search/SearchInfoCategoriesView.jsx');
-var SearchInfoZoneView = require('./search/SearchInfoZoneView.jsx');
+var QueryInfoView = require('./search/QueryInfoView.jsx');
+var CategoriesInfoView = require('./search/CategoriesInfoView.jsx');
+var ZoneInfoView = require('./search/ZoneInfoView.jsx');
 var DomUtils= require('./utils/DomUtils');
 var I18NMixin = require('./utils/I18NMixin');
 
@@ -45,7 +45,7 @@ module.exports = React.createClass({
             <ul className="list-group search-query">
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.query')}</span>
-                    <SearchInfoQueryView app={app} />
+                    <QueryInfoView app={app} />
                     <span className="bar"></span>
                     <span className="remove"></span>
                 </li>
@@ -77,7 +77,7 @@ module.exports = React.createClass({
             <ul className="list-group search-categories">
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.categories')}</span>
-                    <SearchInfoCategoriesView app={app}/>
+                    <CategoriesInfoView app={app}/>
                     <span className="bar"></span>
                     <span className="remove"></span>
                 </li>
@@ -93,7 +93,7 @@ module.exports = React.createClass({
             <ul className="list-group search-zones">
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.zone')}</span>
-                    <SearchInfoZoneView app={app}/>
+                    <ZoneInfoView app={app}/>
                     <span className="bar"></span>
                     <span className="remove"></span>
                 </li>

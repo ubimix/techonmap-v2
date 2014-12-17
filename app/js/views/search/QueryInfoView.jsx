@@ -5,7 +5,7 @@ var AppViewMixin = require('../AppViewMixin');
 var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
-    displayName : 'SearchInfoQueryView',
+    displayName : 'QueryInfoView',
     mixins : [AppViewMixin, I18NMixin],
     _newState : function(options){
         var nav = this._getStore();

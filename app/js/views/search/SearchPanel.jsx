@@ -3,14 +3,14 @@ var React = require('react');
 var DomUtils = require('../utils/DomUtils');
 var I18NMixin = require('../utils/I18NMixin');
 var MenuMixin = require('../utils/MenuMixin.jsx');
-var SearchPanelCategories = require('./SearchPanelCategories.jsx');
+var CategoriesSearchPanel = require('./CategoriesSearchPanel.jsx');
 var SearchInputBoxView = require('./SearchInputBoxView.jsx');
-var SearchInfoZoneView = require('./SearchInfoZoneView.jsx');
-var SearchPanelZones = require('./SearchPanelZones.jsx'); 
-var SearchInfoTagsView = require('./SearchInfoTagsView.jsx');
-var SearchPanelTags = require('./SearchPanelTags.jsx');
-var SearchInfoCategoriesView = require('./SearchInfoCategoriesView.jsx');
-var SearchSelectedCategoryPanel = require('./SearchSelectedCategoryPanel.jsx');
+var ZoneInfoView = require('./ZoneInfoView.jsx');
+var ZonesSearchPanel = require('./ZonesSearchPanel.jsx'); 
+var TagsInfoView = require('./TagsInfoView.jsx');
+var TagsSearchPanel = require('./TagsSearchPanel.jsx');
+var CategoriesInfoView = require('./CategoriesInfoView.jsx');
+var SelectedCategorySearchPanel = require('./SelectedCategorySearchPanel.jsx');
 
 var SearchPanel = React.createClass({
     displayName : 'SearchPanel',
@@ -48,19 +48,19 @@ var SearchPanel = React.createClass({
         var app = this.getApp();
         return this._renderMenuPanelGroup('zones',
                 this._renderMenuReturnRef(),
-                <SearchPanelZones app={app} />);
+                <ZonesSearchPanel app={app} />);
     },
     _renderTagsPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('tags',
                 this._renderMenuReturnRef(),
-                <SearchPanelTags app={app} />);
+                <TagsSearchPanel app={app} />);
     },
     _renderCategoriesPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('categories',
                 this._renderMenuReturnRef(),
-                <SearchPanelCategories app={app}
+                <CategoriesSearchPanel app={app}
                     onSelectCategory={this._onCategorySelect}/>);
     },
     _renderSelectedCategoryPanel : function(){
@@ -68,7 +68,7 @@ var SearchPanel = React.createClass({
         return this._renderMenuPanelGroup('selected-category',
                 this._renderMenuReturnRef('categories',
                         'search.panel.button.return.to.categories'),
-                <SearchSelectedCategoryPanel app={app}
+                <SelectedCategorySearchPanel app={app}
                     onExit={_.bind(this._toggleMenuPanel, this, 'categories')}/>);
     },
     _renderMainPanel : function(){
@@ -89,11 +89,11 @@ var SearchPanel = React.createClass({
                    this._renderMenuRef(
                            'search.panel.label.zones',
                            'zones',
-                           <SearchInfoZoneView app={app} />),
+                           <ZoneInfoView app={app} />),
                    this._renderMenuRef(
                            'search.panel.label.categories',
                            'categories',
-                           <SearchInfoCategoriesView app={app} />)
+                           <CategoriesInfoView app={app} />)
                )
            )
         );

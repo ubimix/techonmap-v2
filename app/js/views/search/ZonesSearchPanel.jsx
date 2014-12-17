@@ -2,13 +2,13 @@
 var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
-var CategoryMixin = require('../utils/CategoryMixin.jsx');
-var MenuMixin = require('../utils/MenuMixin.jsx');
+var ZonesMixin = require('../utils/ZonesMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
+var MenuMixin = require('../utils/MenuMixin.jsx');
 
 module.exports = React.createClass({
-    displayName : 'SearchPanelCategories',
-    mixins : [ AppViewMixin, I18NMixin, CategoryMixin, MenuMixin ],
+    displayName : 'ZonesSearchPanel',
+    mixins : [ AppViewMixin, ZonesMixin, I18NMixin, MenuMixin ],
     componentDidMount : function() {
         this.props.app.res.addChangeListener(this._onUpdate);
     },
@@ -17,10 +17,12 @@ module.exports = React.createClass({
     },
     _newState : function(options) {
         var app = this.getApp();
+        var zones = app.nav.getFilterZones();
         var stats = this.props.app.stats;
         return _.extend({}, this.state, {
-            fullStats : stats.getFullStats().categories,
-            stats : stats.getStats().categories
+            zones : zones,
+            fullStats : stats.getFullStats().zones,
+            stats : stats.getStats().zones
         });
     },
     _getStore : function() {
@@ -28,10 +30,9 @@ module.exports = React.createClass({
     },
     render : function() {
         var app = this.props.app;
-        var categories = app.nav.getCategories();
-        var array = _.map(categories, function(category, i) {
-            var key = category.key;
-            key = key.toLowerCase();
+        var zones = app.nav.getZones();
+        var array = _.map(zones, function(zone, i) {
+            var key = zone.key;
             var stats = this.state.stats[key] || 0;
             var className = 'label label-default pull-right';
             if (!stats) {
@@ -40,7 +41,7 @@ module.exports = React.createClass({
             return (
                 <div className="row" key={key}>
                     <div className="col-xs-10">
-                        {this._renderCategory(category)}
+                        {this._renderZone(zone)}
                     </div>
                     <div className="col-xs-2">
                         <span className={className}>{stats}</span>
@@ -48,6 +49,6 @@ module.exports = React.createClass({
                 </div>
             );
         }, this);
-        return this._renderMenuPanelGroup('main', array);
+        return this._renderMenuPanelGroup('zones', array);
     }
 });

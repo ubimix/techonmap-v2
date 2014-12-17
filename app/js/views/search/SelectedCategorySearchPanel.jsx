@@ -7,7 +7,7 @@ var CategoryMixin = require('../utils/CategoryMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
-    displayName : 'SearchSelectedCategoryPanel',
+    displayName : 'SelectedCategorySearchPanel',
     mixins : [ AppViewMixin, TagsMixin, CategoryMixin, I18NMixin ],
     componentWillMount : function() {
         var app = this.props.app;

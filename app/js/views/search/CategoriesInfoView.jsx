@@ -2,21 +2,21 @@
 var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
-var TagsMixin = require('../utils/TagsMixin.jsx');
+var CategoryMixin = require('../utils/CategoryMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
-    displayName : 'SearchInfoTagsView',
-    mixins : [AppViewMixin, TagsMixin, I18NMixin],
+    displayName : 'CategoriesInfoView',
+    mixins : [AppViewMixin, I18NMixin, CategoryMixin],
     _newState : function(options){
         var nav = this._getStore();
-        var tags = nav.getFilterTags();
-        return { tags : tags };
+        var categories = nav.getFilterCategories();
+        return { categories : categories };
     },
     _getStore : function(){
         return this.props.app.nav;
     },
     render : function() {
-        return this._renderTagList(this.state.tags);
+        return this._renderCategoryList(this.state.categories);
     }
 });
