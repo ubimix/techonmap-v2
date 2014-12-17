@@ -62,7 +62,7 @@ var ExportConfigPanel = React.createClass({
         }, 50);
     },
     _updateDatasetSelection : function(useQuery){
-        this._updateExportFormat({ useQuery : useQuery });
+        this.setState(this._newState({ useQuery : useQuery }));
     },
     getInitialState : function(){
         return this._newState();
