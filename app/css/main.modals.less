@@ -11,8 +11,9 @@
             color: #666666;
             i.icon {
                .icon(24px);
-               margin-right: 0.3em;
-               
+               margin-left: 0.1em;
+               margin-right: 0.5em;
+               vertical-align: middle;
                &.icon-info {
                  color: @blue;
                }
@@ -47,10 +48,13 @@
                     margin-top: 0px;
                     border-left: 1px solid #eee;
                     opacity: 1;
+                    outline: none;
                 }
                 
                 p {
                     margin: 0px;
+                    line-height: 24px;
+                    vertical-align: bottom;
                 }
                 
             }
@@ -64,6 +68,7 @@
                 padding-right: 30px;
                 
                 article{
+                    padding-bottom: 0.6em;
                     section{ 
                         display: none;
                         padding-left: 0.5em;
@@ -77,6 +82,21 @@
                         h2 {
                             &::before { content : " - " } 
                         }
+                    }
+                }
+                
+                .with-border {
+                    height: 180px;
+                    padding-top: 1em;
+                    border-top: 1px solid #eee;
+                    &.with-border-right {
+                        border-right: 1px solid #eee;
+                    }
+                    &.umx {
+                        img {
+                            padding-top: 2em;
+                        }
+                    
                     }
                 }
                 

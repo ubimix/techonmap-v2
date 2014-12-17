@@ -61,6 +61,8 @@
                     width: 21px;
                     height: 21px;
                     display: inline-block;
+                    
+                   
                 }
                 
                 .icon-zoom-out {
@@ -69,6 +71,17 @@
                     height: 21px;
                     display: inline-block;
                 }
+                
+                 &:hover {
+                    background-color: white;
+                    border-color: #ccc;
+                    .icon-zoom-in {
+                        background: url(../images/zoom/zoom-in-active.png) 50% 50% no-repeat;
+                    }
+                    .icon-zoom-out {
+                        background: url(../images/zoom/zoom-out-active.png) 50% 50% no-repeat;
+                    }
+                 }
             }
         }
 
@@ -85,14 +98,55 @@
                     position: absolute;
                     white-space: nowrap;
                     border-radius: 0px;
-                    padding: 0.5em;
+                    padding: 0.1em 0.2em 0.2em 0.5em;
                     font-size: 1.1em;
                     line-height: 1.1em;
+                    height: @button-height - 4;
+                    
+                    .criteria-reminder-title {
+                        color: @light-gray;
+                    }
+                    
+                    .remove {
+                        display: inline-block;
+                        width: 29px;
+                        height: 15px;
+                        background-image: url(../images/cross.png);
+                        background-repeat: no-repeat;
+                        background-position: 50% 50%;
+                        vertical-align: middle;
+                        cursor: pointer;
+                    }
+                    
+                    .bar {
+                        display: inline;
+                        height: 100%;
+                        width: 1px;
+                        border: 1px #eee solid;
+                    }
+                    
                 }
-                &.search-query { }
-                &.search-tags { }
-                &.search-categories { }
-                &.search-zones { }
+                &.search-query { 
+                    .list-group-item {
+                        padding-top: 0.4em;
+                        .query-label {
+                            font-weight: bold;
+                            padding-right: 0.3em;
+                        }
+                    }
+                
+                }
+                &.search-tags { 
+                    .list-group-item {
+                        padding-top: 0.4em;
+                        .tag {
+                            font-weight: bold;
+                            padding-right: 0.3em;
+                        }
+                    }
+                }
+                &.search-categories {.category-label { padding-right: 0.3em; } }
+                &.search-zones { .zone-label { padding-right: 0.3em; } }
             }
         }
     }
@@ -154,12 +208,20 @@
                     padding: 0 0.5em;
                     border-top: none;
                     border-radius: 0;
+                    color: @dark-gray;
+                    
                 }
                 &.active > * {
                     color: @red-main;
+                    font-weight: bold;
                     .glyphicon {
                         padding-left: 0.5em;
                         font-size: 0.6em;
+                    }
+                    
+                    cursor: pointer;
+                    &:focus {
+                        cursor: pointer;
                     }
                 }
             }
