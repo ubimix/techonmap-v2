@@ -41,7 +41,6 @@ var SharePopup = Mosaic.Class.extend(I18NMixin, Mosaic.Events.prototype,
         var app = this.getApp();
         return (
             <div>
-                {this._renderTabs()}
                 <ShareConfigPanel app={app} events={this}/>
             </div>
         );
