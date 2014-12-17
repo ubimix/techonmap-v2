@@ -2,7 +2,7 @@
 var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('./AppViewMixin');
-var SearchTagsView = require('./search/SearchTagsView.jsx');
+var TagsInfoView = require('./search/TagsInfoView.jsx');
 var QueryInfoView = require('./search/QueryInfoView.jsx');
 var CategoriesInfoView = require('./search/CategoriesInfoView.jsx');
 var ZoneInfoView = require('./search/ZoneInfoView.jsx');
@@ -61,7 +61,7 @@ module.exports = React.createClass({
             <ul className="list-group search-tags">
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.tags')}</span>
-                    <SearchTagsView app={app}/>
+                    <TagsInfoView app={app}/>
                     <span className="bar"></span>
                     <span className="remove"></span>
                 </li>
