@@ -47,7 +47,11 @@ module.exports = React.createClass({
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.query')}</span>
                     <QueryInfoView app={app} />
                     <span className="bar"></span>
-                    <span className="remove"></span>
+                    <a href="#" className="remove" onClick={function(ev){
+                        app.nav.setSearchQuery('');
+                        ev.stopPropagation();
+                        ev.preventDefault();
+                    }}></a>
                 </li>
             </ul>
         );
@@ -63,7 +67,11 @@ module.exports = React.createClass({
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.tags')}</span>
                     <TagsInfoView app={app}/>
                     <span className="bar"></span>
-                    <span className="remove"></span>
+                    <a href="#" className="remove" onClick={function(ev){
+                        app.nav.toggleTags([]);
+                        ev.stopPropagation();
+                        ev.preventDefault();
+                    }}></a>
                 </li>
             </ul>
         );
@@ -79,7 +87,11 @@ module.exports = React.createClass({
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.categories')}</span>
                     <CategoriesInfoView app={app}/>
                     <span className="bar"></span>
-                    <span className="remove"></span>
+                    <a href="#" className="remove" onClick={function(ev){
+                        app.nav.toggleCategories([]);
+                        ev.stopPropagation();
+                        ev.preventDefault();
+                    }}></a>
                 </li>
             </ul>
         );
@@ -95,7 +107,11 @@ module.exports = React.createClass({
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.zone')}</span>
                     <ZoneInfoView app={app}/>
                     <span className="bar"></span>
-                    <span className="remove"></span>
+                    <a href="#" className="remove" onClick={function(ev){
+                        app.nav.toggleZones([]);
+                        ev.stopPropagation();
+                        ev.preventDefault();
+                    }}></a>
                 </li>
             </ul>
         );
