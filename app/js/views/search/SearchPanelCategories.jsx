@@ -9,12 +9,19 @@ var I18NMixin = require('../utils/I18NMixin');
 module.exports = React.createClass({
     displayName : 'SearchPanelCategories',
     mixins : [ AppViewMixin, I18NMixin, CategoryMixin, MenuMixin ],
+    componentDidMount : function() {
+        this.props.app.res.addChangeListener(this._onUpdate);
+    },
+    componentWillUnmount : function() {
+        this.props.app.res.removeChangeListener(this._onUpdate);
+    },
     _newState : function(options) {
         var app = this.getApp();
-        var tags = app.nav.getFilterTags();
-        return {
-            tags : tags
-        };
+        var stats = this.props.app.stats;
+        return _.extend({}, this.state, {
+            fullStats : stats.getFullStats().categories,
+            stats : stats.getStats().categories
+        });
     },
     _getStore : function() {
         return this.props.app.nav;
@@ -24,9 +31,22 @@ module.exports = React.createClass({
         var categories = app.nav.getCategories();
         var array = _.map(categories, function(category, i) {
             var key = category.key;
-            var tags = category.tags;
-            var active = app.nav.isFilteredByCategory(category);
-            return this._renderMenuPanel(this._renderCategory(category));
+            key = key.toLowerCase();
+            var stats = this.state.stats[key] || 0;
+            var className = 'label label-default pull-right';
+            if (!stats) {
+                className += ' label-empty';
+            }
+            return (
+                <div className="row" key={key}>
+                    <div className="col-xs-10">
+                        {this._renderCategory(category)}
+                    </div>
+                    <div className="col-xs-2">
+                        <span className={className}>{stats}</span>
+                    </div>
+                </div>
+            );
         }, this);
         return this._renderMenuPanelGroup('main', array);
     }
