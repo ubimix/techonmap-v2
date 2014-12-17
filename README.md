@@ -11,12 +11,21 @@ sudo ./2.start.sh 1234
 
 Open the browser at http://localhost:1234/app/
 
-## Standard nstall
+## Standard install
 
 Requirements :
 * node >= 0.10.28
 * bower >= 1.2.5
 
 Dependencies install :
-* Server side dependency install : ```npm install```
-* Client side dependency install : ```bower install```
+* Client side dependency install : 
+
+Server build :
+```
+npm install
+sudo npm install -g grunt-cli
+sudo npm install -g webpack
+grunt
+```
+Client dependencies install :
+```bower install```
