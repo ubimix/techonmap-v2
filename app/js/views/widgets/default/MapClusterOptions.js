@@ -4,8 +4,8 @@ var newMapClusterMarker = require('./MapClusterMarker');
 module.exports = function(options) {
     return {
         // maxClusterRadius : 50,
-        showCoverageOnHover : true,
         showCoverageOnHover : false,
+        showCoverageOnHover : true,
         iconCreateFunction : _.bind(function(cluster) {
             var clusterOptions = _.extend({}, options, {
                 cluster : cluster
