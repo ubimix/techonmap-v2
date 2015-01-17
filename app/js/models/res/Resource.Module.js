@@ -34,7 +34,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         var that = this;
         var app = this.getApp();
         app.nav.addChangeListener(this._searchResources, this);
-        this._allResourcesPromise = this._loadAllInfo(); 
+        this._allResourcesPromise = this._loadAllInfo();
         return this._searchResources();
     },
 
@@ -124,6 +124,20 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Returns a list of all resources. */
     getResources : function() {
         return this._resources;
+    },
+
+    /** Returns a list of all resources. */
+    getResourcePosition : function(id) {
+        var result = -1;
+        _.find(this._resources, function(r, idx) {
+            var resourceId = this.getResourceId(r);
+            if (id == resourceId) {
+                result = idx;
+                return true;
+            }
+            return false;
+        }, this);
+        return result;
     },
 
     /** Returns the currently selected resource */
@@ -230,7 +244,7 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Builds and returns a full-text search index. */
     _buildIndex : function() {
         var that = this;
-        return Mosaic.P.then(function(){
+        return Mosaic.P.then(function() {
             var index = that._index = Lunr(function() {
                 _.each(that._fields.fields, function(info, field) {
                     info = info || {};
@@ -244,7 +258,7 @@ module.exports = Api.extend({}, ResourceUtils, {
             _.each(that._allResources, function(d, id) {
                 var props = d.properties;
                 var entry = {
-                        id : id
+                    id : id
                 };
                 _.each(that._fields.fields, function(info, field) {
                     var value = props[field];

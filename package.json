@@ -16,6 +16,7 @@
     "leaflet.markercluster": "~0.4.0",
     "lunr": "^0.5.6",
     "marked": "~0.3.2",
+    "mosaic-scroller": "~0.0.7",
     "mosaic-commons": "0.0.15",
     "mosaic-core": "0.0.12",
     "mosaic-teleport": "^0.0.22",

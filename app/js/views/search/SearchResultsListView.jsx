@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
 var _ = require('underscore');
 var React = require('react');
-var InfiniteScrollFactory = React
-        .createFactory(require('mosaic-core').Core.InfiniteScroll);
+var ScrollerView = require('mosaic-scroller').ScrollerView;
+var ScrollerViewFactory = React.createFactory(ScrollerView);
 var AppViewMixin = require('../AppViewMixin');
 
 var ListView = React.createClass({
@@ -12,17 +12,35 @@ var ListView = React.createClass({
 
     /** Renders this view */
     render : function() {
-        var app = this.props.app;
+        var app = this.getApp();
+        var results = app.res.getResources();
+        var activeResourceId = app.res.getSelectedResourceId()
+                || this._prevActiveResourceId;
+        var focusedIdx;
+        if (activeResourceId !== undefined) {
+            focusedIdx = app.res.getResourcePosition(activeResourceId);
+            this._prevActiveResourceId = activeResourceId;
+        }
+
         var scrollStyle = this._getScrollStyles();
-        return InfiniteScrollFactory({
+        return ScrollerViewFactory({
             className : 'list-group',
+            // FIXME: should be removed or parameterized
             style : scrollStyle,
-            pageSize : 15,
-            itemHeight : 75,
-            length : this.state.resources.length,
-            focusedIndex : this.state.focusedIndex,
-            loadItems : this._renderItems
+            itemLen : 50,
+            index : focusedIdx,
+            getItemsNumber : this._getItemsNumber,
+            renderItems : this._renderItems
         });
+    },
+
+    // -----------------------------------------------------------------------
+    // Methods used by the scroller
+
+    _getItemsNumber : function() {
+        var app = this.getApp();
+        var result = app.res.getResourceNumber();
+        return result;
     },
 
     // -----------------------------------------------------------------------
@@ -70,7 +88,7 @@ var ListView = React.createClass({
         for (var i = params.index; i < len; i++) {
             items.push(this._renderItem(resources[i], i));
         }
-        params.callback(items);
+        return items;
     },
 
     /** Renders an individual resources for the list */
