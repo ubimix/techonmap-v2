@@ -8,6 +8,7 @@ var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var SearchPanel = require('./search/SearchPanel.jsx');
 var SharePopup = require('./dialogs/SharePopup.jsx');
 var ExportPopup = require('./dialogs/ExportPopup.jsx');
+var PopupPanel = require('./utils/PopupPanel.jsx');
 
 module.exports = React.createClass({
     displayName : 'TopZoneView',
@@ -40,7 +41,8 @@ module.exports = React.createClass({
         var footer = (
             <div>
                 {this._getLabel('dialog.help.msg.contact')}
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-primary"
+                       onClick={this._showContactForm}>
                     {this._getLabel('dialog.help.btn.contact')}
                 </button>
             </div>
@@ -105,7 +107,8 @@ module.exports = React.createClass({
         }
         return (
         <li className={className} ref="search">
-            <a href="#" className="menu-search icon about dropdown-toggle" onClick={this._switchSearchBlock}>
+            <a href="#" className="menu-search icon about dropdown-toggle"
+                    onClick={this._switchSearchBlock}>
                 <i className="icon icon-search"></i>
                 <span className="label">{this._getLabel('topmenu.label.search')}</span>
             </a>
@@ -127,7 +130,8 @@ module.exports = React.createClass({
       var footer = (
           <div>
               {this._getLabel('dialog.help.msg.contact')}
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-primary"
+                      onClick={this._showContactForm}>
                   {this._getLabel('dialog.help.btn.contact')}
               </button>
           </div>
@@ -149,6 +153,34 @@ module.exports = React.createClass({
               console.log('CLOSE!', dialog);
           }
       });
+      ev.stopPropagation();
+      ev.preventDefault();
+  },
+  _showContactForm : function(ev){
+      PopupPanel.closePopup();
+      console.log('_showContactForm');
+      var footer = (
+              <div>
+                  <button type="button" className="btn btn-primary"
+                          onClick={function(){ console.log('Send !'); }}>
+                      {this._getLabel('dialog.contact.btn.send')}
+                  </button>
+                  <button type="button" className="btn btn-primary"
+                      onClick={function(){ console.log('Cancel !'); }}>
+                      {this._getLabel('dialog.contact.btn.cancel')}
+                  </button>
+              </div>
+          );
+          this._showContentDialog({
+              url : 'contact.md',
+              footer : footer,
+              onOpen : function(dialog) {
+                  console.log('Cou-cou', dialog);
+              },
+              onClose : function(dialog){
+                  console.log('CLOSE!', dialog);
+              }
+          });
       ev.stopPropagation();
       ev.preventDefault();
   },
