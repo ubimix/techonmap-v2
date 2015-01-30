@@ -8923,8 +8923,8 @@
 	        
 	        var topLeft = [0, 0];
 	        var bottomRight = [searchResultsBox.left - mapPanelBox.left, 
-	                           mapPanelBox.bottom];
-	        var focusPos = [bottomRight[0] / 2, bottomRight[1] * 2 / 3];
+	                           mapPanelBox.bottom - mapPanelBox.top];
+	        var focusPos = [bottomRight[0] / 2, bottomRight[1] * 3 / 4];
 	        this.refs.map.setViewport(topLeft, bottomRight, focusPos);
 	    }
 	});
@@ -28650,6 +28650,7 @@
 	            var zoom = mapOptions.zoom || 8;
 	            var center = mapOptions.center || [ 0, 0 ];
 	            var latlng = L.latLng(center[1], center[0]);
+	            console.log('topLeft=' + topLeft, 'bottomRight=' + bottomRight);
 	            var center = L.bounds(topLeft, bottomRight).getCenter();
 	            this._viewport.focusTo(latlng, center);
 	        }

@@ -49,8 +49,8 @@ module.exports = React.createClass({
         
         var topLeft = [0, 0];
         var bottomRight = [searchResultsBox.left - mapPanelBox.left, 
-                           mapPanelBox.bottom];
-        var focusPos = [bottomRight[0] / 2, bottomRight[1] * 2 / 3];
+                           mapPanelBox.bottom - mapPanelBox.top];
+        var focusPos = [bottomRight[0] / 2, bottomRight[1] * 3 / 4];
         this.refs.map.setViewport(topLeft, bottomRight, focusPos);
     }
 });

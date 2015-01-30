@@ -62,6 +62,7 @@ module.exports = React.createClass({
             var zoom = mapOptions.zoom || 8;
             var center = mapOptions.center || [ 0, 0 ];
             var latlng = L.latLng(center[1], center[0]);
+            console.log('topLeft=' + topLeft, 'bottomRight=' + bottomRight);
             var center = L.bounds(topLeft, bottomRight).getCenter();
             this._viewport.focusTo(latlng, center);
         }
