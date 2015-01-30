@@ -57,6 +57,13 @@ module.exports = React.createClass({
                     left : focusPosition[0]
                 });
             }
+            var app = this._getApp();
+            var mapOptions = app.map.getMapOptions();
+            var zoom = mapOptions.zoom || 8;
+            var center = mapOptions.center || [ 0, 0 ];
+            var latlng = L.latLng(center[1], center[0]);
+            var center = L.bounds(topLeft, bottomRight).getCenter();
+            this._viewport.focusTo(latlng, center);
         }
     },
 
@@ -71,7 +78,6 @@ module.exports = React.createClass({
         });
         this._registerLayers(map);
         this._registerHandlers(map);
-        this._resetMapView();
     },
 
     /**
@@ -153,8 +159,6 @@ module.exports = React.createClass({
      * level on the map.
      */
     _onMapModelChange : function() {
-        console.log('* _onMapModelChange');
-
         var app = this._getApp();
         var zoom = app.map.getMapZoomLevel();
         var oldZoom = this._map.getZoom();
@@ -184,17 +188,5 @@ module.exports = React.createClass({
             }
         }, this);
     },
-
-    /** Resets (initializes) the initial map view. */
-    _resetMapView : function() {
-        var app = this._getApp();
-        var mapOptions = app.map.getMapOptions();
-        var zoom = mapOptions.zoom || 8;
-        var center = mapOptions.center || [ 0, 0 ];
-        var latlng = L.latLng(center[1], center[0]);
-        this._map.setView(latlng, zoom);
-        this._updateLayersVisibility();
-        this._map.invalidateSize();
-    }
 
 });
