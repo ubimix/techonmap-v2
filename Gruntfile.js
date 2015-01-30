@@ -1,37 +1,29 @@
-var UmxGruntConfig = require('umx-grunt-config');
-module.exports = function(grunt) {
-    var configurator = new UmxGruntConfig(require, grunt);
-    var options = {
-        main : './app/js/index.js',
-        files : [ './app/js/**/*.jsx', './app/js/**/*.js' ],
-        dist : './app/dist',
-        externals : [],
-        lessPaths : [ './app/css/**/*.less', './app/css/**/*.css',
-                './app/libs/**/*.css' ],
-        lessFile : './app/css/index.less',
-        watchTasks : [ 'less' ],
+var webpack = require('webpack');
 
-        // Webpack config
-        debug : false,
-        module : {
-            loaders : [ {
-                test : /\.jsx$/,
-                loader : "jsx-loader"
-            }, ]
-        }
+module.exports = function(grunt) {
+    var pkg = grunt.file.readJSON('package.json');
+    var config = {
+        pkg : pkg
+    };
+
+    // Webpack
+    var webpackConfig = require('./webpack.config');
+    config.webpack = {
+        main : webpackConfig,
     }
-    configurator.initBump(options);
-    configurator.initWebpack(options);
-    configurator.initWatch(options);
-    configurator.initJshint(options);
-    configurator.initMochaTest(options);
-    configurator.initUglify(options);
-    configurator.initLess(options);
-    configurator.registerBumpTasks(options);
-    grunt.initConfig(configurator.config);
-    grunt.registerTask('test', [ 'build', 'mochaTest' ]);
-    grunt.registerTask('build', [ 'webpack', 'less' ]);
-    grunt.registerTask('build-min', [ 'build', 'uglify' ]);
-    grunt.registerTask('commit', [ 'build-min', 'bump-commit' ]);
-    grunt.registerTask('default', [ 'build-min' ]);
+    grunt.loadNpmTasks('grunt-webpack');
+
+    // Uglyfy
+    config.uglify = {
+        options : {},
+        browser : {
+            src : "./app/dist/mapapp.js",
+            dest : "./app/dist/mapapp.min.js"
+        }
+    };
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    grunt.registerTask('build', [ 'webpack', 'uglify' ]);
+    grunt.registerTask('default', [ 'build' ]);
+    grunt.initConfig(config);
 }

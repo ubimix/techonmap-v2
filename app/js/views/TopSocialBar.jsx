@@ -7,6 +7,12 @@ var PopupPanel = require('./utils/PopupPanel.jsx');
 var I18NMixin = require('./utils/I18NMixin');
 
 module.exports = React.createClass({
+    _toggleMode : function(ev){
+        var app = this.props.app;
+        app.ui.toggleMobileMode();
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
     render : function(){
         return ( 
           <div className="container-fluid">
@@ -22,7 +28,7 @@ module.exports = React.createClass({
                       </div>
                   </div>
                   <div className="col-xs-1 follow">
-                      <a href="https://twitter.com/TechOnMap" target="_blank">Suivez-nous</a>
+                      <a href="https://twitter.com/TechOnMap" target="_blank" onClick={this._toggleMode}>Suivez-nous</a>
                   </div>
                   
               </div>

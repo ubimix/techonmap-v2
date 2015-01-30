@@ -3,7 +3,7 @@
     
     .map {
         .fit();
-        
+
         .icon-container {
             .icon {
                 color: white;
@@ -230,6 +230,20 @@
             .fit(@bar-size + @nav-size + 2);
             overflow-x: hidden;
             overflow-y: auto;
+            
+            .scrollbar {
+                background-color: #eee;
+                width: 2px !important;
+                margin-right: 3px !important;
+                .slider {
+                    background-color: silver;
+                    border: 1px solid transparent;
+                    border-radius: 2px;
+                    height: 30px;
+                    margin-right: 0 !important;
+                }
+            }
+            
             .list-group-item {
                 min-height: 100px;
                 padding: 10px 8px;

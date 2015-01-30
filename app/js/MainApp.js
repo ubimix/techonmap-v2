@@ -1,3 +1,5 @@
+require('../css/index.less');
+
 var _ = require('underscore');
 var React = require('react');
 var Mosaic = require('mosaic-commons');
@@ -14,6 +16,7 @@ var NavigationModule = require('./models/nav/Navigation.Module');
 var ResourceModule = require('./models/res/Resource.Module');
 var StatsModule = require('./models/stats/Stats.Module');
 var SerializeModule = require('./models/serialize/Serialize.Module');
+var UIModule = require('./models/ui/UI.Module');
 
 var initWidgets = require('./views/widgets/registration');
 module.exports = App.extend({
@@ -34,7 +37,7 @@ module.exports = App.extend({
             // search : SearchModule,
             // selection : SelectionModule,
             i18n : I18NModule,
-        // ui : UIModule
+            ui : UIModule
         };
         this.apis = [];
         this.modules = {};
