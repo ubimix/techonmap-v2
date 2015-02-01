@@ -19,7 +19,7 @@
     "lunr": "^0.5.6",
     "marked": "~0.3.2",
     "mosaic-commons": "0.0.15",
-    "mosaic-core": "0.0.12",
+    "mosaic-core": "~0.0.14",
     "mosaic-scroller": "~0.0.9",
     "mosaic-teleport": "^0.0.22",
     "mosaic-teleport-server": "0.0.8",

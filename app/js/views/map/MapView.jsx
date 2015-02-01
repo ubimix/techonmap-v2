@@ -163,8 +163,8 @@ module.exports = React.createClass({
         var app = this._getApp();
         var zoom = app.map.getMapZoomLevel();
         var oldZoom = this._map.getZoom();
-        if (zoom != oldZoom) {
-            this._map.setZoom(zoom);
+        if (zoom != oldZoom && this._viewport) {
+            this._viewport.zoomTo(zoom);
         }
         this._updateLayersVisibility();
     },

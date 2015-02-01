@@ -26,7 +26,7 @@ var ListView = React.createClass({
             className : 'list-group',
             // FIXME: should be removed or parameterized
             style : scrollStyle,
-            itemLen : 40,
+            itemLen : 20,
             index : focusedIdx,
             getItemsNumber : this._getItemsNumber,
             renderItems : this._renderItems
