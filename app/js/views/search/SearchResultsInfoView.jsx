@@ -21,14 +21,6 @@ module.exports = React.createClass({
         };
     },
 
-    _renderSwitcher : function(){
-        var iconClassName = this.props.open
-        ? "chevron chevron-down"
-        : "chevron chevron-up";
-        return (
-            <a href="#" className="switcher"><i className={iconClassName} /></a>
-        );
-    },
     render : function() {
         return (
             <div className="search-result-stats" onClick={this.props.onToggleResults}>
@@ -38,7 +30,9 @@ module.exports = React.createClass({
                     <span className="separator">/</span>
                     <span className="total">{this.state.totalNumber}</span>
                 </span>
-                {this._renderSwitcher()}
+                {React.Children.map(this.props.children, function(child){
+                    return child;
+                })}
             </div>
         );
     },

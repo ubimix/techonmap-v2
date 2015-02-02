@@ -19,19 +19,30 @@ module.exports = React.createClass({
     _updateState : function(options){
         this.setState(this._newState(options));
     },
+    _renderSwitcher : function(){
+        var iconClassName = this.props.open
+        ? "chevron chevron-down"
+        : "chevron chevron-up";
+        return (
+            <a href="#" className="switcher"><i className={iconClassName} /></a>
+        );
+    },
     render : function() {
         var app = this.props.app;
         var className = 'search-results';
         if (!this.state.showList){
             className += ' reduced';
         }
+        
         return (
             <div className={className}>
                 <SearchResultsInfoView
                     app={app}
                     className="stats"
                     onToggleResults={this._toggleList}
-                    open={this.state.showList} />
+                    open={this.state.showList}>
+                    {this._renderSwitcher()}
+                </SearchResultsInfoView>
                 <SearchResultsOrderView app={app} />
                 <SearchResultsListView app={app} />
             </div>

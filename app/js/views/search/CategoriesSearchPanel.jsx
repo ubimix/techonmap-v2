@@ -40,7 +40,7 @@ module.exports = React.createClass({
             return (
                 <div className="row" key={key}>
                     <div className="col-xs-10">
-                        {this._renderCategory(category)}
+                        <a href="#">{this._renderCategory(category)}</a>
                     </div>
                     <div className="col-xs-2">
                         <span className={className}>{stats}</span>

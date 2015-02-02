@@ -88,103 +88,19 @@
                         background-color: white;
                         border-color: #eee;
                         border-bottom-color: white;
-                            &.menu-search {
-                                color: @red-main;
-                            }
-                            > span.label {
-                                color: black;
-                            }
+                        &.menu-search {
+                            color: @red-main;
                         }
+                        > span.label {
+                            color: black;
+                        }
+                    }
                     > .dropdown-menu {
                         display: block;
                     }
-                    
-                    // Container for top menu panels
-                    .container {
+                    .searchpanel {
                         max-width: 450px;
                         max-height: 410px;
-                        overflow-y: auto;
-                        
-                        // Individual panels in the dropdown
-                        .panel-group {
-                           margin: 0px;
-                           padding-bottom: 0.5em;
-                           > .panel {
-                                margin: 0;
-                                .box-shadow(none);
-                                > .panel-heading {
-                                    padding: 0px;
-                                    margin: 0;
-                                    .panel-title {
-                                        paddin: 0px;
-                                        padding-top: 1em;
-                                        padding-bottom: 0.5em;
-                                        color: @red-main;
-                                    }
-                                }
-                                > .panel-body {
-                                    padding: 0px;
-                                }
-                                
-                                .zone {
-                                    i.icon {
-                                        .icon(24px);
-                                        margin-right: 0.4em;
-                                        vertical-align: middle;
-                                    }
-                                }
-                                
-                            }
-                            // Individual items in lists
-                            .list-group {
-                                margin: 0px;
-                                .list-group-item {
-                                    padding: 0px;
-                                    border: none;
-                                    > a { 
-                                        display: block;
-                                        padding: 0.2em;
-                                        padding-left: 0px;
-                                        color: #767676;
-                                        font-size: 1.2em;
-                                        text-decoration: none;
-                                        &:hover { background-color: #eee; text-decoration: none; }
-                                        &.return {
-                                            font-size: 1.4em;
-                                            line-height: 1.4em;
-                                            border-bottom: 1px solid #eee;
-                                            margin-bottom: 0.5em;
-                                            color: #767676;
-                                            .chevron-left {
-                                                width: 25px;
-                                                height: 25px;
-                                                background: url(../images/chevrons/left.png) 50% 50% no-repeat;
-                                                display: inline-block;
-                                                vertical-align: middle;
-                                                margin-right: 0.3em;
-                                            }                                            
-                                        }
-                                        .chevron-right {
-                                            width: 25px;
-                                            height: 25px;
-                                            background: url(../images/chevrons/right.png) 90% 50% no-repeat;
-                                            display: inline-block;
-                                        }
-                                        
-                                        
-                                    }
-                                }
-                            }
-                            
-                            .tags {
-                                overflow: hidden;
-                                .tag {
-                                    &:hover {
-                                        color: @red-main;
-                                    }
-                                }                            
-                            }
-                        }
                     }
                 }
             }

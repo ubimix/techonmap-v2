@@ -20,7 +20,7 @@ module.exports = React.createClass({
         var app = this.props.app;
         return (
             <span className={this.props.className}>
-                {this._renderTagList(this.state.tags)}
+                {this._renderTagList(this.state.tags, this.props.hideEmpty)}
             </span>
         );
     }

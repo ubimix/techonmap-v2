@@ -31,9 +31,12 @@ module.exports =  {
             </span>
         );
     },
-    _renderTagList : function(tags) {
+    _renderTagList : function(tags, hideEmpty) {
         var tags = _.map(tags, this._renderTag, this);
         if (!tags.length) {
+            if (hideEmpty) {
+                return ;
+            }
             tags = [
                <span className="tag none">
                    {this._getLabel('filter.label.tags.all')}

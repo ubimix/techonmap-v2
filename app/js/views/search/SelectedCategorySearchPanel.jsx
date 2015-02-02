@@ -136,7 +136,11 @@ module.exports = React.createClass({
         }
         return (
             <div>
-                <div>{this._renderCategory(this.state.category, { onClick : this._onExit })}</div>
+                <div>
+                    <a href="#">
+                        {this._renderCategory(this.state.category, { onClick : this._onExit })}
+                    </a>
+                </div>
                 {this._renderTagStats(this.state.filterStats, false)}
                 {list}
             </div>

@@ -50,7 +50,7 @@ module.exports = React.createClass({
             <ul className="list-group search-tags">
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.tags')}</span>
-                    <TagsInfoView app={app}/>
+                    <TagsInfoView app={app} hideEmpty={true}/>
                     <span className="bar"></span>
                     <a href="#" className="remove" onClick={function(ev){
                         app.nav.toggleTags([]);

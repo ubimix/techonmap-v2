@@ -150,45 +150,7 @@
             }
         }
     }
-    .search-result-stats {
-        padding: 0.5em 0;
-        margin: 0;
-        border-bottom: 1px solid #eee;
-        
-        .label {
-            font-size: 1em;
-            color: gray;
-        }
-        @chevron-h : 40px;
-        .switcher {
-            .fit(0, 0, auto, auto);
-            border-left: 1px solid #eee;
-            width: @chevron-h;
-            height: @chevron-h;
-            .chevron {
-                width: @chevron-h;
-                height: @chevron-h;
-                margin: 0px;
-                padding: 0px;
-                display: inline-block;
-                background-position: 50% 50%;
-                background-repeat: no-repeat;
-                background-size: 70% auto;
-                &.chevron-down {
-                    background-image: url(../images/chevrons/down.png);
-                }
-                &.chevron-up {
-                    background-image: url(../images/chevrons/up.png);
-                }
-            }
-        }
-        .count {
-            font-size: 1.2em;
-            .current { color: @dark-gray; padding: 0em 0.1em; font-weight: 300;}
-            .separator { color: @red-main; padding: 0em;  font-weight: 100;}
-            .total { color: @red-main; padding: 0em 0.1em; font-weight: 800;}
-        }
-    }
+    
     .nav.search-result-order {
         border-bottom: none;
         > li {
@@ -401,10 +363,6 @@
         width : 100%;
         display: block;
         background-color: white;
-        .search-result-stats {
-            border: none;
-            .switcher { display : none; }
-        }
         > .list-group {
             top: 30px;
         }

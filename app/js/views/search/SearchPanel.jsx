@@ -3,8 +3,10 @@ var React = require('react');
 var DomUtils = require('../utils/DomUtils');
 var I18NMixin = require('../utils/I18NMixin');
 var MenuMixin = require('../utils/MenuMixin.jsx');
+var PanelSwitcher = require('../utils/PanelSwitcher');
 var CategoriesSearchPanel = require('./CategoriesSearchPanel.jsx');
 var SearchInputBoxView = require('./SearchInputBoxView.jsx');
+var SearchResultsInfoView = require('./SearchResultsInfoView.jsx');
 var ZoneInfoView = require('./ZoneInfoView.jsx');
 var ZonesSearchPanel = require('./ZonesSearchPanel.jsx'); 
 var TagsInfoView = require('./TagsInfoView.jsx');
@@ -19,7 +21,6 @@ var SearchPanel = React.createClass({
         this._toggleMenuPanel('main');
     }, 
     componentDidUpdate : function(){
-        console.log('UPDATE MENU PANEL');
         this._toggleMenuPanel('main');
     },
     activate : function(key) {
@@ -31,12 +32,15 @@ var SearchPanel = React.createClass({
         return this.props.app;
     },
     render : function(){
-        return this._renderMenuPanels(
-            this._renderMainPanel(),
-            this._renderZonesPanel(),
-            this._renderCategoriesPanel(),
-            this._renderSelectedCategoryPanel(),
-            this._renderTagsPanel());
+        return (
+             <PanelSwitcher className="container searchpanel" ref="panels">
+                 {this._renderMainPanel()}
+                 {this._renderZonesPanel()}
+                 {this._renderCategoriesPanel()}
+                 {this._renderSelectedCategoryPanel()}
+                 {this._renderTagsPanel()}
+             </PanelSwitcher>
+        );
     },
     _onCategorySelect : function(category) {
         var app = this.getApp();
@@ -95,7 +99,8 @@ var SearchPanel = React.createClass({
                            'categories',
                            <CategoriesInfoView app={app} />)
                )
-           )
+           ),
+           <SearchResultsInfoView app={app} />
         );
     },
 });
