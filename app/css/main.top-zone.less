@@ -2,23 +2,34 @@
     .fit(@social-height, 0px, auto, 0px);
     z-index: 1001; // To be just before floating bootstrap elements
     height: @top-height;
+    min-height : inherit;
+    margin-bottom: 0px;
     background-color: white;
     border-radius: 0;
     
-    ul.nav.navbar-nav.navbar-right {
+    .navbar-header {
+        .navbar-brand {
+            float: left;
+            height: auto;
+            font-size: 1em;
+            padding: 10px 15px;
+            line-height: 1.42857143;
+            img { max-width: 100% }
+        }
+    }
+    
+    ul.top-navigation {
         z-index: 1002;
-        margin-right: 0px;
+        border-bottom: none;
         > li {
             width: 72px;
-            
             > a {
                 border: 1px solid transparent;
-                padding: 0px;
-                padding-bottom: 0.3em;
-                padding-top: 0.3em;
                 text-align: center;
                 margin: 0px;
                 margin-top: 0.3em;
+                padding: 0px;
+                padding-top: 0.3em;
                 > i.icon {
                     .icon(24px);
                 }
@@ -186,13 +197,9 @@
         
         .btn {
             outline: none;
-        }
-        
-        .btn-add {
-            background: url(../images/plus.png) 50% 50% no-repeat @blue;
+            background: url(../images/plus.png) 100% 50% no-repeat @blue;
             display: inline-block;
-            width: 45px;
-            height: 100%;
+            padding-right: 45px;
         }
         
         &:hover {
@@ -227,3 +234,29 @@ form[role="search"] {
         
     }
 }
+
+
+&.mobile-mode .top-zone {
+    top: @social-height-mobile;
+    height: @top-height-mobile;
+    
+    ul.top-navigation {
+        > li {
+            width: inherit !important;
+//            text-align: center;
+            padding: 0 0.5em;
+//            margin: 0px;
+//            margin-top: 0.3em;
+            > a {
+            }
+            &.active {
+                border-bottom: 4px solid silver;
+            }
+        }
+    }
+    .nav > li > a:hover,
+    .nav > li > a:focus {
+        background: none;
+    }
+    
+} 

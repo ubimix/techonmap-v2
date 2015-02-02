@@ -2,10 +2,8 @@
 var _ = require('underscore');
 var React = require('react');
 
-var TopZoneView = require('./TopZoneView.jsx');
-var MiddleZoneView =  require('./MiddleZoneView.jsx');
-var BottomZoneView = require('./BottomZoneView.jsx');
-var TopSocialBar = require('./TopSocialBar.jsx');
+var FullscreenLayout = require('./FullscreenLayout.jsx');
+var MobileLayout = require('./MobileLayout.jsx');
  
 module.exports = React.createClass({
     displayName : 'MainView',
@@ -27,22 +25,19 @@ module.exports = React.createClass({
         return _.extend({
         }, this.state, options);
     },
+    _mobileLayout : function(){
+        return <MobileLayout app={this.props.app}/>
+    },
+    _fullscreenLayout : function(){
+        return <FullscreenLayout app={this.props.app}/>
+    },
     render : function() {
         var app = this.props.app;
-        var className = 'main-zone';
         var mobileMode = app.ui.isMobileMode();
         if (mobileMode) {
-            className += ' mobile-mode';
+            return this._mobileLayout();
         } else {
-            className += ' fullscreen-mode';
+            return this._fullscreenLayout();
         }
-        return (
-            <div className={className}>
-                <TopSocialBar app={app} className="social" />
-                <TopZoneView app={app} className="top-zone"/>
-                <MiddleZoneView app={app} className="middle-zone"/>
-                <BottomZoneView app={app} className="bottom-zone"/>
-            </div>
-        );
     }
 });

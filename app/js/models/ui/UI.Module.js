@@ -12,6 +12,7 @@ module.exports = Api.extend({
     _initFields : function() {
         var app = this.options.app;
         this._mode = app.options.mode || 'full';
+        this._viewKey = 'map';
     },
 
     /**
@@ -26,6 +27,33 @@ module.exports = Api.extend({
     /** Closes this module. */
     stop : function() {
     },
+
+    // ------------------------------------------------------------------------
+
+    /** Returns the key of the focused view. */
+    getFocusedViewKey : function() {
+        return this._viewKey;
+    },
+
+    /** Focus a view with the specified key. */
+
+    focusView : function(key) {
+        return this.doFocusView({
+            viewKey : key || 'map'
+        });
+    },
+
+    /** Performs the real focus action. */
+    doFocusView : Api.intent(function(intent) {
+        var that = this;
+        return intent.resolve(Mosaic.P.then(function() {
+            that._viewKey = intent.params.viewKey || 'map';
+        })).then(function() {
+            that.notify();
+        });
+    }),
+
+    // ------------------------------------------------------------------------
 
     /**
      * Returns <code>true</code> if this application is in mobile mode.

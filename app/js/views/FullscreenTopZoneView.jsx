@@ -11,7 +11,7 @@ var ExportPopup = require('./dialogs/ExportPopup.jsx');
 var PopupPanel = require('./utils/PopupPanel.jsx');
 
 module.exports = React.createClass({
-    displayName : 'TopZoneView',
+    displayName : 'FullscreenTopZoneView',
     mixins : [ DomUtils, I18NMixin, ContentPopupMixin ],
     getApp : function(){
         return this.props.app;
@@ -257,8 +257,9 @@ module.exports = React.createClass({
                               <a className="navbar-brand" href="#"><img src="images/banner.png" /></a>
                           </div>
                       </div>
+                      
                       <div className="col-xs-6">
-                          <ul className="nav navbar-nav navbar-right">
+                          <ul className="nav navbar-nav navbar-right top-navigation">
                               {this._renderAboutMenuItem()}
                               {this._renderHelpMenuItem()}
                               {this._renderShareMenuItem()}
@@ -270,8 +271,10 @@ module.exports = React.createClass({
                       <div className="col-xs-3">
                           <div className="navbar-form navbar-right">
                               <div className="btn-group">
-                                  <button type="button" className="btn btn-primary" onClick={this._onClickAdd}>{this._getLabel('topmenu.btn.add')}</button>
-                                  <button type="button" className="btn btn-primary btn-add" onClick={this._onClickAdd}></button>
+                                  <button type="button" className="btn btn-primary" 
+                                      onClick={this._onClickAdd}>
+                                      {this._getLabel('topmenu.btn.add')}
+                                  </button>
                               </div>
                           </div>
                       </div>

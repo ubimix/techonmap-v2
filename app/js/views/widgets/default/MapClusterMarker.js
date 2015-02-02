@@ -4,6 +4,9 @@ var L = require('leaflet');
 function getScale(value, max) {
     if (!value)
         return 0;
+    // var k = 1 / (2 * Math.PI);
+    // var a = Math.sqrt(value * k);
+    // var b = Math.sqrt(max * k);
     var a = Math.log(value);
     var b = Math.log(max);
     var n = 5;
@@ -18,7 +21,7 @@ module.exports = function(options) {
     var number = markers.length;
     var fullNumber = app.res.getTotalResourceNumber();
     var k = getScale(number, fullNumber);
-    
+
     var maxSize = 80;
     var minSize = 40;
     var size = minSize + k * (maxSize - minSize);

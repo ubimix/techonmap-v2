@@ -8,7 +8,7 @@ var LeftToolbar = require('./LeftToolbar.jsx');
 var SearchResultsView = require('./search/SearchResultsView.jsx');
 
 module.exports = React.createClass({
-    displayName : 'MiddleZoneView',
+    displayName : 'FullscreenMiddleZoneView',
     mixins : [ DomUtils ],
     _onClick : function(ev){
         ev.preventDefault();

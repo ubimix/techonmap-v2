@@ -48,7 +48,7 @@ module.exports = React.createClass({
         var nameActive = this.state.sortByName != 0 ? 'active' : '';
         var dateActive = this.state.sortByDate != 0 ? 'active' : '';
         return (
-            <ul className="nav nav-tabs">
+            <ul className="search-result-order nav nav-tabs">
                 <li><span>{this._getLabel('search.label.sort')}</span></li>
                 <li className={nameActive}>
                     <a href="#" onClick={this._sortByName}>

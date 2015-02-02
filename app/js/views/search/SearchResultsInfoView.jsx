@@ -21,19 +21,24 @@ module.exports = React.createClass({
         };
     },
 
-    render : function() {
+    _renderSwitcher : function(){
         var iconClassName = this.props.open
-            ? "icon chevron-down"
-            : "icon chevron-up";
+        ? "chevron chevron-down"
+        : "chevron chevron-up";
         return (
-            <div className={this.props.className} onClick={this.props.onToggleResults}>
+            <a href="#" className="switcher"><i className={iconClassName} /></a>
+        );
+    },
+    render : function() {
+        return (
+            <div className="search-result-stats" onClick={this.props.onToggleResults}>
+                <span className="label">{this._getLabel('search.label.results')}</span>
                 <span className="count">
                     <span className="current">{this.state.currentNumber}</span>
                     <span className="separator">/</span>
                     <span className="total">{this.state.totalNumber}</span>
                 </span>
-                <span className="label">{this._getLabel('search.label.results')}</span>
-                <a href="#" className="switcher"><i className={iconClassName} /></a>
+                {this._renderSwitcher()}
             </div>
         );
     },

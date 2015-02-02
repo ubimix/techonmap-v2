@@ -7,7 +7,7 @@ module.exports = {
     dataFieldsUrl : 'data/data.fields.json',
     categoriesUrl : 'data/categories.json',
     zonesUrl : 'data/zones.json',
-    // mode : 'mobile',
+    mode : 'mobile',
     containers : {
         main : document.querySelector('body')
     },

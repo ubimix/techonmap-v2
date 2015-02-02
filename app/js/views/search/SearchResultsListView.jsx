@@ -22,11 +22,14 @@ var ListView = React.createClass({
             this._prevActiveResourceId = activeResourceId;
         }
         var scrollStyle = this._getScrollStyles();
+        var itemLen = 40;
+        var blockSize = 5;
         return ScrollerViewFactory({
             className : 'list-group',
             // FIXME: should be removed or parameterized
             style : scrollStyle,
-            itemLen : 20,
+            itemLen : itemLen,
+            blockSize : blockSize,
             index : focusedIdx,
             getItemsNumber : this._getItemsNumber,
             renderItems : this._renderItems
