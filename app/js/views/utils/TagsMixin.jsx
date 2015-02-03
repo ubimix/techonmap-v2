@@ -27,7 +27,7 @@ module.exports =  {
                 onClick={_.bind(this._selectTag, this, tag)}
                 className={className}
                 key={tag}>
-                {tag + ' '}
+                <span className='tag-label'>{tag + ' '}</span>
             </span>
         );
     },

@@ -4,6 +4,7 @@ var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var I18NMixin = require('./utils/I18NMixin');
+var ViewActivationMixin = require('./utils/ViewActivationMixin');
 var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var SearchPanel = require('./search/SearchPanel.jsx');
 var SharePopup = require('./dialogs/SharePopup.jsx');
@@ -12,7 +13,7 @@ var PopupPanel = require('./utils/PopupPanel.jsx');
 
 module.exports = React.createClass({
     displayName : 'MobileTopZoneView',
-    mixins : [ DomUtils, I18NMixin, ContentPopupMixin ],
+    mixins : [ DomUtils, I18NMixin, ContentPopupMixin, ViewActivationMixin ],
     getApp : function(){
         return this.props.app;
     },
@@ -43,35 +44,25 @@ module.exports = React.createClass({
         return key === activeKey ? 'active' : '';
     },
 
-    _activateSearchView : function(ev){
-        var app = this.props.app;
-        app.ui.focusView('search');
-        ev.preventDefault();
-        ev.stopPropagation();
-    },
     _renderSearchMenuItem : function(){
         var className = this._getClassName('search');
         return (
             <li className={className}>
                 <a href="#" className="menu-search icon" 
-                    onClick={this._activateSearchView}>
+                    onClick={this._activateView.bind(this, 'search')}>
                     <i className="icon icon-search"></i>
                 </a>
             </li>
         );
     },
 
-    _activateMapView : function(ev){
-        var app = this.props.app;
-        app.ui.focusView('map');
-        ev.preventDefault();
-        ev.stopPropagation();
-    },
+
     _renderMapMenuItem: function(){
         var className = this._getClassName('map');
         return (
             <li className={className}>
-                <a href="#" className="menu-map" onClick={this._activateMapView}>
+                <a href="#" className="menu-map"
+                        onClick={this._activateView.bind(this, 'map')}>
                     <i className="icon icon-map">
                         <span className="glyphicon glyphicon-map-marker"></span>
                     </i>

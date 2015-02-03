@@ -100,7 +100,9 @@ module.exports = React.createClass({
             var app = this.getApp();
             panel = (
               <ul className="dropdown-menu" role="menu">
-                  <li><SearchPanel app={app} /></li>
+                  <li>
+                      <SearchPanel app={app}></SearchPanel>
+                  </li>
               </ul>
             );
             className += ' open';

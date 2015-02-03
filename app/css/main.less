@@ -24,19 +24,20 @@
 
 .text-size(@font-size:1em){
     font-size: @font-size;
-    line-height: 1;
-    //vertical-align: middle;
+    line-height: 1.1;
+    vertical-align: middle;
 }
 .closable-tag(){
     cursor: pointer;
     display: inline-block;
-    padding: 0.2em;
-    margin: 1px;
-    vertical-align: middle;
+//    padding: 0.2em;
+//    margin: 1px;
+//    vertical-align: middle;
     white-space: nowrap;
-    border: 1px solid transparent;
+//    border: 1px solid transparent;
     color: @gray;
-    &.selected {
+    &.selected,
+    &.none {
         font-weight: bold;
         //border: 1px solid #eee;
         //&::after {
@@ -45,8 +46,8 @@
     }
 }
 .closable-tag-container(){
-    margin: 1px;
-    padding: 0.2em;
+//    margin: 1px;
+//    padding: 0.2em;
 }
 
 .closable-tag-icon(){
@@ -64,16 +65,22 @@
         content: " #";
     }
     &.none::before { content : ''; }
+    .tag-label {
+    }
 }
 a:hover .tag, a:hover .tag * { color : black; }
 .tags {
-    .closable-tag-container;
-    .tag { .text-size(@menu-item-size * 0.8); }
+//    .closable-tag-container;
+    .tag {
+        .text-size(@menu-item-size);
+     }
 }
 .tags-inline { 
     .tag { 
-        vertical-align: inherit;
-        font-size: 0.9em;
+        .tag-label {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
     } 
 }
 .label-empty { background-color: silver; }
@@ -97,7 +104,7 @@ a:hover .tag, a:hover .tag * { color : black; }
     }
     
     &.selected {
-        font-size: 1.2em;
+//        font-size: 1.2em;
     }
 }
 a:hover .category, a:hover .category * { color : black; }
@@ -110,7 +117,7 @@ a:hover .category, a:hover .category * { color : black; }
         vertical-align: inherit;
         .category-label {
             font-weight: bold;
-            font-size: 0.9em;
+//            font-size: 0.9em;
         }
         
         > .icon {
@@ -166,7 +173,7 @@ a:hover .zone, a:hover .zone * { color : black; }
         vertical-align: inherit;
         .zone-label {
             font-weight: bold;
-            font-size: 0.9em;
+//            font-size: 0.9em;
         }
         
         > .icon {

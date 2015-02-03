@@ -88,20 +88,17 @@
         > .info-blocks {
             .fit(@button-height * 2 + @panel-margin * 2, auto, auto, @panel-margin);
             z-index: 1; 
+            width: 0px;
             > .list-group {
                 position: relative;
                 height: @button-height;
                 margin: 0px;
-                width: 0px;
                 > li {
                     .box-shadow();
-                    position: absolute;
                     white-space: nowrap;
                     border-radius: 0px;
-                    padding: 0.1em 0.2em 0.2em 0.5em;
-                    font-size: 1.1em;
-                    line-height: 1.1em;
-                    height: @button-height - 4;
+                    padding: 0.2em 0.5em;
+                    display: table;
                     
                     .criteria-reminder-title {
                         color: @light-gray;
@@ -109,7 +106,7 @@
                     
                     .remove {
                         display: inline-block;
-                        width: 29px;
+                        width: 20px;
                         height: 15px;
                         background-image: url(../images/cross.png);
                         background-repeat: no-repeat;
@@ -128,7 +125,7 @@
                 }
                 &.search-query { 
                     .list-group-item {
-                        padding-top: 0.4em;
+//                        padding-top: 0.4em;
                         .query-label {
                             font-weight: bold;
                             padding-right: 0.3em;
@@ -138,7 +135,7 @@
                 }
                 &.search-tags { 
                     .list-group-item {
-                        padding-top: 0.4em;
+//                        padding-top: 0.4em;
                         .tag {
                             font-weight: bold;
                             padding-right: 0.3em;
@@ -210,7 +207,7 @@
             
             .list-group-item {
                 min-height: 100px;
-                padding: 10px 8px;
+//                padding: 10px 8px;
                 border: none;
                 border-bottom: 1px solid #eee;
                 margin-top: 0px;
@@ -253,7 +250,7 @@
                     .icon {
                         color: white;
                         font-size: 2em;
-                        padding-top: 10px;
+//                        padding-top: 10px;
                         display: inline-block;
                     }
                     

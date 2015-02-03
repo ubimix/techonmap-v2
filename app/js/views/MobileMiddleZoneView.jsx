@@ -9,10 +9,11 @@ var SearchResultsListView = require('./search/SearchResultsListView.jsx');
 var SearchResultsInfoView = require('./search/SearchResultsInfoView.jsx');
 var SearchResultsOrderView = require('./search/SearchResultsOrderView.jsx');
 var SearchPanel = require('./search/SearchPanel.jsx');
+var ViewActivationMixin = require('./utils/ViewActivationMixin');
 
 module.exports = React.createClass({
     displayName : 'MobileMiddleZoneView',
-    mixins : [ DomUtils ],
+    mixins : [ DomUtils, ViewActivationMixin ],
     _onClick : function(ev){
         ev.preventDefault();
         ev.stopPropagation();
@@ -41,7 +42,34 @@ module.exports = React.createClass({
         if (!this._checkActiveView('search'))
             return ;
         var app = this.props.app;
-        return <SearchPanel app={app} />
+        return (
+            <SearchPanel app={app}>
+                <div>
+                    <hr/>
+                    <div className="row">
+                        <div className="col-xs-7">
+                            <SearchResultsInfoView app={app}/>
+                        </div>
+                        <div className="col-xs-5">
+                            <div className="pull-right">
+                                <button className="menu-list"
+                                    onClick={this._activateView.bind(this, 'list')}>
+                                    <i className="icon icon-list">
+                                        <span className="glyphicon glyphicon-list"></span>
+                                    </i>
+                                </button>
+                                <button className="menu-map"
+                                    onClick={this._activateView.bind(this, 'map')}>
+                                    <i className="icon icon-map">
+                                        <span className="glyphicon glyphicon-map-marker"></span>
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </SearchPanel>
+        );
     },
 
     _renderSearchResultsView : function(){

@@ -6,7 +6,6 @@ var MenuMixin = require('../utils/MenuMixin.jsx');
 var PanelSwitcher = require('../utils/PanelSwitcher');
 var CategoriesSearchPanel = require('./CategoriesSearchPanel.jsx');
 var SearchInputBoxView = require('./SearchInputBoxView.jsx');
-var SearchResultsInfoView = require('./SearchResultsInfoView.jsx');
 var ZoneInfoView = require('./ZoneInfoView.jsx');
 var ZonesSearchPanel = require('./ZonesSearchPanel.jsx'); 
 var TagsInfoView = require('./TagsInfoView.jsx');
@@ -97,10 +96,16 @@ var SearchPanel = React.createClass({
                    this._renderMenuRef(
                            'search.panel.label.categories',
                            'categories',
-                           <CategoriesInfoView app={app} />)
+                           <CategoriesInfoView app={app} />),
+                   this._renderMenuRef(
+                           'search.panel.label.tags',
+                           'tags',
+                           <TagsInfoView app={app} />)
                )
-           ),
-           <SearchResultsInfoView app={app} />
+           ), 
+           React.Children.map(this.props.children, function(child){
+               return child;
+           })
         );
     },
 });

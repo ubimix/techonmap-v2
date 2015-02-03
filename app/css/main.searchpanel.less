@@ -6,6 +6,9 @@
     .panel-group {
        margin: 0px;
        padding-bottom: 0.5em;
+       > .row > * {
+           line-height: 2.5em;
+       }
        > .panel {
             margin: 0;
             .box-shadow(none);
@@ -38,12 +41,13 @@
             .list-group-item {
                 padding: 0px;
                 border: none;
+                line-height: 2.5em;
                 > a { 
                     display: block;
                     padding: 0.2em;
                     padding-left: 0px;
                     color: #767676;
-                    font-size: 1.2em;
+//                    font-size: 1.2em;
                     text-decoration: none;
                     &:hover,
                     &:hover * {
@@ -51,9 +55,9 @@
                         text-decoration: none;
                     }
                     &.return {
-                        font-size: 1.4em;
-                        line-height: 1.4em;
-                        border-bottom: 1px solid #eee;
+                       font-size: 1.4em;
+//                       line-height: 1.4em;
+//                        border-bottom: 1px solid #eee;
                         margin-bottom: 0.5em;
                         color: #767676;
                         .chevron-left {
@@ -97,6 +101,7 @@
     .label {
         font-size: 1em;
         color: gray;
+        font-weight: normal;
     }
     @chevron-h : 40px;
     .switcher {
@@ -132,9 +137,6 @@
 .searchpanel {
     .search-result-stats {
         border: none;
-        margin-top: 1.5em;
-        padding: 0.5em 0;
-        border-top: 1px solid #eee;
         .label {
             padding: 0;
         }

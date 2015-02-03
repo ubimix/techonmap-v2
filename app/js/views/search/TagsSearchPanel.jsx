@@ -39,7 +39,9 @@ module.exports = React.createClass({
                         {this._renderTag(info.tag)}
                     </div>
                     <div className="col-xs-2">
-                        <span className="label label-default pull-right">{stats}</span>
+                        <span className="label label-default">
+                            {stats}
+                        </span>
                     </div>
                 </div>
             );
