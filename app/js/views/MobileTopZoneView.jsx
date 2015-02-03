@@ -56,7 +56,6 @@ module.exports = React.createClass({
         );
     },
 
-
     _renderMapMenuItem: function(){
         var className = this._getClassName('map');
         return (

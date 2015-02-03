@@ -2,6 +2,7 @@ module.exports = {
     baseUrl : '../',
     contentBaseUrl : '../data/content/',
     searchServiceUrl : '../service/organizations',
+    exportFields : 'data/export.fields.json',
     messages : 'data/messages.json',
     dataUrl : 'data/data.json',
     dataFieldsUrl : 'data/data.fields.json',

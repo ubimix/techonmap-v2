@@ -43,9 +43,9 @@ var ExportConfigPanel = React.createClass({
         var data = useQuery ? app.res.getResources() : app.res.getAllResources();
         var result;
         if (format == FORMAT_CSV) {
-            result = app.serialize.formatAsJson(data); 
-        } else {
             result = app.serialize.formatAsCSV(data);
+        } else {
+            result = app.serialize.formatAsJson(data); 
         }
         return result;
     },

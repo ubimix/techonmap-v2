@@ -1,14 +1,23 @@
 var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
+var CsvFormatter = require('../app/js/tools/CsvFormatter');
 
 module.exports = {
-    formatJson : rest('/format/json', 'GET', function(params) {
-        return 'JSON: ' + JSON.stringify(params.data);
-    }),
-    formatCsv : rest('/format/csv', 'GET', function(params) {
-        return 'CSV: ' + params.data;
-    })
+    format : rest('/format', 'POST', serialize),
 };
+
+function serialize(params) {
+    var data = params.data || '[]';
+    var format = params.format || 'csv';
+    data = JSON.parse(data);
+    var result;
+    if (format === 'csv') {
+        result = toCsv(data);
+    } else {
+        result = JSON.stringify(data);
+    }
+    return result;
+}
 
 /**
  * This utility function "annotates" the specified object methods by the
@@ -20,66 +29,36 @@ function rest(path, http, method) {
     return method;
 }
 
+var formatter = new CsvFormatter();
+formatter.addField('Identifiant', 'properties.id');
+formatter.addField('Nom', 'properties.name');
+formatter.addField('Description', 'properties.description');
+formatter.addField('Tag 1', 'properties.tags.0');
+formatter.addField('Tag 2', 'properties.tags.1');
+formatter.addField('Tag 3', 'properties.tags.2');
+formatter.addField('Latitude', 'geometry.coordinates.1');
+formatter.addField('Longitude', 'geometry.coordinates.0');
+formatter.addField('N° et nom de rue', 'properties.address');
+formatter.addField('CP', 'properties.postcode');
+formatter.addField('Ville', 'properties.city');
+formatter.addField('Année de création', 'properties.creationyear');
+formatter.addField('Url site web', 'properties.url');
+formatter.addField('Email', 'properties.email');
+formatter.addField('Nom compte Twitter', 'properties.twitter');
+formatter.addField('Url page Facebook', 'properties.facebook');
+formatter.addField('Url page Google +', 'properties.googleplus');
+formatter.addField('Url page Linkedin', 'properties.linkedin');
+formatter.addField('Url page Viadeo', 'properties.viadeo');
+formatter.addField('Catégorie', 'properties.category');
+formatter.addField('Permalien', function(obj) {
+    var id = obj.properties.id;
+    if (!id)
+        return '';
+    return 'http://techonmap.fr/#' + encodeURIComponent(id);
+});
+
 function toCsv(collection) {
-    function escape(str) {
-        return JSON.stringify(str);
-        // str = str ? '' + str : '';
-        // str = str.replace(/[\r\n\t]+/gi, ' ');
-        // str = str.replace(/["]/gi, "'");
-        // if (str.indexOf(',') > 0) {
-        // str = '"' + JSON.stringify(str) + '"';
-        // }
-        // return str;
-    }
-    function serializeArray(array, delimiter) {
-        delimiter = delimiter || ',';
-        return array.join(delimiter);
-    }
-    function formatCSV(resource) {
-        var array = [];
-        var properties = resource.properties || {};
-        var coordinates = resource.geometry && resource.geometry.coordinates
-                || [];
-
-        array.push(properties.id);
-        array.push(properties.name);
-        array.push(properties.description);
-        var tags = properties.tags || [];
-        array.push(tags[0]);
-        array.push(tags[1]);
-        array.push(tags[2]);
-        array.push(coordinates[1]);
-        array.push(coordinates[0]);
-        array.push(properties.address);
-        array.push(properties.postcode);
-        array.push(properties.city);
-        array.push(properties.creationyear);
-        array.push(properties.url);
-        array.push(properties.email);
-        array.push(properties.twitter);
-        array.push(properties.facebook);
-        array.push(properties.googleplus);
-        array.push(properties.linkedin);
-        array.push(properties.viadeo);
-        array.push(properties.category);
-        array.push(resource.buildPermalink());
-        for (var i = 0; i < array.length; i++) {
-            array[i] = escape(array[i]);
-        }
-        var str = serializeArray(array);
-        return str;
-    }
-    var lines = [];
-
-    var headers = _.keys(Utils.fieldMapping);
-    headers.push('Permalien');
-
-    lines.push(serializeArray(headers));
-
-    for (var i = 0; i < collection.models.length; i++) {
-        var line = formatCSV(collection.models[i]);
-        lines.push(line);
-    }
-    var str = serializeArray(lines, '\n');
-    return str;
+    return formatter.toCsv({
+        objects : collection
+    });
 }
