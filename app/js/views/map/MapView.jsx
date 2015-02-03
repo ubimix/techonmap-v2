@@ -48,21 +48,23 @@ module.exports = React.createClass({
 
     /** Sets a new viewport bounding box for this map. */
     setViewport : function(topLeft, bottomRight, focusPosition) {
-        if (this._viewport) {
-            var bounds = L.bounds(topLeft, bottomRight);
-            this._viewport.setViewport(bounds);
-            if (focusPosition) {
-                this._viewport.setFocusPosition({
-                    top : focusPosition[1],
-                    left : focusPosition[0]
-                });
-            }
+        if (!this._viewport)
+            return;
+        var bounds = L.bounds(topLeft, bottomRight);
+        this._viewport.setViewport(bounds);
+        if (focusPosition) {
+            this._viewport.setFocusPosition({
+                top : focusPosition[1],
+                left : focusPosition[0]
+            });
+        }
+        if (!this.map._loaded) {
+            // Initial map focus
             var app = this._getApp();
             var mapOptions = app.map.getMapOptions();
             var zoom = mapOptions.zoom || 8;
             var center = mapOptions.center || [ 0, 0 ];
             var latlng = L.latLng(center[1], center[0]);
-            console.log('topLeft=' + topLeft, 'bottomRight=' + bottomRight);
             var center = L.bounds(topLeft, bottomRight).getCenter();
             this._viewport.focusTo(latlng, center);
         }

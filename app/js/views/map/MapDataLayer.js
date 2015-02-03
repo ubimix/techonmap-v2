@@ -19,7 +19,7 @@ module.exports = AbstractMapLayer.extend({
     onAdd : function(map) {
         this._map = map;
         this._registerHandlers();
-        this._redrawMarkers();
+        this._reloadData();
     },
 
     /**
@@ -54,7 +54,7 @@ module.exports = AbstractMapLayer.extend({
      */
     _registerHandlers : function() {
         var app = this._getApp();
-        app.res.addChangeListener(this._onSearchUpdated, this);
+        app.res.addChangeListener(this._reloadData, this);
         app.res.addSelectListener(this._onSelectResource, this);
         this._map.on('zoomend', this._onZoomEnd, this);
     },
@@ -65,7 +65,7 @@ module.exports = AbstractMapLayer.extend({
      */
     _removeHandlers : function(map) {
         var app = this._getApp();
-        app.res.removeChangeListener(this._onSearchUpdated, this);
+        app.res.removeChangeListener(this._reloadData, this);
         app.res.removeSelectListener(this._onSelectResource, this);
         this._map.off('zoomend', this._onZoomEnd, this);
     },
@@ -135,6 +135,30 @@ module.exports = AbstractMapLayer.extend({
         this._clusterLayer.addLayers(markers);
     },
 
+    /**
+     * This method is called when search results are updated.
+     */
+    _reloadData : function() {
+        var app = this._getApp();
+        var data = app.res.getResources();
+        if (data && data.length) {
+            var bbox = ResourceUtilsMixin.getBoundingBox(data);
+            var sw = L.GeoJSON.coordsToLatLng(bbox[0]);
+            var ne = L.GeoJSON.coordsToLatLng(bbox[1]);
+            var bounds = L.latLngBounds(sw, ne);
+            if (this.options.viewport) {
+                this.options.viewport.fitBounds(bounds);
+            } else {
+                this._map.fitBounds(bounds);
+            }
+        }
+        this._redrawMarkers();
+        var that = this;
+        setTimeout(function(){
+            that._onSelectResource();
+        }, 100);
+    },
+
     // -----------------------------------------------------------------------
     // Resource-specific views
 
@@ -194,26 +218,6 @@ module.exports = AbstractMapLayer.extend({
     },
 
     // -----------------------------------------------------------------------
-
-    /**
-     * This method is called when search results are updated.
-     */
-    _onSearchUpdated : function() {
-        var app = this._getApp();
-        var data = app.res.getResources();
-        if (data && data.length) {
-            var bbox = ResourceUtilsMixin.getBoundingBox(data);
-            var sw = L.GeoJSON.coordsToLatLng(bbox[0]);
-            var ne = L.GeoJSON.coordsToLatLng(bbox[1]);
-            var bounds = L.latLngBounds(sw, ne);
-            if (this.options.viewport) {
-                this.options.viewport.fitBounds(bounds);
-            } else {
-                this._map.fitBounds(bounds);
-            }
-        }
-        this._redrawMarkers();
-    },
 
     /**
      * This method is called to highlight currently active marker
