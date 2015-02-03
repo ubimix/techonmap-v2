@@ -1,23 +1,29 @@
 title: <i class="icon icon-info"></i>Contact form
 ----
-<form>
+<form action="/back/send" enctype="application/x-www-form-urlencoded"
+        method="POST">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="user-name">Votre nom</label>
+    <input name="name" placeholder="Votre nom" id="user-name" name="name" />
   </div>
   <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
+    <label for="user-email">Votre e-mail adresse</label>
+    <input type="email" class="form-control" id="user-email" name="email" placeholder="Votre e-mail adresse">
   </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
+  <div class="form-group">
+    <label for="reason">Choisissez une raison</label>
+    <select name="reason" id="reason">
+        <option>Choisissez une raison</option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+    </select>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <div class="form-group">
+    <label for="content">Votre message</label>
+    <textarea name="content" id="content" placeholder="Votre message" rows="10"
+                    cols="80"></textarea>
+  </div>
+  <button type="submit" class="btn btn-default">Envoyer</button>
 </form>

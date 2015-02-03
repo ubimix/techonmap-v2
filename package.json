@@ -23,6 +23,8 @@
     "mosaic-scroller": "~0.0.9",
     "mosaic-teleport": "^0.0.22",
     "mosaic-teleport-server": "0.0.8",
+    "nodemailer": "^1.3.0",
+    "nodemailer-smtp-transport": "^0.1.13",
     "page": "^1.5.0",
     "react": "^0.12.1",
     "underscore": "~1.7.0"
