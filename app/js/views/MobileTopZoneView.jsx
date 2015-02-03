@@ -50,7 +50,7 @@ module.exports = React.createClass({
             <li className={className}>
                 <a href="#" className="menu-search icon" 
                     onClick={this._activateView.bind(this, 'search')}>
-                    <i className="icon icon-search"></i>
+                    <i className="icon icon-search-mobile"></i>
                 </a>
             </li>
         );
@@ -62,9 +62,7 @@ module.exports = React.createClass({
             <li className={className}>
                 <a href="#" className="menu-map"
                         onClick={this._activateView.bind(this, 'map')}>
-                    <i className="icon icon-map">
-                        <span className="glyphicon glyphicon-map-marker"></span>
-                    </i>
+                    <i className="icon icon-map"></i>
                 </a>
             </li>
         );
@@ -81,9 +79,7 @@ module.exports = React.createClass({
         return (
             <li className={className}>
                 <a href="#" className="menu-list" onClick={this._activateListView}>
-                    <i className="icon icon-list">
-                        <span className="glyphicon glyphicon-list"></span>
-                    </i>
+                    <i className="icon icon-list"></i>
                 </a>
             </li>
         );
