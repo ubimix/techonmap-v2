@@ -2,8 +2,10 @@
 var _ = require('underscore');
 var React = require('react');
 var ListItemMixin = require('../ListItemMixin.jsx');
+var ResourceUtils = require('../../../tools/ResourceUtilsMixin');
+var ViewActivationMixin = require('../../utils/ViewActivationMixin');
 
-//FIXME: refactor types
+// FIXME: refactor types
 var types = {
         'entreprise' : 'company',
         'tiers-lieu' : 'coworking',
@@ -17,8 +19,34 @@ var types = {
 
 module.exports = React.createClass({
     displayName : 'List.Default',
-    mixins: [ListItemMixin],
-     
+    mixins: [ListItemMixin, ViewActivationMixin],
+ 
+    _renderViewFocusButtons : function(){
+        return(
+            <div className="toolbar">
+                <a href='#' onClick={this._activateView.bind(this, 'map')}>
+                    <i className="icon icon-map">
+                        <span className="glyphicon glyphicon-map-marker" />
+                    </i>
+                </a>
+            </div>
+        )
+    },
+    
+    _renderEditButton : function() {
+        var id = ResourceUtils._getFirstProperty(this.props.resource, 'id');
+        var editLink = this._getLabel("list.item.edit.link", { id: id });
+        var editTitle = this._getLabel("list.item.edit.title", { id: id });
+        return(
+            <div className="toolbar">
+                <a href={editLink} title={editTitle}
+                    className="edit picto-edit" target="_blank">
+                    <i className="icon icon-edit"></i>
+                </a>
+            </div>
+        )
+    },
+    
     render: function() {
         var app = this.props.app;
         var resource = this.props.resource;
@@ -29,6 +57,14 @@ module.exports = React.createClass({
         var className = 'media list-group-item ';
         if (selected){
             className += ' selected '
+        }
+        var toolbar = [];
+        if (selected){
+            if (app.ui.isMobileMode()) {
+                toolbar.push(this._renderViewFocusButtons());
+            } else {
+                toolbar.push(this._renderEditButton());
+            }
         }
         
         var pictoClassName = 'picto ' + types[resourceType];
@@ -42,7 +78,7 @@ module.exports = React.createClass({
                     <i className={iconClassName}></i>
                 </div>
                 <div className="media-body">
-                  {this._renderEditButton(selected)}
+                  {toolbar}
                   <h4 className="media-heading">{this._renderName()}</h4>
                   {this._renderShortDescription(resourceType)}
                   {this._renderTags()}

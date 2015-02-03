@@ -58,7 +58,7 @@ module.exports = React.createClass({
                 left : focusPosition[0]
             });
         }
-        if (!this.map._loaded) {
+        if (this._map && !this._map._loaded) {
             // Initial map focus
             var app = this._getApp();
             var mapOptions = app.map.getMapOptions();

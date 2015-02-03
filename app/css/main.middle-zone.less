@@ -136,10 +136,6 @@
                 &.search-tags { 
                     .list-group-item {
 //                        padding-top: 0.4em;
-                        .tag {
-                            font-weight: bold;
-                            padding-right: 0.3em;
-                        }
                     }
                 }
                 &.search-categories {.category-label { padding-right: 0.3em; } }
@@ -266,13 +262,14 @@
                         margin-bottom: 0px;
                     }
                     
-                    .edit {
+                    .toolbar {
                         float: right;
                         font-size: 1.6em;
-                        color: @red-main;
-                        
-                        &:hover {
-                            text-decoration: none;
+                        .edit {
+                            color: @red-main;
+                            &:hover {
+                                text-decoration: none;
+                            }
                         }
                     }
                     
@@ -292,8 +289,6 @@
                             color: @red-main;
                             font-style: italic;
                             font-size: inherit;
-                            padding: 0em;
-                            margin: 0em;
                             background-color: transparent;
                         }
                     }

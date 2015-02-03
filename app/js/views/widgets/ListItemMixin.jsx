@@ -54,27 +54,17 @@ module.exports = _.extend({
     },
 
     _renderSocialNetworks : function(isSelected) {
-        if (isSelected) { 
-            return <div className="social-networks">
-                <ul>
-                    {this._getIconLink('url', true)}
-                    {this._getIconLink('twitter', true)}
-                    {this._getIconLink('facebook', true)}
-                    {this._getIconLink('viadeo', true)}
-                    {this._getIconLink('linkedin', true)}
-                    {this._getIconLink('googleplus', true)}
-                </ul>
-            </div>
-        } else {
-            return <div className="social-networks">
-                {this._getIconLink('url')}
-                {this._getIconLink('twitter')}
-                {this._getIconLink('facebook')}
-                {this._getIconLink('viadeo')}
-                {this._getIconLink('linkedin')}
-                {this._getIconLink('googleplus')}
-            </div>
-        }
+        var showLabels = !!isSelected; 
+        return <div className="social-networks">
+            <ul>
+                {this._getIconLink('url', showLabels)}
+                {this._getIconLink('twitter', showLabels)}
+                {this._getIconLink('facebook', showLabels)}
+                {this._getIconLink('viadeo', showLabels)}
+                {this._getIconLink('linkedin', showLabels)}
+                {this._getIconLink('googleplus', showLabels)}
+            </ul>
+        </div>
     },
     
     _renderDescription : function(isSelected) {
@@ -90,31 +80,32 @@ module.exports = _.extend({
     _renderShare : function(isSelected) {
         if (isSelected) {
             var id = ResourceUtils._getFirstProperty(this.props.resource, 'id');
-            var url = 'http://techonmap.fr/#'+id;
-            var twitter = 'https://twitter.com/intent/tweet?source=webclient&text='+url;
-            var facebook = 'http://www.facebook.com/sharer/sharer.php?u='+url;
-            var linkedin = 'http://www.linkedin.com/shareArticle?mini=true&url='+url;
-            var viadeo = 'http://www.viadeo.com/shareit/share/?url='+url;
-            var googlePlus = 'https://plus.google.com/share?url='+url;
-            var share = 'Partager';
+            var url = this._getLabel("list.item.view.link", { id: id });
+            var encodedUrl = encodeURIComponent(url);
+            var twitter = 'https://twitter.com/intent/tweet?source=webclient&text='+encodedUrl;
+            var facebook = 'http://www.facebook.com/sharer/sharer.php?u='+encodedUrl;
+            var linkedin = 'http://www.linkedin.com/shareArticle?mini=true&url='+encodedUrl;
+            var viadeo = 'http://www.viadeo.com/shareit/share/?url='+encodedUrl;
+            var googlePlus = 'https://plus.google.com/share?url='+encodedUrl;
+            var share = this._getLabel("list.item.share.label");
             return (<div className="share">
                 <div className="left">Partager :</div>
                 <input type="text" className="input-permalink" disabled="disabled" value={url} />
                 <div className="right">
                     <a href={twitter} target="_blank">
-                        <img src="images/share/twitter.png" alt="Partagez sur Twitter" />
+                        <img src="images/share/twitter.png" alt={this._getLabel("list.item.share.twitter")} />
                     </a> 
                     <a href={facebook} target="_blank">
-                        <img src="images/share/facebook.png" alt="Partagez sur Facebook" />
+                        <img src="images/share/facebook.png" alt={this._getLabel("list.item.share.facebook")} />
                     </a> 
                     <a href={linkedin} target="_blank">
-                        <img src="images/share/linkedin.png" alt="Partagez sur LinkedIn" />
+                        <img src="images/share/linkedin.png" alt={this._getLabel("list.item.share.linkedin")} />
                     </a> 
                     <a href={viadeo} target="_blank">
-                        <img src="images/share/viadeo.png" alt="Partagez sur Viadeo" />
+                        <img src="images/share/viadeo.png" alt={this._getLabel("list.item.share.viadeo")} />
                     </a> 
                     <a href={googlePlus} target="_blank">
-                        <img src="images/share/google-plus.png" alt="Partagez sur Google+" />
+                        <img src="images/share/google-plus.png" alt={this._getLabel("list.item.share.googleplus")}/>
                     </a>
                 </div>
                 <div className="clear"></div>
@@ -183,14 +174,4 @@ module.exports = _.extend({
         );
     },
     
-    _renderEditButton : function(isSelected) {
-        if (isSelected) {
-            var id = ResourceUtils._getFirstProperty(this.props.resource, 'id');
-            var editLink = 'http://techonmap.fr/edition.html#'+id;
-            return <a href={editLink} title="Éditer cette fiche" className="edit picto-edit" target="_blank">
-                <i className="icon icon-edit"></i>
-            </a>;
-        } else 
-            return 
-    }
 }, TagsMixin, I18NMixin);

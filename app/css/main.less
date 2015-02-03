@@ -31,8 +31,9 @@
     cursor: pointer;
     display: inline-block;
 //    padding: 0.2em;
+    margin-right: 0.5em;
 //    margin: 1px;
-//    vertical-align: middle;
+    vertical-align: middle;
     white-space: nowrap;
 //    border: 1px solid transparent;
     color: @gray;
@@ -40,9 +41,9 @@
     &.none {
         font-weight: bold;
         //border: 1px solid #eee;
-        //&::after {
-        //    content: " × ";
-        //}
+//        &::after {
+//            content: " × ";
+//        }
     }
 }
 .closable-tag-container(){
@@ -61,26 +62,24 @@
 // Common styles reusable in different contexts
 .tag {
     .closable-tag;
+    margin-right: 0.5em;
     &::before {
         content: " #";
     }
     &.none::before { content : ''; }
-    .tag-label {
-    }
+    .tag-label { }
 }
 a:hover .tag, a:hover .tag * { color : black; }
 .tags {
-//    .closable-tag-container;
+    .closable-tag-container;
     .tag {
         .text-size(@menu-item-size);
+        margin-right: 0.5em;
      }
 }
 .tags-inline { 
-    .tag { 
-        .tag-label {
-            font-weight: bold;
-            font-size: 0.9em;
-        }
+    .tag {
+        .tag-label {}
     } 
 }
 .label-empty { background-color: silver; }
