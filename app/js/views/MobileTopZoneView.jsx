@@ -29,6 +29,7 @@ module.exports = React.createClass({
     },
     _renderAboutMenuItem : function(){
         var className = this._getClassName('info');
+        className += ' li-info';
         return (
             <li className={className}>
                 <a href="#" className="menu-info" onClick={this._showAboutInfo}>
@@ -46,6 +47,7 @@ module.exports = React.createClass({
 
     _renderSearchMenuItem : function(){
         var className = this._getClassName('search');
+        className += ' li-search';
         return (
             <li className={className}>
                 <a href="#" className="menu-search icon" 
@@ -58,6 +60,7 @@ module.exports = React.createClass({
 
     _renderMapMenuItem: function(){
         var className = this._getClassName('map');
+        className += ' li-map';
         return (
             <li className={className}>
                 <a href="#" className="menu-map"
@@ -76,6 +79,7 @@ module.exports = React.createClass({
     },
     _renderListMenuItem: function(){
         var className = this._getClassName('list');
+        className += ' li-list';
         return (
             <li className={className}>
                 <a href="#" className="menu-list" onClick={this._activateListView}>

@@ -12,7 +12,6 @@
     {"label": "Ville", "field": "properties.city" },
     {"label": "Année de création", "field": "properties.creationyear" },
     {"label": "Url site web", "field": "properties.url" },
-    {"label": "Email", "field": "properties.email" },
     {"label": "Nom compte Twitter", "field": "properties.twitter" },
     {"label": "Url page Facebook", "field": "properties.facebook" },
     {"label": "Url page Google +", "field": "properties.googleplus" },

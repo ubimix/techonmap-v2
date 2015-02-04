@@ -15,28 +15,30 @@ module.exports = {
         };
         console.log('>>>', message);
         var transporter = nodemailer.createTransport(smtpTransport({
-            host: 'localhost',
-            port: 25
+            host : 'localhost',
+            port : 25
         }));
 
         // setup e-mail data with unicode symbols
         var mailOptions = {
-            from: message.user.name + ' <'+message.user.email+'>',
-            to: 'slauriere@ubimix.com', 
-            subject: message.subject,
-            text: message.content
+            from : message.user.name + ' <' + message.user.email + '>',
+            to : 'slauriere@ubimix.com',
+            subject : message.subject,
+            text : message.content
         };
 
         // send mail with defined transport object
-        transporter.sendMail(mailOptions, function(error, info){
-            if(error){
+        transporter.sendMail(mailOptions, function(error, info) {
+            if (error) {
                 console.log(error);
-            }else{
+            } else {
                 console.log('Message sent: ' + info.response);
             }
-        }); 
-        
-        return message;
+        });
+
+        return {
+            result : 'ok'
+        };
     })
 };
 
