@@ -58,7 +58,7 @@
                     }
                     
                     &.menu-export {
-                        color: #d1c37e;
+                        color: @beige;
                     }
                     &.menu-heatmap {
                         color: #b76555;
@@ -164,9 +164,39 @@ form[role="search"] {
 //            margin: 0px;
 //            margin-top: 0.3em;
             > a {
+                color: gray;
             }
-            &.active {
-                border-bottom: 4px solid silver;
+            &:hover, &.active {
+            
+                &.li-info {
+                    border-bottom: 4px solid @blue;
+                    a {
+                        color: @blue;
+                    }
+                }
+                            
+                &.li-search {
+                    border-bottom: 4px solid @red-main;
+                    a {
+                        color: @red-main;
+                    }
+                }                            
+            
+                &.li-map {
+                    border-bottom: 4px solid @purple;
+                    a {
+                        color: @purple;
+                    }
+                }
+                
+                &.li-list {
+                    border-bottom: 4px solid @beige;
+                    a {
+                        color: @beige;
+                    }
+                }
+                
+                
             }
         }
     }
