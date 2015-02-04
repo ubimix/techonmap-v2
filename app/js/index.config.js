@@ -1,6 +1,7 @@
 module.exports = {
     baseUrl : '../',
     contentBaseUrl : '../data/content/',
+    apiBaseUrl : '../back',
     searchServiceUrl : '../service/organizations',
     exportFields : 'data/export.fields.json',
     messages : 'data/messages.json',

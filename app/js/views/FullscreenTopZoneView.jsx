@@ -80,7 +80,8 @@ module.exports = React.createClass({
         }
     },
     _onClickAdd : function(ev) {
-        window.open('http://techonmap.fr/edition.html', '_blank');
+        var url = this._getLabel('topmenu.edit.url');
+        window.open(url, '_blank');
         ev.stopPropagation();
         ev.preventDefault();
     },
@@ -158,31 +159,92 @@ module.exports = React.createClass({
       ev.stopPropagation();
       ev.preventDefault();
   },
+  _extractDataFromContactForm : function(elm){
+      var formData = {};
+      _.each(elm, function(input){
+          var attr = input.attributes['name'];
+          if (!attr)
+              return ;
+          var key = attr.value;
+          var value = input.value;
+          formData[key] = value;
+      });
+      return {
+          errors: undefined,
+          data : formData
+      };
+  },
+  
+  _showMessage : function(msg) {
+      window.alert(msg);
+  },
+  _submitContactForm : function(elm){
+      var that = this;
+      var app = that.props.app;
+      var info = that._extractDataFromContactForm(elm);
+      if (!info.errors){
+          app.contact.validateMessage(info.data)//
+          .then(function(data){
+              return app.contact.sendMessage(data)//
+                  .then(function(result){
+                      var msg = that._getLabel('dialog.contact.result.ok');
+                      that._showMessage(msg);
+                      PopupPanel.closePopup();
+                  }, function(err) {
+                      var msg = that._getLabel(
+                          'dialog.contact.result.errors',
+                           { error : err });
+                      that._showMessage(msg);
+                  });
+          }, function(err) {
+              var msg = that._getLabel('dialog.contact.invalide', {
+                  error : err
+              });
+              that._showMessage(msg);
+          });
+      } else {
+          var msg = that._getLabel('dialog.contact.result.errors', {
+              error : info.error
+          });
+          that._showMessage(msg);
+      }
+  },
   _showContactForm : function(ev){
       PopupPanel.closePopup();
-      console.log('_showContactForm');
+      var that = this;
+      var dialog;
       var footer = (
-              <div>
-                  <button type="submit" className="btn btn-primary"
-                          onClick={function(){ console.log('Send !'); }}>
-                      {this._getLabel('dialog.contact.btn.send')}
-                  </button>
-                  <button type="button" className="btn btn-primary"
-                      onClick={function(){ console.log('Cancel !'); }}>
-                      {this._getLabel('dialog.contact.btn.cancel')}
-                  </button>
-              </div>
-          );
-          this._showContentDialog({
-              url : 'contact.md',
-              footer : footer,
-              onOpen : function(dialog) {
-                  console.log('Cou-cou', dialog);
-              },
-              onClose : function(dialog){
-                  console.log('CLOSE!', dialog);
-              }
-          });
+          <div>
+              <button type="submit" className="btn btn-primary"
+                  onClick={function(ev){ 
+                      var elm = dialog.getDOMNode();
+                      var formInputs = elm.querySelectorAll('form .form-control');
+                      that._submitContactForm(formInputs);
+                      ev.preventDefault();
+                      ev.stopPropagation();
+                  }}>
+                  {this._getLabel('dialog.contact.btn.send')}
+              </button>
+              <button type="button" className="btn btn-primary"
+                  onClick={function(){
+                      console.log('Cancel !', dialog);
+                      PopupPanel.closePopup();
+                   }}>
+                  {this._getLabel('dialog.contact.btn.cancel')}
+              </button>
+          </div>
+      );
+      this._showContentDialog({
+          url : 'contact.md',
+          footer : footer,
+          onOpen : function(d) {
+              dialog = d;
+              console.log('_showContentDialog#onOpen', dialog);
+          },
+          onClose : function(d){
+              dialog = null;
+          }
+      });
       ev.stopPropagation();
       ev.preventDefault();
   },
