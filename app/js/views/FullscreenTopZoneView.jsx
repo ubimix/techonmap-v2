@@ -163,7 +163,7 @@ module.exports = React.createClass({
       console.log('_showContactForm');
       var footer = (
               <div>
-                  <button type="button" className="btn btn-primary"
+                  <button type="submit" className="btn btn-primary"
                           onClick={function(){ console.log('Send !'); }}>
                       {this._getLabel('dialog.contact.btn.send')}
                   </button>

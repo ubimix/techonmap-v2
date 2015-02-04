@@ -1,5 +1,7 @@
 var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 module.exports = {
     sendMail : rest('/send', 'POST', function(params) {
@@ -8,10 +10,32 @@ module.exports = {
                 name : params.name,
                 email : params.email
             },
-            title : params.reason,
+            subject : params.reason,
             content : params.content
         };
         console.log('>>>', message);
+        var transporter = nodemailer.createTransport(smtpTransport({
+            host: 'localhost',
+            port: 25
+        }));
+
+        // setup e-mail data with unicode symbols
+        var mailOptions = {
+            from: message.user.name + ' <'+message.user.email+'>',
+            to: 'slauriere@ubimix.com', 
+            subject: message.subject,
+            text: message.content
+        };
+
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                console.log(error);
+            }else{
+                console.log('Message sent: ' + info.response);
+            }
+        }); 
+        
         return message;
     })
 };
