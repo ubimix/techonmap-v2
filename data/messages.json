@@ -2,11 +2,11 @@
     "defaultLanguage" : "fr",
     "messages" : {
         "fr" : {
-            "contact.message.notDefined" : "Un message est requis.",
-            "contact.message.contentIsNotSpecified" : "Un contenu est requis.",
-            "contact.message.subjectIsNotSpecified" : "Un sujet est requis.",
-            "contact.message.nameIsNotSpecified" : "Un nom est requis.",
-            "contact.message.emailIsNotDefined" : "Une adresse e-mail valide est requise.",
+            "contact.message.notDefined" : "un message est requis",
+            "contact.message.contentIsNotSpecified" : "un contenu est requis",
+            "contact.message.subjectIsNotSpecified" : "un sujet est requis",
+            "contact.message.nameIsNotSpecified" : "un nom est requis",
+            "contact.message.emailIsNotDefined" : "une adresse e-mail valide est requise",
             "dialog.contact.result.ok" : "Merci ! Votre message a bien été transmis.",
             "dialog.contact.result.errors" : "Une erreur s'est produite, votre meessage n'a pu être envoyé.",
             "dialog.contact.invalide" : "Veuillez vérifier que tous les champs sont bien remplis : <%=error.message%>.",
