@@ -218,7 +218,7 @@ module.exports = React.createClass({
               <button type="submit" className="btn btn-primary"
                   onClick={function(ev){ 
                       var elm = dialog.getDOMNode();
-                      var formInputs = elm.querySelectorAll('form .form-control');
+                      var formInputs = elm.querySelectorAll('.form-control');
                       that._submitContactForm(formInputs);
                       ev.preventDefault();
                       ev.stopPropagation();
