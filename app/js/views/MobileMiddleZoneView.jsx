@@ -55,13 +55,11 @@ module.exports = React.createClass({
                                 <button className="menu-list"
                                     onClick={this._activateView.bind(this, 'list')}>
                                     <i className="icon icon-list">
-                                        <span className="glyphicon glyphicon-list"></span>
                                     </i>
                                 </button>
                                 <button className="menu-map"
                                     onClick={this._activateView.bind(this, 'map')}>
                                     <i className="icon icon-map">
-                                        <span className="glyphicon glyphicon-map-marker"></span>
                                     </i>
                                 </button>
                             </div>

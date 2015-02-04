@@ -26,7 +26,6 @@ module.exports = React.createClass({
             <div className="toolbar">
                 <a href='#' onClick={this._activateView.bind(this, 'map')}>
                     <i className="icon icon-map">
-                        <span className="glyphicon glyphicon-map-marker" />
                     </i>
                 </a>
             </div>
