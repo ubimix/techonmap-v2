@@ -2,14 +2,14 @@
     "defaultLanguage" : "fr",
     "messages" : {
         "fr" : {
-            "contact.message.notDefined" : "Message is not defined",
-            "contact.message.contentIsNotSpecified" : "Content is empty or not defined.",
-            "contact.message.subjectIsNotSpecified" : "Subject is not specified",
-            "contact.message.nameIsNotSpecified" : "Your name is not specified",
-            "contact.message.emailIsNotDefined" : "Email is not defined or bad formatted",
-            "dialog.contact.result.ok" : "Thank you! Your message was successfully sent.",
-            "dialog.contact.result.errors" : "Error! Your message could not be sent.",
-            "dialog.contact.invalide" : "Please check that all fields are properly filled: <%=error.message%>.",
+            "contact.message.notDefined" : "Un message est requis.",
+            "contact.message.contentIsNotSpecified" : "Un contenu est requis.",
+            "contact.message.subjectIsNotSpecified" : "Un sujet est requis.",
+            "contact.message.nameIsNotSpecified" : "Un nom est requis.",
+            "contact.message.emailIsNotDefined" : "Une adresse e-mail valide est requise.",
+            "dialog.contact.result.ok" : "Merci ! Votre message a bien été transmis.",
+            "dialog.contact.result.errors" : "Une erreur s'est produite, votre meessage n'a pu être envoyé.",
+            "dialog.contact.invalide" : "Veuillez vérifier que tous les champs sont bien remplis : <%=error.message%>.",
 
             "dialog.share.title" : "Embarquez la carte sur votre site",
             "dialog.share.title.integrate" : "Intégrez :",
@@ -77,9 +77,9 @@
             "toolbar.left.label.query" : "Recherche : "
         },
         "en" : {
-            "contact.message.notDefined" : "Message is not defined",
-            "contact.message.contentIsNotSpecified" : "Content is empty or not defined.",
-            "contact.message.subjectIsNotSpecified" : "Subject is not specified",
+            "contact.message.notDefined" : "The message is not defined.",
+            "contact.message.contentIsNotSpecified" : "The content is empty or not defined.",
+            "contact.message.subjectIsNotSpecified" : "The subject is not specified",
             "contact.message.nameIsNotSpecified" : "Your name is not specified",
             "contact.message.emailIsNotDefined" : "Email is not defined or bad formatted",
             "dialog.contact.result.ok" : "Thank you! Your message was successfully sent.",
