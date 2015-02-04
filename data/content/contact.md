@@ -1,7 +1,5 @@
 title: <i class="icon icon-contact"></i>Contactez-nous
 ----
-<form action="/back/send" enctype="application/x-www-form-urlencoded"
-        method="POST">
  <div class="row">
      <div class="col-xs-8">
           <div class="form-group">
@@ -28,5 +26,3 @@ title: <i class="icon icon-contact"></i>Contactez-nous
           </div>
       </div>
   </div>
-  <button type="submit" class="btn btn-default">Envoyer</button>
-</form>
