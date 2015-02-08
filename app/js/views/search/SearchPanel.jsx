@@ -16,6 +16,14 @@ var SelectedCategorySearchPanel = require('./SelectedCategorySearchPanel.jsx');
 var SearchPanel = React.createClass({
     displayName : 'SearchPanel',
     mixins : [ DomUtils, I18NMixin, MenuMixin ],
+    componentWillMount : function(){
+        var app = this.getApp();
+        app.nav.addChangeListener(this._onChangeSearchCriteria);
+    },
+    componentWillUnmount : function(){
+        var app = this.getApp();
+        app.nav.removeChangeListener(this._onChangeSearchCriteria);
+    },
     componentDidMount : function(){
         this._toggleMenuPanel('main');
     }, 
@@ -41,38 +49,54 @@ var SearchPanel = React.createClass({
              </PanelSwitcher>
         );
     },
+    _onChangeSearchCriteria : function(){
+        this._toggleMenuPanel('main');
+    },
     _onCategorySelect : function(category) {
         var app = this.getApp();
         if (app.nav.hasCategoryFilteredApplied()) {
             this._toggleMenuPanel('selected-category');
         }
     },
+    _renderFluidPanel : function(panel){
+        return (
+            <div className="container-fluid">
+                {panel}
+            </div>
+        );
+    },
     _renderZonesPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('zones',
                 this._renderMenuReturnRef(),
-                <ZonesSearchPanel app={app} />);
+                this._renderFluidPanel(<ZonesSearchPanel app={app} />)
+        );
     },
     _renderTagsPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('tags',
                 this._renderMenuReturnRef(),
-                <TagsSearchPanel app={app} />);
+                this._renderFluidPanel(<TagsSearchPanel app={app} />)
+        );
     },
     _renderCategoriesPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('categories',
                 this._renderMenuReturnRef(),
-                <CategoriesSearchPanel app={app}
-                    onSelectCategory={this._onCategorySelect}/>);
+                this._renderFluidPanel(<CategoriesSearchPanel app={app}
+                    onSelectCategory={this._onCategorySelect}/>)
+        );
     },
     _renderSelectedCategoryPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('selected-category',
                 this._renderMenuReturnRef('categories',
                         'search.panel.button.return.to.categories'),
-                <SelectedCategorySearchPanel app={app}
-                    onExit={_.bind(this._toggleMenuPanel, this, 'categories')}/>);
+                this._renderFluidPanel(
+                    <SelectedCategorySearchPanel app={app}
+                    onExit={_.bind(this._toggleMenuPanel, this, 'categories')}/>
+                )
+        );
     },
     _renderMainPanel : function(){
         var app = this.props.app;
@@ -88,20 +112,22 @@ var SearchPanel = React.createClass({
                <h3 className="panel-title">
                    {this._getLabel('search.panel.label.filters')}
                </h3>,
-               this._renderMenuItems(
-                   this._renderMenuRef(
-                           'search.panel.label.zones',
-                           'zones',
-                           <ZoneInfoView app={app} />),
-                   this._renderMenuRef(
-                           'search.panel.label.categories',
-                           'categories',
-                           <CategoriesInfoView app={app} />),
-                   this._renderMenuRef(
-                           'search.panel.label.tags',
-                           'tags',
-                           <TagsInfoView app={app} />)
-               )
+               <div className="filter-items">
+                   {this._renderMenuItems(
+                       this._renderMenuRef(
+                               'search.panel.label.zones',
+                               'zones',
+                               <ZoneInfoView app={app} />),
+                       this._renderMenuRef(
+                               'search.panel.label.categories',
+                               'categories',
+                               <CategoriesInfoView app={app} />),
+                       this._renderMenuRef(
+                               'search.panel.label.tags',
+                               'tags',
+                               <TagsInfoView app={app} />)
+                   )}
+               </div>
            ), 
            React.Children.map(this.props.children, function(child){
                return child;

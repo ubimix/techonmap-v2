@@ -4,10 +4,10 @@
     
     // Individual panels in the dropdown
     .panel-group {
-       margin: 0px;
-       padding-bottom: 0.5em;
-       > .row > * {
-           line-height: 2.5em;
+       margin: 0.5em 0px;
+       .filter-choice {
+           // margin-top: 0.2em;
+       	   padding: 0.2em 0px;
        }
        > .panel {
             margin: 0;
@@ -37,17 +37,17 @@
         }
         // Individual items in lists
         .list-group {
-            margin: 0px;
+            margin: 0.5em 0;
+            border-bottom: 1px solid #eee;
             .list-group-item {
-                padding: 0px;
+                padding: 0.3em 0px;
                 border: none;
-                line-height: 2.5em;
+                font-size: 1.3em;
                 > a { 
                     display: block;
-                    padding: 0.2em;
+//                    padding: 0.2em;
                     padding-left: 0px;
                     color: #767676;
-//                    font-size: 1.2em;
                     text-decoration: none;
                     &:hover,
                     &:hover * {
@@ -55,9 +55,7 @@
                         text-decoration: none;
                     }
                     &.return {
-                       font-size: 1.4em;
-//                       line-height: 1.4em;
-//                        border-bottom: 1px solid #eee;
+//                       font-size: 1.4em;
                         margin-bottom: 0.5em;
                         color: #767676;
                         .chevron-left {
@@ -67,7 +65,7 @@
                             display: inline-block;
                             vertical-align: middle;
                             margin-right: 0.3em;
-                        }                                            
+                        }
                     }
                     .chevron-right {
                         width: 25px;
@@ -75,19 +73,24 @@
                         background: url(../images/chevrons/right.png) 90% 50% no-repeat;
                         display: inline-block;
                     }
-                    
-                    
                 }
             }
         }
-        
-        .tags {
-            overflow: hidden;
-            .tag {
-                &:hover {
-                    color: @red-main;
+        .filter-items {
+            .list-group {
+                border-bottom: none;
+                .list-group-item {
+                    font-size: 1em;
                 }
-            }                            
+            }
+        }
+        .header {
+            .category {
+                font-size: 1.25em;
+                font-weight: 500;
+                margin-top: 0.5em;
+                margin-bottom: 0.3em;
+            }
         }
     }
 }

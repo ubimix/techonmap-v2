@@ -24,98 +24,67 @@
 
 .text-size(@font-size:1em){
     font-size: @font-size;
-    line-height: 1.1;
     vertical-align: middle;
 }
 .closable-tag(){
     cursor: pointer;
     display: inline-block;
-//    padding: 0.2em;
-    margin-right: 0.5em;
-//    margin: 1px;
-    vertical-align: middle;
     white-space: nowrap;
-//    border: 1px solid transparent;
     color: @gray;
+    .text-size(1.1em);
     &.selected,
     &.none {
         font-weight: bold;
-        //border: 1px solid #eee;
-//        &::after {
-//            content: " × ";
-//        }
     }
 }
 .closable-tag-container(){
-//    margin: 1px;
-//    padding: 0.2em;
 }
 
 .closable-tag-icon(){
-    .text-size(@menu-icon-size);
-    margin: 0px;
-    padding: 0px;
-    color: @gray;
+//    margin: 0px;
+//    padding: 0px;
+//    color: @gray;
     vertical-align: middle;
+    margin-right: 0.4em;
+    .text-size(@menu-icon-size);
 }
 
 // Common styles reusable in different contexts
 .tag {
     .closable-tag;
-    margin-right: 0.5em;
+    .text-size(0.9em);
     &::before {
         content: " #";
     }
     &.none::before { content : ''; }
-    .tag-label { }
 }
 a:hover .tag, a:hover .tag * { color : black; }
 .tags {
     .closable-tag-container;
-    .tag {
-        .text-size(@menu-item-size);
-        margin-right: 0.5em;
-     }
+    .tag { }
 }
 .tags-inline { 
-    .tag {
-        .tag-label {}
-    } 
-}
-.label-empty { background-color: silver; }
-.tags-delimiter {
-    display: block;
-    line-height: 1em;
-    text-align: center;
-    margin: 0.5em 0 0.8em 0;
-    .icon {
-        height: 1em;
-    }
+    .tag {} 
 }
 
 .category {
     .closable-tag;
     > .icon {
         .closable-tag-icon;
-        margin-right: 0.7em;
     }
-    .category-label {
-    }
-    
-    &.selected {
-//        font-size: 1.2em;
-    }
+    .category-label {}
+    &.selected {}
 }
 a:hover .category, a:hover .category * { color : black; }
 .categories {
     .closable-tag-container;
-    .category { .text-size(@menu-item-size); }
+    .category {}
 }
 .categories-inline {
     .category {
         vertical-align: inherit;
         .category-label {
-            font-weight: bold;
+//            font-weight: bold;
 //            font-size: 0.9em;
         }
         
@@ -130,8 +99,6 @@ a:hover .category, a:hover .category * { color : black; }
     > .icon {
         .closable-tag-icon;
         .icon(24px);
-        margin-right: 0.4em;
-        vertical-align: middle;
         &.icon-dept-75 {
             background-image: url(../images/departments/dept-75.png);
         }
@@ -162,25 +129,14 @@ a:hover .category, a:hover .category * { color : black; }
 a:hover .zone, a:hover .zone * { color : black; }
 .zones {
     .closable-tag-container;
-    .zone { 
-        .text-size(@menu-item-size); 
-        padding-left: 0.2em;
-    } 
+    .zone {} 
 }
 .zones-inline { 
     .zone { 
         vertical-align: inherit;
-        .zone-label {
-            font-weight: bold;
-//            font-size: 0.9em;
-        }
-        
-        > .icon {
-            margin-right: 0.3em;
-        }
+        .zone-label {}
+        > .icon { margin-right: 0.3em; }
     } 
-    
-
 }
 
 .query {

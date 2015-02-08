@@ -94,7 +94,7 @@
                 height: @button-height;
                 margin: 0px;
                 > li {
-                    .box-shadow();
+                    .box-shadow(none);
                     white-space: nowrap;
                     border-radius: 0px;
                     padding: 0.2em 0.5em;
@@ -127,7 +127,7 @@
                     .list-group-item {
 //                        padding-top: 0.4em;
                         .query-label {
-                            font-weight: bold;
+//                            font-weight: bold;
                             padding-right: 0.3em;
                         }
                     }
@@ -201,9 +201,10 @@
                 }
             }
             
+            > nav { text-align: center; }
+
             .list-group-item {
                 min-height: 100px;
-//                padding: 10px 8px;
                 border: none;
                 border-bottom: 1px solid #eee;
                 margin-top: 0px;
@@ -215,11 +216,9 @@
                 
                 
                 .picto {
-                    float: left;
-                    width: 51px;
-                    height: 51px;
                     border-radius: 4px;
                     text-align: center;
+                    padding: 0.5em;
                     
                     &.community {
                         background-color: #53C591;
@@ -253,18 +252,17 @@
                 }
                 
                 .media-body {
-                    padding-left: 1em;
-                
                     .media-heading {
                         .name {
                             color: @dark-gray;
                         }
-                        margin-bottom: 0px;
+                        h4 { margin-top: 0px; }
                     }
                     
                     .toolbar {
                         float: right;
                         font-size: 1.6em;
+                        margin-top: -0.1em;
                         .edit {
                             color: @red-main;
                             &:hover {
@@ -282,15 +280,6 @@
                         padding-top: 0.5em;
                         padding-bottom: 0.5em;
                         
-                    }
-                    
-                    .tags {
-                        .tag {
-                            color: @red-main;
-                            font-style: italic;
-                            font-size: inherit;
-                            background-color: transparent;
-                        }
                     }
                     
                     .address {

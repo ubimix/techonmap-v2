@@ -39,7 +39,7 @@ module.exports = React.createClass({
                 className += ' label-empty';
             }
             return (
-                <div className="row" key={key}>
+                <div className="row filter-choice" key={key}>
                     <div className="col-xs-10">
                         {this._renderZone(zone)}
                     </div>

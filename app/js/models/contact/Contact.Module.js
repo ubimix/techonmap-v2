@@ -42,7 +42,7 @@ module.exports = Api.extend({}, {
             } else if (that._isEmpty(data.email)
                     || data.email.indexOf('@') <= 0) {
                 errorMessage = i18n
-                        .getMessage('contact.message.nameIsNotSpecified');
+                        .getMessage('contact.message.emailIsNotSpecified');
             } else if (that._isEmpty(data.reason)) {
                 errorMessage = i18n
                         .getMessage('contact.message.subjectIsNotSpecified');

@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
 var _ = require('underscore');
 var React = require('react');
-var ScrollerView = require('mosaic-scroller').ScrollerView;
-var ScrollerViewFactory = React.createFactory(ScrollerView);
+var PaginatedListView = require('mosaic-core').React.PaginatedListView;
+
 var AppViewMixin = require('../AppViewMixin');
 
 var ListView = React.createClass({
@@ -21,19 +21,17 @@ var ListView = React.createClass({
             focusedIdx = app.res.getResourcePosition(activeResourceId);
             this._prevActiveResourceId = activeResourceId;
         }
-        var scrollStyle = this._getScrollStyles();
-        var itemLen = 40;
-        var blockSize = 5;
-        return ScrollerViewFactory({
-            className : 'list-group',
-            // FIXME: should be removed or parameterized
-            style : scrollStyle,
-            itemLen : itemLen,
-            blockSize : blockSize,
-            index : focusedIdx,
-            getItemsNumber : this._getItemsNumber,
-            renderItems : this._renderItems
-        });
+        var pageSize = 15;
+        return (
+            <PaginatedListView
+                className="list-group" 
+                paginationClassName="pagination pagination-sm" 
+                pageSize={pageSize}
+                index={focusedIdx}
+                getItemsNumber={this._getItemsNumber}
+                renderItems={this._renderItems}
+            />
+        );
     },
 
     // -----------------------------------------------------------------------
@@ -53,6 +51,10 @@ var ListView = React.createClass({
         store.addSelectListener(this._updateState, this);
     },
 
+    componentDidMount : function(){
+        this.setState({});
+    },
+    
     componentWillUnmount : function() {
         var store = this._getStore();
         store.removeSelectListener(this._updateState, this);
@@ -77,18 +79,14 @@ var ListView = React.createClass({
         }
     },
 
-    /** Returns styles for the scroll. */
-    _getScrollStyles : function() {
-        return {};
-    },
-
     /** Renders items starting from the specified position. */
     _renderItems : function(params) {
         var items = [];
         var resources = this.state.resources;
         var len = Math.min(params.index + params.length, resources.length);
         for (var i = params.index; i < len; i++) {
-            items.push(this._renderItem(resources[i], i));
+             var view = this._renderItem(resources[i], i);
+            items.push(view);
         }
         return items;
     },

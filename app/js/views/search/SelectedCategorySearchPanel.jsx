@@ -60,7 +60,7 @@ module.exports = React.createClass({
                 className += ' label-empty';
             }
             return (
-                <div className="row" key={info.tag}>
+                <div className="row filter-choice" key={info.tag}>
                     <div className="col-xs-10">
                         {this._renderTag(info.tag)}
                     </div>
@@ -136,7 +136,7 @@ module.exports = React.createClass({
         }
         return (
             <div>
-                <div>
+                <div className="header">
                     <a href="#">
                         {this._renderCategory(this.state.category, { onClick : this._onExit })}
                     </a>

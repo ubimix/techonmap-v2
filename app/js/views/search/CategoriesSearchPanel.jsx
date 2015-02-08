@@ -38,7 +38,7 @@ module.exports = React.createClass({
                 className += ' label-empty';
             }
             return (
-                <div className="row" key={key}>
+                <div className="row filter-choice" key={key}>
                     <div className="col-xs-10">
                         <a href="#">{this._renderCategory(category)}</a>
                     </div>

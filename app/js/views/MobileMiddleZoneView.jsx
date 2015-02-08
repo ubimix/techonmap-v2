@@ -44,23 +44,24 @@ module.exports = React.createClass({
         var app = this.props.app;
         return (
             <SearchPanel app={app}>
-                <div>
-                    <hr/>
-                    <div className="row">
-                        <div className="col-xs-7">
-                            <SearchResultsInfoView app={app}/>
-                        </div>
-                        <div className="col-xs-5">
-                            <div className="pull-right">
-                                <button className="menu-list"
+                <SearchResultsInfoView app={app}/>
+                <div className="row">
+                    <div className="col-xs-6">
+                        <div className="btn-group btn-group-justified">
+                            <div className="btn-group" role="group">
+                                <button type="button" className="btn btn-lg menu-list"
                                     onClick={this._activateView.bind(this, 'list')}>
-                                    <i className="icon icon-list">
-                                    </i>
+                                    <i className="icon icon-list"></i>
                                 </button>
-                                <button className="menu-map"
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xs-6">
+                        <div className="btn-group btn-group-justified">
+                            <div className="btn-group" role="group">
+                                <button type="button" className="btn btn-lg menu-map"
                                     onClick={this._activateView.bind(this, 'map')}>
-                                    <i className="icon icon-map">
-                                    </i>
+                                    <i className="icon icon-map"></i>
                                 </button>
                             </div>
                         </div>
