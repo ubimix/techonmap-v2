@@ -28,6 +28,9 @@ var ListView = React.createClass({
                 paginationClassName="pagination pagination-sm" 
                 pageSize={pageSize}
                 index={focusedIdx}
+                buttonsNumber={3}
+                topPagination={true}
+                bottomPagination={true}
                 getItemsNumber={this._getItemsNumber}
                 renderItems={this._renderItems}
             />

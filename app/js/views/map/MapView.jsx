@@ -42,7 +42,8 @@ module.exports = React.createClass({
             app : this.props.app,
             options : mapOptions,
             onMapAdd : this._onMapAdd,
-            onMapRemove : this._onMapRemove
+            onMapRemove : this._onMapRemove,
+            style : this.props.style
         }));
     },
 

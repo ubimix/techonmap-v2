@@ -182,10 +182,12 @@ module.exports = React.createClass({
     },
 
     _renderMapView : function(){
-        if (!this._checkActiveView('map'))
-            return ;
+        var visible = this._checkActiveView('map');
+        var style = {
+            display: visible ? 'block' : 'none'
+        };
         var app = this.props.app;
-        return (<MapView app={app} className="map" ref="map" />);
+        return (<MapView app={app} className="map" ref="map" style={style}/>);
     },
     _renderMapToolbarView : function(){
         if (!this._checkActiveView('map'))
