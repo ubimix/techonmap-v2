@@ -81,13 +81,24 @@ module.exports = React.createClass({
     _renderSearchFormView : function(){
         if (!this._checkActiveView('search'))
             return ;
+        var simple = false;
+        if (simple) {
+            return this._renderSearchFormViewA();
+        } else {
+            return this._renderSearchFormViewB();
+        }
+    },
+    
+    _renderSearchFormViewA : function(){
         var app = this.props.app;
         return (
             <SearchPanel app={app}>
                 <hr />
-                <SearchResultsInfoView app={app}/>
                 <div className="row">
-                    <div className="col-xs-6 col-md-offset-1 col-md-3">
+                    <div className="col-xs-4">
+                        <SearchResultsInfoView app={app}/>
+                    </div>
+                    <div className="col-xs-4">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-list"
@@ -98,7 +109,7 @@ module.exports = React.createClass({
                             </div>
                         </div>
                     </div>
-                    <div className="col-xs-6 col-md-offset-3 col-md-3">
+                    <div className="col-xs-4">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-map"
@@ -113,7 +124,41 @@ module.exports = React.createClass({
             </SearchPanel>
         );
     },
-
+    _renderSearchFormViewB : function(){
+        var app = this.props.app;
+        return (
+            <SearchPanel app={app}>
+                <hr />
+                <div className="validate-msg text-center">
+                    {this._getLabel("filter.label.showResults")}
+                </div>
+                <div className="row">
+                    <div className="col-xs-6 col-md-offset-2 col-md-3">
+                        <div className="btn-group btn-group-justified">
+                            <div className="btn-group" role="group">
+                                <button type="button" className="btn btn-lg btn-primary menu-list"
+                                    onClick={this._activateView.bind(this, 'list')}>
+                                    <i className="icon icon-list pull-right"></i>
+                                    {this._getLabel("filter.label.btn.list") + ' '}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xs-6 col-md-offset-2 col-md-3">
+                        <div className="btn-group btn-group-justified">
+                            <div className="btn-group" role="group">
+                                <button type="button" className="btn btn-lg btn-primary menu-map"
+                                    onClick={this._activateView.bind(this, 'map')}>
+                                    <i className="icon icon-map pull-right"></i>
+                                    {this._getLabel("filter.label.btn.map") + ' '}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </SearchPanel>
+        );
+    },
     _renderSearchResultsView : function(){
         if (!this._checkActiveView('list'))
             return ;
@@ -146,7 +191,7 @@ module.exports = React.createClass({
         if (!this._checkActiveView('map'))
             return ;
         var app = this.props.app;
-        return (<LeftToolbar app={app} className="toolbar" />);
+        return (<LeftToolbar app={app} hideZoom={true} className="toolbar" />);
     },
 
     render : function() {
