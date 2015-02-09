@@ -35,7 +35,7 @@ module.exports = React.createClass({
         ev.stopPropagation();
     },
     _renderAboutMenuItem : function(){
-        var className = this._getClassName('info');
+        var className = this._getClassName('about');
         className += ' li-info';
         return (
             <li className={className}>

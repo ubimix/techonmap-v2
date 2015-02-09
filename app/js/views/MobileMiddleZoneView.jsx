@@ -66,8 +66,8 @@ module.exports = React.createClass({
             }
         });
         return (
-            <div ref="about" className="container-fluid">
-                <h2 className="text-title"></h2>
+            <div ref="about" className="container-fluid about-panel">
+                <h1 className="text-title"></h1>
                 <div className="row">
                     <div className="col-md-12 text-content">
                         
