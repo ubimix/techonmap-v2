@@ -59,7 +59,9 @@ module.exports = React.createClass({
                 left : focusPosition[0]
             });
         }
-        if (this._map && !this._map._loaded) {
+        
+        if (this._map && !this._initialized) {
+            this._initialized = true;
             // Initial map focus
             var app = this._getApp();
             var mapOptions = app.map.getMapOptions();
@@ -67,7 +69,13 @@ module.exports = React.createClass({
             var center = mapOptions.center || [ 0, 0 ];
             var latlng = L.latLng(center[1], center[0]);
             var center = L.bounds(topLeft, bottomRight).getCenter();
-            this._viewport.focusTo(latlng, center);
+            var that = this;
+            this._viewport.focusTo(latlng, center, function() {
+                that._map.fire('initialize', {
+                    zoom : zoom,
+                    center : center
+                });
+            });
         }
     },
 

@@ -57,6 +57,9 @@ module.exports = AbstractMapLayer.extend({
         app.res.addChangeListener(this._reloadData, this);
         app.res.addSelectListener(this._onSelectResource, this);
         this._map.on('zoomend', this._onZoomEnd, this);
+        this._map.once('initialize', function(){
+            this._initialized = true;
+        }, this);
     },
 
     /**
@@ -141,7 +144,7 @@ module.exports = AbstractMapLayer.extend({
     _reloadData : function() {
         var app = this._getApp();
         var data = app.res.getResources();
-        if (data && data.length) {
+        if (this._initialized && data && data.length) {
             var bbox = ResourceUtilsMixin.getBoundingBox(data);
             var sw = L.GeoJSON.coordsToLatLng(bbox[0]);
             var ne = L.GeoJSON.coordsToLatLng(bbox[1]);
