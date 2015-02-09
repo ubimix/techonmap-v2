@@ -341,7 +341,12 @@
 }
 
 &.mobile-mode .middle-zone {
-    top: @top-height-mobile + @social-height-mobile; 
+    top: @top-height-mobile + @social-height-mobile;
+    .toolbar {
+        > .info-blocks {
+            top: @panel-margin;
+        }
+    }
     .search-results {
         .fit();
         width : 100%;

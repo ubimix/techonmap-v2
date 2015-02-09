@@ -184,7 +184,7 @@ module.exports = React.createClass({
     _renderMapView : function(){
         var visible = this._checkActiveView('map');
         var style = {
-            display: visible ? 'block' : 'none'
+            visibility: visible ? 'visible' : 'hidden'
         };
         var app = this.props.app;
         return (<MapView app={app} className="map" ref="map" style={style}/>);
