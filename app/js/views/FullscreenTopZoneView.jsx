@@ -144,10 +144,18 @@ module.exports = React.createClass({
           footer : footer,
           onOpen : function(dialog) {
               var node = dialog.getDOMNode();
+              var articles = [];
               DomUtils.select(node, 'article', function(article){
+                  articles.push(article);
                   DomUtils.select(article, 'h2', function(header){
                       header.addEventListener('click', function(){
-                          DomUtils._toggleClass(article, 'open');
+                          _.each(articles, function(a) {
+                              if (a === article) {
+                                  DomUtils._toggleClass(article, 'open');
+                              } else {
+                                  DomUtils._removeClass(a, 'open');
+                              }
+                          });
                       });
                   });
               });

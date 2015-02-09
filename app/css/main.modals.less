@@ -85,12 +85,13 @@
                         &::before { content: " + "; }
                         cursor: pointer;
                         font-weight: 900;
+                        color: lighten(@gray, 10%);
                     }
                     &.open{ 
                         section { display : block; }
                         h2 {
-                            &::before { content : " - " } 
-                            font-weight: 300;
+                            &::before { content : " - " }
+                           color: darken(@gray, 10%);
                         }
                     }
                 }
