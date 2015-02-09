@@ -27,6 +27,13 @@ module.exports = React.createClass({
     _newState : function(options){
         return _.extend({ showSearchMenu : false }, this.state, options);
     },
+    
+    _showAboutInfo : function(ev) {
+        var app = this.props.app;
+        app.ui.focusView('about');
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
     _renderAboutMenuItem : function(){
         var className = this._getClassName('info');
         className += ' li-info';

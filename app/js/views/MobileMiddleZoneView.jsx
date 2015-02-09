@@ -3,6 +3,7 @@ var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var PanelSizeTracker = require('./utils/PanelSizeTracker');
+var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var MapView = require('./map/MapView.jsx');
 var LeftToolbar = require('./LeftToolbar.jsx');
 var I18NMixin = require('./utils/I18NMixin');
@@ -14,7 +15,7 @@ var ViewActivationMixin = require('./utils/ViewActivationMixin');
 
 module.exports = React.createClass({
     displayName : 'MobileMiddleZoneView',
-    mixins : [ DomUtils, ViewActivationMixin, I18NMixin ],
+    mixins : [ DomUtils, ViewActivationMixin, ContentPopupMixin, I18NMixin ],
     _onClick : function(ev){
         ev.preventDefault();
         ev.stopPropagation();
@@ -40,6 +41,41 @@ module.exports = React.createClass({
         var app = this.props.app;
         var activeKey = app.ui.getFocusedViewKey();
         return key === activeKey;
+    },
+    
+    _renderAboutPanel : function(){
+        if (!this._checkActiveView('about'))
+            return ;
+        var app = this.props.app;
+        var that = this;
+        that._loadContent({ 
+            url: 'about.md',
+        }).then(function(obj) {
+            var div = that.refs.about.getDOMNode();
+            
+            var title = obj.getAsHtml('title');
+            var titlePanel = div.querySelector('.text-title');
+            if (title && titlePanel) {
+                titlePanel.innerHTML = title;
+            }
+
+            var content = obj.getContentAsHtml();
+            var contentPanel = div.querySelector('.text-content');
+            if (content && contentPanel){
+                contentPanel.innerHTML = content;
+            }
+        });
+        return (
+            <div ref="about" className="container-fluid">
+                <h2 className="text-title"></h2>
+                <div className="row">
+                    <div className="col-md-12 text-content">
+                        
+                    </div>
+                </div>
+            </div>
+        );
+        
     },
     
     _renderSearchFormView : function(){
@@ -118,6 +154,7 @@ module.exports = React.createClass({
         var viewKey = app.ui.getFocusedViewKey();
         return (
             <div className={this.props.className}>
+                {this._renderAboutPanel()}
                 {this._renderSearchFormView()}
                 {this._renderSearchResultsView()}
                 {this._renderMapToolbarView()}

@@ -4,12 +4,19 @@ var React = require('react');
 var PopupPanel = require('./PopupPanel.jsx');
 
 module.exports = {
-    _showContentDialog : function(options) {
-        var app = this.getApp();
-        app.content.loadContent(options).then(function(obj) {
+
+    _loadContent : function(options){
+        var that = this;
+        var app = that.getApp();
+        return app.content.loadContent(options);
+    },
+        
+    _loadFormattedViews : function(options) {
+        var that = this;
+        return that._loadContent(options).then(function(obj) {
             var title = obj.getAsHtml('title');
             var content = obj.getContentAsHtml();
-            var footer = options.footer || obj.getAsHtml('footer');
+            var footer = options.footer || obj.getAsHtml('footer');
             var titleElm = React.DOM.span({
                 dangerouslySetInnerHTML : {
                     __html : title
@@ -30,10 +37,22 @@ module.exports = {
             } else {
                 footerElm = footer;
             }
+            return {
+                titleElm : titleElm,
+                bodyElm : bodyElm,
+                footerElm : footerElm,
+                obj : obj
+            };
+        });
+    },
+
+    _showContentDialog : function(options) {
+        var that = this;
+        return that._loadFormattedViews(options).then(function(views) {
             PopupPanel.openPopup({
-                title : titleElm,
-                body : bodyElm,
-                footer : footerElm,
+                title : views.titleElm,
+                body : views.bodyElm,
+                footer : views.footerElm,
                 onOpen : options.onOpen,
                 onClose : options.onClose
             });
