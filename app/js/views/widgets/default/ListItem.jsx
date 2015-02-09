@@ -70,18 +70,23 @@ module.exports = React.createClass({
         var iconClassName = 'icon icon-'+types[resourceType];
         className += resourceType;
         return (
-            <div className={className}
-                key={resourceId}
+            <div className={className} key={resourceId}
                 onClick={this.props.onClick}>
                 <div className="media-left">
                     <div className={pictoClassName}>
-                        <i className={iconClassName}></i>
+                        <a href="#" onClick={this.props.onClick}>
+                            <i className={iconClassName}></i>
+                        </a>
                     </div>
                 </div>
                 <div className="media-body">
                   {toolbar}
                   <div className="media-heading">
-                      <h4>{this._renderName()}</h4>
+                      <h4>
+                          <a href="#" onClick={this.props.onClick}>
+                              {this._renderName()}
+                          </a>
+                      </h4>
                   </div>
                   {this._renderShortDescription(resourceType)}
                   {this._renderTags(true)}

@@ -6,8 +6,10 @@ var ViewActivationMixin = {
     _activateView : function(key, ev) {
         var app = this.props.app;
         app.ui.focusView(key);
-        ev.preventDefault();
-        ev.stopPropagation();
+        if (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+        }
     }
 };
 

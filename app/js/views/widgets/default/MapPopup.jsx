@@ -16,12 +16,24 @@ module.exports = React.createClass({
         var app = this.getApp();
         return app.res.getResourceId(this.props.resource);
     },
+    _onClick : function(ev){
+        var that = this;
+        var app = that.getApp();
+        var id = that._getResourceId();
+        app.res.selectResource({
+            resourceId : id
+        }).then(function(){
+            app.ui.focusView('list');
+        });        
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
     render: function() {
         var resourceId = this._getResourceId();
         var resourceType = this._getResourceType();
         return (
             <div key={resourceId}>
-                <a href="#" onClick={this._activateView.bind(this, 'list')}>
+                <a href="#" onClick={this._onClick}>
                     {this._renderName()}
                 </a>
                 <div>{this._renderTags(true)}</div>
