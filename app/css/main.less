@@ -22,6 +22,7 @@
 @menu-icon-size: 1.2em;
 @menu-item-size-inline: 0.8em;
 
+@closable-tag-size: 1.1em;
 .text-size(@font-size:1em){
     font-size: @font-size;
     vertical-align: middle;
@@ -31,7 +32,7 @@
     display: inline-block;
     white-space: nowrap;
     color: @gray;
-    .text-size(1.1em);
+    .text-size(@closable-tag-size);
     &.selected,
     &.none {
         font-weight: bold;
@@ -53,10 +54,18 @@
 .tag {
     .closable-tag;
     .text-size(0.9em);
+    color : @red-main;
+    margin-right: 0.5em; 
     &::before {
         content: " #";
     }
-    &.none::before { content : ''; }
+    &.none {
+        color: @gray;
+        .text-size(@closable-tag-size);
+    }
+    &.none::before {
+        content : '';
+    }
 }
 a:hover .tag, a:hover .tag * { color : black; }
 .tags {
@@ -64,7 +73,7 @@ a:hover .tag, a:hover .tag * { color : black; }
     .tag { }
 }
 .tags-inline { 
-    .tag {} 
+    .tag { } 
 }
 
 .category {

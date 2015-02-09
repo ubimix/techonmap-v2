@@ -51,23 +51,23 @@ module.exports = React.createClass({
                 <hr />
                 <SearchResultsInfoView app={app}/>
                 <div className="row">
-                    <div className="col-xs-6">
+                    <div className="col-xs-6 col-md-offset-1 col-md-3">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-list"
                                     onClick={this._activateView.bind(this, 'list')}>
-                                    {this._getLabel("filter.label.btn.list")}
+                                    {this._getLabel("filter.label.btn.list") + ' '}
                                     <i className="icon icon-list"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className="col-xs-6 col-md-offset-3 col-md-3">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-map"
                                     onClick={this._activateView.bind(this, 'map')}>
-                                    {this._getLabel("filter.label.btn.map")}
+                                    {this._getLabel("filter.label.btn.map") + ' '}
                                     <i className="icon icon-map"></i>
                                 </button>
                             </div>
