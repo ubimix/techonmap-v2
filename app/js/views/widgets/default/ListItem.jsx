@@ -84,7 +84,7 @@ module.exports = React.createClass({
                       <h4>{this._renderName()}</h4>
                   </div>
                   {this._renderShortDescription(resourceType)}
-                  {this._renderTags()}
+                  {this._renderTags(true)}
                   {this._renderDescription(selected)}
                   {this._renderAddress()}
                   {this._renderSocialNetworks(selected)}

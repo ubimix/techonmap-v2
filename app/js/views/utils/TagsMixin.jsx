@@ -13,9 +13,9 @@ module.exports =  {
         ev.stopPropagation();
         ev.preventDefault();
     },
-    _renderTags : function(){
+    _renderTags : function(hideEmpty){
         var tags = ResourceUtils.getResourceTags(this.props.resource);
-        return this._renderTagList(tags);
+        return this._renderTagList(tags, hideEmpty);
     },
     _renderTag : function(tag){
         var app = this.props.app;

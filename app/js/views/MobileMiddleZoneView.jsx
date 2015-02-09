@@ -5,6 +5,7 @@ var DomUtils = require('./utils/DomUtils');
 var PanelSizeTracker = require('./utils/PanelSizeTracker');
 var MapView = require('./map/MapView.jsx');
 var LeftToolbar = require('./LeftToolbar.jsx');
+var I18NMixin = require('./utils/I18NMixin');
 var SearchResultsListView = require('./search/SearchResultsListView.jsx');
 var SearchResultsInfoView = require('./search/SearchResultsInfoView.jsx');
 var SearchResultsOrderView = require('./search/SearchResultsOrderView.jsx');
@@ -13,10 +14,13 @@ var ViewActivationMixin = require('./utils/ViewActivationMixin');
 
 module.exports = React.createClass({
     displayName : 'MobileMiddleZoneView',
-    mixins : [ DomUtils, ViewActivationMixin ],
+    mixins : [ DomUtils, ViewActivationMixin, I18NMixin ],
     _onClick : function(ev){
         ev.preventDefault();
         ev.stopPropagation();
+    },
+    getApp : function() {
+        return this.props.app;
     },
     componentWillMount : function(){
         this._updateMapViewport = _.debounce(this._updateMapViewport, 100);  
@@ -44,13 +48,15 @@ module.exports = React.createClass({
         var app = this.props.app;
         return (
             <SearchPanel app={app}>
+                <hr />
                 <SearchResultsInfoView app={app}/>
                 <div className="row">
                     <div className="col-xs-6">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
-                                <button type="button" className="btn btn-lg menu-list"
+                                <button type="button" className="btn btn-lg btn-primary menu-list"
                                     onClick={this._activateView.bind(this, 'list')}>
+                                    {this._getLabel("filter.label.btn.list")}
                                     <i className="icon icon-list"></i>
                                 </button>
                             </div>
@@ -59,8 +65,9 @@ module.exports = React.createClass({
                     <div className="col-xs-6">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
-                                <button type="button" className="btn btn-lg menu-map"
+                                <button type="button" className="btn btn-lg btn-primary menu-map"
                                     onClick={this._activateView.bind(this, 'map')}>
+                                    {this._getLabel("filter.label.btn.map")}
                                     <i className="icon icon-map"></i>
                                 </button>
                             </div>
