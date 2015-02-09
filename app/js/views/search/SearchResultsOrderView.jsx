@@ -36,30 +36,28 @@ module.exports = React.createClass({
         ev.stopPropagation();
     },
     
-    _getArrow : function(val){
-        if (val === 0)
-            return '';
-        var className = val > 0 
-            ? 'glyphicon glyphicon-arrow-down'
-            : 'glyphicon glyphicon-arrow-up';   
-        return (<i className={className} />);
+    _getSortLabel : function(key, val) {
+        if (val > 0) {
+            key += '.inc';
+        } else if (val < 0) {
+            key += '.dec';
+        }
+        return this._getLabel(key);
     },
     render : function() {
         var nameActive = this.state.sortByName != 0 ? 'active' : '';
         var dateActive = this.state.sortByDate != 0 ? 'active' : '';
         return (
-            <ul className="search-result-order nav nav-tabs">
+            <ul className="search-results-order nav nav-tabs">
                 <li><span>{this._getLabel('search.label.sort')}</span></li>
                 <li className={nameActive}>
                     <a href="#" onClick={this._sortByName}>
-                        {this._getLabel('search.label.sort.name')}
-                        {this._getArrow(this.state.sortByName)}
+                        {this._getSortLabel('search.label.sort.name', this.state.sortByName)}
                     </a>
                 </li>
                 <li className={dateActive}>
                     <a href="#" onClick={this._sortByDate}>
-                        {this._getLabel('search.label.sort.date')}
-                        {this._getArrow(this.state.sortByDate)}
+                        {this._getSortLabel('search.label.sort.date', this.state.sortByDate)}
                     </a>
                 </li>
             </ul>

@@ -112,7 +112,7 @@ var SearchPanel = React.createClass({
                <h3 className="panel-title">
                    {this._getLabel('search.panel.label.filters')}
                </h3>,
-               <div className="filter-items">
+               <div className="search-filter-items">
                    {this._renderMenuItems(
                        this._renderMenuRef(
                                'search.panel.label.zones',

@@ -84,13 +84,13 @@ module.exports = React.createClass({
         var app = this.props.app;
         return (
             <div className="search-results">
-                <div className="container-fluid">
+                <div className="container-fluid search-results-info">
                     <div className="row">
-                        <div className="col-sm-4">
+                        <div className="col-xs-6">
                             <SearchResultsInfoView app={app} className="stats" 
                                 open={true} />
                         </div>
-                        <div className="col-sm-8">
+                        <div className="col-xs-6">
                             <SearchResultsOrderView app={app} />
                         </div>
                     </div>

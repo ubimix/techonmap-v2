@@ -5,10 +5,6 @@
     // Individual panels in the dropdown
     .panel-group {
        margin: 0.5em 0px;
-       .filter-choice {
-           // margin-top: 0.2em;
-       	   padding: 0.1em 0px;
-       }
        > .panel {
             margin: 0;
             .box-shadow(none);
@@ -76,11 +72,20 @@
                 }
             }
         }
-        .filter-items {
+        .search-filter-choice {
+           // margin-top: 0.2em;
+           padding: 0.1em 0px;
+           height: 2.2em;
+        }
+        .tags .search-filter-choice {
+           height: 1.8em;
+        }
+        .search-filter-items {
             .list-group {
                 border-bottom: none;
                 .list-group-item {
                     font-size: 1em;
+                    height: 2.2em;
                 }
             }
         }
@@ -131,9 +136,9 @@
     }
     .count {
         font-size: 1.2em;
-        .current { color: @dark-gray; padding: 0em 0.1em; font-weight: 300;}
+        .current { color: @dark-gray; padding: 0em 0.1em; font-weight: 300; font-size: 1.1em;}
         .separator { color: @red-main; padding: 0em;  font-weight: 100;}
-        .total { color: @red-main; padding: 0em 0.1em; font-weight: 800;}
+        .total { color: @red-main; padding: 0em 0.1em; font-weight: 800; font-size: 1.2em; }
     }
 }
 

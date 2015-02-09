@@ -60,7 +60,7 @@ module.exports = React.createClass({
                 className += ' label-empty';
             }
             return (
-                <div className="row filter-choice" key={info.tag}>
+                <div className="row search-filter-choice" key={info.tag}>
                     <div className="col-xs-10">
                         {this._renderTag(info.tag)}
                     </div>

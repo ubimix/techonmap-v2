@@ -20,7 +20,7 @@ module.exports = React.createClass({
         this.setState(this._newState(options));
     },
     _renderSwitcher : function(){
-        var iconClassName = this.props.open
+        var iconClassName = this.state.showList
         ? "chevron chevron-down"
         : "chevron chevron-up";
         return (

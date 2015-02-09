@@ -34,7 +34,7 @@ module.exports = React.createClass({
         return _.map(list, function(info) {
             var stats = info.count;
             return (
-                <div className="row filter-choice">
+                <div className="row search-filter-choice">
                     <div className="col-xs-10">
                         {this._renderTag(info.tag)}
                     </div>

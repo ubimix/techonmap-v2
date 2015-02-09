@@ -24,7 +24,7 @@ var ListView = React.createClass({
         var pageSize = 15;
         return (
             <PaginatedListView
-                className="list-group" 
+                className="list-group search-results-list" 
                 paginationClassName="pagination pagination-sm" 
                 pageSize={pageSize}
                 index={focusedIdx}

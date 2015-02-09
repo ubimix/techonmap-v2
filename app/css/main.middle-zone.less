@@ -144,35 +144,6 @@
         }
     }
     
-    .nav.search-result-order {
-        border-bottom: none;
-        > li {
-            > * {
-                font-size: smaller;
-                height: @nav-size;
-                line-height: @nav-size;
-                padding: 0 0.3em;
-                border-top: none;
-                border-radius: 0;
-                color: @dark-gray;
-                
-            }
-            &.active > * {
-                color: @red-main;
-                font-weight: bold;
-                .glyphicon {
-                    padding-left: 0.5em;
-                    font-size: 0.6em;
-                }
-                
-                cursor: pointer;
-                &:focus {
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-
     .search-results {
         .fit(@panel-margin, 1%, 0, auto);
         .box-shadow();
@@ -181,8 +152,37 @@
         display: block;
         background-color: white;
         overflow: hidden;
-        
-       > .list-group {
+
+
+        .search-results-order {
+            border-bottom: none;
+            > li {
+                > * {
+                    font-size: smaller;
+                    height: @nav-size;
+                    line-height: @nav-size;
+                    padding: 0 0.3em;
+                    border-top: none;
+                    border-radius: 0;
+                    color: @dark-gray;
+                    
+                }
+                &.active > * {
+                    color: @red-main;
+                    font-weight: bold;
+                    .glyphicon {
+                        padding-left: 0.5em;
+                        font-size: 0.6em;
+                    }
+                    
+                    cursor: pointer;
+                    &:focus {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }        
+       .search-results-list {
             .fit(@bar-size + @nav-size + 2);
             overflow-x: hidden;
             overflow-y: auto;
@@ -313,7 +313,7 @@
              > .nav {
                 display: none; 
              }
-            .list-group {
+            .search-results-list {
                 display: none; 
             }
         }
@@ -343,8 +343,15 @@
         width : 100%;
         display: block;
         background-color: white;
-        > .list-group {
-            top: 30px;
+//        background-color: red;
+        .search-results-info {
+            height: 3em;
+        }
+        .search-results-order {
+            padding: 0.5em 0px;
+        }
+        .search-results-list {
+            top: 3em;
         }
     }
 }
