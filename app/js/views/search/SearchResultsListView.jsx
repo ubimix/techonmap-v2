@@ -98,6 +98,7 @@ var ListView = React.createClass({
     _renderItem : function(resource, pos) {
         var app = this.props.app;
         var type = app.res.getResourceType(resource);
+        var that = this;
         var view = app.viewManager.newView('listItem', type, {
             app : app,
             resource : resource,
@@ -107,6 +108,9 @@ var ListView = React.createClass({
                 app.res.selectResource({
                     resourceId : id
                 });
+                if (that.props.onResourceClick) {
+                    that.props.onResourceClick(resource);
+                }
             }
         });
         var result = view;

@@ -162,6 +162,7 @@ module.exports = React.createClass({
     _renderSearchResultsView : function(){
         if (!this._checkActiveView('list'))
             return ;
+        var that = this;
         var app = this.props.app;
         return (
             <div className="search-results">
@@ -176,7 +177,15 @@ module.exports = React.createClass({
                         </div>
                     </div>
                 </div>
-                <SearchResultsListView app={app} />
+                <SearchResultsListView app={app}
+                    onResourceClick={function(resource){
+                    var id = app.res.getResourceId(resource);
+                    if (app.res.isSelectedResource(id)) {
+                        setTimeout(function(){
+                            app.ui.focusView('map');
+                        }, 1);
+                    }
+                }.bind(this)}/>
             </div>
         );
     },
@@ -212,7 +221,7 @@ module.exports = React.createClass({
 
     _updateMapViewport : function(){
         var mapPanel = this.refs.map;
-        if (!mapPanel)
+        if (!mapPanel || !this.isMounted())
             return ;
         
         var mapPanelElm = mapPanel.getDOMNode();

@@ -41,7 +41,7 @@ module.exports = React.createClass({
             return (
                 <div className="row search-filter-choice" key={key}>
                     <div className="col-xs-10">
-                        {this._renderZone(zone)}
+                        <a href="#">{this._renderZone(zone)}</a>
                     </div>
                     <div className="col-xs-2">
                         <span className={className}>{stats}</span>

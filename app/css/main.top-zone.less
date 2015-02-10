@@ -128,7 +128,6 @@
     }
 }
 
-
 form[role="search"] {
     > .input-group {
         background-color: white;
@@ -151,6 +150,32 @@ form[role="search"] {
     }
 }
 
+
+@media(max-width: 768px) {
+    .top-zone {
+        ul.top-navigation {
+            > li {
+                width: inherit;
+                > a {
+                    text-align: left;
+                    margin: 0px;
+                    padding: 0.3em;
+                    > i.icon {
+                        .icon(1em);
+                    }
+                    > span.label {
+                        display: inline-block;
+                        font-size: 1em;
+                        font-weight: normal;
+                        line-height: 1;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}
+         
 
 &.mobile-mode .top-zone {
     top: @social-height-mobile;

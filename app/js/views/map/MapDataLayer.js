@@ -209,7 +209,7 @@ module.exports = AbstractMapLayer.extend({
         }, options));
         var popup;
         if (view) {
-            var popupElement = L.DomUtil.create('div');
+            var popupElement = L.DomUtil.create('div', 'popup-panel');
             React.render(view, popupElement);
             popup = L.popup();
             popup.setContent(popupElement);

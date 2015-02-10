@@ -71,6 +71,8 @@ module.exports = React.createClass({
         ev.preventDefault();
     },
     _closeOpenSearchBlock : function(ev) {
+        if (!this.refs.search)
+            return ;
         var elm = ev.target;
         var searchBlock = this.refs.search.getDOMNode();
         if (!DomUtils._hasParent(elm, searchBlock)) {
@@ -100,7 +102,7 @@ module.exports = React.createClass({
         if (this.state.showSearchMenu) {
             var app = this.getApp();
             panel = (
-              <ul className="dropdown-menu" role="menu">
+              <ul className="dropdown-menu dropdown" role="menu">
                   <li>
                       <SearchPanel app={app}></SearchPanel>
                   </li>
@@ -311,34 +313,35 @@ module.exports = React.createClass({
             </li>
         );
     },
-
-    render : function() {       
+    
+    render : function(){
         var app = this.props.app;
-        var className = this.props.className + " navbar navbar-default";
+        var className = (this.props.className || '') + ' navbar navbar-default';
         return (
-            <nav className={className} role="navigation">
-              <div className="container-fluid">
+             <nav className={className}>
+                <div className="container-fluid">
                   <div className="row">
-                      <div className="col-xs-3">
+                      <div className="col-xs-9">
                           <div className="navbar-header">
-                              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
+                              <button type="button" className="navbar-toggle"
+                                  onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
+                                  <span className="sr-only"></span>
+                                  <span className="icon-bar"></span>
+                                  <span className="icon-bar"></span>
+                                  <span className="icon-bar"></span>
                               </button>
                               <a className="navbar-brand" href="#"><img src="images/banner.png" /></a>
                           </div>
-                      </div>
-                      
-                      <div className="col-xs-6">
-                          <ul className="nav navbar-nav navbar-right top-navigation">
-                              {this._renderAboutMenuItem()}
-                              {this._renderHelpMenuItem()}
-                              {this._renderShareMenuItem()}
-                              {this._renderExportMenuItem()}
-                              {this._renderHeatmapMenuItem()}
-                              {this._renderSearchMenuItem()}
-                          </ul>
+                          <div className="navbar-collapse collapse" ref="navbar">
+                            <ul className="nav navbar-nav navbar-right top-navigation">
+                                {this._renderAboutMenuItem()}
+                                {this._renderHelpMenuItem()}
+                                {this._renderShareMenuItem()}
+                                {this._renderExportMenuItem()}
+                                {this._renderHeatmapMenuItem()}
+                                {this._renderSearchMenuItem()}
+                            </ul>
+                          </div>
                       </div>
                       <div className="col-xs-3">
                           <div className="navbar-form navbar-right">
@@ -349,6 +352,47 @@ module.exports = React.createClass({
                                   </button>
                               </div>
                           </div>
+                      </div>
+                  </div>
+              </div>
+          </nav>                
+        );
+    },
+
+    render1 : function() {       
+        var app = this.props.app;
+        var className = this.props.className + " navbar navbar-default";
+        return (
+            <nav className={className} role="navigation">
+              <div className="container-fluid">
+                  <div className="row">
+                      <div className="col-xs-3">
+                          <div className="navbar-header">
+                              <a className="navbar-brand" href="#">
+                                  <img src="images/banner.png" />
+                              </a>
+                          </div>
+                      </div>
+                      <div className="col-xs-6">
+                          <button type="button"
+                                  className="navbar-toggle collapsed"
+                                  data-toggle="collapse"
+                                  onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
+                              <span className="icon-bar"></span>
+                              <span className="icon-bar"></span>
+                              <span className="icon-bar"></span>
+                          </button>
+                          <ul className="nav navbar-nav navbar-right top-navigation" ref="navbar">
+                              {this._renderAboutMenuItem()}
+                              {this._renderHelpMenuItem()}
+                              {this._renderShareMenuItem()}
+                              {this._renderExportMenuItem()}
+                              {this._renderHeatmapMenuItem()}
+                              {this._renderSearchMenuItem()}
+                          </ul>
+                      </div>
+                      <div className="col-xs-3">
+                          
                       </div>
                   </div>
               </div>

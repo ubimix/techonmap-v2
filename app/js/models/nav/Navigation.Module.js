@@ -355,7 +355,7 @@ module.exports = Api.extend({}, ResourceUtils, {
         // FIXME: clean it up
         var path = options.useQuery ? this._serializeSearchCriteria({
             embedMode : options.embedMode
-        }) : '?embedMode=' + (options.embedMode || '') ;
+        }) : '?embedMode=' + (options.embedMode || '');
         var url = this._router.getFullUrl(path);
         return url;
     },
@@ -384,7 +384,7 @@ module.exports = Api.extend({}, ResourceUtils, {
     _prepareUrlQuery : function(criteria) {
         criteria = criteria || {};
         var query = {};
-        _.each([ 'tags', 'category', 'postcode', 'q' ], function(key) {
+        _.each([ 'tags', 'category', 'postcode', 'q', 'mode' ], function(key) {
             var val = this.prepareFilterValues(criteria[key]);
             if (!val.length)
                 return;

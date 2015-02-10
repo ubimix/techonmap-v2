@@ -11,7 +11,8 @@ module.exports = Api.extend({
      */
     _initFields : function() {
         var app = this.options.app;
-        this._mode = app.options.mode || 'full';
+        this._initialMode = app.options.mode || 'full';
+        this._mode = this._initialMode;
         this._viewKey = 'map';
     },
 
@@ -36,7 +37,6 @@ module.exports = Api.extend({
     },
 
     /** Focus a view with the specified key. */
-
     focusView : function(key) {
         return this.doFocusView({
             viewKey : key || 'map'
@@ -64,9 +64,8 @@ module.exports = Api.extend({
 
     /** Activates the mobile mode. */
     toggleMobileMode : function() {
-        var newMode = this.isMobileMode() ? 'full' : 'mobile';
         return this.setScreenMode({
-            mode : newMode
+            mode : this.isTabletMode() ? this._initialMode : 'mobile'
         });
     },
 
@@ -76,6 +75,31 @@ module.exports = Api.extend({
             mode : 'mobile'
         });
     },
+
+    // ------------------
+
+    /**
+     * Returns <code>true</code> if this application is in mobile mode.
+     */
+    isTabletMode : function() {
+        return this._mode === 'tablet';
+    },
+
+    /** Activates tablet mode. */
+    toggleTabletMode : function() {
+        return this.setScreenMode({
+            mode : this.isTabletMode() ? this._initialMode : 'tablet'
+        });
+    },
+
+    /** Activates the tablet mode. */
+    setTabletMode : function() {
+        return this.setScreenMode({
+            mode : 'tablet'
+        });
+    },
+
+    // ------------------
 
     /**
      * Returns <code>true</code> if the application is currently in the full
@@ -92,11 +116,13 @@ module.exports = Api.extend({
         });
     },
 
+    // ------------------
+
     /** Updates the internal field defining the current visualization mode. */
     setScreenMode : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            that._mode = intent.params.mode || 'full';
+            that._mode = intent.params.mode || this._initialMode;
         })).then(function() {
             that.notify();
         });
