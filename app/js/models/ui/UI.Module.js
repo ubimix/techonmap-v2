@@ -65,7 +65,7 @@ module.exports = Api.extend({
     /** Activates the mobile mode. */
     toggleMobileMode : function() {
         return this.setScreenMode({
-            mode : this.isTabletMode() ? this._initialMode : 'mobile'
+            mode : this.isMobileMode() ? this._initialMode : 'mobile'
         });
     },
 

@@ -17,9 +17,13 @@ module.exports = React.createClass({
         return ( 
           <div className="social">
               <div className="pull-right follow">
-                  <a href="https://twitter.com/TechOnMap" target="_blank" onClick={this._toggleMode}>
+                  <a href="https://twitter.com/TechOnMap" target="_blank">
                       Suivez-nous
                   </a>
+                  | 
+                  <a href="#" onClick={this._toggleMode} style={{backgroundColor: 'white', color: 'black'}}>
+                      {this.props.app.ui.isMobileMode() ? ' FULL ' : ' MOB ' }
+                  </a>    
               </div>
               <div className="left">
                   <a href="https://twitter.com/TechOnMap" className="lastTweetAuthor">
