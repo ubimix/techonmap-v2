@@ -40,10 +40,16 @@ module.exports = React.createClass({
                 restStats[tag] = count;
             }
         });
+        
+        var key = category.key;
+        key = key.toLowerCase();
+        var categoryStats = stats.categories[key] || 0;
+        
         return _.extend({
             showExtendedTags : false
         }, this.state, {
             category : category,
+            categoryStats : categoryStats,
             fullStats : fullStats,
             stats : restStats,
             filterStats : filterStats
@@ -134,12 +140,16 @@ module.exports = React.createClass({
                 list.push(otherTags);
             }
         }
+        var className = 'label label-default pull-right';
+        if (!stats) {
+            className += ' label-empty';
+        }
+        var stats = this.state.categoryStats;
         return (
             <div>
                 <div className="header">
-                    <a href="#">
-                        {this._renderCategory(this.state.category, { onClick : this._onExit })}
-                    </a>
+                    <span className={className}>{stats}</span>
+                    <a href="#">{this._renderCategory(this.state.category, { onClick : this._onExit })}</a>
                 </div>
                 {this._renderTagStats(this.state.filterStats, false)}
                 {list}
