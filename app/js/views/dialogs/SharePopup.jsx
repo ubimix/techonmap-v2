@@ -6,7 +6,7 @@ var _ = require('underscore');
 var React = require('react');
 var Mosaic = require('mosaic-commons');
 var I18NMixin = require('../utils/I18NMixin');
-var PopupPanel = require('../utils/PopupPanel.jsx');
+var PopupPanel = require('mosaic-core').React.PopupPanel;
 var ContentPopupMixin = require('../utils/ContentPopupMixin');
 var ShareConfigPanel = require('./ShareConfigPanel.jsx');
 

@@ -1,7 +1,7 @@
 'use strict';
 var _ = require('underscore');
 var React = require('react');
-var PopupPanel = require('./PopupPanel.jsx');
+var PopupPanel = require('mosaic-core').React.PopupPanel;
 
 module.exports = {
 

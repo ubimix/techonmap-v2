@@ -3,7 +3,7 @@
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
-var PopupPanel = require('./utils/PopupPanel.jsx');
+var PopupPanel = require('mosaic-core').React.PopupPanel;
 var I18NMixin = require('./utils/I18NMixin');
 
 module.exports = React.createClass({

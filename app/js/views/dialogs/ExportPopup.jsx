@@ -7,9 +7,9 @@ var React = require('react');
 var Mosaic = require('mosaic-commons');
 var DomUtils = require('../utils/DomUtils');
 var I18NMixin = require('../utils/I18NMixin');
-var PopupPanel = require('../utils/PopupPanel.jsx');
 var ContentPopupMixin = require('../utils/ContentPopupMixin');
 var ExportTypeSelector = require('./ExportTypeSelector.jsx');
+var PopupPanel = require('mosaic-core').React.PopupPanel;
 
 var FORMAT_CSV = 'csv';
 var FORMAT_JSON = 'json';

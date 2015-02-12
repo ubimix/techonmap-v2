@@ -2,7 +2,6 @@
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
-var PanelSizeTracker = require('./utils/PanelSizeTracker');
 var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var MapView = require('./map/MapView.jsx');
 var LeftToolbar = require('./LeftToolbar.jsx');

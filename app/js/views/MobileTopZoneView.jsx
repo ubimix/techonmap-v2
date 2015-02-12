@@ -9,7 +9,7 @@ var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var SearchPanel = require('./search/SearchPanel.jsx');
 var SharePopup = require('./dialogs/SharePopup.jsx');
 var ExportPopup = require('./dialogs/ExportPopup.jsx');
-var PopupPanel = require('./utils/PopupPanel.jsx');
+var PopupPanel = require('mosaic-core').React.PopupPanel;
 
 module.exports = React.createClass({
     displayName : 'MobileTopZoneView',
