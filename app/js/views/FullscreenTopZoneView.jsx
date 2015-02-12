@@ -330,7 +330,9 @@ module.exports = React.createClass({
                                   <span className="icon-bar"></span>
                                   <span className="icon-bar"></span>
                               </button>
-                              <a className="navbar-brand" href="#"><img src="images/banner.png" /></a>
+                              <a className="navbar-brand" href="#">
+                                  <img src="images/logo-01.svg" />
+                              </a>
                           </div>
                           <div className="navbar-collapse collapse" ref="navbar">
                             <ul className="nav navbar-nav navbar-right top-navigation">
@@ -369,7 +371,7 @@ module.exports = React.createClass({
                       <div className="col-xs-3">
                           <div className="navbar-header">
                               <a className="navbar-brand" href="#">
-                                  <img src="images/banner.png" />
+                                  <img src="images/logo-01.svg" />
                               </a>
                           </div>
                       </div>

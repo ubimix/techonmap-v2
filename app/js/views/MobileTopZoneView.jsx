@@ -104,7 +104,9 @@ module.exports = React.createClass({
                   <div className="row">
                       <div className="col-xs-6">
                           <div className="navbar-header">
-                              <a className="navbar-brand" href="#"><img src="images/banner.png" /></a>
+                              <a className="navbar-brand" href="#">
+                                  <img src="images/logo-01.svg" />
+                              </a>
                           </div>
                       </div>
                       <div className="col-xs-6">
