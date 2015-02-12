@@ -5,12 +5,12 @@ var PopupPanel = require('mosaic-core').React.PopupPanel;
 
 module.exports = {
 
-    _loadContent : function(options){
+    _loadContent : function(options) {
         var that = this;
         var app = that.getApp();
         return app.content.loadContent(options);
     },
-        
+
     _loadFormattedViews : function(options) {
         var that = this;
         return that._loadContent(options).then(function(obj) {
@@ -54,7 +54,8 @@ module.exports = {
                 body : views.bodyElm,
                 footer : views.footerElm,
                 onOpen : options.onOpen,
-                onClose : options.onClose
+                onClose : options.onClose,
+                verticalMargin : that.props.margin || 40
             });
         });
     },

@@ -165,7 +165,8 @@ var ExportPopup = Mosaic.Class.extend(I18NMixin, ContentPopupMixin, {
         PopupPanel.openPopup({
             title : title,
             body : this._panel,
-            footer : footerElm
+            footer : footerElm,
+            verticalMargin : this.options.margin || 40
         });
 
     },

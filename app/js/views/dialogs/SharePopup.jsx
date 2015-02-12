@@ -72,7 +72,8 @@ var SharePopup = Mosaic.Class.extend(I18NMixin, Mosaic.Events.prototype,
         PopupPanel.openPopup({
             title : title,
             body : panel,
-            footer : footerElm
+            footer : footerElm,
+            verticalMargin : this.options.margin || 40
         });
 
     },
