@@ -24,7 +24,7 @@ module.exports = React.createClass({
     
     _renderSearchQueryInfo : function(){
         var app = this.props.app;
-        if (!app.nav.hasSearchQuery())
+        if (!app.res.hasSearchQuery())
             return '';
         return (
             <ul className="list-group search-query">
@@ -33,7 +33,7 @@ module.exports = React.createClass({
                     <QueryInfoView app={app} />
                     <span className="bar"></span>
                     <a href="#" className="remove" onClick={function(ev){
-                        app.nav.setSearchQuery('');
+                        app.res.setSearchQuery('');
                         ev.stopPropagation();
                         ev.preventDefault();
                     }}></a>
@@ -44,7 +44,7 @@ module.exports = React.createClass({
 
     _renderTagsInfo : function(){
         var app = this.props.app;
-        if (!app.nav.hasFilterTags())
+        if (!app.res.hasFilterTags())
             return '';
         return (
             <ul className="list-group search-tags">
@@ -53,7 +53,7 @@ module.exports = React.createClass({
                     <TagsInfoView app={app} hideEmpty={true}/>
                     <span className="bar"></span>
                     <a href="#" className="remove" onClick={function(ev){
-                        app.nav.toggleTags([]);
+                        app.res.toggleTags([]);
                         ev.stopPropagation();
                         ev.preventDefault();
                     }}></a>
@@ -64,7 +64,7 @@ module.exports = React.createClass({
 
     _renderCategoriesInfo : function(){
         var app = this.props.app;
-        if (!app.nav.hasFilterCategories())
+        if (!app.res.hasFilterCategories())
             return '';
         return (
             <ul className="list-group search-categories">
@@ -73,7 +73,7 @@ module.exports = React.createClass({
                     <CategoriesInfoView app={app}/>
                     <span className="bar"></span>
                     <a href="#" className="remove" onClick={function(ev){
-                        app.nav.toggleCategories([]);
+                        app.res.toggleCategories([]);
                         ev.stopPropagation();
                         ev.preventDefault();
                     }}></a>
@@ -84,7 +84,7 @@ module.exports = React.createClass({
 
     _renderZonesInfo : function(){
         var app = this.props.app;
-        if (!app.nav.hasZonesFilter())
+        if (!app.res.hasZonesFilter())
             return '';
         return (
             <ul className="list-group search-zones">
@@ -93,7 +93,7 @@ module.exports = React.createClass({
                     <ZoneInfoView app={app}/>
                     <span className="bar"></span>
                     <a href="#" className="remove" onClick={function(ev){
-                        app.nav.toggleZones([]);
+                        app.res.toggleZones([]);
                         ev.stopPropagation();
                         ev.preventDefault();
                     }}></a>

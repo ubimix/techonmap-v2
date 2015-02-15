@@ -1,5 +1,5 @@
 {
-    "defaultLanguage" : "fr",
+    "defaultLanguage" : "en",
     "messages" : {
         "fr" : {
             "contact.message.notDefined" : "un message est requis",
@@ -135,16 +135,16 @@
             "search.panel.label.input" : "Search:",
             "search.panel.label.filters" : "Filters:",
             "search.panel.label.filters.applied" : "Applied filters : ",
-            "search.panel.label.zones" : "Zones:",
+            "search.panel.label.zones" : "Zones: ",
             "search.panel.label.zones.all" : "All",
-            "search.panel.label.categories" : "Categories:",
+            "search.panel.label.categories" : "Categories: ",
             "search.panel.label.categories.all" : "All",
-            "search.panel.label.tags" : "Tags:",
+            "search.panel.label.tags" : "Tags: ",
             "search.panel.label.tags.all" : "All",
-            "search.panel.placeholder.input" : "Enter keywords:",
+            "search.panel.placeholder.input" : "Enter keywords: ",
             "search.panel.button.return" : "Back to menu",
             "search.panel.button.return.to.categories" : "Back to categories",
-            "search.label.results" : "Results:",
+            "search.label.results" : "Results: ",
             "search.label.sort" : "Sort: ",
             "search.label.sort.name" : "by name",
             "search.label.sort.name.inc" : "from A to Z",

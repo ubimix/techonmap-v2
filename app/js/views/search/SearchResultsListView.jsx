@@ -24,6 +24,7 @@ var ListView = React.createClass({
         var pageSize = 15;
         return (
             <PaginatedListView
+                key="list-view"
                 className="list-group search-results-list" 
                 paginationClassName="pagination pagination-sm" 
                 pageSize={pageSize}
@@ -98,9 +99,11 @@ var ListView = React.createClass({
     _renderItem : function(resource, pos) {
         var app = this.props.app;
         var type = app.res.getResourceType(resource);
+        var resourceId = app.res.getResourceId(resource);
         var that = this;
         var view = app.viewManager.newView('listItem', type, {
             app : app,
+            key : resourceId,
             resource : resource,
             pos : pos,
             onClick : function() {

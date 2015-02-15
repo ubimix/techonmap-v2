@@ -24,11 +24,11 @@ module.exports = React.createClass({
         });
     },
     _getStore : function() {
-        return this.props.app.nav;
+        return this.props.app.res;
     },
     render : function() {
         var app = this.props.app;
-        var categories = app.nav.getCategories();
+        var categories = app.res.getCategories();
         var array = _.map(categories, function(category, i) {
             var key = category.key;
             key = key.toLowerCase();

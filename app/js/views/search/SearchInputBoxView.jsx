@@ -53,11 +53,11 @@ var SearchInputBoxView = React.createClass({
     componentWillMount : function(){
         var app = this.props.app;
         this._setQuery = _.debounce(this._setQuery, 250);
-        app.nav.addChangeListener(this._onSearch);
+        app.res.addSearchCriteriaChangeListener(this._onSearch);
     },
     componentWillUnmount : function(){
          var app = this.props.app;
-         app.nav.removeChangeListener(this._onSearch);
+         app.res.removeSearchCriteriaChangeListener(this._onSearch);
     },
     _clearSearch : function(ev){
         ev.preventDefault();
@@ -75,10 +75,10 @@ var SearchInputBoxView = React.createClass({
     },
     _setQuery : function(query){
         var app = this.props.app;
-        app.nav.setSearchQuery(query);
+        app.res.setSearchQuery(query);
     },
     _newState : function(options){
-        var query = this.props.app.nav.getSearchQuery();
+        var query = this.props.app.res.getSearchQuery();
         return _.extend({ 
             value : query
         }, this.state, options); 
@@ -106,7 +106,7 @@ var SearchInputBoxView = React.createClass({
         }
     },
     _onSearch : function(){
-        var query = this.props.app.nav.getSearchQuery();
+        var query = this.props.app.res.getSearchQuery();
         this.setState(this._newState({
             value : query
          }));

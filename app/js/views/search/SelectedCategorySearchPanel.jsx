@@ -22,9 +22,9 @@ module.exports = React.createClass({
     },
     _newState : function(options) {
         var stats = this.props.app.stats;
-        var nav = this._getStore();
-        var category = nav.getFilterCategory();
-        var filterCategoryTags = nav.getCategoryTags(category);
+        var res = this._getStore();
+        var category = res.getFilterCategory();
+        var filterCategoryTags = res.getCategoryTags(category);
         var fullStats = stats.getFullStats();
         var stats = stats.getStats();
         
@@ -56,7 +56,7 @@ module.exports = React.createClass({
         }, options);
     },
     _getStore : function() {
-        return this.props.app.nav;
+        return this.props.app.res;
     },
     _renderTagsInfo : function(list){
         return _.map(list, function(info) {

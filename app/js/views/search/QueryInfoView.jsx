@@ -8,16 +8,16 @@ module.exports = React.createClass({
     displayName : 'QueryInfoView',
     mixins : [AppViewMixin, I18NMixin],
     _newState : function(options){
-        var nav = this._getStore();
-        var q = nav.getSearchQuery();
+        var res = this._getStore();
+        var q = res.getSearchQuery();
         return { q : q };
     },
     _getStore : function(){
         return this.props.app.nav;
     },
     _onClick : function(ev){
-        var nav = this._getStore();
-        nav.setSearchQuery('');
+        var res = this._getStore();
+        res.setSearchQuery('');
     },
     render : function() {
         var app = this.props.app;

@@ -18,11 +18,11 @@ var SearchPanel = React.createClass({
     mixins : [ DomUtils, I18NMixin, MenuMixin ],
     componentWillMount : function(){
         var app = this.getApp();
-        app.nav.addChangeListener(this._onChangeSearchCriteria);
+        app.res.addSearchCriteriaChangeListener(this._onChangeSearchCriteria);
     },
     componentWillUnmount : function(){
         var app = this.getApp();
-        app.nav.removeChangeListener(this._onChangeSearchCriteria);
+        app.res.removeSearchCriteriaChangeListener(this._onChangeSearchCriteria);
     },
     componentDidMount : function(){
         this._toggleMenuPanel('main');
@@ -54,7 +54,7 @@ var SearchPanel = React.createClass({
     },
     _onCategorySelect : function(category) {
         var app = this.getApp();
-        if (app.nav.hasCategoryFilteredApplied()) {
+        if (app.res.hasCategoryFilteredApplied()) {
             this._toggleMenuPanel('selected-category');
         }
     },

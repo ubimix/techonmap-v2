@@ -36,7 +36,7 @@ var ShareConfigPanel = React.createClass({
         var embedMode = this.state.embedMode;
         var useQuery = this.state.useQuery;
         var app = this.getApp();
-        var url = app.nav.getExportUrl({
+        var url = app.res.getExportUrl({
             embedMode : embedMode,
             useQuery : useQuery
         });

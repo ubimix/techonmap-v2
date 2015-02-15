@@ -9,12 +9,12 @@ module.exports = React.createClass({
     displayName : 'CategoriesInfoView',
     mixins : [AppViewMixin, I18NMixin, CategoryMixin],
     _newState : function(options){
-        var nav = this._getStore();
-        var categories = nav.getFilterCategories();
+        var res = this._getStore();
+        var categories = res.getFilterCategories();
         return { categories : categories };
     },
     _getStore : function(){
-        return this.props.app.nav;
+        return this.props.app.res;
     },
     render : function() {
         return this._renderCategoryList(this.state.categories);

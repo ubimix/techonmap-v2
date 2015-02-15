@@ -6,7 +6,7 @@ var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 module.exports =  {
     _selectTag : function(tag, ev) {
         var app = this.props.app;
-        app.nav.toggleTags([tag]);
+        app.res.toggleTags([tag]);
         if (this._onSelectTag){
             this._onSelectTag(ev);
         }
@@ -19,8 +19,8 @@ module.exports =  {
     },
     _renderTag : function(tag){
         var app = this.props.app;
-        var selected = app.nav.isFilteredByTag(tag);
-        tag = app.nav.getTagKey(tag);
+        var selected = app.res.isFilteredByTag(tag);
+        tag = app.res.getTagKey(tag);
         var className = selected ? 'tag selected' : 'tag';
         return (
             <span

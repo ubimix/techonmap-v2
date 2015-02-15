@@ -10,7 +10,7 @@ module.exports = React.createClass({
     mixins : [AppViewMixin, TagsMixin, I18NMixin],
     _newState : function(options){
         var app = this.getApp();
-        var tags = app.nav.getFilterTags();
+        var tags = app.res.getFilterTags();
         return { tags : tags };
     },
     _getStore : function(){

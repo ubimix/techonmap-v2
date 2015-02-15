@@ -19,7 +19,7 @@
     "lunr": "^0.5.6",
     "marked": "~0.3.2",
     "mosaic-commons": "0.0.15",
-    "mosaic-core": "~0.0.19",
+    "mosaic-core": "~0.0.24",
     "mosaic-scroller": "~0.0.9",
     "mosaic-teleport": "^0.0.22",
     "mosaic-teleport-server": "0.0.8",
@@ -50,7 +50,7 @@
     "less-loader": "^2.0.0"
   },
   "scripts": {
-    "start": "node ./node_modules/mosaic-teleport-server/src/Server.js -port 9888 -path ''",
+    "start": "node ./node_modules/mosaic-teleport-server/src/Server.js -port 9889 -path ''",
     "test": "mocha -R spec ./test/*_spec.js",
     "postinstall": "./postinstall.sh"
   }
