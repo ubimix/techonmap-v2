@@ -3,7 +3,6 @@ var Lunr = require('lunr');
 var Mosaic = require('mosaic-commons');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var NavigationRouter = require('./NavigationRouter');
-var Navigation = require('./Navigation');
 var URI = require('mosaic-core').Core.URI;
 var App = require('mosaic-core').App;
 var Api = App.Api;
@@ -13,7 +12,6 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Initializes fields */
     _initFields : function() {
-        this._navigation = new Navigation();
         this._router = new NavigationRouter();
         // Disable initial search criteria update
         this._disableUrlUpdate = true;
@@ -38,11 +36,13 @@ module.exports = Api.extend({}, ResourceUtils, {
     getExportUrl : function(options) {
         options = options || {};
         var additionalParams = {};
-        var nav = this._navigation.clone();
+        var app = this.options.app;
+        var nav = app.state.clone();
         _.extend(nav.options, options);
         return nav.toUrl({
-            pathname : '/{language}/category/{category}',
             query : {
+                category : '{category}',
+                language : '{language}',
                 q : '{search.q}',
                 tags : '{search.tags}',
                 mode : '{mode}',
@@ -57,15 +57,10 @@ module.exports = Api.extend({}, ResourceUtils, {
             return;
         if (ev.update) {
             var path = this._router.getPath();
-            this._navigation.fromUrl(url, {
-                'pathname' : function(options) {
-                    var path = options.value;
-                    var array = _.filter(path.split('/'), function(s) {
-                        return !!s;
-                    });
-                    this.addValues('language', this.extractSegments(array[0]));
-                    this.addValues('category', this.extractSegments(array[2]));
-                },
+            var app = this.options.app;
+            app.state.fromUrl(url, {
+                'query.category' : 'category',
+                'query.language' : 'language',
                 'query.q' : 'search.q',
                 'query.tags' : 'search.tags',
                 'query.mode' : 'mode',

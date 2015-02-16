@@ -54,7 +54,7 @@
             "list.item.view.coworking.creationYear" : "Tiers-lieu créé en <%=year%>",
             "list.item.view.community.creationYear" : "Communauté créée en <%=year%>",
             "list.item.view.education.creationYear" : "Ecole créée en <%=year%>",
-            "list.item.view.investor.creationYear" : "Investisseur créée en <%=year%>",
+            "list.item.view.investor.creationYear" : "Investisseur depuis <%=year%>",
             "list.item.view.incubator.creationYear" : "Incubateur créé en <%=year%>",
             "list.item.view.org.creationYear" : "Acteur public créé en <%=year%>",
             "search.panel.label.input" : "Rechercher : ",

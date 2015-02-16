@@ -28,7 +28,7 @@ module.exports = React.createClass({
         });
     },
     _getStore : function() {
-        return this.props.app.nav;
+        return this.props.app.res;
     },
     _renderTagsInfo : function(list){
         return _.map(list, function(info) {

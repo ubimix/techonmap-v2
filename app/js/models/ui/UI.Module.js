@@ -2,9 +2,10 @@ var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 var App = require('mosaic-core').App;
 var Api = App.Api;
+var AppStateMixin = require('../AppStateMixin');
 
 /** This module manages visualization modes for the UI. */
-module.exports = Api.extend({
+module.exports = Api.extend(AppStateMixin, {
 
     /**
      * Initializes internal fields.
@@ -21,12 +22,26 @@ module.exports = Api.extend({
      */
     start : function() {
         var that = this;
+        var state = this.getAppState();
+        state.addChangeListener(this._onAppStateChange, this);
+        // that._updateAppState('focus', that._viewKey);
+        // that._updateAppState('mode', that._mode);
         return Mosaic.P.then(function() {
+            return that.focusView(that._viewKey);
         });
     },
 
     /** Closes this module. */
     stop : function() {
+        var state = this.getAppState();
+        state.removeChangeListener(this._onAppStateChange, this);
+    },
+
+    _onAppStateChange : function(ev) {
+        var app = this.options.app;
+        var path = ev.path;
+        console.log('[UI.Module] App state changed', path, JSON
+                .stringify(app.state.getValue()));
     },
 
     // ------------------------------------------------------------------------
@@ -50,6 +65,7 @@ module.exports = Api.extend({
             that._viewKey = intent.params.viewKey || 'map';
         })).then(function() {
             that.notify();
+            that._updateAppState('focus', that._viewKey);
         });
     }),
 
@@ -122,9 +138,15 @@ module.exports = Api.extend({
     setScreenMode : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            that._mode = intent.params.mode || this._initialMode;
-        })).then(function() {
-            that.notify();
+            var mode = intent.params.mode || this._initialMode;
+            var updated = !_.isEqual(mode, that._mode);
+            that._mode = mode;
+            return updated;
+        })).then(function(updated) {
+            if (updated) {
+                that.notify();
+                that._updateAppState('mode', that._mode);
+            }
         });
     }),
 });

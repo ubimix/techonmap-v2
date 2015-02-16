@@ -4,14 +4,15 @@ var Mosaic = require('mosaic-commons');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var App = require('mosaic-core').App;
 var Api = App.Api;
+var AppStateMixin = require('../AppStateMixin');
 
 /** This module is responsible for management of resources. */
-module.exports = Api.extend({}, ResourceUtils, {
+module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Initializes fields */
     _initFields : function() {
-        // Search criteria
         this._criteria = {};
+        // Search criteria
         this._categories = [];
         this._zones = [];
 
@@ -21,8 +22,10 @@ module.exports = Api.extend({}, ResourceUtils, {
         this._resources = [];
         this._allResources = [];
         this._selectedResource = null;
-        this._sortByName = 1;
-        this._sortByDate = 0;
+        this._sort = {
+            sortBy : 'name',
+            direct : true
+        };
     },
 
     /**
@@ -37,13 +40,34 @@ module.exports = Api.extend({}, ResourceUtils, {
     /** Pre-loads map-related information. */
     start : function() {
         var that = this;
-        this.addSearchCriteriaChangeListener(this._searchResources, this);
+        this
+                .addSearchCriteriaChangeListener(this._onSearchCriteriaChange,
+                        this);
+        var state = this.getAppState();
+        state.addChangeListener(this._onAppStateChange, this);
         this._allResourcesPromise = this._loadAllInfo();
+        // that._updateAppState('sort', that._sort);
+        // that._updateAppState('search', that._criteria);
+        // that._updateAppState('selectedId', resourceId);
         return this._searchResources();
     },
 
     stop : function() {
-        this.removeSearchCriteriaChangeListener(this._searchResources, this);
+        this.removeSearchCriteriaChangeListener(this._onSearchCriteriaChange,
+                this);
+        var state = this.getAppState();
+        state.removeChangeListener(this._onAppStateChange, this);
+    },
+
+    _onSearchCriteriaChange : function() {
+        return this._searchResources();
+    },
+
+    _onAppStateChange : function(ev) {
+        var app = this.options.app;
+        var path = ev.path;
+        console.log('[Resource.Module] App state changed', path, JSON
+                .stringify(app.state.getValue()));
     },
 
     // ------------------------------------------------------------------
@@ -55,10 +79,14 @@ module.exports = Api.extend({}, ResourceUtils, {
      */
     selectResource : Api.intent(function(intent) {
         var that = this;
-        return intent.resolve(that._findResourceById(intent.params.resourceId))//
+        var resourceId = intent.params.resourceId
+        return intent.resolve(that._findResourceById(resourceId))//
         .then(function(resource) {
-            that._selectedResource = resource;
-            that.notifySelection();
+            if (!that.isSelectedResource(resourceId)) {
+                that._selectedResource = resource;
+                that._updateAppState('selectedId', resourceId);
+                that.notifySelection();
+            }
         });
     }),
 
@@ -67,49 +95,62 @@ module.exports = Api.extend({}, ResourceUtils, {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
             var params = intent.params;
-            var direct = params.direct;
-            that._sortByName = 0;
-            that._sortByDate = 0;
-            if (params.sortBy === 'name') {
-                that._sortByName = direct ? 1 : -1;
-            } else if (params.sortBy === 'date') {
-                that._sortByDate = direct ? 1 : -1;
-            }
+            var val = {
+                sortBy : params.sortBy,
+                direct : !!params.direct
+            };
+            var updated = !_.isEqual(that._sort, val);
+            that._sort = val;
             that._sortResults();
-        })).then(function() {
-            that.notify();
+            return updated;
+        })).then(function(updated) {
+            if (updated) {
+                that.notify();
+                that._updateAppState('sort', that._sort);
+            }
         });
     }),
 
     sortResourcesByName : function(direct) {
         return this.sortResources({
             sortBy : 'name',
-            direct : direct
+            direct : !!direct
         });
     },
 
     sortResourcesByDate : function(direct) {
         return this.sortResources({
             sortBy : 'date',
-            direct : direct
+            direct : !!direct
         });
     },
 
     getSortByName : function() {
-        return this._sortByName;
+        if (this._sort.sortBy != 'name')
+            return 0;
+        return this._sort.direct ? 1 : -1;
     },
 
     getSortByDate : function() {
-        return this._sortByDate;
+        if (this._sort.sortBy != 'date')
+            return 0;
+        return this._sort.direct ? 1 : -1;
     },
 
     /** Updates an internal search criteria */
     updateSearchCriteria : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            _.extend(that._criteria, intent.params);
-        })).then(function() {
-            that.notifySearchCriteria();
+            var criteria = that.getSearchCriteria();
+            var newCriteria = _.extend({}, criteria, intent.params);
+            var updated = !_.isEqual(criteria, newCriteria);
+            that._criteria = newCriteria;
+            return updated;
+        })).then(function(updated) {
+            if (updated) {
+                that.notifySearchCriteria();
+                that._updateAppState('search', that._criteria);
+            }
         });
     }),
 
@@ -240,10 +281,11 @@ module.exports = Api.extend({}, ResourceUtils, {
      */
     toggleCategories : function(categories) {
         categories = _.map(categories, this.getCategoryKey, this);
-        var options = this._toggleSearchCriteriaObject(this._criteria,
-                'category', categories);
-        options.tags = [];
-        return this.updateSearchCriteria(options);
+        var criteria = this.getSearchCriteria();
+        criteria = this._toggleSearchCriteriaObject(criteria, 'category',
+                categories);
+        criteria.tags = [];
+        return this.updateSearchCriteria(criteria);
     },
 
     /** Returns an array of categories used as a search criteria. */
@@ -270,7 +312,8 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Returns a list of category keys used to filter objects. */
     getFilterCategoryKeys : function() {
-        return this._criteria.category;
+        var criteria = this.getSearchCriteria();
+        return criteria.category;
     },
 
     /** Returns a category object corresponding to the specified key. */
@@ -329,14 +372,16 @@ module.exports = Api.extend({}, ResourceUtils, {
         }
         var options = {};
         options[key] = values;
-        options = _.extend({}, existing, options);
+        if (!_.isArray(existing) && _.isObject(existing)) {
+            options = _.extend({}, existing, options);
+        }
         return options;
     },
 
     _toggleSearchCriteria : function(key, values) {
-        var options = this._toggleSearchCriteriaObject(this._criteria, key,
-                values);
-        return this.updateSearchCriteria(options);
+        var criteria = this.getSearchCriteria();
+        criteria = this._toggleSearchCriteriaObject(criteria, key, values);
+        return this.updateSearchCriteria(criteria);
     },
     // ------------------------------------------------------------------
 
@@ -367,7 +412,8 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Returns a list of all zones used to fileter values. */
     getFilterZoneKeys : function() {
-        return this._criteria.postcode || [];
+        var criteria = this.getSearchCriteria();
+        return criteria.postcode || [];
     },
 
     /** Returns a zone description corresponding to the specified key. */
@@ -412,7 +458,8 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Returns an array of tags used as a search criteria. */
     getFilterTags : function() {
-        return this._criteria.tags || [];
+        var criteria = this.getSearchCriteria();
+        return criteria.tags || [];
     },
 
     /**
@@ -446,7 +493,8 @@ module.exports = Api.extend({}, ResourceUtils, {
 
     /** Returns currently applyed search criteria. */
     getSearchQuery : function() {
-        return this._criteria.q || '';
+        var criteria = this.getSearchCriteria();
+        return criteria.q || '';
     },
 
     /** Returns <code>true</code> if there is a defined full-text search query. */
@@ -685,21 +733,19 @@ module.exports = Api.extend({}, ResourceUtils, {
     _sortResults : function() {
         var inverted = false;
         var getField;
-        if (this._sortByName !== 0) {
+        if (this._sort.sortBy == 'name') {
             getField = function(r) {
                 return (r.properties.name + '').toLowerCase();
             }
-            inverted = this._sortByName < 0;
-        } else if (this._sortByDate !== 0) {
+        } else if (this._sort.sortBy == 'date') {
             getField = function(r) {
                 var changes = r.properties.updated || new Date().getTime();
                 return changes;
             }
-            inverted = this._sortByDate < 0;
         }
         if (getField) {
             this._resources = _.sortBy(this._resources, getField, this);
-            if (inverted) {
+            if (this._sort.direct < 0) {
                 this._resources.reverse();
             }
         }

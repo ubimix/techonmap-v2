@@ -15,7 +15,7 @@ module.exports = React.createClass({
     mixins : [ I18NMixin, AppViewMixin ],
 
     _getStore : function(){
-        return this.props.app.nav;
+        return this.props.app.res;
     },
     
     _newState : function(){
