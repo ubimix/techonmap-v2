@@ -111,7 +111,7 @@ module.exports = React.createClass({
             className += ' open';
         }
         return (
-        <li className={className} ref="search">
+        <li className={className} key="search" ref="search">
             <a href="#" className="menu-search icon about dropdown-toggle"
                     onClick={this._switchSearchBlock}>
                 <i className="icon icon-search"></i>
@@ -123,7 +123,7 @@ module.exports = React.createClass({
     },
     _renderAboutMenuItem : function(){
         return (
-        <li>
+        <li ref="about">
             <a href="#" className="menu-info" onClick={this._showAboutInfo}>
                 <i className="icon icon-info"></i>
                 <span className="label">{this._getLabel('topmenu.label.about')}</span>
@@ -260,7 +260,7 @@ module.exports = React.createClass({
   },
     _renderHelpMenuItem : function(){
         return (
-            <li>
+            <li key="help">
                 <a href="#" className="menu-faq" onClick={this._showHelp}>
                     <i className="icon icon-faq"></i>
                     <span className="label">{this._getLabel('topmenu.label.help')}</span>
@@ -270,7 +270,7 @@ module.exports = React.createClass({
     },
     _renderShareMenuItem : function(){
         return (
-            <li>
+            <li key="share">
                 <a href="#" className="menu-share" onClick={this._showShareDialog}>
                     <i className="icon icon-share"></i>
                     <span className="label">{this._getLabel('topmenu.label.share')}</span>
@@ -280,7 +280,7 @@ module.exports = React.createClass({
     },
     _renderExportMenuItem : function(){
         return (
-            <li>
+            <li key="export">
                 <a href="#" className="menu-export" onClick={this._showExportDialog}>
                     <i className="icon icon-export"></i>
                     <span className="label">{this._getLabel('topmenu.label.export')}</span>
