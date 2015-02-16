@@ -258,6 +258,9 @@ module.exports = AbstractMapLayer.extend({
         var that = this;
         that._clearSelectedMarker();
         that._selectedMarker = marker;
+        if (that._selectedMarker.setSelection) {
+            that._selectedMarker.setSelection(true);
+        }
         var app = this._getApp();
         var resource = app.res.getSelectedResource();
         this._showMarkerPopup(marker, resource);
@@ -267,6 +270,9 @@ module.exports = AbstractMapLayer.extend({
     _clearSelectedMarker : function() {
         var that = this;
         if (that._selectedMarker) {
+            if (that._selectedMarker.setSelection) {
+                that._selectedMarker.setSelection(false);
+            }
             // TODO: remove selection from the marker
             delete that._selectedMarker;
         }

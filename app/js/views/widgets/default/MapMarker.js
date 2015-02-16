@@ -3,9 +3,12 @@ var L = require('leaflet');
 
 var icons = require('./Categories');
 
-function getIconType(type) {
-    var icon = icons[type];
-    return icon ? icon : 'company';
+function getIconType(type, selected) {
+    var icon = icons[type] || 'company';
+    if (selected) {
+        icon += '-on';
+    }
+    return icon;
 }
 
 module.exports = function(options) {
@@ -13,49 +16,28 @@ module.exports = function(options) {
     var mapOptions = app.options.map;
     var resource = options.resource;
     var type = app.res.getResourceType(resource);
-    var iconType = getIconType(type);
-    var iconClass = 'icon-' + iconType + '-mono';
-
-    var size = '30px';
-    var iconSize = '24px';
-    // var style = _.map({
-    // 'font-size' : iconSize,
-    // 'line-height' : size,
-    // 'width' : size,
-    // 'height' : size,
-    // 'border-radius' : size,
-    // 'display' : 'inline-block',
-    // 'vertical-align' : 'middle',
-    // 'text-align' : 'center'
-    // }, function(value, key) {
-    // return key + ': ' + value + ';';
-    // }).join(' ');
-
-    // var icon = L.divIcon({
-    // className : '',
-    // html : '<div class="icon-container ' + iconType + '">' + '<i class="icon
-    // ' + iconClass + '" style="'
-    // + style + '"></i>' + '</div>',
-    // iconSize : [ 28, 28 ],
-    // iconAnchor : [ 14, 14 ],
-    // popupAnchor : [ 0, -14 ]
-    // });
-
-    var icon = L.icon({
-        iconUrl : './images/markers/' + iconType + '.svg',
-        iconSize : [ 33, 40 ],
-        iconAnchor : [ 16, 20 ],
-        popupAnchor : [ 0, -30 ]
-    })
-    var latlng = options.latlng;
-
-    var marker = new L.Marker(latlng, {
-        icon : icon
-    });
-
-    marker.updateZoom = function(zoom) {
-
+    
+    var resourceId = app.res.getResourceId(resource);
+    function getIcon(selected){
+        var iconType = getIconType(type, selected);
+        var icon = L.icon({
+            iconUrl : './images/markers/' + iconType + '.svg',
+            iconSize : [ 33, 40 ],
+            iconAnchor : [ 16, 20 ],
+            popupAnchor : [ 0, -30 ]
+        });
+        return icon;
     }
 
+    var latlng = options.latlng;
+    var marker = new L.Marker(latlng, {
+        icon : getIcon(false)
+    });
+    marker.updateZoom = function(zoom) {
+    }
+    marker.setSelection = function(selected){
+        var icon = getIcon(selected);
+        marker.setIcon(icon);
+    }
     return marker;
 };

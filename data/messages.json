@@ -1,5 +1,5 @@
 {
-    "defaultLanguage" : "en",
+    "defaultLanguage" : "fr",
     "messages" : {
         "fr" : {
             "contact.message.notDefined" : "un message est requis",
