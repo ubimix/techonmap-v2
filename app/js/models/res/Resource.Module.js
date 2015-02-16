@@ -461,6 +461,15 @@ module.exports = Api.extend({}, ResourceUtils, {
             q : value
         });
     },
+
+    // ------------------------------------------------------------------
+
+    /** Returns <code>true</code> if there are search criteria applied. */
+    hasSearchCriteria : function() {
+        return this.hasSearchQuery() || this.hasZonesFilter() || //
+        this.hasCategoryFilteredApplied() || this.hasFilterTags();
+    },
+
     // ------------------------------------------------------------------
 
     /** Returns true if the values matches to the given filters criteria. */

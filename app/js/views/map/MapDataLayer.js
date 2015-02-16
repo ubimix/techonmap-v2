@@ -57,8 +57,11 @@ module.exports = AbstractMapLayer.extend({
         app.res.addChangeListener(this._reloadData, this);
         app.res.addSelectListener(this._onSelectResource, this);
         this._map.on('zoomend', this._onZoomEnd, this);
-        this._map.once('initialize', function(){
+        this._map.once('initialize', function(ev) {
             this._initialized = true;
+            if (ev.reloadData) {
+                this._reloadData();
+            }
         }, this);
     },
 
@@ -157,7 +160,7 @@ module.exports = AbstractMapLayer.extend({
         }
         this._redrawMarkers();
         var that = this;
-        setTimeout(function(){
+        setTimeout(function() {
             that._onSelectResource();
         }, 100);
     },
@@ -258,7 +261,7 @@ module.exports = AbstractMapLayer.extend({
         var that = this;
         that._clearSelectedMarker();
         that._selectedMarker = marker;
-        if (that._selectedMarker.setSelection) {
+        if (that._selectedMarker.setSelection) {
             that._selectedMarker.setSelection(true);
         }
         var app = this._getApp();
@@ -270,7 +273,7 @@ module.exports = AbstractMapLayer.extend({
     _clearSelectedMarker : function() {
         var that = this;
         if (that._selectedMarker) {
-            if (that._selectedMarker.setSelection) {
+            if (that._selectedMarker.setSelection) {
                 that._selectedMarker.setSelection(false);
             }
             // TODO: remove selection from the marker
