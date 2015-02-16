@@ -13,7 +13,7 @@ module.exports = React.createClass({
         return { q : q };
     },
     _getStore : function(){
-        return this.props.app.nav;
+        return this.props.app.res;
     },
     _onClick : function(ev){
         var res = this._getStore();

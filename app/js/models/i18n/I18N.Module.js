@@ -46,7 +46,7 @@ module.exports = Api.extend({
             msg = key;
         }
         var args = _.toArray(arguments);
-        args.splice(0, 1);
+        args.shift();
         if (msg.indexOf('{') >= 0) {
             msg = msg.replace(/\{(\d+)\}/gim, function() {
                 console.log('REPLACE: ', msg, arguments);

@@ -22,6 +22,20 @@ module.exports = React.createClass({
         return { };
     },
     
+    componentWillMount : function(){
+         var app = this.props.app;
+         app.res.addSearchCriteriaChangeListener(this._onSearchCriteriaUpdate);
+    },
+    
+    componentWillUnmount : function(){
+         var app = this.props.app;
+         app.res.removeSearchCriteriaChangeListener(this._onSearchCriteriaUpdate);
+    },
+    
+    _onSearchCriteriaUpdate : function(){
+        this.setState(this._newState());
+    },
+    
     _renderSearchQueryInfo : function(){
         var app = this.props.app;
         if (!app.res.hasSearchQuery())

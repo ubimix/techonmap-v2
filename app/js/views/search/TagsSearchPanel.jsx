@@ -57,6 +57,16 @@ module.exports = React.createClass({
                 count : count
             });
         });
+        if (!list.length) {
+             return (
+                 <div className="row">
+                     <div className="col-xs-12">
+                         {this._getLabel('search.panel.label.tags.none')}
+                     </div>
+                 </div>
+             );
+        }
+
         list = _.sortBy(list, function(info) {
             return -info.count;
         });
