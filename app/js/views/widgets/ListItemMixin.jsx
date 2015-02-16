@@ -38,7 +38,6 @@ module.exports = _.extend({
             var i18n = app.i18n;
             var msgKey = 'list.item.view.' + typeKey + '.creationYear';
             creationYearText = i18n.getMessage(msgKey, { year: creationYear });
-            console.log('>>>>', msgKey, creationYearText);
         }
         return <div className="short-description">
             {creationYearText}

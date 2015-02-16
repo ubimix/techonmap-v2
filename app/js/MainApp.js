@@ -66,6 +66,16 @@ module.exports = App.extend({
 
     _applyToModules : function(modules, onoff) {
         var that = this;
+        var promise = Mosaic.P();
+        _.each(modules, function(module) {
+            promise = promise.then(function() {
+                if (module[onoff]) {
+                    return module[onoff]();
+                }
+            })
+        });
+        return promise;
+        
         return Mosaic.P.all(_.map(modules, function(module) {
             return Mosaic.P.then(function() {
                 if (module[onoff]) {

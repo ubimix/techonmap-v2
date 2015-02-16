@@ -10,7 +10,6 @@
             "dialog.contact.result.ok" : "Merci ! Votre message a bien été transmis.",
             "dialog.contact.result.errors" : "Une erreur s'est produite, votre meessage n'a pu être envoyé.",
             "dialog.contact.invalide" : "Veuillez vérifier que tous les champs sont bien remplis : <%=error.message%>.",
-
             "dialog.share.title" : "Embarquez la carte sur votre site",
             "dialog.share.title.integrate" : "Intégrez :",
             "dialog.share.title.size" : "Choisissez votre taille (770px de largeur minimum)",
