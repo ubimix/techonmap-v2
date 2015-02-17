@@ -30,7 +30,7 @@ module.exports = Api.extend(AppStateMixin, {
         // that._updateAppState('focus', that._viewKey);
         // that._updateAppState('mode', that._mode);
         return Mosaic.P.then(function() {
-            this._onWindowResize();
+            that._onWindowResize();
         }).then(function() {
             return that.focusView(that._viewKey);
         });
