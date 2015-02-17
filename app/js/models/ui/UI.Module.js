@@ -24,9 +24,14 @@ module.exports = Api.extend(AppStateMixin, {
         var that = this;
         var state = this.getAppState();
         state.addChangeListener(this._onAppStateChange, this);
+        this._onWindowResize = this._onWindowResize.bind(this);
+        this._onWindowResize = _.debounce(this._onWindowResize, 30);
+        window.addEventListener('resize', this._onWindowResize);
         // that._updateAppState('focus', that._viewKey);
         // that._updateAppState('mode', that._mode);
         return Mosaic.P.then(function() {
+            this._onWindowResize();
+        }).then(function() {
             return that.focusView(that._viewKey);
         });
     },
@@ -35,6 +40,22 @@ module.exports = Api.extend(AppStateMixin, {
     stop : function() {
         var state = this.getAppState();
         state.removeChangeListener(this._onAppStateChange, this);
+        window.removeEventListener('resize', this._onWindowResize);
+    },
+
+    _onWindowResize : function() {
+        var w = window, d = document, e = d.documentElement, g = d
+                .getElementsByTagName('body')[0], x = w.innerWidth
+                || e.clientWidth || g.clientWidth, y = w.innerHeight
+                || e.clientHeight || g.clientHeight;
+
+        var mode = 'full';
+        if (x < 800) {
+            mode = 'mobile';
+        }
+        this.setScreenMode({
+            mode : mode
+        });
     },
 
     _onAppStateChange : function(ev) {

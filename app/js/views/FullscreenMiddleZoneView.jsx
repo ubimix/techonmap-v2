@@ -39,6 +39,9 @@ module.exports = React.createClass({
 
     _updateMapViewport : function(){
         var mapPanel = this.refs.map;
+        if (!mapPanel || !this.isMounted())
+            return ;
+        
         var mapPanelElm = mapPanel.getDOMNode();
         var mapPanelBox = mapPanelElm.getBoundingClientRect();
         
