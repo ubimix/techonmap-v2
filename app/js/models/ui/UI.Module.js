@@ -40,8 +40,18 @@ module.exports = Api.extend(AppStateMixin, {
     _onAppStateChange : function(ev) {
         var app = this.options.app;
         var path = ev.path;
-        console.log('[UI.Module] App state changed', path, JSON
-                .stringify(app.state.getValue()));
+
+        var focusedView = this._getAppState('focus');
+        if (focusedView) {
+            this.focusView(focusedView);
+        }
+
+        var mode = this._getAppState('mode');
+        if (mode) {
+            this.setScreenMode({
+                mode : mode
+            });
+        }
     },
 
     // ------------------------------------------------------------------------
@@ -62,10 +72,15 @@ module.exports = Api.extend(AppStateMixin, {
     doFocusView : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            that._viewKey = intent.params.viewKey || 'map';
-        })).then(function() {
-            that.notify();
-            that._updateAppState('focus', that._viewKey);
+            var viewKey = intent.params.viewKey || 'map';
+            var updated = !_.isEqual(that._viewKey, viewKey);
+            that._viewKey = viewKey;
+            return updated;
+        })).then(function(updated) {
+            if (updated) {
+                that.notify();
+                that._updateAppState('focus', that._viewKey);
+            }
         });
     }),
 
@@ -139,8 +154,11 @@ module.exports = Api.extend(AppStateMixin, {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
             var mode = intent.params.mode || this._initialMode;
-            var updated = !_.isEqual(mode, that._mode);
-            that._mode = mode;
+            var updated = false;
+            if (_.indexOf([ 'mobile', 'tablet', 'full' ], mode) >= 0) {
+                updated = !_.isEqual(mode, that._mode);
+                that._mode = mode;
+            }
             return updated;
         })).then(function(updated) {
             if (updated) {

@@ -54,7 +54,7 @@
   },
   "scripts": {
     "start": "node ./server.js -port 9889 -path ''",
-    "test": "mocha -R spec ./test/*_spec.js",
+    "test": "./node_modules/mocha/bin/mocha -R spec ./test/*_spec.js",
     "postinstall": "./postinstall.sh"
   }
 }

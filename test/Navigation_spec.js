@@ -194,4 +194,16 @@ describe('Navigation', function() {
         });
 
     });
+    //
+    // it('should be able visit URL templates', function() {
+    // var templ = {
+    // pathname : "/{language}/category/{category}",
+    // query : {
+    // q : 'search.q',
+    // tags : 'search.tags'
+    // },
+    // hash : 'companyId'
+    // };
+    // })
+
 });

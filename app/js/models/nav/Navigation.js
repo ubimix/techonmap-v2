@@ -193,16 +193,13 @@ var Navigation = Mosaic.Class.extend(Mosaic.Events.prototype, {
                     r = val.replace(/\{(.*?)\}/gim, function(match, path) {
                         var vals = that.getValue(path);
                         if (_.isArray(vals)) {
-                            vals = _.map(vals, function(v) {
-                                return encodeURIComponent(v);
-                            });
-                            values = vals;
-                        } else if (vals !== undefined) {
-                            vals = (vals ? '' + vals : '');
-                            vals = encodeURIComponent(vals);
+                            if (vals.length) {
+                                values = vals;
+                            }
+                        } else if (vals !== undefined && vals !== null) {
                             values = [ vals ];
                         }
-                        return vals;
+                        return vals || '';
                     });
                     if (query) {
                         r = values;
@@ -261,6 +258,7 @@ var Navigation = Mosaic.Class.extend(Mosaic.Events.prototype, {
         if (_.isString(url)) {
             url = URL.parse(url, true);
         }
+        var set = {};
         _.each(mapping, function(to, from) {
             var val = this._getValue(from, url);
             if (from === 'hash' && val) {
@@ -272,10 +270,19 @@ var Navigation = Mosaic.Class.extend(Mosaic.Events.prototype, {
                     value : val
                 });
             } else if (_.isArray(val)) {
-                this.addValues(to, val);
+                if (!_.has(set, to)) {
+                    this.setValues(to, val);
+                } else {
+                    this.addValues(to, val);
+                }
             } else {
-                this.addValue(to, val);
+                if (!_.has(set, to)) {
+                    this.setValue(to, val);
+                } else {
+                    this.addValue(to, val);
+                }
             }
+            set[to] = true;
         }, this);
     },
 

@@ -56,6 +56,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         this.removeSearchCriteriaChangeListener(this._onSearchCriteriaChange,
                 this);
         var state = this.getAppState();
+        // this._onAppStateChange = _.debounce(this._onAppStateChange, 1);
         state.removeChangeListener(this._onAppStateChange, this);
     },
 
@@ -66,8 +67,27 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     _onAppStateChange : function(ev) {
         var app = this.options.app;
         var path = ev.path;
-        console.log('[Resource.Module] App state changed', path, JSON
-                .stringify(app.state.getValue()));
+        console.log('>>>> _onAppStateChange ', ev, app.state.getValue(path));
+
+        // var updated = false;
+        //
+        // var criteria = this._getAppState('search');
+        // if (criteria) {
+        // updated = this._setSearchCriteria(criteria);
+        // // this.updateSearchCriteria(criteria);
+        // }
+        //
+        // var sort = this._getAppState('sort');
+        // if (sort) {
+        // updated = this._setSortResources(sort);
+        // }
+        //
+        // var resourceId = this._getAppState('selectedId');
+        // if (resourceId) {
+        // // this.selectResource({
+        // // resourceId : resourceId
+        // // });
+        // }
     },
 
     // ------------------------------------------------------------------
@@ -82,7 +102,8 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         var resourceId = intent.params.resourceId
         return intent.resolve(that._findResourceById(resourceId))//
         .then(function(resource) {
-            if (!that.isSelectedResource(resourceId)) {
+            var prevId = that.getSelectedResourceId();
+            if (((!!prevId) !== (!!resourceId)) || prevId != resourceId) {
                 that._selectedResource = resource;
                 that._updateAppState('selectedId', resourceId);
                 that.notifySelection();
@@ -94,22 +115,29 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     sortResources : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            var params = intent.params;
-            var val = {
-                sortBy : params.sortBy,
-                direct : !!params.direct
-            };
-            var updated = !_.isEqual(that._sort, val);
-            that._sort = val;
+            var updated = that._setSortResources(intent.params);
             that._sortResults();
             return updated;
         })).then(function(updated) {
             if (updated) {
                 that.notify();
-                that._updateAppState('sort', that._sort);
             }
         });
     }),
+
+    _setSortResources : function(params) {
+        var that = this;
+        var val = {
+            sortBy : params.sortBy,
+            direct : !!params.direct
+        };
+        var updated = !_.isEqual(that._sort, val);
+        that._sort = val;
+        if (updated) {
+            that._updateAppState('sort', that._sort);
+        }
+        return updated;
+    },
 
     sortResourcesByName : function(direct) {
         return this.sortResources({
@@ -141,18 +169,25 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     updateSearchCriteria : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            var criteria = that.getSearchCriteria();
-            var newCriteria = _.extend({}, criteria, intent.params);
-            var updated = !_.isEqual(criteria, newCriteria);
-            that._criteria = newCriteria;
-            return updated;
+            return that._setSearchCriteria(intent.params);
         })).then(function(updated) {
             if (updated) {
                 that.notifySearchCriteria();
-                that._updateAppState('search', that._criteria);
             }
         });
     }),
+
+    _setSearchCriteria : function(criteria) {
+        var that = this;
+        criteria = criteria || {};
+        var newCriteria = _.extend({}, that._criteria, criteria);
+        var updated = !_.isEqual(that._criteria, newCriteria);
+        that._criteria = newCriteria;
+        if (updated) {
+            that._updateAppState('search', that._criteria);
+        }
+        return updated;
+    },
 
     // ------------------------------------------------------------------
 

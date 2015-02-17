@@ -13,8 +13,8 @@ var NavigationRouter = Mosaic.Class.extend(Mosaic.Events.prototype, {
      * Initializes internal fields of this object.
      * 
      * @param options.baseUrl
-     *                path used as a base url; this path is resolved relatively
-     *                to the current page
+     *            path used as a base url; this path is resolved relatively to
+     *            the current page
      */
     initialize : function(options) {
         this.setOptions(options);
@@ -30,9 +30,9 @@ var NavigationRouter = Mosaic.Class.extend(Mosaic.Events.prototype, {
         this._notifyPathChanges();
     },
 
-    stop : function(){
+    stop : function() {
     },
-    
+
     /** Returns the current path. */
     getPath : function() {
         var baseUrl = this._getBaseUrl();
@@ -58,16 +58,20 @@ var NavigationRouter = Mosaic.Class.extend(Mosaic.Events.prototype, {
     /** Sets a new path to put in the navigation bar. */
     setPath : function(path, force) {
         var currentPath = this.getPath();
+        path = path || '';
         if (path !== currentPath || force) {
             this._explicitUpdate = true;
             this._force = force;
             var that = this;
+            if (path == '' || path[0] == '#') {
+                path = '?' + path;
+            }
             Page(path);
             that._explicitUpdate = false;
             that._force = false;
         }
     },
-    
+
     getFullUrl : function(path) {
         var baseUrl = this._getBaseUrl();
         return baseUrl.resolve(path);

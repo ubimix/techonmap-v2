@@ -34,14 +34,14 @@ module.exports = App.extend({
             content : ContentModule,
             contact : ContactModule,
             map : MapModule,
-            nav : NavigationModule,
             res : ResourceModule,
             stats : StatsModule,
             serialize : SerializeModule,
             // search : SearchModule,
             // selection : SelectionModule,
             i18n : I18NModule,
-            ui : UIModule
+            ui : UIModule,
+            nav : NavigationModule,
         };
         this.apis = [];
         this.modules = {};
