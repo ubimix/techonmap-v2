@@ -55,7 +55,7 @@ module.exports = {
                 footer : views.footerElm,
                 onOpen : options.onOpen,
                 onClose : options.onClose,
-                verticalMargin : that.props.margin || 40
+                verticalMargin : options.margin || 40
             });
         });
     },
