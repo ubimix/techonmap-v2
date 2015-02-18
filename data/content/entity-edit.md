@@ -2,27 +2,27 @@ title: Entity - Edit
 ----
 <form class="form-horizontal">
   <div class="form-group">
-    <label for="user-name" class="col-sm-3 control-label">Nom de votre organisation</label>
+    <label for="entity-name" class="col-sm-3 control-label">Nom de votre organisation</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control" placeholder="Tapez le nom de votre organisation" autofocus="autofocus" id="user-name" name="name" />  
+      <input type="text" class="form-control" placeholder="Tapez le nom de votre organisation" autofocus="autofocus" id="entity-name" name="name" />  
     </div>
   </div>
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Identifiant de votre organisation</label>
+    <label for="entity-id" class="col-sm-3 control-label">Identifiant de votre organisation</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Tapez l'identifiant de votre organisation" id="user-email" name="id" />
+      <input type="text" class="form-control" placeholder="Tapez l'identifiant de votre organisation" id="entity-id" name="id" />
     </div>
   </div>
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Adresse e-mail de contact</label>
+    <label for="entity-email" class="col-sm-3 control-label">Adresse e-mail de contact</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez une adresse e-mail de contact" id="user-email" name="email" />
+      <input type="email" class="form-control" placeholder="Saisissez une adresse e-mail de contact" id="entity-email" name="email" />
     </div>
   </div>
   <div class="form-group">
-    <label for="content" class="col-sm-3 control-label">Description de votre organisation</label>
+    <label for="entity-description" class="col-sm-3 control-label">Description de votre organisation</label>
     <div class="col-sm-9">
-      <textarea name="description" id="content"
+      <textarea name="description" id="entity-description"
         placeholder="Description de votre organisation limitée à 250 caractères maximum"
         class="form-control"
         rows="10"
@@ -32,121 +32,96 @@ title: Entity - Edit
   </div>  
   
   <div class="form-group">
-    <label for="reason" class="col-sm-3 control-label">Choisissez une catégorie / un type d’organisation</label>
+    <label for="entity-category" class="col-sm-3 control-label">Choisissez une catégorie / un type d’organisation</label>
     <div class="col-sm-9">
-        <select class="form-control" id="reason" name="category" placeholder="Catégorie">
+        <select class="form-control" id="entity-category" name="category" placeholder="Catégorie">
             <option></option>
         </select>
     </div>
   </div>
   
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Tag 1</label>
+    <label for="entity-tag" class="col-sm-3 control-label">Tags</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez un tag" id="user-email" name="tag1" />
+      <input type="text" class="form-control" placeholder="Saisissez un tag" id="entity-tag" name="tag" />
+      <input type="text" class="form-control" placeholder="Saisissez un tag" name="tag" />
+      <input type="text" class="form-control" placeholder="Saisissez un tag" name="tag" />
+      <input type="text" class="form-control" placeholder="Saisissez un tag" name="tag" />
+      <input type="text" class="form-control" placeholder="Saisissez un tag" name="tag" />
     </div>
   </div>
   
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Tag 2</label>
+    <label for="entity-address" class="col-sm-3 control-label">N° et nom de rue</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez un tag" id="user-email" name="tag2" />
+      <input type="text" class="form-control" placeholder="N° et nom de rue" id="entity-address" name="address" />
     </div>
   </div>
 
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Tag 3</label>
+    <label for="entity-postcode" class="col-sm-3 control-label">Code postal</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez un tag" id="user-email" name="tag3" />
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Tag 4</label>
-    <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez un tag" id="user-email" name="tag4" />
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Tag 5</label>
-    <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez un tag" id="user-email" name="tag5" />
-    </div>
-  </div>
-
-
-  <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">N° et nom de rue</label>
-    <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="N° et nom de rue" id="user-email" name="address" />
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Code postal</label>
-    <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Code postal" id="user-email" name="postcode" />
+      <input type="text" class="form-control" placeholder="Code postal" id="entity-postcode" name="postcode" />
     </div>
   </div>
   
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Ville</label>
+    <label for="entity-city" class="col-sm-3 control-label">Ville</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Ville" id="user-email" name="city" />
+      <input type="text" class="form-control" placeholder="Ville" id="entity-city" name="city" />
     </div>
   </div>
 
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Année de création</label>
+    <label for="entity-creationyear" class="col-sm-3 control-label">Année de création</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Année de création" id="user-email" name="creationyear" />
+      <input type="text" class="form-control" placeholder="Année de création" id="entity-creationyear" name="creationyear" />
     </div>
   </div>
   
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Site Web</label>
+    <label for="entity-url" class="col-sm-3 control-label">Site Web</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez l'URL du site web de votre organisation" id="user-email" name="url" />
+      <input type="text" class="form-control" placeholder="Saisissez l'URL du site web de votre organisation" id="entity-url" name="url" />
     </div>
   </div>
 
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Compte Twitter</label>
+    <label for="entity-twitter" class="col-sm-3 control-label">Compte Twitter</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez le nom du compte Twitter de votre organisation" id="user-email" name="twitter" />
+      <input type="text" class="form-control" placeholder="Saisissez le nom du compte Twitter de votre organisation" id="entity-twitter" name="twitter" />
     </div>
   </div>
     
 
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Page Facebook</label>
+    <label for="entity-facebook" class="col-sm-3 control-label">Page Facebook</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez l'URL de la page Facebook de votre organisation" id="user-email" name="facebook" />
+      <input type="text" class="form-control" placeholder="Saisissez l'URL de la page Facebook de votre organisation" id="entity-facebook" name="facebook" />
     </div>
   </div>
     
 
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Page Google+</label>
+    <label for="entity-googleplus" class="col-sm-3 control-label">Page Google+</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez l'URL de la page Google+ de votre organisation" id="user-email" name="googleplus" />
+      <input type="email" class="form-control" placeholder="Saisissez l'URL de la page Google+ de votre organisation" id="entity-googleplus" name="googleplus" />
     </div>
   </div>
 
 
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Page LinkedIn</label>
+    <label for="entity-linkedin" class="col-sm-3 control-label">Page LinkedIn</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" placeholder="Saisissez l'URL de la page LinkedIn de votre organisation" id="user-email" name="linkedin" />
+      <input type="text" class="form-control" placeholder="Saisissez l'URL de la page LinkedIn de votre organisation" id="entity-linkedin" name="linkedin" />
     </div>
   </div>
     
 
   <div class="form-group">
-    <label for="user-email" class="col-sm-3 control-label">Page Viadeo</label>
+    <label for="entity-viadeo" class="col-sm-3 control-label">Page Viadeo</label>
     <div class="col-sm-9">
-      <input type="url" class="form-control" placeholder="Saisissez l'URL de la page Viadeo de votre organisation" id="user-viadeo" name="viadeo" />
+      <input type="text" class="form-control" placeholder="Saisissez l'URL de la page Viadeo de votre organisation" id="entity-viadeo" name="viadeo" />
     </div>
   </div>
     

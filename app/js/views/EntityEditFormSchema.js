@@ -5,6 +5,7 @@ var validator = new BootstrapFormValidator({
     schema : {
         properties : {
             name : {
+                label : 'Nom de votre organisation',
                 description : 'Nom de votre organisation',
                 type : 'string',
                 required : true,
@@ -14,6 +15,7 @@ var validator = new BootstrapFormValidator({
                 }
             },
             id : {
+                label : 'Identifiant de votre organisation',
                 description : 'Identifiant de votre organisation',
                 type : 'string',
                 required : true,
@@ -22,7 +24,6 @@ var validator = new BootstrapFormValidator({
                     allowEmpty : "L'identifiant saisi ne doit pas être vide",
                 }
             },
-            
             email : {
                 description : 'Adresse e-mail de contact',
                 type : 'string',
@@ -35,49 +36,18 @@ var validator = new BootstrapFormValidator({
                 required : true
             },
             category : {
+                label : 'Catégorie',
                 description : 'Sélectionner une catégorie / un type d\'organisation',
                 type : 'string',
-                enum : [ 'Entreprise', 'Incubateur', 'Investisseur' ],
+                enum : [ 'Entreprise', 'Tiers-lieu', 'Incubateur', 'Investisseur', 'Communauté', 'Ecole', 'Acteur public' ],
                 required : true
             },
-            tag1 : {
-                description : 'Saisissez un mot-clef',
-                type : 'string',
-                required : true,
-                messages : {
-                    required : "Au moins un tag est requis",
-                    allowEmpty : "Le tag saisi ne doit pas être vide",
-                }
-            },
-            tag2 : {
-                description : 'Saisissez un mot-clef',
-                type : 'string',
-                required : true,
-                messages : {
-                    required : "Au moins un tag est requis",
-                    allowEmpty : "Le tag saisi ne doit pas être vide",
-                }
-            },
-            tag3 : {
-                description : 'Saisissez un mot-clef',
-                type : 'string',
-                required : true,
-                messages : {
-                    required : "Au moins un tag est requis",
-                    allowEmpty : "Le tag saisi ne doit pas être vide",
-                }
-            },
-            tag4 : {
-                description : 'Saisissez un mot-clef',
-                type : 'string',
-                required : true,
-                messages : {
-                    required : "Au moins un tag est requis",
-                    allowEmpty : "Le tag saisi ne doit pas être vide",
-                }
-            },
-            tag5 : {
-                description : 'Saisissez un mot-clef',
+            tag : {
+                label : 'Tags',
+                description : 'Saisissez un ou plusieurs mot-clef',
+                minItems : 1,
+                maxItems : 5,
+                uniqueItems : true,
                 type : 'string',
                 required : true,
                 messages : {
@@ -86,6 +56,7 @@ var validator = new BootstrapFormValidator({
                 }
             },
             address : {
+                label : 'Adresse',
                 description : 'Adresse de votre organisation',
                 type : 'string',
                 required : true,
@@ -94,7 +65,30 @@ var validator = new BootstrapFormValidator({
                     allowEmpty : "L'adresse saisie ne doit pas être vide.",
                 }
             },
+            postcode : {
+                label : 'Code postal',
+                description : 'Code postal de votre organisation',
+                type : 'string',
+                required : true,
+                messages : {
+                    required : "Un code postal est requise.",
+                    allowEmpty : "Le code postal saisi ne doit pas être vide.",
+                }
+            },
+            
+            city : {
+                label : 'Ville',
+                description : 'Ville de votre organisation',
+                type : 'string',
+                required : true,
+                messages : {
+                    required : "Une ville est requise.",
+                    allowEmpty : "La ville saisie ne doit pas être vide.",
+                }
+            },            
+            
             url : {
+                label : 'Site Web',
                 description : 'Site Web de votre organisation',
                 type : 'string',
                 required : true,
@@ -104,24 +98,29 @@ var validator = new BootstrapFormValidator({
                 }
             },
             twitter : {
+                label : 'Compte Twitter',
                 description : 'Compte Twitter de votre organisation',
                 type : 'string'
             },
             facebook : {
+                label : 'Page Facebook',
                 description : 'Page Facebook de votre organisation',
                 type : 'string'
             },
             googleplus : {
-                description : 'Saisissez un mot-clef',
+                label : 'Page Google+',
+                description : 'Page Google+ un mot-clef',
                 type : 'string',
                 required : false
             },
             linkedin : {
+                label : 'Page LinkedIn',
                 description : 'Page LinkedIn de votre organisation',
                 type : 'string',
                 required : false
             },
             viadeo : {
+                label : 'Page Viadeo',
                 description : 'Page Viadeo de votre organisation',
                 type : 'string',
                 required : false
