@@ -17,7 +17,7 @@ module.exports = React.createClass({
     },
     _newState : function(options) {
         var app = this.getApp();
-        var zones = app.nav.getFilterZones();
+        var zones = app.res.getFilterZones();
         var stats = this.props.app.stats;
         return _.extend({}, this.state, {
             zones : zones,
@@ -26,11 +26,11 @@ module.exports = React.createClass({
         });
     },
     _getStore : function() {
-        return this.props.app.nav;
+        return this.props.app.res;
     },
     render : function() {
         var app = this.props.app;
-        var zones = app.nav.getZones();
+        var zones = app.res.getZones();
         var array = _.map(zones, function(zone, i) {
             var key = zone.key;
             var stats = this.state.stats[key] || 0;

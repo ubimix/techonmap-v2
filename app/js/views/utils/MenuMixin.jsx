@@ -21,10 +21,9 @@ var MenuMixin = {
             </ul>
         );
     },
-    _renderMenuPanel : function(){
+    _renderMenuPanel : function(key){
         var args = toArray(arguments);
-        var heading = args[0];
-        args.splice(0, 1);
+        var heading = args.shift();
         args = _.filter(args, function(val){
             return !!val;
         });
@@ -37,8 +36,9 @@ var MenuMixin = {
         if (!key) {
             key = _.uniqueId('menu-');
         }
+        console.log('_renderMenuPanel', key);
         return (
-             <div className="panel" key={key    }>
+             <div className="panel" key={key}>
                  <div className="panel-heading">{heading}</div>
                  {body}
              </div>
@@ -46,30 +46,29 @@ var MenuMixin = {
     },
     _renderMenuPanelGroup : function(){
         var args = toArray(arguments);
-        var ref = args[0];
-        args.splice(0, 1);
-        args = toArray(args);
+        var ref = args.shift();
         var className = "panel-group " + ref;
-        return (<div className={className} ref={ref}>{args}</div>);
+        return (<div className={className} key={ref} ref={ref}>{args}</div>);
     },
     _renderMenuPanels : function(){
         var panels = toArray(arguments);
         return (
-            <PanelSwitcher className="container" ref="panels">
+            <PanelSwitcher className="container" key="panels" ref="panels">
                 {panels}
             </PanelSwitcher>
        );
     },
     _toggleMenuPanel : function(panelKey, ev) {
-        this.refs.panels.activate(panelKey);
         if (ev) {
             ev.preventDefault();
             ev.stopPropagation();
         }
+        return this.refs.panels.activate(panelKey);
     },
     _renderMenuRef : function(labelKey, panelKey, view) {
         return (
-           <a href="#" onClick={_.bind(this._toggleMenuPanel, this, panelKey)}>
+           <a href="#" onClick={_.bind(this._toggleMenuPanel, this, panelKey)}
+               key={panelKey}>
                <i className="chevron-right pull-right"/>
                {this._getLabel(labelKey)}
                {view}
@@ -80,7 +79,8 @@ var MenuMixin = {
         key = key || 'main';
         labelKey  = labelKey || 'search.panel.button.return';
         return this._renderMenuItems(
-            <a href="#" className="return" onClick={_.bind(this._toggleMenuPanel, this, key)}>
+            <a href="#" className="return" onClick={_.bind(this._toggleMenuPanel, this, key)}
+                key={key}>
                 <i className="chevron-left pull-left"/>
                 {this._getLabel(labelKey)}
             </a>

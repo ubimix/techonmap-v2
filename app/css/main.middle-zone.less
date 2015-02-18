@@ -184,7 +184,7 @@
             }
         }        
        .search-results-list {
-            .fit(@bar-size + @nav-size + 2);
+            .fit(@bar-size + @nav-size + 2, 0, 0, 0);
             overflow-x: hidden;
             overflow-y: auto;
             border-top: 1px solid #eee;
@@ -213,37 +213,19 @@
                 border-bottom: 1px solid #eee;
                 margin-top: 0px;
                 margin-bottom: 0px;
-                &.selected {
-                    background-color: #eee;
-                }
-                
                 
                 .picto {
                     border-radius: 4px;
                     text-align: center;
                     padding: 0.5em;
                     
-                    &.community {
-                        background-color: #53C591;
-                    }      
-                    &.company {
-                        background-color: #B4D277;     
-                    }
-                    &.coworking {
-                        background-color: #C0AE60;
-                    }
-                    &.education {
-                        background-color: #A3CEED;
-                    }
-                    &.incubator {
-                        background-color: #385F98;
-                    }
-                    &.investor {
-                        background-color: #8E5EAE;
-                    }
-                    &.org {
-                        background-color: #ED6464;
-                    }
+                    &.community { background-color: #53C591; }
+                    &.company { background-color: #B4D277; }
+                    &.coworking { background-color: #DFCC6B; }
+                    &.education { background-color: #A3CEED; }
+                    &.incubator { background-color: #385F98; }
+                    &.investor { background-color: #8E5EAE; }
+                    &.org { background-color: #ED6464; }
                     
                     .icon {
                         color: white;
@@ -252,6 +234,18 @@
                         display: inline-block;
                     }
                     
+                }                
+                &.selected {
+                    background-color: #eee;
+                    .picto {
+                        &.community { background-color: #25553E; }
+                        &.company { background-color: #8B9B63; }
+                        &.coworking { background-color: #C0AE60; }
+                        &.education { background-color: #7FA1B6; }
+                        &.incubator { background-color: #253F5F; }
+                        &.investor { background-color: #5B3F71; }
+                        &.org { background-color: #A44646; }
+                    }
                 }
                 
                 .media-body {

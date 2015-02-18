@@ -5,16 +5,16 @@ var React = require('react');
 var ZoneMixin = {
     _selectZone : function(zone, ev) {
         var app = this.props.app;
-        app.nav.toggleZones([zone]);
+        app.res.toggleZones([zone]);
         ev.stopPropagation();
         ev.preventDefault();
     },
     _renderZone : function(zone){
         var app = this.props.app;
-        var selected = app.nav.isFilteredByZone(zone);
+        var selected = app.res.isFilteredByZone(zone);
         var zoneLabel = zone.label;
         var className = selected ? 'zone selected' : 'zone';
-        var zoneKey = app.nav.getZoneKey(zone);
+        var zoneKey = app.res.getZoneKey(zone);
         return (
             <span
                 onClick={_.bind(this._selectZone, this, zone)}

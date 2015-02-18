@@ -2,9 +2,11 @@ var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 var App = require('mosaic-core').App;
 var Api = App.Api;
+var AppStateMixin = require('../AppStateMixin');
+var BrowserUtils = require('./BrowserUtils');
 
 /** This module manages visualization modes for the UI. */
-module.exports = Api.extend({
+module.exports = Api.extend(AppStateMixin, {
 
     /**
      * Initializes internal fields.
@@ -21,12 +23,57 @@ module.exports = Api.extend({
      */
     start : function() {
         var that = this;
+        var state = this.getAppState();
+        state.addChangeListener(this._onAppStateChange, this);
+        this._onWindowResize = this._onWindowResize.bind(this);
+        this._onWindowResize = _.debounce(this._onWindowResize, 30);
+        window.addEventListener('resize', this._onWindowResize);
+        // that._updateAppState('focus', that._viewKey);
+        // that._updateAppState('mode', that._mode);
         return Mosaic.P.then(function() {
+            that._onWindowResize();
+        }).then(function() {
+            return that.focusView(that._viewKey);
         });
     },
 
     /** Closes this module. */
     stop : function() {
+        var state = this.getAppState();
+        state.removeChangeListener(this._onAppStateChange, this);
+        window.removeEventListener('resize', this._onWindowResize);
+    },
+
+    _onWindowResize : function() {
+        var w = window, d = document, e = d.documentElement, g = d
+                .getElementsByTagName('body')[0], x = w.innerWidth
+                || e.clientWidth || g.clientWidth, y = w.innerHeight
+                || e.clientHeight || g.clientHeight;
+
+        var mode = 'full';
+        if (BrowserUtils.isMobile() || x < 800) {
+            mode = 'mobile';
+        }
+        this.setScreenMode({
+            mode : mode
+        });
+    },
+
+    _onAppStateChange : function(ev) {
+        var app = this.options.app;
+        var path = ev.path;
+
+        var focusedView = this._getAppState('focus');
+        if (focusedView) {
+            this.focusView(focusedView);
+        }
+
+        var mode = this._getAppState('mode');
+        if (mode) {
+            this.setScreenMode({
+                mode : mode
+            });
+        }
     },
 
     // ------------------------------------------------------------------------
@@ -47,9 +94,15 @@ module.exports = Api.extend({
     doFocusView : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            that._viewKey = intent.params.viewKey || 'map';
-        })).then(function() {
-            that.notify();
+            var viewKey = intent.params.viewKey || 'map';
+            var updated = !_.isEqual(that._viewKey, viewKey);
+            that._viewKey = viewKey;
+            return updated;
+        })).then(function(updated) {
+            if (updated) {
+                that.notify();
+                that._updateAppState('focus', that._viewKey);
+            }
         });
     }),
 
@@ -122,9 +175,18 @@ module.exports = Api.extend({
     setScreenMode : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            that._mode = intent.params.mode || this._initialMode;
-        })).then(function() {
-            that.notify();
+            var mode = intent.params.mode || this._initialMode;
+            var updated = false;
+            if (_.indexOf([ 'mobile', 'tablet', 'full' ], mode) >= 0) {
+                updated = !_.isEqual(mode, that._mode);
+                that._mode = mode;
+            }
+            return updated;
+        })).then(function(updated) {
+            if (updated) {
+                that.notify();
+                that._updateAppState('mode', that._mode);
+            }
         });
     }),
 });

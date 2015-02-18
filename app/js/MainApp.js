@@ -14,6 +14,7 @@ var ContactModule = require('./models/contact/Contact.Module');
 var I18NModule = require('./models/i18n/I18N.Module');
 var MapModule = require('./models/map/Map.Module');
 var NavigationModule = require('./models/nav/Navigation.Module');
+var Navigation = require('./models/nav/Navigation');
 var ResourceModule = require('./models/res/Resource.Module');
 var StatsModule = require('./models/stats/Stats.Module');
 var SerializeModule = require('./models/serialize/Serialize.Module');
@@ -26,20 +27,21 @@ module.exports = App.extend({
      */
 
     initModules : function() {
+        this.state = new Navigation();
         this.viewManager = new ViewManager();
         initWidgets(this);
         var modules = {
             content : ContentModule,
             contact : ContactModule,
             map : MapModule,
-            nav : NavigationModule,
             res : ResourceModule,
             stats : StatsModule,
             serialize : SerializeModule,
             // search : SearchModule,
             // selection : SelectionModule,
             i18n : I18NModule,
-            ui : UIModule
+            ui : UIModule,
+            nav : NavigationModule,
         };
         this.apis = [];
         this.modules = {};
@@ -66,6 +68,16 @@ module.exports = App.extend({
 
     _applyToModules : function(modules, onoff) {
         var that = this;
+        var promise = Mosaic.P();
+        _.each(modules, function(module) {
+            promise = promise.then(function() {
+                if (module[onoff]) {
+                    return module[onoff]();
+                }
+            })
+        });
+        return promise;
+        
         return Mosaic.P.all(_.map(modules, function(module) {
             return Mosaic.P.then(function() {
                 if (module[onoff]) {

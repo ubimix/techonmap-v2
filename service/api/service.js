@@ -4,6 +4,9 @@ var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
 module.exports = {
+    hello : rest('/hello', 'GET', function(params) {
+        return 'Hello';
+    }),
     sendMail : rest('/send', 'POST', function(params) {
         var message = {
             user : {

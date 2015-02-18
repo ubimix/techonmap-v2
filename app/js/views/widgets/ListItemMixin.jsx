@@ -5,6 +5,7 @@ var TagsMixin = require('../utils/TagsMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 var Formats = require('../utils/Formats');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
+var TypesMapping = require('./default/Categories');
 
 module.exports = _.extend({
 
@@ -29,11 +30,17 @@ module.exports = _.extend({
     },
     
     _renderShortDescription : function(type) {
-        type = ResourceUtils.getResourceTypeLabel(type);
         var creationYear = ResourceUtils.getResourceCreationYear(this.props.resource);
-        var creationYearText = creationYear ? 'créé(e) en '+creationYear : ''; 
+        var creationYearText = '';
+        var typeKey = TypesMapping[type];
+        if (creationYear){
+            var app = this.getApp();
+            var i18n = app.i18n;
+            var msgKey = 'list.item.view.' + typeKey + '.creationYear';
+            creationYearText = i18n.getMessage(msgKey, { year: creationYear });
+        }
         return <div className="short-description">
-            {type} {creationYearText}
+            {creationYearText}
         </div>
     },
     

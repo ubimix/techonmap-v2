@@ -1,6 +1,5 @@
 var _ = require('underscore');
 var React = require('react');
-var DomUtils = require('./DomUtils');
 
 /**
  * This class is responsible for automatic tracking and updating of vertical
@@ -17,7 +16,7 @@ var PanelSizeTracker = React.createClass({
         var containerNode = container.getDOMNode();
         var node = this.getDOMNode();
         var minSize = this.props.minSize || 10;
-        DomUtils._updateSize(containerNode, node, minSize);
+        this._updateSize(containerNode, node, minSize);
     },
 
     componentWillMount : function() {
@@ -40,7 +39,42 @@ var PanelSizeTracker = React.createClass({
      */
     render : function() {
         return React.Children.only(this.props.children);
-    }
+    },
+
+    // -----------------------------------------------------------------------
+    // Utility methods
+
+    /**
+     * Updates the size of the specified element in the container to be sure
+     * that all previous siblings have sufficient place. If the resulting size
+     * is less than specified minimal value then this minimal value is used
+     * instead.
+     */
+    _updateSize : function(container, element, minSize) {
+        minSize = minSize || 0;
+        var height = container.offsetHeight;
+        var pos = this._getPosition(container, element);
+        var size = Math.max(minSize, Math.min(height - pos.top));
+        element.style.height = size + 'px';
+    },
+
+    /**
+     * Returns position of an element in the specified container.
+     */
+    _getPosition : function(el, parent) {
+        var _x = 0;
+        var _y = 0;
+        while (el && el !== parent && !isNaN(el.offsetLeft)
+                && !isNaN(el.offsetTop)) {
+            _x += el.offsetLeft - el.scrollLeft;
+            _y += el.offsetTop - el.scrollTop;
+            el = el.offsetParent;
+        }
+        return {
+            top : _y,
+            left : _x
+        };
+    },
 
 });
 

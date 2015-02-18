@@ -12,8 +12,8 @@ var DomUtils = {
         var pos = DomUtils._getPosition(container, element);
         var top = pos.top;
         // Scroll only if the element is not visible in the container
-        if (top < container.scrollTop ||
-                top > container.scrollTop + container.offsetHeight) {
+        if (top < container.scrollTop
+                || top > container.scrollTop + container.offsetHeight) {
             container.scrollTop = pos.top;
         }
     },
@@ -24,8 +24,8 @@ var DomUtils = {
     _getPosition : function(el, parent) {
         var _x = 0;
         var _y = 0;
-        while (el && el !== parent && !isNaN(el.offsetLeft) &&
-                !isNaN(el.offsetTop)) {
+        while (el && el !== parent && !isNaN(el.offsetLeft)
+                && !isNaN(el.offsetTop)) {
             _x += el.offsetLeft - el.scrollLeft;
             _y += el.offsetTop - el.scrollTop;
             el = el.offsetParent;
@@ -42,9 +42,9 @@ var DomUtils = {
         if (_.isNumber(elem.selectionStart) && _.isNumber(elem.selectionEnd)) {
             elem.selectionStart = start
             elem.selectionEnd = end
-        } else if (document.selection &&
-                _.isFunction(document.selection.createRange) &&
-                _.isFunction(elem.createTextRange)) {
+        } else if (document.selection
+                && _.isFunction(document.selection.createRange)
+                && _.isFunction(elem.createTextRange)) {
             // Create a new range in the element
             var range = elem.createTextRange();
             // Move the range to the start of the element
@@ -86,16 +86,16 @@ var DomUtils = {
     _getOuterHeight : function(el) {
         var style = DomUtils._getStyle(el);
         var height = el.offsetHeight;
-        height += parseInt(style.paddingTop || 0) +
-                parseInt(style.paddingBottom || 0);
+        height += parseInt(style.paddingTop || 0)
+                + parseInt(style.paddingBottom || 0);
         return height;
     },
 
     _getOuterWidth : function(el) {
         var style = DomUtils._getStyle(el);
         var width = el.offsetWidth;
-        width += parseInt(style.paddingLeft || 0) +
-                parseInt(style.paddingRight || 0);
+        width += parseInt(style.paddingLeft || 0)
+                + parseInt(style.paddingRight || 0);
         return width;
     },
 
@@ -171,8 +171,8 @@ var DomUtils = {
             return el.classList.contains(name);
         }
         var className = DomUtils._getClass(el);
-        return className.length > 0 &&
-                new RegExp('(^|\\s)' + name + '(\\s|$)').test(className);
+        return className.length > 0
+                && new RegExp('(^|\\s)' + name + '(\\s|$)').test(className);
     },
 
     _addClass : function(el, name) {
@@ -192,8 +192,8 @@ var DomUtils = {
             el.classList.remove(name);
         } else {
             DomUtils._setClass(el, L.Util
-                    .trim((' ' + DomUtils._getClass(el) + ' ').replace(' ' +
-                            name + ' ', ' ')));
+                    .trim((' ' + DomUtils._getClass(el) + ' ').replace(' '
+                            + name + ' ', ' ')));
         }
     },
 
@@ -207,8 +207,8 @@ var DomUtils = {
     },
 
     _getClass : function(el) {
-        return el.className.baseVal === undefined ? el.className
-                : el.className.baseVal;
+        var className = el.className || '';
+        return className.baseVal === undefined ? className : className.baseVal;
     },
 
 };

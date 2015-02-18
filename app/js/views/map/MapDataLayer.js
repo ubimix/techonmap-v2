@@ -57,8 +57,13 @@ module.exports = AbstractMapLayer.extend({
         app.res.addChangeListener(this._reloadData, this);
         app.res.addSelectListener(this._onSelectResource, this);
         this._map.on('zoomend', this._onZoomEnd, this);
-        this._map.once('initialize', function(){
+        this._map.once('initialize', function(ev) {
             this._initialized = true;
+            if (ev.reloadData) {
+                this._reloadData();
+            } else {
+                this._onSelectResource();
+            }
         }, this);
     },
 
@@ -136,6 +141,7 @@ module.exports = AbstractMapLayer.extend({
 
         var markers = _.values(this._index);
         this._clusterLayer.addLayers(markers);
+        this._onSelectResource();
     },
 
     /**
@@ -156,10 +162,6 @@ module.exports = AbstractMapLayer.extend({
             }
         }
         this._redrawMarkers();
-        var that = this;
-        setTimeout(function(){
-            that._onSelectResource();
-        }, 100);
     },
 
     // -----------------------------------------------------------------------
@@ -228,12 +230,12 @@ module.exports = AbstractMapLayer.extend({
     _onSelectResource : function() {
         var that = this;
         that._clearSelectedMarker();
-
         var app = this._getApp();
         var selectedId = app.res.getSelectedResourceId();
         var marker = that._index[selectedId];
         if (!marker)
             return;
+        console.log('_onSelectResource', selectedId, marker.icon);
         that._clusterLayer.zoomToShowLayer(marker, function() {
             var latlng = marker.getLatLng();
             if (that.options.viewport) {
@@ -258,6 +260,9 @@ module.exports = AbstractMapLayer.extend({
         var that = this;
         that._clearSelectedMarker();
         that._selectedMarker = marker;
+        if (that._selectedMarker.setSelection) {
+            that._selectedMarker.setSelection(true);
+        }
         var app = this._getApp();
         var resource = app.res.getSelectedResource();
         this._showMarkerPopup(marker, resource);
@@ -267,6 +272,9 @@ module.exports = AbstractMapLayer.extend({
     _clearSelectedMarker : function() {
         var that = this;
         if (that._selectedMarker) {
+            if (that._selectedMarker.setSelection) {
+                that._selectedMarker.setSelection(false);
+            }
             // TODO: remove selection from the marker
             delete that._selectedMarker;
         }

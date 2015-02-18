@@ -4,18 +4,7 @@ var React = require('react');
 var ListItemMixin = require('../ListItemMixin.jsx');
 var ResourceUtils = require('../../../tools/ResourceUtilsMixin');
 var ViewActivationMixin = require('../../utils/ViewActivationMixin');
-
-// FIXME: refactor types
-var types = {
-        'entreprise' : 'company',
-        'tiers-lieu' : 'coworking',
-        'communauté' : 'community',
-        'école' : 'education',
-        'investisseur' : 'investor',
-        'incubateur' : 'incubator',
-        'acteur public': 'org'
-    };
-
+var types = require('./Categories.js');
 
 module.exports = React.createClass({
     displayName : 'List.Default',
@@ -70,7 +59,7 @@ module.exports = React.createClass({
         var iconClassName = 'icon icon-'+types[resourceType];
         className += resourceType;
         return (
-            <div className={className} key={resourceId}
+            <div className={className} key={this.props.key}
                 onClick={this.props.onClick}>
                 <div className="media-left">
                     <div className={pictoClassName}>

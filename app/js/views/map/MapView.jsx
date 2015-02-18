@@ -59,23 +59,41 @@ module.exports = React.createClass({
                 left : focusPosition[0]
             });
         }
-        
+
         if (this._map && !this._initialized) {
             this._initialized = true;
             // Initial map focus
-            var app = this._getApp();
-            var mapOptions = app.map.getMapOptions();
-            var zoom = mapOptions.zoom || 8;
-            var center = mapOptions.center || [ 0, 0 ];
-            var latlng = L.latLng(center[1], center[0]);
-            var center = L.bounds(topLeft, bottomRight).getCenter();
+            var options = this._getInitialViewOptions();
             var that = this;
-            this._viewport.focusTo(latlng, center, function() {
-                that._map.fire('initialize', {
-                    zoom : zoom,
-                    center : center
+            var center = L.bounds(topLeft, bottomRight).getCenter();
+            if (options.reloadData) {
+                that._map.fire('initialize', options);
+            } else {
+                this._viewport.focusTo(options.latlng, center, function() {
+                    // This view could be unmounted between the initial call 
+                    // and this callback.
+                    if (that._map) {
+                        that._map.fire('initialize', options);
+                    }
                 });
-            });
+            }
+        }
+    },
+
+    _getInitialViewOptions : function() {
+        var app = this._getApp();
+        var reloadData = false;
+        if (app.res.hasSearchCriteria()) {
+            reloadData = true;
+        }
+        var mapOptions = app.map.getMapOptions();
+        var coords = mapOptions.center || [ 0, 0 ];
+        var latlng = L.latLng(coords[1], coords[0]);
+        var zoom = mapOptions.zoom || 8;
+        return {
+            latlng : latlng,
+            zoom : zoom,
+            reloadData : reloadData
         }
     },
 

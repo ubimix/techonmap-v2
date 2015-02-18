@@ -1,14 +1,14 @@
 module.exports = {
-    baseUrl : '../',
-    contentBaseUrl : '../data/content/',
-    apiBaseUrl : '../back',
-    searchServiceUrl : '../service/organizations',
+    baseUrl : './',
+    contentBaseUrl : './data/content/',
+    apiBaseUrl : './service/api',
+    searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
-    messages : 'data/messages.json',
-    dataUrl : 'data/data.json',
-    dataFieldsUrl : 'data/data.fields.json',
-    categoriesUrl : 'data/categories.json',
-    zonesUrl : 'data/zones.json',
+    messages : './data/messages.json',
+    dataUrl : './data/data.json',
+    dataFieldsUrl : './data/data.fields.json',
+    categoriesUrl : './data/categories.json',
+    zonesUrl : './data/zones.json',
     mode : 'full',
     containers : {
         main : document.querySelector('body')

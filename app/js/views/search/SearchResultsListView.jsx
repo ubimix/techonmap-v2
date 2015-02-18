@@ -2,18 +2,29 @@
 var _ = require('underscore');
 var React = require('react');
 var PaginatedListView = require('mosaic-core').React.PaginatedListView;
-
+var I18NMixin = require('../utils/I18NMixin');
 var AppViewMixin = require('../AppViewMixin');
 
 var ListView = React.createClass({
     displayName : 'SearchResultsListView',
 
-    mixins : [ AppViewMixin ],
+    mixins : [ I18NMixin, AppViewMixin ],
 
     /** Renders this view */
     render : function() {
         var app = this.getApp();
         var results = app.res.getResources();
+        if (!results || !results.length) {
+            var item = app.viewManager.newView('listItemEmpty', 'default', {
+                app : app
+            });
+            return (
+                <div  className="list-group search-results-list">
+                    {item}
+                </div>
+            );
+        }
+        
         var activeResourceId = app.res.getSelectedResourceId()
                 || this._prevActiveResourceId;
         var focusedIdx;
@@ -24,6 +35,7 @@ var ListView = React.createClass({
         var pageSize = 15;
         return (
             <PaginatedListView
+                key="list-view"
                 className="list-group search-results-list" 
                 paginationClassName="pagination pagination-sm" 
                 pageSize={pageSize}
@@ -98,9 +110,11 @@ var ListView = React.createClass({
     _renderItem : function(resource, pos) {
         var app = this.props.app;
         var type = app.res.getResourceType(resource);
+        var resourceId = app.res.getResourceId(resource);
         var that = this;
         var view = app.viewManager.newView('listItem', type, {
             app : app,
+            key : resourceId,
             resource : resource,
             pos : pos,
             onClick : function() {

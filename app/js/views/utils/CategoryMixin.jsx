@@ -5,7 +5,7 @@ var React = require('react');
 var CategoryMixin = {
     _selectCategory : function(category, ev) {
         var app = this.props.app;
-        var promise = app.nav.toggleCategories([category]);
+        var promise = app.res.toggleCategories([category]);
         if (this.props.onSelectCategory) {
             var that = this;
             promise.then(function(){
@@ -17,8 +17,8 @@ var CategoryMixin = {
     },
     _renderCategory : function(category, options){
         var app = this.props.app;
-        var selected = app.nav.isFilteredByCategory(category);
-        var categoryKey = app.nav.getCategoryKey(category);
+        var selected = app.res.isFilteredByCategory(category);
+        var categoryKey = app.res.getCategoryKey(category);
         var categoryLabel = category.label;
         options = options || {};
         var className = selected ? 'category selected' : 'category';
