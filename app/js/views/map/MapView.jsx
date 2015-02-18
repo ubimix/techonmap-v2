@@ -70,7 +70,11 @@ module.exports = React.createClass({
                 that._map.fire('initialize', options);
             } else {
                 this._viewport.focusTo(options.latlng, center, function() {
-                    that._map.fire('initialize', options);
+                    // This view could be unmounted between the initial call 
+                    // and this callback.
+                    if (that._map) {
+                        that._map.fire('initialize', options);
+                    }
                 });
             }
         }

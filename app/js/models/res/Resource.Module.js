@@ -43,20 +43,20 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         this
                 .addSearchCriteriaChangeListener(this._onSearchCriteriaChange,
                         this);
-        var state = this.getAppState();
-        state.addChangeListener(this._onAppStateChange, this);
         this._allResourcesPromise = this._loadAllInfo();
-        // that._updateAppState('sort', that._sort);
-        // that._updateAppState('search', that._criteria);
-        // that._updateAppState('selectedId', resourceId);
-        return this._searchResources();
+        this._deferrredSelectResource = _.debounce(this.selectResource, 100);
+        // this._onAppStateChange = _.debounce(this._onAppStateChange, 1);
+        this._startPromise = this._searchResources().then(function() {
+            var state = that.getAppState();
+            state.addChangeListener(that._onAppStateChange, that);
+        });
+        return this._startPromise;
     },
 
     stop : function() {
         this.removeSearchCriteriaChangeListener(this._onSearchCriteriaChange,
                 this);
         var state = this.getAppState();
-        // this._onAppStateChange = _.debounce(this._onAppStateChange, 1);
         state.removeChangeListener(this._onAppStateChange, this);
     },
 
@@ -65,29 +65,27 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     },
 
     _onAppStateChange : function(ev) {
-        var app = this.options.app;
-        var path = ev.path;
-        console.log('>>>> _onAppStateChange ', ev, app.state.getValue(path));
-
-        // var updated = false;
-        //
-        // var criteria = this._getAppState('search');
-        // if (criteria) {
-        // updated = this._setSearchCriteria(criteria);
-        // // this.updateSearchCriteria(criteria);
-        // }
-        //
-        // var sort = this._getAppState('sort');
-        // if (sort) {
-        // updated = this._setSortResources(sort);
-        // }
-        //
-        // var resourceId = this._getAppState('selectedId');
-        // if (resourceId) {
-        // // this.selectResource({
-        // // resourceId : resourceId
-        // // });
-        // }
+        this._startPromise.then(function() {
+            var app = this.options.app;
+            var path = ev.path;
+            var updated = false;
+            var criteria = this._getAppState('search');
+            if (criteria) {
+                this.updateSearchCriteria(criteria);
+            }
+            var sort = this._getAppState('sort');
+            if (sort) {
+                this.sortResources(sort);
+            }
+            var resourceId = this._getAppState('selectedId');
+            if (resourceId) {
+                setTimeout(function() {
+                    this.selectResource({
+                        resourceId : resourceId
+                    });
+                }.bind(this), 100);
+            }
+        }.bind(this));
     },
 
     // ------------------------------------------------------------------
@@ -101,14 +99,17 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         var that = this;
         var resourceId = intent.params.resourceId
         return intent.resolve(that._findResourceById(resourceId))//
-        .then(function(resource) {
-            var prevId = that.getSelectedResourceId();
-            if (((!!prevId) !== (!!resourceId)) || prevId != resourceId) {
-                that._selectedResource = resource;
-                that._updateAppState('selectedId', resourceId);
-                that.notifySelection();
-            }
-        });
+        .then(
+                function(resource) {
+                    var prevId = that.getSelectedResourceId();
+                    var updated = ((!!prevId) !== (!!resourceId))
+                            || (prevId != resourceId);
+                    if (updated) {
+                        that._selectedResource = resource;
+                        that._updateAppState('selectedId', resourceId);
+                        that.notifySelection();
+                    }
+                });
     }),
 
     /** Sort resources by name or by modification date. */
@@ -348,7 +349,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     /** Returns a list of category keys used to filter objects. */
     getFilterCategoryKeys : function() {
         var criteria = this.getSearchCriteria();
-        return criteria.category;
+        return this._toArray(criteria.category);
     },
 
     /** Returns a category object corresponding to the specified key. */
@@ -422,7 +423,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Returns all geographic zones for this application. */
     getZones : function() {
-        return this._zones;
+        return this._toArray(this._zones);
     },
 
     /** Returns true if there are geographical filters applied */
@@ -440,15 +441,18 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     /** Returns filtering zones */
     getFilterZones : function() {
         var keys = this.getFilterZoneKeys();
-        return _.map(keys, function(key) {
+        var result = _.filter(_.map(keys, function(key) {
             return this.getZoneByKey(key);
-        }, this);
+        }, this), function(val) {
+            return !!val;
+        });
+        return result;
     },
 
     /** Returns a list of all zones used to fileter values. */
     getFilterZoneKeys : function() {
         var criteria = this.getSearchCriteria();
-        return criteria.postcode || [];
+        return this._toArray(criteria.postcode);
     },
 
     /** Returns a zone description corresponding to the specified key. */
@@ -494,7 +498,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     /** Returns an array of tags used as a search criteria. */
     getFilterTags : function() {
         var criteria = this.getSearchCriteria();
-        return criteria.tags || [];
+        return this._toArray(criteria.tags);
     },
 
     /**
@@ -648,6 +652,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             });
         });
     },
+
     /**
      * Loads datamapping used to initialize field weights used to index data in
      * Lunr index
@@ -838,4 +843,11 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         };
     },
 
+    _toArray : function(values) {
+        if (!values)
+            return [];
+        if (_.isArray(values))
+            return values;
+        return [ values ];
+    }
 });

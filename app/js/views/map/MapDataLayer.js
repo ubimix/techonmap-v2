@@ -62,6 +62,7 @@ module.exports = AbstractMapLayer.extend({
             if (ev.reloadData) {
                 this._reloadData();
             }
+            this._onSelectResource();
         }, this);
     },
 
@@ -139,6 +140,7 @@ module.exports = AbstractMapLayer.extend({
 
         var markers = _.values(this._index);
         this._clusterLayer.addLayers(markers);
+        this._onSelectResource();
     },
 
     /**
@@ -159,10 +161,6 @@ module.exports = AbstractMapLayer.extend({
             }
         }
         this._redrawMarkers();
-        var that = this;
-        setTimeout(function() {
-            that._onSelectResource();
-        }, 100);
     },
 
     // -----------------------------------------------------------------------
@@ -231,12 +229,12 @@ module.exports = AbstractMapLayer.extend({
     _onSelectResource : function() {
         var that = this;
         that._clearSelectedMarker();
-
         var app = this._getApp();
         var selectedId = app.res.getSelectedResourceId();
         var marker = that._index[selectedId];
         if (!marker)
             return;
+        console.log('_onSelectResource', selectedId, marker.icon);
         that._clusterLayer.zoomToShowLayer(marker, function() {
             var latlng = marker.getLatLng();
             if (that.options.viewport) {

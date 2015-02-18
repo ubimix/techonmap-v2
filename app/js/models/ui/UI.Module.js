@@ -3,6 +3,7 @@ var Mosaic = require('mosaic-commons');
 var App = require('mosaic-core').App;
 var Api = App.Api;
 var AppStateMixin = require('../AppStateMixin');
+var BrowserUtils = require('./BrowserUtils');
 
 /** This module manages visualization modes for the UI. */
 module.exports = Api.extend(AppStateMixin, {
@@ -50,7 +51,7 @@ module.exports = Api.extend(AppStateMixin, {
                 || e.clientHeight || g.clientHeight;
 
         var mode = 'full';
-        if (x < 800) {
+        if (BrowserUtils.isMobile() || x < 800) {
             mode = 'mobile';
         }
         this.setScreenMode({

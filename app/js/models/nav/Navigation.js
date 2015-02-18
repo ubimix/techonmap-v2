@@ -65,6 +65,7 @@ var Navigation = Mosaic.Class.extend(Mosaic.Events.prototype, {
     /** Sets the initial values of this object. */
     initialize : function(options) {
         this.setOptions(options);
+        this._fireEvents = _.debounce(this._fireEvents, 50);
     },
 
     /**
@@ -370,13 +371,26 @@ var Navigation = Mosaic.Class.extend(Mosaic.Events.prototype, {
             var event = {
                 path : array.join('.')
             };
+            if (!this._events) {
+                this._events = {};
+            }
             for (var i = array.length - 1; i >= 0; i--) {
                 var k = array.slice(0, i).join('.');
-                this.emit('changed:' + k, event);
+                this._events['changed:' + k] = event;
             }
-            this.emit('changed', event);
+            this._events['changed'] = event;
+            this._fireEvents();
         }
         return changed;
+    },
+
+    _fireEvents : function() {
+        if (!this._skipEvents) {
+            _.each(this._events, function(event, key) {
+                this.emit(key, event);
+            }, this);
+            this._events = {};
+        }
     },
 
     /** Returns <code>true</code> if the specified values are not the same. */
