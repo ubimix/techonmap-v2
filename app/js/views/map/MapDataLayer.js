@@ -61,8 +61,9 @@ module.exports = AbstractMapLayer.extend({
             this._initialized = true;
             if (ev.reloadData) {
                 this._reloadData();
+            } else {
+                this._onSelectResource();
             }
-            this._onSelectResource();
         }, this);
     },
 

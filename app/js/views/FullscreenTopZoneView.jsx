@@ -9,6 +9,41 @@ var SearchPanel = require('./search/SearchPanel.jsx');
 var SharePopup = require('./dialogs/SharePopup.jsx');
 var ExportPopup = require('./dialogs/ExportPopup.jsx');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
+var BootstrapFormValidator = require('./utils/BootstrapFormValidator');
+
+var validator = new BootstrapFormValidator({
+    schema : {
+        properties : {
+            name : {
+                description : 'Votre nom',
+                type : 'string',
+                required : true,
+                messages : {
+                    required : "Your name is a mandatory field",
+                    allowEmpty : "Your name should not be empty",
+                }
+            },
+            email : {
+                description : 'Votre adresse e-mail',
+                type : 'string',
+                format : 'email',
+                required : true
+            },
+            reason : {
+                description : 'Choisissez une raison',
+                type : 'string',
+                enum : [ 'technical', 'data', 'other' ],
+                required : true
+            },
+            content : {
+                description : 'Votre message',
+                type : 'string',
+                required : true
+            }
+        }
+    }
+});
+
 
 module.exports = React.createClass({
     displayName : 'FullscreenTopZoneView',
@@ -169,55 +204,32 @@ module.exports = React.createClass({
       ev.stopPropagation();
       ev.preventDefault();
   },
-  _extractDataFromContactForm : function(elm){
-      var formData = {};
-      _.each(elm, function(input){
-          var attr = input.attributes['name'];
-          if (!attr)
-              return ;
-          var key = attr.value;
-          var value = input.value;
-          formData[key] = value;
-      });
-      return {
-          errors: undefined,
-          data : formData
-      };
-  },
   
   _showMessage : function(msg) {
       window.alert(msg);
   },
-  _submitContactForm : function(elm){
+  _submitContactForm : function(data){
       var that = this;
       var app = that.props.app;
-      var info = that._extractDataFromContactForm(elm);
-      if (!info.errors){
-          app.contact.validateMessage(info.data)//
-          .then(function(data){
-              return app.contact.sendMessage(data)//
-                  .then(function(result){
-                      var msg = that._getLabel('dialog.contact.result.ok');
-                      that._showMessage(msg);
-                      PopupPanel.closePopup();
-                  }, function(err) {
-                      var msg = that._getLabel(
-                          'dialog.contact.result.errors',
-                           { error : err });
-                      that._showMessage(msg);
-                  });
-          }, function(err) {
-              var msg = that._getLabel('dialog.contact.invalide', {
-                  error : err
+      app.contact.validateMessage(data)//
+      .then(function(data){
+          return app.contact.sendMessage(data)//
+              .then(function(result){
+                  var msg = that._getLabel('dialog.contact.result.ok');
+                  that._showMessage(msg);
+                  PopupPanel.closePopup();
+              }, function(err) {
+                  var msg = that._getLabel(
+                      'dialog.contact.result.errors',
+                       { error : err });
+                  that._showMessage(msg);
               });
-              that._showMessage(msg);
-          });
-      } else {
-          var msg = that._getLabel('dialog.contact.result.errors', {
-              error : info.error
+      }, function(err) {
+          var msg = that._getLabel('dialog.contact.invalide', {
+              error : err
           });
           that._showMessage(msg);
-      }
+      });
   },
   _showContactForm : function(ev){
       PopupPanel.closePopup();
@@ -228,8 +240,11 @@ module.exports = React.createClass({
               <button type="submit" className="btn btn-primary"
                   onClick={function(ev){ 
                       var elm = dialog.getDOMNode();
-                      var formInputs = elm.querySelectorAll('.form-control');
-                      that._submitContactForm(formInputs);
+                      var body = elm.querySelector('.modal-body');
+                      var info = validator.validateForm(body);
+                      if (info.result.valid) {
+                          that._submitContactForm(info.data);
+                      }
                       ev.preventDefault();
                       ev.stopPropagation();
                   }}>
