@@ -25,7 +25,12 @@ module.exports = function() {
                 description : 'Adresse e-mail de contact',
                 type : 'string',
                 format : 'email',
-                required : true
+                required : true,
+                messages : {
+                    required : "Une adresse e-mail est requise.",
+                    allowEmpty : "L'adresse e-mail ne doit pas être vide.",
+                    format : "L'adresse e-mail semble incorrecte.",
+                }                
             },
             description : {
                 description : 'Description de votre organisation',
@@ -76,7 +81,7 @@ module.exports = function() {
                 type : 'string',
                 required : true,
                 messages : {
-                    required : "Un code postal est requise.",
+                    required : "Un code postal est requis.",
                     allowEmpty : "Le code postal saisi ne doit pas être vide.",
                 }
             },
