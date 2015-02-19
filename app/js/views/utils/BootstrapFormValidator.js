@@ -36,7 +36,7 @@ var BootstrapFormValidator = FormValidator.extend(DomUtils, {
                 this._addClass(formGroup, errClass);
                 if (!focused) {
                     field.focus();
-                    // field.scrollIntoView(true);
+                    field.scrollIntoView(true);
                     focused = true;
                 }
                 var div = document.createElement('div');
