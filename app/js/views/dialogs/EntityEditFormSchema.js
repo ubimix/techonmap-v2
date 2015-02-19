@@ -1,8 +1,5 @@
-var _ = require('underscore');
-var BootstrapFormValidator = require('./utils/BootstrapFormValidator');
-
-var validator = new BootstrapFormValidator({
-    schema : {
+module.exports = function() {
+    return {
         properties : {
             name : {
                 label : 'Nom de votre organisation',
@@ -33,19 +30,27 @@ var validator = new BootstrapFormValidator({
             description : {
                 description : 'Description de votre organisation',
                 type : 'string',
-                required : true
+                maxLength : 250,
+                required : true,
+                messages : {
+                    required : "La description est requise",
+                    allowEmpty : "La description ne doit pas être vide",
+                    minLength : "This description is too short (minimum is %{expected} characters)",
+                    maxLength : "This description is too long (maximum is %{expected} characters)",
+                }
             },
             category : {
                 label : 'Catégorie',
                 description : 'Sélectionner une catégorie / un type d\'organisation',
                 type : 'string',
-                enum : [ 'Entreprise', 'Tiers-lieu', 'Incubateur', 'Investisseur', 'Communauté', 'Ecole', 'Acteur public' ],
+                enum : [ 'Entreprise', 'Tiers-lieu', 'Incubateur',
+                        'Investisseur', 'Communauté', 'Ecole', 'Acteur public' ],
                 required : true
             },
             tag : {
                 label : 'Tags',
                 description : 'Saisissez un ou plusieurs mot-clef',
-                minItems : 1,
+                minItems : 3,
                 maxItems : 5,
                 uniqueItems : true,
                 type : 'string',
@@ -75,7 +80,6 @@ var validator = new BootstrapFormValidator({
                     allowEmpty : "Le code postal saisi ne doit pas être vide.",
                 }
             },
-            
             city : {
                 label : 'Ville',
                 description : 'Ville de votre organisation',
@@ -85,8 +89,27 @@ var validator = new BootstrapFormValidator({
                     required : "Une ville est requise.",
                     allowEmpty : "La ville saisie ne doit pas être vide.",
                 }
-            },            
-            
+            },
+            coordinates : {
+                label : 'Coordinates',
+                description : 'Geographical coordinates',
+                type : 'object',
+                required : true,
+                properties : {
+                    lat : {
+                        type : 'number',
+                        required : true
+                    },
+                    lng : {
+                        type : 'number',
+                        required : true
+                    }
+                },
+                messages : {
+                    required : "Une ville est requise.",
+                    allowEmpty : "La ville saisie ne doit pas être vide.",
+                }
+            },
             url : {
                 label : 'Site Web',
                 description : 'Site Web de votre organisation',
@@ -105,26 +128,41 @@ var validator = new BootstrapFormValidator({
             facebook : {
                 label : 'Page Facebook',
                 description : 'Page Facebook de votre organisation',
-                type : 'string'
+                type : 'string',
+                conform : function(v) {
+                    return !!v
+                            && v.match(/^https?:\/\/www\.facebook\.com\/.*$/g);
+                }
             },
             googleplus : {
                 label : 'Page Google+',
                 description : 'Page Google+ un mot-clef',
                 type : 'string',
-                required : false
+                required : false,
+                conform : function(v) {
+                    return !!v
+                            && v.match(/^https?:\/\/plus\.google\.\w+\/.*$/g);
+                }
             },
             linkedin : {
                 label : 'Page LinkedIn',
                 description : 'Page LinkedIn de votre organisation',
                 type : 'string',
-                required : false
+                required : false,
+                conform : function(v) {
+                    return !!v
+                            && v.match(/^https?:\/\/www\.linkedin\.\w+\/.*$/g);
+                }
             },
             viadeo : {
                 label : 'Page Viadeo',
                 description : 'Page Viadeo de votre organisation',
                 type : 'string',
-                required : false
-            } 
+                required : false,
+                conform : function(v) {
+                    return !!v && v.match(/^https?:\/\/\w+\.viadeo\.\w+\/.*$/g);
+                }
+            }
         }
-    }
-});
+    };
+}

@@ -10,6 +10,7 @@ var SharePopup = require('./dialogs/SharePopup.jsx');
 var ExportPopup = require('./dialogs/ExportPopup.jsx');
 var FeedbackPopup = require('./dialogs/FeedbackPopup.jsx');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
+var EditEntityPopup = require('./dialogs/EditEntityPopup.jsx');
 
 module.exports = React.createClass({
     displayName : 'FullscreenTopZoneView',
@@ -83,8 +84,12 @@ module.exports = React.createClass({
         }
     },
     _onClickAdd : function(ev) {
-        var url = this._getLabel('topmenu.edit.url');
-        window.open(url, '_blank');
+// var url = this._getLabel('topmenu.edit.url');
+// window.open(url, '_blank');
+        var editPopup = new EditEntityPopup({
+           app : this.props.app 
+        });
+        editPopup.open();
         ev.stopPropagation();
         ev.preventDefault();
     },
@@ -282,45 +287,4 @@ module.exports = React.createClass({
           </nav>                
         );
     },
-
-    render1 : function() {       
-        var app = this.props.app;
-        var className = this.props.className + " navbar navbar-default";
-        return (
-            <nav className={className} role="navigation">
-              <div className="container-fluid">
-                  <div className="row">
-                      <div className="col-xs-3">
-                          <div className="navbar-header">
-                              <a className="navbar-brand" href="#">
-                                  <img src="images/logo-01.svg" />
-                              </a>
-                          </div>
-                      </div>
-                      <div className="col-xs-6">
-                          <button type="button"
-                                  className="navbar-toggle collapsed"
-                                  data-toggle="collapse"
-                                  onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
-                              <span className="icon-bar"></span>
-                              <span className="icon-bar"></span>
-                              <span className="icon-bar"></span>
-                          </button>
-                          <ul className="nav navbar-nav navbar-right top-navigation" ref="navbar">
-                              {this._renderAboutMenuItem()}
-                              {this._renderHelpMenuItem()}
-                              {this._renderShareMenuItem()}
-                              {this._renderExportMenuItem()}
-                              {this._renderHeatmapMenuItem()}
-                              {this._renderSearchMenuItem()}
-                          </ul>
-                      </div>
-                      <div className="col-xs-3">
-                          
-                      </div>
-                  </div>
-              </div>
-          </nav>
-        );
-    }
 });

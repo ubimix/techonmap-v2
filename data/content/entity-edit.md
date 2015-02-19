@@ -35,7 +35,13 @@ title: Entity - Edit
     <label for="entity-category" class="col-sm-3 control-label">Choisissez une catégorie / un type d’organisation</label>
     <div class="col-sm-9">
         <select class="form-control" id="entity-category" name="category" placeholder="Catégorie">
-            <option></option>
+            <option selected>Entreprise</option>
+            <option>Tiers-lieu</option>
+            <option>Incubateur</option>
+            <option>Investisseur</option>
+            <option>Communauté</option>
+            <option>Ecole</option>
+            <option>Acteur public</option>
         </select>
     </div>
   </div>
@@ -69,6 +75,18 @@ title: Entity - Edit
     <label for="entity-city" class="col-sm-3 control-label">Ville</label>
     <div class="col-sm-9">
       <input type="text" class="form-control" placeholder="Ville" id="entity-city" name="city" />
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Coordinates</label>
+    <div class="col-sm-4">
+      <label for="entity-coord-lat">Latitude</label>
+      <input type="text" class="form-control" id="entity-coord-lat" name="coordinates.lat" placeholder="Latitude" />
+    </div>
+    <div class="col-sm-4">
+      <label for="entity-coord-lng">Longitude</label>
+      <input type="text" class="form-control" id="entity-coord-lng" name="coordinates.lng" placeholder="Longitude" />
     </div>
   </div>
 

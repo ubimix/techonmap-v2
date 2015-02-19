@@ -11,10 +11,6 @@ title: <i class="icon icon-contact"></i>Contactez-nous
     <label for="user-email" class="col-sm-3 control-label">Votre adresse e-mail</label>
     <div class="col-sm-9">
       <input type="email" class="form-control" placeholder="Votre adresse e-mail" id="user-email" name="email" />
-      <div class="alert alert-warning alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
-      </div>
     </div>
   </div>
   <div class="form-group">

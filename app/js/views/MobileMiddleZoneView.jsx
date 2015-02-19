@@ -180,9 +180,9 @@ module.exports = React.createClass({
                     onResourceClick={function(resource){
                     var id = app.res.getResourceId(resource);
                     if (app.res.isSelectedResource(id)) {
-                        setTimeout(function(){
+// setTimeout(function(){
                             app.ui.focusView('map');
-                        }, 1);
+// }, 1);
                     }
                 }.bind(this)}/>
             </div>
