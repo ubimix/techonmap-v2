@@ -117,13 +117,13 @@ module.exports = function() {
                 required : true,
                 messages : {
                     required : "Un site Web est requis",
-                    allowEmpty : "Le site saisi ne doit pas être vide",
+                    allowEmpty : "Le site saisi ne doit pas être vide.",
                 }
             },
             twitter : {
                 label : 'Compte Twitter',
                 description : 'Compte Twitter de votre organisation',
-                type : 'string'
+                type : 'string',
             },
             facebook : {
                 label : 'Page Facebook',
@@ -132,6 +132,9 @@ module.exports = function() {
                 conform : function(v) {
                     return !!v
                             && v.match(/^https?:\/\/www\.facebook\.com\/.*$/g);
+                },
+                messages : {
+                    conform : 'La page saisie ne semble pas être une page Facebook.'
                 }
             },
             googleplus : {
@@ -142,6 +145,9 @@ module.exports = function() {
                 conform : function(v) {
                     return !!v
                             && v.match(/^https?:\/\/plus\.google\.\w+\/.*$/g);
+                },
+                messages : {
+                    conform : 'La page saisie ne semble pas être une page Google+.'
                 }
             },
             linkedin : {
@@ -152,6 +158,9 @@ module.exports = function() {
                 conform : function(v) {
                     return !!v
                             && v.match(/^https?:\/\/www\.linkedin\.\w+\/.*$/g);
+                },
+                messages : {
+                    conform : 'La page saisie ne semble pas être une page LinkedIn.'
                 }
             },
             viadeo : {
@@ -161,6 +170,9 @@ module.exports = function() {
                 required : false,
                 conform : function(v) {
                     return !!v && v.match(/^https?:\/\/\w+\.viadeo\.\w+\/.*$/g);
+                },
+                messages : {
+                    conform : 'La page saisie ne semble pas être une page Viadeo.'
                 }
             }
         }
