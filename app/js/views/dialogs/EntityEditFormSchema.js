@@ -7,18 +7,18 @@ module.exports = function() {
                 type : 'string',
                 required : true,
                 messages : {
-                    required : "Un nom est requis",
-                    allowEmpty : "Le nom saisi ne doit pas être vide",
+                    required : "Un nom est requis.",
+                    allowEmpty : "Le nom saisi ne doit pas être vide.",
                 }
             },
             id : {
-                label : 'Identifiant de votre organisation',
-                description : 'Identifiant de votre organisation',
+                label : 'Identifiant de votre organisation.',
+                description : 'Identifiant de votre organisation.',
                 type : 'string',
                 required : true,
                 messages : {
-                    required : "Un identifiant est requis",
-                    allowEmpty : "L'identifiant saisi ne doit pas être vide",
+                    required : "Un identifiant est requis.",
+                    allowEmpty : "L'identifiant saisi ne doit pas être vide.",
                 }
             },
             email : {
@@ -33,10 +33,10 @@ module.exports = function() {
                 maxLength : 250,
                 required : true,
                 messages : {
-                    required : "La description est requise",
-                    allowEmpty : "La description ne doit pas être vide",
+                    required : "Une description est requise.",
+                    allowEmpty : "La description saisie ne doit pas être vide.",
                     minLength : "This description is too short (minimum is %{expected} characters)",
-                    maxLength : "This description is too long (maximum is %{expected} characters)",
+                    maxLength : "La description saisie excède le nombre maximal de caractères (250).",
                 }
             },
             category : {
@@ -49,15 +49,15 @@ module.exports = function() {
             },
             tag : {
                 label : 'Tags',
-                description : 'Saisissez un ou plusieurs mot-clef',
+                description : 'Saisissez un ou plusieurs mot-clef(s)',
                 minItems : 3,
                 maxItems : 5,
                 uniqueItems : true,
                 type : 'string',
                 required : true,
                 messages : {
-                    required : "Au moins un tag est requis",
-                    allowEmpty : "Le tag saisi ne doit pas être vide",
+                    required : "Au moins un tag est requis.",
+                    allowEmpty : "Le tag saisi ne doit pas être vide.",
                 }
             },
             address : {
@@ -106,8 +106,8 @@ module.exports = function() {
                     }
                 },
                 messages : {
-                    required : "Une ville est requise.",
-                    allowEmpty : "La ville saisie ne doit pas être vide.",
+                    required : "Des coordonnées sont requises.",
+                    allowEmpty : "Les coordonnées saisies ne doivent pas être vides.",
                 }
             },
             url : {
@@ -116,7 +116,7 @@ module.exports = function() {
                 type : 'string',
                 required : true,
                 messages : {
-                    required : "Un site Web est requis",
+                    required : "Un site Web est requis.",
                     allowEmpty : "Le site saisi ne doit pas être vide.",
                 }
             },
@@ -139,7 +139,7 @@ module.exports = function() {
             },
             googleplus : {
                 label : 'Page Google+',
-                description : 'Page Google+ un mot-clef',
+                description : 'Page Google+ de votre organisation',
                 type : 'string',
                 required : false,
                 conform : function(v) {
