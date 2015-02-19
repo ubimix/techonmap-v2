@@ -19,26 +19,38 @@ var validator = new BootstrapFormValidator({
                 type : 'string',
                 required : true,
                 messages : {
-                    required : "Your name is a mandatory field",
-                    allowEmpty : "Your name should not be empty",
+                    required : "Un nom est requis.",
+                    allowEmpty : "Le nom ne doit pas être vide.",
                 }
             },
             email : {
                 description : 'Votre adresse e-mail',
                 type : 'string',
                 format : 'email',
-                required : true
+                required : true,
+                messages : {
+                    required : "Une adresse e-mail est requise.",
+                    allowEmpty : "L'adresse e-mail ne doit pas être vide.",
+                    format : "L'adresse e-mail semble incorrecte.",
+                }                
             },
             reason : {
                 description : 'Choisissez une raison',
                 type : 'string',
                 enum : [ 'technical', 'data', 'other' ],
-                required : true
+                required : true,
+                messages : {
+                    required : "Merci d'indiquer la raison de votre envoi."
+                }                  
             },
             content : {
                 description : 'Votre message',
                 type : 'string',
-                required : true
+                required : true,
+                messages : {
+                    required : "Un contenu est requis.",
+                    allowEmpty : "Le contenu ne doit pas être vide."
+                }                 
             }
         }
     }
