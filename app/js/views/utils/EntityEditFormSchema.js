@@ -120,9 +120,11 @@ module.exports = function(options) {
                 description : 'Site Web de votre organisation',
                 type : 'string',
                 required : true,
+                format : 'url',
                 messages : {
                     required : "Un site Web est requis.",
                     allowEmpty : "Le site saisi ne doit pas être vide.",
+                    format : "Le texte saisie ne semble pas être un URL valide.",
                 }
             },
             twitter : {
