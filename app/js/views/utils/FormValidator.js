@@ -2,79 +2,42 @@ var revalidator = require('revalidator');
 var Mosaic = require('mosaic-commons');
 var _ = require('underscore');
 
+/**
+ * This class expects two parameters:
+ * 
+ * @param schema
+ *            a JSON Schema defining validation rules for the form
+ * @param fields
+ *            an array of FormField instances giving access to individual form
+ *            fields
+ */
 var FormValidator = Mosaic.Class.extend({
 
     initialize : function(options) {
         this.setOptions(options);
-        this._schema = this._newSchema();
-        // Overload the default messages
-        var messages = this._getMessages();
-        _.each(this._schema.properties, function(prop, key) {
-            prop.messages = _.extend({}, messages, prop.messages);
-        });
+        this.setFields(options.fields);
     },
 
-    getFieldSchema : function(path) {
-        var array = this._splitPath(path);
-        var schema = this._schema;
-        var i;
-        for (i = 0; schema && schema.properties && i < array.length; i++) {
-            segment = array[i];
-            schema = schema.properties[segment];
-        }
-        return i == array.length ? schema : null;
+    setFields : function(fields) {
+        this._fieldsIndex = {};
+        this._fields = fields || [];
+        _.each(fields, function(field) {
+            var name = field.getFieldName();
+            this._fieldsIndex[name] = field;
+        }, this);
     },
 
-    extractFields : function(elm) {
-        function visit(e, fields) {
-            var name = e.nodeName;
-            if (!name)
-                return;
-            name = name.toLowerCase();
-            var path;
-            var val;
-            if ((name == 'input') || (name == 'textarea') || //
-            (name == 'select')) {
-                path = e.getAttribute('name');
-            }
-            if (path) {
-                var array = fields[path] = fields[path] || [];
-                array.push(e);
-            }
-            var child = e.firstChild;
-            while (child) {
-                if (child.nodeType == 1) {
-                    visit(child, fields);
-                }
-                child = child.nextSibling;
-            }
-        }
-        var result = {};
-        visit(elm, result);
-        return result;
+    getFields : function() {
+        return this._fields;
     },
 
-    validateFields : function(fields) {
-        var data = this._getValuesFromFields(fields);
-        var result = this.validate(data);
-        return {
-            result : result,
-            data : data
-        };
-    },
-
-    _getValuesFromFields : function(fields) {
+    getData : function() {
         var data = {};
-        _.each(fields, function(array, path) {
-            var values = [];
-            _.each(array, function(elm) {
-                var val = this._getFieldValue(elm);
-                if (val) {
-                    values.push(val);
-                }
-            }, this);
+        var fields = this.getFields();
+        _.each(fields, function(field, pos) {
+            var values = field.getValues();
             if (values.length) {
-                var segments = this._splitPath(path);
+                var segments = field.getFieldNameSegments();
                 var len = segments ? segments.length : 0;
                 var obj = data;
                 var i;
@@ -90,31 +53,62 @@ var FormValidator = Mosaic.Class.extend({
         return data;
     },
 
-    _getFieldValue : function(elm) {
-        var val = elm.value;
-        if (!val)
-            return;
-        return val;
+    setData : function(data) {
+        function visit(obj, stack) {
+            _.each(obj, function(value, prop) {
+                stack.push(prop);
+                if (_.isObject(value)) {
+                    visit(value, stack);
+                } else {
+                    var path = stack.join('.');
+                    var field = this._fieldsIndex[name];
+                    if (field) {
+                        field.setValues(value);
+                    }
+                }
+                stack.pop();
+            });
+        }
+        visit(data, []);
     },
 
-    validate : function(obj) {
-        return revalidator.validate(obj, this._schema, {
+    validate : function() {
+        var obj = this.getData();
+        var schema = this.getSchema();
+        var result = revalidator.validate(obj, schema, {
             cast : true
         });
+        return {
+            data : obj,
+            result : result
+        };
     },
 
-    _newSchema : function() {
-        var schema = this.options.schema || {};
-        return schema;
+    getSchema : function() {
+        if (!this._schema) {
+            this._schema = this.options.schema || {};
+            function visitSchema(schema, callback) {
+                _.each(schema.properties, function(prop, key) {
+                    callback.call(this, prop, key);
+                    visitSchema(prop, callback);
+                }, this);
+            }
+            // Overload the default messages
+            var messages = this._getMessages();
+            visitSchema(this._schema, function(prop, key) {
+                prop.messages = _.extend({}, messages, prop.messages);
+            });
+        }
+        return this._schema;
     },
 
-    _splitPath : function(path) {
-        if (!path)
-            return [];
-        return path.split('.');
+    getField : function(name) {
+        return this._fieldsIndex[name];
     },
 
     _getMessages : function() {
+        if (_.isObject(this.options.messages))
+            return this.options.messages;
         return {
             required : "Is required",
             allowEmpty : "Must not be empty",
@@ -135,7 +129,7 @@ var FormValidator = Mosaic.Class.extend({
             additionalProperties : "Must not exist",
             'enum' : "Must be present in given enumerator"
         };
-    }
+    },
 
 });
 

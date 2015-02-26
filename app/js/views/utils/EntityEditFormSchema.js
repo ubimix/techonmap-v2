@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function(options) {
     return {
         properties : {
             name : {
@@ -58,7 +58,7 @@ module.exports = function() {
                 minItems : 3,
                 maxItems : 5,
                 uniqueItems : true,
-                type : 'string',
+                type : 'array',
                 required : true,
                 messages : {
                     required : "Au moins un tag est requis.",

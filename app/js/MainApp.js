@@ -16,6 +16,7 @@ var MapModule = require('./models/map/Map.Module');
 var NavigationModule = require('./models/nav/Navigation.Module');
 var Navigation = require('./models/nav/Navigation');
 var ResourceModule = require('./models/res/Resource.Module');
+var EditModule = require('./models/edit/Edit.Module');
 var StatsModule = require('./models/stats/Stats.Module');
 var SerializeModule = require('./models/serialize/Serialize.Module');
 var UIModule = require('./models/ui/UI.Module');
@@ -33,6 +34,7 @@ module.exports = App.extend({
         var modules = {
             content : ContentModule,
             contact : ContactModule,
+            edit : EditModule,
             map : MapModule,
             res : ResourceModule,
             stats : StatsModule,
@@ -77,7 +79,7 @@ module.exports = App.extend({
             })
         });
         return promise;
-        
+
         return Mosaic.P.all(_.map(modules, function(module) {
             return Mosaic.P.then(function() {
                 if (module[onoff]) {

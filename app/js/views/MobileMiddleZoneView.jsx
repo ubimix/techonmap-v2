@@ -80,7 +80,7 @@ module.exports = React.createClass({
     _renderSearchFormView : function(){
         if (!this._checkActiveView('search'))
             return ;
-        var simple = false;
+        var simple = true;
         if (simple) {
             return this._renderSearchFormViewA();
         } else {
