@@ -55,7 +55,7 @@ module.exports = function(options) {
             tag : {
                 label : 'Tags',
                 description : 'Saisissez un ou plusieurs mot-clef(s)',
-                minItems : 3,
+                minItems : 1,
                 maxItems : 5,
                 uniqueItems : true,
                 type : 'array',

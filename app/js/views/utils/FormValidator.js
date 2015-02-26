@@ -34,6 +34,7 @@ var FormValidator = Mosaic.Class.extend({
     getData : function() {
         var data = {};
         var fields = this.getFields();
+        var schema = this.getSchema();
         _.each(fields, function(field, pos) {
             var values = field.getValues();
             if (values.length) {
@@ -47,7 +48,10 @@ var FormValidator = Mosaic.Class.extend({
                     obj = obj[segment] = obj[segment] || {};
                 }
                 segment = segments[i];
-                obj[segment] = values.length > 1 ? values : values[0];
+                var fieldSchema = this._getFieldSchema(schema, segments);
+                var type = fieldSchema ? fieldSchema.type : undefined;
+                obj[segment] = //
+                type == 'array' || values.length > 1 ? values : values[0];
             }
         }, this);
         return data;
@@ -100,6 +104,26 @@ var FormValidator = Mosaic.Class.extend({
             });
         }
         return this._schema;
+    },
+
+    getFieldSchema : function(field) {
+        if (_.isString(field)) {
+            field = this.getField(field);
+        }
+        var schema = this.getSchema();
+        var segments = field ? field.getFieldNameSegments() : [];
+        return this._getFieldSchema(schema, segments);
+    },
+
+    _getFieldSchema : function(schema, segments) {
+        var len = segments ? segments.length : 0;
+        var i;
+        for (i = 0; schema && i < len; i++) {
+            var segment = segments[i];
+            var props = schema.properties || {};
+            schema = props[segment];
+        }
+        return schema;
     },
 
     getField : function(name) {
