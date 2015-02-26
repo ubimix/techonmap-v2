@@ -50,51 +50,64 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
             that._showMessage(msg);
         });
     },
-    open : function() {
+    open : function(resource) {
+        resource = resource || {};
         var that = this;
-        var dialog;
-        var form = (
-            <EditEntityForm app={that.getApp()} validator={this.validator} />
-        );
-        var footer = (
-            <div>
-                <button type="submit" className="btn btn-primary"
-                    onClick={function(ev){
-                        var info = this.validator.onViewUpdate();
-                        console.log('>>', info);
-                        if (info.result.valid) {
-                            // that._submitForm(info.data);
-                        }
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                    }.bind(this)}>
-                    {this._getLabel('dialog.edit.btn.save')}
-                </button>
-                <button type="button" className="btn"
-                    onClick={function(){
-                        console.log('Cancel !', dialog);
-                        PopupPanel.closePopup();
-                    }}>
-                    {this._getLabel('dialog.edit.btn.cancel')}
-                </button>
-            </div>
-        );
-        var title = 'Entity - Edit 123';
-        
-        PopupPanel.openPopup({
-            title : title,
-            body : form,
-            footer : footer,
-            onOpen : function(d) {
-                dialog = d;
-            },
-            onClose : function(d){
-                dialog = null;
-            },
-            verticalMargin : 40
+        var app = that.options.app;
+        var closeListener = function(){
+            if (!app.edit.isEditing()) {
+                app.edit.removeChangeListener(closeListener);
+                PopupPanel.closePopup();
+            }
+        };
+        app.edit.addChangeListener(closeListener);
+        app.edit.startEdit({
+            resource: resource
+        }).then(function(){
+            var dialog;
+            var form = (
+                <EditEntityForm app={that.getApp()} key="editform"/>
+            );
+            var footer = (
+                <div key="footer">
+                    <button type="submit" className="btn btn-primary"
+                        onClick={function(ev){
+                            if (app.edit.isValid()) {
+                                app.endEdit({
+                                   save : true 
+                                });
+                            }
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                        }.bind(that)}>
+                        {that._getLabel('dialog.edit.btn.save')}
+                    </button>
+                    <button type="button" className="btn"
+                        onClick={function(){
+                            console.log('Cancel !', dialog);
+                            PopupPanel.closePopup();
+                        }}>
+                        {that._getLabel('dialog.edit.btn.cancel')}
+                    </button>
+                </div>
+            );
+            var title = '';
+            return PopupPanel.openPopup({
+                title : title,
+                body : form,
+                footer : footer,
+                key: "edit-popup",
+                onOpen : function(d) {
+                    dialog = d;
+                },
+                onClose : function(d){
+                    app.edit.removeChangeListener(closeListener);
+                    dialog = null;
+                },
+                verticalMargin : 40
+            });            
         });
     },
- 
 });
  
 module.exports = EditEntityPopup;
