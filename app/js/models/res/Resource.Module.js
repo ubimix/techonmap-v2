@@ -306,6 +306,22 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     // ------------------------------------------------------------------
 
+    /** Returns a list of all tags. */
+    getTags : function() {
+        if (!this._allTags) {
+            this._allTags = {};
+            _.each(this._categories, function(category) {
+                var tags = (category && category.tags) || [];
+                _.each(tags, function(tag) {
+                    this._allTags[tag] = (this._allTags[tag] || 0) + 1;
+                }, this);
+            }, this);
+        }
+        return this._allTags;
+    },
+
+    // ------------------------------------------------------------------
+
     /** Returns all categories for this application. */
     getCategories : function() {
         return this._categories;

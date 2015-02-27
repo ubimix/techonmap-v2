@@ -33,9 +33,6 @@ module.exports = Api.extend({
     startEdit : Api.intent(function(intent) {
         var that = this;
         return intent.resolve(Mosaic.P.then(function() {
-            if (that.isEditing()) {
-                throw new Error('A resource is already editing');
-            }
             that._original = intent.params.resource;
             that._doReset();
         })).then(function() {
@@ -122,7 +119,9 @@ module.exports = Api.extend({
                 return;
             var resource = that._resource;
             _.each(intent.params, function(values, name) {
+                that._changedResourceFields[name] = true;
                 notify |= that._setResourceFieldValue(resource, name, values);
+                that._checkIdField();
             });
             if (notify) {
                 that._validateResource();
@@ -143,12 +142,60 @@ module.exports = Api.extend({
     getFieldError : function(name) {
         if (!this._validationResults)
             return undefined;
+        if (!_.has(this._changedResourceFields, name))
+            return null;
         var error = this._validationResults.errorIndex[name];
         return error ? error.message : null;
     },
 
+    _checkIdField : function() {
+        if (!!this._original.id)
+            return;
+        var properties = this._resource.properties || {};
+        this._resource.properties = properties;
+
+        var name = properties.name;
+        var normalizedName = this._normalizeName(name);
+        properties.id = this._normalizeName(properties.id);
+        if (_.has(this._changedResourceFields, 'properties.id') && //
+        !!properties.id && properties.id !== normalizedName)
+            return;
+        properties.id = this._normalizeName(name);
+        delete this._changedResourceFields.id;
+    },
+
+    _normalizeName : function(str) {
+        if (!str || str == '')
+            return '';
+        str = str + '';
+        str = str.toLowerCase();
+        str = str.replace(/[\s.|!?,;<>&\'"()\\\/%]+/g, '-');
+        str = str.replace(/-+/g, '-');
+        // str = str.replace(/^-+|-+$/g, '');
+        str = str.replace(/^-+/g, '');
+        str = str.replace(/[ùûü]/g, 'u');
+        str = str.replace(/[ÿ]/g, 'y');
+        str = str.replace(/[àâ]/g, 'a');
+        str = str.replace(/[æ]/g, 'ae');
+        str = str.replace(/[ç]/g, 'c');
+        str = str.replace(/[éèêë]/g, 'e');
+        str = str.replace(/[ïî]/g, 'i');
+        str = str.replace(/[ô]/g, 'o');
+        str = str.replace(/[œ]/g, 'oe');
+        return str;
+    },
+
     _doReset : function() {
-        this._resource = this._clone(this._original)
+        this._resource = this._clone(this._original);
+        if (!this._resource.properties) {
+            this._resource.properties = {};
+        }
+        if (!this._resource.geometry) {
+            this._resource.geometry = {
+                type : 'Point',
+                coordinates : [ 0, 0 ]
+            }
+        }
         this._changedResourceFields = {};
         this._validateResource();
     },
@@ -175,13 +222,16 @@ module.exports = Api.extend({
         var segment;
         for (i = 0; i < len - 1; i++) {
             segment = segments[i];
-            obj = obj[segment] = obj[segment] || {};
+            var child = obj[segment];
+            if (!child) {
+                child = obj[segment] = segment.match(/^\d+$/) ? [] : {};
+            }
+            obj = child;
         }
         segment = segments[i];
         var fieldSchema = this._getFieldSchema(segments);
         var type = fieldSchema ? fieldSchema.type : undefined;
-        var val = (type == 'array' || values.length > 1) ? values
-                : values[0];
+        var val = (type == 'array' || values.length > 1) ? values : values[0];
         if (!val) {
             delete obj[segment];
         } else {

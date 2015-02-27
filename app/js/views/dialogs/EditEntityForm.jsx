@@ -8,9 +8,23 @@ var Mosaic = require('mosaic-commons');
 var I18NMixin = require('../utils/I18NMixin');
 var DomUtils = require('../utils/DomUtils');
 var FormReactField = require('../utils/FormReactField');
+var ReactTypeahead = require('react-typeahead');
 
+
+var GeolocationModule = React.createClass({
+    displayName : 'GeolocationModule',
+
+    componentDidMount : function() {
+    },
+
+    render : function() {
+        return React.Children.only(this.props.children);
+    }
+});
 
 module.exports = React.createClass({
+    displayName : 'EditEntityForm',
+    
     mixins: [I18NMixin],
     getApp: function(){
         return this.props.app;
@@ -97,6 +111,18 @@ module.exports = React.createClass({
         var value = this.props.app.edit.getResourceValue(fieldKey, pos);
         return value || '';
     },
+    _renderTypeahead : function(fieldKey, labelKey, options){
+        var fieldRef = this._getFieldRef(fieldKey);
+        var that = this;
+        return ReactTypeahead.Tokenizer({
+            key : _.uniqueId('id-'),
+            options: options.options,
+            maxVisible: 3,
+            onTokenAdd : function(ev){
+                console.log( ' ** ', ev);
+            }
+        });
+    },
     _renderInput : function(fieldKey, labelKey, options){
         var fieldRef = this._getFieldRef(fieldKey);
         var that = this;
@@ -155,46 +181,53 @@ module.exports = React.createClass({
         var idInput;
         var newEntity = this._isNewEntity();
         if (newEntity) {
-            idInput = this._renderInput('id', 'dialog.edit.id.placeholder', {
+            idInput = this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
             });
         } else {
             idInput = (
                 <span id={this._newId()}>
                     <span className="form-control">ID Goes here</span>
-                    {this._renderInput('id', 'dialog.edit.id.placeholder', {
+                    {this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
                         type: 'hidden'
                     })}
                 </span>
             );
         }
         var that = this;
-        var nameInput = this._renderInput('name',
+        var nameInput = this._renderInput('properties.name',
                 'dialog.edit.name.placeholder', {
-            // autofocus : "autofocus",
         });
         return [
-                this._renderFormGroup('name', 'dialog.edit.name.label', nameInput),
-                this._renderFormGroup('id', 'dialog.edit.id.label', idInput),
+                this._renderFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
+                this._renderFormGroup('properties.id', 'dialog.edit.id.label', idInput),
             ];
     },
     
     _renderMail : function(){
-        return this._renderFormGroup('email', 'dialog.edit.email.label', 
-           this._renderInput('email', 'dialog.edit.email.placeholder', {
+        return this._renderFormGroup('properties.email', 'dialog.edit.email.label', 
+           this._renderInput('properties.email', 'dialog.edit.email.placeholder', {
                 type : 'email'
            }));
     },
     _renderDescription : function(){
-        return this._renderFormGroup('description', 'dialog.edit.description.label', 
-                this._renderTextarea('description',
+        return this._renderFormGroup('properties.description', 'dialog.edit.description.label', 
+                this._renderTextarea('properties.description',
                 'dialog.edit.description.placeholder', {
            }));
     },
     _renderCategoriesAndTags : function(){
+        var app = this.props.app;
+        var categoryKey = app.edit.getResourceValue('properties.category', 0);
+        var categoryTags = app.res.getCategoryTags(categoryKey);
+        
+        
+        var allTags = app.res.getTags();
+// console.log(' TAG SUGGESTIONS: ',categoryTags, allTags);
         var select = this._renderSelect(
-            'category', {
-                selected : 'entreprise', 
+            'properties.category', {
+                selected : '', 
                 options : {
+                    '' : '',
                     'Entreprise' : 'Entreprise',
                     'Tiers-lieu' : 'Tiers-lieu',
                     'Incubateur' : 'Incubateur',
@@ -213,30 +246,31 @@ module.exports = React.createClass({
             });
         var tags = [];
         for (var i=0; i < 5; i++) {
-            tags.push(this._renderInput('tag', 'dialog.edit.tag.placeholder', {
-                pos : i
+            tags.push(this._renderTypeahead('properties.tag', 'dialog.edit.tag.placeholder', {
+                pos : i,
+                options : categoryTags 
             }));
         }
         var tagContainer = React.DOM.span({
             id: this._newId()
         }, tags);
         return [
-            this._renderFormGroup('category', 'dialog.edit.category.label', select),
-            this._renderFormGroup('tag', 'dialog.edit.tag.label', tagContainer)
+            this._renderFormGroup('properties.category', 'dialog.edit.category.label', select),
+            this._renderFormGroup('properties.tag', 'dialog.edit.tag.label', tagContainer)
         ];
     },
     
     _renderAddressAndCoordinates : function(){
-        var streetField = this._renderInput('address', 'dialog.edit.address.placeholder', {
+        var streetField = this._renderInput('properties.address', 'dialog.edit.address.placeholder', {
         });
-        var postcodeField = this._renderInput('postcode', 'dialog.edit.postcode.placeholder', {
+        var postcodeField = this._renderInput('properties.postcode', 'dialog.edit.postcode.placeholder', {
         });
-        var cityField = this._renderInput('city', 'dialog.edit.city.placeholder', {
+        var cityField = this._renderInput('properties.city', 'dialog.edit.city.placeholder', {
         });
-        var latField = this._renderInput('latitude', null, {
+        var latField = this._renderInput('geometry.coordinates.0', null, {
             type : 'hidden'
         });
-        var lngField = this._renderInput('longitude', null, {
+        var lngField = this._renderInput('geometry.coordinates.1', null, {
             type : 'hidden'
         });
         
@@ -245,63 +279,63 @@ module.exports = React.createClass({
               <label className="col-sm-3 control-label">Coordinates</label>
               <div className="col-sm-4" key="left">
                 <label htmlFor={this._newId()}>Latitude</label>
-                <input type="text" className="form-control" id={this._newId()} ref="latitude" name="coordinates.lat" placeholder="Latitude" />
+                <input type="text" className="form-control" id={this._newId()} ref="latitude" name="geometry.coordinates.0" placeholder="Latitude" />
               </div>
               <div className="col-sm-4" key="right">
                 <label htmlFor={this._newId()}>Longitude</label>
-                <input type="text" className="form-control" id={this._newId()} ref="longitude" name="coordinates.lng" placeholder="Longitude" />
+                <input type="text" className="form-control" id={this._newId()} ref="longitude" name="geometry.coordinates.1" placeholder="Longitude" />
               </div>
             </div>
         );
         return [
-            this._renderFormGroup('address', 'dialog.edit.address.label', streetField),
-            this._renderFormGroup('postcode', 'dialog.edit.postcode.label', postcodeField),
-            this._renderFormGroup('city', 'dialog.edit.city.label', cityField),
+            this._renderFormGroup('properties.address', 'dialog.edit.address.label', streetField),
+            this._renderFormGroup('properties.postcode', 'dialog.edit.postcode.label', postcodeField),
+            this._renderFormGroup('properties.city', 'dialog.edit.city.label', cityField),
             coordsFields
         ];
     },
     
     _renderCreationYear : function(){
-        var input = this._renderInput('creationyear',
+        var input = this._renderInput('properties.creationyear',
                 'dialog.edit.year.placeholder', {
         });
-        return this._renderFormGroup('year', 'dialog.edit.year.label', input);
+        return this._renderFormGroup('properties.year', 'dialog.edit.year.label', input);
     },
     
     _renderWebSiteUrl : function(){
-        var input = this._renderInput('url', 'dialog.edit.url.placeholder', {
+        var input = this._renderInput('properties.url', 'dialog.edit.url.placeholder', {
         });
-        return this._renderFormGroup('url', 'dialog.edit.url.label', input);
+        return this._renderFormGroup('properties.url', 'dialog.edit.url.label', input);
     },
     
     _renderTwitterAccount : function(){
-        var input = this._renderInput('twitter', 'dialog.edit.twitter.placeholder', {
+        var input = this._renderInput('properties.twitter', 'dialog.edit.twitter.placeholder', {
         });
-        return this._renderFormGroup('twitter', 'dialog.edit.twitter.label', input);
+        return this._renderFormGroup('properties.twitter', 'dialog.edit.twitter.label', input);
     }, 
     
     _renderFacebookAccount : function(){
-        var input = this._renderInput('facebook', 'dialog.edit.facebook.placeholder', {
+        var input = this._renderInput('properties.facebook', 'dialog.edit.facebook.placeholder', {
         });
-        return this._renderFormGroup('facebook', 'dialog.edit.facebook.label', input);
+        return this._renderFormGroup('properties.facebook', 'dialog.edit.facebook.label', input);
     }, 
     
     _renderLinkedInAccount : function(){
-        var input = this._renderInput('linkedin', 'dialog.edit.linkedin.placeholder', {
+        var input = this._renderInput('properties.linkedin', 'dialog.edit.linkedin.placeholder', {
         });
-        return this._renderFormGroup('linkedin', 'dialog.edit.linkedin.label', input);
+        return this._renderFormGroup('properties.linkedin', 'dialog.edit.linkedin.label', input);
     },
     
     _renderGooglePlusAccount : function(){
-        var input = this._renderInput('googleplus', 'dialog.edit.googleplus.placeholder', {
+        var input = this._renderInput('properties.googleplus', 'dialog.edit.googleplus.placeholder', {
         });
-        return this._renderFormGroup('googleplus', 'dialog.edit.googleplus.label', input);
+        return this._renderFormGroup('properties.googleplus', 'dialog.edit.googleplus.label', input);
     },
     
     _renderViadeoAccount : function(){
-        var input = this._renderInput('viadeo', 'dialog.edit.viadeo.placeholder', {
+        var input = this._renderInput('properties.viadeo', 'dialog.edit.viadeo.placeholder', {
         });
-        return this._renderFormGroup('viadeo', 'dialog.edit.viadeo.label', input);
+        return this._renderFormGroup('properties.viadeo', 'dialog.edit.viadeo.label', input);
     },
      
     render : function(){

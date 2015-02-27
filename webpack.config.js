@@ -16,6 +16,9 @@ module.exports = {
             test : /\.jsx$/,
             loader : "jsx-loader"
         }, {
+            test : /react-typeahead.*$/,
+            loader : "jsx-loader"
+        }, {
             test : /\.(png|svg|woff|eot|ttf)/,
             loader : 'url-loader?limit=8192'
         } ]
@@ -26,7 +29,7 @@ module.exports = {
             underscore : __dirname + '/node_modules/underscore/underscore',
             leaflet : __dirname + '/node_modules/leaflet/dist',
             'bootstrap-css-only' : __dirname
-                    + '/node_modules/bootstrap/dist/css'
+                    + '/node_modules/bootstrap/dist/css',
         }
     }
 };
