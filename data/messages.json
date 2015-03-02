@@ -47,6 +47,8 @@
             "dialog.edit.description.placeholder": "Description de votre organisation",
             "dialog.edit.category.label" :"Choisissez une catégorie / un type d’organisation",
             "dialog.edit.category.placehodlder" : "Catégorie",
+            "dialog.edit.siret.label" : "SIRET",
+            "dialog.edit.siret.placeholder" : "SIRET",
             "dialog.edit.tag.label" : "Tags",
             "dialog.edit.tag.placeholder" : "Saisissez un tag",
             "dialog.edit.address.label" : "N° et nom de rue",

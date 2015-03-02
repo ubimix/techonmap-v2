@@ -158,7 +158,6 @@ module.exports = Api.extend({
             properties.id = name;
         }
         properties.id = this._normalizeName(properties.id);
-        delete this._changedResourceFields['properties.id'];
     },
 
     getCardinality : function(name) {

@@ -136,8 +136,19 @@ module.exports = function(options) {
                         }
                     },
                     creationyear : {
-                        minimum : 1900,
-                        maximum : new Date().getFullYear(),
+                        label : 'L\'année de création',
+                        description : 'Quand votre organisation est-elle née ?',
+                        type : 'number',
+                        required : true,
+                        conform : function(v) {
+                            try {
+                                v = parseInt(v);
+                                return v >= 1900
+                                        && v <= new Date().getFullYear();
+                            } catch (e) {
+                                return false;
+                            }
+                        }
                     },
                     twitter : {
                         label : 'Compte Twitter',

@@ -11,7 +11,6 @@ var FormReactField = require('../utils/FormReactField');
 var GeolocationWidget = require('./GeolocationWidget.jsx');
 var Autocomplete = require('./Autocomplete.jsx');
 
-
 module.exports = React.createClass({
     displayName : 'EditEntityForm',
     
@@ -45,7 +44,7 @@ module.exports = React.createClass({
         this.state.refs[fieldKey] = counter + 1;
         return fieldKey + '-' + counter;
     },
-    _renderFormGroup : function(name, labelKey, input){
+    _renderHorizontalFormGroup : function(name, labelKey, input){
         var id = input.props.id;
         var errorMsg = this._getFieldError(name);
         var className = 'form-group';
@@ -55,7 +54,7 @@ module.exports = React.createClass({
             messageBlock = (
                 <div className="alert alert-warning" key="msg">{errorMsg}</div>
             );
-        } 
+        }
         return (
             <div className={className} key={labelKey}>
                 <label htmlFor={id} className="col-sm-3 control-label" key="left">
@@ -64,6 +63,33 @@ module.exports = React.createClass({
                 <div className="col-sm-9" key="right">
                     {input}
                     {messageBlock}
+                </div>
+            </div>
+        );
+    },
+    _renderVerticalFormGroup : function(name, labelKey, input){
+        var id = input.props.id;
+        var errorMsg = this._getFieldError(name);
+        var className = 'form-group';
+        var messageBlock = null;
+        if (!!errorMsg) {
+            className = 'form-group has-error';
+            messageBlock = (
+                <div className="alert alert-warning" key="msg">{errorMsg}</div>
+            );
+        }
+        return (
+            <div className={className} key={labelKey}>
+                <div className="row">
+                    <label htmlFor={id} className="col-sm-12 control-label">
+                        {this._getLabel(labelKey)}
+                    </label>
+                </div>
+                <div className="row">
+                    <div className="col-sm-12">
+                        {input}
+                        {messageBlock}
+                    </div>
                 </div>
             </div>
         );
@@ -189,19 +215,19 @@ module.exports = React.createClass({
                 'dialog.edit.name.placeholder', {
         });
         return [
-                this._renderFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
-                this._renderFormGroup('properties.id', 'dialog.edit.id.label', idInput),
+                this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
+                this._renderHorizontalFormGroup('properties.id', 'dialog.edit.id.label', idInput),
             ];
     },
     
     _renderMail : function(){
-        return this._renderFormGroup('properties.email', 'dialog.edit.email.label', 
+        return this._renderHorizontalFormGroup('properties.email', 'dialog.edit.email.label', 
            this._renderInput('properties.email', 'dialog.edit.email.placeholder', {
                 type : 'email'
            }));
     },
     _renderDescription : function(){
-        return this._renderFormGroup('properties.description',
+        return this._renderHorizontalFormGroup('properties.description',
                 'dialog.edit.description.label', 
                 this._renderTextarea('properties.description',
                 'dialog.edit.description.placeholder', {
@@ -238,7 +264,6 @@ module.exports = React.createClass({
                                 _.each(selectedTags, function(tag) {
                                     index[tag] = true;
                                 })
-                                console.log('SELECTED TAGS:', index);
                                 return _.filter(categoryTags, function(tag) {
                                     return !_.has(index, tag);
                                 });
@@ -255,8 +280,8 @@ module.exports = React.createClass({
             id: this._newId()
         }, tags);
         return [
-            this._renderFormGroup('properties.category', 'dialog.edit.category.label', select),
-            this._renderFormGroup('properties.tag', 'dialog.edit.tag.label', tagContainer)
+            this._renderHorizontalFormGroup('properties.category', 'dialog.edit.category.label', select),
+            this._renderHorizontalFormGroup('properties.tag', 'dialog.edit.tag.label', tagContainer)
         ];
     },
     
@@ -275,7 +300,7 @@ module.exports = React.createClass({
             }
         });
         return [
-            this._renderFormGroup('properties.address', 'dialog.edit.address.label', 
+            this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address.label', 
                 <GeolocationWidget
                     tilesUrl={tilesUrl}
                     center={coords}
@@ -291,60 +316,81 @@ module.exports = React.createClass({
         var input = this._renderInput('properties.creationyear',
                 'dialog.edit.year.placeholder', {
         });
-        return this._renderFormGroup('properties.year', 'dialog.edit.year.label', input);
+        return this._renderHorizontalFormGroup('properties.creationyear',
+               'dialog.edit.year.label',
+               input);
+    },
+    
+    _renderSiret : function(){
+        var input = this._renderInput('properties.siret',
+                'dialog.edit.siret.placeholder', {
+        });
+        return this._renderHorizontalFormGroup('properties.siret', 'dialog.edit.siret.label', input);
     },
     
     _renderWebSiteUrl : function(){
         var input = this._renderInput('properties.url', 'dialog.edit.url.placeholder', {
         });
-        return this._renderFormGroup('properties.url', 'dialog.edit.url.label', input);
+        return this._renderHorizontalFormGroup('properties.url', 'dialog.edit.url.label', input);
     },
     
     _renderTwitterAccount : function(){
         var input = this._renderInput('properties.twitter', 'dialog.edit.twitter.placeholder', {
         });
-        return this._renderFormGroup('properties.twitter', 'dialog.edit.twitter.label', input);
+        return this._renderHorizontalFormGroup('properties.twitter', 'dialog.edit.twitter.label', input);
     }, 
     
     _renderFacebookAccount : function(){
         var input = this._renderInput('properties.facebook', 'dialog.edit.facebook.placeholder', {
         });
-        return this._renderFormGroup('properties.facebook', 'dialog.edit.facebook.label', input);
+        return this._renderHorizontalFormGroup('properties.facebook', 'dialog.edit.facebook.label', input);
     }, 
     
     _renderLinkedInAccount : function(){
         var input = this._renderInput('properties.linkedin', 'dialog.edit.linkedin.placeholder', {
         });
-        return this._renderFormGroup('properties.linkedin', 'dialog.edit.linkedin.label', input);
+        return this._renderHorizontalFormGroup('properties.linkedin', 'dialog.edit.linkedin.label', input);
     },
     
     _renderGooglePlusAccount : function(){
         var input = this._renderInput('properties.googleplus', 'dialog.edit.googleplus.placeholder', {
         });
-        return this._renderFormGroup('properties.googleplus', 'dialog.edit.googleplus.label', input);
+        return this._renderHorizontalFormGroup('properties.googleplus', 'dialog.edit.googleplus.label', input);
     },
     
     _renderViadeoAccount : function(){
         var input = this._renderInput('properties.viadeo', 'dialog.edit.viadeo.placeholder', {
         });
-        return this._renderFormGroup('properties.viadeo', 'dialog.edit.viadeo.label', input);
+        return this._renderHorizontalFormGroup('properties.viadeo', 'dialog.edit.viadeo.label', input);
     },
      
     render : function(){
         return (
         <form className="form-horizontal">
-            {this._renderNameAndId()}
-            {this._renderMail()}
-            {this._renderDescription()}
-            {this._renderCategoriesAndTags()}
-            {this._renderAddressAndCoordinates()}
-            {this._renderCreationYear()}
-            {this._renderWebSiteUrl()}
-            {this._renderTwitterAccount()}
-            {this._renderFacebookAccount()}
-            {this._renderGooglePlusAccount()}
-            {this._renderLinkedInAccount()}
-            {this._renderViadeoAccount()}
+            <h2>About Your Company</h2>
+            <section>
+                {this._renderNameAndId()}
+                {this._renderSiret()}
+                {this._renderCategoriesAndTags()}
+                {this._renderDescription()}
+                {this._renderCreationYear()}
+            </section>
+            
+            <h2>Contact Info</h2>
+            <section>
+                {this._renderMail()}
+                {this._renderWebSiteUrl()}
+                {this._renderAddressAndCoordinates()}
+            </section>
+            
+            <h2>Your Compnany in Social Networks</h2>
+            <section>
+                {this._renderTwitterAccount()}
+                {this._renderFacebookAccount()}
+                {this._renderGooglePlusAccount()}
+                {this._renderLinkedInAccount()}
+                {this._renderViadeoAccount()}
+            </section>
         </form>
         );
     }
