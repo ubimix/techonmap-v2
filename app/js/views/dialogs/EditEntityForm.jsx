@@ -9,6 +9,8 @@ var I18NMixin = require('../utils/I18NMixin');
 var DomUtils = require('../utils/DomUtils');
 var FormReactField = require('../utils/FormReactField');
 var GeolocationWidget = require('./GeolocationWidget.jsx');
+var Autocomplete = require('./Autocomplete.jsx');
+
 
 module.exports = React.createClass({
     displayName : 'EditEntityForm',
@@ -75,11 +77,18 @@ module.exports = React.createClass({
         return _.uniqueId('field-');
     },
 
-    _onChange : function(fieldKey) {
+    _onFieldUpdate : function(fieldKey) {
         var values = [];
         _.each(this.refs, function(field) {
             var elm = field.getDOMNode();
-            if (elm.getAttribute('name') == fieldKey) {
+            var name = elm.getAttribute('name');
+            if (!name) {
+                elm = elm.querySelector('[name]');
+                if (!elm)
+                    return ;
+                name = elm.getAttribute('name');
+            }
+            if (name == fieldKey) {
                 var value = elm.value;
                 if (value) {
                     values.push(value);
@@ -97,11 +106,9 @@ module.exports = React.createClass({
         var value = this.props.app.edit.getResourceValue(fieldKey);
         return value || '';
     },
-    _renderInput : function(fieldKey, labelKey, options){
+    _getInputOptions : function(fieldKey, labelKey, options){
         var fieldRef = this._getFieldRef(fieldKey);
         options = options || {};
-        var onChange = options.onChange;
-        delete options.onChange;
         var that = this;
         options = _.extend({
             className: 'form-control',
@@ -112,14 +119,14 @@ module.exports = React.createClass({
             key : fieldRef,
             type : 'text',
             value : this._getResourceField(fieldKey)
-        }, options, {
-            onChange : function(ev){ 
-                that._onChange(fieldKey, ev);
-                if (onChange) {
-                    onChange.apply(that, ev);
-                }
-            }
-        });
+        }, options);
+        return options;
+    },
+    _renderInput : function(fieldKey, labelKey, options){
+        options = this._getInputOptions(fieldKey, labelKey, options);
+        options.onChange = function(ev){ 
+            this._onFieldUpdate(fieldKey, ev);
+        }.bind(this);
         return React.DOM.input(options);
     },
     _renderTextarea : function(fieldKey, labelKey, options){
@@ -135,7 +142,7 @@ module.exports = React.createClass({
             cols : 80,
             style : {width:'100%'},
             value : this._getResourceField(fieldKey),
-            onChange : this._onChange.bind(this, fieldKey)
+            onChange : this._onFieldUpdate.bind(this, fieldKey)
         }, options);
         return React.DOM.textarea(options);
     },
@@ -152,7 +159,7 @@ module.exports = React.createClass({
             ref: fieldRef,
             key : fieldRef,
             defaultValue : selected,
-            onChange : this._onChange.bind(this, fieldKey)
+            onChange : this._onFieldUpdate.bind(this, fieldKey)
         }, params);
         return React.DOM.select(params, _.map(options, function(label, value){
             return React.DOM.option({
@@ -194,14 +201,15 @@ module.exports = React.createClass({
            }));
     },
     _renderDescription : function(){
-        return this._renderFormGroup('properties.description', 'dialog.edit.description.label', 
+        return this._renderFormGroup('properties.description',
+                'dialog.edit.description.label', 
                 this._renderTextarea('properties.description',
                 'dialog.edit.description.placeholder', {
            }));
     },
     _renderCategoriesAndTags : function(){
         var app = this.props.app;
-        var categoryKey = app.edit.getResourceValue('properties.category', 0);
+        var categoryKey = app.edit.getResourceValue('properties.category');
         var categoryTags = app.res.getCategoryTags(categoryKey);
         var allTags = app.res.getTags();
         var categoryOptions = {'' :''};
@@ -215,11 +223,33 @@ module.exports = React.createClass({
                 options : categoryOptions
             });
         var tagsCardinality = app.edit.getCardinality('properties.tag');
+        var maxTagsNumber = tagsCardinality[1];
         var tags = [];
-        for (var i=0; i < tagsCardinality[1]; i++) {
-            tags.push(this._renderInput('properties.tag.' + i, 'dialog.edit.tag.placeholder', {
-                options : categoryTags 
-            }));
+        for (var i=0; i < maxTagsNumber; i++) {
+            (function (i){
+                var fieldKey = 'properties.tag';
+                var tagInputOptions = this._getInputOptions(
+                        fieldKey, 
+                        'dialog.edit.tag.placeholder', 
+                        {
+                            suggestions :  function(){ 
+                                var selectedTags = app.edit.getResourceValue(fieldKey);
+                                var index = {};
+                                _.each(selectedTags, function(tag) {
+                                    index[tag] = true;
+                                })
+                                console.log('SELECTED TAGS:', index);
+                                return _.filter(categoryTags, function(tag) {
+                                    return !_.has(index, tag);
+                                });
+                            }
+                        });
+                tagInputOptions.onValueUpdate = function(){
+                    this._onFieldUpdate(fieldKey);                
+                }.bind(this);
+                var input = Autocomplete(tagInputOptions);
+                tags.push(input);
+            }.bind(this))(i);
         }
         var tagContainer = React.DOM.span({
             id: this._newId()
@@ -234,7 +264,7 @@ module.exports = React.createClass({
         var app = this.props.app;
         var mapOptions = app.map.getMapOptions();
         var coords = mapOptions.center || [ 0, 0 ];
-        var zoom = mapOptions.zoom || 15;
+        var zoom = mapOptions.zoom || 17;
         var tilesUrl = mapOptions.tilesUrl;
         var type = this._getResourceField('properties.category') || 'Entreprise';
         var marker = app.viewManager.newView('mapMarker', type, {

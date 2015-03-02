@@ -74,7 +74,6 @@ var GeolocationWidget = React.createClass({
             },
             map : {
                 style : {width: '100%', height:'200px'},
-                icon : ''
             }
         };
     },
@@ -220,7 +219,9 @@ var GeolocationWidget = React.createClass({
                 address : address
             }).then(function(result) {
                 var obj = result[0];
-                that._setLatLng(obj.lat, obj.lng);
+                if (obj) {
+                    that._setLatLng(obj.lat, obj.lng);
+                }
             }, function(err) {
                 that.setState(that._newState({
                     address : {
