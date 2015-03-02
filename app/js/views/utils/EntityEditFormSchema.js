@@ -72,9 +72,9 @@ module.exports = function(options) {
                         label : 'Catégorie',
                         description : 'Sélectionner une catégorie / un type d\'organisation',
                         type : 'string',
-                        enum : [ 'Entreprise', 'Tiers-lieu', 'Incubateur',
-                                'Investisseur', 'Communauté', 'Ecole',
-                                'Acteur public' ],
+                        enum : [ "Entreprise", "Tiers-lieu", "École",
+                                "Communauté", "Incubateur", "Investisseur",
+                                "Acteur public" ],
                         required : true
                     },
                     tag : {
@@ -103,7 +103,10 @@ module.exports = function(options) {
                     postcode : {
                         label : 'Code postal',
                         description : 'Code postal de votre organisation',
-                        type : 'number',
+                        type : 'integer',
+                        minimum : 60000,
+                        maximum : 10000,
+                        allowEmpty : false,
                         required : true,
                         messages : {
                             required : "Un code postal est requis.",
@@ -131,6 +134,10 @@ module.exports = function(options) {
                             allowEmpty : "Le site saisi ne doit pas être vide.",
                             format : "Le texte saisie ne semble pas être un URL valide.",
                         }
+                    },
+                    creationyear : {
+                        minimum : 1900,
+                        maximum : new Date().getFullYear(),
                     },
                     twitter : {
                         label : 'Compte Twitter',

@@ -16,6 +16,7 @@
     "express": "^4.11.2",
     "font-awesome": "^4.3.0",
     "js-yaml": "~3.2.3",
+    "jsonp": "^0.1.0",
     "leaflet": "~0.7.3",
     "leaflet.heat": "git+https://github.com/Leaflet/Leaflet.heat.git#627ede7c11bbe43a3a8b94a5be0d0745cac71e64",
     "leaflet.markercluster": "~0.4.0",

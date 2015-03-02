@@ -44,7 +44,7 @@ module.exports = Api.extend({
         return this._resource;
     },
 
-    getResourceValue : function(name, pos) {
+    getResourceValue : function(name) {
         name = name || '';
         var segments = name.split('.');
         var len = segments ? segments.length : 0;
@@ -55,11 +55,7 @@ module.exports = Api.extend({
             segment = segments[i];
             obj = obj[segment];
         }
-        if (_.isArray(obj)) {
-            return pos >= 0 && pos < obj.length ? obj[pos] : null;
-        } else {
-            return pos === 0 ? obj : null;
-        }
+        return obj;
     },
 
     reset : Api.intent(function(intent) {
@@ -117,13 +113,14 @@ module.exports = Api.extend({
         return intent.resolve(Mosaic.P.then(function() {
             if (!that.isEditing())
                 return;
-            var resource = that._resource;
+            var resource = that._clone(that._resource);
             _.each(intent.params, function(values, name) {
                 that._changedResourceFields[name] = true;
                 notify |= that._setResourceFieldValue(resource, name, values);
-                that._checkIdField();
             });
             if (notify) {
+                that._checkIdField(resource);
+                that._resource = resource;
                 that._validateResource();
             }
         })).then(function() {
@@ -148,20 +145,41 @@ module.exports = Api.extend({
         return error ? error.message : null;
     },
 
-    _checkIdField : function() {
+    _checkIdField : function(resource) {
         if (!!this._original.id)
             return;
-        var properties = this._resource.properties || {};
-        this._resource.properties = properties;
-
+        var prevProps = this._resource.properties || {};
+        var prevId = prevProps.id;
+        var prevName = prevProps.name;
+        var properties = resource.properties = resource.properties || {};
         var name = properties.name;
-        var normalizedName = this._normalizeName(name);
+        if (!_.has(this._changedResourceFields, 'properties.id') && //
+        (!prevId || prevId == this._normalizeName(prevName))) {
+            properties.id = name;
+        }
         properties.id = this._normalizeName(properties.id);
-        if (_.has(this._changedResourceFields, 'properties.id') && //
-        !!properties.id && properties.id !== normalizedName)
-            return;
-        properties.id = this._normalizeName(name);
-        delete this._changedResourceFields.id;
+        delete this._changedResourceFields['properties.id'];
+    },
+
+    getCardinality : function(name) {
+        var segments = name.split('.');
+        var result = [ 0, 0 ];
+        var fieldSchema = this._getFieldSchema(segments);
+        if (fieldSchema) {
+            result[1] = 1;
+            if (fieldSchema.required) {
+                result[0] = 1;
+            }
+            if (fieldSchema.type == 'array') {
+                if (fieldSchema.minItems !== undefined) {
+                    result[0] = +fieldSchema.minItems;
+                }
+                if (fieldSchema.maxItems !== undefined) {
+                    result[1] = +fieldSchema.maxItems;
+                }
+            }
+        }
+        return result;
     },
 
     _normalizeName : function(str) {
@@ -220,15 +238,23 @@ module.exports = Api.extend({
         var obj = resource;
         var i;
         var segment;
-        for (i = 0; i < len - 1; i++) {
-            segment = segments[i];
+        var nextSegment = segments[0];
+        for (i = 1; i < len; i++) {
+            segment = nextSegment;
+            nextSegment = segments[i];
             var child = obj[segment];
             if (!child) {
-                child = obj[segment] = segment.match(/^\d+$/) ? [] : {};
+                if (nextSegment.match(/^\d+$/)) {
+                    child = [];
+                } else {
+                    child = {};
+                }
+                obj[segment] = child;
             }
             obj = child;
         }
-        segment = segments[i];
+        segment = nextSegment;
+
         var fieldSchema = this._getFieldSchema(segments);
         var type = fieldSchema ? fieldSchema.type : undefined;
         var val = (type == 'array' || values.length > 1) ? values : values[0];

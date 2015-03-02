@@ -8,19 +8,7 @@ var Mosaic = require('mosaic-commons');
 var I18NMixin = require('../utils/I18NMixin');
 var DomUtils = require('../utils/DomUtils');
 var FormReactField = require('../utils/FormReactField');
-var ReactTypeahead = require('react-typeahead');
-
-
-var GeolocationModule = React.createClass({
-    displayName : 'GeolocationModule',
-
-    componentDidMount : function() {
-    },
-
-    render : function() {
-        return React.Children.only(this.props.children);
-    }
-});
+var GeolocationWidget = require('./GeolocationWidget.jsx');
 
 module.exports = React.createClass({
     displayName : 'EditEntityForm',
@@ -105,26 +93,15 @@ module.exports = React.createClass({
     _getFieldError : function(fieldKey) {
         return this.props.app.edit.getFieldError(fieldKey);
     },
-    _getResourceField : function(fieldKey, options) {
-        options = options || {};
-        var pos = options.pos || 0;
-        var value = this.props.app.edit.getResourceValue(fieldKey, pos);
+    _getResourceField : function(fieldKey) {
+        var value = this.props.app.edit.getResourceValue(fieldKey);
         return value || '';
-    },
-    _renderTypeahead : function(fieldKey, labelKey, options){
-        var fieldRef = this._getFieldRef(fieldKey);
-        var that = this;
-        return ReactTypeahead.Tokenizer({
-            key : _.uniqueId('id-'),
-            options: options.options,
-            maxVisible: 3,
-            onTokenAdd : function(ev){
-                console.log( ' ** ', ev);
-            }
-        });
     },
     _renderInput : function(fieldKey, labelKey, options){
         var fieldRef = this._getFieldRef(fieldKey);
+        options = options || {};
+        var onChange = options.onChange;
+        delete options.onChange;
         var that = this;
         options = _.extend({
             className: 'form-control',
@@ -134,9 +111,15 @@ module.exports = React.createClass({
             ref : fieldRef,
             key : fieldRef,
             type : 'text',
-            value : this._getResourceField(fieldKey, options),
-            onChange : this._onChange.bind(this, fieldKey)
-        }, options);
+            value : this._getResourceField(fieldKey)
+        }, options, {
+            onChange : function(ev){ 
+                that._onChange(fieldKey, ev);
+                if (onChange) {
+                    onChange.apply(that, ev);
+                }
+            }
+        });
         return React.DOM.input(options);
     },
     _renderTextarea : function(fieldKey, labelKey, options){
@@ -151,7 +134,7 @@ module.exports = React.createClass({
             rows : 10,
             cols : 80,
             style : {width:'100%'},
-            value : this._getResourceField(fieldKey, options),
+            value : this._getResourceField(fieldKey),
             onChange : this._onChange.bind(this, fieldKey)
         }, options);
         return React.DOM.textarea(options);
@@ -184,9 +167,10 @@ module.exports = React.createClass({
             idInput = this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
             });
         } else {
+            var id = this._getResourceField('properties.id');
             idInput = (
                 <span id={this._newId()}>
-                    <span className="form-control">ID Goes here</span>
+                    <span className="form-control">{id}</span>
                     {this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
                         type: 'hidden'
                     })}
@@ -219,35 +203,21 @@ module.exports = React.createClass({
         var app = this.props.app;
         var categoryKey = app.edit.getResourceValue('properties.category', 0);
         var categoryTags = app.res.getCategoryTags(categoryKey);
-        
-        
         var allTags = app.res.getTags();
-// console.log(' TAG SUGGESTIONS: ',categoryTags, allTags);
+        var categoryOptions = {'' :''};
+        var categories = app.res.getCategories();
+        _.each(categories, function(category) {
+            categoryOptions[category.key] = category.label;
+        });
         var select = this._renderSelect(
             'properties.category', {
                 selected : '', 
-                options : {
-                    '' : '',
-                    'Entreprise' : 'Entreprise',
-                    'Tiers-lieu' : 'Tiers-lieu',
-                    'Incubateur' : 'Incubateur',
-                    'Investisseur' : 'Investisseur',
-                    'Communauté' : 'Communauté',
-                    'Ecole' : 'Ecole',
-                    'Acteur public' : 'Acteur public',
-                    // 'entreprise' : 'Entreprise',
-                    // 'tiers-lieu' : 'Tiers-lieu',
-                    // 'incubator' : 'Incubateur',
-                    // 'investor' : 'Investisseur',
-                    // 'community' : 'Communauté',
-                    // 'school' : 'Ecole',
-                    // 'public_actor' : 'Acteur public'
-                }
+                options : categoryOptions
             });
+        var tagsCardinality = app.edit.getCardinality('properties.tag');
         var tags = [];
-        for (var i=0; i < 5; i++) {
-            tags.push(this._renderTypeahead('properties.tag', 'dialog.edit.tag.placeholder', {
-                pos : i,
+        for (var i=0; i < tagsCardinality[1]; i++) {
+            tags.push(this._renderInput('properties.tag.' + i, 'dialog.edit.tag.placeholder', {
                 options : categoryTags 
             }));
         }
@@ -261,38 +231,18 @@ module.exports = React.createClass({
     },
     
     _renderAddressAndCoordinates : function(){
-        var streetField = this._renderInput('properties.address', 'dialog.edit.address.placeholder', {
-        });
-        var postcodeField = this._renderInput('properties.postcode', 'dialog.edit.postcode.placeholder', {
-        });
-        var cityField = this._renderInput('properties.city', 'dialog.edit.city.placeholder', {
-        });
-        var latField = this._renderInput('geometry.coordinates.0', null, {
-            type : 'hidden'
-        });
-        var lngField = this._renderInput('geometry.coordinates.1', null, {
-            type : 'hidden'
-        });
-        
-        var coordsFields = (
-            <div className="form-group" key="address">
-              <label className="col-sm-3 control-label">Coordinates</label>
-              <div className="col-sm-4" key="left">
-                <label htmlFor={this._newId()}>Latitude</label>
-                <input type="text" className="form-control" id={this._newId()} ref="latitude" name="geometry.coordinates.0" placeholder="Latitude" />
-              </div>
-              <div className="col-sm-4" key="right">
-                <label htmlFor={this._newId()}>Longitude</label>
-                <input type="text" className="form-control" id={this._newId()} ref="longitude" name="geometry.coordinates.1" placeholder="Longitude" />
-              </div>
-            </div>
-        );
+        var app = this.props.app;
+        var mapOptions = app.map.getMapOptions();
+        var coords = mapOptions.center || [ 0, 0 ];
+        var zoom = mapOptions.zoom || 15;
+        var tilesUrl = mapOptions.tilesUrl;
         return [
-            this._renderFormGroup('properties.address', 'dialog.edit.address.label', streetField),
-            this._renderFormGroup('properties.postcode', 'dialog.edit.postcode.label', postcodeField),
-            this._renderFormGroup('properties.city', 'dialog.edit.city.label', cityField),
-            coordsFields
-        ];
+            this._renderFormGroup('properties.address', 'dialog.edit.address.label', 
+                <GeolocationWidget tilesUrl={tilesUrl} center={coords} zoom={zoom} 
+                    onAddressChange={function(ev){
+                        var value = ev.target.value;
+                    }}/>),
+        ];        
     },
     
     _renderCreationYear : function(){

@@ -235,7 +235,6 @@ module.exports = AbstractMapLayer.extend({
         var marker = that._index[selectedId];
         if (!marker)
             return;
-        console.log('_onSelectResource', selectedId, marker.icon);
         that._clusterLayer.zoomToShowLayer(marker, function() {
             var latlng = marker.getLatLng();
             if (that.options.viewport) {

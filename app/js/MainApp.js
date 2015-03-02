@@ -109,10 +109,12 @@ module.exports = App.extend({
             console.log('[ERROR] Initialization failed.', err);
         }
         var containers = this.options.containers;
+
         this.mainView = MainViewFactory({
             app : this
         });
         React.render(this.mainView, containers.main);
+
     }
 
 });

@@ -73,7 +73,7 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
                     <button type="submit" className="btn btn-primary"
                         onClick={function(ev){
                             if (app.edit.isValid()) {
-                                app.endEdit({
+                                app.edit.endEdit({
                                    save : true 
                                 });
                             }
@@ -97,6 +97,7 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
                 body : form,
                 footer : footer,
                 key: "edit-popup",
+                disableEsc : true,
                 onOpen : function(d) {
                     dialog = d;
                 },
