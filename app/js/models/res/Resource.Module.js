@@ -326,6 +326,16 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     getCategories : function() {
         return this._categories;
     },
+    
+    getCategoryIcon : function(category){
+        var key = this.getCategoryKey(category);
+        category = this.getCategoryByKey(key);
+        var icon;
+        if (category) {
+            icon = category.icon;
+        }
+        return icon;
+    },
 
     /**
      * Toggle tags in the search criteria. This methods sets all new tags and

@@ -9,6 +9,7 @@ var GeolocationWidget = React.createClass({
     displayName : 'GeolocationWidget',
 
     componentWillMount : function(){
+        this._setLatLng = _.debounce(this._setLatLng, 100);
         this._geolocService = new EsriGeoLocation();
     },
     
@@ -72,7 +73,8 @@ var GeolocationWidget = React.createClass({
                 value : ''
             },
             map : {
-                style : {width: '100%', height:'200px'}
+                style : {width: '100%', height:'200px'},
+                icon : ''
             }
         };
     },
@@ -86,15 +88,37 @@ var GeolocationWidget = React.createClass({
     },
     
     componentDidUpdate : function(){
-        this._focusMap();
+        this._focusMap(false);
     },
     
-    _focusMap : function(){
-        if (this._marker && this._map) {
+    _focusMap : function(updateZoom){
+        if (this._map) {
             var latlng = this._getMarkerCoordinates();
-            this._marker.setLatLng(latlng);
-            var zoom = this.props.zoom || 15;
-            this._map.setView(latlng, zoom);
+            var newMarker = this.props.marker; 
+            if (this._marker !== newMarker) {
+                if (this._marker){
+                    this._map.removeLayer(this._marker);
+                }
+                this._marker = newMarker;
+                if (this._marker){
+                    this._map.addLayer(this._marker);
+                    this._marker.on('dragend', function(){
+                        if (!this._marker)
+                            return ;
+                        var latlng = this._marker.getLatLng();
+                        this._setLatLng(latlng.lat, latlng.lng);
+                    }, this);
+                }
+            }
+            if (this._marker) {
+                this._marker.setLatLng(latlng);
+            }
+            if (updateZoom) {
+                var zoom = this.props.zoom || 17;
+                this._map.setView(latlng, zoom);
+            } else {
+                this._map.panTo(latlng);
+            }
         }
     },
     
@@ -114,21 +138,27 @@ var GeolocationWidget = React.createClass({
             minZoom : this.props.minZoom || 0
         });
         map.addLayer(this._tiles);
-
-        var centerLatLng = this._getMarkerCoordinates();
-        this._marker = L.circleMarker(centerLatLng, {
-        });
-        map.addLayer(this._marker);
-        this._focusMap();
+        this._focusMap(true);
     },
     _onMapRemove : function(map){
         map.removeLayer(this._tiles);
         delete this._tiles;
-        map.removeLayer(this._marker);
-        delete this._marker;
+        if (this._marker) {
+            map.removeLayer(this._marker);
+            delete this._marker;
+        }
         delete this._map;
     },
-    
+    _setLatLng : function(lat, lng){
+        this.setState(this._newState({
+            latitude  : {
+                value: lat
+            },
+            longitude : {
+                value : lng
+            }
+        }));
+    },
     render : function() {
         var addrInfo = this.state.address;
         var addressInput = <input type="text" className="form-control"
@@ -190,14 +220,7 @@ var GeolocationWidget = React.createClass({
                 address : address
             }).then(function(result) {
                 var obj = result[0];
-                that.setState(that._newState({
-                    latitude  : {
-                        value: obj.lat
-                    },
-                    longitude : {
-                        value : obj.lng
-                    }
-                }));
+                that._setLatLng(obj.lat, obj.lng);
             }, function(err) {
                 that.setState(that._newState({
                     address : {

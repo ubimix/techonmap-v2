@@ -174,6 +174,7 @@ module.exports = AbstractMapLayer.extend({
         var marker = app.viewManager.newView('mapMarker', type, {
             app : app,
             resource : resource,
+            type : type,
             latlng : latlng
         });
         if (!marker)

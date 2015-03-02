@@ -36,7 +36,6 @@ var MenuMixin = {
         if (!key) {
             key = _.uniqueId('menu-');
         }
-        console.log('_renderMenuPanel', key);
         return (
              <div className="panel" key={key}>
                  <div className="panel-heading">{heading}</div>

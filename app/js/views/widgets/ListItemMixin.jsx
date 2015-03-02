@@ -5,7 +5,6 @@ var TagsMixin = require('../utils/TagsMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 var Formats = require('../utils/Formats');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
-var TypesMapping = require('./default/Categories');
 
 module.exports = _.extend({
 
@@ -32,10 +31,10 @@ module.exports = _.extend({
     _renderShortDescription : function(type) {
         var creationYear = ResourceUtils.getResourceCreationYear(this.props.resource);
         var creationYearText = '';
-        var typeKey = TypesMapping[type];
         if (creationYear){
             var app = this.getApp();
             var i18n = app.i18n;
+            var typeKey = app.res.getCategoryIcon(type);
             var msgKey = 'list.item.view.' + typeKey + '.creationYear';
             creationYearText = i18n.getMessage(msgKey, { year: creationYear });
         }

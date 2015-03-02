@@ -4,7 +4,6 @@ var React = require('react');
 var ListItemMixin = require('../ListItemMixin.jsx');
 var ResourceUtils = require('../../../tools/ResourceUtilsMixin');
 var ViewActivationMixin = require('../../utils/ViewActivationMixin');
-var types = require('./Categories.js');
 
 module.exports = React.createClass({
     displayName : 'List.Default',
@@ -55,8 +54,9 @@ module.exports = React.createClass({
             }
         }
         
-        var pictoClassName = 'picto ' + types[resourceType];
-        var iconClassName = 'icon icon-'+types[resourceType];
+        var icon = app.res.getCategoryIcon(resourceType);
+        var pictoClassName = 'picto ' + icon;
+        var iconClassName = 'icon icon-' + icon;
         className += resourceType;
         return (
             <div className={className} key={this.props.key}

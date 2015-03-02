@@ -31,7 +31,7 @@ var ContactForm = React.createClass({
         };
     },
     doSubmit: function () {
-        console.log('Submit !');
+// console.log('Submit !');
     },
     enableButton: function () {
         this.setState({

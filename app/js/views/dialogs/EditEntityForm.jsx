@@ -236,9 +236,21 @@ module.exports = React.createClass({
         var coords = mapOptions.center || [ 0, 0 ];
         var zoom = mapOptions.zoom || 15;
         var tilesUrl = mapOptions.tilesUrl;
+        var type = this._getResourceField('properties.category') || 'Entreprise';
+        var marker = app.viewManager.newView('mapMarker', type, {
+            app : app,
+            type : type,
+            params : {
+                draggable : true
+            }
+        });
         return [
             this._renderFormGroup('properties.address', 'dialog.edit.address.label', 
-                <GeolocationWidget tilesUrl={tilesUrl} center={coords} zoom={zoom} 
+                <GeolocationWidget
+                    tilesUrl={tilesUrl}
+                    center={coords}
+                    zoom={zoom}
+                    marker={marker}
                     onAddressChange={function(ev){
                         var value = ev.target.value;
                     }}/>),
