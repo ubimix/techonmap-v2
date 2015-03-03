@@ -77,7 +77,7 @@ module.exports = function(options) {
                                 "Acteur public" ],
                         required : true
                     },
-                    tag : {
+                    tags : {
                         label : 'Tags',
                         description : 'Saisissez un ou plusieurs mot-clef(s)',
                         minItems : 1,

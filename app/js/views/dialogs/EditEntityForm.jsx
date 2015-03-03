@@ -244,7 +244,7 @@ module.exports = React.createClass({
         });
         var select = this._renderSelect(
             'properties.category', {
-                selected : '', 
+                selected : categoryKey, 
                 options : categoryOptions
             });
         return this._renderHorizontalFormGroup('properties.category', 'dialog.edit.category.label', select);
@@ -256,21 +256,23 @@ module.exports = React.createClass({
         if (!categoryKey)
             return undefined;
 
-        var tagsCardinality = app.edit.getCardinality('properties.tag');
+        var fieldKey = 'properties.tags';
+        var tagsCardinality = app.edit.getCardinality(fieldKey);
         var maxTagsNumber = tagsCardinality[1];
         var tags = [];
+        var resourceTags = app.edit.getResourceValue(fieldKey) || [];
         var categoryTags = app.res.getCategoryTags(categoryKey);
         for (var i=0; i < maxTagsNumber; i++) {
             (function (i){
-                var fieldKey = 'properties.tag';
+                var value = i < resourceTags.length ? resourceTags[i] : null;
                 var tagInputOptions = this._getInputOptions(
                         fieldKey, 
                         'dialog.edit.tag.placeholder', 
                         {
+                            value : value, 
                             suggestions :  function(){ 
-                                var selectedTags = app.edit.getResourceValue(fieldKey);
                                 var index = {};
-                                _.each(selectedTags, function(tag) {
+                                _.each(resourceTags, function(tag) {
                                     index[tag] = true;
                                 })
                                 return _.filter(categoryTags, function(tag) {
@@ -288,7 +290,7 @@ module.exports = React.createClass({
         var tagContainer = React.DOM.span({
             id: this._newId()
         }, tags);
-        return this._renderHorizontalFormGroup('properties.tag', 'dialog.edit.tag.label', tagContainer);
+        return this._renderHorizontalFormGroup(fieldKey, 'dialog.edit.tag.label', tagContainer);
     },
     _renderCategoriesAndTags : function(){
         var components = [];

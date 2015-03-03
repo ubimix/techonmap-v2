@@ -4,6 +4,7 @@ var React = require('react');
 var ListItemMixin = require('../ListItemMixin.jsx');
 var ResourceUtils = require('../../../tools/ResourceUtilsMixin');
 var ViewActivationMixin = require('../../utils/ViewActivationMixin');
+var EditEntityPopup = require('../../dialogs/EditEntityPopup.jsx');
 
 module.exports = React.createClass({
     displayName : 'List.Default',
@@ -20,6 +21,15 @@ module.exports = React.createClass({
         )
     },
     
+    _editResource : function(ev){
+        ev.stopPropagation();
+        ev.preventDefault();
+        var editPopup = new EditEntityPopup({
+            app : this.props.app
+         });
+         editPopup.open(this.props.resource);  
+    },
+    
     _renderEditButton : function() {
         var id = ResourceUtils._getFirstProperty(this.props.resource, 'id');
         var editLink = this._getLabel("list.item.edit.link", { id: id });
@@ -27,7 +37,8 @@ module.exports = React.createClass({
         return(
             <div className="toolbar">
                 <a href={editLink} title={editTitle}
-                    className="edit picto-edit" target="_blank">
+                    className="edit picto-edit" target="_blank"
+                    onClick={this._editResource}>
                     <i className="icon icon-edit"></i>
                 </a>
             </div>

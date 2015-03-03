@@ -52,7 +52,7 @@
             "dialog.edit.tag.label" : "Tags",
             "dialog.edit.tag.placeholder" : "Saisissez un tag",
             "dialog.edit.address.label" : "N° et nom de rue",
-            "dialog.edit.address.placeholder" : "N° et nom de rue XXX",
+            "dialog.edit.address.placeholder" : "N° et nom de rue",
             "dialog.edit.postcode.label" : "Code postal",
             "dialog.edit.postcode.placeholder" : "Code postal",
             "dialog.edit.city.label" : "Ville",
