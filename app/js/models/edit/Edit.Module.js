@@ -7,7 +7,7 @@ var Api = App.Api;
 var Schema = require('../../views/utils/EntityEditFormSchema')();
 
 /** This module manages resource editing process. */
-module.exports = Api.extend({
+module.exports = Api.extend(ResourceUtils, {
 
     /**
      * Initializes internal fields.
@@ -131,6 +131,13 @@ module.exports = Api.extend({
         });
     }),
 
+    isNewResource : function(){
+        if (!this._original)
+            return ;
+        var props = this._original.properties || {}; 
+        return !props.id;
+    },
+    
     isValid : function() {
         if (!this._validationResults)
             return undefined;
@@ -145,10 +152,14 @@ module.exports = Api.extend({
         var error = this._validationResults.errorIndex[name];
         return error ? error.message : null;
     },
+    
+    getValidationResults : function(){
+        return this._validationResults;
+    },
 
     _checkIdField : function(resource) {
-        if (!!this._original.id)
-            return;
+        if (!this.isNewResource())
+            return ;
         var prevProps = this._resource.properties || {};
         var prevId = prevProps.id;
         var prevName = prevProps.name;
@@ -159,6 +170,9 @@ module.exports = Api.extend({
             properties.id = name;
         }
         properties.id = this._normalizeName(properties.id);
+        if (name !== prevName) {
+            delete this._changedResourceFields['properties.id'];
+        }
     },
 
     getCardinality : function(name) {

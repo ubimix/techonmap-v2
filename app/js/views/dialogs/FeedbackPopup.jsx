@@ -67,9 +67,29 @@ var FeedbackPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
     getApp : function() {
         return this.options.app;
     },
-    _showMessage : function(msg) {
-        window.alert(msg);
+    _showMessage : function(msgTitle, msg) {
+        var app = this.getApp();
+        var that = this;
+        PopupPanel.openPopup({
+            verticalMargin : this.options.margin || 40,
+            title : (
+                <span>
+                    <i className="icon icon-share"></i>
+                    {msgTitle}
+                </span>
+            ),
+            body : <div>{msg}</div>,
+            footer : (
+                <div>
+                    <button className="btn  btn-primary"
+                        onClick={function(){ PopupPanel.closePopup(); }}>
+                        {this._getLabel('dialog.contact.btn.cancel')}
+                    </button>
+                </div>
+             ),
+        });
     },
+    
     _submitContactForm : function(data){
         var that = this;
         var app = that.getApp();
@@ -77,20 +97,23 @@ var FeedbackPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
         .then(function(data){
             return app.contact.sendMessage(data)//
                 .then(function(result){
-                    var msg = that._getLabel('dialog.contact.result.ok');
-                    that._showMessage(msg);
                     PopupPanel.closePopup();
+                    var msgType = that._getLabel('dialog.contact.title.ok');
+                    var msg = that._getLabel('dialog.contact.result.ok');
+                    that._showMessage(msgType, msg);
                 }, function(err) {
+                    var msgType = that._getLabel('dialog.contact.title.error');
                     var msg = that._getLabel(
                         'dialog.contact.result.errors',
                          { error : err });
-                    that._showMessage(msg);
+                    that._showMessage(msgType, msg);
                 });
         }, function(err) {
+            var msgType = that._getLabel('dialog.contact.title.error');
             var msg = that._getLabel('dialog.contact.invalide', {
                 error : err
             });
-            that._showMessage(msg);
+            that._showMessage(msgType, msg);
         });
     },
     open : function() {

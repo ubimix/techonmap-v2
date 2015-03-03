@@ -95,8 +95,8 @@ module.exports = React.createClass({
         );
     },
 
-    _isNewEntity : function(){
-        return true;
+    _isNewResource : function(){
+        return this.props.app.edit.isNewResource();
     },
 
     _newId : function(){
@@ -142,7 +142,7 @@ module.exports = React.createClass({
             id: this._newId(),
             name: fieldKey,
             ref : fieldRef,
-            key : fieldRef,
+            key : fieldKey,
             type : 'text',
             value : this._getResourceField(fieldKey)
         }, options);
@@ -195,7 +195,7 @@ module.exports = React.createClass({
     },
     _renderNameAndId : function(){
         var idInput;
-        var newEntity = this._isNewEntity();
+        var newEntity = this._isNewResource();
         if (newEntity) {
             idInput = this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
             });
@@ -356,6 +356,10 @@ module.exports = React.createClass({
                 style : {width: '100%', height:'200px'},
             }
         });
+        
+        var errorMsg = this._getFieldError('geometry.coordinates');
+        var edit = this.props.app.edit;
+        console.log(' * ERROR MSG: ', errorMsg, this._addressInfo, edit.getValidationResults());
         return [
             this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address.label', 
                 <GeolocationWidget
@@ -366,7 +370,6 @@ module.exports = React.createClass({
                     marker={marker}
                     onAddressChange={function(info){
                         var fields = {};
-                        var edit = this.props.app.edit;
                         _.each(info, function(field) {
                             var name = field.name;
                             var value = field.value;
