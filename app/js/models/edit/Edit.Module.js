@@ -117,6 +117,7 @@ module.exports = Api.extend({
             _.each(intent.params, function(values, name) {
                 that._changedResourceFields[name] = true;
                 notify |= that._setResourceFieldValue(resource, name, values);
+                notify = true;
             });
             if (notify) {
                 that._checkIdField(resource);

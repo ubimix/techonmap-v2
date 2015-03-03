@@ -104,13 +104,20 @@ module.exports = function(options) {
                         label : 'Code postal',
                         description : 'Code postal de votre organisation',
                         type : 'integer',
-                        minimum : 60000,
-                        maximum : 10000,
                         allowEmpty : false,
                         required : true,
                         messages : {
                             required : "Un code postal est requis.",
                             allowEmpty : "Le code postal saisi ne doit pas être vide.",
+                        },
+                        conform : function(v) {
+                            try {
+                                v = parseInt(v);
+                                v += '';
+                                return v.length === 5;
+                            } catch (e) {
+                                return false;
+                            }
                         }
                     },
                     city : {

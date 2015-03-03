@@ -233,10 +233,9 @@ module.exports = React.createClass({
                 'dialog.edit.description.placeholder', {
            }));
     },
-    _renderCategoriesAndTags : function(){
+    _renderCategories : function(){
         var app = this.props.app;
         var categoryKey = app.edit.getResourceValue('properties.category');
-        var categoryTags = app.res.getCategoryTags(categoryKey);
         var allTags = app.res.getTags();
         var categoryOptions = {'' :''};
         var categories = app.res.getCategories();
@@ -248,9 +247,19 @@ module.exports = React.createClass({
                 selected : '', 
                 options : categoryOptions
             });
+        return this._renderHorizontalFormGroup('properties.category', 'dialog.edit.category.label', select);
+    },
+    
+    _renderTags : function(){
+        var app = this.props.app;
+        var categoryKey = app.edit.getResourceValue('properties.category');
+        if (!categoryKey)
+            return undefined;
+
         var tagsCardinality = app.edit.getCardinality('properties.tag');
         var maxTagsNumber = tagsCardinality[1];
         var tags = [];
+        var categoryTags = app.res.getCategoryTags(categoryKey);
         for (var i=0; i < maxTagsNumber; i++) {
             (function (i){
                 var fieldKey = 'properties.tag';
@@ -279,16 +288,19 @@ module.exports = React.createClass({
         var tagContainer = React.DOM.span({
             id: this._newId()
         }, tags);
-        return [
-            this._renderHorizontalFormGroup('properties.category', 'dialog.edit.category.label', select),
-            this._renderHorizontalFormGroup('properties.tag', 'dialog.edit.tag.label', tagContainer)
-        ];
+        return this._renderHorizontalFormGroup('properties.tag', 'dialog.edit.tag.label', tagContainer);
+    },
+    _renderCategoriesAndTags : function(){
+        var components = [];
+        var app = this.props.app;
+        components.push(this._renderCategories());
+        components.push(this._renderTags());
+        return components;
     },
     
     _renderAddressAndCoordinates : function(){
         var app = this.props.app;
         var mapOptions = app.map.getMapOptions();
-        var coords = mapOptions.center || [ 0, 0 ];
         var zoom = mapOptions.zoom || 17;
         var tilesUrl = mapOptions.tilesUrl;
         var type = this._getResourceField('properties.category') || 'Entreprise';
@@ -299,16 +311,69 @@ module.exports = React.createClass({
                 draggable : true
             }
         });
+        var coords = this._getResourceField('geometry.coordinates');
+        if (!coords || !coords[0] || !coords[1])  {
+            coords = mapOptions.center || [ 0, 0 ];
+        } 
+        this._addressInfo = this._addressInfo || {};
+        _.extend(this._addressInfo, {
+            address : {
+                name : 'properties.address',
+                placeholder  : this._getLabel('dialog.edit.address.placeholder'),
+                value: this._getResourceField('properties.address'),
+                error : this._getFieldError('properties.address')
+            },
+            postcode: {
+                name : 'properties.postcode',
+                placeholder  : this._getLabel('dialog.edit.postcode.placeholder'),
+                value: this._getResourceField('properties.postcode'),
+                error : this._getFieldError('properties.postcode')
+            },
+            city : {
+                name : 'properties.city',
+                placeholder  : this._getLabel('dialog.edit.city.placeholder'),
+                value: this._getResourceField('properties.city'),
+                error : this._getFieldError('properties.city')
+            },
+            longitude : {
+                name: 'geometry.coordinates.0',
+                type: 'hidden',
+                value : coords[0],
+                error : this._getFieldError('geometry.coordinates')
+            },
+            latitude : {
+                name: 'geometry.coordinates.1',
+                type: 'hidden',
+                value : coords[1],
+                error : this._getFieldError('geometry.coordinates')
+            },
+            localizeBtn : {
+                label : this._getLabel('dialog.edit.localize.btn'),
+            },
+            map : {
+                style : {width: '100%', height:'200px'},
+            }
+        });
         return [
             this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address.label', 
                 <GeolocationWidget
+                    info = {this._addressInfo}
                     tilesUrl={tilesUrl}
                     center={coords}
                     zoom={zoom}
                     marker={marker}
-                    onAddressChange={function(ev){
-                        var value = ev.target.value;
-                    }}/>),
+                    onAddressChange={function(info){
+                        var fields = {};
+                        var edit = this.props.app.edit;
+                        _.each(info, function(field) {
+                            var name = field.name;
+                            var value = field.value;
+                            if (name) {
+                                fields[name] = value ? [value] : [];
+                            }
+                        }, this);
+                        this.props.app.edit.updateFields(fields);
+                    }.bind(this)}/>),
         ];        
     },
     

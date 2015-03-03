@@ -34,56 +34,66 @@ var GeolocationWidget = React.createClass({
     _newState : function(options){
         options = options || {};
         var state = {};
-        this._copy(this._getInfo(), state);
         this._copy(this.state, state);
         this._copy(options, state);
         return state;
     },
 
     _getInfo : function(){
-        return this.props.info || {
-            address : {
-                name : 'properties.address',
-                placeholder  : 'Address',
-                value: ''
-            },
-            postcode: {
-                name : 'properties.postcode',
-                placeholder  : 'Postcode',
-                value: ''
-            },
-            city : {
-                name : 'properties.city',
-                placeholder  : 'City',
-                value: ''
-            },
-            latitude : {
-                name: 'geometry.coordinates.0',
-                type: 'hidden',
-                value : ''
-            },
-            longitude : {
-                name: 'geometry.coordinates.1',
-                type: 'hidden',
-                value : ''
-            },
-            localizeBtn : {
-                label : 'Localize on the map',
-                name : '',
-                value : ''
-            },
-            map : {
-                style : {width: '100%', height:'200px'},
-            }
-        };
+        if (!this._info) {
+            this._info = this.props.info || {
+                address : {
+                    name : 'properties.address',
+                    placeholder  : 'Address',
+                    value: ''
+                },
+                postcode: {
+                    name : 'properties.postcode',
+                    placeholder  : 'Postcode',
+                    value: ''
+                },
+                city : {
+                    name : 'properties.city',
+                    placeholder  : 'City',
+                    value: ''
+                },
+                latitude : {
+                    name: 'geometry.coordinates.0',
+                    type: 'hidden',
+                    value : ''
+                },
+                longitude : {
+                    name: 'geometry.coordinates.1',
+                    type: 'hidden',
+                    value : ''
+                },
+                localizeBtn : {
+                    label : 'Localize on the map',
+                    name : '',
+                    value : ''
+                },
+                map : {
+                    style : {width: '100%', height:'200px'},
+                }
+            };
+        }
+        return this._info;
     },
     
     _onChange : function(field, ev) {
         var options = {};
-        options[field] = {
-            value : ev.target.value
-        };
-        this.setState(this._newState(options));
+        var obj = options[field] = options[field] || {};
+        obj.value = ev.target.value;
+        this._updateInfo(options);
+    },
+    
+    _updateInfo : function(obj) {
+        var info = this._getInfo();
+        this._copy(obj, info);
+        this.setState(this._newState({}));
+        if (this.props.onAddressChange) {
+            this.props.onAddressChange(info);
+        }
     },
     
     componentDidUpdate : function(){
@@ -123,8 +133,9 @@ var GeolocationWidget = React.createClass({
     
     _getMarkerCoordinates : function(){
         var center = this.props.center || [0, 0];
-        var lat = this.state.latitude.value || center[1];
-        var lng = this.state.longitude.value || center[0];
+        var info = this._getInfo();
+        var lat = info.latitude.value || center[1];
+        var lng = info.longitude.value || center[0];
         var result = L.latLng(lat, lng);
         return result; 
     },
@@ -149,17 +160,18 @@ var GeolocationWidget = React.createClass({
         delete this._map;
     },
     _setLatLng : function(lat, lng){
-        this.setState(this._newState({
+        this._updateInfo({
             latitude  : {
                 value: lat
             },
             longitude : {
                 value : lng
             }
-        }));
+        });
     },
     render : function() {
-        var addrInfo = this.state.address;
+        var info = this._getInfo();
+        var addrInfo = info.address;
         var addressInput = <input type="text" className="form-control"
             name={addrInfo.name}
             ref="address"
@@ -167,7 +179,7 @@ var GeolocationWidget = React.createClass({
             value={addrInfo.value}
             onChange={this._onChange.bind(this, 'address')} />;
 
-        var postcodeInfo = this.state.postcode;
+        var postcodeInfo = info.postcode;
         var postcodeInput = <input type="text" className="form-control"
             name={postcodeInfo.name} 
             ref="postcode"
@@ -175,7 +187,7 @@ var GeolocationWidget = React.createClass({
             value={postcodeInfo.value} 
             onChange={this._onChange.bind(this, 'postcode')} />;
 
-        var cityInfo = this.state.city;
+        var cityInfo = info.city;
         var cityInput = <input type="text" className="form-control"
             name={cityInfo.name} 
             ref="city"
@@ -183,7 +195,7 @@ var GeolocationWidget = React.createClass({
             value={cityInfo.value}
             onChange={this._onChange.bind(this, 'city')} />;
 
-        var latitudeInfo = this.state.latitude;
+        var latitudeInfo = info.latitude;
         var latitudeInput = <input className="form-control"
             name={latitudeInfo.name}
             type={latitudeInfo.type||'text'}
@@ -193,7 +205,7 @@ var GeolocationWidget = React.createClass({
             value={latitudeInfo.value}
             onChange={this._onChange.bind(this, 'latitude')} />;
 
-        var longitudeInfo = this.state.longitude;
+        var longitudeInfo = info.longitude;
         var longitudeInput = <input className="form-control"
             name={longitudeInfo.name}
             type={longitudeInfo.type||'text'}
@@ -204,9 +216,9 @@ var GeolocationWidget = React.createClass({
             onChange={this._onChange.bind(this, 'longitude')} />;
 
         function localizeAddress(ev){
-            var addr = this.state.address.value;
-            var postcode = this.state.postcode.value;
-            var city = this.state.city.value;
+            var addr = info.address.value;
+            var postcode = info.postcode.value;
+            var city = info.city.value;
             var array = [];
             if (addr) {array.push(addr);}
             if (postcode) {array.push(postcode);}
@@ -223,11 +235,11 @@ var GeolocationWidget = React.createClass({
                     that._setLatLng(obj.lat, obj.lng);
                 }
             }, function(err) {
-                that.setState(that._newState({
+                this._updateInfo({
                     address : {
                         error: err
                     }
-                }));
+                });
             });
             ev.preventDefault();
             ev.stopPropagation();
@@ -235,7 +247,7 @@ var GeolocationWidget = React.createClass({
         var localizeButton = (
             <button onClick={localizeAddress.bind(this)}
                 className="btn btn-primary btn-xs">
-                {this.state.localizeBtn.label}
+                {info.localizeBtn.label}
             </button>
         );
             
@@ -243,24 +255,75 @@ var GeolocationWidget = React.createClass({
             <MosaicLeaflet.ReactMap
                 onMapAdd={this._onMapAdd}
                 onMapRemove={this._onMapRemove}
-                style={this.state.map.style}/>
+                style={info.map.style}/>
         );
+        
+        var className = 'form-group';
+        var errorsBlock = '';
+        var errorsIndex = {};  
+        var errors = _.filter(info, function(obj, name) {
+            var hasError = !!obj.error;
+            if (hasError) {
+                errorsIndex[name] = obj;
+            }
+            return hasError;
+        });
+        if (errors.length) {
+            className = 'form-group has-error';
+            errorsBlock = (
+                <div className="row">
+                    <div className="col-sm-12">
+                    {_.map(errors, function(obj, pos){
+                        return (
+                            <div className="alert alert-warning" key={pos}>
+                                {obj.error}
+                            </div>
+                        );
+                    })}
+                    </div>
+                </div>
+            );
+        } 
+        function getClassName(){
+            var className = 'form-group';
+            if (_.find(arguments, function(name) {
+                return _.has(errorsIndex, name);
+            })) {
+                className += ' has-error';
+            }
+            return className;
+        }
+        function formatErrors(){
+            var result = [];
+            _.each(arguments, function(name, pos) {
+                var obj = errorsIndex[name];
+                if (!obj)
+                    return ;
+                result.push(<div className="alert alert-warning" key={pos}>
+                        {obj.error}
+                </div>);   
+            });
+            return result;
+        }
+        
         return (
             <div>
-                <div className="form-group">
+                <div className={getClassName('address', 'postcode', 'city')}>
                     <div className="col-sm-5">{addressInput}</div>
                     <div className="col-sm-3">{postcodeInput}</div>
                     <div className="col-sm-4">{cityInput}</div>
                 </div>
-                <div className="form-group">
-                    <div className="col-sm-12">{localizeButton}</div>
-                </div>
-                <div className="form-group">
-                    <div className="col-sm-6">{latitudeInput}</div>
-                    <div className="col-sm-6">{longitudeInput}</div>
-                </div>
-                <div className="form-group">
-                    <div className="col-sm-12">{mapView}</div>
+                {formatErrors('address', 'postcode', 'city')}
+                <div className={getClassName('latitude', 'longitude')}>
+                    <div className="col-sm-12">
+                        <div>
+                            {localizeButton}
+                            {latitudeInput}
+                            {longitudeInput}
+                        </div>
+                        {mapView}
+                        {formatErrors('latitude', 'longitude')}
+                    </div>
                 </div>
             </div>
         );
