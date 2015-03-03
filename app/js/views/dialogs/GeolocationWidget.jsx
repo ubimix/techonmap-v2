@@ -259,7 +259,6 @@ var GeolocationWidget = React.createClass({
         );
         
         var className = 'form-group';
-        var errorsBlock = '';
         var errorsIndex = {};  
         var errors = _.filter(info, function(obj, name) {
             var hasError = !!obj.error;
@@ -270,19 +269,6 @@ var GeolocationWidget = React.createClass({
         });
         if (errors.length) {
             className = 'form-group has-error';
-            errorsBlock = (
-                <div className="row">
-                    <div className="col-sm-12">
-                    {_.map(errors, function(obj, pos){
-                        return (
-                            <div className="alert alert-warning" key={pos}>
-                                {obj.error}
-                            </div>
-                        );
-                    })}
-                    </div>
-                </div>
-            );
         } 
         function getClassName(){
             var className = 'form-group';
@@ -303,7 +289,14 @@ var GeolocationWidget = React.createClass({
                         {obj.error}
                 </div>);   
             });
-            return result;
+            if (result.length) {
+                return (
+                    <div className="form-group has-error">
+                        <div className="col-sm-12">{result}</div>
+                    </div>
+                );
+            }
+            return '';
         }
         
         return (
@@ -322,9 +315,9 @@ var GeolocationWidget = React.createClass({
                             {longitudeInput}
                         </div>
                         {mapView}
-                        {formatErrors('latitude', 'longitude')}
                     </div>
                 </div>
+                {formatErrors('latitude', 'longitude')}
             </div>
         );
     }

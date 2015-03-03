@@ -82,7 +82,9 @@ module.exports = React.createClass({
                   {this._renderDescription(selected)}
                   {this._renderAddress()}
                   {this._renderSocialNetworks(selected)}
-                  {this._renderShare(selected)}
+                  {
+                      // this._renderShare(selected)
+                  }
                 </div>
             </div>
         );            
