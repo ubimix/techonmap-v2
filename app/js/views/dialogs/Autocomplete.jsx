@@ -22,7 +22,7 @@ var Autocomplete = React.createClass({
             }
             var suggestions = this.props.suggestions;
             if (_.isFunction(suggestions)) {
-                suggestions = suggestions();
+                suggestions = suggestions(value, prevValue);
             }
             state.suggestions = _.filter(suggestions, function(str){
                 if (!value)

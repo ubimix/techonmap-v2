@@ -9,7 +9,7 @@ var I18NMixin = require('../utils/I18NMixin');
 var DomUtils = require('../utils/DomUtils');
 var FormReactField = require('../utils/FormReactField');
 var GeolocationWidget = require('./GeolocationWidget.jsx');
-var Autocomplete = require('./Autocomplete.jsx');
+var Autocomplete = React.createFactory(require('./Autocomplete.jsx'));
 
 module.exports = React.createClass({
     displayName : 'EditEntityForm',
@@ -57,10 +57,10 @@ module.exports = React.createClass({
         }
         return (
             <div className={className} key={labelKey}>
-                <label htmlFor={id} className="col-sm-3 control-label" key="left">
+                <label htmlFor={id} className="col-sm-4 control-label" key="left">
                     {this._getLabel(labelKey)}
                 </label>
-                <div className="col-sm-9" key="right">
+                <div className="col-sm-8" key="right">
                     {input}
                     {messageBlock}
                 </div>
@@ -142,7 +142,7 @@ module.exports = React.createClass({
             id: this._newId(),
             name: fieldKey,
             ref : fieldRef,
-            key : fieldKey,
+            key : fieldRef,
             type : 'text',
             value : this._getResourceField(fieldKey)
         }, options);
@@ -164,7 +164,7 @@ module.exports = React.createClass({
             name: fieldKey,
             ref : fieldRef,
             key : fieldRef,
-            rows : 10,
+            rows : 5,
             cols : 80,
             style : {width:'100%'},
             value : this._getResourceField(fieldKey),
@@ -236,7 +236,6 @@ module.exports = React.createClass({
     _renderCategories : function(){
         var app = this.props.app;
         var categoryKey = app.edit.getResourceValue('properties.category');
-        var allTags = app.res.getTags();
         var categoryOptions = {'' :''};
         var categories = app.res.getCategories();
         _.each(categories, function(category) {
@@ -262,6 +261,7 @@ module.exports = React.createClass({
         var tags = [];
         var resourceTags = app.edit.getResourceValue(fieldKey) || [];
         var categoryTags = app.res.getCategoryTags(categoryKey);
+        var allTags = app.res.getAllTags();
         for (var i=0; i < maxTagsNumber; i++) {
             (function (i){
                 var value = i < resourceTags.length ? resourceTags[i] : null;
@@ -270,12 +270,16 @@ module.exports = React.createClass({
                         'dialog.edit.tag.placeholder', 
                         {
                             value : value, 
-                            suggestions :  function(){ 
+                            suggestions :  function(value){ 
                                 var index = {};
                                 _.each(resourceTags, function(tag) {
                                     index[tag] = true;
                                 })
-                                return _.filter(categoryTags, function(tag) {
+                                var len = !!value ? value.length : 0; 
+                                var tagsList = len || !categoryTags.length 
+                                    ? allTags
+                                    : categoryTags;
+                                return _.filter(tagsList, function(tag) {
                                     return !_.has(index, tag);
                                 });
                             }
@@ -359,9 +363,8 @@ module.exports = React.createClass({
         
         var errorMsg = this._getFieldError('geometry.coordinates');
         var edit = this.props.app.edit;
-        console.log(' * ERROR MSG: ', errorMsg, this._addressInfo, edit.getValidationResults());
         return [
-            this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address.label', 
+            this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address-group.label', 
                 <GeolocationWidget
                     info = {this._addressInfo}
                     tilesUrl={tilesUrl}
@@ -437,7 +440,6 @@ module.exports = React.createClass({
     render : function(){
         return (
         <form className="form-horizontal">
-            <h2>About Your Company</h2>
             <section>
                 {this._renderNameAndId()}
                 {this._renderSiret()}
@@ -446,14 +448,14 @@ module.exports = React.createClass({
                 {this._renderCreationYear()}
             </section>
             
-            <h2>Contact Info</h2>
+            <h2>{this._getLabel('dialog.edit.contacts.title')}</h2>
             <section>
                 {this._renderMail()}
                 {this._renderWebSiteUrl()}
                 {this._renderAddressAndCoordinates()}
             </section>
             
-            <h2>Your Compnany in Social Networks</h2>
+            <h2>{this._getLabel('dialog.edit.sn.title')}</h2>
             <section>
                 {this._renderTwitterAccount()}
                 {this._renderFacebookAccount()}

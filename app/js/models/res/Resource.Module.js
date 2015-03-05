@@ -307,7 +307,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     // ------------------------------------------------------------------
 
     /** Returns a list of all tags. */
-    getTags : function() {
+    getAllTags : function() {
         if (!this._allTags) {
             this._allTags = {};
             _.each(this._categories, function(category) {
@@ -317,7 +317,9 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 }, this);
             }, this);
         }
-        return this._allTags;
+        return _.map(this._allTags, function(value, key) {
+            return key;
+        }).sort();
     },
 
     // ------------------------------------------------------------------
@@ -326,8 +328,8 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     getCategories : function() {
         return this._categories;
     },
-    
-    getCategoryIcon : function(category){
+
+    getCategoryIcon : function(category) {
         var key = this.getCategoryKey(category);
         category = this.getCategoryByKey(key);
         var icon;

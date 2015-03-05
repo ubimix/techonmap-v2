@@ -91,7 +91,7 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
                     </button>
                 </div>
             );
-            var title = '';
+            var title = that._getLabel('dialog.edit.title');
             return PopupPanel.openPopup({
                 title : title,
                 body : form,
