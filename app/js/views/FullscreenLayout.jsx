@@ -16,11 +16,20 @@ module.exports = React.createClass({
     },
     render : function() {
         var app = this.props.app;
+        var showHeaders = app.ui.showHeader();
         var className = 'main-zone fullscreen-mode';
+        var headers; 
+        if (showHeaders) {
+            headers = [
+                <TopSocialBar app={app} className="social" />,
+                <FullscreenTopZoneView app={app} className="top-zone"/>
+            ];
+        } else {
+            className += ' no-headers';
+        }
         return (
             <div className={className}>
-                <TopSocialBar app={app} className="social" />
-                <FullscreenTopZoneView app={app} className="top-zone"/>
+                {headers}
                 <FullscreenMiddleZoneView app={app} className="middle-zone"/>
                 <BottomZoneView app={app} className="bottom-zone"/>
             </div>

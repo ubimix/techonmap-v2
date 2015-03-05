@@ -3,7 +3,7 @@ var Mosaic = require('mosaic-commons');
 var App = require('mosaic-core').App;
 var Api = App.Api;
 var AppStateMixin = require('../AppStateMixin');
-var BrowserUtils = require('./BrowserUtils');
+var UserAgent = require('../../tools/UserAgent');
 
 /** This module manages visualization modes for the UI. */
 module.exports = Api.extend(AppStateMixin, {
@@ -13,8 +13,8 @@ module.exports = Api.extend(AppStateMixin, {
      */
     _initFields : function() {
         var app = this.options.app;
-        this._initialMode = app.options.mode || 'full';
-        this._mode = this._initialMode;
+        this._initialMode = app.options.mode;
+        this._mode = this._checkMode(this._initialMode);
         this._viewKey = 'map';
     },
 
@@ -51,7 +51,7 @@ module.exports = Api.extend(AppStateMixin, {
                 || e.clientHeight || g.clientHeight;
 
         var mode = 'full';
-        if (BrowserUtils.isMobile() || x < 800) {
+        if (UserAgent.isMobile() || x < 800) {
             mode = 'mobile';
         }
         this.setScreenMode({
@@ -74,6 +74,13 @@ module.exports = Api.extend(AppStateMixin, {
                 mode : mode
             });
         }
+    },
+
+    // ------------------------------------------------------------------------
+
+    showHeader : function() {
+        var h = this.options.app.options.header;
+        return h === undefined || !!h;
     },
 
     // ------------------------------------------------------------------------
@@ -174,19 +181,25 @@ module.exports = Api.extend(AppStateMixin, {
     /** Updates the internal field defining the current visualization mode. */
     setScreenMode : Api.intent(function(intent) {
         var that = this;
-        return intent.resolve(Mosaic.P.then(function() {
-            var mode = intent.params.mode || this._initialMode;
-            var updated = false;
-            if (_.indexOf([ 'mobile', 'tablet', 'full' ], mode) >= 0) {
-                updated = !_.isEqual(mode, that._mode);
-                that._mode = mode;
-            }
-            return updated;
-        })).then(function(updated) {
+        return intent.resolve(
+                Mosaic.P.then(function() {
+                    var mode = that._checkMode(that._initialMode
+                            || intent.params.mode);
+                    var updated = false;
+                    updated = !_.isEqual(mode, that._mode);
+                    that._mode = mode;
+                    return updated;
+                })).then(function(updated) {
             if (updated) {
                 that.notify();
                 that._updateAppState('mode', that._mode);
             }
         });
     }),
+
+    _checkMode : function(mode) {
+        if (_.indexOf([ 'mobile', 'tablet', 'full' ], mode) >= 0)
+            return mode;
+        return 'full';
+    }
 });

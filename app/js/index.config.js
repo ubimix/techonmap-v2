@@ -1,3 +1,5 @@
+var URL = require('url');
+var currentUrl = URL.parse(window.location.href, true);
 module.exports = {
     baseUrl : './',
     contentBaseUrl : './data/content/',
@@ -9,7 +11,8 @@ module.exports = {
     dataFieldsUrl : './data/data.fields.json',
     categoriesUrl : './data/categories.json',
     zonesUrl : './data/zones.json',
-    mode : 'full',
+    mode : currentUrl.query.mode,
+    header : toBoolean(currentUrl.query.header, true),
     containers : {
         main : document.querySelector('body')
     },
@@ -31,3 +34,11 @@ module.exports = {
         attributionControl : false
     }
 };
+
+function toBoolean(str, def) {
+    if (!str || str === undefined)
+        return def;
+    str += '';
+    str = str.toLowerCase();
+    return (str == 'true' || str == 'ok' || str == 'yes' || str == '1');
+}

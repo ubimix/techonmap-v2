@@ -23,10 +23,10 @@ var UIModule = require('./models/ui/UI.Module');
 
 var initWidgets = require('./views/widgets/registration');
 module.exports = App.extend({
+
     /**
      * This function loads and initializes all modules of this application.
      */
-
     initModules : function() {
         this.state = new Navigation();
         this.viewManager = new ViewManager();
@@ -47,11 +47,12 @@ module.exports = App.extend({
         };
         this.apis = [];
         this.modules = {};
+        var options = this.options;
         _.each(modules, function(ModuleType, name) {
-            var module = new ModuleType({
+            var module = new ModuleType(_.extend({}, options, {
                 key : name,
                 app : this
-            });
+            }));
             this._addModule(name, module);
         }, this);
     },
@@ -109,12 +110,10 @@ module.exports = App.extend({
             console.log('[ERROR] Initialization failed.', err);
         }
         var containers = this.options.containers;
-
         this.mainView = MainViewFactory({
             app : this
         });
         React.render(this.mainView, containers.main);
-
     }
 
 });

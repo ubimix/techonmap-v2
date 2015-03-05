@@ -16,10 +16,19 @@ module.exports = React.createClass({
     },
     render : function() {
         var app = this.props.app;
+        var showHeaders = app.ui.showHeader();
         var className = 'main-zone mobile-mode';
+        var topHeaders; 
+        if (showHeaders) {
+            topHeaders = [
+               <TopSocialBar app={app} className="social" />
+            ];
+        } else {
+            className += ' no-headers';
+        }
         return (
             <div className={className}>
-                <TopSocialBar app={app} className="social" />
+                {topHeaders}
                 <MobileTopZoneView app={app} className="top-zone"/>
                 <MobileMiddleZoneView app={app} className="middle-zone"/>
             </div>

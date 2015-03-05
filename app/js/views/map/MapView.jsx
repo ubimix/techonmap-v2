@@ -70,9 +70,9 @@ module.exports = React.createClass({
                 that._map.fire('initialize', options);
             } else {
                 this._viewport.focusTo(options.latlng, center, function() {
-                    // This view could be unmounted between the initial call 
+                    // This view could be unmounted between the initial call
                     // and this callback.
-                    if (that._map) {
+                    if (that._map) {
                         that._map.fire('initialize', options);
                     }
                 });
@@ -191,6 +191,8 @@ module.exports = React.createClass({
     _onMapModelChange : function() {
         var app = this._getApp();
         var zoom = app.map.getMapZoomLevel();
+        if (!this._map)
+            return;
         var oldZoom = this._map.getZoom();
         if (zoom != oldZoom && this._viewport) {
             this._viewport.zoomTo(zoom);
