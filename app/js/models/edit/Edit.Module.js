@@ -310,7 +310,7 @@ module.exports = Api.extend(ResourceUtils, {
         }
     },
 
-    _newSchema : function(){
+    _newSchema : function() {
         return Schema;
         function copy(from) {
             var to = {};
@@ -323,11 +323,11 @@ module.exports = Api.extend(ResourceUtils, {
             return to;
         }
     },
-    _getSchemaValidationMessages : function(){
+    _getSchemaValidationMessages : function() {
         var app = this.options.app;
         return app.i18n.getFormValidationMessages();
     },
-    
+
     _clone : function(obj) {
         return JSON.parse(JSON.stringify(obj));
     },
