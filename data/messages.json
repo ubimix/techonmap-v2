@@ -134,7 +134,28 @@
             "toolbar.left.label.tags" : "Tag : ",
             "toolbar.left.label.categories" : "Catégorie : ",
             "toolbar.left.label.zone" : "Département : ",
-            "toolbar.left.label.query" : "Recherche : "
+            "toolbar.left.label.query" : "Recherche : ",
+            
+            "validationMessages": {
+                "required" : "Is required",
+                "allowEmpty" : "Must not be empty",
+                "minLength" : "Is too short (minimum is %{expected} characters)",
+                "maxLength" : "Is too long (maximum is %{expected} characters)",
+                "pattern" : "Invalid input",
+                "minimum" : "Must be greater than or equal to %{expected}",
+                "maximum" : "Must be less than or equal to %{expected}",
+                "exclusiveMinimum" : "Must be greater than %{expected}",
+                "exclusiveMaximum" : "Must be less than %{expected}",
+                "divisibleBy" : "Must be divisible by %{expected}",
+                "minItems" : "Must contain more than %{expected} items",
+                "maxItems" : "Must contain less than %{expected} items",
+                "uniqueItems" : "Must hold a unique set of values",
+                "format" : "Is not a valid %{expected}",
+                "conform" : "Must conform to given constraint",
+                "type" : "Must be of %{expected} type",
+                "additionalProperties" : "Must not exist",
+                "enum" : "Must be present in given enumerator"                
+            }
         },
         "en" : {
             "contact.message.notDefined" : "The message is not defined.",
@@ -227,7 +248,28 @@
             "toolbar.left.label.tags" : "Tag: ",
             "toolbar.left.label.categories" : "Category: ",
             "toolbar.left.label.zone" : "Department: ",
-            "toolbar.left.label.query" : "Query : "
+            "toolbar.left.label.query" : "Query : ",
+            
+             "validationMessages": {
+                "required" : "Is required",
+                "allowEmpty" : "Must not be empty",
+                "minLength" : "Is too short (minimum is %{expected} characters)",
+                "maxLength" : "Is too long (maximum is %{expected} characters)",
+                "pattern" : "Invalid input",
+                "minimum" : "Must be greater than or equal to %{expected}",
+                "maximum" : "Must be less than or equal to %{expected}",
+                "exclusiveMinimum" : "Must be greater than %{expected}",
+                "exclusiveMaximum" : "Must be less than %{expected}",
+                "divisibleBy" : "Must be divisible by %{expected}",
+                "minItems" : "Must contain more than %{expected} items",
+                "maxItems" : "Must contain less than %{expected} items",
+                "uniqueItems" : "Must hold a unique set of values",
+                "format" : "Is not a valid %{expected}",
+                "conform" : "Must conform to given constraint",
+                "type" : "Must be of %{expected} type",
+                "additionalProperties" : "Must not exist",
+                "enum" : "Must be present in given enumerator"                
+            }
         }
     }
 }

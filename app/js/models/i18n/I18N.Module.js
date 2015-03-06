@@ -49,13 +49,17 @@ module.exports = Api.extend({
         args.shift();
         if (msg.indexOf('{') >= 0) {
             msg = msg.replace(/\{(\d+)\}/gim, function() {
-                console.log('REPLACE: ', msg, arguments);
                 return args[arguments[1]];
             });
         }
         var templ = _.template(msg);
         msg = templ.apply(this, args);
         return msg;
+    },
+
+    getFormValidationMessages : function() {
+        var obj = this._messages[this._languageKey] || {};
+        return obj['validationMessages'];
     },
 
     /* Internal methods used by the I18N.Module class */

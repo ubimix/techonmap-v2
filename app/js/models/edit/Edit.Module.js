@@ -131,13 +131,13 @@ module.exports = Api.extend(ResourceUtils, {
         });
     }),
 
-    isNewResource : function(){
+    isNewResource : function() {
         if (!this._original)
-            return ;
-        var props = this._original.properties || {}; 
+            return;
+        var props = this._original.properties || {};
         return !props.id;
     },
-    
+
     isValid : function() {
         if (!this._validationResults)
             return undefined;
@@ -152,14 +152,14 @@ module.exports = Api.extend(ResourceUtils, {
         var error = this._validationResults.errorIndex[name];
         return error ? error.message : null;
     },
-    
-    getValidationResults : function(){
+
+    getValidationResults : function() {
         return this._validationResults;
     },
 
     _checkIdField : function(resource) {
         if (!this.isNewResource())
-            return ;
+            return;
         var prevProps = this._resource.properties || {};
         var prevId = prevProps.id;
         var prevName = prevProps.name;
@@ -293,9 +293,41 @@ module.exports = Api.extend(ResourceUtils, {
     },
 
     getSchema : function() {
-        return Schema;
+        if (!this._schema) {
+            // Overload the default messages
+            this._schema = this._newSchema();
+            var messages = this._getSchemaValidationMessages();
+            visitSchema(this._schema, function(prop, key) {
+                prop.messages = _.extend({}, messages, prop.messages);
+            });
+        }
+        return this._schema;
+        function visitSchema(schema, callback) {
+            _.each(schema.properties, function(prop, key) {
+                callback.call(this, prop, key);
+                visitSchema(prop, callback);
+            }, this);
+        }
     },
 
+    _newSchema : function(){
+        return Schema;
+        function copy(from) {
+            var to = {};
+            _.each(from, function(val, key) {
+                if (_.isObject(val)) {
+                    val = copy(val);
+                }
+                to[key] = val;
+            });
+            return to;
+        }
+    },
+    _getSchemaValidationMessages : function(){
+        var app = this.options.app;
+        return app.i18n.getFormValidationMessages();
+    },
+    
     _clone : function(obj) {
         return JSON.parse(JSON.stringify(obj));
     },
