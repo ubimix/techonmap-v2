@@ -6,12 +6,6 @@ var DomUtils = require('./utils/DomUtils');
 var I18NMixin = require('./utils/I18NMixin');
 
 module.exports = React.createClass({
-    _toggleMode : function(ev){
-        var app = this.props.app;
-        app.ui.toggleMobileMode();
-        ev.preventDefault();
-        ev.stopPropagation();
-    },
     render : function(){
         return ( 
           <div className="social">
@@ -19,10 +13,6 @@ module.exports = React.createClass({
                   <a href="https://twitter.com/TechOnMap" target="_blank">
                       Suivez-nous
                   </a>
-                  | 
-                  <a href="#" onClick={this._toggleMode} style={{backgroundColor: 'white', color: 'black'}}>
-                      {this.props.app.ui.isMobileMode() ? ' FULL ' : ' MOB ' }
-                  </a>    
               </div>
               <div className="left">
                   <a href="https://twitter.com/TechOnMap" className="lastTweetAuthor">
