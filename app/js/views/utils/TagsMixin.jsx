@@ -6,9 +6,11 @@ var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 module.exports =  {
     _selectTag : function(tag, ev) {
         var app = this.props.app;
-        app.res.toggleTags([tag]);
-        if (this._onSelectTag){
-            this._onSelectTag(ev);
+        if (app.ui.canChangeSearchQueries()) {
+            app.res.toggleTags([tag]);
+            if (this._onSelectTag){
+                this._onSelectTag(ev);
+            }
         }
         ev.stopPropagation();
         ev.preventDefault();

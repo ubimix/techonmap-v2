@@ -5,12 +5,14 @@ var React = require('react');
 var CategoryMixin = {
     _selectCategory : function(category, ev) {
         var app = this.props.app;
-        var promise = app.res.toggleCategories([category]);
-        if (this.props.onSelectCategory) {
-            var that = this;
-            promise.then(function(){
-                that.props.onSelectCategory(category);
-            });
+        if (app.ui.canChangeSearchQueries()) {
+            var promise = app.res.toggleCategories([category]);
+            if (this.props.onSelectCategory) {
+                var that = this;
+                promise.then(function(){
+                    that.props.onSelectCategory(category);
+                });
+            }
         }
         ev.stopPropagation();
         ev.preventDefault();

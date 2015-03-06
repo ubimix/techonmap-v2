@@ -16,8 +16,11 @@ module.exports = React.createClass({
         return this.props.app.res;
     },
     _onClick : function(ev){
-        var res = this._getStore();
-        res.setSearchQuery('');
+        var app = this.props.app;
+        if (app.ui.canChangeSearchQueries()) {
+            var res = this._getStore();
+            res.setSearchQuery('');
+        }
     },
     render : function() {
         var app = this.props.app;
@@ -26,6 +29,6 @@ module.exports = React.createClass({
             <span onClick={this._onClick} className="query selected">
                 <span className='query-label'>{query + ' '}</span>
             </span>
-        );        
+        );
     }
 });

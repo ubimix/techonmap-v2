@@ -45,12 +45,11 @@ module.exports = React.createClass({
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.query')}</span>
                     <QueryInfoView app={app} />
-                    <span className="bar"></span>
-                    <a href="#" className="remove" onClick={function(ev){
-                        app.res.setSearchQuery('');
-                        ev.stopPropagation();
-                        ev.preventDefault();
-                    }}></a>
+                    {this._renderRemoveBtn({
+                        onClick: function(){
+                            app.res.setSearchQuery('');
+                        }
+                    })}
                 </li>
             </ul>
         );
@@ -65,15 +64,29 @@ module.exports = React.createClass({
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.tags')}</span>
                     <TagsInfoView app={app} hideEmpty={true}/>
-                    <span className="bar"></span>
-                    <a href="#" className="remove" onClick={function(ev){
-                        app.res.toggleTags([]);
-                        ev.stopPropagation();
-                        ev.preventDefault();
-                    }}></a>
+                    {this._renderRemoveBtn({
+                        onClick: function(){
+                            app.res.toggleTags([]);
+                        }
+                    })}
                 </li>
             </ul>
         );
+    },
+
+    _renderRemoveBtn : function(options){
+        var app = this.props.app;
+        var removeBtn = '';
+        if (!app.ui.canChangeSearchQueries()) 
+            return ;
+        return [
+            <span className="bar"></span>,
+            <a href="#" className="remove" onClick={function(ev){
+                options.onClick(ev);
+                ev.stopPropagation();
+                ev.preventDefault();
+            }}></a>
+        ]; 
     },
 
     _renderCategoriesInfo : function(){
@@ -85,12 +98,11 @@ module.exports = React.createClass({
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.categories')}</span>
                     <CategoriesInfoView app={app}/>
-                    <span className="bar"></span>
-                    <a href="#" className="remove" onClick={function(ev){
-                        app.res.toggleCategories([]);
-                        ev.stopPropagation();
-                        ev.preventDefault();
-                    }}></a>
+                    {this._renderRemoveBtn({
+                        onClick: function(){
+                            app.res.toggleCategories([]);
+                        }
+                    })}
                 </li>
             </ul>
         );
@@ -105,12 +117,11 @@ module.exports = React.createClass({
                 <li className="list-group-item">
                     <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.zone')}</span>
                     <ZoneInfoView app={app}/>
-                    <span className="bar"></span>
-                    <a href="#" className="remove" onClick={function(ev){
-                        app.res.toggleZones([]);
-                        ev.stopPropagation();
-                        ev.preventDefault();
-                    }}></a>
+                    {this._renderRemoveBtn({
+                        onClick: function(){
+                            app.res.toggleZones([]);
+                        }
+                    })}
                 </li>
             </ul>
         );
