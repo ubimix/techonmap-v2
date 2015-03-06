@@ -4,7 +4,7 @@ var revalidator = require('revalidator');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var App = require('mosaic-core').App;
 var Api = App.Api;
-var Schema = require('../../views/utils/EntityEditFormSchema')();
+var Schema = require('./EntityEditFormSchema')();
 
 /** This module manages resource editing process. */
 module.exports = Api.extend(ResourceUtils, {

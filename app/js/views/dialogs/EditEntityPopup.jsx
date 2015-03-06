@@ -9,17 +9,13 @@ var I18NMixin = require('../utils/I18NMixin');
 var DomUtils = require('../utils/DomUtils');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
 var ContentPopupMixin = require('../utils/ContentPopupMixin');
-var BootstrapFormValidator = require('../utils/BootstrapFormValidator');
 var EditEntityForm = require('./EditEntityForm.jsx');
-
-var schema = require('../utils/EntityEditFormSchema')();
 
 var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
         Mosaic.Events.prototype, ContentPopupMixin, {
 
     initialize : function(options){
         this.setOptions(options);
-        this.validator = new BootstrapFormValidator({ schema: schema });
     },
     getApp : function() {
         return this.options.app;
