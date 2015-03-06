@@ -83,6 +83,12 @@ module.exports = Api.extend(AppStateMixin, {
         return h === undefined || !!h;
     },
 
+    canChangeSearchQueries : function() {
+        if (!!this.options.app.options.nosearch)
+            return true;
+        return this.showHeader() || !this.isFullScreenMode();
+    },
+
     // ------------------------------------------------------------------------
 
     /** Returns the key of the focused view. */

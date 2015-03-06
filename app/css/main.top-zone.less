@@ -178,9 +178,9 @@ form[role="search"] {
     }
 }
 */
-         
 
-&.mobile-mode .top-zone {
+&.mobile-mode {
+  .top-zone {
     top: @social-height-mobile;
     height: @top-height-mobile;
     .navbar-header {
@@ -238,5 +238,9 @@ form[role="search"] {
     .nav > li > a:focus {
         background: none;
     }
-    
+  }
+  &.no-headers {
+     .middle-zone { top : 0px; }
+     .top-zone { top: 0px; }
+  }
 } 

@@ -5,7 +5,9 @@ var React = require('react');
 var ZoneMixin = {
     _selectZone : function(zone, ev) {
         var app = this.props.app;
-        app.res.toggleZones([zone]);
+        if (app.ui.canChangeSearchQueries()) {
+            app.res.toggleZones([zone]);
+        }
         ev.stopPropagation();
         ev.preventDefault();
     },

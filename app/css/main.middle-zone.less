@@ -1,6 +1,5 @@
 .middle-zone {
     .fit(@top-height + @social-height, 0px, 0px, 0px);
-    
     .map {
         .fit();
 
@@ -335,7 +334,15 @@
     }
 }
 
-&.mobile-mode .middle-zone {
+&.no-headers {
+    .middle-zone {
+        top: 0;
+    }
+}
+
+
+&.mobile-mode {
+  .middle-zone {
     top: @top-height-mobile + @social-height-mobile;
     .toolbar {
         > .info-blocks {
@@ -368,4 +375,9 @@
             margin: 0.8em 0px 0.5em 0px;
         }
     }
+  }
+  &.no-headers {
+    .middle-zone { top: @top-height-mobile; }
+  }
+  
 }
