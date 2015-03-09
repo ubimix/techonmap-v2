@@ -68,11 +68,13 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
                 <div key="footer">
                     <button type="submit" className="btn btn-primary"
                         onClick={function(ev){
-                            if (app.edit.isValid()) {
-                                app.edit.endEdit({
-                                   save : true 
-                                });
-                            }
+                            app.edit.validateResource().then(function(results){
+                                if (app.edit.isValid()) {
+                                    app.edit.endEdit({
+                                       save : true 
+                                    });
+                                }
+                            })
                             ev.preventDefault();
                             ev.stopPropagation();
                         }.bind(that)}>

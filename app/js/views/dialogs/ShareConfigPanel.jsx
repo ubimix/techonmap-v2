@@ -25,7 +25,8 @@ var ShareConfigPanel = React.createClass({
         return _.extend({
             width: 1024,
             height: 800,
-            embedMode : 'embed-full',
+            header : false,
+            mode : 'full',
             useQuery : true
         }, this.state, options);
     },
@@ -33,13 +34,15 @@ var ShareConfigPanel = React.createClass({
         this.setState(this._newState({ useQuery : useQuery }));
     },
     _getExportUrl : function(){
-        var embedMode = this.state.embedMode;
+        var mode = this.state.mode || 'full';
+        var header = !!this.state.header;
         var useQuery = this.state.useQuery;
         var app = this.getApp();
         var options = {
-            mode : embedMode ? 'mobile' : 'full',
-            header : false,
-            hash : null
+            mode : mode,
+            header : header,
+            hash : null,
+            selectedId : null
         };
         if (!useQuery) {
             _.extend(options, {
@@ -78,20 +81,8 @@ var ShareConfigPanel = React.createClass({
     getHeight : function(){
         return this.state.height;
     },
-    _updateLayout : function(fullView, ev) {
-        var f = this.refs.fullView.getDOMNode();
-        var s = this.refs.shortView.getDOMNode();
-        var param;
-        if (fullView) {
-            DomUtils._addClass(f, 'embed-type-active');
-            DomUtils._removeClass(s, 'embed-type-active');
-            param = 'embed-full';
-        } else {
-            DomUtils._addClass(s, 'embed-type-active');
-            DomUtils._removeClass(f, 'embed-type-active');
-            param = 'embed-readonly';
-        }
-        this.setState(this._newState({embedMode : param }));
+    _updateHeaderParam : function(showHeader, ev) {
+        this.setState(this._newState({ header : !!showHeader }));
     },
     _updateWidth : function(ev) {
         var width = parseInt(ev.target.value) || this.state.width;
@@ -104,6 +95,10 @@ var ShareConfigPanel = React.createClass({
         this.setState(this._newState({ height : height }));
         ev.preventDefault();
         ev.stopPropagation();
+    },
+    _updateMobileMode : function(ev){
+        var checked = ev.target.checked;
+        this.setState(this._newState({ mode : checked ? 'mobile' : 'full' }));
     },
     _onBlur : function(key, minValue, ev) {
         var value = parseInt(ev.target.value) || minValue; 
@@ -130,67 +125,82 @@ var ShareConfigPanel = React.createClass({
         var leftImageUrl  = "images/export-selected.png";
         var rightImageUrl = "images/export-all.png";
         var app = this.getApp();
+        var withoutHeaderClass = 'embed-type embed-without-header';
+        var withHeaderClass = 'embed-type embed-with-header';
+        if (this.state.header) {
+            withHeaderClass += ' embed-type-active';
+        } else {
+            withoutHeaderClass += ' embed-type-active';
+        }
         return (
-           <div>
-                <div className="configuration-zone">
-                    <h3>{this._getLabel("dialog.share.title.integrate")}</h3>
-                    <ExportTypeSelector app={app}
-                        leftImageUrl={leftImageUrl}
-                        rightImageUrl={rightImageUrl}
-                        useQuery={this.state.useQuery}
-                        onUpdate={this._updateDatasetSelection}
-                        />
-                    <h3>{this._getLabel("dialog.share.title.style")}</h3>
-                    <div className="row">
-                        <div className="col-xs-6">
-                            <a href="#"
-                                ref="shortView"
-                                className="embed-type embed-readonly embed-type-active"
-                                onClick={_.bind(this._updateLayout, this, false)}>
-                                {this._getLabel('dialog.share.label.nomenu')}
-                            </a>
-                        </div>
-                        <div className="col-xs-6">
-                            <a href="#"
-                                className="embed-type embed-full"
-                                ref="fullView"
-                                onClick={_.bind(this._updateLayout, this, true)}>
-                                {this._getLabel('dialog.share.label.withmenu')}
-                            </a>
-                        </div>
+            <div className="configuration-zone">
+                <h3>{this._getLabel("dialog.share.title.integrate")}</h3>
+                <ExportTypeSelector app={app}
+                    leftImageUrl={leftImageUrl}
+                    rightImageUrl={rightImageUrl}
+                    useQuery={this.state.useQuery}
+                    onUpdate={this._updateDatasetSelection}
+                    />
+                <h3>{this._getLabel("dialog.share.title.style")}</h3>
+                <div className="row">
+                    <div className="col-xs-6">
+                        <a href="#"
+                            className={withoutHeaderClass}
+                            onClick={_.bind(this._updateHeaderParam, this, false)}>
+                            {this._getLabel('dialog.share.label.nomenu')}
+                        </a>
                     </div>
-                    <h3>{this._getLabel("dialog.share.title.size")}</h3>
-                    <div className="row">
-                        <div className="col-xs-6 form-inline">
-                            <label className="">{this._getLabel("dialog.share.label.width")}</label>
-                            <input
-                                type="text"
-                                className="embed-width"
-                                onChange={this._updateWidth}
-                                onBlur={_.bind(this._onBlur, this, 'width', 770)}
-                                value={this.state.width} />
-                        </div>
-                        <div className="col-xs-6">
-                            <label className="">{this._getLabel("dialog.share.label.height")}</label>
-                            <input
-                                type="text"
-                                className="embed-height"
-                                onBlur={_.bind(this._onBlur, this, 'height', 400)}
-                                onChange={this._updateHeight}
-                                value={this.state.height}/>
-                        </div>
-                    </div>
-                    <h3>{this._getLabel("dialog.share.title.code")}</h3>
-                    <div className="row">
-                        <div className="col-xs-12">
-                            <textarea className="code embed"
-                                value={this._renderCode()}
-                                onChange={this._onTextareaChange}
-                                onFocus={this._selectTextareaContent}/>
-                        </div>
+                    <div className="col-xs-6">
+                        <a href="#"
+                            className={withHeaderClass}
+                            onClick={_.bind(this._updateHeaderParam, this, true)}>
+                            {this._getLabel('dialog.share.label.withmenu')}
+                        </a>
                     </div>
                 </div>
-           </div>                
+                <div className="row">
+                    <div className="col-xs-12">
+                        <label htmlFor="mobile-switch">{this._getLabel("dialog.share.label.mode")}</label>
+                        <input
+                            onChange={this._updateMobileMode}
+                            id="mobile-switch"
+                            type="checkbox"
+                            name="mode"
+                            value="mobile"
+                            checked={this.state.mode === 'mobile'}/>
+                    </div>
+                </div>
+                <h3>{this._getLabel("dialog.share.title.size")}</h3>
+                <div className="row">
+                    <div className="col-xs-6 form-inline">
+                        <label className="">{this._getLabel("dialog.share.label.width")}</label>
+                        <input
+                            type="text"
+                            className="embed-width"
+                            onChange={this._updateWidth}
+                            onBlur={_.bind(this._onBlur, this, 'width', 770)}
+                            value={this.state.width} />
+                    </div>
+                    <div className="col-xs-6">
+                        <label className="">{this._getLabel("dialog.share.label.height")}</label>
+                        <input
+                            type="text"
+                            className="embed-height"
+                            onBlur={_.bind(this._onBlur, this, 'height', 400)}
+                            onChange={this._updateHeight}
+                            value={this.state.height}/>
+                    </div>
+                </div>
+                <h3>{this._getLabel("dialog.share.title.code")}</h3>
+                <div className="row">
+                    <div className="col-xs-12">
+                        <textarea className="code embed"
+                            value={this._renderCode()}
+                            onChange={this._onTextareaChange}
+                            onFocus={this._selectTextareaContent}/>
+                    </div>
+                </div>
+            </div>
         );
     }
 });

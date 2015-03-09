@@ -157,6 +157,24 @@ module.exports = Api.extend(ResourceUtils, {
         return this._validationResults;
     },
 
+    validateResource : Api.intent(function(intent) {
+        var that = this;
+        return intent.resolve(Mosaic.P.then(function() {
+            if (!that.isEditing())
+                return null;
+            that._validateResource();
+            
+            _.each(that._validationResults.errors, function(err) {
+                var name = err.property;
+                that._changedResourceFields[name] = true;
+            }, this);
+            
+            return that._validationResults;
+        })).then(function() {
+            that.notify();
+        });
+    }),
+
     _checkIdField : function(resource) {
         if (!this.isNewResource())
             return;

@@ -44,7 +44,7 @@ module.exports = React.createClass({
         this.state.refs[fieldKey] = counter + 1;
         return fieldKey + '-' + counter;
     },
-    _renderHorizontalFormGroup : function(name, labelKey, input){
+    _renderHorizontalFormGroup : function(name, labelKey, input, optional){
         var id = input.props.id;
         var errorMsg = this._getFieldError(name);
         var className = 'form-group';
@@ -54,6 +54,11 @@ module.exports = React.createClass({
             messageBlock = (
                 <div className="alert alert-warning" key="msg">{errorMsg}</div>
             );
+        }
+        var mandatoryMarker = '';
+        if (!optional) {
+            className += ' mandatory';
+            mandatoryMarker = <i className="icon icon-star mandatory">*</i>;
         }
         return (
             <div className={className} key={labelKey}>
@@ -61,35 +66,9 @@ module.exports = React.createClass({
                     {this._getLabel(labelKey)}
                 </label>
                 <div className="col-sm-8" key="right">
+                    {mandatoryMarker}
                     {input}
                     {messageBlock}
-                </div>
-            </div>
-        );
-    },
-    _renderVerticalFormGroup : function(name, labelKey, input){
-        var id = input.props.id;
-        var errorMsg = this._getFieldError(name);
-        var className = 'form-group';
-        var messageBlock = null;
-        if (!!errorMsg) {
-            className = 'form-group has-error';
-            messageBlock = (
-                <div className="alert alert-warning" key="msg">{errorMsg}</div>
-            );
-        }
-        return (
-            <div className={className} key={labelKey}>
-                <div className="row">
-                    <label htmlFor={id} className="col-sm-12 control-label">
-                        {this._getLabel(labelKey)}
-                    </label>
-                </div>
-                <div className="row">
-                    <div className="col-sm-12">
-                        {input}
-                        {messageBlock}
-                    </div>
                 </div>
             </div>
         );
@@ -197,8 +176,7 @@ module.exports = React.createClass({
         var idInput;
         var newEntity = this._isNewResource();
         if (newEntity) {
-            idInput = this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
-            });
+            idInput = this._renderInput('properties.id', 'dialog.edit.id.placeholder', {});
         } else {
             var id = this._getResourceField('properties.id');
             idInput = (
@@ -211,13 +189,11 @@ module.exports = React.createClass({
             );
         }
         var that = this;
-        var nameInput = this._renderInput('properties.name',
-                'dialog.edit.name.placeholder', {
-        });
+        var nameInput = this._renderInput('properties.name', 'dialog.edit.name.placeholder', {});
         return [
-                this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
-                this._renderHorizontalFormGroup('properties.id', 'dialog.edit.id.label', idInput),
-            ];
+            this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
+            this._renderHorizontalFormGroup('properties.id', 'dialog.edit.id.label', idInput),
+        ];
     },
     
     _renderMail : function(){
@@ -398,7 +374,7 @@ module.exports = React.createClass({
         var input = this._renderInput('properties.siret',
                 'dialog.edit.siret.placeholder', {
         });
-        return this._renderHorizontalFormGroup('properties.siret', 'dialog.edit.siret.label', input);
+        return this._renderHorizontalFormGroup('properties.siret', 'dialog.edit.siret.label', input, true);
     },
     
     _renderWebSiteUrl : function(){
@@ -410,34 +386,35 @@ module.exports = React.createClass({
     _renderTwitterAccount : function(){
         var input = this._renderInput('properties.twitter', 'dialog.edit.twitter.placeholder', {
         });
-        return this._renderHorizontalFormGroup('properties.twitter', 'dialog.edit.twitter.label', input);
+        return this._renderHorizontalFormGroup('properties.twitter', 'dialog.edit.twitter.label', input, true);
     }, 
     
     _renderFacebookAccount : function(){
         var input = this._renderInput('properties.facebook', 'dialog.edit.facebook.placeholder', {
         });
-        return this._renderHorizontalFormGroup('properties.facebook', 'dialog.edit.facebook.label', input);
+        return this._renderHorizontalFormGroup('properties.facebook', 'dialog.edit.facebook.label', input, true);
     }, 
     
     _renderLinkedInAccount : function(){
         var input = this._renderInput('properties.linkedin', 'dialog.edit.linkedin.placeholder', {
         });
-        return this._renderHorizontalFormGroup('properties.linkedin', 'dialog.edit.linkedin.label', input);
+        return this._renderHorizontalFormGroup('properties.linkedin', 'dialog.edit.linkedin.label', input, true);
     },
     
     _renderGooglePlusAccount : function(){
         var input = this._renderInput('properties.googleplus', 'dialog.edit.googleplus.placeholder', {
         });
-        return this._renderHorizontalFormGroup('properties.googleplus', 'dialog.edit.googleplus.label', input);
+        return this._renderHorizontalFormGroup('properties.googleplus', 'dialog.edit.googleplus.label', input, true);
     },
     
     _renderViadeoAccount : function(){
         var input = this._renderInput('properties.viadeo', 'dialog.edit.viadeo.placeholder', {
         });
-        return this._renderHorizontalFormGroup('properties.viadeo', 'dialog.edit.viadeo.label', input);
+        return this._renderHorizontalFormGroup('properties.viadeo', 'dialog.edit.viadeo.label', input, true);
     },
      
     render : function(){
+        console.log('>>>> RENDER');
         return (
         <form className="form-horizontal">
             <section>

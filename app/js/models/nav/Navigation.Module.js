@@ -47,7 +47,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         function fromStateToUrl(from, to, mapping) {
             _.each(mapping, function(path, key) {
                 var val = from.getValue(path);
-                if (val && val.length) {
+                if (val !== '' && val !== undefined && val !== null) {
                     to[key] = val;
                 }
             })
@@ -67,6 +67,8 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             mode : 'mode',
             header : 'header'
         });
+        // console.log('>>>>', clone.options, url.query);
+        
         if (url.query.mode == 'full') {
             delete url.query.mode;
         }

@@ -75,11 +75,16 @@
                 line-height: 1.3em;
                 padding-left: 30px;
                 padding-right: 30px;
-                
                 .form-group {
                     margin-bottom: 0.5em;
-                    label {
-                        font-weight: normal;
+                    label { font-weight: normal; }
+                    &.mandatory {
+                        .icon.mandatory {
+                            position: absolute;
+                            top: -6px;
+                            left: 6px;
+                            font-size: 12px;
+                        }
                     }
                     &.has-error {
                         .alert {
@@ -190,10 +195,10 @@
         font-family: Open Sans;
         cursor: pointer;
         border: 2px solid transparent;
-        &.embed-readonly {
+        &.embed-with-header {
             background: url(../images/embed-type-2.png) no-repeat 50% 25px;
         }
-        &.embed-full {
+        &.embed-without-header {
             background: url(../images/embed-type-1.png) no-repeat 50% 25px;
         }
         &.embed-type-active {
@@ -208,7 +213,7 @@
             margin-right: 0.5em;
             font-weight: normal;
         }
-        input,input:focus { 
+        input[type="text"],input[type="text"]:focus { 
             outline: none;
             width: 5em;
         }
