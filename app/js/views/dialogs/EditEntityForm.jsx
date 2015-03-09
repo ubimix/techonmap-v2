@@ -292,7 +292,9 @@ module.exports = React.createClass({
         var coords = this._getResourceField('geometry.coordinates');
         if (!coords || !coords[0] || !coords[1])  {
             coords = mapOptions.center || [ 0, 0 ];
-        } 
+        } else {
+            zoom = 16;
+        }
         this._addressInfo = this._addressInfo || {};
         _.extend(this._addressInfo, {
             address : {

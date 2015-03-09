@@ -233,6 +233,8 @@ var GeolocationWidget = React.createClass({
                 var obj = result[0];
                 if (obj) {
                     that._setLatLng(obj.lat, obj.lng);
+                    var latLng = that._getMarkerCoordinates();
+                    that._map.setView(latLng, 16);
                 }
             }, function(err) {
                 this._updateInfo({
