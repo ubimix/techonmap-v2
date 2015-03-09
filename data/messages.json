@@ -45,7 +45,7 @@
             "dialog.edit.title" : "À propos de votre organisation",
             "dialog.edit.contacts.title" : "Informations de contact",
             "dialog.edit.sn.title" : "Réseaux sociaux",
-            "dialog.edit.id.label" : "Identifiant",
+            "dialog.edit.id.label" : "Identifiant TechOnMap",
             "dialog.edit.id.placeholder" : "Saisissez l'identifiant de votre organisation",
             "dialog.edit.email.label" : "E-mail",
             "dialog.edit.email.placeholder": "Saisissez une adresse e-mail de contact",
