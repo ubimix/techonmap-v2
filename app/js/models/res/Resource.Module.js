@@ -306,6 +306,26 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     // ------------------------------------------------------------------
 
+    getTagsSuggestion : function(categoryKey, mask) {
+        var tagsList;
+        var len = !!mask ? mask.length : 0;
+        var categoryTags = this.getCategoryTags(categoryKey);
+        if (len || !categoryTags.length) {
+            tagsList = this.getAllTags();
+        } else {
+            tagsList = categoryTags;
+        }
+        var regexp = new RegExp('^' + mask, 'gim');
+        var tags = _.filter(tagsList, function(str) {
+            if (!mask)
+                return true;
+            if (mask == str)
+                return false;
+            return regexp.test(str);
+        });
+        return tags;
+    },
+
     /** Returns a list of all tags. */
     getAllTags : function() {
         if (!this._allTags) {
@@ -313,13 +333,27 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             _.each(this._categories, function(category) {
                 var tags = (category && category.tags) || [];
                 _.each(tags, function(tag) {
+                    tag = this._normalizeTag(tag);
+                    this._allTags[tag] = (this._allTags[tag] || 0) + 1;
+                }, this);
+            }, this);
+            _.each(this._allResources, function(resource) {
+                var tags = this.getResourceTags(resource);
+                _.each(tags, function(tag) {
+                    tag = this._normalizeTag(tag);
                     this._allTags[tag] = (this._allTags[tag] || 0) + 1;
                 }, this);
             }, this);
         }
-        return _.map(this._allTags, function(value, key) {
+        var result = _.map(this._allTags, function(value, key) {
             return key;
         }).sort();
+        return result;
+    },
+
+    _normalizeTag : function(tag) {
+        tag = tag || '';
+        return tag.toLowerCase();
     },
 
     // ------------------------------------------------------------------

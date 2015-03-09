@@ -20,20 +20,26 @@ var Autocomplete = React.createClass({
             if (prevValue === undefined){
                 state.suggestionIndex = 0;
             }
+            var filter;
             var suggestions = this.props.suggestions;
             if (_.isFunction(suggestions)) {
-                suggestions = suggestions(value, prevValue);
+                filter = suggestions;
+            } else {
+                filter = function(value, prevValue){
+                    return _.filter(suggestions, function(str){
+                        if (!value)
+                            return true;
+                        if (value == str)
+                            return false;
+                        return (str.match(value));
+                    });
+                 }
             }
-            state.suggestions = _.filter(suggestions, function(str){
-                if (!value)
-                    return true;
-                if (value == str)
-                    return false;
-                return (str.match(value));
-            });
+            state.suggestions = filter(value, prevValue);
         }
         return state;
     },
+    
     componentDidMount : function(){
 // console.log(this.props.suggestions);
     },

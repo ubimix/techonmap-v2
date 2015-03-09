@@ -232,12 +232,15 @@ module.exports = React.createClass({
             return undefined;
 
         var fieldKey = 'properties.tags';
+        var resourceTags = app.edit.getResourceValue(fieldKey) || [];
+        var tagsIndex = {};
+        _.each(resourceTags, function(tag) {
+            tagsIndex[tag] = true;
+        });
+        
+        var tagInputs = [];
         var tagsCardinality = app.edit.getCardinality(fieldKey);
         var maxTagsNumber = tagsCardinality[1];
-        var tags = [];
-        var resourceTags = app.edit.getResourceValue(fieldKey) || [];
-        var categoryTags = app.res.getCategoryTags(categoryKey);
-        var allTags = app.res.getAllTags();
         for (var i=0; i < maxTagsNumber; i++) {
             (function (i){
                 var value = i < resourceTags.length ? resourceTags[i] : null;
@@ -247,16 +250,9 @@ module.exports = React.createClass({
                         {
                             value : value, 
                             suggestions :  function(value){ 
-                                var index = {};
-                                _.each(resourceTags, function(tag) {
-                                    index[tag] = true;
-                                })
-                                var len = !!value ? value.length : 0; 
-                                var tagsList = len || !categoryTags.length 
-                                    ? allTags
-                                    : categoryTags;
+                                var tagsList = app.res.getTagsSuggestion(categoryKey, value);
                                 return _.filter(tagsList, function(tag) {
-                                    return !_.has(index, tag);
+                                    return !_.has(tagsIndex, tag);
                                 });
                             }
                         });
@@ -264,12 +260,12 @@ module.exports = React.createClass({
                     this._onFieldUpdate(fieldKey);                
                 }.bind(this);
                 var input = Autocomplete(tagInputOptions);
-                tags.push(input);
+                tagInputs.push(input);
             }.bind(this))(i);
         }
         var tagContainer = React.DOM.span({
             id: this._newId()
-        }, tags);
+        }, tagInputs);
         return this._renderHorizontalFormGroup(fieldKey, 'dialog.edit.tag.label', tagContainer);
     },
     _renderCategoriesAndTags : function(){
