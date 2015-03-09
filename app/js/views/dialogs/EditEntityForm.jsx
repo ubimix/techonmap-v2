@@ -388,38 +388,38 @@ module.exports = React.createClass({
     },
     
     _renderWebSiteUrl : function(){
-        var input = this._renderInput('properties.url', 'dialog.edit.url.placeholder', {
+        var input = this._renderInputWithAddOn('http://', 'properties.url', 'dialog.edit.url.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.url', 'dialog.edit.url.label', input);
     },
     
     _renderTwitterAccount : function(){
-        var input = this._renderInputWithAddOn('@', 'properties.twitter', 'dialog.edit.twitter.placeholder', {
+        var input = this._renderInputWithAddOn('https://twitter.com/', 'properties.twitter', 'dialog.edit.twitter.placeholder', {
         });
         
         return this._renderHorizontalFormGroup('properties.twitter', 'dialog.edit.twitter.label', input, true);
     }, 
     
     _renderFacebookAccount : function(){
-        var input = this._renderInputWithAddOn('www.facebook.com/','properties.facebook', 'dialog.edit.facebook.placeholder', {
+        var input = this._renderInputWithAddOn('https://www.facebook.com/','properties.facebook', 'dialog.edit.facebook.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.facebook', 'dialog.edit.facebook.label', input, true);
     }, 
     
     _renderLinkedInAccount : function(){
-        var input = this._renderInputWithAddOn('www.linkedin.com/', 'properties.linkedin', 'dialog.edit.linkedin.placeholder', {
+        var input = this._renderInputWithAddOn('https://www.linkedin.com/', 'properties.linkedin', 'dialog.edit.linkedin.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.linkedin', 'dialog.edit.linkedin.label', input, true);
     },
     
     _renderGooglePlusAccount : function(){
-        var input = this._renderInputWithAddOn('plus.google.com/','properties.googleplus', 'dialog.edit.googleplus.placeholder', {
+        var input = this._renderInputWithAddOn('https://plus.google.com/','properties.googleplus', 'dialog.edit.googleplus.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.googleplus', 'dialog.edit.googleplus.label', input, true);
     },
     
     _renderViadeoAccount : function(){
-        var input = this._renderInputWithAddOn('www.viadeo.fr/','properties.viadeo', 'dialog.edit.viadeo.placeholder', {
+        var input = this._renderInputWithAddOn('https://www.viadeo.fr/','properties.viadeo', 'dialog.edit.viadeo.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.viadeo', 'dialog.edit.viadeo.label', input, true);
     },
