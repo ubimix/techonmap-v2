@@ -134,6 +134,16 @@ module.exports = React.createClass({
         }.bind(this);
         return React.DOM.input(options);
     },
+    
+    _renderInputWithAddOn : function(addOnLabel, fieldKey, labelKey, options) {
+      return (
+              <div className="input-group">
+                  <span className="input-group-addon">{addOnLabel}</span>
+                  {this._renderInput(fieldKey, labelKey, options)}
+              </div>
+      );
+    },
+    
     _renderTextarea : function(fieldKey, labelKey, options){
         var fieldRef = this._getFieldRef(fieldKey);
         options = _.extend({
@@ -176,12 +186,14 @@ module.exports = React.createClass({
         var idInput;
         var newEntity = this._isNewResource();
         if (newEntity) {
-            idInput = this._renderInput('properties.id', 'dialog.edit.id.placeholder', {});
+            //idInput = this._renderInput('properties.id', 'dialog.edit.id.placeholder', {});
+            idInput = this._renderInputWithAddOn('www.techonmap.fr/#', 'properties.id', 'dialog.edit.id.placeholder', {});
         } else {
             var id = this._getResourceField('properties.id');
+          //<span className="form-control">{id}</span>
             idInput = (
                 <span id={this._newId()}>
-                    <span className="form-control">{id}</span>
+                    {this._renderInputWithAddOn('www.techonmap.fr/#', 'placeholder', id, {disabled: 'disabled'})}
                     {this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
                         type: 'hidden'
                     })}
@@ -192,7 +204,7 @@ module.exports = React.createClass({
         var nameInput = this._renderInput('properties.name', 'dialog.edit.name.placeholder', {});
         return [
             this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
-            this._renderHorizontalFormGroup('properties.id', 'dialog.edit.id.label', idInput),
+            this._renderHorizontalFormGroup('properties.id', 'dialog.edit.id.label', idInput)
         ];
     },
     
@@ -382,31 +394,32 @@ module.exports = React.createClass({
     },
     
     _renderTwitterAccount : function(){
-        var input = this._renderInput('properties.twitter', 'dialog.edit.twitter.placeholder', {
+        var input = this._renderInputWithAddOn('@', 'properties.twitter', 'dialog.edit.twitter.placeholder', {
         });
+        
         return this._renderHorizontalFormGroup('properties.twitter', 'dialog.edit.twitter.label', input, true);
     }, 
     
     _renderFacebookAccount : function(){
-        var input = this._renderInput('properties.facebook', 'dialog.edit.facebook.placeholder', {
+        var input = this._renderInputWithAddOn('www.facebook.com/','properties.facebook', 'dialog.edit.facebook.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.facebook', 'dialog.edit.facebook.label', input, true);
     }, 
     
     _renderLinkedInAccount : function(){
-        var input = this._renderInput('properties.linkedin', 'dialog.edit.linkedin.placeholder', {
+        var input = this._renderInputWithAddOn('www.linkedin.com/', 'properties.linkedin', 'dialog.edit.linkedin.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.linkedin', 'dialog.edit.linkedin.label', input, true);
     },
     
     _renderGooglePlusAccount : function(){
-        var input = this._renderInput('properties.googleplus', 'dialog.edit.googleplus.placeholder', {
+        var input = this._renderInputWithAddOn('plus.google.com/','properties.googleplus', 'dialog.edit.googleplus.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.googleplus', 'dialog.edit.googleplus.label', input, true);
     },
     
     _renderViadeoAccount : function(){
-        var input = this._renderInput('properties.viadeo', 'dialog.edit.viadeo.placeholder', {
+        var input = this._renderInputWithAddOn('www.viadeo.fr/','properties.viadeo', 'dialog.edit.viadeo.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.viadeo', 'dialog.edit.viadeo.label', input, true);
     },
