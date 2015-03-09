@@ -4,7 +4,7 @@ var revalidator = require('revalidator');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var App = require('mosaic-core').App;
 var Api = App.Api;
-var Schema = require('./EntityEditFormSchema')();
+var newSchema = require('./EntityEditFormSchema');
 
 /** This module manages resource editing process. */
 module.exports = Api.extend(ResourceUtils, {
@@ -163,12 +163,12 @@ module.exports = Api.extend(ResourceUtils, {
             if (!that.isEditing())
                 return null;
             that._validateResource();
-            
+
             _.each(that._validationResults.errors, function(err) {
                 var name = err.property;
                 that._changedResourceFields[name] = true;
             }, this);
-            
+
             return that._validationResults;
         })).then(function() {
             that.notify();
@@ -311,15 +311,26 @@ module.exports = Api.extend(ResourceUtils, {
     },
 
     getSchema : function() {
-        if (!this._schema) {
-            // Overload the default messages
-            this._schema = this._newSchema();
-            var messages = this._getSchemaValidationMessages();
-            visitSchema(this._schema, function(prop, key) {
-                prop.messages = _.extend({}, messages, prop.messages);
-            });
+        var that = this;
+        var field = '_existingResourceShema';
+        var newResource = that.isNewResource();
+        if (newResource) {
+            field = '_newResourceSchema';
         }
-        return this._schema;
+        return getSchema(field, {
+            newResource : newResource
+        });
+        function getSchema(field, options) {
+            if (!that[field]) {
+                // Overload the default messages
+                that[field] = that._newSchema(options);
+                var messages = that._getSchemaValidationMessages();
+                visitSchema(that[field], function(prop, key) {
+                    prop.messages = _.extend({}, messages, prop.messages);
+                });
+            }
+            return that[field];
+        }
         function visitSchema(schema, callback) {
             _.each(schema.properties, function(prop, key) {
                 callback.call(this, prop, key);
@@ -328,8 +339,8 @@ module.exports = Api.extend(ResourceUtils, {
         }
     },
 
-    _newSchema : function() {
-        return Schema;
+    _newSchema : function(options) {
+        return newSchema(options);
         function copy(from) {
             var to = {};
             _.each(from, function(val, key) {

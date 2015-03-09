@@ -1,4 +1,15 @@
 module.exports = function(options) {
+    console.log('SCHEMA OPTIONS:', options);
+    var schema = newSchema();
+    options = options || {};
+    if (!options.newResource) {
+        delete schema.properties.properties.properties.id;
+        delete schema.properties.properties.properties.email;
+    }
+    return schema;
+}
+
+function newSchema() {
     return {
         properties : {
             'geometry' : {

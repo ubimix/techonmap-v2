@@ -315,7 +315,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         } else {
             tagsList = categoryTags;
         }
-        var regexp = new RegExp('^' + mask, 'gim');
+        var regexp = new RegExp('\\b' + mask, 'gim');
         var tags = _.filter(tagsList, function(str) {
             if (!mask)
                 return true;

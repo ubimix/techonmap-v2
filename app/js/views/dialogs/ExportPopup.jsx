@@ -31,9 +31,11 @@ var ExportConfigPanel = React.createClass({
         return this.props.app;
     },
     _newState : function(options){
+        var app = this.getApp();
+        var useQuery = app.res.hasSearchCriteria(); 
         return _.extend({
             format : FORMAT_CSV,
-            useQuery : true,
+            useQuery : useQuery,
             stage : STAGE_NO_DATA,
             data : ""
         }, this.state, options);

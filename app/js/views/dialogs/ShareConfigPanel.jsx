@@ -22,12 +22,14 @@ var ShareConfigPanel = React.createClass({
         return this.props.app;
     },
     _newState : function(options){
+        var app = this.getApp();
+        var useQuery = app.res.hasSearchCriteria(); 
         return _.extend({
             width: 1024,
             height: 800,
             header : false,
             mode : 'full',
-            useQuery : true
+            useQuery : useQuery
         }, this.state, options);
     },
     _updateDatasetSelection : function(useQuery){
