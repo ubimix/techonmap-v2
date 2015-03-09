@@ -4,6 +4,7 @@ var revalidator = require('revalidator');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var App = require('mosaic-core').App;
 var Api = App.Api;
+var HttpClient = require('mosaic-teleport').HttpClient;
 var newSchema = require('./EntityEditFormSchema');
 
 /** This module manages resource editing process. */
@@ -367,7 +368,31 @@ module.exports = Api.extend(ResourceUtils, {
     },
 
     _saveResource : function(resource) {
-        console.log('SAVE RESOURCE: ', resource);
+        // FIXME: move to the configuration
+        var baseUrl = '/data/';
+        // FIXME: move to the configuration
+        var path = 'save';
+
+        var body = JSON.stringify(resource);
+        // body = resource;
+        console.log('>>>', body);
+        var client = HttpClient.newInstance({
+            baseUrl : baseUrl
+        });
+        return client.exec({
+            method : 'PUT',
+            path : path,
+            body : body,
+            headers : {
+                'Content-Type' : 'application/json; charset=utf-8'
+            }
+        }).then(function(result) {
+            console.log('RESULT: ', result);
+            return result;
+        }, function(err) {
+            console.log('ERROR! ', err);
+            throw err;
+        });
     },
 
 });

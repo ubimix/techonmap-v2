@@ -72,7 +72,13 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
                                 if (app.edit.isValid()) {
                                     app.edit.endEdit({
                                        save : true 
+                                    }).then(function(result){
+                                        that._showMessage('Votre document etait sauveguardé.');
+                                    }, function(err) {
+                                        that._showMessage('Error!');
                                     });
+                                } else {
+                                    that._showMessage('Error!');
                                 }
                             })
                             ev.preventDefault();
