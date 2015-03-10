@@ -102,18 +102,112 @@ o permalien et partage d'entités individuelles via fragments
 - regarder comment poster une fiche individuelle dans Facebook
 - s'assurer que lorsque des entreprises présentes sont situées hors IdF la carte est bien centrée sur l'IdF quand même
 
-
-
 ----
 
-- il faut dire à Maria quand on n'a pas les éléments
+x Mettre à jour les données
+- S'assurer que tous les messages de validation du formulaire sont bien traduits ('must contain', 'is required', ...)
+- Vérifier qu'il y a bien une validation sur le champ e-mail
+- Envlever le scroll dans les tags ?
+- Trier en conservant les accents dans les tags
+- Vérifier développeur  / développeurs, Art / art
+- Mettre une vraie boîte de dialogue d'alerte lors de la soumission du formulaire
+- Supprimer le champ 'Identifiant' lors de l'édition d'une fiche
+x Supprimer les 'http://www.facebook.com' etc. des champs de réseaux sociaux
+x Ajouter objet 'Suggestion', et le mettre par défaut
+- Embarquement iframe: indiquer l'URL complète, pas seulement les paramètres à ajouter à l'URL
+- Déplacer le 'Leaflet'
+x http://www.twitter.com -> @
+- Rétablir Google Analytics
+- Pagination : précédent / suivant sous forme de chevrons
+- Il faudra s'assurer au moment de la communication que le code est bien disponible sur GitHub
+- Est-ce qu'on ne met pas "La carte du numérique en Île-de-France"
+- il va falloir enlever le http de tous les sites web dans les données (ou bien on le modifie en live lors de l'édition) 
+- Possible template de tweet pour inciter les utilisateurs à publier sur Twitter qu'ils sont présent sur ToM
 
 
-http://www.syntec-numerique.fr/annuaire-des-adherents
-
-+ référencement de TechOnMap
 
 
+Formulaire d'édition grand public
+==========================
 
+Dans A propos de votre organisation:
 
+=> rajouter Identifiant Techonmap: www.techonmap .fr/.. puis champ à remplir
+
+TAGs: 
+
+=> auto complétion : prendre en compte l'ensemble des tags (à présent uniquement l'ensemble des tags mis en avant pour les 7 catégories)
+
+ex: je tappe "art", je ne le retrouve pas dans les tags (alors qu'il existe...)
+ 
+=> qq fois blocage:  impossible de sélectionner les tags proposés
+
+SITE WEB: faciliter le renseignement du champs:
+
+Site web:  http:// puis champ à remplir
+
+GEOLOC: 
+
+=> une fois l'adresse remplie, et le bouton géoloc sélectionné, pouvoir visualiser le résultat sur la carte (zoom)
+
+=> vérifier que message d'alerte si on oublie de géolocaliser
+
+RESEAUX SOCIAUX
+
+=> rajouter les adresses 
+
+ex Compte twitter: https://twitter.com/, puis champ à remplir
+
+etc..
+
+=>  Rajouter message de confirmation de l'inscription
+
+ 
+
+    Partage de la carte
+
+ ===============
+
+=> Option du partage sans menu (fonctionne pas encore)
+
+=> Option présélectionnée adapté à la situation.. je m'explique: je n'applique pas de filtres, dans le partage, l'option présélectionnée sera le partage de la carte; à l'inverse, j'applique des filtres, l'option présélectionnée sera le partage d'une sélection
+
+IDEM pour l'export (dixit Olivier)
+ 
+Je n'ai pas réussi à installer la version locale de git-based backoffice pour ToM. 
+J'ai implémenté la sauvegarde pour les ressources sans le vérifier.
+Ca serait super si tu peut faire l'installation et compléter la sauvegarde des ressources.
+* "app/js/models/edit/Edit.Module.js #_saveResource" (line 370) - envoye les ressources. Éventuellement Il faut changer l'URL si il ne corresponds pas a l'URL de sauvegarde dans backoffice.
+* "app/js/views/dialogs/EditEntityPopup.jsx #_showMessage" - Les messages d'erreurs pour l'éditions il faut recopier et les mettre dans un popup (à la place d'un alerte box) - comme dans  "app/js/views/dialogs/FeedbackPopup.jsx #_showMessage"
+
+La connections avec le login n'est pas fait. Il faut l’implémenter à la base d’exemple qui est dans "/app/tmp/index.html". On peut mettre les buttons des login FB/TW/LIn dans un iframe dans popup.html et quand l'utilisateur est loggée - fermer le popup et passer à l'édition. 
+
+ToM
+    - Authentification
+    - Sauvegarde
+    - Backoffice extensions
+
+PRM : 3500 EUR HT / an hébergement, maintenance corrective
+
+VdeMarne
+    demain
+    
+Renaud Eon
+    Exposer les pistes
+        Prestation de services
+        Studio cartes interactives -> 6 HM 
+        Studio cartes imprimables / pas de concurrence directe / construction d'index, de grilles, sélection de zones -> 6HM
+        Studio cartes interactives + cartes imprimables
+        Je suis ici / cartes embarquées dans des boîtiers
+        peut-être recourir à un ou deux freelances
+
+Bouygues / JC Decaux
+        Clients pilotes
+        Studio cartes imprimables et boîtiers           
+
+Compta
+
+Chèques
+
+Lova 
 

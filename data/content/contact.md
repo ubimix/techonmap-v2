@@ -14,13 +14,13 @@ title: <i class="icon icon-contact"></i>Contactez-nous
     </div>
   </div>
   <div class="form-group">
-    <label for="reason" class="col-sm-3 control-label">Choisissez une raison</label>
+    <label for="reason" class="col-sm-3 control-label">Objet de votre requête</label>
     <div class="col-sm-9">
         <select class="form-control" id="reason" name="reason" placeholder="Raison de votre contact" >
-            <option></option>
-            <option value="technical">Question technique</option>
-            <option value="data">Question sur les données</option>
-            <option value="other">Autre</option>
+            <option value="Suggestion">Suggestion</option>
+            <option value="Question sur les données">Question sur les données</option>
+            <option value="Question technique">Question technique</option>
+            <option value="Autre">Autre</option>
         </select>
     </div>
   </div>

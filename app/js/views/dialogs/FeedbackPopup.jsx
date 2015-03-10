@@ -31,16 +31,16 @@ var schema = {
             messages : {
                 required : "Une adresse e-mail est requise.",
                 allowEmpty : "L'adresse e-mail ne doit pas être vide.",
-                format : "L'adresse e-mail semble incorrecte.",
+                format : "L'adresse e-mail saisie semble incorrecte.",
             }                
         },
         reason : {
-            description : 'Choisissez une raison',
+            description : 'Objet de votre message',
             type : 'string',
-            enum : [ 'technical', 'data', 'other' ],
+            enum : [ 'Suggestion', 'Question technique', 'Question sur les données', 'Autre' ],
             required : true,
             messages : {
-                required : "Merci d'indiquer la raison de votre envoi."
+                required : "Merci d'indiquer l'objet de votre envoi."
             }                  
         },
         content : {

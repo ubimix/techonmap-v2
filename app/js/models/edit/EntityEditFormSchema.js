@@ -97,6 +97,7 @@ function newSchema() {
                         type : 'array',
                         required : true,
                         messages : {
+                            minItems : "Au moins un tag est requis.",
                             required : "Au moins un tag est requis.",
                             allowEmpty : "Le tag saisi ne doit pas être vide.",
                         }
@@ -155,7 +156,7 @@ function newSchema() {
                     },
                     creationyear : {
                         label : 'L\'année de création',
-                        description : 'Quand votre organisation est-elle née ?',
+                        description : 'Année de création de votre organisation',
                         type : 'number',
                         required : true,
                         conform : function(v) {
@@ -166,6 +167,9 @@ function newSchema() {
                             } catch (e) {
                                 return false;
                             }
+                        },
+                        messages : {
+                            conform : "L'année saisie doit être au format YYYY."
                         }
                     },
                     twitter : {
