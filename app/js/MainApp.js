@@ -20,6 +20,7 @@ var EditModule = require('./models/edit/Edit.Module');
 var StatsModule = require('./models/stats/Stats.Module');
 var SerializeModule = require('./models/serialize/Serialize.Module');
 var UIModule = require('./models/ui/UI.Module');
+var UserModule = require('./models/user/User.Module');
 
 var initWidgets = require('./views/widgets/registration');
 module.exports = App.extend({
@@ -32,6 +33,7 @@ module.exports = App.extend({
         this.viewManager = new ViewManager();
         initWidgets(this);
         var modules = {
+            user : UserModule,
             content : ContentModule,
             contact : ContactModule,
             edit : EditModule,

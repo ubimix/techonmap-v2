@@ -4,16 +4,82 @@
 <title>TechOnMap - Login</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="./css/bootstrap/dist/css/bootstrap.css" />
-<link rel="stylesheet" href="./css/main.login.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
 <style>
 body {
     font-family: 'Open Sans', sans-serif;
+}
+.pagetitle {
+  font-weight: 300;
+  color: #666;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.btn-gray {
+  font-size: 16px;
+  color: #fff;
+  background: #CCCCCC;
+  border: 1px solid #AAAAAA;
+  display: inline-block;
+  zoom: 1;
+  padding-left: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 45px;
+}
+
+
+.social-auth {
+    background: url(../images/btn-green-tick.png) 100% 50% no-repeat #53c591;
+    margin-right: 0.5em;
+    width: 25%;
+}
+
+p.help {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.help {
+  color: #AAAAAA;
+  vertical-align: baseline;
 }
 
 </style>
 </head>
 <body>
+    <script type="text/javascript">
+        var finished = false;
+        var onLoginFinished = function() {
+            if (finished)
+                return;
+            finished = true;
+            if (window.opener.onLoginFinished) {
+                var opener = window.opener;
+                opener.onLoginFinished.apply(opener, arguments);
+            }
+        }
+        window.addEventListener("beforeunload", function(e) {
+            onLoginFinished({
+                cancel : true
+            });
+        }, false);
+        function login() {
+            onLoginFinished({
+                cancel : false,
+                user : {
+                    user : 'John Doe',
+                    message : 'This is a login'
+                }
+            });
+            window.close();
+        }
+    </script>
 
+<button onClick="javascript:login()">Say hello</button>
     <div id="content">
         <h3 class="pagetitle">Ajoutez ou modifiez des informations
             concernant votre organisation</h3>
@@ -43,3 +109,5 @@ body {
         </div>
 </body>
 </html>
+
+

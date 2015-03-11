@@ -84,8 +84,6 @@ module.exports = React.createClass({
         }
     },
     _onClickAdd : function(ev) {
-// var url = this._getLabel('topmenu.edit.url');
-// window.open(url, '_blank');
         var editPopup = new EditEntityPopup({
            app : this.props.app
         });

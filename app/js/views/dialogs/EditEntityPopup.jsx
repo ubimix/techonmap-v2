@@ -11,44 +11,44 @@ var PopupPanel = require('mosaic-core').React.PopupPanel;
 var ContentPopupMixin = require('../utils/ContentPopupMixin');
 var EditEntityForm = require('./EditEntityForm.jsx');
 
-var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
-        Mosaic.Events.prototype, ContentPopupMixin, {
+var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin, //
+Mosaic.Events.prototype, ContentPopupMixin, {
 
-    initialize : function(options){
+    initialize : function(options) {
         this.setOptions(options);
     },
     getApp : function() {
         return this.options.app;
     },
-    _showMessage : function(msg) {
+    _showMessage : function(msg) {
         window.alert(msg);
     },
-    _submitForm : function(data){
+    _submitForm : function(data) {
         var that = this;
         var app = that.getApp();
         app.contact.validateMessage(data)//
-        .then(function(data){
+        .then(function(data) { //
             return app.contact.sendMessage(data)//
-                .then(function(result){
-                    var msg = that._getLabel('dialog.contact.result.ok');
-                    that._showMessage(msg);
-                    PopupPanel.closePopup();
-                }, function(err) {
-                    var msg = that._getLabel(
-                        'dialog.contact.result.errors',
-                         { error : err });
-                    that._showMessage(msg);
+            .then(function(result) {
+                var msg = that._getLabel('dialog.contact.result.ok');
+                that._showMessage(msg);
+                PopupPanel.closePopup();
+            }, function(err) {
+                var msg = that._getLabel('dialog.contact.result.errors', {
+                    error : err
                 });
-        }, function(err) {
+                that._showMessage(msg);
+            });
+        }, function(err) {
             var msg = that._getLabel('dialog.contact.invalide', {
                 error : err
             });
             that._showMessage(msg);
         });
     },
-    open : function(resource) {
-        resource = resource || {};
+    _openPopup : function(resource) {
         var that = this;
+        resource = resource || {};
         var app = that.options.app;
         var closeListener = function(){
             if (!app.edit.isEditing()) {
@@ -113,6 +113,46 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
             });            
         });
     },
+    open : function(resource) {
+        var that = this;
+        var app = that.options.app;
+        if (app.user.isLoggedIn()) {
+            that._openPopup(resource);
+        } else {
+            that._login().then(function(){
+                that._openPopup(resource);
+            }, function(err){
+                var msg = that._getLabel('dialog.contact.result.errors', {
+                    error : err
+                });
+                that._showMessage(msg);
+            });
+        }
+    },
+    
+    _login : function(){
+        var that = this;
+        var app = that.getApp();
+        var deferred = Mosaic.P.defer();
+        var wnd;
+        window.onLoginFinished = function(result) {
+            if (!result.cancel && result.user) {
+                var userInfo = result.user;
+                deferred.resolve(app.user.setUserInfo(userInfo));
+            } else {
+                deferred.reject();
+            }
+            delete window.onLoginFinished;
+            if (wnd) {
+                wnd.close();
+            }
+        }
+        var options = 'location=no,resizable=yes,menubar=no,' + 
+        'scrollbars=no,status=no,titlebar=no,toolbar=no,' +
+        'width=500,height=300,top=100,left=200';
+        wnd = window.open('./login.html', 'login', options);
+        return deferred.promise;
+    }
 });
- 
+
 module.exports = EditEntityPopup;

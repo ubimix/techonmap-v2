@@ -2461,6 +2461,34 @@
       }
     },
     {
+      "id": "adbuddiz",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.324536958000408,
+          48.827246936000506
+        ]
+      },
+      "properties": {
+        "name": "ADBUDDIZ",
+        "id": "adbuddiz",
+        "category": "Entreprise",
+        "tags": [
+          "jeux video",
+          "publicité",
+          "apps"
+        ],
+        "address": "4 rue de Châtillon",
+        "postcode": "75014",
+        "city": "Paris",
+        "creationyear": "2011",
+        "url": "http://www.adbuddiz.com/",
+        "description": "Startup qui aide les développeurs d’applications Android et iOS à monétiser leurs applications et jeux via des publicités plein écran.",
+        "updated": 1426070451000
+      }
+    },
+    {
       "id": "adcuities",
       "type": "Feature",
       "geometry": {
@@ -4567,6 +4595,33 @@
       }
     },
     {
+      "id": "almateos",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3528193410004405,
+          48.89395066700047
+        ]
+      },
+      "properties": {
+        "name": "ALMATEOS",
+        "id": "almateos",
+        "category": "Entreprise",
+        "tags": [
+          "jeux video",
+          "plateforme  Multeegaming"
+        ],
+        "address": "110, rue des Poissonniers",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "http://www.almateos.com/",
+        "description": "Studio de développement de jeux vidéo pour tout type de plateforme et de technologie.Le premier jeu d'Almateos, \"Le Président\", est disponible sur Facebook.La plateforme Multeegaming éditée précédemment par Almateos a été fermée fin 2013.",
+        "updated": 1426070659000
+      }
+    },
+    {
       "id": "alneos",
       "type": "Feature",
       "geometry": {
@@ -5342,6 +5397,33 @@
         "creationyear": "2009",
         "description": "Bureau d'études spécialisé dans la conception d'interfaces et de logiciels de réalité virtuelle",
         "updated": 1389989566000
+      }
+    },
+    {
+      "id": "amplitude-studios",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3958291610004494,
+          48.83852639000048
+        ]
+      },
+      "properties": {
+        "name": "AMPLITUDE STUDIOS",
+        "id": "amplitude-studios",
+        "category": "Entreprise",
+        "tags": [
+          "jeux vidéo",
+          "stratégie"
+        ],
+        "address": "43, rue de la Brèche aux Loups",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2011",
+        "url": "http://www.amplitude-studios.com/",
+        "description": "Amplitude Studios est un studio parisien de développement de jeux de stratégie. Fondée par Romain de Waubert et Mathieu Girard, Amplitude a pour mission de développer des jeux ambitieux et de grande qualité, en partenariat avec notre communauté.",
+        "updated": 1426070802000
       }
     },
     {
@@ -6525,6 +6607,34 @@
         "linkedin": "http://www.linkedin.com/company/ardans",
         "description": "Ardans est un cabinet de conseil spécialisé dans la gestion des connaissances au sein des organisations.",
         "updated": 1418739145000
+      }
+    },
+    {
+      "id": "area-effect",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3144208510004205,
+          48.83075617700047
+        ]
+      },
+      "properties": {
+        "name": "AREA EFFECT",
+        "id": "area-effect",
+        "category": "Entreprise",
+        "tags": [
+          "jeux vidéo",
+          "éditeur de logiciels",
+          "aventure"
+        ],
+        "address": "5 rue des Suisses",
+        "postcode": "75014",
+        "city": "Paris",
+        "creationyear": "2011",
+        "url": "http://area-effect.com/",
+        "description": "Area Effect est un concepteur, développeur et éditeur de logiciels de divertissement. Nous travaillons actuellement sur &#8203;&#8203;un jeu d'aventure / action en coopération pour PC, Mac et Linux.",
+        "updated": 1426070919000
       }
     },
     {
@@ -12375,6 +12485,33 @@
       }
     },
     {
+      "id": "celsius-online",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3461409770004593,
+          48.85915303000047
+        ]
+      },
+      "properties": {
+        "name": "CELSIUS ONLINE",
+        "id": "celsius-online",
+        "category": "Entreprise",
+        "tags": [
+          "jeux vidéo",
+          "agence"
+        ],
+        "address": "55 rue de Rivoli",
+        "postcode": "75001",
+        "city": "Paris",
+        "creationyear": "2004",
+        "url": "http://www.celsius-online.com",
+        "description": "Celsius online est une entreprise dans le domaine du jeu en ligne. Par ailleurs, Celsius Online développe en parallèle de ses activités de conception et d'édition de jeux en ligne, une activité d'agence web.",
+        "updated": 1426071374000
+      }
+    },
+    {
       "id": "celum",
       "type": "Feature",
       "geometry": {
@@ -13779,6 +13916,37 @@
       }
     },
     {
+      "id": "cobusiness",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3739386020004076,
+          48.8502699390005
+        ]
+      },
+      "properties": {
+        "name": "cobusiness",
+        "id": "cobusiness",
+        "category": "Entreprise",
+        "tags": [
+          "PEER to PEER",
+          "TROC 3.0",
+          "ECHANGE ENTRE PRO"
+        ],
+        "address": "4 rue Saint Nicolas",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2015",
+        "url": "cobusiness.fr",
+        "twitter": "Cobusiness_fr",
+        "facebook": "https://www.facebook.com/pages/Cobusiness/1492847934333068",
+        "linkedin": "https://www.linkedin.com/company/cobusiness",
+        "description": "COBUSINESS PLATEFORME 3.0 PERMET DE TROQUER ENTRE PROFESSIONNELS EN TOUTE LEGALITE . SERVICES, MATÉRIELS ET LOCAUX DEVIENNENT DE VÉRITABLES MONNAIES D'ECHANGES . CERCLE D'AFFAIRE COLLABORATIF, NOUVELLE MANIÈRE DE COMMERCER, PLUS SIMPLE, PLUS JUSTE.",
+        "updated": 1425939538000
+      }
+    },
+    {
       "id": "codasystem",
       "type": "Feature",
       "geometry": {
@@ -13987,6 +14155,34 @@
         "linkedin": "http://www.linkedin.com/company/2797492",
         "description": "CommOnEcoute est une salle de concert interactive en ligne.",
         "updated": 1389989590000
+      }
+    },
+    {
+      "id": "commune-image",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3403176180004266,
+          48.90902126500049
+        ]
+      },
+      "properties": {
+        "name": "COMMUNE IMAGE",
+        "id": "commune-image",
+        "category": "Tiers-lieu",
+        "tags": [
+          "audiovisuel",
+          "cinéma",
+          "production"
+        ],
+        "address": "8, rue Godillot",
+        "postcode": "93400",
+        "city": "St Ouen",
+        "creationyear": "2010",
+        "url": "http://communeimage.com",
+        "description": "Commune Image est un pôle cinématographique et audiovisuel qui accueille des auteurs, des réalisateurs, des sociétés de production, des prestataires de services de l’image et du son.",
+        "updated": 1425984621000
       }
     },
     {
@@ -19147,6 +19343,34 @@
       }
     },
     {
+      "id": "effisoft",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3271492770004443,
+          48.877956386000506
+        ]
+      },
+      "properties": {
+        "name": "EFFISOFT",
+        "id": "effisoft",
+        "category": "Entreprise",
+        "tags": [
+          "informatique",
+          "B2B",
+          "applis"
+        ],
+        "address": "26 RUE D'ATHENES",
+        "postcode": "75009",
+        "city": "PARIS",
+        "creationyear": "1989",
+        "url": "http://www.effisoft.com",
+        "description": "Entreprise spécialisée dans le secteur d'activité de l'edition de logiciels applicatifs.",
+        "updated": 1425912848000
+      }
+    },
+    {
       "id": "efisoft",
       "type": "Feature",
       "geometry": {
@@ -19484,6 +19708,34 @@
       }
     },
     {
+      "id": "eko-software",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3780730370004335,
+          48.83127385000046
+        ]
+      },
+      "properties": {
+        "name": "EKO SOFTWARE",
+        "id": "eko-software",
+        "category": "Entreprise",
+        "tags": [
+          "producteur",
+          "jeux vidéo",
+          "développeur"
+        ],
+        "address": "17 rue Neuve Tolbiac",
+        "postcode": "75013",
+        "city": "Paris",
+        "creationyear": "1999",
+        "url": "http://www.ekosystem.com/",
+        "description": "Eko Software est producteur et développeur de jeux vidéo sur console et PC. Le studio développe ses propres créations, mais aussi développe  pour le compte de ses clients des jeux de qualité sous les franchises qui lui sont confiées.",
+        "updated": 1426071590000
+      }
+    },
+    {
       "id": "elaia-partners",
       "type": "Feature",
       "geometry": {
@@ -19539,6 +19791,34 @@
       }
     },
     {
+      "id": "elcimai",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.6525976480004374,
+          48.526662589000466
+        ]
+      },
+      "properties": {
+        "name": "ELCIMAI",
+        "id": "elcimai",
+        "category": "Entreprise",
+        "tags": [
+          "conseil",
+          "ingenierie",
+          "B2B"
+        ],
+        "address": "3 RUE DE LA BRASSERIE GRUBER",
+        "postcode": "77000",
+        "city": "MELUN",
+        "creationyear": "1999",
+        "url": "http://www.elcimai.com",
+        "description": "Entreprise spécialisée dans le secteur des activités des sociétés holding.",
+        "updated": 1425913183000
+      }
+    },
+    {
       "id": "electrolab",
       "type": "Feature",
       "geometry": {
@@ -19563,6 +19843,34 @@
         "url": "http://www.electrolab.fr",
         "description": "L'Electrolab est un hackerspace dédié aux projets ayant une forte connotation électronique et/ou mécanique.",
         "updated": 1389989603000
+      }
+    },
+    {
+      "id": "electronics-for-imaging-france-s-a-r-l",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.343909005000455,
+          48.861088406000476
+        ]
+      },
+      "properties": {
+        "name": "ELECTRONICS FOR IMAGING FRANCE S.A.R.L",
+        "id": "electronics-for-imaging-france-s-a-r-l",
+        "category": "Entreprise",
+        "tags": [
+          "industrie",
+          "B2B",
+          "Imprimerie"
+        ],
+        "address": "23 RUE DU ROULE",
+        "postcode": "75001",
+        "city": "Paris",
+        "creationyear": "1993",
+        "url": "http://www.rhapso.com",
+        "description": "Rhapso est un éditeur de progiciels qui délivre des solutions Full Web, basées sur des briques Open Source. Il fourni aux industries de l'Imprimerie et du Packaging des ERP métiers verticaux, pour optimiser les processus industriels.",
+        "updated": 1425915857000
       }
     },
     {
@@ -19615,6 +19923,36 @@
         "url": "http://www.eliadis.com/",
         "description": "Société de conseil, d’ingénierie et d’édition de logiciel collaboratif",
         "updated": 1389989604000
+      }
+    },
+    {
+      "id": "ellis-car",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.342285951000406,
+          48.8774957650005
+        ]
+      },
+      "properties": {
+        "name": "Ellis-Car",
+        "id": "ellis-car",
+        "category": "Tiers-lieu",
+        "tags": [
+          "cloud",
+          "automobile",
+          "Big data"
+        ],
+        "address": "5 rue Rodier",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2014",
+        "url": "http://www.ellis-car.fr",
+        "twitter": "ELLIScarsoft",
+        "facebook": "https://www.facebook.com/pages/ELLIS-CAR/1482920998589196",
+        "description": "Entreprise qui propose unlogiciel de gestion de flotte automobile améliore la sécurité routière, reduit les couts et protége l'environnement grâce à l'anticipation Big Data.",
+        "updated": 1425916729000
       }
     },
     {
@@ -21180,6 +21518,33 @@
       }
     },
     {
+      "id": "eugen-systems",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3502123250004274,
+          48.86483188900047
+        ]
+      },
+      "properties": {
+        "name": "EUGEN SYSTEMS",
+        "id": "eugen-systems",
+        "category": "Entreprise",
+        "tags": [
+          "jeux vidéo",
+          "stratégie"
+        ],
+        "address": "151 rue Saint-Denis",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "1998",
+        "url": "http://www.eugensystems.com",
+        "description": "UGEN SYSTEMS fabrique exclusivement depuis plus de 13 ans des jeux de stratégie temps réel. Les jeux de stratégie temps réel mettent en avant la réflexion et l'intelligence. Ce sont des jeux dans lesquelles la composante online est essentielle.",
+        "updated": 1426071727000
+      }
+    },
+    {
       "id": "eulerian-analytics",
       "type": "Feature",
       "geometry": {
@@ -21285,6 +21650,34 @@
         "url": "http://www.eurodecision.com",
         "description": "Recherche Opérationnelle et Optimisation. Edition de composants logiciels, projets au forfait, prestations d’assistance technique, participation à des projets de R&D, études de faisabilité, prototypage.",
         "updated": 1389989607000
+      }
+    },
+    {
+      "id": "eurocenter-games",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3356246948242188,
+          48.87261892829001
+        ]
+      },
+      "properties": {
+        "name": "EUROCENTER GAMES",
+        "id": "eurocenter-games",
+        "category": "Entreprise",
+        "tags": [
+          "éditeur",
+          "jeux vidéo",
+          "Apps"
+        ],
+        "address": "21 rue de Fecamp",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "1989",
+        "url": "http://www.eurocenter.fr/",
+        "description": "Entreprise toujours spécialisée dans les jeux en ligne sur Minitel / PC / Mac / Mobiles..., en 2007 Eurocenter est devenu éditeur de jeux sur Appstore en a depuis developpé / edité plus de 15 jeux sur iPhone et iPad.",
+        "updated": 1426071910000
       }
     },
     {
@@ -22609,6 +23002,34 @@
       }
     },
     {
+      "id": "fct-consulting",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3668350920004286,
+          48.86576556500046
+        ]
+      },
+      "properties": {
+        "name": "FCT CONSULTING",
+        "id": "fct-consulting",
+        "category": "Entreprise",
+        "tags": [
+          "B2B",
+          "conseil",
+          "informatique"
+        ],
+        "address": "13 BOULEVARD VOLTAIRE",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2013",
+        "url": "http://www.fctconsulting.com",
+        "description": "Entreprise spécialisée dans le secteur d'activité du conseil en systèmes et logiciels informatiques.",
+        "updated": 1425908292000
+      }
+    },
+    {
       "id": "fdc",
       "type": "Feature",
       "geometry": {
@@ -22867,6 +23288,34 @@
       }
     },
     {
+      "id": "figaro-classifieds",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3339532650004458,
+          48.87329696500046
+        ]
+      },
+      "properties": {
+        "name": "FIGARO CLASSIFIEDS",
+        "id": "figaro-classifieds",
+        "category": "Entreprise",
+        "tags": [
+          "emploi",
+          "formation",
+          "immobilier"
+        ],
+        "address": "3 RUE LA FAYETTE",
+        "postcode": "75009",
+        "city": "Paris",
+        "creationyear": "2013",
+        "url": "http://www.figaroclassifieds.fr",
+        "description": "Société Internet sur offre l'information sur l’Emploi, la Formation et l’Immobilier.",
+        "updated": 1425910252000
+      }
+    },
+    {
       "id": "fii-facilite-informatique-international-",
       "type": "Feature",
       "geometry": {
@@ -23011,6 +23460,37 @@
       }
     },
     {
+      "id": "fitnet-application",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.379714925000428,
+          48.84602542400046
+        ]
+      },
+      "properties": {
+        "name": "FITNET APPLICATION",
+        "id": "fitnet-application",
+        "category": "Entreprise",
+        "tags": [
+          "MANAGEMENT",
+          "APPLIS",
+          "BUSINESS"
+        ],
+        "address": "117 RUE DE CHARENTON",
+        "postcode": "75012",
+        "city": "PARIS",
+        "creationyear": "2008",
+        "url": "http://www.fitnetmanager.com",
+        "facebook": "https://www.facebook.com/pages/Fitnet-Manager-France/127882598586",
+        "googleplus": "https://plus.google.com/113387495993328931899/posts",
+        "linkedin": "https://www.linkedin.com/in/fitnetmanager",
+        "description": "Fitnet Application est spécialiste de l’ERP SaaS orientées Projets ou Affaires, de la gestion des activités RH (planning, feuilles de temps, notes de frais, congés), à la facturation automatisée et aux reports de suivi.",
+        "updated": 1425910722000
+      }
+    },
+    {
       "id": "fivetouch",
       "type": "Feature",
       "geometry": {
@@ -23098,6 +23578,35 @@
       }
     },
     {
+      "id": "fleetimpact",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.349488205000455,
+          48.88620989500049
+        ]
+      },
+      "properties": {
+        "name": "fleetimpact",
+        "id": "fleetimpact",
+        "category": "Entreprise",
+        "tags": [
+          "B2B",
+          "apps",
+          "logistique"
+        ],
+        "address": "23 boulevard Barbès",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2013",
+        "url": "http://www.fleetimpact.com",
+        "twitter": "fleetimpact",
+        "description": "Startup qui propose des outils en logistique pour optimiser les coûts.",
+        "updated": 1425907750000
+      }
+    },
+    {
       "id": "flexras-technologies",
       "type": "Feature",
       "geometry": {
@@ -23121,6 +23630,34 @@
         "url": "http://www.flexras.com",
         "description": "FLEXRAS TECHNOLOGIES is a start-up providing innovative electronic design automation (EDA) software, intellectual property (IP) portfolio and design services used in semiconductor design and FPGA-based systems.",
         "updated": 1389989610000
+      }
+    },
+    {
+      "id": "focus-inova",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.322695976000432,
+          48.843694507000464
+        ]
+      },
+      "properties": {
+        "name": "FOCUS INOVA",
+        "id": "focus-inova",
+        "category": "Entreprise",
+        "tags": [
+          "Infogérance",
+          "conseil",
+          "B2B"
+        ],
+        "address": "3 RUE DE L'ARRIVEE",
+        "postcode": "75015",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "http://www.focus-inova.com",
+        "description": "Focus Inova est une société de services en ingénierie informatique (SSII) spécialisée dans les domaines suivants : Services et sécurité des réseaux d'entreprise & Développement d'applications sur-mesure.",
+        "updated": 1425911584000
       }
     },
     {
@@ -23778,6 +24315,34 @@
       }
     },
     {
+      "id": "game-consulting",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.333751206000443,
+          48.889551637000466
+        ]
+      },
+      "properties": {
+        "name": "GAME CONSULTING",
+        "id": "game-consulting",
+        "category": "Entreprise",
+        "tags": [
+          "jeux vidéo",
+          "média",
+          "B2B"
+        ],
+        "address": "40, rue Damremont",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2002",
+        "url": "contact@game-consulting.com",
+        "description": "Game consulting est une plateforme de services, dédiée à l'industrie du jeu vidéo et des nouveaux media.",
+        "updated": 1426072710000
+      }
+    },
+    {
       "id": "gamma-soft-informatique",
       "type": "Feature",
       "geometry": {
@@ -24180,6 +24745,34 @@
       }
     },
     {
+      "id": "gg-factor",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3934126840004524,
+          48.871087300000454
+        ]
+      },
+      "properties": {
+        "name": "GG FACTOR",
+        "id": "gg-factor",
+        "category": "Entreprise",
+        "tags": [
+          "jeux vidéo",
+          "media sociaux",
+          "B2B"
+        ],
+        "address": "24, rue de l'Est",
+        "postcode": "75020",
+        "city": "Paris",
+        "creationyear": "2011",
+        "url": "http://www.ggfactor.com/",
+        "description": "GG Factor est un studio de développement intégré multiplateforme : Web, Mobile, Média Sociaux. Il propose la conception et développement des jeux MMO RPG orignaux et des jeux gratuits casual et skill.",
+        "updated": 1426072916000
+      }
+    },
+    {
       "id": "gigatribe",
       "type": "Feature",
       "geometry": {
@@ -24347,6 +24940,37 @@
         "facebook": "https://www.facebook.com/pages/Globulos/54605020497",
         "description": "GlobZ développe des jeux en flash pour le web (mono et multijoueurs) et en téléchargement.",
         "updated": 1416162903000
+      }
+    },
+    {
+      "id": "glory4gamers",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.352904919000423,
+          48.89096714600049
+        ]
+      },
+      "properties": {
+        "name": "GLORY4GAMERS",
+        "id": "glory4gamers",
+        "category": "Entreprise",
+        "tags": [
+          "jeux vidéo",
+          "tournois",
+          "promotion"
+        ],
+        "address": "26 rue Ordener",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2012",
+        "url": "http://www.glory4gamers.com/",
+        "twitter": "Glory4Gamers",
+        "facebook": "https://www.facebook.com/Glory4Gamers",
+        "googleplus": "https://plus.google.com/u/0/117114111415947417678/posts",
+        "description": "Start-up organisateur de tournois de jeux vidéo en ligne, qui offre aussi régulièrement des événements de plus grande envergure permettant aux participants la posibilité de dotations et aux partenaires B2B faire la promotion des marques.",
+        "updated": 1426073820000
       }
     },
     {
@@ -25373,6 +25997,33 @@
       }
     },
     {
+      "id": "hanakai-studio",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.392253177000441,
+          48.86562275200049
+        ]
+      },
+      "properties": {
+        "name": "HANAKAI STUDIO",
+        "id": "hanakai-studio",
+        "category": "Entreprise",
+        "tags": [
+          "jeux-vidéo",
+          "informatique"
+        ],
+        "address": "18-20, rue du Soleillet",
+        "postcode": "75020",
+        "city": "Paris",
+        "creationyear": "2013",
+        "url": "http://hanakai-studio.com/",
+        "description": "Studio de développement de jeux-vidéo indépendant Français.",
+        "updated": 1425981579000
+      }
+    },
+    {
       "id": "handypub",
       "type": "Feature",
       "geometry": {
@@ -25486,6 +26137,34 @@
       }
     },
     {
+      "id": "harmonie-technologie",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3123550970004203,
+          48.873327136000455
+        ]
+      },
+      "properties": {
+        "name": "HARMONIE TECHNOLOGIE",
+        "id": "harmonie-technologie",
+        "category": "Entreprise",
+        "tags": [
+          "Ingéniérie informatique",
+          "Open source",
+          "conseil"
+        ],
+        "address": "60 RUE DE LA BOETIE",
+        "postcode": "75008",
+        "city": "PARIS",
+        "creationyear": "2005",
+        "url": "http://www.harmonie-technologie.com",
+        "description": "Cabinet de conseil et d’expertise technique, spécialiste de la sécurité du système d’information.",
+        "updated": 1425911857000
+      }
+    },
+    {
       "id": "harris-communication",
       "type": "Feature",
       "geometry": {
@@ -25514,6 +26193,34 @@
         "linkedin": "http://www.linkedin.com/company/harris-corporation?goback=.cps_1278036972242_1&trk=co_search_results",
         "description": "Entreprise de communication et technologies",
         "updated": 1399960200000
+      }
+    },
+    {
+      "id": "harvest",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.4144498420004084,
+          48.8675189970005
+        ]
+      },
+      "properties": {
+        "name": "HARVEST",
+        "id": "harvest",
+        "category": "Entreprise",
+        "tags": [
+          "applis",
+          "management",
+          "B2B"
+        ],
+        "address": "40 RUE JEAN JAURES",
+        "postcode": "93170",
+        "city": "BAGNOLET",
+        "creationyear": "1990",
+        "url": "http://www.harvest.fr",
+        "description": "Entreprise spécialisée dans le secteur d'activité de l'edition de logiciels applicatifs.",
+        "updated": 1425912271000
       }
     },
     {
@@ -25656,6 +26363,34 @@
         "linkedin": "http://www.linkedin.com/company/2290519",
         "description": "Heliceum est une société spécialisée dans le développement d’applications sur smartphones et tablettes tactiles pour le compte de tiers.",
         "updated": 1416161867000
+      }
+    },
+    {
+      "id": "helis",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3280226100004597,
+          48.86604680100049
+        ]
+      },
+      "properties": {
+        "name": "helis",
+        "id": "helis",
+        "category": "Entreprise",
+        "tags": [
+          "conseil",
+          "informatique",
+          "B2B"
+        ],
+        "address": "10 RUE DE CASTIGLIONE",
+        "postcode": "75001",
+        "city": "PARIS",
+        "creationyear": "2004",
+        "url": "http://www.groupe-helis.com",
+        "description": "Entreprise spécialisée dans le secteur d'activité du conseil en systèmes et logiciels informatiques.",
+        "updated": 1425912427000
       }
     },
     {
@@ -25832,6 +26567,36 @@
         "linkedin": "http://www.linkedin.com/company/2362896",
         "description": "HeyCrowd est une application web et mobile qui permet de créer et de diffuser des sondages.",
         "updated": 1389989616000
+      }
+    },
+    {
+      "id": "hgb-finance",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.356642,
+          48.827422
+        ]
+      },
+      "properties": {
+        "name": "HGB FInance",
+        "id": "hgb-finance",
+        "category": "Entreprise",
+        "tags": [
+          "paiement",
+          "ecommerce",
+          "eticketing"
+        ],
+        "address": "112 West 34th Street",
+        "postcode": "10120",
+        "city": "NY",
+        "creationyear": "2009",
+        "url": "http://www.ticketlib.com",
+        "twitter": "ticketlib",
+        "linkedin": "http://www.linkedin.com/company/810172",
+        "description": "Ticketlib est une solution de billetterie en ligne qui permet de vendre sur Internet simplement.",
+        "updated": 1425989774000
       }
     },
     {
@@ -26586,6 +27351,35 @@
         "linkedin": "http://www.linkedin.com/company/1009",
         "description": "IBM est une entreprise spécialisée dans les domaines du matériel, du logiciel et des services informatiques.",
         "updated": 1389989617000
+      }
+    },
+    {
+      "id": "ican",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3856962320004413,
+          48.846095824000486
+        ]
+      },
+      "properties": {
+        "name": "ICAN",
+        "id": "ican",
+        "category": "École",
+        "tags": [
+          "communication",
+          "design",
+          "jeux vidéo"
+        ],
+        "address": "21, rue Erard",
+        "postcode": "75012",
+        "city": "Paris",
+        "creationyear": "2010",
+        "url": "http://www.ican-design.fr",
+        "facebook": "https://www.facebook.com/ICANDesign",
+        "description": "L'Institut de Création et d'Animation Numériques, est un haut lieu de l'enseignement de l’Infographie, du Design numérique et du Game Design\nIl accompagne et devance les mutations des technologies de l'information et de la communication.",
+        "updated": 1426074313000
       }
     },
     {
@@ -32041,6 +32835,33 @@
       }
     },
     {
+      "id": "le-cortex",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3814056360004088,
+          48.853762722000454
+        ]
+      },
+      "properties": {
+        "name": "LE CORTEX",
+        "id": "le-cortex",
+        "category": "Entreprise",
+        "tags": [
+          "informatique",
+          "jeux video"
+        ],
+        "address": "86 rue de Charonne",
+        "postcode": "75011",
+        "city": "Paris",
+        "creationyear": "2008",
+        "url": "http://www.lecortex.com",
+        "description": "LE CORTEX est une entreprise spécialisée dans le secteur d'activité de la programmation informatique. Il est développeur autorisé Nintendo Wii et DS, nous développons également sur Xbox 360, Iphone et PC.",
+        "updated": 1425982775000
+      }
+    },
+    {
       "id": "le-cube",
       "type": "Feature",
       "geometry": {
@@ -32987,6 +33808,36 @@
       }
     },
     {
+      "id": "levillagebyca",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.312884656000449,
+          48.87336261100046
+        ]
+      },
+      "properties": {
+        "name": "levillagebyca",
+        "id": "levillagebyca",
+        "category": "Incubateur",
+        "tags": [
+          "innovation",
+          "pépinière",
+          "showroom"
+        ],
+        "address": "55 RUE LA BOETIE",
+        "postcode": "75008",
+        "city": "PARIS",
+        "creationyear": "2008",
+        "url": "http://www.levillagebyca.com",
+        "twitter": "LeVillagebyCA",
+        "facebook": "https://www.facebook.com/levillagebyca",
+        "description": "Le Village by CA est à la fois un centre d'open innovation, un showroom et une pépinière au service de projets innovants et de nouveaux talents.",
+        "updated": 1425984216000
+      }
+    },
+    {
       "id": "lexis-numerique",
       "type": "Feature",
       "geometry": {
@@ -33040,6 +33891,34 @@
         "url": "http://www.lheritier-sa.com",
         "description": "LHERITIER conçoit et commercialise des caméras et des systèmes de vision complets à l’adresse des marchés de niche suivants : la Défense, la sécurité, l’imagerie médicale (ophtalmologie), l’industrie, le transport et les applications scientifiques.",
         "updated": 1389989634000
+      }
+    },
+    {
+      "id": "lightbulb-crew",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.333733286000438,
+          48.89297255600047
+        ]
+      },
+      "properties": {
+        "name": "LIGHTBULB CREW",
+        "id": "lightbulb-crew",
+        "category": "Entreprise",
+        "tags": [
+          "jeux video",
+          "plateforme mobile",
+          "stratégie"
+        ],
+        "address": "14 rue Vauvenargues",
+        "postcode": "75018",
+        "city": "Paris",
+        "creationyear": "2013",
+        "url": "http://lightbulbcrew.fr/",
+        "description": "Lightbulb Crew est un jeune studio de développement de jeux vidéo spécialisé dans la réalisation de jeux de stratégie multijoueurs sur PC/MAC et sur plateforme mobile (IOS, Android).",
+        "updated": 1425981965000
       }
     },
     {
@@ -36229,8 +37108,8 @@
         "url": "http://www.ticketlib.com",
         "twitter": "ticketlib",
         "linkedin": "http://www.linkedin.com/company/810172",
-        "description": "Moneylib propose Ticketlib, une solution ecommerce qui permet de vendre sur Internet simplement.",
-        "updated": 1389989653000
+        "description": "...",
+        "updated": 1425989944000
       }
     },
     {
@@ -37764,6 +38643,34 @@
         "facebook": "http://www.facebook.com/Nephorider",
         "description": "Outil de visualisation et de documentation d'infrastructure cloud computing",
         "updated": 1391701002000
+      }
+    },
+    {
+      "id": "netcosports",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.310081615000456,
+          48.87178856300051
+        ]
+      },
+      "properties": {
+        "name": "NETCOSPORTS",
+        "id": "netcosports",
+        "category": "Entreprise",
+        "tags": [
+          "apps",
+          "sports",
+          "mobile"
+        ],
+        "address": "20 Avenue Franklin Delano Roosevelt",
+        "postcode": "75008",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "http://www.netcosports.com/about-us/",
+        "description": "start-up dédiée à la conception et le développement de solutions mobiles innovantes dans le domaine du sports.",
+        "updated": 1425983595000
       }
     },
     {
@@ -39933,9 +40840,9 @@
         "id": "opium-art-sas",
         "category": "Entreprise",
         "tags": [
-          "#Art",
-          "#3D",
-          "#galerievirtuelle"
+          "Art",
+          "3D",
+          "galerievirtuelle"
         ],
         "address": "3 rue des vignolles",
         "postcode": "95470",
@@ -39946,8 +40853,8 @@
         "facebook": "https://www.facebook.com/opiumart.moag",
         "googleplus": "https://plus.google.com/u/0/105682461032846709274/",
         "linkedin": "https://www.linkedin.com/profile/view?id=242856154",
-        "description": "Opium-Art est une agence de communication digitale qui utilise la force de la 3D comme canal de com°.\nNotre produit phare : MyOwnArtGallery.com : des galeries d'art en 3D qui permettent aux artistes d’exposer et de vendre leurs œuvres d'Art.",
-        "updated": 1423643061000
+        "updated": 1425926456000,
+        "description": "Opium-Art est une agence de communication digitale qui utilise la force de la 3D comme canal de com°.\nNotre produit phare : MyOwnArtGallery.com : des galeries d'art en 3D qui permettent aux artistes d’exposer et de vendre leurs œuvres d'Art."
       }
     },
     {
@@ -54356,6 +55263,37 @@
         "twitter": "@waymagroup",
         "description": "Wayma accompagne ses clients depuis l'identification des objectifs de déploiement de leur stratégie mobile jusqu'à la mise en oeuvre des solutions techniques retenues.",
         "updated": 1391601655000
+      }
+    },
+    {
+      "id": "we-are",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.340422621000414,
+          48.87045735200047
+        ]
+      },
+      "properties": {
+        "name": "WE ARE",
+        "id": "we-are",
+        "category": "Entreprise",
+        "tags": [
+          "communication",
+          "production",
+          "luxe"
+        ],
+        "address": "16, rue Saint Marc",
+        "postcode": "75002",
+        "city": "Paris",
+        "creationyear": "2009",
+        "url": "http://www.weare-paris.com",
+        "twitter": "wearefrench",
+        "facebook": "https://www.facebook.com/WE.ARE.AGENCY",
+        "linkedin": "https://www.linkedin.com/company/we-are",
+        "description": "Agence de communication travaillant pour des marques luxe, lifestyle et institutionnelles ( branding, activations digitales et événementielles) et société de production proposant les talents de jeunes réalisateurs issus de plusieurs pays.",
+        "updated": 1426070148000
       }
     },
     {

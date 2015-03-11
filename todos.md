@@ -2,12 +2,6 @@ Données
 =======
 - répertorier les tags qui sont à 0 et les mettre à jour (ex: 'telecentre')
 
-Chargement
-==========
-+ Antony : envoyer le logo ballon de couleur
-- intégrer le logo ToM multi-color sur la home
-- si possible barre de progression le temps du chargement
-
 Liste
 =====
 o masquer le partage sur les réseaux le temps qu'on décide
@@ -19,9 +13,6 @@ Carte
 
 Mobile / responsive
 ==================
-- ajouter le nombre de résultats par catégorie et par zone
-- détection automatique des écrans mobiles
-- double détection : résolution / navigateur mobile. bloquer le passage au mode mobile
 + quand on réduit l'écran, la liste devient étroite et certains textes disparaissent (ex: description de La Fonderie) -> peut-être élargir la liste  pour les versions d'écran intermédiaires
 - activer l'affichage du nombre de résultats sur le premier écran de recherche
 - centrer le logo verticalement
@@ -125,6 +116,7 @@ x http://www.twitter.com -> @
 - Possible template de tweet pour inciter les utilisateurs à publier sur Twitter qu'ils sont présent sur ToM
 
 
+vérifier que l'id saisi est bien disponible
 
 
 Formulaire d'édition grand public
@@ -210,4 +202,6 @@ Compta
 Chèques
 
 Lova 
+
+
 
