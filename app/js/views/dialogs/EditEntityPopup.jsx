@@ -10,8 +10,9 @@ var DomUtils = require('../utils/DomUtils');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
 var ContentPopupMixin = require('../utils/ContentPopupMixin');
 var EditEntityForm = require('./EditEntityForm.jsx');
+var MessageBoxMixin = require('../utils/MessageBoxMixin.jsx');
 
-var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin, //
+var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin, MessageBoxMixin, // 
 Mosaic.Events.prototype, ContentPopupMixin, {
 
     initialize : function(options) {
@@ -20,31 +21,30 @@ Mosaic.Events.prototype, ContentPopupMixin, {
     getApp : function() {
         return this.options.app;
     },
-    _showMessage : function(msg) {
-        window.alert(msg);
-    },
-    _submitForm : function(data) {
+    _submitForm : function(ev) {
         var that = this;
-        var app = that.getApp();
-        app.contact.validateMessage(data)//
-        .then(function(data) { //
-            return app.contact.sendMessage(data)//
-            .then(function(result) {
-                var msg = that._getLabel('dialog.contact.result.ok');
-                that._showMessage(msg);
-                PopupPanel.closePopup();
-            }, function(err) {
-                var msg = that._getLabel('dialog.contact.result.errors', {
-                    error : err
+        var app = this.getApp();
+        app.edit.validateResource().then(function(results){
+            if (app.edit.isValid()) {
+                app.edit.endEdit({
+                   save : true 
+                }).then(function(result){
+                    var title = that._getLabel('dialog.edit.result.ok.title');
+                    var msg = that._getLabel('dialog.edit.result.ok');
+                    that._showMessage(title, msg);
+                }, function(err) {
+                    var title = that._getLabel('dialog.edit.result.error.title');
+                    var msg = that._getLabel('dialog.edit.result.error');
+                    that._showMessage(title, msg);
                 });
-                that._showMessage(msg);
-            });
-        }, function(err) {
-            var msg = that._getLabel('dialog.contact.invalide', {
-                error : err
-            });
-            that._showMessage(msg);
-        });
+            } else {
+                var title = that._getLabel('dialog.edit.result.error.title');
+                var msg = that._getLabel('dialog.edit.result.error');
+                that._showMessage(title,msg);
+            }
+        })
+        ev.preventDefault();
+        ev.stopPropagation();
     },
     _openPopup : function(resource) {
         var that = this;
@@ -67,28 +67,10 @@ Mosaic.Events.prototype, ContentPopupMixin, {
             var footer = (
                 <div key="footer">
                     <button type="submit" className="btn btn-primary"
-                        onClick={function(ev){
-                            app.edit.validateResource().then(function(results){
-                                if (app.edit.isValid()) {
-                                    app.edit.endEdit({
-                                       save : true 
-                                    }).then(function(result){
-                                        that._showMessage('La sauvegarde a bien été effectuée.');
-                                    }, function(err) {
-                                        that._showMessage('Error!');
-                                    });
-                                } else {
-                                    that._showMessage('Error!');
-                                }
-                            })
-                            ev.preventDefault();
-                            ev.stopPropagation();
-                        }.bind(that)}>
+                        onClick={that._submitForm.bind(that)}>
                         {that._getLabel('dialog.edit.btn.save')}
                     </button>
-                    <button type="button" className="btn"
-                        onClick={function(){
-                            console.log('Cancel !', dialog);
+                    <button type="button" className="btn" onClick={function(){
                             PopupPanel.closePopup();
                         }}>
                         {that._getLabel('dialog.edit.btn.cancel')}
@@ -122,10 +104,11 @@ Mosaic.Events.prototype, ContentPopupMixin, {
             that._login().then(function(){
                 that._openPopup(resource);
             }, function(err){
-                var msg = that._getLabel('dialog.contact.result.errors', {
+                var msg = that._getLabel('dialog.edit.login.error', {
                     error : err
                 });
-                that._showMessage(msg);
+                var title = that._getLabel('dialog.edit.login.error.title')
+                that._showMessage(title, msg);
             });
         }
     },

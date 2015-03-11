@@ -11,6 +11,7 @@ var PopupPanel = require('mosaic-core').React.PopupPanel;
 var ContentPopupMixin = require('../utils/ContentPopupMixin');
 var BootstrapFormValidator = require('../utils/BootstrapFormValidator');
 var FormField = require('../utils/FormField');
+var MessageBoxMixin = require('../utils/MessageBoxMixin.jsx');
 
 var schema = {
     properties : {
@@ -55,7 +56,8 @@ var schema = {
     }
 };
 
-var FeedbackPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
+
+var FeedbackPopup = Mosaic.Class.extend(DomUtils, I18NMixin, MessageBoxMixin,
         Mosaic.Events.prototype, ContentPopupMixin, {
 
     initialize : function(options){
@@ -67,29 +69,6 @@ var FeedbackPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
     getApp : function() {
         return this.options.app;
     },
-    _showMessage : function(msgTitle, msg) {
-        var app = this.getApp();
-        var that = this;
-        PopupPanel.openPopup({
-            verticalMargin : this.options.margin || 40,
-            title : (
-                <span>
-                    <i className="icon icon-share"></i>
-                    {msgTitle}
-                </span>
-            ),
-            body : <div>{msg}</div>,
-            footer : (
-                <div>
-                    <button className="btn  btn-primary"
-                        onClick={function(){ PopupPanel.closePopup(); }}>
-                        {this._getLabel('dialog.contact.btn.cancel')}
-                    </button>
-                </div>
-             ),
-        });
-    },
-    
     _submitContactForm : function(data){
         var that = this;
         var app = that.getApp();
