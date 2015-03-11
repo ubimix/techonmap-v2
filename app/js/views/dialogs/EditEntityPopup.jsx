@@ -10,45 +10,45 @@ var DomUtils = require('../utils/DomUtils');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
 var ContentPopupMixin = require('../utils/ContentPopupMixin');
 var EditEntityForm = require('./EditEntityForm.jsx');
+var MessageBoxMixin = require('../utils/MessageBoxMixin.jsx');
 
-var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
-        Mosaic.Events.prototype, ContentPopupMixin, {
+var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin, MessageBoxMixin, // 
+Mosaic.Events.prototype, ContentPopupMixin, {
 
-    initialize : function(options){
+    initialize : function(options) {
         this.setOptions(options);
     },
     getApp : function() {
         return this.options.app;
     },
-    _showMessage : function(msg) {
-        window.alert(msg);
-    },
-    _submitForm : function(data){
+    _submitForm : function(ev) {
         var that = this;
-        var app = that.getApp();
-        app.contact.validateMessage(data)//
-        .then(function(data){
-            return app.contact.sendMessage(data)//
-                .then(function(result){
-                    var msg = that._getLabel('dialog.contact.result.ok');
-                    that._showMessage(msg);
-                    PopupPanel.closePopup();
-                }, function(err) {
-                    var msg = that._getLabel(
-                        'dialog.contact.result.errors',
-                         { error : err });
-                    that._showMessage(msg);
+        var app = this.getApp();
+        app.edit.validateResource().then(function(results){
+            if (app.edit.isValid()) {
+                app.edit.endEdit({
+                   save : true 
+                }).then(function(result){
+                    var title = that._getLabel('dialog.edit.result.ok.title');
+                    var msg = that._getLabel('dialog.edit.result.ok');
+                    that._showMessage(title, msg);
+                }, function(err) {
+                    var title = that._getLabel('dialog.edit.result.error.title');
+                    var msg = that._getLabel('dialog.edit.result.error');
+                    that._showMessage(title, msg);
                 });
-        }, function(err) {
-            var msg = that._getLabel('dialog.contact.invalide', {
-                error : err
-            });
-            that._showMessage(msg);
-        });
+            } else {
+                var title = that._getLabel('dialog.edit.result.error.title');
+                var msg = that._getLabel('dialog.edit.result.error');
+                that._showMessage(title,msg);
+            }
+        })
+        ev.preventDefault();
+        ev.stopPropagation();
     },
-    open : function(resource) {
-        resource = resource || {};
+    _openPopup : function(resource) {
         var that = this;
+        resource = resource || {};
         var app = that.options.app;
         var closeListener = function(){
             if (!app.edit.isEditing()) {
@@ -67,28 +67,10 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
             var footer = (
                 <div key="footer">
                     <button type="submit" className="btn btn-primary"
-                        onClick={function(ev){
-                            app.edit.validateResource().then(function(results){
-                                if (app.edit.isValid()) {
-                                    app.edit.endEdit({
-                                       save : true 
-                                    }).then(function(result){
-                                        that._showMessage('La sauvegarde a bien été effectuée.');
-                                    }, function(err) {
-                                        that._showMessage('Error!');
-                                    });
-                                } else {
-                                    that._showMessage('Error!');
-                                }
-                            })
-                            ev.preventDefault();
-                            ev.stopPropagation();
-                        }.bind(that)}>
+                        onClick={that._submitForm.bind(that)}>
                         {that._getLabel('dialog.edit.btn.save')}
                     </button>
-                    <button type="button" className="btn"
-                        onClick={function(){
-                            console.log('Cancel !', dialog);
+                    <button type="button" className="btn" onClick={function(){
                             PopupPanel.closePopup();
                         }}>
                         {that._getLabel('dialog.edit.btn.cancel')}
@@ -113,6 +95,47 @@ var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin,
             });            
         });
     },
+    open : function(resource) {
+        var that = this;
+        var app = that.options.app;
+        if (app.user.isLoggedIn()) {
+            that._openPopup(resource);
+        } else {
+            that._login().then(function(){
+                that._openPopup(resource);
+            }, function(err){
+                var msg = that._getLabel('dialog.edit.login.error', {
+                    error : err
+                });
+                var title = that._getLabel('dialog.edit.login.error.title')
+                that._showMessage(title, msg);
+            });
+        }
+    },
+    
+    _login : function(){
+        var that = this;
+        var app = that.getApp();
+        var deferred = Mosaic.P.defer();
+        var wnd;
+        window.onLoginFinished = function(result) {
+            if (!result.cancel && result.user) {
+                var userInfo = result.user;
+                deferred.resolve(app.user.setUserInfo(userInfo));
+            } else {
+                deferred.reject();
+            }
+            delete window.onLoginFinished;
+            if (wnd) {
+                wnd.close();
+            }
+        }
+        var options = 'location=no,resizable=yes,menubar=no,' + 
+        'scrollbars=no,status=no,titlebar=no,toolbar=no,' +
+        'width=500,height=300,top=100,left=200';
+        wnd = window.open('./login.html', 'login', options);
+        return deferred.promise;
+    }
 });
- 
+
 module.exports = EditEntityPopup;

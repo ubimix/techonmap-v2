@@ -388,7 +388,7 @@ module.exports = React.createClass({
     },
     
     _renderWebSiteUrl : function(){
-        var input = this._renderInputWithAddOn('http://', 'properties.url', 'dialog.edit.url.placeholder', {
+        var input = this._renderInput('properties.url', 'dialog.edit.url.placeholder', {
         });
         return this._renderHorizontalFormGroup('properties.url', 'dialog.edit.url.label', input);
     },
