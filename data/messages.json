@@ -82,12 +82,12 @@
             "dialog.edit.viadeo.placeholder" : "Adresse de la page Viadeo de votre organisation",
             "dialog.edit.localize.btn" : "Géolocaliser",
 
-            "dialog.edit.result.ok.title" : "FIXME: Done!",
-            "dialog.edit.result.ok" : "FIXME: Your resource was successfully saved.",
-            "dialog.edit.result.error.title" : "FIXME: Error!",
-            "dialog.edit.result.error" : "FIXME: Can not save your resource.",
-            "dialog.edit.login.error.title" : "FIXME: Login Error!",
-            "dialog.edit.login.error" : "FIXME: Can not log in or a login process was canceled.",
+            "dialog.edit.result.ok.title" : "Enregistrement réussi",
+            "dialog.edit.result.ok" : "Les données ont été sauvegardées avec succès.",
+            "dialog.edit.result.error.title" : "Erreur",
+            "dialog.edit.result.error" : "Une erreur s'est produite lors de la sauvegarde.",
+            "dialog.edit.login.error.title" : "Erreur d'authentification",
+            "dialog.edit.login.error" : "L'authentification a échoué ou a été annulée.",
                 
             "filter.label.showResults" : "Valider et basculer vers ",
             "filter.label.tags.all" : "Tous",
