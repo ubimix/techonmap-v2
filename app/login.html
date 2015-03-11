@@ -66,11 +66,12 @@ p.help {
                 opener.onLoginFinished.apply(opener, arguments);
             }
         }
-        window.addEventListener("beforeunload", function(e) {
+/*        window.addEventListener("beforeunload", function(e) {
             onLoginFinished({
                 cancel : true
             });
         }, false);
+*/
         function login() {
             onLoginFinished({
                 cancel : false,
