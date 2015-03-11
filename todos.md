@@ -117,7 +117,7 @@ x http://www.twitter.com -> @
 
 
 vérifier que l'id saisi est bien disponible
-
+quand on clique sur 'Revenir à la carte' dans le FeedbackPopup il y a pb de validation de champ la première fois
 
 Formulaire d'édition grand public
 ==========================

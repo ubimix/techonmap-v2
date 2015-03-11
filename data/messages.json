@@ -85,7 +85,7 @@
             "dialog.edit.result.ok.title" : "Enregistrement réussi",
             "dialog.edit.result.ok" : "Les données ont été sauvegardées avec succès.",
             "dialog.edit.result.error.title" : "Erreur",
-            "dialog.edit.result.error" : "Une erreur s'est produite lors de la sauvegarde.",
+            "dialog.edit.result.error" : "Il semble qu'un ou plusieurs champs ne soient pas correctement renseignés.",
             "dialog.edit.login.error.title" : "Erreur d'authentification",
             "dialog.edit.login.error" : "L'authentification a échoué ou a été annulée.",
                 
