@@ -30,6 +30,8 @@ module.exports = React.createClass({
           return this._newState();
     },
     _redraw : function(){
+        if (!this.isMounted())
+            return ;
         this.setState(this._newState());
     },
     _newState : function(){

@@ -368,23 +368,21 @@ module.exports = Api.extend(ResourceUtils, {
     },
 
     _saveResource : function(resource) {
-        // FIXME: move to the configuration
-        var baseUrl = '/data/';
-        // FIXME: move to the configuration
-        var path = 'save';
-
-        var body = JSON.stringify(resource);
-        // body = resource;
-        console.log('>>>', body);
+        var app = this.options.app;
+        var baseUrl = app.options.contentSaveUrl;
+        var id = this.getResourceId(resource);
+        var path = id ? id : '';
         var client = HttpClient.newInstance({
             baseUrl : baseUrl
         });
         return client.exec({
-            method : 'PUT',
+            method : 'POST',
             path : path,
-            body : body,
+            body : {
+                resource : resource
+            },
             headers : {
-                'Content-Type' : 'application/json; charset=utf-8'
+//                'Content-Type' : 'application/json; charset=utf-8'
             }
         }).then(function(result) {
             console.log('RESULT: ', result);

@@ -7,6 +7,10 @@ module.exports = {
     hello : rest('/hello', 'GET', function(params) {
         return 'Hello';
     }),
+    save : rest('/save/*id', 'POST', function(resource) {
+        console.log('SAVED RESOURCE: ', resource);
+        return resource;
+    }),
     sendMail : rest('/send', 'POST', function(params) {
         var message = {
             user : {

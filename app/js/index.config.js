@@ -3,6 +3,7 @@ var currentUrl = URL.parse(window.location.href, true);
 module.exports = {
     baseUrl : './',
     contentBaseUrl : './data/content/',
+    contentSaveUrl : './service/api/save/',
     apiBaseUrl : './service/api',
     searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
