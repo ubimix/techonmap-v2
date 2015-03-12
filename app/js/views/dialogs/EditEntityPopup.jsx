@@ -35,12 +35,14 @@ Mosaic.Events.prototype, ContentPopupMixin, {
                 }, function(err) {
                     var title = that._getLabel('dialog.edit.result.error.title');
                     var msg = that._getLabel('dialog.edit.result.error');
-                    that._showMessage(title, msg);
+                    var ok = that._getLabel('dialog.ok');
+                    that._showMessage(title, msg, ok);
                 });
             } else {
                 var title = that._getLabel('dialog.edit.result.error.title');
                 var msg = that._getLabel('dialog.edit.result.error');
-                that._showMessage(title,msg);
+                var ok = that._getLabel('dialog.ok');
+                that._showMessage(title, msg, ok);
             }
         })
         ev.preventDefault();
@@ -107,7 +109,7 @@ Mosaic.Events.prototype, ContentPopupMixin, {
                 var msg = that._getLabel('dialog.edit.login.error', {
                     error : err
                 });
-                var title = that._getLabel('dialog.edit.login.error.title')
+                var title = that._getLabel('dialog.edit.login.error.title');
                 that._showMessage(title, msg);
             });
         }

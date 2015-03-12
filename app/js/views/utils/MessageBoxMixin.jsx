@@ -7,7 +7,7 @@ var React = require('react');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
 
 module.exports = {
-    _showMessage : function(msgTitle, msg) {
+    _showMessage : function(msgTitle, msg, okLabel) {
         var app = this.getApp();
         var that = this;
         PopupPanel.openPopup({
@@ -23,7 +23,7 @@ module.exports = {
                 <div>
                     <button className="btn  btn-primary"
                         onClick={function(){ PopupPanel.closePopup(); }}>
-                        {this._getLabel('dialog.contact.btn.cancel')}
+                        {okLabel || this._getLabel('dialog.contact.btn.cancel')}
                     </button>
                 </div>
              ),

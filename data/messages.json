@@ -88,6 +88,7 @@
             "dialog.edit.result.error" : "Il semble qu'un ou plusieurs champs ne soient pas correctement renseignés.",
             "dialog.edit.login.error.title" : "Erreur d'authentification",
             "dialog.edit.login.error" : "L'authentification a échoué ou a été annulée.",
+            "dialog.ok" : "ok", 
                 
             "filter.label.showResults" : "Valider et basculer vers ",
             "filter.label.tags.all" : "Tous",
