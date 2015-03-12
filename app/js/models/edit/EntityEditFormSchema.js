@@ -151,7 +151,7 @@ function newSchema() {
                         messages : {
                             required : "Un site Web est requis.",
                             allowEmpty : "Le site saisi ne doit pas être vide.",
-                            format : "Le texte saisie ne semble pas être un URL valide.",
+                            format : "Le texte saisi ne semble pas être une URL valide.",
                         }
                     },
                     creationyear : {
