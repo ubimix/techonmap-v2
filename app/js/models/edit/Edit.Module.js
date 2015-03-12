@@ -376,11 +376,9 @@ module.exports = Api.extend(ResourceUtils, {
             baseUrl : baseUrl
         });
         return client.exec({
-            method : 'POST',
+            method : 'PUT',
             path : path,
-            body : {
-                resource : resource
-            },
+            body : resource,
             headers : {
 //                'Content-Type' : 'application/json; charset=utf-8'
             }
