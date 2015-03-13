@@ -169,7 +169,8 @@ function newSchema() {
                             }
                         },
                         messages : {
-                            conform : "L'année saisie doit être au format YYYY."
+                            conform : "L'année saisie doit être au format YYYY.",
+                            type: "Une année de 4 chiffres doit être saisie."
                         }
                     },
                     twitter : {
