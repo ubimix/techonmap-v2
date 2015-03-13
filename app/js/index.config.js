@@ -4,7 +4,7 @@ module.exports = {
     baseUrl : './',
     contentBaseUrl : './data/content/',
     contentSaveUrl : './api/resources/',
-    apiBaseUrl : './service/api',
+    contactApiUrl : './api/mail/',
     searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
     messages : './data/messages.json',

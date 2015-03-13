@@ -18,7 +18,7 @@ module.exports = Api.extend({}, {
     /** Pre-loads map-related information. */
     start : function() {
         var that = this;
-        var baseUrl = that.app.options.apiBaseUrl;
+        var baseUrl = that.app.options.contactApiUrl;
         return Teleport.ApiDescriptor.HttpClientStub.load({
             baseUrl : baseUrl
         }).then(function(result) {
