@@ -17,10 +17,10 @@ title: <i class="icon icon-contact"></i>Contactez-nous
     <label for="reason" class="col-sm-3 control-label">Objet de votre requête</label>
     <div class="col-sm-9">
         <select class="form-control" id="reason" name="reason" placeholder="Raison de votre contact" >
-            <option value="Suggestion">Suggestion</option>
-            <option value="Question sur les données">Question sur les données</option>
-            <option value="Question technique">Question technique</option>
-            <option value="Autre">Autre</option>
+            <option value="[TechOnMap] Suggestion">Suggestion</option>
+            <option value="[TechOnMap] Question sur les données">Question sur les données</option>
+            <option value="[TechOnMap] Question technique">Question technique</option>
+            <option value="[TechOnMap] Autre question">Autre</option>
         </select>
     </div>
   </div>

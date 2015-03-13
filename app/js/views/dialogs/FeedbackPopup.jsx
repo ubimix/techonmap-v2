@@ -38,7 +38,7 @@ var schema = {
         reason : {
             description : 'Objet de votre message',
             type : 'string',
-            enum : [ 'Suggestion', 'Question technique', 'Question sur les données', 'Autre' ],
+            enum : [ '[TechOnMap] Suggestion', '[TechOnMap] Question technique', '[TechOnMap] Question sur les données', '[TechOnMap] Autre question' ],
             required : true,
             messages : {
                 required : "Merci d'indiquer l'objet de votre envoi."
