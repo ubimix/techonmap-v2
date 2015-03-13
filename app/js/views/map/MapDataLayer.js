@@ -229,6 +229,8 @@ module.exports = AbstractMapLayer.extend({
      * This method is called to highlight currently active marker
      */
     _onSelectResource : function() {
+        if (!this._map)
+            return;
         var that = this;
         that._clearSelectedMarker();
         var app = this._getApp();
