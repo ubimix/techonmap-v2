@@ -40,6 +40,8 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     /** Pre-loads map-related information. */
     start : function() {
         var that = this;
+        var app = this.options.app;
+        app.edit.addEndEditListener(this._reloadResources, this);
         this
                 .addSearchCriteriaChangeListener(this._onSearchCriteriaChange,
                         this);
@@ -56,12 +58,33 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     stop : function() {
         this.removeSearchCriteriaChangeListener(this._onSearchCriteriaChange,
                 this);
+        var app = this.options.app;
+        app.edit.removeEndEditListener(this._reloadResources, this);
         var state = this.getAppState();
         state.removeChangeListener(this._onAppStateChange, this);
     },
 
     _onSearchCriteriaChange : function() {
         return this._searchResources();
+    },
+
+    _reloadResources : function() {
+        var that = this;
+        return Mosaic.P//
+        .then(function() {
+            that._resources = [];
+            that._allResources = [];
+            that._selectedResource = null;
+            return that._loadResources({
+                force : true
+            });
+        })//
+        .then(function() {
+            return that._buildIndex();
+        }) //
+        .then(function() {
+            return that._searchResources();
+        });
     },
 
     _onAppStateChange : function(ev) {
