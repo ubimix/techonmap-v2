@@ -10,8 +10,8 @@ var defaultPort = 3701;
 var serviceOptions = _.extend({
     port : defaultPort
 }, ServiceStubProvider.toOptions(process.argv), {
-    path : '/service',
-    dir : __dirname + '/service',
+    path : '/api',
+    dir : __dirname + '/service/api',
 });
 var port = (+serviceOptions.port) || defaultPort;
 

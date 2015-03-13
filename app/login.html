@@ -2,60 +2,64 @@
 <html>
 <head>
 <title>TechOnMap - Identification</title>
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
+<link
+	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+	rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/icons.less" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
 <style>
 body {
-    font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
+
 .pagetitle {
-  font-weight: 300;
-  color: #666;
-  font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 25px;
-  text-align: center;
-  
+	font-weight: 300;
+	color: #666;
+	font-size: 24px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+	text-align: center;
 }
 
-p > a {
-    text-decoration: none;
-
+p>a {
+	text-decoration: none;
 }
 
 .btn-gray {
-  font-size: 16px;
-  color: #fff;
-  background: #CCCCCC;
-  border: 1px solid #AAAAAA;
-  display: inline-block;
-  zoom: 1;
-  padding-left: 12px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 45px;
+	font-size: 16px;
+	color: #fff;
+	background: #CCCCCC;
+	border: 1px solid #AAAAAA;
+	display: inline-block;
+	zoom: 1;
+	padding-left: 12px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 45px;
 }
 
 .social-auth {
-    background: url(../images/btn-green-tick.png) 100% 50% no-repeat #53c591;
-    margin-right: 0.5em;
-    width: 40%;
+	background: url(../images/btn-green-tick.png) 100% 50% no-repeat #53c591;
+	margin-right: 0.5em;
+	width: 40%;
 }
 
 p.help {
-  margin-bottom: 1em;
-  text-align: center;
+	margin-bottom: 1em;
+	text-align: center;
 }
 
 .help {
-  color: #AAAAAA;
-  vertical-align: baseline;
+	color: #AAAAAA;
+	vertical-align: baseline;
 }
-
 </style>
 </head>
 <body>
-    <script type="text/javascript">
+	<script type="text/javascript">
         var finished = false;
         var onLoginFinished = function() {
             if (finished)
@@ -66,12 +70,6 @@ p.help {
                 opener.onLoginFinished.apply(opener, arguments);
             }
         }
-/*        window.addEventListener("beforeunload", function(e) {
-            onLoginFinished({
-                cancel : true
-            });
-        }, false);
-*/
         function login() {
             onLoginFinished({
                 cancel : false,
@@ -84,33 +82,39 @@ p.help {
         }
     </script>
 
-    <div id="content">
-        <h3 class="pagetitle">Ajoutez ou modifiez des informations
-            concernant votre organisation</h3>
-        <div id="auth-panel">
-            <p class="help">L'ajout ou la modification de données sur
-                TechOnMap nécessite une authentification.</p>
-            <p style="text-align: center; margin-top: 0em; margin-bottom: 1.5em;">
-                <a href="/api/auth/twitter" class="btn-gray social-auth" data-network="twitter">S'identifier
-                    avec Twitter</a>
-            </p>
-            <p style="text-align: center; margin-top: 0em; margin-bottom: 1.5em;">
-                <a href="/api/auth/google" class="btn-gray social-auth" data-network="google">S'identifier
-                    avec Google</a>
-            </p>
-            <p style="text-align: center; margin-top: 0em; margin-bottom: 1.5em;">
-                <a href="/api/auth/linkedin" class="btn-gray social-auth" data-network="linkedin">S'identifier
-                    avec LinkedIn</a>
-            </p>            
-            
-            
-            <!--
+	<div id="content" class="container">
+		<h3 class="pagetitle">Ajoutez ou modifiez des informations
+			concernant votre organisation</h3>
+		<div id="auth-panel">
+			<p class="help">L'ajout ou la modification de données sur
+				TechOnMap nécessite une authentification.</p>
+
+			<div class="row">
+				<div class="col-xs-4">
+					<a href="/api/auth/twitter"
+						class="btn btn-primary btn-lg btn-block" data-network="twitter">
+						<i class="icon icon-twitter"></i>
+					</a>
+				</div>
+				<div class="col-xs-4">
+					<a href="/api/auth/linkedin"
+						class="btn btn-primary btn-lg btn-block" data-network="linkedin">
+						<i class="icon icon-linkedin"></i>
+					</a>
+				</div>
+				<div class="col-xs-4">
+					<a href="/api/auth/google" class="btn btn-primary btn-lg btn-block"
+						data-network="google"><i class="icon icon-google"></i></a>
+				</div>
+			</div>
+			<!--
             <p style="text-align: center; margin-top: 0em; margin-bottom: 1.5em;">
                 <a href="" class="btn-gray social-auth" data-network="facebook">S'identifier
                     avec Facebook</a>
             </p>
              -->
-        </div>
+		</div>
+	</div>
 </body>
 </html>
 
