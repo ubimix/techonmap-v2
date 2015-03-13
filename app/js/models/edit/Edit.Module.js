@@ -105,6 +105,7 @@ module.exports = Api.extend(ResourceUtils, {
             if (notify) {
                 that.notify();
             }
+            that._notifyEndEdit(notify);
         });
     }),
 
@@ -175,6 +176,18 @@ module.exports = Api.extend(ResourceUtils, {
             that.notify();
         });
     }),
+
+    _notifyEndEdit : function(saved) {
+        this.emit('save:end', saved);
+    },
+
+    addEndEditListener : function(listener, context) {
+        this.on('save:end', listener, context);
+    },
+
+    removeEndEditListener : function(listener, context) {
+        this.off('save:end', listener, context);
+    },
 
     _checkIdField : function(resource) {
         if (!this.isNewResource())
@@ -380,13 +393,11 @@ module.exports = Api.extend(ResourceUtils, {
             path : path,
             body : resource,
             headers : {
-//                'Content-Type' : 'application/json; charset=utf-8'
+            // 'Content-Type' : 'application/json; charset=utf-8'
             }
         }).then(function(result) {
-            console.log('RESULT: ', result);
             return result;
         }, function(err) {
-            console.log('ERROR! ', err);
             throw err;
         });
     },

@@ -18,12 +18,12 @@ module.exports = Api.extend({}, {
     /** Pre-loads map-related information. */
     start : function() {
         var that = this;
-        var baseUrl = that.app.options.apiBaseUrl;
-//        return Teleport.ApiDescriptor.HttpClientStub.load({
-//            baseUrl : baseUrl
-//        }).then(function(result) {
-//            that._api = result;
-//        });
+        var baseUrl = that.app.options.contactApiUrl;
+        return Teleport.ApiDescriptor.HttpClientStub.load({
+            baseUrl : baseUrl
+        }).then(function(result) {
+            that._api = result;
+        });
     },
 
     stop : function() {

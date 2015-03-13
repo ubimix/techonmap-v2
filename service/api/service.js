@@ -7,7 +7,7 @@ module.exports = {
     hello : rest('/hello', 'GET', function(params) {
         return 'Hello';
     }),
-    save : rest('/save/*id', 'POST', function(resource) {
+    save : rest('/save/*id', 'PUT', function(resource) {
         console.log('SAVED RESOURCE: ', resource);
         return resource;
     }),
