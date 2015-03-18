@@ -136,7 +136,7 @@ module.exports = React.createClass({
         }.bind(this);
         return React.DOM.input(options);
     },
-    
+
     _renderInputWithAddOn : function(addOnLabel, fieldKey, labelKey, options) {
       return (
               <div className="input-group">
@@ -145,7 +145,7 @@ module.exports = React.createClass({
               </div>
       );
     },
-    
+
     _renderTextarea : function(fieldKey, labelKey, options){
         var fieldRef = this._getFieldRef(fieldKey);
         options = _.extend({
@@ -427,9 +427,8 @@ module.exports = React.createClass({
     },
      
     render : function(){
-        console.log('>>>> RENDER');
         return (
-        <form className="form-horizontal">
+        <form className="form-horizontal edit">
             <section>
                 {this._renderNameAndId()}
                 {this._renderSiret()}

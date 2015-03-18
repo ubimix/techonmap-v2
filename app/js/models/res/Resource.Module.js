@@ -20,7 +20,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             fields : {}
         };
         this._resources = [];
-        this._allResources = [];
+        this._allResources = {};
         this._selectedResource = null;
         this._sort = {
             sortBy : 'name',
@@ -73,7 +73,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return Mosaic.P//
         .then(function() {
             that._resources = [];
-            that._allResources = [];
+            that._allResources = {};
             that._selectedResource = null;
             return that._loadResources({
                 force : true
@@ -235,6 +235,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return _.values(this._allResources);
     },
 
+    getAllResourceIndex : function(){
+        return this._allResources  
+    },
+    
     /** Returns a list of all resources. */
     getResources : function() {
         return this._resources;
