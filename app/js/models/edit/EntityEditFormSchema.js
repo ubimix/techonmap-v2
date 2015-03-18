@@ -1,6 +1,7 @@
+var _ = require('underscore');
 module.exports = function(options) {
     console.log('SCHEMA OPTIONS:', options);
-    var schema = newSchema();
+    var schema = newSchema(options);
     options = options || {};
     if (!options.newResource) {
         delete schema.properties.properties.properties.id;
@@ -9,7 +10,7 @@ module.exports = function(options) {
     return schema;
 }
 
-function newSchema() {
+function newSchema(options) {
     return {
         properties : {
             'geometry' : {
@@ -54,6 +55,15 @@ function newSchema() {
                         messages : {
                             required : "Un identifiant est requis.",
                             allowEmpty : "L'identifiant saisi ne doit pas être vide.",
+                            conform : "Ce champ doit être unique et au minimum 3 lettres long."
+                        },
+                        conform : function(v) {
+                            if (!v)
+                                return false;
+                            if (v.length < 3)
+                                return false;
+                            var ids = options.getAllIdentifiers() || {};
+                            return !_.has(ids, v);
                         }
                     },
                     email : {
@@ -170,7 +180,7 @@ function newSchema() {
                         },
                         messages : {
                             conform : "L'année saisie doit être au format YYYY.",
-                            type: "Une année de 4 chiffres doit être saisie."
+                            type : "Une année de 4 chiffres doit être saisie."
                         }
                     },
                     twitter : {

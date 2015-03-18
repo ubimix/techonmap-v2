@@ -115,6 +115,7 @@ module.exports = Api.extend(ResourceUtils, {
         return intent.resolve(Mosaic.P.then(function() {
             if (!that.isEditing())
                 return;
+            that._changedResourceFields = {};
             var resource = that._clone(that._resource);
             _.each(intent.params, function(values, name) {
                 that._changedResourceFields[name] = true;
@@ -197,13 +198,15 @@ module.exports = Api.extend(ResourceUtils, {
         var prevName = prevProps.name;
         var properties = resource.properties = resource.properties || {};
         var name = properties.name;
-        if (!_.has(this._changedResourceFields, 'properties.id') && //
+        if (true && //
+        !_.has(this._changedResourceFields, 'properties.id') && //
         (!prevId || prevId == this._normalizeName(prevName))) {
             properties.id = name;
         }
         properties.id = this._normalizeName(properties.id);
         if (name !== prevName) {
-            delete this._changedResourceFields['properties.id'];
+            this._changedResourceFields['properties.id'] = true;
+            // delete this._changedResourceFields['properties.id'];
         }
     },
 
@@ -354,6 +357,12 @@ module.exports = Api.extend(ResourceUtils, {
     },
 
     _newSchema : function(options) {
+        var app = this.options.app;
+        options = _.extend({}, options, {
+            getAllIdentifiers : function() {
+                return app.res.getAllResourceIndex();
+            }
+        });
         return newSchema(options);
         function copy(from) {
             var to = {};
