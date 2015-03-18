@@ -6,11 +6,11 @@
 </head>
 <body>
     <script type="text/javascript">
-            if (window.opener.onLoginFinished) {
-                var opener = window.opener;
-		var info = { cancel: false, user : { name : 'John Doe'}};
-                opener.onLoginFinished.call(opener, info);
-            }
+	    var opener = window.opener;
+        if (opener && opener.onLoginFinished) {
+		    var info = { cancel: false, user : { name : 'John Doe'}};
+		    opener.onLoginFinished.call(opener, info);
+		}
 	    window.close();
     </script>
 
