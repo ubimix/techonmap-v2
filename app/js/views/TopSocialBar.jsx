@@ -19,9 +19,9 @@ module.exports = React.createClass({
                       @TechOnMap
                   </a> :
                   <span className="lastTweet">
-                      <a href="https://twitter.com/search?q=%23fens2014">#fens2014</a> dernier jour pour découvrir <a href="https://twitter.com/@TechOnMap">@TechOnMap</a> la carte représentant la richesse de l&quot;écosystème des acteurs du <a href="https://twitter.com/search?q=%23numerique">#numerique</a> francilien
+                      &nbsp;La nouvelle version de TechOnMap, la carte des acteurs du numérique d’Île-de-France est à découvrir très bientôt ! <a href="https://twitter.com/hashtag/opendata?src=hash"><s>#</s>opendata</a> <a href="https://twitter.com/hashtag/opensource?src=hash"><s>#</s>opensource</a>                      
                   </span>
-                  <a href="https://twitter.com/TechOnMap/status/478119836766461952" className="lastTweetDate">15/6/2014 </a>
+                  &nbsp;<a href="https://twitter.com/TechOnMap/status/578596672126771200" className="lastTweetDate">19/3/2015</a>
               </div>
           </div>
       );
