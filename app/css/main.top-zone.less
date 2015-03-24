@@ -8,15 +8,20 @@
     border-radius: 0;
     
     .navbar-header {
-        max-width: 20%; 
         min-width: 100px; 
         .navbar-brand {
             float: left;
             height: auto;
             font-size: 1em;
-            padding: 10px 15px;
+            padding: 10px 15px 5px 10px;
             line-height: 1.42857143;
             img { max-width: 100% }
+        }
+        
+        .baseline {
+            font-size: 13px;
+            color: #666;
+            clear: both;
         }
     }
 
@@ -27,6 +32,7 @@
     ul.top-navigation {
         z-index: 1002;
         border-bottom: none;
+        padding-top: 5px;
         > li {
             width: 72px;
             > a {
@@ -82,7 +88,7 @@
                 > .dropdown-menu {
                     .box-shadow();
                     display: none;
-                    margin-top: -2px;
+                    //margin-top: -2px;
                     z-index: -1;
                     border: none;
                     border-radius: 0px;

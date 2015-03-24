@@ -258,6 +258,7 @@ module.exports = React.createClass({
                               <a className="navbar-brand" href="#">
                                   <img src="images/logo-01.svg" />
                               </a>
+                              <h2 className="baseline">{this._getLabel('topmenu.baseline')}</h2>
                           </div>
                           <div className="navbar-collapse collapse" ref="navbar">
                             <ul className="nav navbar-nav navbar-right top-navigation">
