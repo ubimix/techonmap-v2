@@ -137,8 +137,10 @@ Mosaic.Events.prototype, ContentPopupMixin, {
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
 
-        var left = Math.max(Math.round((windowWidth - popupWidth)/ 2), 0);
-        var top = Math.max(Math.round((windowHeight - popupHeight) / 2), 10);
+        var minLeft = 0;
+        var minTop = 100;
+        var left = Math.max(Math.round((windowWidth - popupWidth)/ 2), minLeft);
+        var top = Math.max(Math.round((windowHeight - popupHeight) / 2), minTop);
         var options = 'location=no,resizable=yes,menubar=no,' + 
         'scrollbars=no,status=no,titlebar=no,toolbar=no,' +
         'width=' + popupWidth + ',height=' + popupHeight + ',' +
