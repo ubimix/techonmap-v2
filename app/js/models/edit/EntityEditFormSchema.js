@@ -80,17 +80,16 @@ function newSchema(options) {
                                 return false;
                             if (!v.match(/^\d+$/))
                                 return false;
-                            var result = this.checkLuhn(v);
-                            console.log('RESULT: ', result);
+                            var result = checkLuhn(v);
                             return result;
                             function checkLuhn(imei) {
                                 var digits = [ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 ];
-                                return !/^\d+$/.test(imei) || //
-                                (imei.split('').reduce(function(sum, d, n) {
-                                    return n === (imei.length - 1) ? //
-                                    0 : //
-                                    sum + parseInt((n % 2) ? d : digits[d]);
-                                }, 0)) % 10 == 0;
+                                var val = (imei.split('').reduce(function(sum,
+                                        d, n) {
+                                    return (n === (imei.length - 1) ? 0 : sum) + //
+                                    parseInt((n % 2) ? d : digits[d]);
+                                }, 0));
+                                return (val % 10) == 0;
                             }
                         }
                     },
