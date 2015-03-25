@@ -124,6 +124,7 @@ module.exports = Api.extend(ResourceUtils, {
             });
             if (notify) {
                 that._checkIdField(resource);
+                that._checkTaxIdField(resource);
                 that._resource = resource;
                 that._validateResource();
             }
@@ -207,6 +208,15 @@ module.exports = Api.extend(ResourceUtils, {
         if (name !== prevName) {
             this._changedResourceFields['properties.id'] = true;
             // delete this._changedResourceFields['properties.id'];
+        }
+    },
+    _checkTaxIdField : function(resource) {
+        var properties = resource.properties = resource.properties || {};
+        var taxID = properties.taxID || '';
+        var prevID = taxID;
+        taxID = properties.taxID = taxID.replace(/[^\d]+/gim, '');
+        if (taxID !== prevID) {
+            this._changedResourceFields['properties.taxID'] = true;
         }
     },
 

@@ -80,7 +80,9 @@ function newSchema(options) {
                                 return false;
                             if (!v.match(/^\d+$/))
                                 return false;
-                            return checkLuhn(v);
+                            var result = this.checkLuhn(v);
+                            console.log('RESULT: ', result);
+                            return result;
                             function checkLuhn(imei) {
                                 var digits = [ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 ];
                                 return !/^\d+$/.test(imei) || //
