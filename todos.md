@@ -1,14 +1,15 @@
 Twitter à rétablir
-Authentification
+Authentification avec Facebook
+check identifiant
 Mettre des icônes pour gagner de la place pour éviter le scroll vertical
 logos
 SIRET: check sur le SIRET bien formatté un chiffre sert à valider
 Problème de sélection de tags
-Site Web: champ libre avec ou sans http
+Site Web: champ libre avec ou sans http avec ou sans http
 Création de fiche -> l'afficher sur la carte ensuite
+pas de géolocalisation -> warning
 champ mail
 envoyer contacts
-- afficher 'La carte des acteurs du numérique en îdF'
 écrire http://www.siteweb.com
 
 
@@ -53,6 +54,7 @@ manuel de pin
 - génération automatique d'identifiant
 - tags : si possible n'afficher qu'un seul champ tag et un bouton pour
 en afficher d'autres
+mail obligatoire lors de l'edition mais pas lors dela
 
 Recherche
 =========
@@ -92,14 +94,16 @@ Autres
 ======
 o permalien et partage d'entités individuelles via fragments
 - fil twitter
-- s'assurer que lorsque des entreprises présentes sont situées hors IdF
-la carte est bien centrée sur l'IdF quand même
-- Il faudra s'assurer au moment de la communication que le code est bien
-disponible sur GitHub
+- s'assurer que lorsque des entreprises présentes sont situées hors IdF la carte est bien centrée sur l'IdF quand même
+- Il faudra s'assurer au moment de la communication que le code est bien disponible sur GitHub
 - Déplacer le 'Leaflet'
 - Rétablir Google Analytics
-- Est-ce qu'on ne met pas "La carte du numérique en Île-de-France"
 - Site Web : http:
-- Possible template de tweet pour inciter les utilisateurs à publier sur
-Twitter qu'ils sont présent sur ToM
+- Possible template de tweet pour inciter les utilisateurs à publier sur Twitter qu'ils sont présent sur ToM
 - Bouton 'ok' des boîtes de dialogue
+
+cluster à éclater 
+tags / catégories déselection
+désélection d'un item dans la liste
+ 
+
