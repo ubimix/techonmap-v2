@@ -66,6 +66,21 @@ function newSchema(options) {
                             return !_.has(ids, v);
                         }
                     },
+                    taxID : {
+                        description : 'SIRET',
+                        type : 'string',
+                        required : false,
+                        messages : {
+                            conform : "Le numero SIRET semble incorrecte.",
+                        },
+                        conform : function(v) {
+                            if (!v || !v.length)
+                                return true;
+                            if (v.length != 14)
+                                return false;
+                            return v.match(/^\d+$/);
+                        }
+                    },
                     email : {
                         description : 'Adresse e-mail de contact',
                         type : 'string',
