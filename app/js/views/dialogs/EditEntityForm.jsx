@@ -383,10 +383,10 @@ module.exports = React.createClass({
     },
     
     _renderSiret : function(){
-        var input = this._renderInput('properties.siret',
+        var input = this._renderInput('properties.taxID',
                 'dialog.edit.siret.placeholder', {
         });
-        return this._renderHorizontalFormGroup('properties.siret', 'dialog.edit.siret.label', input, true);
+        return this._renderHorizontalFormGroup('properties.taxID', 'dialog.edit.siret.label', input, true);
     },
     
     _renderWebSiteUrl : function(){

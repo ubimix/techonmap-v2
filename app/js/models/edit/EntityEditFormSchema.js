@@ -71,14 +71,25 @@ function newSchema(options) {
                         type : 'string',
                         required : false,
                         messages : {
-                            conform : "Le numero SIRET semble incorrecte.",
+                            conform : "Le numero SIRET semble incorrecte. Il devrait contenir 14 chiffres sans espaces.",
                         },
                         conform : function(v) {
-                            if (!v || !v.length)
+                            if (!v || !v.length)
                                 return true;
                             if (v.length != 14)
                                 return false;
-                            return v.match(/^\d+$/);
+                            if (!v.match(/^\d+$/))
+                                return false;
+                            return checkLuhn(v);
+                            function checkLuhn(imei) {
+                                var digits = [ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 ];
+                                return !/^\d+$/.test(imei) || //
+                                (imei.split('').reduce(function(sum, d, n) {
+                                    return n === (imei.length - 1) ? //
+                                    0 : //
+                                    sum + parseInt((n % 2) ? d : digits[d]);
+                                }, 0)) % 10 == 0;
+                            }
                         }
                     },
                     email : {
