@@ -132,9 +132,17 @@ Mosaic.Events.prototype, ContentPopupMixin, {
                 wnd.close();
             }
         }
+        var popupWidth = 800;
+        var popupHeight = 400;
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+
+        var left = Math.max(Math.round((windowWidth - popupWidth)/ 2), 0);
+        var top = Math.max(Math.round((windowHeight - popupHeight) / 2), 10);
         var options = 'location=no,resizable=yes,menubar=no,' + 
         'scrollbars=no,status=no,titlebar=no,toolbar=no,' +
-        'width=500,height=300,top=100,left=200';
+        'width=' + popupWidth + ',height=' + popupHeight + ',' +
+        'top=' + top + ',left=' + left + '';
         wnd = window.open('./login.html', 'login', options);
         return deferred.promise;
     }
