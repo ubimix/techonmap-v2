@@ -235,10 +235,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return _.values(this._allResources);
     },
 
-    getAllResourceIndex : function(){
-        return this._allResources  
+    getAllResourceIndex : function() {
+        return this._allResources
     },
-    
+
     /** Returns a list of all resources. */
     getResources : function() {
         return this._resources;
@@ -342,14 +342,17 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         } else {
             tagsList = categoryTags;
         }
-        var regexp = new RegExp('\\b' + mask, 'gim');
-        var tags = _.filter(tagsList, function(str) {
-            if (!mask)
-                return true;
-            if (mask == str)
-                return false;
-            return regexp.test(str);
-        });
+        var tags;
+        if (!mask) {
+            tags = tagsList;
+        } else {
+            var regexp = new RegExp('(^' + mask + '|\\b' + mask + ')');
+            tags = _.filter(tagsList, function(str) {
+                // if (str == mask)
+                // return false;
+                return regexp.test(str);
+            });
+        }
         return tags;
     },
 
@@ -364,7 +367,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                     this._allTags[tag] = (this._allTags[tag] || 0) + 1;
                 }, this);
             }, this);
-            _.each(this._allResources, function(resource) {
+            _.each(this._allResources, function(resource, key) {
                 var tags = this.getResourceTags(resource);
                 _.each(tags, function(tag) {
                     tag = this._normalizeTag(tag);
