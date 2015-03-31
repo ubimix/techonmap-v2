@@ -132,8 +132,8 @@ Mosaic.Events.prototype, ContentPopupMixin, {
                 wnd.close();
             }
         }
-        var popupWidth = 800;
-        var popupHeight = 400;
+        var popupWidth = 850;
+        var popupHeight = 500;
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
 

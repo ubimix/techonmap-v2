@@ -195,7 +195,7 @@ module.exports = React.createClass({
           //<span className="form-control">{id}</span>
             idInput = (
                 <span id={this._newId()}>
-                    {this._renderInputWithAddOn('www.techonmap.fr/#', 'placeholder', id, {disabled: 'disabled'})}
+                    //{this._renderInputWithAddOn('www.techonmap.fr/#', 'placeholder', id, {disabled: 'disabled'})}
                     {this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
                         type: 'hidden'
                     })}
