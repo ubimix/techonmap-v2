@@ -55,7 +55,7 @@ function newSchema(options) {
                         messages : {
                             required : "Un identifiant est requis.",
                             allowEmpty : "L'identifiant saisi ne doit pas être vide.",
-                            conform : "Ce champ doit être unique et au minimum 3 lettres long."
+                            conform : "Cet identifiant existe déjà ou est trop court."
                         },
                         conform : function(v) {
                             if (!v)
