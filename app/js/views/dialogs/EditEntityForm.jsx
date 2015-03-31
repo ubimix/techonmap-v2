@@ -196,7 +196,6 @@ module.exports = React.createClass({
             //{this._renderInputWithAddOn('www.techonmap.fr/#', 'placeholder', id, {disabled: 'disabled'})}
             idInput = (
                 <span id={this._newId()}>
-
                     {this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
                         type: 'hidden'
                     })}
@@ -205,10 +204,17 @@ module.exports = React.createClass({
         }
         var that = this;
         var nameInput = this._renderInput('properties.name', 'dialog.edit.name.placeholder', {});
-        return [
-            this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
-            this._renderHorizontalFormGroup('properties.id', 'dialog.edit.id.label', idInput)
-        ];
+        if (newEntity) {
+            return [
+                this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
+                this._renderHorizontalFormGroup('properties.id', 'dialog.edit.id.label', idInput)
+            ];
+        } else {
+            return [
+                    this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
+                    idInput
+            ];
+        }
     },
     
     _renderMail : function(){
