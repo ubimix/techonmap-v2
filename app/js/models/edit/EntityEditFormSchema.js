@@ -71,7 +71,7 @@ function newSchema(options) {
                         type : 'string',
                         required : false,
                         messages : {
-                            conform : "Le numéro SIRET semble incorrect : il doit contenir 14 chiffres sans espaces.",
+                            conform : "Le numéro SIRET semble incorrect : il doit contenir 14 chiffres sans espace.",
                         },
                         conform : function(v) {
                             if (!v || !v.length)
