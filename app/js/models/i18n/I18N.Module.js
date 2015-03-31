@@ -56,10 +56,50 @@ module.exports = Api.extend({
         msg = templ.apply(this, args);
         return msg;
     },
+    
+    getMessage1 : function(key) {
+        var messages = this._getMessagesDictionary();
+        var args = [ messages ].concat(_.toArray(arguments));
+        return this._getMessage.apply(this, args);
+    },
+
+    getValidationMessage : function(key) {
+        var messages = this._getMessagesDictionary();
+        messages = messages['validationMessages'] || {};
+        var args = [ messages ].concat(_.toArray(arguments));
+        return this._getMessage.apply(this, args);
+    },
 
     getFormValidationMessages : function() {
-        var obj = this._messages[this._languageKey] || {};
+        var obj = this._messages[this._languageKey] || {};
         return obj['validationMessages'];
+    },
+
+    _getMessagesDictionary : function() {
+        var messages = this._messages[this._languageKey];
+        if (!messages) {
+            messages = this._messages[this._defaultLanguageKey] || {};
+        }
+        return messages;
+    },
+
+    _getMessages : function(messages, key) {
+        messages = messages || {};
+        var msg = messages[key];
+        if (!msg) {
+            msg = key;
+        }
+        var args = _.toArray(arguments);
+        args.shift();
+        args.shift();
+        if (msg.indexOf('{') >= 0) {
+            msg = msg.replace(/\{(\d+)\}/gim, function() {
+                return args[arguments[1]];
+            });
+        }
+        var templ = _.template(msg);
+        msg = templ.apply(this, args);
+        return msg;
     },
 
     /* Internal methods used by the I18N.Module class */

@@ -124,6 +124,8 @@ module.exports = Api.extend(ResourceUtils, {
             });
             if (notify) {
                 that._checkIdField(resource);
+                that._checkTaxIdField(resource);
+                that._checkYearField(resource);
                 that._resource = resource;
                 that._validateResource();
             }
@@ -207,6 +209,25 @@ module.exports = Api.extend(ResourceUtils, {
         if (name !== prevName) {
             this._changedResourceFields['properties.id'] = true;
             // delete this._changedResourceFields['properties.id'];
+        }
+    },
+    _checkYearField : function(resource) {
+        var properties = resource.properties = resource.properties || {};
+        var creationyear = (properties.creationyear || '') + '';
+        var prevCreationyear = creationyear;
+        creationyear = properties.creationyear = //
+        creationyear.replace(/[^\d]+/gim, '');
+        if (creationyear !== prevCreationyear) {
+            this._changedResourceFields['properties.creationyear'] = true;
+        }
+    },
+    _checkTaxIdField : function(resource) {
+        var properties = resource.properties = resource.properties || {};
+        var taxID = properties.taxID || '';
+        var prevID = taxID;
+        taxID = properties.taxID = taxID.replace(/[^\d]+/gim, '');
+        if (taxID !== prevID) {
+            this._changedResourceFields['properties.taxID'] = true;
         }
     },
 
