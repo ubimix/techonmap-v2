@@ -5,6 +5,8 @@ module.exports = {
     contentBaseUrl : './data/content/',
     contentSaveUrl : './api/resources/',
     contactApiUrl : './api/mail',
+    userInfoApiUrl : './api/auth/user',
+    logoutApiUrl : './api/logout',
     searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
     messages : './data/messages.json',
@@ -37,7 +39,7 @@ module.exports = {
 };
 
 function toBoolean(str, def) {
-    if (!str || str === undefined)
+    if (!str || str === undefined)
         return def;
     str += '';
     str = str.toLowerCase();
