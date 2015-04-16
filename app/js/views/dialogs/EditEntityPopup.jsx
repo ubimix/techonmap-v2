@@ -140,8 +140,7 @@ Mosaic.Events.prototype, ContentPopupMixin, {
             if (!wnd)
                 return ;
             if (!result.cancel && result.user) {
-                var userInfo = result.user;
-                deferred.resolve(app.user.setUserInfo(userInfo));
+                deferred.resolve();
             } else {
                 deferred.reject();
             }

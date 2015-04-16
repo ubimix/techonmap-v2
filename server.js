@@ -25,6 +25,11 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 /* ------------------------------------------------------- */
+var userInfoKey = 'user';
+app.get('/api/logout', function(req, res) {
+    res.clearCookie(userInfoKey);
+    res.json({});
+});
 app.get('/api/auth/user', function(req, res) {
     function readUser(str, defaultValue) {
         var user = defaultValue;
@@ -34,21 +39,20 @@ app.get('/api/auth/user', function(req, res) {
         }
         return user;
     }
-    var key = 'user';
     var user;
-    if (key in req.query) {
-        user = readUser(req.query[key]);
+    if (userInfoKey in req.query) {
+        user = readUser(req.query[userInfoKey]);
         if (user) {
-            res.cookie(key, JSON.stringify(user), {
+            res.cookie(userInfoKey, JSON.stringify(user), {
                 maxAge : 900000,
             // secure : true
             });
         } else {
-            res.clearCookie(key);
+            res.clearCookie(userInfoKey);
         }
     } else {
         var cookies = req.cookies || {};
-        user = readUser(cookies[key]);
+        user = readUser(cookies[userInfoKey]);
     }
     user = user || {};
     res.json(user);

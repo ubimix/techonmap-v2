@@ -6,6 +6,7 @@ module.exports = {
     contentSaveUrl : './api/resources/',
     contactApiUrl : './api/mail',
     userInfoApiUrl : './api/auth/user',
+    logoutApiUrl : './api/logout',
     searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
     messages : './data/messages.json',

@@ -24,34 +24,35 @@ module.exports = Api.extend({
     stop : function() {
     },
 
-    getUserInfo : function() {
-        var that = this;
-        var baseUrl = that.app.options.userInfoApiUrl;
+    _http : function(url, method) {
+        method = method || 'GET';
         var client = Teleport.HttpClient.newInstance({
-            baseUrl : baseUrl
+            baseUrl : url
         });
         return client.exec({
             path : '',
-            method : 'GET'
-        }).then(function(json) {
-            var user;
+            method : method
+        }).then(function(json) {
             try {
-                user = _.isObject(json) ? json : JSON.parse(json); 
+                return _.isObject(json) ? json : JSON.parse(json);
             } catch (err) {
+                return;
             }
+        });
+    },
+
+    logout : function() {
+        return this._http(this.app.options.logoutApiUrl).then(function(user) {
+            return user;
+        });
+    },
+
+    getUserInfo : function() {
+        return this._http(this.app.options.userInfoApiUrl).then(function(user) {
             if (!user || !user.displayName)
                 return;
             return user;
         });
     },
-
-    setUserInfo : Api.intent(function(intent) {
-        var that = this;
-        return intent.resolve(Mosaic.P.then(function() {
-            that._user = intent.params;
-        })).then(function() {
-            that.notify();
-        });
-    }),
 
 });
