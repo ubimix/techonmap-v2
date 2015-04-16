@@ -100,19 +100,26 @@ Mosaic.Events.prototype, ContentPopupMixin, {
     open : function(resource) {
         var that = this;
         var app = that.options.app;
-        if (app.user.isLoggedIn()) {
-            that._openPopup(resource);
-        } else {
-            that._login().then(function(){
-                that._openPopup(resource);
-            }, function(err){
+        app.user.getUserInfo().then(function(user){
+            if (!!user) {
+                return that._openPopup(resource);
+            } 
+            return that._login().then(function(){
+                return app.user.getUserInfo().then(function(user){
+                    if (!!user) {
+                        return that._openPopup(resource);
+                    } else {
+                        throw new Error('You are not logged in!');
+                    }
+                });
+            }).then(null, function showLoginErrorMsg(err){
                 var msg = that._getLabel('dialog.edit.login.error', {
                     error : err
                 });
                 var title = that._getLabel('dialog.edit.login.error.title');
                 that._showMessage(title, msg);
             });
-        }
+        });
     },
     
     _login : function(){
@@ -120,7 +127,18 @@ Mosaic.Events.prototype, ContentPopupMixin, {
         var app = that.getApp();
         var deferred = Mosaic.P.defer();
         var wnd;
-        window.onLoginFinished = function(result) {
+        function checkLoginWindow() {
+            if (!wnd)
+                return ;
+            if (wnd.closed) {
+                clearInterval(checkLoginWindow.timerId);
+                onLoginFinished({cancel : true});
+                wnd = null;
+            }
+        }
+        function onLoginFinished(result) {
+            if (!wnd)
+                return ;
             if (!result.cancel && result.user) {
                 var userInfo = result.user;
                 deferred.resolve(app.user.setUserInfo(userInfo));
@@ -131,7 +149,8 @@ Mosaic.Events.prototype, ContentPopupMixin, {
             if (wnd) {
                 wnd.close();
             }
-        }
+        }        
+        window.onLoginFinished = onLoginFinished;
         var popupWidth = 850;
         var popupHeight = 500;
         var windowWidth = window.innerWidth;
@@ -146,6 +165,7 @@ Mosaic.Events.prototype, ContentPopupMixin, {
         'width=' + popupWidth + ',height=' + popupHeight + ',' +
         'top=' + top + ',left=' + left + '';
         wnd = window.open('./login.html', 'login', options);
+        checkLoginWindow.timerId = setInterval(checkLoginWindow, 500);
         return deferred.promise;
     }
 });

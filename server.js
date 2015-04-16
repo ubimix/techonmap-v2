@@ -25,6 +25,36 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 /* ------------------------------------------------------- */
+app.get('/api/auth/user', function(req, res) {
+    function readUser(str, defaultValue) {
+        var user = defaultValue;
+        try {
+            user = JSON.parse(str);
+        } catch (err) {
+        }
+        return user;
+    }
+    var key = 'user';
+    var user;
+    if (key in req.query) {
+        user = readUser(req.query[key]);
+        if (user) {
+            res.cookie(key, JSON.stringify(user), {
+                maxAge : 900000,
+            // secure : true
+            });
+        } else {
+            res.clearCookie(key);
+        }
+    } else {
+        var cookies = req.cookies || {};
+        user = readUser(cookies[key]);
+    }
+    user = user || {};
+    res.json(user);
+});
+
+/* ------------------------------------------------------- */
 var handlerProvider = new ServiceStubProvider(serviceOptions);
 handlerProvider.registerInExpressApp(app);
 
