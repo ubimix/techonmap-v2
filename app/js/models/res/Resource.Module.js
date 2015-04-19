@@ -41,7 +41,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     start : function() {
         var that = this;
         var app = this.options.app;
-        app.edit.addEndEditListener(this._reloadResources, this);
+        app.edit.addEndEditListener(this._onEndEdit, this);
         this
                 .addSearchCriteriaChangeListener(this._onSearchCriteriaChange,
                         this);
@@ -59,7 +59,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         this.removeSearchCriteriaChangeListener(this._onSearchCriteriaChange,
                 this);
         var app = this.options.app;
-        app.edit.removeEndEditListener(this._reloadResources, this);
+        app.edit.removeEndEditListener(this._onEndEdit, this);
         var state = this.getAppState();
         state.removeChangeListener(this._onAppStateChange, this);
     },
@@ -68,16 +68,16 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return this._searchResources();
     },
 
-    _reloadResources : function() {
+    _onEndEdit : function(evt) {
         var that = this;
+        if (!evt.changed)
+            return;
         return Mosaic.P//
         .then(function() {
-            that._resources = [];
-            that._allResources = {};
-            that._selectedResource = null;
-            return that._loadResources({
-                force : true
-            });
+            var resource = evt.resource;
+            var id = that.getResourceId(resource);
+            that._allResources[id] = resource;
+            that._resetResources();
         })//
         .then(function() {
             return that._buildIndex();
