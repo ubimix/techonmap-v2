@@ -101,11 +101,11 @@ module.exports = Api.extend(ResourceUtils, {
             if (intent.params.save) {
                 return that._saveResource(resource);
             }
-        })).then(function() {
+        })).then(function(resource) {
             if (notify) {
                 that.notify();
             }
-            that._notifyEndEdit(notify);
+            that._notifyEndEdit({changed : notify, resource : resource});
         });
     }),
 
