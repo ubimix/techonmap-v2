@@ -385,7 +385,7 @@ module.exports = Api.extend(ResourceUtils, {
             },
             getMessage : function(key) {
                 var i18n = app.i18n;
-                return i18n.getValidationMessage.apply(i18, arguments);
+                return i18n.getValidationMessage.apply(i18n, arguments);
             }
         });
         return newSchema(options);
