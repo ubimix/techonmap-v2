@@ -50,7 +50,12 @@ module.exports = Api.extend({
     },
 
     getUserInfo : function() {
+        var that = this;
         return this._http(this.app.options.userInfoApiUrl).then(function(user) {
+            if (JSON.stringify(user) != JSON.stringify(that._user)) {
+                that._user = user;
+                that.notify();
+            }
             if (!user || !user.displayName)
                 return;
             return user;
