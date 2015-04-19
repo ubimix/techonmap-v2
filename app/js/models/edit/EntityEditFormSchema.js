@@ -1,6 +1,5 @@
 var _ = require('underscore');
 module.exports = function(options) {
-    console.log('SCHEMA OPTIONS:', options);
     var schema = newSchema(options);
     options = options || {};
     if (!options.newResource) {
@@ -14,13 +13,15 @@ function newSchema(options) {
     return {
         properties : {
             'geometry' : {
-                label : 'Geographical coordinates',
+                label : options.getMessage('field.geometry.coordinates'),
                 type : 'object',
                 required : true,
                 properties : {
                     coordinates : {
-                        label : 'Coordinates',
-                        description : 'Geographical coordinates',
+                        label : options
+                                .getMessage('field.geometry.coordinates.label'),
+                        description : options
+                                .getMessage('field.geometry.coordinates'),
                         type : 'array',
                         minItems : 2,
                         maxItems : 2,
@@ -30,32 +31,37 @@ function newSchema(options) {
                 }
             },
             'properties' : {
-                label : 'Resource properties',
+                label : options.getMessage('field.properties'),
                 type : 'object',
                 required : true,
                 messages : {
-                    required : "Proprietes sont requis.",
+                    required : options.getMessage('field.properties.required'),
                 },
                 properties : {
                     name : {
-                        label : 'Nom de votre organisation',
-                        description : 'Nom de votre organisation',
+                        label : options.getMessage('field.name'),
+                        description : options
+                                .getMessage('field.name.description'),
                         type : 'string',
                         required : true,
                         messages : {
-                            required : "Un nom est requis.",
-                            allowEmpty : "Le nom saisi ne doit pas être vide.",
+                            required : options
+                                    .getMessage('field.name.required'),
+                            allowEmpty : options
+                                    .getMessage('field.name.allowEmpty')
                         }
                     },
                     id : {
-                        label : 'Identifiant de votre organisation.',
-                        description : 'Identifiant de votre organisation.',
+                        label : options.getMessage('field.id'),
+                        description : options
+                                .getMessage('field.id.description'),
                         type : 'string',
                         required : true,
                         messages : {
-                            required : "Un identifiant est requis.",
-                            allowEmpty : "L'identifiant saisi ne doit pas être vide.",
-                            conform : "Cet identifiant existe déjà ou est trop court."
+                            required : options.getMessage('field.id.required'),
+                            allowEmpty : options
+                                    .getMessage('field.id.allowEmpty'),
+                            conform : options.getMessage('field.id.conform'),
                         },
                         conform : function(v) {
                             if (!v)
@@ -67,11 +73,12 @@ function newSchema(options) {
                         }
                     },
                     taxID : {
-                        description : 'SIRET',
+                        description : options.getMessage('field.taxID'),
                         type : 'string',
                         required : false,
                         messages : {
-                            conform : "Le numéro SIRET semble incorrect : il doit contenir 14 chiffres sans espace.",
+                            conform : options
+                                    .getMessage('field.taxID.msg.conform'),
                         },
                         conform : function(v) {
                             if (!v || !v.length)
@@ -96,70 +103,88 @@ function newSchema(options) {
                         }
                     },
                     email : {
-                        description : 'Adresse e-mail de contact',
+                        label : options.getMessage('field.email'),
+                        description : options
+                                .getMessage('field.email.descripton'),
                         type : 'string',
                         format : 'email',
                         required : true,
                         messages : {
-                            required : "Une adresse e-mail est requise.",
-                            allowEmpty : "L'adresse e-mail ne doit pas être vide.",
-                            format : "L'adresse e-mail semble incorrecte.",
+                            required : options
+                                    .getMessage('field.email.required'),
+                            allowEmpty : options
+                                    .getMessage('field.email.allowEmpty'),
+                            format : getMessage('field.email.format'),
                         }
                     },
                     description : {
-                        description : 'Description de votre organisation',
+                        label : options.getMessage('field.description'),
+                        description : options
+                                .getMessage('field.description.descripton'),
                         type : 'string',
                         maxLength : 250,
                         required : true,
                         messages : {
-                            required : "Une description est requise.",
-                            allowEmpty : "La description saisie ne doit pas être vide.",
-                            minLength : "This description is too short (minimum is %{expected} characters)",
-                            maxLength : "La description saisie excède le nombre maximal de caractères (250).",
+                            required : options
+                                    .getMessage('field.description.required'),
+                            allowEmpty : options
+                                    .getMessage('field.description.allowEmpty'),
+                            minLength : options
+                                    .getMessage('field.description.minLength'),
+                            maxLength : options
+                                    .getMessage('field.description.maxLength')
                         }
                     },
                     category : {
-                        label : 'Catégorie',
-                        description : 'Sélectionner une catégorie / un type d\'organisation',
+                        label : options.getMessage('field.category'),
+                        description : options
+                                .getMessage('field.category.description'),
                         type : 'string',
-                        enum : [ "Entreprise", "Tiers-lieu", "École",
-                                "Communauté", "Incubateur", "Investisseur",
-                                "Acteur public" ],
+                        enum : options.getValues('field.category.values'),
                         required : true
                     },
                     tags : {
-                        label : 'Tags',
-                        description : 'Saisissez un ou plusieurs mot-clef(s)',
+                        label : options.getMessage('field.tags.label'),
+                        description : options.getMessage('field.tags'),
                         minItems : 1,
                         maxItems : 5,
                         uniqueItems : true,
                         type : 'array',
                         required : true,
                         messages : {
-                            minItems : "Au moins un tag est requis.",
-                            required : "Au moins un tag est requis.",
-                            allowEmpty : "Le tag saisi ne doit pas être vide.",
+                            minItems : options
+                                    .getMessage('field.tags.minItems'),
+                            required : options
+                                    .getMessage('field.tags.required'),
+                            allowEmpty : options
+                                    .getMessage('field.tags.allowEmpty'),
                         }
                     },
                     address : {
-                        label : 'Adresse',
-                        description : 'Adresse de votre organisation',
+                        label : options.getMessage('field.address'),
+                        description : options
+                                .getMessage('field.address.description'),
                         type : 'string',
                         required : true,
                         messages : {
-                            required : "Une adresse est requise.",
-                            allowEmpty : "L'adresse saisie ne doit pas être vide.",
+                            required : options
+                                    .getMessage('field.address.msg.required'),
+                            allowEmpty : options
+                                    .getMessage('field.address.msg.allowEmtpy'),
                         }
                     },
                     postcode : {
-                        label : 'Code postal',
-                        description : 'Code postal de votre organisation',
+                        label : options.getMessage('field.postcode'),
+                        description : options
+                                .getMessage('field.postcode.description'),
                         type : 'integer',
                         allowEmpty : false,
                         required : true,
                         messages : {
-                            required : "Un code postal est requis.",
-                            allowEmpty : "Le code postal saisi ne doit pas être vide.",
+                            required : options
+                                    .getMessage('field.postcode.msg.required'),
+                            allowEmpty : options
+                                    .getMessage('field.postcode.msg.allowEmpty')
                         },
                         conform : function(v) {
                             try {
@@ -172,30 +197,37 @@ function newSchema(options) {
                         }
                     },
                     city : {
-                        label : 'Ville',
-                        description : 'Ville de votre organisation',
+                        label : options.getMessage('field.city'),
+                        description : options
+                                .getMessage('field.city.description'),
                         type : 'string',
                         required : true,
                         messages : {
-                            required : "Une ville est requise.",
-                            allowEmpty : "La ville saisie ne doit pas être vide.",
+                            required : options
+                                    .getMessage('field.city.msg.required'),
+                            allowEmpty : options
+                                    .getMessage('field.city.msg.allowEmpty')
                         }
                     },
                     url : {
-                        label : 'Site Web',
-                        description : 'Site Web de votre organisation',
+                        label : options.getMessage('field.url'),
+                        description : options
+                                .getMessage('field.url.description'),
                         type : 'string',
                         required : true,
                         format : 'url',
                         messages : {
-                            required : "Un site Web est requis.",
-                            allowEmpty : "Le site saisi ne doit pas être vide.",
-                            format : "Le texte saisi ne semble pas être une URL valide.",
+                            required : options
+                                    .getMessage('field.url.msg.required'),
+                            allowEmpty : options
+                                    .getMessage('field.url.msg.allowEmpty'),
+                            format : options.getMessage('field.url.msg.format'),
                         }
                     },
                     creationyear : {
-                        label : 'L\'année de création',
-                        description : 'Année de création de votre organisation',
+                        label : options.getMessage('field.creationyear'),
+                        description : options
+                                .getMessage('field.creationyear.description'),
                         type : 'number',
                         required : true,
                         conform : function(v) {
@@ -208,18 +240,21 @@ function newSchema(options) {
                             }
                         },
                         messages : {
-                            conform : "L'année saisie doit être au format YYYY.",
-                            type : "Une année de 4 chiffres doit être saisie."
+                            conform : options.getMessage('field.messages'),
+                            type : options
+                                    .getMessage('field.messages.description'),
                         }
                     },
                     twitter : {
-                        label : 'Compte Twitter',
-                        description : 'Compte Twitter de votre organisation',
+                        label : options.getMessage('field.twitter'),
+                        description : options
+                                .getMessage('field.twitter.description'),
                         type : 'string',
                     },
                     facebook : {
-                        label : 'Page Facebook',
-                        description : 'Page Facebook de votre organisation',
+                        label : options.getMessage('field.facebook'),
+                        description : options
+                                .getMessage('field.facebook.description'),
                         type : 'string',
                         conform : function(v) {
                             return !!v
@@ -227,12 +262,14 @@ function newSchema(options) {
                                             .match(/^https?:\/\/www\.facebook\.com\/.*$/g);
                         },
                         messages : {
-                            conform : 'La page saisie ne semble pas être une page Facebook.'
+                            conform : options
+                                    .getMessage('field.facebook.msg.confirm')
                         }
                     },
                     googleplus : {
-                        label : 'Page Google+',
-                        description : 'Page Google+ de votre organisation',
+                        label : options.getMessage('field.googleplus'),
+                        description : options
+                                .getMessage('field.googleplus.description'),
                         type : 'string',
                         required : false,
                         conform : function(v) {
@@ -241,12 +278,14 @@ function newSchema(options) {
                                             .match(/^https?:\/\/plus\.google\.\w+\/.*$/g);
                         },
                         messages : {
-                            conform : 'La page saisie ne semble pas être une page Google+.'
+                            conform : options
+                                    .getMessage('field.googleplus.msg.conform'),
                         }
                     },
                     linkedin : {
-                        label : 'Page LinkedIn',
-                        description : 'Page LinkedIn de votre organisation',
+                        label : options.getMessage('field.linkedin'),
+                        description : options
+                                .getMessage('field.linkedin.description'),
                         type : 'string',
                         required : false,
                         conform : function(v) {
@@ -255,12 +294,14 @@ function newSchema(options) {
                                             .match(/^https?:\/\/www\.linkedin\.\w+\/.*$/g);
                         },
                         messages : {
-                            conform : 'La page saisie ne semble pas être une page LinkedIn.'
+                            conform : options
+                                    .getMessage('field.linkedin.msg.conform'),
                         }
                     },
                     viadeo : {
-                        label : 'Page Viadeo',
-                        description : 'Page Viadeo de votre organisation',
+                        label : options.getMessage('field.viadeo'),
+                        description : options
+                                .getMessage('field.viadeo.description'),
                         type : 'string',
                         required : false,
                         conform : function(v) {
@@ -269,7 +310,8 @@ function newSchema(options) {
                                             .match(/^https?:\/\/\w+\.viadeo\.\w+\/.*$/g);
                         },
                         messages : {
-                            conform : 'La page saisie ne semble pas être une page Viadeo.'
+                            conform : options
+                                    .getMessage('field.viadeo.msg.conform')
                         }
                     }
                 }
