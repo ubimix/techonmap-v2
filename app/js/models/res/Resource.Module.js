@@ -72,13 +72,14 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         var that = this;
         if (!evt.changed)
             return;
-        return Mosaic.P//
-        .then(function() {
-            var resource = evt.resource;
-            var id = that.getResourceId(resource);
-            that._allResources[id] = resource;
-            that._resetResources();
-            that._indexResource(id, resource);
+        return Mosaic.P.then(function() {
+            return that._trace('_onEndEdit', function() {
+                var resource = evt.resource;
+                var id = that.getResourceId(resource);
+                that._allResources[id] = resource;
+                that._resetResources();
+                that._indexResource(id, resource);
+            });
         }).then(function() {
             return that._searchResources();
         });
@@ -782,19 +783,21 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     _buildIndex : function() {
         var that = this;
         return Mosaic.P.then(function() {
-            var index = that._index = Lunr(function() {
-                _.each(that._fields.fields, function(info, field) {
-                    info = info || {};
-                    var boost = info.boost || 1;
-                    var type = info.type || 'field';
-                    this[type](field, {
-                        boost : boost
-                    });
-                }, this);
-            });
-            _.each(that._allResources, function(d, id) {
-                that._indexResource(id, d);
-            });
+            return that._trace('_buildIndex', function() {
+                var index = that._index = Lunr(function() {
+                    _.each(that._fields.fields, function(info, field) {
+                        info = info || {};
+                        var boost = info.boost || 1;
+                        var type = info.type || 'field';
+                        this[type](field, {
+                            boost : boost
+                        });
+                    }, this);
+                });
+                _.each(that._allResources, function(d, id) {
+                    that._indexResource(id, d);
+                });
+            })
         })
     },
 
@@ -838,25 +841,27 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     _searchResources : function() {
         var that = this;
         return that._allResourcesPromise.then(function() {
-            var criteria = that.getSearchCriteria();
-            var q = criteria.q || '';
-            var result;
-            if (!q || q == '') {
-                result = _.values(that._allResources);
-            } else {
-                result = [];
-                var list = that._index.search(q);
-                _.each(list, function(r) {
-                    var id = r.ref;
-                    var resource = that._allResources[id]
-                    if (resource) {
-                        result.push(resource);
-                    }
-                });
-            }
-            that._resources = that._filterResources(result, criteria);
-            that._sortResults();
-            return that._resources;
+            return that._trace('_searchResources', function() {
+                var criteria = that.getSearchCriteria();
+                var q = criteria.q || '';
+                var result;
+                if (!q || q == '') {
+                    result = _.values(that._allResources);
+                } else {
+                    result = [];
+                    var list = that._index.search(q);
+                    _.each(list, function(r) {
+                        var id = r.ref;
+                        var resource = that._allResources[id]
+                        if (resource) {
+                            result.push(resource);
+                        }
+                    });
+                }
+                that._resources = that._filterResources(result, criteria);
+                that._sortResults();
+                return that._resources;
+            });
         }).then(function() {
             var selectedResourceId = that.getSelectedResourceId();
             that.notify();
@@ -948,5 +953,14 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         if (_.isArray(values))
             return values;
         return [ values ];
+    },
+
+    _trace : function(message, callback) {
+        var start = new Date().getTime();
+        var result = callback();
+        var end = new Date().getTime();
+        console.log('*' + message + ':' + (end - start) + ' ms');
+        return result;
+
     }
 });
