@@ -9,6 +9,11 @@ module.exports = React.createClass({
     render : function(){
         return ( 
           <div className="social">
+              <div className="pull-right logout">
+                  <a href="#" onClick={this.logout}>
+                      Se déconnnecter
+                  </a>
+              </div>
               <div className="pull-right follow">
                   <a href="https://twitter.com/TechOnMap" target="_blank">
                       Suivez-nous
@@ -25,5 +30,11 @@ module.exports = React.createClass({
               </div>
           </div>
       );
+    },
+
+    logout : function() {
+	console.log('>>> LOGOUT');
     }
+
+
 });
