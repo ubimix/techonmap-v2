@@ -35,10 +35,10 @@ module.exports = React.createClass({
             var stats = info.count;
             return (
                 <div className="row search-filter-choice">
-                    <div className="col-xs-10">
+                    <div className="col-xs-9">
                         {this._renderTag(info.tag)}
                     </div>
-                    <div className="col-xs-2">
+                    <div className="col-xs-3">
                         <span className="label label-default pull-right">
                             {stats}
                         </span>
