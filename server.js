@@ -73,6 +73,17 @@ app.get('/api/auth/user', function(req, res) {
     user = user || {};
     res.json(user);
 });
+/* ------------------------------------------------------- */
+/// Fake save
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+app.use('/api/resources/:id', function(req, res){
+    var obj = req.body;
+    res.json(obj);
+});
 
 /* ------------------------------------------------------- */
 var handlerProvider = new ServiceStubProvider(serviceOptions);
