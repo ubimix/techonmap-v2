@@ -67,7 +67,7 @@ module.exports = Api.extend({
         var messages = this._getMessagesDictionary();
         messages = messages['validationMessages'] || {};
         var args = [ messages ].concat(_.toArray(arguments));
-        return this._getMessage.apply(this, args);
+        return this._getMessages.apply(this, args);
     },
 
     getFormValidationMessages : function() {
