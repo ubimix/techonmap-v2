@@ -80,6 +80,8 @@ function newSchema(options) {
                                 return false;
                             if (!v.match(/^\d+$/))
                                 return false;
+                            return true;
+
                             var result = checkLuhn(v);
                             return result;
                             function checkLuhn(imei) {
