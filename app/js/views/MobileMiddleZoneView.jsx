@@ -101,9 +101,7 @@ module.exports = React.createClass({
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-xs-3">
-                    </div>
-                    <div className="col-xs-3">
+                    <div className="col-xs-6">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-list"
@@ -114,7 +112,7 @@ module.exports = React.createClass({
                             </div>
                         </div>
                     </div>
-                    <div className="col-xs-3">
+                    <div className="col-xs-6">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-map"
