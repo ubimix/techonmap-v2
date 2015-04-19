@@ -97,6 +97,12 @@ module.exports = React.createClass({
                     <div className="col-xs-6">
                         <SearchResultsInfoView app={app}/>
                     </div>
+                    <div className="col-xs-6">
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-xs-3">
+                    </div>
                     <div className="col-xs-3">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
@@ -119,7 +125,9 @@ module.exports = React.createClass({
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div className="col-xs-3">
+                    </div>
+                 </div>
             </SearchPanel>
         );
     },
