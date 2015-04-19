@@ -44,8 +44,7 @@ module.exports = Api.extend({
     logout : function() {
         var that = this;
         return this._http(this.app.options.logoutApiUrl).then(function(user) {
-            return that.notify();
-        }).then(function() {
+            that.notify();
             return user;
         });
     },
