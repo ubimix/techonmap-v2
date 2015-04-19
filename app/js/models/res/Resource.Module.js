@@ -393,6 +393,13 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return this._categories;
     },
 
+    /** Returns all categories for this application. */
+    getCategoryKeys : function() {
+        return _.map(this._categories, function(category){
+            return category.key;
+        });
+    },
+
     getCategoryIcon : function(category) {
         var key = this.getCategoryKey(category);
         category = this.getCategoryByKey(key);

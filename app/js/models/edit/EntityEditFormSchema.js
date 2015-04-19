@@ -140,7 +140,7 @@ function newSchema(options) {
                         description : options
                                 .getMessage('field.category.description'),
                         type : 'string',
-                        enum : options.getValues('field.category.values'),
+                        enum : options.getCategoryKeys(),
                         required : true
                     },
                     tags : {

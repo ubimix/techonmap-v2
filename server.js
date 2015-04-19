@@ -25,6 +25,22 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 /* ------------------------------------------------------- */
+function redirect(network, res) {
+    res.redirect('/logged-in.html?from=' + network);
+}
+app.get('/api/auth/linkedin', function(req, res) {
+    redirect('linkedin', res);
+});
+app.get('/api/auth/twitter', function(req, res) {
+    redirect('twitter', res);
+});
+app.get('/api/auth/facebook', function(req, res) {
+    redirect('facebook', res);
+});
+app.get('/api/auth/google', function(req, res) {
+    redirect('google', res);
+});
+/* ------------------------------------------------------- */
 var userInfoKey = 'user';
 app.get('/api/logout', function(req, res) {
     res.clearCookie(userInfoKey);

@@ -386,6 +386,10 @@ module.exports = Api.extend(ResourceUtils, {
             getMessage : function(key) {
                 var i18n = app.i18n;
                 return i18n.getValidationMessage.apply(i18n, arguments);
+            },
+            getCategoryKeys : function(key) {
+                // FIXME: 
+                return app.res.getCategoryKeys();
             }
         });
         return newSchema(options);
