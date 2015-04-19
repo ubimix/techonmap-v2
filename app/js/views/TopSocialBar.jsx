@@ -32,6 +32,7 @@ module.exports = React.createClass({
     
     logout : function() {
         var app = this.props.app;
+        var that = this;
         app.user.logout().then(function(obj){
         	that.setState({user : null});  
          });
