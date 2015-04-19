@@ -11,6 +11,7 @@ module.exports = {
     exportFields : 'data/export.fields.json',
     messages : './data/messages.json',
     dataUrl : './data/data.json',
+    //dataUrl : './api/resources/export',
     dataFieldsUrl : './data/data.fields.json',
     categoriesUrl : './data/categories.json',
     zonesUrl : './data/zones.json',
