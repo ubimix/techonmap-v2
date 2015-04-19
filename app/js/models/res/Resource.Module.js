@@ -75,15 +75,11 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return Mosaic.P//
         .then(function() {
             var resource = evt.resource;
-            console.log('>> RESOURCE', resource);
             var id = that.getResourceId(resource);
             that._allResources[id] = resource;
             that._resetResources();
-        })//
-        .then(function() {
-            return that._buildIndex();
-        }) //
-        .then(function() {
+            that._indexResource(id, resource);
+        }).then(function() {
             return that._searchResources();
         });
     },
@@ -396,7 +392,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Returns all categories for this application. */
     getCategoryKeys : function() {
-        return _.map(this._categories, function(category){
+        return _.map(this._categories, function(category) {
             return category.key;
         });
     },
@@ -797,20 +793,24 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 }, this);
             });
             _.each(that._allResources, function(d, id) {
-                var props = d.properties;
-                var entry = {
-                    id : id
-                };
-                _.each(that._fields.fields, function(info, field) {
-                    var value = props[field];
-                    if (_.isArray(value)) {
-                        value = value.join(' ');
-                    }
-                    entry[field] = value;
-                });
-                index.add(entry);
+                that._indexResource(id, d);
             });
         })
+    },
+
+    _indexResource : function(id, resource) {
+        var props = resource.properties;
+        var entry = {
+            id : id
+        };
+        _.each(this._fields.fields, function(info, field) {
+            var value = props[field];
+            if (_.isArray(value)) {
+                value = value.join(' ');
+            }
+            entry[field] = value;
+        });
+        this._index.add(entry);
     },
 
     /** Returns a resource corresponding to the specified identifier. */
@@ -828,8 +828,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Resets search results and sets all existing resources in this store. */
     _resetResources : function() {
-        var that = this;
-        that._resources = _.values(that._allResources);
+        this._resources = _.values(this._allResources);
     },
 
     /**
