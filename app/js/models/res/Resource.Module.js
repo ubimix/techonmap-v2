@@ -75,6 +75,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return Mosaic.P//
         .then(function() {
             var resource = evt.resource;
+            console.log('>> RESOURCE', resource);
             var id = that.getResourceId(resource);
             that._allResources[id] = resource;
             that._resetResources();
