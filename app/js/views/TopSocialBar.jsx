@@ -10,11 +10,7 @@ module.exports = React.createClass({
     render : function(){
                 return ( 
                         <div className="social">
-                            <div className="pull-right logout">
-                                <a href="#" onClick={this.logout}>
-                                    Se déconnnecter
-                                </a>
-                            </div>
+                            {this._renderLogoutButton()}
                             <div className="pull-right follow">
                                 <a href="https://twitter.com/TechOnMap" target="_blank">
                                     Suivez-nous
@@ -34,12 +30,37 @@ module.exports = React.createClass({
             
     },
 
-
+    _renderLogoutButton : function() {
+        if (!this.state.user) {
+            return;
+        }
+        
+        return (
+            <div className="pull-right logout">
+                <a href="#" onClick={this.logout}>
+                    Se déconnnecter
+                </a>
+            </div>
+        );
+    },
+    
     logout : function() {
         var app = this.props.app;
         app.user.logout().then(function(obj){
         	console.log('>>LOGGED OUT');     
          });
+    },
+    
+    getInitialState : function() {
+        return { user : null };
+    },
+    
+    componentWillMount : function() {
+        var app = this.props.app;
+        var that = this;
+        app.user.getUserInfo().then(function(user) {
+          that.setState({user : user});  
+        });
     }
 
 
