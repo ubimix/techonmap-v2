@@ -102,7 +102,7 @@ module.exports = React.createClass({
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-list"
                                     onClick={this._activateView.bind(this, 'list')}>
-                                    {this._getLabel("filter.label.btn.list") + ' '}
+                                    <span className="menu-label">{this._getLabel("filter.label.btn.list") + ' '}</span>
                                     <i className="icon icon-list"></i>
                                 </button>
                             </div>
@@ -113,7 +113,7 @@ module.exports = React.createClass({
                             <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-map"
                                     onClick={this._activateView.bind(this, 'map')}>
-                                    {this._getLabel("filter.label.btn.map") + ' '}
+                                    <span className="menu-label">{this._getLabel("filter.label.btn.map") + ' '}</span>
                                     <i className="icon icon-map"></i>
                                 </button>
                             </div>
