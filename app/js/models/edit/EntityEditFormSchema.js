@@ -114,7 +114,7 @@ function newSchema(options) {
                                     .getMessage('field.email.required'),
                             allowEmpty : options
                                     .getMessage('field.email.allowEmpty'),
-                            format : getMessage('field.email.format'),
+                            format : options.getMessage('field.email.format'),
                         }
                     },
                     description : {
