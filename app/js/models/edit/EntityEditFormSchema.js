@@ -215,13 +215,13 @@ function newSchema(options) {
                                 .getMessage('field.url.description'),
                         type : 'string',
                         required : true,
-                        format : 'url',
+                        pattern : '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})(:\d+)?([\/\w \.-]+)*(\?.*)?\/?$',
                         messages : {
                             required : options
                                     .getMessage('field.url.msg.required'),
                             allowEmpty : options
                                     .getMessage('field.url.msg.allowEmpty'),
-                            format : options.getMessage('field.url.msg.format'),
+                            pattern : options.getMessage('field.url.msg.format'),
                         }
                     },
                     creationyear : {

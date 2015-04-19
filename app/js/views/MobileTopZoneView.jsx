@@ -110,7 +110,7 @@ module.exports = React.createClass({
                           </div>
                       </div>
                       <div className="col-xs-8">
-                          <ul className="nav nav-tabs pull-right top-navigation">
+                          <ul className="nav nav-tabs pull-right top-navigation mobile">
                               {this._renderAboutMenuItem()}
                               {this._renderSearchMenuItem()}
                               {this._renderMapMenuItem()}
