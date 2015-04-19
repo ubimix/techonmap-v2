@@ -215,7 +215,7 @@ function newSchema(options) {
                                 .getMessage('field.url.description'),
                         type : 'string',
                         required : true,
-                        pattern : '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})(:\d+)?([\/\w \.-]+)*(\?.*)?\/?$',
+                        pattern : /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})(:\d+)?\/?([\/\da-z\s\.-]+)*(\?.*)?$/i,
                         messages : {
                             required : options
                                     .getMessage('field.url.msg.required'),
@@ -319,3 +319,4 @@ function newSchema(options) {
         }
     };
 }
+
