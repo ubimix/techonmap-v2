@@ -104,17 +104,6 @@ module.exports = React.createClass({
                     <div className="col-xs-6">
                         <div className="btn-group btn-group-justified">
                             <div className="btn-group" role="group">
-                                <button type="button" className="btn btn-lg btn-primary menu-list"
-                                    onClick={this._activateView.bind(this, 'list')}>
-                                    <span className="menu-label">{this._getLabel("filter.label.btn.list")}&nbsp;&nbsp;</span>
-                                    <i className="icon icon-list"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xs-6">
-                        <div className="btn-group btn-group-justified">
-                            <div className="btn-group" role="group">
                                 <button type="button" className="btn btn-lg btn-primary menu-map"
                                     onClick={this._activateView.bind(this, 'map')}>
                                     <span className="menu-label">{this._getLabel("filter.label.btn.map")}&nbsp;&nbsp;</span>
@@ -123,7 +112,16 @@ module.exports = React.createClass({
                             </div>
                         </div>
                     </div>
-                    <div className="col-xs-3">
+                    <div className="col-xs-6">
+                        <div className="btn-group btn-group-justified">
+                            <div className="btn-group" role="group">
+                                <button type="button" className="btn btn-lg btn-primary menu-list"
+                                    onClick={this._activateView.bind(this, 'list')}>
+                                    <span className="menu-label">{this._getLabel("filter.label.btn.list")}&nbsp;&nbsp;</span>
+                                    <i className="icon icon-list"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                  </div>
             </SearchPanel>
