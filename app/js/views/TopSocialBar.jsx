@@ -29,6 +29,35 @@ module.exports = React.createClass({
                     );  
             
     },
+    
+    logout : function() {
+        var app = this.props.app;
+        app.user.logout().then(function(obj){
+        	that.setState({user : null});  
+         });
+    },
+    
+    getInitialState : function() {
+        return { user : null };
+    },
+    
+    componentWillMount : function() {
+        this._checkUserState();
+    },
+    
+    componentWillUnmount : function() {
+        var app = this.props.app;
+        app.user.removeChangeListener(this._onUserChange);
+    },
+    
+    _checkUserState : function() {
+        var app = this.props.app;
+        var that = this;
+        app.user.addChangeListener(this._onUserChange);
+        app.user.getUserInfo().then(function(user) {
+          that.setState({user : user});  
+        });        
+    },
 
     _renderLogoutButton : function() {
         if (!this.state.user) {
@@ -44,24 +73,7 @@ module.exports = React.createClass({
         );
     },
     
-    logout : function() {
-        var app = this.props.app;
-        app.user.logout().then(function(obj){
-        	console.log('>>LOGGED OUT');     
-         });
-    },
-    
-    getInitialState : function() {
-        return { user : null };
-    },
-    
-    componentWillMount : function() {
-        var app = this.props.app;
-        var that = this;
-        app.user.getUserInfo().then(function(user) {
-          that.setState({user : user});  
-        });
+    _onUserChange : function() {
+        this._checkUserState();
     }
-
-
 });
