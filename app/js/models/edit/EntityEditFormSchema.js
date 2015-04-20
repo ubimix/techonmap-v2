@@ -188,11 +188,12 @@ function newSchema(options) {
                         description : msg('field.url.description'),
                         type : 'string',
                         required : true,
-                        format : 'url',
+                        pattern : /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})(:\d+)?\/?([\/\da-z\s\.-]+)*(\?.*)?$/i,
                         messages : {
                             required : msg('field.url.msg.required'),
                             allowEmpty : msg('field.url.msg.allowEmpty'),
                             format : msg('field.url.msg.format'),
+                            pattern : msg('field.url.msg.format'),
                         }
                     },
                     creationyear : {

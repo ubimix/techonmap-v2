@@ -1,70 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=utf-8 />
-<title>TechOnMap v2</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
-<link
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
-	rel="stylesheet" type="text/css"></link>
-<style>
-body {
-	font-family: 'Open Sans', 'sans-serif';
-}
-
-.middle {
-	text-align: center;
-}
-
-.middle>* {
-	vertical-align: middle;
-	padding: 15px 35px 40px 0px;
-}
-
-p {
-	text-align: center;
-}
-
-p.small {
-	font-size: small;
-	margin: 60px 0 0 0;
-}
-
-</style>
+	<meta charset=utf-8 />
+	<title>TechOnMap v2</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
+	<link
+		href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+		rel="stylesheet" type="text/css"></link>
+	
+    <style>
+		body {
+			font-family: 'Open Sans', 'sans-serif';
+		}
+		
+		.middle {
+			text-align: center;
+		}
+		
+		.middle > * {
+			vertical-align: middle;
+			padding: 15px 35px 40px 0px;
+		}
+		
+		.loading-screen p {
+			text-align: center;
+		}
+		
+		.loading-screen p.small {
+			font-size: small;
+			margin: 60px 0 0 0;
+		}
+    </style>
 
     <style>
-        #top, #bottom, #left, #right {
-            }
+            #top, #bottom, #left, #right {}
             #left, #right {
                 position: fixed;
                 top: 0; bottom: 0;
                 width: 15px;
-                
-    background: -webkit-gradient(linear, left top, right bottom, from(rgba(96, 183, 141,
-        0.5)), to(rgba(140, 94, 159, 0.5)),
-        color-stop(0.17, rgba(179, 209, 114, 0.5)),
-        color-stop(0.34, rgba(165, 205, 234, 0.5)),
-        color-stop(0.51, rgba(55, 95, 152, 0.5)),
-        color-stop(0.67, rgba(225, 161, 33, 0.5)),
-        color-stop(0.84, rgba(228, 119, 116, 0.5)));
-    background: -webkit-linear-gradient(left top, rgba(96, 183, 141, 0.5),
-        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
-        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
-        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
-    background: -moz-linear-gradient(left top, rgba(96, 183, 141, 0.5),
-        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
-        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
-        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
-    background: -o-linear-gradient(left top, rgba(96, 183, 141, 0.5),
-        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
-        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
-        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
-    background: linear-gradient(left top, rgba(96, 183, 141, 0.5),
-        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
-        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
-        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));                
-                
+			    background: -webkit-gradient(linear, left top, right bottom, from(rgba(96, 183, 141,
+			        0.5)), to(rgba(140, 94, 159, 0.5)),
+			        color-stop(0.17, rgba(179, 209, 114, 0.5)),
+			        color-stop(0.34, rgba(165, 205, 234, 0.5)),
+			        color-stop(0.51, rgba(55, 95, 152, 0.5)),
+			        color-stop(0.67, rgba(225, 161, 33, 0.5)),
+			        color-stop(0.84, rgba(228, 119, 116, 0.5)));
+			    background: -webkit-linear-gradient(left top, rgba(96, 183, 141, 0.5),
+			        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
+			        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
+			        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
+			    background: -moz-linear-gradient(left top, rgba(96, 183, 141, 0.5),
+			        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
+			        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
+			        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
+			    background: -o-linear-gradient(left top, rgba(96, 183, 141, 0.5),
+			        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
+			        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
+			        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
+			    background: linear-gradient(left top, rgba(96, 183, 141, 0.5),
+			        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
+			        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
+			        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));                
                 }
                 #left { left: 0; }
                 #right { right: 0; }
@@ -73,31 +70,29 @@ p.small {
                 position: fixed;
                 left: 15px; right: 15px;
                 height: 15px;
-    background: -webkit-gradient(linear, left top, right bottom, from(rgba(96, 183, 141,
-        0.5)), to(rgba(140, 94, 159, 0.5)),
-        color-stop(0.17, rgba(179, 209, 114, 0.5)),
-        color-stop(0.34, rgba(165, 205, 234, 0.5)),
-        color-stop(0.51, rgba(55, 95, 152, 0.5)),
-        color-stop(0.67, rgba(225, 161, 33, 0.5)),
-        color-stop(0.84, rgba(228, 119, 116, 0.5)));
-    background: -webkit-linear-gradient(left top, rgba(96, 183, 141, 0.5),
-        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
-        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
-        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
-    background: -moz-linear-gradient(left top, rgba(96, 183, 141, 0.5),
-        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
-        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
-        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
-    background: -o-linear-gradient(left top, rgba(96, 183, 141, 0.5),
-        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
-        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
-        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
-    background: linear-gradient(left top, rgba(96, 183, 141, 0.5),
-        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
-        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
-        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));                
-                
-                
+			    background: -webkit-gradient(linear, left top, right bottom, from(rgba(96, 183, 141,
+			        0.5)), to(rgba(140, 94, 159, 0.5)),
+			        color-stop(0.17, rgba(179, 209, 114, 0.5)),
+			        color-stop(0.34, rgba(165, 205, 234, 0.5)),
+			        color-stop(0.51, rgba(55, 95, 152, 0.5)),
+			        color-stop(0.67, rgba(225, 161, 33, 0.5)),
+			        color-stop(0.84, rgba(228, 119, 116, 0.5)));
+			    background: -webkit-linear-gradient(left top, rgba(96, 183, 141, 0.5),
+			        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
+			        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
+			        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
+			    background: -moz-linear-gradient(left top, rgba(96, 183, 141, 0.5),
+			        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
+			        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
+			        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
+			    background: -o-linear-gradient(left top, rgba(96, 183, 141, 0.5),
+			        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
+			        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
+			        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));
+			    background: linear-gradient(left top, rgba(96, 183, 141, 0.5),
+			        rgba(179, 209, 114, 0.5) 17%, rgba(165, 205, 234, 0.5) 34%,
+			        rgba(55, 95, 152, 0.5) 51%, rgba(225, 161, 33, 0.5) 67%,
+			        rgba(228, 119, 116, 0.5) 84%, rgba(140, 94, 159, 0.5));                
                 }
                 #top { top: 0; }
                 #bottom { bottom: 0; }
@@ -125,7 +120,7 @@ p.small {
 	<script>
         document
                 .write(''
-                        + '<div style="margin-top: 120px;">'
+                        + '<div class="loading-screen" style="margin-top: 120px;">'
                         + '<p><img style="max-width:100%" src="images/balloons.png" /></p>'
                         + '<p><img style="width: 300px; max-width:100%" src="images/logo-01.svg" /></p>'
                         + '<p style="margin-top: 2em;"><img style="max-width:100%" src="images/loading.gif" /></p>'

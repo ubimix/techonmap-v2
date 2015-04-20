@@ -33,8 +33,9 @@ module.exports = {
         if (urlLabel) {
             urlLabel = urlLabel.replace(/^https?:\/\//, '');
         }
-        if (urlLabel.length > 30)
-            urlLabel = urlLabel.substring(0, 22)+'...';
+        var maxLength = 25;
+        if (urlLabel.length > maxLength+3)
+            urlLabel = urlLabel.substring(0, maxLength)+'...';
         return {
             url : url,
             label : urlLabel
