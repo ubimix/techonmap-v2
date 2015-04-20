@@ -72,16 +72,20 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         var that = this;
         if (!evt.changed)
             return;
+        var resource = evt.resource;
+        var resourceId = that.getResourceId(resource);
         return Mosaic.P.then(function() {
             return that._trace('_onEndEdit', function() {
-                var resource = evt.resource;
-                var id = that.getResourceId(resource);
-                that._allResources[id] = resource;
+                that._allResources[resourceId] = resource;
                 that._resetResources();
-                that._indexResource(id, resource);
+                that._indexResource(resourceId, resource);
             });
         }).then(function() {
             return that._searchResources();
+        }).then(function() {
+            return that.selectResource({
+                resourceId : resourceId
+            });
         });
     },
 
