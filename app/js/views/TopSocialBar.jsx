@@ -38,7 +38,7 @@ module.exports = React.createClass({
         this._checkUserState();
         var that = this;
         var client = Teleport.HttpClient.newInstance({
-            baseUrl : 'http://localhost:9889/api/twitter/last'
+            baseUrl : document.location.href+'api/twitter/last'
         });
 
         return client.exec({
