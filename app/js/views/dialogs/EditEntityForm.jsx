@@ -164,7 +164,7 @@ module.exports = React.createClass({
         var newEntity = this._isNewResource();
         return this._renderInputGroup({
             mandatory : true,
-            type : newEntity ? "text" : "hidden", 
+            type : newEntity ? 'text' : 'hidden', 
             addons : 'www.techonmap.fr/#',
             fieldKey : 'properties.id',
             labelKey : 'dialog.edit.id.label',
@@ -173,9 +173,9 @@ module.exports = React.createClass({
     },
     
     _renderMail : function(){
-        if (!this._isNewResource())
-            return '';
+        var mandatory = this._isNewResource();
         return this._renderInputGroup({
+            mandatory : mandatory,
             type : 'email',
             fieldKey : 'properties.email',
             labelKey : 'dialog.edit.email.label',

@@ -64,6 +64,15 @@ var InputWidget = React.createClass({
         var key = this._getFieldKey();
         var id = key;
         var label = this.props.label;
+
+        if (this.props.type == 'hidden') {
+            return (
+               <div>
+                   {this._renderInputs()}
+               </div>
+            );
+        }
+        
         return (
             <div className={className} key={key} placeholder={label}>
                 <label htmlFor={id} className="col-sm-4 control-label" key="left">
@@ -144,6 +153,10 @@ var InputWidget = React.createClass({
              $input = "input";
              type = "hidden";
              label = <span className="form-control">{value}</span>;
+             return (
+               <$input ref={key} key={key} value={value}
+                     type={type}></$input>             
+             );
          }
          var that = this;
          return (
