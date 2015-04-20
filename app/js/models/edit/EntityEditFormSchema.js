@@ -227,7 +227,7 @@ function newSchema(options) {
                         conform : function(v) {
                             return !!v
                                     && v
-                                            .match(/^https?:\/\/www\.facebook\.com\/.*$/g);
+                                            .match(/^https?:\/\/([^\.]*)\.?facebook\.com\/.*$/g);
                         },
                         messages : {
                             conform : msg('field.facebook.msg.confirm')
@@ -255,7 +255,7 @@ function newSchema(options) {
                         conform : function(v) {
                             return !!v
                                     && v
-                                            .match(/^https?:\/\/www\.linkedin\.\w+\/.*$/g);
+                                            .match(/^https?:\/\/([^\.]*)\.?linkedin\.\w+\/.*$/g);
                         },
                         messages : {
                             conform : msg('field.linkedin.msg.conform'),
