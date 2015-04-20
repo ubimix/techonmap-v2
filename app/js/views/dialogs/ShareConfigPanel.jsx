@@ -54,6 +54,7 @@ var ShareConfigPanel = React.createClass({
         }
         var url = app.nav.getExportUrl(options);
         url = encodeURI(url);
+        url = app.options.siteUrl + url;
         return url;
     },
     _showPreview : function(ev){
