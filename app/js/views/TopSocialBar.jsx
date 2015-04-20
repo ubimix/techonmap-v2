@@ -1,9 +1,9 @@
-/** @jsx React.DOM */
-
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var I18NMixin = require('./utils/I18NMixin');
+var Teleport = require('mosaic-teleport');
+var Formats = require('./utils/Formats');
 
 module.exports = React.createClass({
 
@@ -16,15 +16,7 @@ module.exports = React.createClass({
                                     Suivez-nous
                                 </a>
                             </div>
-                            <div className="left">
-                                <a href="https://twitter.com/TechOnMap" className="lastTweetAuthor">
-                                    @TechOnMap
-                                </a> :
-                                <span className="lastTweet">
-                                    &nbsp;La nouvelle version de TechOnMap, la carte des acteurs du numérique d’Île-de-France est à découvrir très bientôt ! <a href="https://twitter.com/hashtag/opendata?src=hash"><s>#</s>opendata</a> <a href="https://twitter.com/hashtag/opensource?src=hash"><s>#</s>opensource</a>                      
-                                </span>
-                                &nbsp;<a href="https://twitter.com/TechOnMap/status/578596672126771200" className="lastTweetDate">19/3/2015</a>
-                            </div>
+                            {this._renderLastTweet()}
                         </div>
                     );  
             
@@ -44,6 +36,24 @@ module.exports = React.createClass({
     
     componentWillMount : function() {
         this._checkUserState();
+        var that = this;
+        var client = Teleport.HttpClient.newInstance({
+            baseUrl : 'http://localhost:9889/api/twitter/last'
+        });
+
+        return client.exec({
+            path : '',
+            method : 'GET'
+        }).then(function(json) {
+            try {
+                console.log('TWITTER >>', json);
+                var tweet = _.isObject(json) ? json : JSON.parse(json);
+                that.setState({tweet : tweet});  
+                return tweet;
+            } catch (err) {
+                return;
+            }
+        });
     },
     
     componentWillUnmount : function() {
@@ -73,6 +83,31 @@ module.exports = React.createClass({
             </div>
         );
     },
+    
+    
+    _renderLastTweet : function() {
+        var tweet = this.state.tweet; 
+        if (!tweet)
+            return;
+        
+        var msg = {__html: '&nbsp;'+Formats._linkifyTwitterStatus(tweet.text)};
+        var user = tweet.user ? tweet.user.screen_name : '';
+        var id = this.state.tweet.id_str;
+        var url = 'https://twitter.com/' + user + '/status/' + id;
+        var date = Formats._parseTwitterDate(tweet.created_at);
+        
+        return (
+        <div className="left">
+            <a href="https://twitter.com/TechOnMap" className="lastTweetAuthor">
+                @TechOnMap
+            </a> :
+            <span className="lastTweet" dangerouslySetInnerHTML={msg} />
+            &nbsp;–&nbsp;<a href={url} className="lastTweetDate">{date}</a>
+        </div>
+        )
+        
+    },
+    
     
     _onUserChange : function() {
         this._checkUserState();

@@ -73,14 +73,28 @@ app.get('/api/auth/user', function(req, res) {
     user = user || {};
     res.json(user);
 });
+
+app
+        .get(
+                '/api/twitter/last',
+                function(req, res) {
+                    res
+                            .json({
+                                "created_at" : "Tue Apr 14 12:10:35 +0000 2015",
+                                "id" : 587951078118920200,
+                                "id_str" : "587951078118920192",
+                                "text" : "RT @w4software: http://t.co/BfNEKvSbqc Retrouvez-nous sur @TechOnMap ! #BPMN #Processus #Applications"
+                            });
+                });
+
 /* ------------------------------------------------------- */
-/// Fake save
+// / Fake save
 var bodyParser = require('body-parser')
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-})); 
-app.use('/api/resources/:id', function(req, res){
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
+    extended : true
+}));
+app.use('/api/resources/:id', function(req, res) {
     var obj = req.body;
     res.json(obj);
 });
