@@ -189,7 +189,7 @@
                 "field.email.descripton" : "E-mail de contact",
                 "field.email.required" : "Une adresse e-mail est requise.",
                 "field.email.allowEmpty" : "L'adresse e-mail ne doit pas être vide.",
-                "field.email.format" : "L'adresse e-mail semble incorrecte.",
+                "field.email.msg.format" : "L'adresse e-mail semble incorrecte.",
                 "field.description" : "Description",
                 "field.description.descripton" : "Description de votre organisation",
                 "field.description.required" : "Une description est requise.",
@@ -235,6 +235,7 @@
                 "field.googleplus.msg.conform" : "La page saisie ne semble pas être une page Google+.",
                 "field.linkedin" : "Page LinkedIn",
                 "field.linkedin.description" : "Page LinkedIn de votre organisation",
+                "field.linkedin.msg.conform" : "La page saisie ne semble pas être une page LinkedIn.",
                 "field.viadeo" : "Page Viadeo",
                 "field.viadeo.description" : "Page Viadeo de votre organisation",
                 "field.viadeo.msg.conform" : "La page saisie ne semble pas être une page Viadeo."
@@ -377,7 +378,7 @@
                 "field.email.descripton" : "E-mail de contact",
                 "field.email.required" : "Une adresse e-mail est requise.",
                 "field.email.allowEmpty" : "L'adresse e-mail ne doit pas être vide.",
-                "field.email.format" : "L'adresse e-mail semble incorrecte.",
+                "field.email.msg.format" : "L'adresse e-mail semble incorrecte.",
                 "field.description" : "Description",
                 "field.description.descripton" : "Description de votre organisation",
                 "field.description.required" : "Une description est requise.",
@@ -423,6 +424,7 @@
                 "field.googleplus.msg.conform" : "La page saisie ne semble pas être une page Google+.",
                 "field.linkedin" : "Page LinkedIn",
                 "field.linkedin.description" : "Page LinkedIn de votre organisation",
+                "field.linkedin.msg.conform" : "La page saisie ne semble pas être une page LinkedIn.",
                 "field.viadeo" : "Page Viadeo",
                 "field.viadeo.description" : "Page Viadeo de votre organisation",
                 "field.viadeo.msg.conform" : "La page saisie ne semble pas être une page Viadeo."

@@ -10,6 +10,9 @@ var DomUtils = require('../utils/DomUtils');
 var FormReactField = require('../utils/FormReactField');
 var GeolocationWidget = require('./GeolocationWidget.jsx');
 var Autocomplete = React.createFactory(require('./Autocomplete.jsx'));
+var InputWidget = require('./InputWidget.jsx');
+var InputWidgetFactory = React.createFactory(InputWidget);
+
 
 module.exports = React.createClass({
     displayName : 'EditEntityForm',
@@ -120,7 +123,7 @@ module.exports = React.createClass({
         options = _.extend({
             className: 'form-control',
             placeholder: labelKey ? this._getLabel(labelKey) : undefined,
-            id: this._newId(),
+            // id: this._newId(),
             name: fieldKey,
             ref : fieldRef,
             key : fieldRef,
@@ -129,106 +132,64 @@ module.exports = React.createClass({
         }, options);
         return options;
     },
-    _renderInput : function(fieldKey, labelKey, options){
-        options = this._getInputOptions(fieldKey, labelKey, options);
-        options.onChange = function(ev){ 
-            this._onFieldUpdate(fieldKey, ev);
-        }.bind(this);
-        return React.DOM.input(options);
-    },
 
-    _renderInputWithAddOn : function(addOnLabel, fieldKey, labelKey, options) {
-      return (
-              <div className="input-group">
-                  <span className="input-group-addon">{addOnLabel}</span>
-                  {this._renderInput(fieldKey, labelKey, options)}
-              </div>
-      );
-    },
-
-    _renderTextarea : function(fieldKey, labelKey, options){
-        var fieldRef = this._getFieldRef(fieldKey);
-        options = _.extend({
-            className: 'form-control',
-            placeholder: labelKey ? this._getLabel(labelKey) : undefined,
-            id: this._newId(),
-            name: fieldKey,
-            ref : fieldRef,
-            key : fieldRef,
-            rows : 5,
-            cols : 80,
-            style : {width:'100%'},
-            value : this._getResourceField(fieldKey),
-            onChange : this._onFieldUpdate.bind(this, fieldKey)
-        }, options);
-        return React.DOM.textarea(options);
-    },
-    _renderSelect : function(fieldKey, params) {
-        var options = params.options;
-        var selected = params.selected;
-        delete params.options;
-        delete params.selected;
-        var fieldRef = this._getFieldRef(fieldKey);
-        params = _.extend({
-            className: 'form-control',
-            id: this._newId(),
-            name : fieldKey,
-            ref: fieldRef,
-            key : fieldRef,
-            defaultValue : selected,
-            onChange : this._onFieldUpdate.bind(this, fieldKey)
-        }, params);
-        return React.DOM.select(params, _.map(options, function(label, value){
-            return React.DOM.option({
-                value : value
-            }, label);
+    _renderInputGroup : function(options) {
+        var label = options.labelKey ? this._getLabel(options.labelKey) : undefined;
+        var placeholder = options.placeholderKey ? this._getLabel(options.placeholderKey) : undefined;
+        var values = this._getResourceField(options.fieldKey);
+        var error = this._getFieldError(options.fieldKey);
+        return new InputWidgetFactory(_.extend({}, options, {
+            label : label,
+            values : values,
+            placeholder : placeholder,
+            error: error,
+            onChange: function(values){
+                var fields = {};
+                fields[options.fieldKey] = values;
+                this.props.app.edit.updateFields(fields);
+            }.bind(this)            
         }));
     },
-    _renderNameAndId : function(){
-        var idInput;
+
+    _renderName : function(){
+        return this._renderInputGroup({
+            mandatory : true,
+            fieldKey : 'properties.name',
+            labelKey : 'dialog.edit.name.label',
+            placeholderKey : 'dialog.edit.name.placeholder',
+        });
+    },
+
+    _renderId : function(){
         var newEntity = this._isNewResource();
-        if (newEntity) {
-            //idInput = this._renderInput('properties.id', 'dialog.edit.id.placeholder', {});
-            idInput = this._renderInputWithAddOn('www.techonmap.fr/#', 'properties.id', 'dialog.edit.id.placeholder', {});
-        } else {
-            var id = this._getResourceField('properties.id');
-          //<span className="form-control">{id}</span>
-            //{this._renderInputWithAddOn('www.techonmap.fr/#', 'placeholder', id, {disabled: 'disabled'})}
-            idInput = (
-                <span id={this._newId()}>
-                    {this._renderInput('properties.id', 'dialog.edit.id.placeholder', {
-                        type: 'hidden'
-                    })}
-                </span>
-            );
-        }
-        var that = this;
-        var nameInput = this._renderInput('properties.name', 'dialog.edit.name.placeholder', {});
-        if (newEntity) {
-            return [
-                this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
-                this._renderHorizontalFormGroup('properties.id', 'dialog.edit.id.label', idInput)
-            ];
-        } else {
-            return [
-                    this._renderHorizontalFormGroup('properties.name', 'dialog.edit.name.label', nameInput),
-                    idInput
-            ];
-        }
+        return this._renderInputGroup({
+            mandatory : true,
+            type : newEntity ? "text" : "hidden", 
+            addons : 'www.techonmap.fr/#',
+            fieldKey : 'properties.id',
+            labelKey : 'dialog.edit.id.label',
+            placeholderKey : 'dialog.edit.id.placeholder'
+        });
     },
     
     _renderMail : function(){
-        return this._renderHorizontalFormGroup('properties.email', 'dialog.edit.email.label', 
-           this._renderInput('properties.email', 'dialog.edit.email.placeholder', {
-                type : 'email'
-           }));
+        if (!this._isNewResource())
+            return '';
+        return this._renderInputGroup({
+            type : 'email',
+            fieldKey : 'properties.email',
+            labelKey : 'dialog.edit.email.label',
+            placeholderKey :  'dialog.edit.email.placeholder',
+        });
     },
     _renderDescription : function(){
-        return this._renderHorizontalFormGroup('properties.description',
-                'dialog.edit.description.label', 
-                this._renderTextarea('properties.description',
-                'dialog.edit.description.placeholder', {
-           }));
+        return this._renderInputGroup({
+            mandatory : true,
+            type : 'textarea',
+            fieldKey : 'properties.description',
+            labelKey : 'dialog.edit.description.label',
+            placeholderKey :  'dialog.edit.description.placeholder',
+        });
     },
     _renderCategories : function(){
         var app = this.props.app;
@@ -238,12 +199,14 @@ module.exports = React.createClass({
         _.each(categories, function(category) {
             categoryOptions[category.key] = category.label;
         });
-        var select = this._renderSelect(
-            'properties.category', {
-                selected : categoryKey, 
-                options : categoryOptions
-            });
-        return this._renderHorizontalFormGroup('properties.category', 'dialog.edit.category.label', select);
+        return this._renderInputGroup({
+            type : 'select',
+            options : categoryOptions,
+            selected : categoryKey, 
+            mandatory : true,
+            fieldKey : 'properties.category',
+            labelKey : 'dialog.edit.category.label',
+        });
     },
     
     _renderTags : function(){
@@ -285,7 +248,7 @@ module.exports = React.createClass({
             }.bind(this))(i);
         }
         var tagContainer = React.DOM.span({
-            id: this._newId()
+// id: this._newId()
         }, tagInputs);
         return this._renderHorizontalFormGroup(fieldKey, 'dialog.edit.tag.label', tagContainer);
     },
@@ -381,63 +344,76 @@ module.exports = React.createClass({
     },
     
     _renderCreationYear : function(){
-        var input = this._renderInput('properties.creationyear',
-                'dialog.edit.year.placeholder', {
+        return this._renderInputGroup({
+            fieldKey : 'properties.creationyear',
+            labelKey : 'dialog.edit.year.label',
+            placeholderKey :  'dialog.edit.year.placeholder',
         });
-        return this._renderHorizontalFormGroup('properties.creationyear',
-               'dialog.edit.year.label',
-               input);
     },
     
     _renderSiret : function(){
-        var input = this._renderInput('properties.taxID',
-                'dialog.edit.siret.placeholder', {
+        return this._renderInputGroup({
+            fieldKey : 'properties.taxID',
+            labelKey : 'dialog.edit.siret.label',
+            placeholderKey : 'dialog.edit.siret.placeholder',
         });
-        return this._renderHorizontalFormGroup('properties.taxID', 'dialog.edit.siret.label', input, true);
     },
     
     _renderWebSiteUrl : function(){
-        var input = this._renderInput('properties.url', 'dialog.edit.url.placeholder', {
-        });
-        return this._renderHorizontalFormGroup('properties.url', 'dialog.edit.url.label', input);
+        return this._renderInputGroup({
+            fieldKey : 'properties.url',
+            labelKey : 'dialog.edit.url.label', 
+            placeholderKey :  'dialog.edit.url.placeholder',
+        });        
     },
     
     _renderTwitterAccount : function(){
-        var input = this._renderInputWithAddOn('@', 'properties.twitter', 'dialog.edit.twitter.placeholder', {
-        });
-        
-        return this._renderHorizontalFormGroup('properties.twitter', 'dialog.edit.twitter.label', input, true);
+        return this._renderInputGroup({
+            addons : '@' ,
+            fieldKey : 'properties.twitter',
+            labelKey : 'dialog.edit.twitter.label', 
+            placeholderKey :  'dialog.edit.twitter.placeholder',
+        });        
     }, 
     
     _renderFacebookAccount : function(){
-        var input = this._renderInput('properties.facebook', 'dialog.edit.facebook.placeholder', {
-        });
-        return this._renderHorizontalFormGroup('properties.facebook', 'dialog.edit.facebook.label', input, true);
+        return this._renderInputGroup({
+            fieldKey : 'properties.facebook',
+            labelKey : 'dialog.edit.facebook.label', 
+            placeholderKey :  'dialog.edit.facebook.placeholder',
+        });        
     }, 
     
     _renderLinkedInAccount : function(){
-        var input = this._renderInput('properties.linkedin', 'dialog.edit.linkedin.placeholder', {
+        return this._renderInputGroup({
+            fieldKey : 'properties.linkedin',
+            labelKey : 'dialog.edit.linkedin.label', 
+            placeholderKey :  'dialog.edit.linkedin.placeholder',
         });
-        return this._renderHorizontalFormGroup('properties.linkedin', 'dialog.edit.linkedin.label', input, true);
     },
     
     _renderGooglePlusAccount : function(){
-        var input = this._renderInput('properties.googleplus', 'dialog.edit.googleplus.placeholder', {
+        return this._renderInputGroup({
+            fieldKey : 'properties.googleplus',
+            labelKey : 'dialog.edit.googleplus.label', 
+            placeholderKey :  'dialog.edit.googleplus.placeholder',
         });
-        return this._renderHorizontalFormGroup('properties.googleplus', 'dialog.edit.googleplus.label', input, true);
     },
     
     _renderViadeoAccount : function(){
-        var input = this._renderInput('properties.viadeo', 'dialog.edit.viadeo.placeholder', {
+        return this._renderInputGroup({
+            fieldKey : 'properties.viadeo',
+            labelKey : 'dialog.edit.viadeo.label', 
+            placeholderKey :  'dialog.edit.viadeo.placeholder',
         });
-        return this._renderHorizontalFormGroup('properties.viadeo', 'dialog.edit.viadeo.label', input, true);
     },
-     
+ 
     render : function(){
         return (
         <form className="form-horizontal edit">
             <section>
-                {this._renderNameAndId()}
+                {this._renderName()}
+                {this._renderId()}
                 {this._renderSiret()}
                 {this._renderCategoriesAndTags()}
                 {this._renderDescription()}

@@ -10,18 +10,19 @@ module.exports = function(options) {
 }
 
 function newSchema(options) {
+    function msg(key) {
+        return options.getMessage(key);
+    }
     return {
         properties : {
             'geometry' : {
-                label : options.getMessage('field.geometry.coordinates'),
+                label : msg('field.geometry.coordinates'),
                 type : 'object',
                 required : true,
                 properties : {
                     coordinates : {
-                        label : options
-                                .getMessage('field.geometry.coordinates.label'),
-                        description : options
-                                .getMessage('field.geometry.coordinates'),
+                        label : msg('field.geometry.coordinates.label'),
+                        description : msg('field.geometry.coordinates'),
                         type : 'array',
                         minItems : 2,
                         maxItems : 2,
@@ -31,37 +32,32 @@ function newSchema(options) {
                 }
             },
             'properties' : {
-                label : options.getMessage('field.properties'),
+                label : msg('field.properties'),
                 type : 'object',
                 required : true,
                 messages : {
-                    required : options.getMessage('field.properties.required'),
+                    required : msg('field.properties.required'),
                 },
                 properties : {
                     name : {
-                        label : options.getMessage('field.name'),
-                        description : options
-                                .getMessage('field.name.description'),
+                        label : msg('field.name'),
+                        description : msg('field.name.description'),
                         type : 'string',
                         required : true,
                         messages : {
-                            required : options
-                                    .getMessage('field.name.required'),
-                            allowEmpty : options
-                                    .getMessage('field.name.allowEmpty')
+                            required : msg('field.name.required'),
+                            allowEmpty : msg('field.name.allowEmpty')
                         }
                     },
                     id : {
-                        label : options.getMessage('field.id'),
-                        description : options
-                                .getMessage('field.id.description'),
+                        label : msg('field.id'),
+                        description : msg('field.id.description'),
                         type : 'string',
                         required : true,
                         messages : {
-                            required : options.getMessage('field.id.required'),
-                            allowEmpty : options
-                                    .getMessage('field.id.allowEmpty'),
-                            conform : options.getMessage('field.id.conform'),
+                            required : msg('field.id.required'),
+                            allowEmpty : msg('field.id.allowEmpty'),
+                            conform : msg('field.id.conform'),
                         },
                         conform : function(v) {
                             if (!v)
@@ -73,12 +69,11 @@ function newSchema(options) {
                         }
                     },
                     taxID : {
-                        description : options.getMessage('field.taxID'),
+                        description : msg('field.taxID'),
                         type : 'string',
                         required : false,
                         messages : {
-                            conform : options
-                                    .getMessage('field.taxID.msg.conform'),
+                            conform : msg('field.taxID.msg.conform'),
                         },
                         conform : function(v) {
                             if (!v || !v.length)
@@ -103,88 +98,70 @@ function newSchema(options) {
                         }
                     },
                     email : {
-                        label : options.getMessage('field.email'),
-                        description : options
-                                .getMessage('field.email.descripton'),
+                        label : msg('field.email'),
+                        description : msg('field.email.descripton'),
                         type : 'string',
                         format : 'email',
                         required : true,
                         messages : {
-                            required : options
-                                    .getMessage('field.email.required'),
-                            allowEmpty : options
-                                    .getMessage('field.email.allowEmpty'),
-                            format : options.getMessage('field.email.format'),
+                            required : msg('field.email.required'),
+                            allowEmpty : msg('field.email.allowEmpty'),
+                            format : msg('field.email.msg.format'),
                         }
                     },
                     description : {
-                        label : options.getMessage('field.description'),
-                        description : options
-                                .getMessage('field.description.descripton'),
+                        label : msg('field.description'),
+                        description : msg('field.description.descripton'),
                         type : 'string',
                         maxLength : 250,
                         required : true,
                         messages : {
-                            required : options
-                                    .getMessage('field.description.required'),
-                            allowEmpty : options
-                                    .getMessage('field.description.allowEmpty'),
-                            minLength : options
-                                    .getMessage('field.description.minLength'),
-                            maxLength : options
-                                    .getMessage('field.description.maxLength')
+                            required : msg('field.description.required'),
+                            allowEmpty : msg('field.description.allowEmpty'),
+                            minLength : msg('field.description.minLength'),
+                            maxLength : msg('field.description.maxLength')
                         }
                     },
                     category : {
-                        label : options.getMessage('field.category'),
-                        description : options
-                                .getMessage('field.category.description'),
+                        label : msg('field.category'),
+                        description : msg('field.category.description'),
                         type : 'string',
                         enum : options.getCategoryKeys(),
                         required : true
                     },
                     tags : {
-                        label : options.getMessage('field.tags.label'),
-                        description : options.getMessage('field.tags'),
+                        label : msg('field.tags.label'),
+                        description : msg('field.tags'),
                         minItems : 1,
                         maxItems : 5,
                         uniqueItems : true,
                         type : 'array',
                         required : true,
                         messages : {
-                            minItems : options
-                                    .getMessage('field.tags.minItems'),
-                            required : options
-                                    .getMessage('field.tags.required'),
-                            allowEmpty : options
-                                    .getMessage('field.tags.allowEmpty'),
+                            minItems : msg('field.tags.minItems'),
+                            required : msg('field.tags.required'),
+                            allowEmpty : msg('field.tags.allowEmpty'),
                         }
                     },
                     address : {
-                        label : options.getMessage('field.address'),
-                        description : options
-                                .getMessage('field.address.description'),
+                        label : msg('field.address'),
+                        description : msg('field.address.description'),
                         type : 'string',
                         required : true,
                         messages : {
-                            required : options
-                                    .getMessage('field.address.msg.required'),
-                            allowEmpty : options
-                                    .getMessage('field.address.msg.allowEmtpy'),
+                            required : msg('field.address.msg.required'),
+                            allowEmpty : msg('field.address.msg.allowEmtpy'),
                         }
                     },
                     postcode : {
-                        label : options.getMessage('field.postcode'),
-                        description : options
-                                .getMessage('field.postcode.description'),
+                        label : msg('field.postcode'),
+                        description : msg('field.postcode.description'),
                         type : 'integer',
                         allowEmpty : false,
                         required : true,
                         messages : {
-                            required : options
-                                    .getMessage('field.postcode.msg.required'),
-                            allowEmpty : options
-                                    .getMessage('field.postcode.msg.allowEmpty')
+                            required : msg('field.postcode.msg.required'),
+                            allowEmpty : msg('field.postcode.msg.allowEmpty')
                         },
                         conform : function(v) {
                             try {
@@ -197,37 +174,30 @@ function newSchema(options) {
                         }
                     },
                     city : {
-                        label : options.getMessage('field.city'),
-                        description : options
-                                .getMessage('field.city.description'),
+                        label : msg('field.city'),
+                        description : msg('field.city.description'),
                         type : 'string',
                         required : true,
                         messages : {
-                            required : options
-                                    .getMessage('field.city.msg.required'),
-                            allowEmpty : options
-                                    .getMessage('field.city.msg.allowEmpty')
+                            required : msg('field.city.msg.required'),
+                            allowEmpty : msg('field.city.msg.allowEmpty')
                         }
                     },
                     url : {
-                        label : options.getMessage('field.url'),
-                        description : options
-                                .getMessage('field.url.description'),
+                        label : msg('field.url'),
+                        description : msg('field.url.description'),
                         type : 'string',
                         required : true,
                         format : 'url',
                         messages : {
-                            required : options
-                                    .getMessage('field.url.msg.required'),
-                            allowEmpty : options
-                                    .getMessage('field.url.msg.allowEmpty'),
-                            format : options.getMessage('field.url.msg.format'),
+                            required : msg('field.url.msg.required'),
+                            allowEmpty : msg('field.url.msg.allowEmpty'),
+                            format : msg('field.url.msg.format'),
                         }
                     },
                     creationyear : {
-                        label : options.getMessage('field.creationyear'),
-                        description : options
-                                .getMessage('field.creationyear.description'),
+                        label : msg('field.creationyear'),
+                        description : msg('field.creationyear.description'),
                         type : 'number',
                         required : true,
                         conform : function(v) {
@@ -240,21 +210,18 @@ function newSchema(options) {
                             }
                         },
                         messages : {
-                            conform : options.getMessage('field.messages'),
-                            type : options
-                                    .getMessage('field.messages.description'),
+                            conform : msg('field.messages'),
+                            type : msg('field.messages.description'),
                         }
                     },
                     twitter : {
-                        label : options.getMessage('field.twitter'),
-                        description : options
-                                .getMessage('field.twitter.description'),
+                        label : msg('field.twitter'),
+                        description : msg('field.twitter.description'),
                         type : 'string',
                     },
                     facebook : {
-                        label : options.getMessage('field.facebook'),
-                        description : options
-                                .getMessage('field.facebook.description'),
+                        label : msg('field.facebook'),
+                        description : msg('field.facebook.description'),
                         type : 'string',
                         conform : function(v) {
                             return !!v
@@ -262,14 +229,12 @@ function newSchema(options) {
                                             .match(/^https?:\/\/www\.facebook\.com\/.*$/g);
                         },
                         messages : {
-                            conform : options
-                                    .getMessage('field.facebook.msg.confirm')
+                            conform : msg('field.facebook.msg.confirm')
                         }
                     },
                     googleplus : {
-                        label : options.getMessage('field.googleplus'),
-                        description : options
-                                .getMessage('field.googleplus.description'),
+                        label : msg('field.googleplus'),
+                        description : msg('field.googleplus.description'),
                         type : 'string',
                         required : false,
                         conform : function(v) {
@@ -278,14 +243,12 @@ function newSchema(options) {
                                             .match(/^https?:\/\/plus\.google\.\w+\/.*$/g);
                         },
                         messages : {
-                            conform : options
-                                    .getMessage('field.googleplus.msg.conform'),
+                            conform : msg('field.googleplus.msg.conform'),
                         }
                     },
                     linkedin : {
-                        label : options.getMessage('field.linkedin'),
-                        description : options
-                                .getMessage('field.linkedin.description'),
+                        label : msg('field.linkedin'),
+                        description : msg('field.linkedin.description'),
                         type : 'string',
                         required : false,
                         conform : function(v) {
@@ -294,14 +257,12 @@ function newSchema(options) {
                                             .match(/^https?:\/\/www\.linkedin\.\w+\/.*$/g);
                         },
                         messages : {
-                            conform : options
-                                    .getMessage('field.linkedin.msg.conform'),
+                            conform : msg('field.linkedin.msg.conform'),
                         }
                     },
                     viadeo : {
-                        label : options.getMessage('field.viadeo'),
-                        description : options
-                                .getMessage('field.viadeo.description'),
+                        label : msg('field.viadeo'),
+                        description : msg('field.viadeo.description'),
                         type : 'string',
                         required : false,
                         conform : function(v) {
@@ -310,8 +271,7 @@ function newSchema(options) {
                                             .match(/^https?:\/\/\w+\.viadeo\.\w+\/.*$/g);
                         },
                         messages : {
-                            conform : options
-                                    .getMessage('field.viadeo.msg.conform')
+                            conform : msg('field.viadeo.msg.conform')
                         }
                     }
                 }
