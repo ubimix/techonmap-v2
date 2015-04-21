@@ -100,25 +100,25 @@ Mosaic.Events.prototype, ContentPopupMixin, {
     open : function(resource) {
         var that = this;
         var app = that.options.app;
-        app.user.getUserInfo().then(function(user){
-            if (!!user) {
-                return that._openPopup(resource);
-            } 
-            return that._login().then(function(){
-                return app.user.getUserInfo().then(function(user){
-                    if (!!user) {
-                        return that._openPopup(resource);
-                    } else {
-                        throw new Error('You are not logged in!');
-                    }
-                });
-            }).then(null, function showLoginErrorMsg(err){
-                var msg = that._getLabel('dialog.edit.login.error', {
-                    error : err
-                });
-                var title = that._getLabel('dialog.edit.login.error.title');
-                that._showMessage(title, msg);
+       
+        var user =  app.user.getUserInfo();
+        if (!!user) {
+            return that._openPopup(resource);
+        } 
+        return that._login().then(function(){
+            return app.user.loadUserInfo().then(function(user){
+                if (!!user) {
+                    return that._openPopup(resource);
+                } else {
+                    throw new Error('You are not logged in!');
+                }
             });
+        }).then(null, function showLoginErrorMsg(err){
+            var msg = that._getLabel('dialog.edit.login.error', {
+                error : err
+            });
+            var title = that._getLabel('dialog.edit.login.error.title');
+            that._showMessage(title, msg);
         });
     },
     

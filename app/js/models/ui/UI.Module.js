@@ -79,6 +79,8 @@ module.exports = Api.extend(AppStateMixin, {
     // ------------------------------------------------------------------------
 
     showHeader : function() {
+        if (this._mode == 'mobile')
+            return false;
         var h = this.options.app.options.header;
         return h === undefined || !!h;
     },

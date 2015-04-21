@@ -67,7 +67,7 @@ module.exports = React.createClass({
         var app = this.props.app;
         var that = this;
         app.user.addChangeListener(this._onUserChange);
-        app.user.getUserInfo().then(function(user) {
+        app.user.loadUserInfo().then(function(user) {
           that.setState({user : user});  
         });        
     },

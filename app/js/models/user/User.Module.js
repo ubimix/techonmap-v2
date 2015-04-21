@@ -18,6 +18,7 @@ module.exports = Api.extend({
      * Loads information about selected/active entities.
      */
     start : function() {
+        return this.loadUserInfo();
     },
 
     /** Closes this module. */
@@ -49,7 +50,7 @@ module.exports = Api.extend({
         });
     },
 
-    getUserInfo : function() {
+    loadUserInfo : function() {
         var that = this;
         return this._http(this.app.options.userInfoApiUrl).then(function(user) {
             if (JSON.stringify(user) != JSON.stringify(that._user)) {
@@ -61,5 +62,11 @@ module.exports = Api.extend({
             return user;
         });
     },
+    
+    getUserInfo : function() {
+        if (!this._user || !this._user.displayName)
+            return undefined;
+        return this._user;
+    }
 
 });
