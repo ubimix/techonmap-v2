@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('./utils/DomUtils');

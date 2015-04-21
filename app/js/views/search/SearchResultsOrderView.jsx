@@ -25,6 +25,7 @@ module.exports = React.createClass({
 
     _sortByName : function(ev) {
         var app = this.getApp();
+        console.log('>>>> SORT BY NAME', !(this.state.sortByName > 0));
         app.res.sortResourcesByName(!(this.state.sortByName > 0));
         ev.preventDefault();
         ev.stopPropagation();

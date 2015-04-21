@@ -98,7 +98,7 @@
             "filter.label.btn.list" : "Liste",
             "filter.label.btn.map" : "Carte",
             "list.msg.empty" : "Nous n'avons rien pu trouver pour votre requête",
-            "list.item.edit.link" : "http://techonmap.fr/edition.html#<%=id%>",
+            "list.item.edit.link" : "#<%=id%>",
             "list.item.edit.title" : "Éditer cette fiche",
             "list.item.share.label" : "Partager : ",
             "list.item.view.link" : "http://techonmap.fr/#<%=id%>",

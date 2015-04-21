@@ -48,7 +48,6 @@ module.exports = React.createClass({
             method : 'GET'
         }).then(function(json) {
             try {
-                console.log('TWITTER >>', json);
                 var tweet = _.isObject(json) ? json : JSON.parse(json);
                 that.setState({tweet : tweet});  
                 return tweet;

@@ -90,6 +90,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     },
 
     _onAppStateChange : function(ev) {
+        console.log('>> ON APP STATE CHANGE', ev)
         this._startPromise.then(function() {
             var app = this.options.app;
             var path = ev.path;
@@ -893,9 +894,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         }
         if (getField) {
             this._resources = _.sortBy(this._resources, getField, this);
-            if (this._sort.direct < 0) {
+            if (!this._sort.direct) {
                 this._resources.reverse();
             }
+            console.log('>> RESOURCES WERE SORTED');
         }
     },
 
