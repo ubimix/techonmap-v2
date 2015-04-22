@@ -5,6 +5,24 @@ x vérifier que le tri fonctionne bien
 - afficher les messages de problème de validation uniquement à la fin quand on soumet le formulaire
 - recherche 'arty'
 
+- peut-on mettre le focus sur le champ nom plutôt que le champ des tags
+fermer le panneau de suggestion de tags une fois qu'un a été sélectionné
+délai d'attente au premier chargement
+
+- l'icône d'édition est toujours trop à droite parfois
+
+rétablir le bouton permettant d'afficher tous les tags
+
+la création de point
+
+changement dynamique de catégories
+rendre le site web obligatoire
+
+bug backoffice : quand on crée une entité avec un id qui avait effacé il y a une erreur qui n'est pas transmise au client (ex : minarty)
+
+
+voir ce qu'on peut faire avec les clusters
+
 pourquoi est-ce que 'sort' est appelé deux fois dans Resource.Module.js (onAppStateChange)
 loading screen sur mobile
 
@@ -82,5 +100,6 @@ x permalien et partage d'entités individuelles via fragments
 splash screen pour mobile
 les popups sur mobile sont trop larges
 pb affichage des boutons de tri 
+
 
 
