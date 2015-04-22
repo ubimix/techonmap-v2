@@ -59,6 +59,14 @@
             "dialog.edit.siret.placeholder" : "SIRET",
             "dialog.edit.tag.label" : "Tags",
             "dialog.edit.tag.placeholder" : "Saisir un tag",
+            
+            "dialog.edit.tag.clear" : "en: Clear value",
+            "dialog.edit.tag.clearAll" : "en: Clear all",
+            "dialog.edit.tag.noResults" :"en: No results found",
+            "dialog.edit.tag.prompt" : "en: Type to search",
+            "dialog.edit.tag.prompt" : "Saisir le texte pour rechercher",
+            "dialog.edit.tag.newTagSuggestion" : " (creer ce tag)",
+            
             "dialog.edit" : "",
             "dialog.edit.address-group.label" : "Adresse",
             "dialog.edit.address.label" : "N° et nom de rue",

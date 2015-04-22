@@ -351,8 +351,8 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         } else {
             var regexp = new RegExp('(^' + mask + '|\\b' + mask + ')');
             tags = _.filter(tagsList, function(str) {
-                if (str == mask)
-                    return false;
+                // if (str == mask)
+                // return false;
                 return regexp.test(str);
             });
         }

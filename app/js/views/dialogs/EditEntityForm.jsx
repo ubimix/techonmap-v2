@@ -13,6 +13,8 @@ var Autocomplete = React.createFactory(require('./Autocomplete.jsx'));
 var InputWidget = require('./InputWidget.jsx');
 var InputWidgetFactory = React.createFactory(InputWidget);
 
+require('react-select/less/select.less');
+var Select = require('react-select');
 
 module.exports = React.createClass({
     displayName : 'EditEntityForm',
@@ -212,45 +214,76 @@ module.exports = React.createClass({
     _renderTags : function(){
         var app = this.props.app;
         var categoryKey = app.edit.getResourceValue('properties.category');
-        if (!categoryKey)
-            return undefined;
 
         var fieldKey = 'properties.tags';
         var resourceTags = app.edit.getResourceValue(fieldKey) || [];
         var tagsIndex = {};
-        _.each(resourceTags, function(tag) {
+        var tags = _.map(resourceTags, function(tag) {
             tagsIndex[tag] = true;
+            return toTagObject(tag);
         });
         
-        var tagInputs = [];
-        var tagsCardinality = app.edit.getCardinality(fieldKey);
-        var maxTagsNumber = tagsCardinality[1];
-        for (var i=0; i < maxTagsNumber; i++) {
-            (function (i){
-                var value = i < resourceTags.length ? resourceTags[i] : null;
-                var tagInputOptions = this._getInputOptions(
-                        fieldKey, 
-                        'dialog.edit.tag.placeholder', 
-                        {
-                            value : value, 
-                            suggestions :  function(value){ 
-                                var tagsList = app.res.getTagsSuggestion(categoryKey, value);
-                                return _.filter(tagsList, function(tag) {
-                                    return !_.has(tagsIndex, tag);
-                                });
-                            }
-                        });
-                tagInputOptions.onValueUpdate = function(){
-                    this._onFieldUpdate(fieldKey);                
-                }.bind(this);
-                var input = Autocomplete(tagInputOptions);
-                tagInputs.push(input);
-            }.bind(this))(i);
+        function toTagObject(val) {
+            return {
+                value : val,
+                label : val
+            };
         }
-        var tagContainer = React.DOM.span({
-// id: this._newId()
-        }, tagInputs);
-        return this._renderHorizontalFormGroup(fieldKey, 'dialog.edit.tag.label', tagContainer);
+        
+        var that = this;
+        function onTagChange(val, list) {
+            var fields = {};
+            var values = fields[fieldKey] = [];
+            _.each(list, function(obj){
+                // Fix the label for newly created (suggested) tags
+                if (obj.created) {
+                    obj.label = obj.value;
+                }
+                values.push(obj.value);
+            });
+            that.props.app.edit.updateFields(fields);            
+        }
+        var getOptions = function(input, callback) {
+            setTimeout(function() {
+                var tagsList = app.res.getTagsSuggestion(categoryKey, input);
+                var alreadySuggested = false;
+                var suggestions = _.filter(tagsList, function(tag) {
+                    alreadySuggested |= tag == input;
+                    return !_.has(tagsIndex, tag);
+                });
+                suggestions = _.map(suggestions, toTagObject);
+                if (!!input && !alreadySuggested && !_.has(tagsIndex, input)) {
+                    var newTag = (
+                        <span>
+                            <strong>{input}</strong>
+                            {that._getLabel('dialog.edit.tag.newTagSuggestion')}
+                        </span>
+                    );
+                    suggestions.unshift({
+                        value : input,
+                        label : newTag,
+                        created : true
+                    });
+                }
+                callback(null, {
+                    options: suggestions,
+                    complete: false
+                });
+            }, 10);
+        };
+        var tagSelector = <Select
+            name={fieldKey}
+            value={tags}
+            asyncOptions={getOptions}
+            multi={true}
+            onChange={onTagChange}
+            placeholder={this._getLabel('dialog.edit.tag.placeholder')}
+            searchPromptText={this._getLabel('dialog.edit.tag.prompt')}
+            noResultsText={this._getLabel('dialog.edit.tag.noResults')}
+            clearValueText={this._getLabel('dialog.edit.tag.clear')}
+            clearAllText={this._getLabel('dialog.edit.tag.clearAll')}
+        />;
+        return this._renderHorizontalFormGroup(fieldKey, 'dialog.edit.tag.label', tagSelector);
     },
     _renderCategoriesAndTags : function(){
         var components = [];
