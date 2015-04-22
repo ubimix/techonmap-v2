@@ -8,6 +8,7 @@ Tags:
 - délai d'attente long lors du premier chargement
 x double clic nécessaire sur Chrome / MacOS pour sélectionner tag dans formulaire
 
+- remplacer le select de catégories par une instance ReactSelect
 - revoir le tri
 - suggestion de tags avec accents
 - info de validation lorsque le point n'a pas été géolocalisé
