@@ -13,7 +13,7 @@ Initiative portée par La Fonderie, agence publique numérique d'Île-de-France,
 TechOnMap est entièrement gratuit. Vous pouvez embarquer la carte sur votre site, en exporter les données (une sélection ou en intégralité) et les réutiliser librement (licence OdBL).
 </p>
 <p>
-Vous ne retrouvez pas votre organisation sur la carte ?  Merci de vous inscrire <a href="http://techonmap.fr/edition.html" target="_blank">ici</a>.
+Vous ne retrouvez pas votre organisation sur la carte ?  Merci l'ajouter en cliquant sur le bouton prévu à cet effet et situé en haut à droite de la carte.
 </p>
 
 <div class="row text-center about">
