@@ -31,7 +31,7 @@ Comment sont triés les tags prioritaires ?
 
 == Recherche
 
-* tags : rétablir le bouton pour afficher tous les tags
+** tags : rétablir le bouton pour afficher tous les tags
 * [SL] recherche 'arty' ne donne pas le résultat escompté
 - prioriser les champs: titre, tag, description. Aujourd'hui "Villes Internet" : la fiche de la structure n'est proposée qu'à la fin de la liste..
 
