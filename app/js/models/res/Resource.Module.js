@@ -863,7 +863,11 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                     });
                 }
                 that._resources = that._filterResources(result, criteria);
-                that._sortResults();
+                that._sort = {
+                    sortBy : undefined,
+                    direct : true
+                };
+                // that._sortResults();
                 return that._resources;
             });
         }).then(function() {

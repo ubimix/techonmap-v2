@@ -15,7 +15,7 @@
       },
       "tags": {
         "type" : "field",
-        "boost" : 3,
+        "boost" : 15,
         "filter" : true
       },
       "address" : {
