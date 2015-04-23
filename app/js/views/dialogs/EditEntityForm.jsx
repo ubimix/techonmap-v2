@@ -9,7 +9,6 @@ var I18NMixin = require('../utils/I18NMixin');
 var DomUtils = require('../utils/DomUtils');
 var FormReactField = require('../utils/FormReactField');
 var GeolocationWidget = require('./GeolocationWidget.jsx');
-var Autocomplete = React.createFactory(require('./Autocomplete.jsx'));
 var InputWidget = require('./InputWidget.jsx');
 var InputWidgetFactory = React.createFactory(InputWidget);
 

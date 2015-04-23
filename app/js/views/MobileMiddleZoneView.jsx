@@ -12,6 +12,33 @@ var SearchResultsOrderView = require('./search/SearchResultsOrderView.jsx');
 var SearchPanel = require('./search/SearchPanel.jsx');
 var ViewActivationMixin = require('./utils/ViewActivationMixin');
 
+var RemoteContentPanel = React.createClass({
+    mixins : [ ContentPopupMixin ],
+    getApp : function(){
+        return that.props.app;
+    },
+    componentWillMount : function(){
+        this._loadRemoteContent();
+    },
+    componentDidUpdate : function(){
+        this._loadRemoteContent();
+    },
+    getInitialState : function(){
+        return {};
+    },
+    _loadRemoteContent : function(){
+        if (!this._contentPromise) {
+            this._contentPromise = this._loadFormattedViews({ 
+                url: this.props.url
+            });
+        }
+        this._contentPromise.then(this.setState);
+    },
+    render : function(){
+        return this.props.doRender(state);
+    }
+});
+
 module.exports = React.createClass({
     displayName : 'MobileMiddleZoneView',
     mixins : [ DomUtils, ViewActivationMixin, ContentPopupMixin, I18NMixin ],
@@ -45,36 +72,21 @@ module.exports = React.createClass({
     _renderAboutPanel : function(){
         if (!this._checkActiveView('about'))
             return ;
-        var app = this.props.app;
-        var that = this;
-        that._loadContent({ 
-            url: 'about.md',
-        }).then(function(obj) {
-            var div = that.refs.about.getDOMNode();
-            
-            var title = obj.getAsHtml('title');
-            var titlePanel = div.querySelector('.text-title');
-            if (title && titlePanel) {
-                titlePanel.innerHTML = title;
-            }
-
-            var content = obj.getContentAsHtml();
-            var contentPanel = div.querySelector('.text-content');
-            if (content && contentPanel){
-                contentPanel.innerHTML = content;
-            }
-        });
-        return (
-            <div ref="about" className="container-fluid about-panel">
-                <h1 className="text-title"></h1>
-                <div className="row">
-                    <div className="col-md-12 text-content">
-                        
+        return <RemoteContentPanel 
+            app={this.props.app}
+            url="about.md"
+            doRender={function(state){
+                return (
+                    <div ref="about" className="container-fluid about-panel">
+                        <h1 className="text-title">{state.titleElm}</h1>
+                        <div className="row">
+                            <div className="col-md-12 text-content">
+                                {state.bodyElm}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        );
-        
+                );
+            }}/>
     },
     
     _renderSearchFormView : function(){

@@ -47,9 +47,22 @@ module.exports = React.createClass({
                 </button>
             </div>
         );
-        this._showContentDialog({ 
+        var that = this;
+        that._showContentDialog({ 
             url: 'about.md',
             footer : footer,
+            onOpen : function(dialog) {
+                var node = dialog.getDOMNode();
+                DomUtils.select(node, '[data-action="inscription"]', function(ref) {
+                    ref.addEventListener('click', function(ev){
+                        PopupPanel.closePopup();
+                        that._onClickAdd(ev);
+                    });
+                });
+            },
+            onClose : function(dialog){
+                console.log('CLOSE!', dialog);
+            }
         });
         ev.stopPropagation();
         ev.preventDefault();
