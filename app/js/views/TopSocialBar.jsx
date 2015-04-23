@@ -79,7 +79,7 @@ module.exports = React.createClass({
         return (
             <div className="pull-right logout">
                 <a href="#" onClick={this.logout}>
-                    Se déconnnecter
+                    Se déconnecter
                 </a>
             </div>
         );

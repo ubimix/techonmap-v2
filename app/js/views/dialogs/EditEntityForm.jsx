@@ -12,7 +12,7 @@ var GeolocationWidget = require('./GeolocationWidget.jsx');
 var InputWidget = require('./InputWidget.jsx');
 var InputWidgetFactory = React.createFactory(InputWidget);
 
-require('react-select/less/select.less');
+require('../../../css/react-select/select.less');
 var Select = require('react-select');
 
 module.exports = React.createClass({
@@ -148,6 +148,8 @@ module.exports = React.createClass({
                 var fields = {};
                 fields[options.fieldKey] = values;
                 this.props.app.edit.updateFields(fields);
+                if (options.fieldKey && options.fieldKey === 'properties.category')
+                    this._renderTags();
             }.bind(this)            
         }));
     },
@@ -213,7 +215,6 @@ module.exports = React.createClass({
     _renderTags : function(){
         var app = this.props.app;
         var categoryKey = app.edit.getResourceValue('properties.category');
-
         var fieldKey = 'properties.tags';
         var resourceTags = app.edit.getResourceValue(fieldKey) || [];
         var tagsIndex = {};
@@ -221,6 +222,7 @@ module.exports = React.createClass({
             tagsIndex[tag] = true;
             return toTagObject(tag);
         });
+        
         
         function toTagObject(val) {
             return {
@@ -240,6 +242,7 @@ module.exports = React.createClass({
                 }
                 values.push(obj.value);
             });
+            
             that.props.app.edit.updateFields(fields);            
         }
         var getOptions = function(input, callback) {
@@ -255,7 +258,7 @@ module.exports = React.createClass({
                     var newTag = (
                         <span>
                             <strong>{input}</strong>
-                            {that._getLabel('dialog.edit.tag.newTagSuggestion')}
+                            &nbsp;{that._getLabel('dialog.edit.tag.newTagSuggestion')}
                         </span>
                     );
                     suggestions.unshift({
@@ -270,18 +273,25 @@ module.exports = React.createClass({
                 });
             }, 10);
         };
+        
+        var tagsList = app.res.getTagsSuggestion(categoryKey);
+        var suggestions = _.map(tagsList, toTagObject);
+        
         var tagSelector = <Select
             name={fieldKey}
             value={tags}
+            options={suggestions}
             asyncOptions={getOptions}
             multi={true}
             onChange={onTagChange}
+            isFocused={false}
             placeholder={this._getLabel('dialog.edit.tag.placeholder')}
             searchPromptText={this._getLabel('dialog.edit.tag.prompt')}
             noResultsText={this._getLabel('dialog.edit.tag.noResults')}
             clearValueText={this._getLabel('dialog.edit.tag.clear')}
             clearAllText={this._getLabel('dialog.edit.tag.clearAll')}
         />;
+
         return this._renderHorizontalFormGroup(fieldKey, 'dialog.edit.tag.label', tagSelector);
     },
     _renderCategoriesAndTags : function(){
@@ -377,6 +387,7 @@ module.exports = React.createClass({
     
     _renderCreationYear : function(){
         return this._renderInputGroup({
+            mandatory : true,
             fieldKey : 'properties.creationyear',
             labelKey : 'dialog.edit.year.label',
             placeholderKey :  'dialog.edit.year.placeholder',
@@ -393,6 +404,7 @@ module.exports = React.createClass({
     
     _renderWebSiteUrl : function(){
         return this._renderInputGroup({
+            mandatory : true,
             fieldKey : 'properties.url',
             labelKey : 'dialog.edit.url.label', 
             placeholderKey :  'dialog.edit.url.placeholder',
