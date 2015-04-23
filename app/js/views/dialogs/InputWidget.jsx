@@ -13,40 +13,21 @@ var InputWidget = React.createClass({
         var state = this._getUpdatedState(props);
         this.setState(state);
     },
-    
-    _getUpdatedState : function(props) {
-        var values = props.values || [];
-        values = this._validateValues(values);
-        values = this._toArray(values, []);
-        return this._newState({
-            values : values
-        });
-    },
 
-    _newState : function(options) {
-        return _.extend({}, this.state, options);
-    },
-
-    _setValue : function(idx, value){
-        var values = this.state.values;
-        var newValues = [];
-        var i;
-        for (i=0; i<values.length; i++) {
-            newValues[i] = values[i];  
-        }
-        for (; i<=idx; i++) {
-            newValues.push(undefined);
-        }
-        newValues[idx] = value;
-        newValues = this._validateValues(newValues);
-        this.setState(this._newState({
-            values: newValues
-        }));
-        if (this.props.onChange) {
-            this.props.onChange(newValues);
+    setFocus : function(focused, idx){
+        idx = idx || 0;
+        var key = this._getInputKey(idx);
+        var input = this.refs[key];
+        if (input) {
+            var node = input.getDOMNode();
+            if (focused) {
+                node.focus();
+            } else {
+                node.blur();
+            }
         }
     },
-    
+        
     render : function() {
         var className = 'form-group';
         var messageBlock = null;
@@ -87,6 +68,39 @@ var InputWidget = React.createClass({
         );
     },
 
+    _getUpdatedState : function(props) {
+        var values = props.values || [];
+        values = this._validateValues(values);
+        values = this._toArray(values, []);
+        return this._newState({
+            values : values
+        });
+    },
+
+    _newState : function(options) {
+        return _.extend({}, this.state, options);
+    },
+
+    _setValue : function(idx, value){
+        var values = this.state.values;
+        var newValues = [];
+        var i;
+        for (i=0; i<values.length; i++) {
+            newValues[i] = values[i];  
+        }
+        for (; i<=idx; i++) {
+            newValues.push(undefined);
+        }
+        newValues[idx] = value;
+        newValues = this._validateValues(newValues);
+        this.setState(this._newState({
+            values: newValues
+        }));
+        if (this.props.onChange) {
+            this.props.onChange(newValues);
+        }
+    },
+    
     _renderMandatoryFieldMarker : function(){
         return <i className="icon icon-star mandatory">*</i>;
     },
@@ -121,10 +135,14 @@ var InputWidget = React.createClass({
          return key;
      },
 
+     _getInputKey : function(idx) {
+         var fieldKey = this._getFieldKey();
+         return fieldKey + '-' + idx;   
+     },
+     
      _renderInput : function(idx, value, addon){
          idx = idx || 0;
-         var fieldKey = this._getFieldKey();
-         var key = fieldKey + '-' + idx;
+         var key = this._getInputKey(idx);
          var addonLabel;
          var readonly = this.props.readonly;
          var className = "";

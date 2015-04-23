@@ -61,7 +61,6 @@ module.exports = React.createClass({
                 });
             },
             onClose : function(dialog){
-                console.log('CLOSE!', dialog);
             }
         });
         ev.stopPropagation();

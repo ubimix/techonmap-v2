@@ -23,6 +23,12 @@ module.exports = React.createClass({
         return this.props.app;
     },
     componentDidMount  : function(){
+        setTimeout(function(){
+            var nameInput = this.refs['properties.name'];
+            if (nameInput) {
+                nameInput.setFocus(true);
+            }
+        }.bind(this), 100);
     },
     componentWillMount : function(){
         this.props.app.edit.addChangeListener(this._redraw);
@@ -157,6 +163,7 @@ module.exports = React.createClass({
     _renderName : function(){
         return this._renderInputGroup({
             mandatory : true,
+            ref : 'properties.name',
             fieldKey : 'properties.name',
             labelKey : 'dialog.edit.name.label',
             placeholderKey : 'dialog.edit.name.placeholder',
@@ -281,7 +288,6 @@ module.exports = React.createClass({
             name={fieldKey}
             value={tags}
             options={suggestions}
-            asyncOptions={getOptions}
             multi={true}
             onChange={onTagChange}
             isFocused={false}
