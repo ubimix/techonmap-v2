@@ -44,6 +44,56 @@
     border-radius: 0px;
 }
 
+.nav-tabs > li > a {
+    border: 1px solid #ddd;
+    margin-right: -1px;
+    &:hover, &:focus {
+        border: 1px solid #ddd;
+    }
+}
+
+.pagination   {
+    > li {
+        &:first-child {
+            > a, > span {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+            }
+        }
+        &::last-child {
+            > a, > span {
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;    
+            }
+        }
+    
+        > a, > span {
+            color: #666;
+            border-color: #eee;
+            
+            &:hover, &:focus {
+                color: #666;
+                background-color: #eee;
+                border-color: #eee;
+            }
+        }     
+    }
+    
+    > .disabled {
+         > span,  > span:hover, > span:focus, > a, > a:hover, a:focus {
+            border-color: #eee;       
+         }
+    }
+    
+    > .active {
+        > a, > span, > a:hover, > span:hover, > a:focus,  > span:focus {
+            color: #666;
+            background-color: #eee;
+            border-color: #eee;
+        } 
+    }
+}
+
 @import url('./index.macros.less');
 
 .main-zone {

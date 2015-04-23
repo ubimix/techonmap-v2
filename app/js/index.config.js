@@ -30,7 +30,11 @@ module.exports = {
         // tilesUrl : 'http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png',
         // tilesUrl : 'http://techonmap.ubimix.com/tiles/{z}/{x}/{y}.png',
         tilesUrl : 'http://{s}.tiles.mapbox.com/v3/ubimix.kgopg33n/{z}/{x}/{y}.png',
-        tilesAttribution : '&copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors',
+        tilesAttribution : {
+            prefix : false,
+            position : 'bottomleft',
+            text : 'Données cartographiques &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a>',
+        },
         zoom : 10,
         maxZoom : 16,
         minZoom : 10,

@@ -31,7 +31,6 @@
     "page": "^1.5.0",
     "react": "^0.12.1",
     "react-autocomplete": "0.0.2",
-    "react-select": "^0.4.7",
     "react-select": "git+https://github.com/ubimix/react-select.git",
     "react-typeahead": "^1.0.1",
     "underscore": "~1.7.0"

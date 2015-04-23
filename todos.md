@@ -1,4 +1,8 @@
 
+recherche de tags é/e
+
+rafraîchir popup sur la carte
+
 == Formulaire
 
 Tags:
@@ -8,6 +12,7 @@ Tags:
 - délai d'attente long lors du premier chargement
 x double clic nécessaire sur Chrome / MacOS pour sélectionner tag dans formulaire
 
+- élargir le formulaire
 - remplacer le select de catégories par une instance ReactSelect
 - revoir le tri
 - suggestion de tags avec accents
@@ -49,7 +54,8 @@ x vérifier que le tri fonctionne bien
 == Autres
 
 * [SL] passer les sources de private à public en ayant vérifié que tout ok
-* [SL] crédits OpenStreetMap
+x [SL] crédits OpenStreetMap
+* [SL] Rétablir Google Analytics
 - panneau 'A propos': texte "merci de cliquer sur le bouton" à remplacer par 'merci de vous inscrire ici' pointant sur le formulaire
 - voir comment centrer verticalement les images de chargement
 - écran de chargement suite à commentaire MK zeroisthree.se position:relative, top:50%, transform: translateY(-50%);
@@ -65,10 +71,6 @@ x vérifier que le tri fonctionne bien
 - Les symboles pour dézoomer ne sont pas centrés (ni sur la hauteur ni sur la largeur)
 - bordure grise en plus du drop-shadow
 - sur grand écran les boutons du menu passent au centre au lieu d'être calés à droite. La liste doit avoir un min-width et un max-width
-
-Autres
-======
-* [SL] Rétablir Google Analytics
 
 == Mobile
 
