@@ -35,7 +35,7 @@ module.exports = React.createClass({
     },
     _sortByDate : function(ev) {
         var app = this.getApp();
-        app.res.sortResourcesByDate(!(this.state.sortByDate > 0));
+        app.res.sortResourcesByDate(this.state.sortByDate > 0);
         ev.preventDefault();
         ev.stopPropagation();
     },
