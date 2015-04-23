@@ -288,6 +288,7 @@ module.exports = React.createClass({
             name={fieldKey}
             value={tags}
             options={suggestions}
+            asyncOptions={getOptions}
             multi={true}
             onChange={onTagChange}
             isFocused={false}

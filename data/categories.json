@@ -16,13 +16,13 @@
             "big data",
             "applications mobiles",
             "services de proximité",
-            "indépendants",
+            "indépendant",
             "webdesign",
             "graphisme",
             "marketing",
             "communication",
             "conseil",
-            "telecoms",
+            "télécoms",
             "SSII",
             "opensource",
             "jeux vidéo",
@@ -40,7 +40,7 @@
         "key" : "École",
         "icon" : "education",
         "label" : "Écoles",
-        "tags" : ["ingénieur", "développeur", "manager", "audiovisuel", "webdesign", "informatique", "telecoms", "jeux vidéo"]
+        "tags" : ["ingénieur", "développeurs", "manager", "audiovisuel", "webdesign", "informatique", "télécoms", "jeux vidéo"]
     },
     {
         "key" : "Communauté",

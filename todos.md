@@ -1,7 +1,7 @@
 
 recherche de tags é/e
-
 rafraîchir popup sur la carte
+pusher mosaic-core pour màj LeafletReactMap
 
 == Formulaire
 
