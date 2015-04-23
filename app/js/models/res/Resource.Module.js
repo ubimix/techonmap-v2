@@ -98,10 +98,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             if (criteria) {
                 this.updateSearchCriteria(criteria);
             }
-            var sort = this._getAppState('sort');
-            if (sort) {
-                this.sortResources(sort);
-            }
+            // var sort = this._getAppState('sort');
+            // if (sort) {
+            // this.sortResources(sort);
+            // }
             var resourceId = this._getAppState('selectedId');
             if (resourceId) {
                 setTimeout(function() {
@@ -846,6 +846,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         var that = this;
         return that._allResourcesPromise.then(function() {
             return that._trace('_searchResources', function() {
+                that._sort = {
+                    sortBy : undefined,
+                    direct : true
+                };
                 var criteria = that.getSearchCriteria();
                 var q = criteria.q || '';
                 var result;
@@ -863,11 +867,8 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                     });
                 }
                 that._resources = that._filterResources(result, criteria);
-                that._sort = {
-                    sortBy : undefined,
-                    direct : true
-                };
                 // that._sortResults();
+                console.log('   [_searchResources]', that._resources);
                 return that._resources;
             });
         }).then(function() {
