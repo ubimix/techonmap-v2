@@ -2,6 +2,7 @@
 recherche de tags é/e
 rafraîchir popup sur la carte
 pusher mosaic-core pour màj LeafletReactMap
+quand on ajoute une entité il faudrait voir quel critère de tri on applique
 
 == Formulaire
 
@@ -11,7 +12,6 @@ Tags:
 * interdire l'ajout de tags tant qu'une catégorie n'a pas été sélectionnée
 - délai d'attente long lors du premier chargement
 x double clic nécessaire sur Chrome / MacOS pour sélectionner tag dans formulaire
-
 - élargir le formulaire
 - remplacer le select de catégories par une instance ReactSelect
 - revoir le tri
