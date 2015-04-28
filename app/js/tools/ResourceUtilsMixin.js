@@ -31,7 +31,7 @@ module.exports = {
         var type = this._getFirstProperty(resource, 'name');
         return type;
     },
-    
+
     getResourceCreationYear : function(resource) {
         if (!resource)
             return null;
@@ -48,11 +48,11 @@ module.exports = {
         // var type = this._getFirstProperty(resource, 'type');
         // return type;
     },
-    
+
     getResourceTypeLabel : function(type) {
         if (!type || type.length == 0)
             return 'default';
-        var label = type.substring(0,1).toUpperCase() + type.substring(1);
+        var label = type.substring(0, 1).toUpperCase() + type.substring(1);
         return label;
     },
 
@@ -111,8 +111,8 @@ module.exports = {
         var initialized = false;
         resources = _.isArray(resources) ? resources : [ resources ];
         _.each(resources, function(resource) {
-            if (!resource || !resource.geometry ||
-                    !resource.geometry.coordinates)
+            if (!resource || !resource.geometry
+                    || !resource.geometry.coordinates)
                 return;
             this._visitGeometry(resource.geometry, function(point) {
                 if (!initialized) {
@@ -142,6 +142,44 @@ module.exports = {
         return (bbox[0][0] == bbox[1][0]) && (bbox[0][1] == bbox[1][1]);
     },
 
+    /** Normalizes names - remove all accented characters */
+    normalizeName : function normalizeName(str) {
+        if (!str || str == '')
+            return '';
+        if (!normalizeName._replacements) {
+            var repl = normalizeName._replacements = [];
+            function addRegexp(key, val) {
+                repl[key] = val;
+            }
+            addRegexp(/[\s.|!?,;<>&\'"()\\\/%]+/gim, '-');
+            addRegexp(/-+/gim, '-');
+            // addRegexp([/^-+|-+$/gim, '');
+            addRegexp(/^-+/gim, '');
+            addRegexp(/[ùûü]/gim, 'u');
+            addRegexp(/[ÿ]/gim, 'y');
+            addRegexp(/[àâ]/gim, 'a');
+            addRegexp(/[æ]/gim, 'ae');
+            addRegexp(/[ç]/gim, 'c');
+            addRegexp(/[éèêë]/gim, 'e');
+            addRegexp(/[ïî]/gim, 'i');
+            addRegexp(/[ô]/gim, 'o');
+            addRegexp(/[œ]/gim, 'oe');
+        }
+        str = str + '';
+        str = str.toLowerCase();
+        var replacements = normalizeName._replacements;
+        for ( var regexp in replacements) {
+            if (replacements.hasOwnProperty(regexp)) {
+                var val = replacements[regexp];
+                str = str.replace(regexp, val);
+            }
+        }
+        // _.each(normalizeName._replacements, function(val, regexp) {
+        // str = str.replace(regexp, val);
+        // });
+        return str;
+    },
+
     /**
      * An internal method visiting all coordinates of GeoJSON geometry objects.
      */
@@ -160,29 +198,29 @@ module.exports = {
             var result;
             var coords = geometry.coordinates;
             switch (geometry.type) {
-                case 'Point' :
-                    listener(coords);
+            case 'Point':
+                listener(coords);
                 break;
-                case 'MultiPoint' :
-                case 'LineString' :
-                    visitSequence(coords, listener);
+            case 'MultiPoint':
+            case 'LineString':
+                visitSequence(coords, listener);
                 break;
-                case 'MultiLineString' :
-                case 'Polygon' :
-                    visitSequences(coords, listener);
+            case 'MultiLineString':
+            case 'Polygon':
+                visitSequences(coords, listener);
                 break;
-                case 'MultiPolygon' :
-                    for (var i = 0; i < coords.length; i++) {
-                        visitSequences(coords[i], listener);
+            case 'MultiPolygon':
+                for (var i = 0; i < coords.length; i++) {
+                    visitSequences(coords[i], listener);
+                }
+                break;
+            case 'GeometryCollection':
+                (function() {
+                    var geoms = geometry.geometries;
+                    for (var i = 0, len = geoms.length; i < len; i++) {
+                        visit(geoms[i], listener);
                     }
-                break;
-                case 'GeometryCollection' :
-                    (function() {
-                        var geoms = geometry.geometries;
-                        for (var i = 0, len = geoms.length; i < len; i++) {
-                            visit(geoms[i], listener);
-                        }
-                    })();
+                })();
                 break;
             }
             return result;

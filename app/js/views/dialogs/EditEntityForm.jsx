@@ -11,14 +11,14 @@ var FormReactField = require('../utils/FormReactField');
 var GeolocationWidget = require('./GeolocationWidget.jsx');
 var InputWidget = require('./InputWidget.jsx');
 var InputWidgetFactory = React.createFactory(InputWidget);
-
-require('../../../css/react-select/select.less');
+require('../../../css/select.less');
 var Select = require('react-select');
 
 module.exports = React.createClass({
+
     displayName : 'EditEntityForm',
-    
     mixins: [I18NMixin],
+    
     getApp: function(){
         return this.props.app;
     },
@@ -230,11 +230,12 @@ module.exports = React.createClass({
             return toTagObject(tag);
         });
         
-        
         function toTagObject(val) {
+            var suffix = '';
             return {
-                value : val,
-                label : val
+                tag : val,
+                value : val + suffix,
+                label : val + suffix,
             };
         }
         
@@ -243,11 +244,7 @@ module.exports = React.createClass({
             var fields = {};
             var values = fields[fieldKey] = [];
             _.each(list, function(obj){
-                // Fix the label for newly created (suggested) tags
-                if (obj.created) {
-                    obj.label = obj.value;
-                }
-                values.push(obj.value);
+                values.push(obj.tag);
             });
             
             that.props.app.edit.updateFields(fields);            
@@ -261,6 +258,7 @@ module.exports = React.createClass({
                     return !_.has(tagsIndex, tag);
                 });
                 suggestions = _.map(suggestions, toTagObject);
+                
                 if (!!input && !alreadySuggested && !_.has(tagsIndex, input)) {
                     var newTag = (
                         <span>
@@ -268,12 +266,12 @@ module.exports = React.createClass({
                             &nbsp;{that._getLabel('dialog.edit.tag.newTagSuggestion')}
                         </span>
                     );
-                    suggestions.unshift({
-                        value : input,
-                        label : newTag,
-                        created : true
-                    });
+                    var tagObj = toTagObject(input);
+                    tagObj.created = true;
+                    tagObj.label = newTag;
+                    suggestions.unshift(tagObj);
                 }
+
                 callback(null, {
                     options: suggestions,
                     complete: false
@@ -287,7 +285,6 @@ module.exports = React.createClass({
         var tagSelector = <Select
             name={fieldKey}
             value={tags}
-            options={suggestions}
             asyncOptions={getOptions}
             multi={true}
             onChange={onTagChange}

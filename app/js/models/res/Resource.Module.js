@@ -348,11 +348,14 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         if (!mask) {
             tags = tagsList;
         } else {
+            mask = ResourceUtils.normalizeName(mask);
             var regexp = new RegExp('(^' + mask + '|\\b' + mask + ')');
-            tags = _.filter(tagsList, function(str) {
-                // if (str == mask)
-                // return false;
-                return regexp.test(str);
+            tags = [];
+            _.each(tagsList, function(str) {
+                var s = ResourceUtils.normalizeName(str);
+                if (regexp.test(s)) {
+                    tags.push(str);
+                }
             });
         }
         return tags;
@@ -868,7 +871,6 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 }
                 that._resources = that._filterResources(result, criteria);
                 // that._sortResults();
-                console.log('   [_searchResources]', that._resources);
                 return that._resources;
             });
         }).then(function() {
@@ -968,7 +970,6 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         var start = new Date().getTime();
         var result = callback();
         var end = new Date().getTime();
-        console.log('*' + message + ':' + (end - start) + ' ms');
         return result;
 
     }

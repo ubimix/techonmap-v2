@@ -17,10 +17,6 @@ module.exports = React.createClass({
         var app = this.getApp();
         var sortByName = app.res.getSortByName();
         var sortByDate = app.res.getSortByDate();
-        console.log(' =========================== ');
-        console.log(' - sortByName : ', sortByName);
-        console.log(' - sortByDate : ', sortByDate);
-        console.log('----------------------------');
         return {
             sortByName : sortByName,
             sortByDate : sortByDate
@@ -51,7 +47,6 @@ module.exports = React.createClass({
     render : function() {
         var nameActive = !!this.state.sortByName ? 'active' : '';
         var dateActive = !!this.state.sortByDate ? 'active' : '';
-        console.log(' RENDER ORDERING BUTTONS!');
         return (
             <ul className="search-results-order nav nav-tabs">
                 <li><span>{this._getLabel('search.label.sort')}</span></li>

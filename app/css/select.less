@@ -44,9 +44,18 @@
 @select-item-hover-color:          darken(@select-item-color, 5%); // pale blue
 @select-item-hover-bg:             darken(@select-item-bg, 5%);
 
+@import "../../node_modules/react-select/less/control.less";
+@import "../../node_modules/react-select/less/menu.less";
+@import "../../node_modules/react-select/less/mixins.less";
+@import "../../node_modules/react-select/less/multi.less";
+@import "../../node_modules/react-select/less/spinner.less";
 
-@import "control.less";
-@import "menu.less";
-@import "mixins.less";
-@import "multi.less";
-@import "spinner.less";
+@import "index.macros.less";
+.Select-control {
+    z-index : 2;
+}
+.Select-menu-outer {
+    z-index : 1;
+    background-color : #F8F8F8;
+    .box-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
+}

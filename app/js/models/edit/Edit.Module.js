@@ -105,7 +105,10 @@ module.exports = Api.extend(ResourceUtils, {
             if (notify) {
                 that.notify();
             }
-            that._notifyEndEdit({changed : notify, resource : resource});
+            that._notifyEndEdit({
+                changed : notify,
+                resource : resource
+            });
         });
     }),
 
@@ -252,26 +255,7 @@ module.exports = Api.extend(ResourceUtils, {
         return result;
     },
 
-    _normalizeName : function(str) {
-        if (!str || str == '')
-            return '';
-        str = str + '';
-        str = str.toLowerCase();
-        str = str.replace(/[\s.|!?,;<>&\'"()\\\/%]+/g, '-');
-        str = str.replace(/-+/g, '-');
-        // str = str.replace(/^-+|-+$/g, '');
-        str = str.replace(/^-+/g, '');
-        str = str.replace(/[ùûü]/g, 'u');
-        str = str.replace(/[ÿ]/g, 'y');
-        str = str.replace(/[àâ]/g, 'a');
-        str = str.replace(/[æ]/g, 'ae');
-        str = str.replace(/[ç]/g, 'c');
-        str = str.replace(/[éèêë]/g, 'e');
-        str = str.replace(/[ïî]/g, 'i');
-        str = str.replace(/[ô]/g, 'o');
-        str = str.replace(/[œ]/g, 'oe');
-        return str;
-    },
+    _normalizeName : ResourceUtils.normalizeName,
 
     _doReset : function() {
         this._resource = this._clone(this._original);
@@ -388,7 +372,7 @@ module.exports = Api.extend(ResourceUtils, {
                 return i18n.getValidationMessage.apply(i18n, arguments);
             },
             getCategoryKeys : function(key) {
-                // FIXME: 
+                // FIXME:
                 return app.res.getCategoryKeys();
             }
         });
