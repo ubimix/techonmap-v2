@@ -818,7 +818,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             if (_.isArray(value)) {
                 value = value.join(' ');
             }
-            entry[field] = value;
+            entry[field] = ResourceUtils.normalizeText(value);
         });
         this._index.add(entry);
     },
@@ -860,6 +860,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                     result = _.values(that._allResources);
                 } else {
                     result = [];
+                    q = ResourceUtils.normalizeText(q);
                     var list = that._index.search(q);
                     _.each(list, function(r) {
                         var id = r.ref;

@@ -1,6 +1,29 @@
 var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 
+/** Returns a function normalizing strings */
+function getNormalizationFunction() {
+    var repl = [];
+    for (var i = 0; i < arguments.length; i++) {
+        var mapping = arguments[i];
+        for ( var key in mapping) {
+            repl.push({
+                regexp : new RegExp(key, 'gim'),
+                value : mapping[key]
+            });
+        }
+    }
+    return function(str) {
+        if (!str || str == '')
+            return '';
+        for (var i = 0; i < repl.length; i++) {
+            var slot = repl[i];
+            str = str.replace(slot.regexp, slot.value);
+        }
+        return str;
+    }
+}
+
 module.exports = {
 
     /** Returns a list of normalized tags for the specified resource. */
@@ -111,7 +134,8 @@ module.exports = {
         var initialized = false;
         resources = _.isArray(resources) ? resources : [ resources ];
         _.each(resources, function(resource) {
-            if (!resource || !resource.geometry || !resource.geometry.coordinates)
+            if (!resource || !resource.geometry
+                    || !resource.geometry.coordinates)
                 return;
             this._visitGeometry(resource.geometry, function(point) {
                 if (!initialized) {
@@ -141,41 +165,38 @@ module.exports = {
         return (bbox[0][0] == bbox[1][0]) && (bbox[0][1] == bbox[1][1]);
     },
 
-    /** Normalizes names - remove all accented characters */
-    normalizeName : function normalizeName(str) {
-        if (!str || str == '')
-            return '';
-        if (!normalizeName._replacements) {
-            var repl = normalizeName._replacements = [];
-            function addRegexp(regexp, val) {
-                repl.push({
-                    regexp : regexp,
-                    value : val
-                });
-            }
-            addRegexp(/[\s.|!?,;<>&\'"()\\\/%]+/gim, '-');
-            addRegexp(/-+/gim, '-');
-            // addRegexp([/^-+|-+$/gim, '');
-            addRegexp(/^-+/gim, '');
-            addRegexp(/[ùûü]/gim, 'u');
-            addRegexp(/[ÿ]/gim, 'y');
-            addRegexp(/[àâ]/gim, 'a');
-            addRegexp(/[æ]/gim, 'ae');
-            addRegexp(/[ç]/gim, 'c');
-            addRegexp(/[éèêë]/gim, 'e');
-            addRegexp(/[ïî]/gim, 'i');
-            addRegexp(/[ô]/gim, 'o');
-            addRegexp(/[œ]/gim, 'oe');
-        }
-        str = str + '';
-        str = str.toLowerCase();
-        var replacements = normalizeName._replacements;
-        for (var i = 0; i < replacements.length; i++) {
-            var slot = replacements[i];
-            str = str.replace(slot.regexp, slot.value);
-        }
-        return str;
-    },
+    /**
+     * Normalizes names - remove all accented characters, spaces and special
+     * symbols
+     */
+    normalizeName : getNormalizationFunction({
+        '[\s.|!?,;<>&\'"()\\\/%]+' : '-',
+        '-+' : '-',
+        // '[/^-+|-+$' : '',
+        '^-+' : '',
+        '[ùûü]' : 'u',
+        '[ÿ]' : 'y',
+        '[àâ]' : 'a',
+        '[æ]' : 'ae',
+        '[ç]' : 'c',
+        '[éèêë]' : 'e',
+        '[ïî]' : 'i',
+        '[ô]' : 'o',
+        '[œ]' : 'oe',
+    }),
+
+    /** Normalizes texts - remove all accented characters */
+    normalizeText : getNormalizationFunction({
+        '[ùûü]' : 'u',
+        '[ÿ]' : 'y',
+        '[àâ]' : 'a',
+        '[æ]' : 'ae',
+        '[ç]' : 'c',
+        '[éèêë]' : 'e',
+        '[ïî]' : 'i',
+        '[ô]' : 'o',
+        '[œ]' : 'oe',
+    }),
 
     /**
      * An internal method visiting all coordinates of GeoJSON geometry objects.
