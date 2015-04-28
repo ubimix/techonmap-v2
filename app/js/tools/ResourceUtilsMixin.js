@@ -16,6 +16,7 @@ function getNormalizationFunction() {
     return function(str) {
         if (!str || str == '')
             return '';
+        str = str + '';
         for (var i = 0; i < repl.length; i++) {
             var slot = repl[i];
             str = str.replace(slot.regexp, slot.value);
