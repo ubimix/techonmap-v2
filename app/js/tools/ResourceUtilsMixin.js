@@ -111,8 +111,7 @@ module.exports = {
         var initialized = false;
         resources = _.isArray(resources) ? resources : [ resources ];
         _.each(resources, function(resource) {
-            if (!resource || !resource.geometry
-                    || !resource.geometry.coordinates)
+            if (!resource || !resource.geometry || !resource.geometry.coordinates)
                 return;
             this._visitGeometry(resource.geometry, function(point) {
                 if (!initialized) {
@@ -148,8 +147,11 @@ module.exports = {
             return '';
         if (!normalizeName._replacements) {
             var repl = normalizeName._replacements = [];
-            function addRegexp(key, val) {
-                repl[key] = val;
+            function addRegexp(regexp, val) {
+                repl.push({
+                    regexp : regexp,
+                    value : val
+                });
             }
             addRegexp(/[\s.|!?,;<>&\'"()\\\/%]+/gim, '-');
             addRegexp(/-+/gim, '-');
@@ -168,15 +170,10 @@ module.exports = {
         str = str + '';
         str = str.toLowerCase();
         var replacements = normalizeName._replacements;
-        for ( var regexp in replacements) {
-            if (replacements.hasOwnProperty(regexp)) {
-                var val = replacements[regexp];
-                str = str.replace(regexp, val);
-            }
+        for (var i = 0; i < replacements.length; i++) {
+            var slot = replacements[i];
+            str = str.replace(slot.regexp, slot.value);
         }
-        // _.each(normalizeName._replacements, function(val, regexp) {
-        // str = str.replace(regexp, val);
-        // });
         return str;
     },
 

@@ -250,12 +250,15 @@ module.exports = React.createClass({
             console.log('>>> CATEGORY KEY', categoryKey);
             setTimeout(function() {
                 var tagsList = app.res.getTagsSuggestion(categoryKey, input);
+                console.log('>>> SUGGESTION', tagsList);
                 var alreadySuggested = false;
                 var suggestions = _.filter(tagsList, function(tag) {
                     alreadySuggested |= tag == input;
                     return !_.has(tagsIndex, tag);
                 });
                 suggestions = _.map(suggestions, toTagObject);
+                
+                
                 
                 if (!!input && !alreadySuggested && !_.has(tagsIndex, input)) {
                     var newTag = (
@@ -283,9 +286,12 @@ module.exports = React.createClass({
         var tagSelector = <Select
             name={fieldKey}
             value={tags}
+            options={suggestions}
             asyncOptions={getOptions}
             multi={true}
             onChange={onTagChange}
+            matchPos={'start'}
+            filterOption={function(option, filter) { return true;}}
             isFocused={false}
             placeholder={this._getLabel('dialog.edit.tag.placeholder')}
             searchPromptText={this._getLabel('dialog.edit.tag.prompt')}
