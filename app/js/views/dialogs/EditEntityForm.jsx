@@ -1,6 +1,3 @@
-/**
- * @jsx React.DOM
- */
 'use strict';
 var _ = require('underscore');
 var React = require('react');
@@ -28,7 +25,7 @@ module.exports = React.createClass({
             if (nameInput) {
                 nameInput.setFocus(true);
             }
-        }.bind(this), 100);
+        }.bind(this), 300);
     },
     componentWillMount : function(){
         this.props.app.edit.addChangeListener(this._redraw);
@@ -250,6 +247,7 @@ module.exports = React.createClass({
             that.props.app.edit.updateFields(fields);            
         }
         var getOptions = function(input, callback) {
+            console.log('>>> CATEGORY KEY', categoryKey);
             setTimeout(function() {
                 var tagsList = app.res.getTagsSuggestion(categoryKey, input);
                 var alreadySuggested = false;
