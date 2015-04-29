@@ -1,13 +1,17 @@
 
 recherche de tags é/e
-rafraîchir popup sur la carte
-pusher mosaic-core pour màj LeafletReactMap
-quand on ajoute une entité il faudrait voir quel critère de tri on applique
+pb http dans les popups ex: Bébé et Tournevis
+
+'nous n'avons rien pu trouver pour votre requête'
+
+Google Analytics
+balises description etc.
+lunr / accents
 
 == Formulaire
 
 Tags:
-** peut-on mettre le focus sur le champ nom plutôt que sur le champ des tags
+x mettre le focus sur le champ nom plutôt que sur le champ des tags
 - fermer le panneau de suggestion de tags une fois qu'un a été sélectionné
 * interdire l'ajout de tags tant qu'une catégorie n'a pas été sélectionnée
 - délai d'attente long lors du premier chargement
@@ -18,15 +22,11 @@ x double clic nécessaire sur Chrome / MacOS pour sélectionner tag dans formula
 - suggestion de tags avec accents
 - info de validation lorsque le point n'a pas été géolocalisé
 - si possible déclencher la géolocalisation automatiquement dés qu'un champ d'adresse est modifié / optionnellement désactiver le déplacement manuel de pin
-x tags : si possible n'afficher qu'un seul champ tag et un bouton pour en afficher d'autres
 * nouvelle entité créée -> la sélectionner sur la carte ensuite
 - vérification que le xy est bien en idf
-- Déplacer le 'Leaflet'
 - afficher les messages de problème de validation uniquement à la fin quand on soumet le formulaire
 - [SL] ESC > fermer le formulaire 
-
-
-Comment sont triés les tags prioritaires ?
+- rafraîchir popup sur la carte
 
 == Carte
 
@@ -38,7 +38,6 @@ Comment sont triés les tags prioritaires ?
 == Recherche
 
 ** tags : rétablir le bouton pour afficher tous les tags
-* [SL] recherche 'arty' ne donne pas le résultat escompté
 - prioriser les champs: titre, tag, description. Aujourd'hui "Villes Internet" : la fiche de la structure n'est proposée qu'à la fin de la liste..
 
 == Liste
@@ -46,7 +45,6 @@ Comment sont triés les tags prioritaires ?
 - possibilité de désélectionner un item dans la liste
 o masquer le partage sur les réseaux le temps qu'on décide
 * [SL] Pagination : précédent / suivant sous forme de chevrons << < 1 2 3 4 > >> + bords carrés et design rouge ou bleu
-x vérifier que le tri fonctionne bien
 - pourquoi est-ce que 'sort' est appelé deux fois dans Resource.Module.js (onAppStateChange)
 - l'icône d'édition est toujours trop à droite parfois
 
@@ -81,5 +79,7 @@ x [SL] crédits OpenStreetMap
 == Backkoffice
 
 - bug backoffice : quand on crée une entité avec un id qui avait effacé il y a une erreur qui n'est pas transmise au client (ex : minarty)
+
+
 
 

@@ -26,11 +26,20 @@
     }
 }
 
-.leaflet-bottom {
-    &.leaflet-left {
-        bottom: 10px;
-        left: 140px;    
+@media(min-width: 970px) {
+    .leaflet-bottom {
+        &.leaflet-left {
+            bottom: 10px;
+            left: 140px;    
+        }
     }
 }
 
-
+@media(max-width: 970px) {
+    .leaflet-bottom {
+        &.leaflet-left {
+            bottom: 10px;
+            left: 10px;    
+        }
+    }
+}
