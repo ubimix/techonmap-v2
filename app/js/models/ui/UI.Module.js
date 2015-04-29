@@ -51,7 +51,7 @@ module.exports = Api.extend(AppStateMixin, {
                 || e.clientHeight || g.clientHeight;
 
         var mode = 'full';
-        if (UserAgent.isMobile() || x < 800) {
+        if (UserAgent.isMobile() || x < 970) {
             mode = 'mobile';
         }
         this.setScreenMode({

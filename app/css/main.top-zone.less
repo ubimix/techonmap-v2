@@ -35,7 +35,6 @@
         padding-top: 5px;
 
         > li {
-            width: 72px;
             > a {
                 border: 1px solid transparent;
                 text-align: center;
@@ -161,6 +160,22 @@ form[role="search"] {
         }
         
     }
+}
+
+@media(max-width: 1064px) {
+    ul.top-navigation {
+        > li {
+            width: 64px;
+        }
+   }
+}
+
+@media(min-width: 1064px) {
+    ul.top-navigation {
+        > li {
+            width: 72px;
+        }
+   }
 }
 
 /*
