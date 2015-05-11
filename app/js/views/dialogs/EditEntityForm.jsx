@@ -172,7 +172,7 @@ module.exports = React.createClass({
         return this._renderInputGroup({
             mandatory : true,
             type : newEntity ? 'text' : 'hidden', 
-            addons : 'www.techonmap.fr/#',
+            addons : 'techonmap.fr/#',
             fieldKey : 'properties.id',
             labelKey : 'dialog.edit.id.label',
             placeholderKey : 'dialog.edit.id.placeholder'
