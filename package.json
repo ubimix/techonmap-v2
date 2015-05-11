@@ -1,6 +1,6 @@
 {
   "name": "mapapp",
-  "version": "0.0.5",
+  "version": "1.80",
   "main": "src",
   "licenses": [
     {
@@ -30,9 +30,8 @@
     "nodemailer-smtp-transport": "^0.1.13",
     "page": "^1.5.0",
     "react": "^0.12.1",
-    "react-autocomplete": "0.0.2",
+    "revalidator": "latest",
     "react-select": "git+https://github.com/ubimix/react-select.git",
-    "react-typeahead": "^1.0.1",
     "underscore": "~1.7.0"
   },
   "devDependencies": {
