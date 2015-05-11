@@ -131,11 +131,14 @@ module.exports = _.extend({
             if (withLabel) {
                 var urlAndLabel = Formats._formatUrl(propValue);
                 var label = urlAndLabel.label;
-                return <li><a href={propValue} target="_blank">
+                var url = urlAndLabel.url;
+                return <li><a href={url} target="_blank">
                 <i className={iconClassName}></i> {label}
                 </a></li>
             } else {
-                return <a href={propValue} target="_blank">
+            	var urlAndLabel = Formats._formatUrl(propValue);
+            	var url = urlAndLabel.url; 
+                return <a href={url} target="_blank">
                 <i className={iconClassName}></i>
                 </a>    
             }
