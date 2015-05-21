@@ -2,10 +2,11 @@ var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 
 /** Returns a function normalizing strings */
-function getNormalizationFunction() {
+function getNormalizationFunction(toLowerCase) {
     var repl = [];
-    for (var i = 0; i < arguments.length; i++) {
-        var mapping = arguments[i];
+    var args = Array.prototype.slice.call(arguments, 1);
+    for (var i = 0; i < args.length; i++) {
+        var mapping = args[i];
         for ( var key in mapping) {
             repl.push({
                 regexp : new RegExp(key, 'gim'),
@@ -21,6 +22,8 @@ function getNormalizationFunction() {
             var slot = repl[i];
             str = str.replace(slot.regexp, slot.value);
         }
+        if (toLowerCase)
+        	return str.toLowerCase();
         return str;
     }
 }
@@ -170,8 +173,8 @@ module.exports = {
      * Normalizes names - remove all accented characters, spaces and special
      * symbols
      */
-    normalizeName : getNormalizationFunction({
-        '[\s.|!?,;<>&\'"()\\\/%]+' : '-',
+    normalizeName : getNormalizationFunction(true, {
+        '[\\s.|!?,;<>&\'"()\\\/%]+' : '-',
         '-+' : '-',
         // '[/^-+|-+$' : '',
         '^-+' : '',
@@ -187,7 +190,7 @@ module.exports = {
     }),
 
     /** Normalizes texts - remove all accented characters */
-    normalizeText : getNormalizationFunction({
+    normalizeText : getNormalizationFunction(false, {
         '[ùûü]' : 'u',
         '[ÿ]' : 'y',
         '[àâ]' : 'a',
