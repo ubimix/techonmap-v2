@@ -46,7 +46,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 .addSearchCriteriaChangeListener(this._onSearchCriteriaChange,
                         this);
         this._allResourcesPromise = this._loadAllInfo();
-        this._deferrredSelectResource = _.debounce(this.selectResource, 100);
+        // this._deferrredSelectResource = _.debounce(this.selectResource, 100);
         // this._onAppStateChange = _.debounce(this._onAppStateChange, 1);
         this._startPromise = this._searchResources().then(function() {
             var state = that.getAppState();
@@ -106,7 +106,8 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             if (resourceId) {
                 setTimeout(function() {
                     this.selectResource({
-                        resourceId : resourceId
+                        resourceId : resourceId,
+                        force : false
                     });
                 }.bind(this), 100);
             }
@@ -116,25 +117,42 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     // ------------------------------------------------------------------
     // Actions
 
+    _doSelectResource : function(resourceId, force) {
+        var promise = this._selectionPromise;
+        if (!promise) {
+            promise = Mosaic.P();
+        }
+        var that = this;
+        this._selectionPromise = promise.then(function() {
+            var prevId = that.getSelectedResourceId();
+            var updated = resourceId !== prevId;
+            if (!updated && force) {
+                resourceId = null;
+                updated = true;
+            }
+            return that._findResourceById(resourceId).then(function(resource) {
+                if (updated) {
+                    that._selectedResource = resource;
+                    that._updateAppState('selectedId', resourceId);
+                    that.notifySelection();
+                }
+                return updated;
+            });
+        });
+        return this._selectionPromise;
+    },
+
     /**
      * Selects a resource by an identifier and sets it in the store. Notifies
      * about the selected resource.
      */
     selectResource : Api.intent(function(intent) {
         var that = this;
-        var resourceId = intent.params.resourceId
-        return intent.resolve(that._findResourceById(resourceId))//
-        .then(
-                function(resource) {
-                    var prevId = that.getSelectedResourceId();
-                    var updated = ((!!prevId) !== (!!resourceId))
-                            || (prevId != resourceId);
-                    if (updated) {
-                        that._selectedResource = resource;
-                        that._updateAppState('selectedId', resourceId);
-                        that.notifySelection();
-                    }
-                });
+        var resourceId = intent.params.resourceId;
+        var force = intent.params.force !== false;
+        return intent.resolve(Mosaic.P.then(function() {
+            return that._doSelectResource(resourceId, force);
+        }));
     }),
 
     /** Sort resources by name or by modification date. */

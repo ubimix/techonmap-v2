@@ -45,6 +45,12 @@ module.exports = React.createClass({
         )
     },
     
+    _handleClick : function(ev){
+        this.props.onClick(ev);
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
+    
     render: function() {
         var app = this.props.app;
         var resource = this.props.resource;
@@ -71,7 +77,7 @@ module.exports = React.createClass({
         className += resourceType;
         return (
             <div className={className} key={this.props.key}
-                onClick={this.props.onClick}>
+                onClick={this._handleClick}>
                 <div className="media-left">
                     <div className={pictoClassName}>
                         <a href="#" onClick={this.props.onClick}>
@@ -83,7 +89,7 @@ module.exports = React.createClass({
                   {toolbar}
                   <div className="media-heading">
                       <h4>
-                          <a href="#" onClick={this.props.onClick}>
+                          <a href="#" onClick={this._handleClick}>
                               {this._renderName()}
                           </a>
                       </h4>

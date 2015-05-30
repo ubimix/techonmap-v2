@@ -117,7 +117,7 @@ var ListView = React.createClass({
             key : resourceId,
             resource : resource,
             pos : pos,
-            onClick : function() {
+            onClick : function(ev) {
                 var id = app.res.getResourceId(resource);
                 app.res.selectResource({
                     resourceId : id
@@ -125,6 +125,8 @@ var ListView = React.createClass({
                 if (that.props.onResourceClick) {
                     that.props.onResourceClick(resource);
                 }
+                ev.preventDefault();
+                ev.stopPropagation();
             }
         });
         var result = view;
