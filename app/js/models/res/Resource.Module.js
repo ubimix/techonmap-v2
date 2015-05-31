@@ -1,10 +1,24 @@
 var _ = require('underscore');
-var Lunr = require('lunr');
 var Mosaic = require('mosaic-commons');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var App = require('mosaic-core').App;
 var Api = App.Api;
 var AppStateMixin = require('../AppStateMixin');
+var Lunr = require('lunr');
+Lunr.utils.warn = function(msg) {
+    // Silently ignore messages
+};
+Lunr.tokenizer = function(obj) {
+    var result = [];
+    if (!arguments.length || obj == null || obj == undefined)
+        return result;
+    if (Array.isArray(obj))
+        return result = obj.map(function(t) {
+            return t.toLowerCase();
+        });
+    return result = obj.toString().trim().toLowerCase().split(
+            /[\(\)\s\-\.\/\/\'\’\"]+/);
+}
 
 /** This module is responsible for management of resources. */
 module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {

@@ -1,5 +1,4 @@
 var _ = require('underscore');
-var Lunr = require('lunr');
 var Mosaic = require('mosaic-commons');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var NavigationRouter = require('./NavigationRouter');
