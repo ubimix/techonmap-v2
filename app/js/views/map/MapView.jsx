@@ -155,7 +155,7 @@ module.exports = React.createClass({
             viewport : this._viewport
         };
         that._layers = {};
-        that._layers.debug = new MapDebugLayer(options)
+        that._layers.debug = new MapDebugLayer(options);
         that._layers.tiles = new MapBackgroundLayer(options);
 
         that._layers.data = new MapDataLayer(options);
