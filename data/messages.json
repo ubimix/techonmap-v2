@@ -217,7 +217,7 @@
                 "field.postcode.description" : "Code postal de votre organisation",
                 "field.postcode.msg.required" : "Un code postal est requis.",
                 "field.postcode.msg.allowEmpty" : "Le code postal saisi ne doit pas être vide.",
-                "field.postcode.msg.conform" : "Le code postal saisi doit être au format NNNN.",
+                "field.postcode.msg.conform" : "Le code postal doit être composé de 5 chiffres et correspondre à une commune d'Île-de-France.",
                 "field.city" : "Ville",
                 "field.city.description" : "Ville de votre organisation",
                 "field.city.msg.required" : "Une ville est requise.",

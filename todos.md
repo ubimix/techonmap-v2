@@ -1,63 +1,60 @@
-
-recherche de tags é/e
-pb http dans les popups ex: Bébé et Tournevis
-
-'nous n'avons rien pu trouver pour votre requête'
-
-Google Analytics
-balises description etc.
-lunr / accents
-
 == Formulaire
 
 Tags:
-x mettre le focus sur le champ nom plutôt que sur le champ des tags
-- fermer le panneau de suggestion de tags une fois qu'un a été sélectionné
-* interdire l'ajout de tags tant qu'une catégorie n'a pas été sélectionnée
-- délai d'attente long lors du premier chargement
-x double clic nécessaire sur Chrome / MacOS pour sélectionner tag dans formulaire
-- élargir le formulaire
-- remplacer le select de catégories par une instance ReactSelect
-- revoir le tri
-- suggestion de tags avec accents
 - info de validation lorsque le point n'a pas été géolocalisé
+- Régler le pb des liens longs dans le formulaire facebook xxx non accepté
+- vérification que le xy est bien en idf (code postal)
+- fermer le panneau de suggestion de tags une fois qu'un a été sélectionné
+- délai d'attente long lors du premier chargement
+- élargir le formulaire ?
+- remplacer le select de catégories par une instance ReactSelect
 - si possible déclencher la géolocalisation automatiquement dés qu'un champ d'adresse est modifié / optionnellement désactiver le déplacement manuel de pin
 * nouvelle entité créée -> la sélectionner sur la carte ensuite
-- vérification que le xy est bien en idf
-- afficher les messages de problème de validation uniquement à la fin quand on soumet le formulaire
-- [SL] ESC > fermer le formulaire 
-- rafraîchir popup sur la carte
+N afficher les messages de problème de validation uniquement à la fin quand on soumet le formulaire
+- ESC > fermer le formulaire 
+- rafraîchir popup sur la carte après édition
 
 == Carte
 
+- techonmap.fr/?#
 * quand on clique deux fois de suite sur un marqueur, le popup devient vide
 * un point est sélectionné sur la carte, on crée un nouveau point : le focus reste sur le point précédemment sélectionné
 - voir ce qu'on peut paramétriser sur les clusters
-
+- réduire la taille des icônes des réseaux sociaux dans le popup
 
 == Recherche
 
-** tags : rétablir le bouton pour afficher tous les tags
-- prioriser les champs: titre, tag, description. Aujourd'hui "Villes Internet" : la fiche de la structure n'est proposée qu'à la fin de la liste..
+- rechercher également dans les ids (exemple : IGN)
+x tags : rétablir le bouton pour afficher tous les tags
+x prioriser les champs: titre, tag, description. Aujourd'hui "Villes Internet" : la fiche de la structure n'est proposée qu'à la fin de la liste..
+x lunr / accents
 
 == Liste
 
-- possibilité de désélectionner un item dans la liste
-o masquer le partage sur les réseaux le temps qu'on décide
-* [SL] Pagination : précédent / suivant sous forme de chevrons << < 1 2 3 4 > >> + bords carrés et design rouge ou bleu
+- le dernier item se retrouve en top position dans la page suivante
+- Pagination : précédent / suivant sous forme de chevrons << < 1 2 3 4 > >> + design rouge ou bleu
+x possibilité de désélectionner un item dans la liste
+(attention : il faudrait le déselectionner dans la carte ?)
+x positionnement absolu de l'icône d'édition
 - pourquoi est-ce que 'sort' est appelé deux fois dans Resource.Module.js (onAppStateChange)
 - l'icône d'édition est toujours trop à droite parfois
 
 
 == Autres
 
-* [SL] passer les sources de private à public en ayant vérifié que tout ok
-x [SL] crédits OpenStreetMap
-* [SL] Rétablir Google Analytics
-- panneau 'A propos': texte "merci de cliquer sur le bouton" à remplacer par 'merci de vous inscrire ici' pointant sur le formulaire
+- passer les sources de private à public en ayant vérifié que tout ok
+- balises du header description etc. pour SEO
 - voir comment centrer verticalement les images de chargement
 - écran de chargement suite à commentaire MK zeroisthree.se position:relative, top:50%, transform: translateY(-50%);
 - probleme avec la heatmap sur certains navigateurs / OS : pas de rouge (cf ordi Charlotte)
+
+
+== Mobile
+
+- splash screen pour mobile
+- les popups sur mobile sont trop larges
+- pb affichage des boutons de tri 
+
 
 == Embarquement
 
@@ -70,16 +67,7 @@ x [SL] crédits OpenStreetMap
 - bordure grise en plus du drop-shadow
 - sur grand écran les boutons du menu passent au centre au lieu d'être calés à droite. La liste doit avoir un min-width et un max-width
 
-== Mobile
-
-- splash screen pour mobile
-- les popups sur mobile sont trop larges
-- pb affichage des boutons de tri 
-
 == Backkoffice
 
 - bug backoffice : quand on crée une entité avec un id qui avait effacé il y a une erreur qui n'est pas transmise au client (ex : minarty)
-
-
-
 
