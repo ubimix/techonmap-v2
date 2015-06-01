@@ -151,8 +151,8 @@ module.exports = React.createClass({
                 var fields = {};
                 fields[options.fieldKey] = values;
                 this.props.app.edit.updateFields(fields);
-                if (options.fieldKey && options.fieldKey === 'properties.category')
-                    this._renderTags();
+// if (options.fieldKey && options.fieldKey === 'properties.category')
+// this._renderTags();
             }.bind(this)            
         }));
     },
