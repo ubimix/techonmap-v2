@@ -15,7 +15,7 @@ var ViewActivationMixin = require('./utils/ViewActivationMixin');
 var RemoteContentPanel = React.createClass({
     mixins : [ ContentPopupMixin ],
     getApp : function(){
-        return that.props.app;
+        return this.props.app;
     },
     componentWillMount : function(){
         this._loadRemoteContent();
@@ -35,7 +35,7 @@ var RemoteContentPanel = React.createClass({
         this._contentPromise.then(this.setState);
     },
     render : function(){
-        return this.props.doRender(state);
+        return this.props.doRender(this.state);
     }
 });
 
