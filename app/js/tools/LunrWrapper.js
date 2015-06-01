@@ -1,6 +1,7 @@
 var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 var Lunr = require('lunr');
+var ResourceFieldsAccessor = require('./ResourceFieldsAccessor');
 Lunr.utils.warn = function(msg) {
     // Silently ignore messages
 };
@@ -175,7 +176,7 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
         // Lunr.stopWordFilter, //
         emptyStopWordFilter, //
         function(entry) {
-//            console.log(' o ', arguments);
+            // console.log(' o ', arguments);
             return entry;
         } ]));
     },
@@ -254,19 +255,7 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
         return val ? '' + val : '';
     },
 
-    _getResourceFieldValue : function(resource, field) {
-        var result;
-        var val = resource;
-        if (!_.find(field.split('.'), function(segment) {
-            if (!val)
-                return true;
-            val = val[segment];
-            return false;
-        })) {
-            result = val;
-        }
-        return result;
-    },
+    _getResourceFieldValue : ResourceFieldsAccessor.getValue,
 
     /**
      * Returns all fields to index with their respective type and boost factors.

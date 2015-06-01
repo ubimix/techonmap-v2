@@ -10,7 +10,7 @@ module.exports = {
     searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
     messages : './data/messages.json',
-    dataUrl : './data/data.json',
+    dataUrl : './data/data-x.json',
     // dataUrl : './api/resources/export',
     dataFieldsUrl : './data/data.fields.json',
     categoriesUrl : './data/categories.json',

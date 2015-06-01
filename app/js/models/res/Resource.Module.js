@@ -2,6 +2,8 @@ var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var LunrWrapper = require('../../tools/LunrWrapper');
+var ResourceFieldsAccessor = require('../../tools/ResourceFieldsAccessor');
+
 var App = require('mosaic-core').App;
 var Api = App.Api;
 var AppStateMixin = require('../AppStateMixin');
@@ -884,15 +886,9 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 };
                 var criteria = that.getSearchCriteria();
                 var q = criteria.q || '';
-                var promise;
-                if (!q || q == '') {
-                    result = _.values(that._allResources);
-                    promise = Mosaic.P(result);
-                } else {
-                    promise = that._index.search(q).then(function(result) {
-                        return result.resources;
-                    });
-                }
+                var promise = that._index.search(q).then(function(result) {
+                    return result.resources;
+                });
                 return promise.then(function(list) {
                     that._resources = that._filterResources(list, criteria);
                     return that._resources;
@@ -952,7 +948,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             info = info || {};
             if (!info.filter)
                 return;
-            var filter = criteria[field];
+            var prefix = 'properties.'; 
+            var f = field;
+            f = f.indexOf(prefix) === 0 ? f.substring(prefix.length) : f;
+            var filter = ResourceFieldsAccessor.getValue(criteria, f);
             if (!filter)
                 return;
             filter = that.prepareFilterValues(filter);
@@ -965,8 +964,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 });
             }
             filters.push(function(resource) {
-                var properties = resource.properties;
-                var value = properties[field];
+                var value = ResourceFieldsAccessor.getValue(resource, field);
                 var result = that.filterValues(value, filter);
                 return result;
             });

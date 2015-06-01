@@ -1,6 +1,6 @@
 {
   "fields" : {
-      "id" : {
+      "properties.id" : {
         "type" : "ref",
         "boost": 1
       },
