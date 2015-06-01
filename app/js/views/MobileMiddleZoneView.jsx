@@ -183,11 +183,11 @@ module.exports = React.createClass({
             <div className="search-results">
                 <div className="container-fluid search-results-info">
                     <div className="row">
-                        <div className="col-xs-6">
+                        <div className="col-xs-4">
                             <SearchResultsInfoView app={app} className="stats" 
                                 open={true} />
                         </div>
-                        <div className="col-xs-6">
+                        <div className="col-xs-8">
                             <SearchResultsOrderView app={app} />
                         </div>
                     </div>
