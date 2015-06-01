@@ -63,18 +63,16 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
         this.index(this.options.resources);
     },
 
-    index : function(resources) {
-        this._resources = resources || [];
-        delete this._indexPromise;
-        return this._runSearch();
-    },
-
-    /**
-     * Returns a statistics for words found in indexed resources. Keys are
-     * indexed words the corresponding values are number of found words.
-     */
-    getWordStats : function() {
-        return this._wordStats || {};
+    index : function(resources, reset) {
+        var that = this;
+        if (reset) {
+            delete that._indexPromise;
+        }
+        return that._getLunrIndex().then(function(index) {
+            return that._reindexResources(index, resources).then(function() {
+                return that._runSearch();
+            });
+        });
     },
 
     getQuery : function() {
@@ -122,7 +120,7 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
                     }
                 });
             } else {
-                result.resources = [].concat(that._resources);
+                result.resources = _.values(index.refs);
             }
             result = that._filterSearchResult(result);
             event.result = result;
@@ -136,6 +134,7 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
 
     _getLunrIndex : function() {
         if (!this._indexPromise) {
+            var that = this;
             this._indexPromise = this._buildLunrIndex();
         }
         return this._indexPromise;
@@ -145,56 +144,12 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
     _buildLunrIndex : function() {
         var that = this;
         var start = Date.now();
-        that.emit('indexing:begin');
         return Mosaic.P.then(function() {
-            var fields = that._getIndexFields();
-            var wordStats = that._wordStats = {};
-
-            that.emit('indexing:configuration:begin');
-            var wordIndexingFilters = [// 
-            numberFilters, //
-            frenchWordsFilter, //
-            Lunr.trimmer, //
-            Lunr.stopWordFilter, //
-            Lunr.stemmer //
-            ];
-
-            var indexFilters = [ //
-            frenchWordsFilter,//
-            Lunr.stopWordFilter, // 
-            that.normalizeText, //
-            emptyStopWordFilter, // 
-            Lunr.stemmer //
-            ];
-
-            var searchFilters = [ //
-            that.normalizeText, //
-            emptyStopWordFilter, // 
-            Lunr.stemmer //
-            ];
-
-            function filter(filters, token) {
-                for (var i = 0; i < filters.length; i++) {
-                    token = filters[i](token);
-                    if (!token)
-                        return;
-                }
-                return token;
-            }
-            function wordsRegistration(token) {
-                var t = filter(wordIndexingFilters, token);
-                if (!!t) {
-                    wordStats[t] = (wordStats[t] || 0) + 1;
-                }
-                return token;
-            }
+            that.emit('configuration:begin');
             var index = {};
             index.refs = {};
             index.lunr = Lunr(function(lunr) {
-                lunr.pipeline.reset();
-                lunr.pipeline.add(//
-                wordsRegistration, //
-                filter.bind(filter, indexFilters));
+                var fields = that._getIndexFields();
                 _.each(fields, function(info, field) {
                     info = info || {};
                     var boost = info.boost || 1;
@@ -204,15 +159,54 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
                     });
                 });
             });
-            that.emit('indexing:configuration:end');
+            that.emit('configuration:end');
+            return index;
+        });
+    },
 
-            var resources = that._resources;
+    _setIndexingPipeline : function(index) {
+        index.lunr.pipeline.reset();
+        index.lunr.pipeline.add(this._filterToken.bind(this, [ //
+        numberFilters, //
+        this.normalizeText, //
+        Lunr.stemmer, //
+        frenchWordsFilter, //
+        // Lunr.trimmer, //
+        // Lunr.stopWordFilter, //
+        emptyStopWordFilter, //
+        function(entry) {
+//            console.log(' o ', arguments);
+            return entry;
+        } ]));
+    },
+    _setSearchPipeline : function(index) {
+        // Disable token registration
+        index.lunr.pipeline.reset();
+        index.lunr.pipeline.add(this._filterToken.bind(this, [ //
+        this.normalizeText, //
+        Lunr.stemmer, //
+        frenchWordsFilter, //
+        emptyStopWordFilter ]));
+    },
+    _filterToken : function(filters, token) {
+        for (var i = 0; i < filters.length; i++) {
+            token = filters[i](token);
+            if (!token)
+                return;
+        }
+        return token;
+    },
+
+    _reindexResources : function(index, resources) {
+        var that = this;
+        return Mosaic.P.then(function() {
+            that._setIndexingPipeline(index);
             var indexingInfo = {
                 resources : resources,
                 position : 0
             };
-            that.emit('indexing:resources:begin', indexingInfo);
-            // Index all resources
+            that.emit('indexing:begin', indexingInfo);
+            var fields = that._getIndexFields();
             _.each(resources, function(resource, key) {
                 var indexEntry = {};
                 _.each(fields, function(fieldInfo, field) {
@@ -224,16 +218,10 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
                 });
                 index.lunr.add(indexEntry);
                 indexingInfo.position++;
-                that.emit('indexing:resources:progress', indexingInfo);
+                that.emit('indexing:progress', indexingInfo);
             });
-            // Disable token registration
-            index.lunr.pipeline.reset();
-            index.lunr.pipeline.add(filter.bind(filter, searchFilters));
-            that.emit('indexing:resources:end', indexingInfo);
-            return index;
-        }).then(function(index) {
-            that.emit('indexing:end');
-            return index;
+            that._setSearchPipeline(index);
+            that.emit('indexing:end', indexingInfo);
         });
     },
 

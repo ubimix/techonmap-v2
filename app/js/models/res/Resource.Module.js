@@ -1,24 +1,10 @@
 var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
+var LunrWrapper = require('../../tools/LunrWrapper');
 var App = require('mosaic-core').App;
 var Api = App.Api;
 var AppStateMixin = require('../AppStateMixin');
-var Lunr = require('lunr');
-Lunr.utils.warn = function(msg) {
-    // Silently ignore messages
-};
-Lunr.tokenizer = function(obj) {
-    var result = [];
-    if (!arguments.length || obj == null || obj == undefined)
-        return result;
-    if (Array.isArray(obj))
-        return result = obj.map(function(t) {
-            return t.toLowerCase();
-        });
-    return result = obj.toString().trim().toLowerCase().split(
-            /[\(\)\s\-\.\/\/\'\’\"]+/);
-}
 
 /** This module is responsible for management of resources. */
 module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
@@ -818,41 +804,52 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         });
     },
 
+    _getLunrIndex : function() {
+        if (!this._index) {
+            var index = this._index = new LunrWrapper({
+                fields : this._fields.fields
+            });
+            var events = [ //
+            'configuration:begin', 'configuration:end', //
+            'indexing:begin', 'indexing:end',//
+            'search:begin', 'search:end'// 
+            ];
+            _.each(events, function(eventType) {
+                index.on(eventType, function() {
+                    console.log(' * [index] ', eventType);
+                });
+            });
+            var progress = function(info) {
+                if (info.position % 100 === 0) {
+                    var len = _.values(info.resources).length;
+                    if (len > 0) {
+                        var percent = Math.round(100 * info.position / len);
+                        console.log('   - ' + percent + '% - ' //
+                                + info.position + ' / ' + len);
+                    }
+                }
+            }
+            index.on('indexing:begin', progress);
+            index.on('indexing:progress', progress);
+            index.on('indexing:end', progress);
+        }
+        return this._index;
+    },
+
     /** Builds and returns a full-text search index. */
     _buildIndex : function() {
         var that = this;
         return Mosaic.P.then(function() {
             return that._trace('_buildIndex', function() {
-                var index = that._index = Lunr(function() {
-                    _.each(that._fields.fields, function(info, field) {
-                        info = info || {};
-                        var boost = info.boost || 1;
-                        var type = info.type || 'field';
-                        this[type](field, {
-                            boost : boost
-                        });
-                    }, this);
-                });
-                _.each(that._allResources, function(d, id) {
-                    that._indexResource(id, d);
-                });
+                var index = that._getLunrIndex();
+                return index.index(that._allResources);
             })
         })
     },
 
     _indexResource : function(id, resource) {
-        var props = resource.properties;
-        var entry = {
-            id : id
-        };
-        _.each(this._fields.fields, function(info, field) {
-            var value = props[field];
-            if (_.isArray(value)) {
-                value = value.join(' ');
-            }
-            entry[field] = ResourceUtils.normalizeText(value);
-        });
-        this._index.add(entry);
+        var index = that._getLunrIndex();
+        return index.index([ resource ]);
     },
 
     /** Returns a resource corresponding to the specified identifier. */
@@ -887,24 +884,19 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 };
                 var criteria = that.getSearchCriteria();
                 var q = criteria.q || '';
-                var result;
+                var promise;
                 if (!q || q == '') {
                     result = _.values(that._allResources);
+                    promise = Mosaic.P(result);
                 } else {
-                    result = [];
-                    q = ResourceUtils.normalizeText(q);
-                    var list = that._index.search(q);
-                    _.each(list, function(r) {
-                        var id = r.ref;
-                        var resource = that._allResources[id]
-                        if (resource) {
-                            result.push(resource);
-                        }
+                    promise = that._index.search(q).then(function(result) {
+                        return result.resources;
                     });
                 }
-                that._resources = that._filterResources(result, criteria);
-                // that._sortResults();
-                return that._resources;
+                return promise.then(function(list) {
+                    that._resources = that._filterResources(list, criteria);
+                    return that._resources;
+                });
             });
         }).then(function() {
             var selectedResourceId = that.getSelectedResourceId();

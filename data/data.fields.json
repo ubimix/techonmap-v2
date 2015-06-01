@@ -1,42 +1,42 @@
 {
   "fields" : {
-      "name": { 
+      "id" : {
+        "type" : "ref",
+        "boost": 1
+      },
+      "properties.name": { 
         "type" : "field",
         "boost": 10
       },
-      "description" : {
+      "properties.description" : {
         "type" : "field",
         "boost": 5
       },
-      "category": {
+      "properties.category": {
         "type" : "field",
         "boost" : 3,
         "filter" : true
       },
-      "tags": {
+      "properties.tags": {
         "type" : "field",
         "boost" : 15,
         "filter" : true
       },
-      "address" : {
+      "properties.address" : {
         "type" : "field",
         "boost": 1
       },
-      "postcode" : {
+      "properties.postcode" : {
         "type" : "field",
         "boost": 1,
         "filter" : "prefix"
       },
-      "city" : {
+      "properties.city" : {
         "type" : "field",
         "boost": 2
       },
-      "url" : {
-        "type" : "ref",
-        "boost": 1
-      },
-      "id" : {
-        "type" : "ref",
+      "properties.url" : {
+        "type" : "field",
         "boost": 1
       }
    }

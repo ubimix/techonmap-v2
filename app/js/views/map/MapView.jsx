@@ -156,7 +156,7 @@ module.exports = React.createClass({
         };
         that._layers = {};
         that._layers.debug = new MapDebugLayer(options)
-        // that._layers.tiles = new MapBackgroundLayer(options);
+        that._layers.tiles = new MapBackgroundLayer(options);
 
         that._layers.data = new MapDataLayer(options);
         that._layers.heatmap = new MapHeatmapLayer(options);
