@@ -135,7 +135,7 @@
             "search.panel.button.return" : "Retour au menu",
             "search.panel.button.return.to.categories" : "Retour aux catégories",
             "search.label.results" : "Résultats : ",
-            "search.label.sort" : "Trier la liste : ",
+            "search.label.sort" : "Trier : ",
             "search.label.sort.name" : "par nom",
             "search.label.sort.name.inc" : "de A à Z",
             "search.label.sort.name.dec" : "de Z à A",
