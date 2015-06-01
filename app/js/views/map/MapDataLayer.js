@@ -277,11 +277,10 @@ module.exports = AbstractMapLayer.extend({
             if (that._selectedMarker.setSelection) {
                 that._selectedMarker.setSelection(false);
             }
+            that._selectedMarker.closePopup();
             // TODO: remove selection from the marker
             delete that._selectedMarker;
-            if (that._map){
-                that._map.closePopup();
-            }
+
         }
     },
 
