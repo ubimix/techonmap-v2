@@ -12,9 +12,9 @@ function toArray(args){
 }
 
 var MenuMixin = {
-    _renderMenuItems : function(){
+    _renderMenuItems : function(key){
         return (        
-            <ul className="list-group">
+            <ul className="list-group" key={key}>
                 {_.map(arguments, function(val) {
                     return <li className="list-group-item">{val}</li>
                 })}

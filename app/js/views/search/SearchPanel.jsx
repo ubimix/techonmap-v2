@@ -40,7 +40,7 @@ var SearchPanel = React.createClass({
     },
     render : function(){
         return (
-             <PanelSwitcher className="container searchpanel" ref="panels">
+             <PanelSwitcher className="container searchpanel" ref="panels" key="switch-panel">
                  {this._renderMainPanel()}
                  {this._renderZonesPanel()}
                  {this._renderCategoriesPanel()}

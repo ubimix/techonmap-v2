@@ -55,6 +55,9 @@ var SearchInputBoxView = React.createClass({
         this._setQuery = _.debounce(this._setQuery, 250);
         app.res.addSearchCriteriaChangeListener(this._onSearch);
     },
+    componentDidMount : function(){
+        this.refs.inputBox.getDOMNode().focus(); 
+    },
     componentWillUnmount : function(){
          var app = this.props.app;
          app.res.removeSearchCriteriaChangeListener(this._onSearch);

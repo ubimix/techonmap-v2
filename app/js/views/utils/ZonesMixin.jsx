@@ -37,7 +37,7 @@ var ZoneMixin = {
                 </span>
             ];
         }
-        return <span className="zones zones-inline">{list}</span>
+        return <span className="zones zones-inline" key="zone-list">{list}</span>
     },
 };
 
