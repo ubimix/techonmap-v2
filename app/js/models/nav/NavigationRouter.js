@@ -62,13 +62,12 @@ var NavigationRouter = Mosaic.Class.extend(Mosaic.Events.prototype, {
         if (path !== currentPath || force) {
             this._explicitUpdate = true;
             this._force = force;
-            var that = this;
-            if (path == '' || path[0] == '#') {
-                path = '?' + path;
-            }
+            // if (path[0] == '#') {
+            // path = '?' + path;
+            // }
             Page(path);
-            that._explicitUpdate = false;
-            that._force = false;
+            this._explicitUpdate = false;
+            this._force = false;
         }
     },
 
