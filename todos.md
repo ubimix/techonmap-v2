@@ -24,7 +24,7 @@ x réduire la taille des icônes des réseaux sociaux dans le popup
 
 == Recherche
 
-- problème dans la liste quand un seul résultat
+- problème dans la liste quand un seul résultat, ex : axis développement
 x focus dans le champ recherche
 x rechercher également dans les ids (exemple : IGN)
 x tags : rétablir le bouton pour afficher tous les tags
@@ -36,17 +36,19 @@ x lunr / accents
 x le dernier item se retrouve en top position dans la page suivante
 x possibilité de désélectionner un item dans la liste
 x positionnement absolu de l'icône d'édition car pour les longs noms elle était décalée à droite
+- pb sur le tri +récent / -récent
 - pourquoi est-ce que 'sort' est appelé deux fois dans Resource.Module.js (onAppStateChange)
 ? Pagination : précédent / suivant sous forme de chevrons << < 1 2 3 4 > >> + design rouge ou bleu
 
 == Mobile
 
-- splash screen pour mobile
+x splash screen pour mobile
 - les popups sur mobile sont trop larges
-- pb affichage des boutons de tri 
+x pb affichage des boutons de tri 
 
 == Autres
 
+- le panneau d'about ne s'affiche pas sur mobile
 - passer les sources de private à public en ayant vérifié que tout ok (sans le fichier data.json)
 - balises du header description etc. pour SEO
 - voir comment centrer verticalement les images de chargement
