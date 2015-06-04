@@ -168,7 +168,7 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
     _setIndexingPipeline : function(index) {
         index.lunr.pipeline.reset();
         index.lunr.pipeline.add(this._filterToken.bind(this, [ //
-        numberFilters, //
+        // numberFilters, //
         this.normalizeText, //
         Lunr.stemmer, //
         frenchWordsFilter, //
