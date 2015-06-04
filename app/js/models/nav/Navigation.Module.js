@@ -1,7 +1,6 @@
 var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
-var NavigationRouter = require('./NavigationRouter');
 var URL = require('url');
 var App = require('mosaic-core').App;
 var Api = App.Api;
@@ -12,32 +11,32 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Initializes fields */
     _initFields : function() {
-        this._router = new NavigationRouter();
-        // Disable initial search criteria update
-        // this._disableUrlUpdate = true;
     },
 
     // ------------------------------------------------------------------
 
     /** Pre-loads map-related information. */
     start : function() {
-        this._router.addChangePathListener(this._onUrlChange, this);
+        this._notifyPathChanges = this._notifyPathChanges.bind(this);
+        window.addEventListener('popstate', this._notifyPathChanges, this);
         var appState = this.getAppState();
         appState.addChangeListener(this._onStateChange, this);
-        this._router.start();
+        var that = this;
+        return Mosaic.P.then(function() {
+            return that._copyStateFromUrl();
+        });
     },
 
     stop : function() {
-        this._router.removeChangePathListener(this._onUrlChange, this);
         var appState = this.getAppState();
         appState.removeChangeListener(this._onStateChange, this);
-        this._router.stop();
+        window.removeEventListener('popstate', this._notifyPathChanges, this);
     },
 
     // ------------------------------------------------------------------
     // URL management methods
 
-    getExportUrl : function(options) {
+    _getExportUrl : function(options) {
         options = options || {};
         var additionalParams = {};
         var appState = this.getAppState();
@@ -53,6 +52,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         }
         var url = {
             query : {},
+            path : '',
         };
         fromStateToUrl(clone, url, {
             hash : 'selectedId'
@@ -66,30 +66,38 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             mode : 'mode',
             header : 'header'
         });
-        // console.log('>>>>', clone.options, url.query);
-        
         if (url.query.mode == 'full') {
             delete url.query.mode;
         }
+        return url;
+    },
+
+    getExportUrl : function(options) {
+        var url = this._getExportUrl(options);
         return URL.format(url);
     },
 
     _onStateChange : function() {
-        var url = this.getExportUrl();
-        this._disableUrlUpdate = true;
-        var that = this;
-        that._router.setPath(url);
-        setTimeout(function() {
-            that._disableUrlUpdate = false;
-        }, 1);
+        var url = this._getExportUrl();
+        var formattedUrl = URL.format(url);
+        if (!formattedUrl) {
+            formattedUrl = '/';
+        } else if (formattedUrl[0] !== '/') {
+            formattedUrl = '/' + formattedUrl;
+        }
+        if (window.history) {
+            window.history.replaceState(url, formattedUrl, formattedUrl);
+        }
     },
 
-    _onUrlChange : function(ev) {
-        var path = this._router.getPath();
-        if (this._disableUrlUpdate)
-            return;
+    _notifyPathChanges : function(ev) {
+        var path = this._getCurrentUrl();
+        // console.log('* PATH CHANGED', path, ev);
+    },
+
+    _copyStateFromUrl : function() {
         var appState = this.getAppState();
-        var path = this._router.getPath();
+        var url = this._getCurrentUrl();
         function fromUrlToState(from, to, mapping) {
             _.each(mapping, function(path, key) {
                 var val = from[key];
@@ -99,7 +107,6 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 to.setValue(path, val);
             })
         }
-        var url = URL.parse(path, true);
         fromUrlToState(url.query, appState, {
             language : 'language',
             category : 'search.category',
@@ -112,6 +119,38 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         fromUrlToState(url, appState, {
             hash : 'selectedId'
         });
+    },
+
+    /** Returns the current URL. */
+    _getCurrentUrl : function() {
+        var href = window.location.href + '';
+        var url = URL.parse(href, true);
+        console.log('++ _getCurrentUrl >>>>' + URL.format(url), url);
+        return url;
+    },
+
+    _getBaseUrlFormatted : function() {
+        var url = this._getBaseUrl();
+        var newUrl = {
+            auth : url.auth,
+            hash : url.hash,
+            host : url.host,
+            hostname : url.hostname,
+            pathname : url.pathname || '/',
+            port : url.port,
+            protocol : url.protocol
+        };
+        return URL.format(newUrl);
+    },
+    /** Returns the base URL. */
+    _getBaseUrl : function() {
+        if (!this._baseUrl) {
+            var url = this._getCurrentUrl();
+            var basePath = URL.parse(this.options.baseUrl || '', true);
+            var baseUrl = URL.resolve(url + '', basePath + '');
+            this._baseUrl = baseUrl;
+        }
+        return this._baseUrl;
     },
 
 });
