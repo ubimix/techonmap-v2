@@ -20,7 +20,7 @@ var RemoteContentPanel = React.createClass({
     componentWillMount : function(){
         this._loadRemoteContent();
     },
-    componentDidUpdate : function(){
+    componentWillReceiveProps : function(){
         this._loadRemoteContent();
     },
     getInitialState : function(){
@@ -32,7 +32,11 @@ var RemoteContentPanel = React.createClass({
                 url: this.props.url
             });
         }
-        this._contentPromise.then(this.setState);
+        this._contentPromise.then(function(result){
+            if (this.isMounted()) {
+                this.setState(result);
+            }
+        }.bind(this));
     },
     render : function(){
         return this.props.doRender(this.state);
@@ -76,6 +80,7 @@ module.exports = React.createClass({
             app={this.props.app}
             url="about.md"
             doRender={function(state){
+                console.log('_loadRemoteContent', state);
                 return (
                     <div ref="about" className="container-fluid about-panel">
                         <h1 className="text-title">{state.titleElm}</h1>
