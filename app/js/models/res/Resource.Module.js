@@ -850,7 +850,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     },
 
     _indexResource : function(id, resource) {
-        var index = that._getLunrIndex();
+        var index = this._getLunrIndex();
         return index.index([ resource ]);
     },
 
@@ -948,7 +948,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             info = info || {};
             if (!info.filter)
                 return;
-            var prefix = 'properties.'; 
+            var prefix = 'properties.';
             var f = field;
             f = f.indexOf(prefix) === 0 ? f.substring(prefix.length) : f;
             var filter = ResourceFieldsAccessor.getValue(criteria, f);
