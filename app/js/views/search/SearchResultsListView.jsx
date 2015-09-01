@@ -15,6 +15,7 @@ var ListView = React.createClass({
         var app = this.getApp();
         var results = app.res.getResources();
         if (!results || !results.length) {
+            
             var item = app.viewManager.newView('listItemEmpty', 'default', {
                 app : app
             });

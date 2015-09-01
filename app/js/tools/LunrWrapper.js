@@ -171,7 +171,7 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
         // numberFilters, //
         this.normalizeText, //
         Lunr.stemmer, //
-        frenchWordsFilter, //
+        // frenchWordsFilter, //
         // Lunr.trimmer, //
         // Lunr.stopWordFilter, //
         emptyStopWordFilter, //
@@ -186,7 +186,7 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
         index.lunr.pipeline.add(this._filterToken.bind(this, [ //
         this.normalizeText, //
         Lunr.stemmer, //
-        frenchWordsFilter, //
+        // frenchWordsFilter, //
         emptyStopWordFilter ]));
     },
     _filterToken : function(filters, token) {

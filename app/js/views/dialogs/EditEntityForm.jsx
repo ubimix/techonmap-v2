@@ -243,14 +243,15 @@ module.exports = React.createClass({
             _.each(list, function(obj){
                 values.push(obj.tag);
             });
-            
-            that.props.app.edit.updateFields(fields);            
+            that.props.app.edit.updateFields(fields);
+            setTimeout(function(){
+                var select = that.refs.tagSelector;
+                select.setState({isOpen: false});
+            }, 10);
         }
         var getOptions = function(input, callback) {
-            console.log('>>> CATEGORY KEY', categoryKey);
             setTimeout(function() {
                 var tagsList = app.res.getTagsSuggestion(categoryKey, input);
-                console.log('>>> SUGGESTION', tagsList);
                 var alreadySuggested = false;
                 var suggestions = _.filter(tagsList, function(tag) {
                     alreadySuggested |= tag == input;
@@ -284,6 +285,7 @@ module.exports = React.createClass({
         var suggestions = _.map(tagsList, toTagObject);
         
         var tagSelector = <Select
+            ref="tagSelector"
             name={fieldKey}
             value={tags}
             options={suggestions}
