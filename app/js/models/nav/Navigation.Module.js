@@ -125,7 +125,6 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     _getCurrentUrl : function() {
         var href = window.location.href + '';
         var url = URL.parse(href, true);
-        console.log('++ _getCurrentUrl >>>>' + URL.format(url), url);
         return url;
     },
 

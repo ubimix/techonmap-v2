@@ -61,13 +61,13 @@ module.exports = React.createClass({
         if (!!errorMsg) {
             className = 'form-group has-error';
             messageBlock = (
-                <div className="alert alert-warning" key="msg">{errorMsg}</div>
+                <div className="alert alert-warning" key={labelKey + '-errorMsg'}>{errorMsg}</div>
             );
         }
         var mandatoryMarker = '';
         if (!optional) {
             className += ' mandatory';
-            mandatoryMarker = <i className="icon icon-star mandatory">*</i>;
+            mandatoryMarker = <i className="icon icon-star mandatory" key="marker">*</i>;
         }
         return (
             <div className={className} key={labelKey}>
@@ -258,14 +258,12 @@ module.exports = React.createClass({
                     return !_.has(tagsIndex, tag);
                 });
                 suggestions = _.map(suggestions, toTagObject);
-                
-                
-                
                 if (!!input && !alreadySuggested && !_.has(tagsIndex, input)) {
+                    var label = that._getLabel('dialog.edit.tag.newTagSuggestion');
                     var newTag = (
-                        <span>
+                        <span key={label}>
                             <strong>{input}</strong>
-                            &nbsp;{that._getLabel('dialog.edit.tag.newTagSuggestion')}
+                            &nbsp;{label}
                         </span>
                     );
                     var tagObj = toTagObject(input);
@@ -273,7 +271,6 @@ module.exports = React.createClass({
                     tagObj.label = newTag;
                     suggestions.unshift(tagObj);
                 }
-
                 callback(null, {
                     options: suggestions,
                     complete: false
@@ -286,6 +283,7 @@ module.exports = React.createClass({
         
         var tagSelector = <Select
             ref="tagSelector"
+            key="tagSelector"
             name={fieldKey}
             value={tags}
             options={suggestions}
@@ -327,12 +325,14 @@ module.exports = React.createClass({
         });
         var coords = this._getResourceField('geometry.coordinates');
         if (!coords || !coords[0] || !coords[1])  {
-            coords = mapOptions.center || [ 0, 0 ];
+            coords = undefined; // [undefined, undefined]; // mapOptions.center || [ 0, 0 ];
         } else {
             zoom = 16;
         }
+        var bbox = mapOptions.bbox || [ [2, 50], [3, 48] ];
         this._addressInfo = this._addressInfo || {};
         _.extend(this._addressInfo, {
+            bbox : bbox,
             address : {
                 name : 'properties.address',
                 placeholder  : this._getLabel('dialog.edit.address.placeholder'),
@@ -354,13 +354,13 @@ module.exports = React.createClass({
             longitude : {
                 name: 'geometry.coordinates.0',
                 type: 'hidden',
-                value : coords[0],
+                value : coords ? coords[0] : undefined,
                 error : this._getFieldError('geometry.coordinates')
             },
             latitude : {
                 name: 'geometry.coordinates.1',
                 type: 'hidden',
-                value : coords[1],
+                value : coords ? coords[1] : undefined,
                 error : this._getFieldError('geometry.coordinates')
             },
             localizeBtn : {
@@ -373,6 +373,7 @@ module.exports = React.createClass({
         
         var errorMsg = this._getFieldError('geometry.coordinates');
         var edit = this.props.app.edit;
+        console.log('renderAddressAndCoordinates: coords=', coords);
         return [
             this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address-group.label', 
                 <GeolocationWidget
@@ -382,6 +383,7 @@ module.exports = React.createClass({
                     zoom={zoom}
                     marker={marker}
                     onAddressChange={function(info){
+                        console.log('>>>>>>>>>', JSON.stringify(info));
                         var fields = {};
                         _.each(info, function(field) {
                             var name = field.name;

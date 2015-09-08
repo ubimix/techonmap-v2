@@ -16,12 +16,17 @@ module.exports = {
     categoriesUrl : './data/categories.json',
     zonesUrl : './data/zones.json',
     mode : currentUrl.query.mode,
-    siteUrl : currentUrl.protocol + '//' + currentUrl.host + currentUrl.pathname,
+    siteUrl : currentUrl.protocol + '//' + currentUrl.host
+            + currentUrl.pathname,
     header : toBoolean(currentUrl.query.header, true),
     containers : {
         main : document.querySelector('body')
     },
     map : {
+        // Paris:
+        // NE 49.04694, 2.63791
+        // SW 48.658291, 2.08679
+        bbox : [ [2, 50], [3, 48] ],
         center : [ 2.33185, 48.86246 ],
         // tilesUrl :
         // 'http://{s}.tiles.mapbox.com/v3/ubimix.in6p41ic/{z}/{x}/{y}.png',

@@ -177,7 +177,9 @@
 
                 "field.geometry.coordinates" : "Geographical coordinates",
                 "field.geometry.coordinates.label" : "Coordinates",
-                "field.geometry.coordinates" : "Geographical coordinates",
+                "field.geometry.coordinates.longitudeRequired" : "Longitude n'est pas défini.",
+                "field.geometry.coordinates.latitudeRequired" : "Latitude n'est pas défini.",
+                "field.geometry.coordinates.required" : "Geographical coordinates ne sont pas défini",
                 "field.properties" : "Resource properties",
                 "field.properties.required" : "Proprietes sont requis.",
                 "field.name" : "Nom de votre organisation",

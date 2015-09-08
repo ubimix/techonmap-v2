@@ -129,6 +129,7 @@ module.exports = Api.extend(ResourceUtils, {
                 that._checkIdField(resource);
                 that._checkTaxIdField(resource);
                 that._checkYearField(resource);
+                console.log('updateFields: ', JSON.stringify(this._resource, null, 2),  JSON.stringify(resource, null, 2))
                 that._resource = resource;
                 that._validateResource();
             }
@@ -265,7 +266,7 @@ module.exports = Api.extend(ResourceUtils, {
         if (!this._resource.geometry) {
             this._resource.geometry = {
                 type : 'Point',
-                coordinates : [ 0, 0 ]
+                coordinates : undefined // [ 0, 0 ]
             }
         }
         this._changedResourceFields = {};

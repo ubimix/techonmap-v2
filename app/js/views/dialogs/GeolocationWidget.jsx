@@ -132,8 +132,20 @@ var GeolocationWidget = React.createClass({
     },
     
     _getMarkerCoordinates : function(){
-        var center = this.props.center || [0, 0];
         var info = this._getInfo();
+        var center = this.props.center;
+        if (!center || (!center[0] && !center[1]) ) {
+            var bbox = info.bbox;
+            if (bbox) {
+                center = [
+                    (bbox[0][0] + bbox[1][0]) / 2,
+                    (bbox[0][1] + bbox[1][1]) / 2
+                ];
+            }
+        }
+        if (!center){
+            center = [0, 0];
+        }
         var lat = info.latitude.value || center[1];
         var lng = info.longitude.value || center[0];
         var result = L.latLng(lat, lng);
@@ -160,6 +172,19 @@ var GeolocationWidget = React.createClass({
         delete this._map;
     },
     _setLatLng : function(lat, lng){
+        var info = this._getInfo();
+        var bbox = info.bbox;
+        if (bbox) {
+            function checkIn(val, a, b){
+                var min = Math.min(a, b);
+                var max = Math.max(a, b);
+                return val >= min && val <= max;
+            }
+            if (!checkIn(lng, bbox[0][0], bbox[1][0])
+                    || !checkIn(lat, bbox[0][1], bbox[1][1])) {
+                return ;
+            }
+        }
         this._updateInfo({
             latitude  : {
                 value: lat
