@@ -59,13 +59,13 @@
             "dialog.edit.siret.placeholder" : "SIRET",
             "dialog.edit.tag.label" : "Tags",
             "dialog.edit.tag.placeholder" : "Saisir un tag",
-            
+
             "dialog.edit.tag.clear" : "Supprimer",
             "dialog.edit.tag.clearAll" : "Effacer tout",
             "dialog.edit.tag.noResults" :"Aucun tag trouvé",
             "dialog.edit.tag.prompt" : "Saisir des caractères pour rechercher",
             "dialog.edit.tag.newTagSuggestion" : "(créer ce tag)",
-            
+
             "dialog.edit" : "",
             "dialog.edit.address-group.label" : "Adresse",
             "dialog.edit.address.label" : "N° et nom de rue",
@@ -175,13 +175,13 @@
                 "additionalProperties" : "Ce champ ne doit pas exister.",
                 "enum" : "Must be present in given enumerator",
 
-                "field.geometry.coordinates" : "Geographical coordinates",
-                "field.geometry.coordinates.label" : "Coordinates",
-                "field.geometry.coordinates.longitudeRequired" : "Longitude n'est pas défini.",
-                "field.geometry.coordinates.latitudeRequired" : "Latitude n'est pas défini.",
-                "field.geometry.coordinates.required" : "Geographical coordinates ne sont pas défini",
+                "field.geometry.coordinates" : "geo-coordinates",
+                "field.geometry.coordinates.label" : "Coordonnées",
+                "field.geometry.coordinates.longitudeRequired" : "La longitude n'est pas définie.",
+                "field.geometry.coordinates.latitudeRequired" : "La latitude n'est pas définie.",
+                "field.geometry.coordinates.required" : "Les coordonnées géographiques ne sont pas définies.",
                 "field.properties" : "Resource properties",
-                "field.properties.required" : "Proprietes sont requis.",
+                "field.properties.required" : "Des propriétés sont requises.",
                 "field.name" : "Nom de votre organisation",
                 "field.name.description" : "Nom de votre organisation",
                 "field.name.required" : "Un nom est requis.",
@@ -365,10 +365,11 @@
                 "type" : "Must be of %{expected} type",
                 "additionalProperties" : "Must not exist",
                 "enum" : "Must be present in given enumerator",
-                
-                "field.geometry.coordinates" : "Geographical coordinates",
+
+                "field.geometry.coordinates" : "geo-coordinates",
                 "field.geometry.coordinates.label" : "Coordinates",
                 "field.geometry.coordinates" : "Geographical coordinates",
+                "field.geometry.coordinates.required" : "Geographical coordinates are required.",
                 "field.properties" : "Resource properties",
                 "field.properties.required" : "Proprietes sont requis.",
                 "field.name" : "Nom de votre organisation",
