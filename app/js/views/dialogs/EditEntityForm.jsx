@@ -355,7 +355,7 @@ module.exports = React.createClass({
                 name: 'geometry.coordinates.0',
                 type: 'hidden',
                 value : coords ? coords[0] : undefined,
-                error : this._getFieldError('geometry.coordinates')
+                //error : this._getFieldError('geometry.coordinates')
             },
             latitude : {
                 name: 'geometry.coordinates.1',
