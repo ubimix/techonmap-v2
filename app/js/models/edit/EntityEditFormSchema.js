@@ -25,12 +25,12 @@ function newSchema(options) {
                         description : msg('field.geometry.coordinates'),
                         type : 'array',
                         minItems : 2,
-                        // maxItems : 2,
+                        maxItems : 2,
                         required : true,
                         messages : {
                             minItems : msg('field.geometry.coordinates.required'),
-                            // maxItems : msg('field.geometry.coordinates.required'),
-                            //required : msg('field.geometry.coordinates.required')
+                            maxItems : msg('field.geometry.coordinates.required'),
+                            required : msg('field.geometry.coordinates.required')
                         },
                     },
                 }
