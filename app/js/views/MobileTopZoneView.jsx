@@ -27,7 +27,7 @@ module.exports = React.createClass({
     _newState : function(options){
         return _.extend({ showSearchMenu : false }, this.state, options);
     },
-    
+
     _showAboutInfo : function(ev) {
         var app = this.props.app;
         app.ui.focusView('about');
@@ -57,7 +57,7 @@ module.exports = React.createClass({
         className += ' li-search';
         return (
             <li className={className}>
-                <a href="#" className="menu-search icon" 
+                <a href="#" className="menu-search icon"
                     onClick={this._activateView.bind(this, 'search')}>
                     <i className="icon icon-search-mobile"></i>
                 </a>
@@ -94,8 +94,8 @@ module.exports = React.createClass({
                 </a>
             </li>
         );
-    },    
-    render : function() {       
+    },
+    render : function() {
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
         return (
@@ -104,7 +104,7 @@ module.exports = React.createClass({
                   <div className="row">
                       <div className="col-xs-4">
                           <div className="navbar-header">
-                              <a className="navbar-brand" href="#">
+                              <a className="navbar-brand" href="http://www.techonmap.fr">
                                   <img src="images/logo-01.svg" />
                               </a>
                           </div>
