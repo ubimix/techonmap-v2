@@ -1,124 +1,106 @@
 @font-face {
-    font-family: 'icomoon';
-    src:url('../fonts/icomoon.eot?-b6a1c2');
-    src:url('../fonts/icomoon.eot?#iefix-b6a1c2') format('embedded-opentype'),
-        url('../fonts/icomoon.woff?-b6a1c2') format('woff'),
-        url('../fonts/icomoon.ttf?-b6a1c2') format('truetype'),
-        url('../fonts/icomoon.svg?-b6a1c2#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?ijheeg');
+	src:url('../fonts/icomoon.eot?ijheeg#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?ijheeg') format('truetype'),
+		url('../fonts/icomoon.woff?ijheeg') format('woff'),
+		url('../fonts/icomoon.svg?ijheeg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    font-family: 'icomoon';
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
 
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .icon-community:before {
-    content: "\e600";
+	content: "\e900";
 }
-
 .icon-company:before {
-    content: "\e601";
+	content: "\e901";
+	color: rgb(0, 0, 0);
 }
 
 .icon-contact:before {
-    content: "\e602";
+	content: "\e903";
 }
-
 .icon-coworking:before {
-    content: "\e603";
+	content: "\e904";
 }
-
 .icon-edit:before {
-    content: "\e604";
+	content: "\e905";
 }
-
 .icon-education:before {
-    content: "\e605";
+	content: "\e906";
 }
-
 .icon-export:before {
-    content: "\e606";
+	content: "\e907";
 }
-
 .icon-facebook:before {
-    content: "\e607";
+	content: "\e908";
 }
-
 .icon-faq:before {
-    content: "\e608";
+	content: "\e909";
 }
-
 .icon-google-plus:before {
-    content: "\e609";
+	content: "\e90a";
 }
-
 .icon-heatmap:before {
-    content: "\e60a";
+	content: "\e90b";
 }
-
 .icon-incubator:before {
-    content: "\e60b";
+	content: "\e90c";
+	color: rgb(0, 0, 0);
 }
 
 .icon-info:before {
-    content: "\e60c";
+	content: "\e90f";
 }
-
 .icon-investor:before {
-    content: "\e60d";
+	content: "\e910";
+	color: rgb(0, 0, 0);
 }
 
 .icon-linkedin:before {
-    content: "\e60e";
+	content: "\e914";
 }
-
 .icon-list:before {
-    content: "\e60f";
+	content: "\e915";
 }
-
 .icon-map:before {
-    content: "\e610";
+	content: "\e916";
 }
-
 .icon-org:before {
-    content: "\e611";
+	content: "\e917";
 }
-
 .icon-search:before {
-    content: "\e612";
+	content: "\e918";
 }
-
 .icon-search-mobile:before {
-    content: "\e613";
+	content: "\e919";
 }
-
 .icon-share:before {
-    content: "\e614";
+	content: "\e91a";
 }
-
 .icon-sync:before {
-    content: "\e615";
+	content: "\e91b";
 }
-
 .icon-twitter:before {
-    content: "\e616";
+	content: "\e91c";
 }
-
 .icon-viadeo:before {
-    content: "\e617";
+	content: "\e91d";
 }
-
 .icon-web:before {
-    content: "\e618";
+	content: "\e91e";
 }

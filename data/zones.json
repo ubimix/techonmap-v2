@@ -1,42 +1,32 @@
 [
     {
-        "key" : "75",
-        "icon" : "icon-dept-75",
-        "label" : "Paris"
+        "key" : "04",
+        "icon" : "icon-dept-04",
+        "label" : "Alpes de Haute-Provence"
     },
     {
-        "key" : "91",
-        "icon" : "icon-dept-91",
-        "label" : "Essonne"
+        "key" : "05",
+        "icon" : "icon-dept-05",
+        "label" : "Hautes-Alpes"
     },
     {
-        "key" : "92",
-        "icon" : "icon-dept-92",
-        "label" : "Hauts-de-Seine"
+        "key" : "06",
+        "icon" : "icon-dept-06",
+        "label" : "Alpes maritimes"
     },
     {
-        "key" : "93",
-        "icon" : "icon-dept-93",
-        "label" : "Seine-Saint-Denis"
+        "key" : "13",
+        "icon" : "icon-dept-13",
+        "label" : "Bouches du Rhône"
     },
     {
-        "key" : "77",
-        "icon" : "icon-dept-77",
-        "label" : "Seine-et-Marne"
+        "key" : "83",
+        "icon" : "icon-dept-83",
+        "label" : "Var"
     },
     {
-        "key" : "94",
-        "icon" : "icon-dept-94",
-        "label" : "Val-de-Marne"
-    },
-    {
-        "key" : "95",
-        "icon" : "icon-dept-95",
-        "label" : "Val-d'Oise"
-    },
-    {
-        "key" : "78",
-        "icon" : "icon-dept-78",
-        "label" : "Yvelines"
+        "key" : "84",
+        "icon" : "icon-dept-84",
+        "label" : "Vaucluse"
     }
 ]
