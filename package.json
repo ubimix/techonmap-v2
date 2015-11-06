@@ -55,7 +55,7 @@
     "less-loader": "^2.0.0"
   },
   "scripts": {
-    "start": "node ./server.js -port 9889 -path ''",
+    "start": "node ./server.js -port 9804 -path ''",
     "test": "./node_modules/mocha/bin/mocha -R spec ./test/*_spec.js",
     "postinstall": "./postinstall.sh"
   }
