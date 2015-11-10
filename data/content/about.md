@@ -33,7 +33,7 @@ La Région Provence-Alpes-Côte d’Azur remercie la Fonderie et la Région Île
         <a href="http://www.lafonderie-idf.fr/" target="_blank"><img src="images/la-fonderie.png" border="0" /></a>
    </div>
     <div class="col-xs-4 with-border umx">
-        <h2>Développement et intégration</h2>
+        <h2>Développement</h2>
         <a href="http://ubimix.com" target="_blank"><img src="images/ubimix.png" border="0" /></a>
     </div>
 </div>
