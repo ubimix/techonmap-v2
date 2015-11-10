@@ -26,8 +26,8 @@ module.exports = {
         // Paris:
         // NE 49.04694, 2.63791
         // SW 48.658291, 2.08679
-        bbox : [ [2, 50], [3, 48] ],
-        center : [ 2.33185, 48.86246 ],
+        bbox : [ [-10, -10], [10, 20] ],
+        center : [ 2.33185, 6.86246 ],
         // tilesUrl :
         // 'http://{s}.tiles.mapbox.com/v3/ubimix.in6p41ic/{z}/{x}/{y}.png',
         // tilesUrl : '/tiles/{z}/{x}/{y}.png',
@@ -40,9 +40,9 @@ module.exports = {
             position : 'bottomleft',
             text : 'Données cartographiques &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a>',
         },
-        zoom : 10,
+        zoom : 4,
         maxZoom : 16,
-        minZoom : 10,
+        minZoom : 3,
         attribution : '',
         zoomControl : false,
         attributionControl : false
