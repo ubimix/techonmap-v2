@@ -11,7 +11,7 @@ module.exports = {
     exportFields : 'data/export.fields.json',
     messages : './data/messages.json',
     //dataUrl : './data/data.json',
-    dataUrl : '/xwiki/bin/view/mobo/Data',
+    dataUrl : '/xwiki/bin/view/mobo/Api',
     dataFieldsUrl : './data/data.fields.json',
     categoriesUrl : './data/categories.json',
     zonesUrl : './data/zones.json',
