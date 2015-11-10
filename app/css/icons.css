@@ -1,192 +1,124 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?x31w2h');
-	src:url('../fonts/icomoon.eot?x31w2h#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf?x31w2h') format('truetype'),
-		url('../fonts/icomoon.woff?x31w2h') format('woff'),
-		url('../fonts/icomoon.svg?x31w2h#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?-b6a1c2');
+    src:url('../fonts/icomoon.eot?#iefix-b6a1c2') format('embedded-opentype'),
+        url('../fonts/icomoon.woff?-b6a1c2') format('woff'),
+        url('../fonts/icomoon.ttf?-b6a1c2') format('truetype'),
+        url('../fonts/icomoon.svg?-b6a1c2#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-community:before {
-	content: "\e900";
+    content: "\e600";
 }
+
+.icon-company:before {
+    content: "\e601";
+}
+
 .icon-contact:before {
-	content: "\e901";
+    content: "\e602";
 }
+
 .icon-coworking:before {
-	content: "\e902";
+    content: "\e603";
 }
+
 .icon-edit:before {
-	content: "\e903";
+    content: "\e604";
 }
-.icon-education .path1:before {
-	content: "\e904";
-	color: rgb(0, 0, 0);
+
+.icon-education:before {
+    content: "\e605";
 }
-.icon-education .path2:before {
-	content: "\e905";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-education .path3:before {
-	content: "\e906";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-education .path4:before {
-	content: "\e907";
-	margin-left: -1em;
-	color: rgb(255, 255, 255);
-}
-.icon-education .path5:before {
-	content: "\e908";
-	margin-left: -1em;
-	color: rgb(255, 255, 255);
-}
+
 .icon-export:before {
-	content: "\e909";
+    content: "\e606";
 }
+
 .icon-facebook:before {
-	content: "\e90a";
+    content: "\e607";
 }
+
 .icon-faq:before {
-	content: "\e90b";
+    content: "\e608";
 }
+
 .icon-google-plus:before {
-	content: "\e90c";
+    content: "\e609";
 }
+
 .icon-heatmap:before {
-	content: "\e90d";
+    content: "\e60a";
 }
-.icon-incubator .path1:before {
-	content: "\e90e";
-	color: rgb(0, 0, 0);
+
+.icon-incubator:before {
+    content: "\e60b";
 }
-.icon-incubator .path2:before {
-	content: "\e90f";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-incubator .path3:before {
-	content: "\e910";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-incubator .path4:before {
-	content: "\e911";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-incubator .path5:before {
-	content: "\e912";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-incubator .path6:before {
-	content: "\e913";
-	margin-left: -1em;
-	color: rgb(255, 255, 255);
-}
-.icon-incubator .path7:before {
-	content: "\e914";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-incubator .path8:before {
-	content: "\e915";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-incubator .path9:before {
-	content: "\e916";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-incubator .path10:before {
-	content: "\e917";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
+
 .icon-info:before {
-	content: "\e918";
+    content: "\e60c";
 }
-.icon-investor .path1:before {
-	content: "\e919";
-	color: rgb(0, 0, 0);
+
+.icon-investor:before {
+    content: "\e60d";
 }
-.icon-investor .path2:before {
-	content: "\e91a";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-investor .path3:before {
-	content: "\e91b";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-investor .path4:before {
-	content: "\e91c";
-	margin-left: -1em;
-	color: rgb(0, 0, 0);
-}
-.icon-investor .path5:before {
-	content: "\e91d";
-	margin-left: -1em;
-	color: rgb(255, 255, 255);
-}
-.icon-investor .path6:before {
-	content: "\e91e";
-	margin-left: -1em;
-	color: rgb(255, 255, 255);
-}
-.icon-investor .path7:before {
-	content: "\e91f";
-	margin-left: -1em;
-	color: rgb(255, 255, 255);
-}
+
 .icon-linkedin:before {
-	content: "\e920";
+    content: "\e60e";
 }
+
 .icon-list:before {
-	content: "\e921";
+    content: "\e60f";
 }
+
 .icon-map:before {
-	content: "\e922";
+    content: "\e610";
 }
+
+.icon-org:before {
+    content: "\e611";
+}
+
 .icon-search:before {
-	content: "\e923";
+    content: "\e612";
 }
+
 .icon-search-mobile:before {
-	content: "\e924";
+    content: "\e613";
 }
+
 .icon-share:before {
-	content: "\e925";
+    content: "\e614";
 }
+
 .icon-sync:before {
-	content: "\e926";
+    content: "\e615";
 }
+
 .icon-twitter:before {
-	content: "\e927";
+    content: "\e616";
 }
+
 .icon-viadeo:before {
-	content: "\e928";
+    content: "\e617";
 }
+
 .icon-web:before {
-	content: "\e929";
+    content: "\e618";
 }
