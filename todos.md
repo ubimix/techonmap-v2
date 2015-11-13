@@ -1,6 +1,6 @@
 
-- geoloc plus précises
-- catégorie investisseur
+x geoloc plus précise
+x catégorie investisseur
 - heatmap à paramétrer
 - nouveau formulaire d'inscription
   https://docs.google.com/document/d/1k0fL1ffQ5IwGHFq8F7bJJmpUiAp3wisHYMSDfU2SQjg/edit

@@ -53,5 +53,11 @@
         "icon" : "incubator",
         "label" : "Incubateurs",
         "tags" : ["pépinière", "couveuse", "accélérateur", "incubateur"]
+    },
+    {
+        "key" : "Investisseur",
+        "icon" : "investor",
+        "label" : "Investisseurs",
+        "tags" : ["capital risque", "business angel", "hightech"]
     }
 ]
