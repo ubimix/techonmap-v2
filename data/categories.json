@@ -3,30 +3,30 @@
         "key" : "Tiers-lieu",
         "icon" : "coworking",
         "label" : "Tiers-lieux",
-        "tags" : ["fablab", "makerspace", "hackerspace", "coworking", "bureaux partagés", "télécentre" ]
+        "tags" : ["bureaux partagés", "coworking", "Eric", "Eric Lab", "Eric Service", "fablab", "hackerspace", "makerspace", "repair cafè", "télécentre" ]
     },
     {
         "key" : "Communauté",
         "icon" : "community",
         "label" : "Communautés",
-        "tags" : ["association", "syndicat", "fédération", "cluster"]
+        "tags" : ["bien-être", "culture", "développement durable", "énergie", "industries créatives", "mobilité", "numérique", "santé", "tourisme"]
     },
     {
         "key" : "Incubateur",
         "icon" : "incubator",
         "label" : "Accompagnement d’entreprises",
-        "tags" : ["pépinière", "couveuse", "accélérateur", "incubateur"]
+        "tags" : ["accélérateur", "couveuse", "cluster", "incubateur", "pépinière", "PRIDES"]
     },
     {
         "key" : "Investisseur",
         "icon" : "investor",
         "label" : "Financeurs",
-        "tags" : ["capital risque", "business angel", "hightech", "cleantech"]
+        "tags" : ["banque", "business angel", "capital risque"]
     },
     {
         "key" : "École",
         "icon" : "education",
         "label" : "Enseignement Supérieur / Recherche",
-        "tags" : ["ingénieur", "développeurs", "manager", "audiovisuel", "webdesign", "informatique", "télécoms", "jeux vidéo"]
+        "tags" : ["commerce", "infocom", "SHS", "management"]
     }
 ]

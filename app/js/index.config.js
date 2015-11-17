@@ -10,8 +10,8 @@ module.exports = {
     searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
     messages : './data/messages.json',
-    dataUrl : './data/data.json',
-    // dataUrl : './api/resources/export',
+    //dataUrl : './data/data.json',
+    dataUrl : '/xwiki/bin/view/mobo/Api',
     dataFieldsUrl : './data/data.fields.json',
     categoriesUrl : './data/categories.json',
     zonesUrl : './data/zones.json',
@@ -26,8 +26,8 @@ module.exports = {
         // Paris:
         // NE 49.04694, 2.63791
         // SW 48.658291, 2.08679
-        bbox : [ [2, 50], [3, 48] ],
-        center : [ 2.33185, 48.86246 ],
+//        bbox : [ [2, 50], [3, 48] ],
+        center : [ 6, 44 ],
         // tilesUrl :
         // 'http://{s}.tiles.mapbox.com/v3/ubimix.in6p41ic/{z}/{x}/{y}.png',
         // tilesUrl : '/tiles/{z}/{x}/{y}.png',
@@ -40,9 +40,9 @@ module.exports = {
             position : 'bottomleft',
             text : 'Données cartographiques &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a>',
         },
-        zoom : 10,
+        zoom : 8,
         maxZoom : 16,
-        minZoom : 10,
+        minZoom : 7,
         attribution : '',
         zoomControl : false,
         attributionControl : false
