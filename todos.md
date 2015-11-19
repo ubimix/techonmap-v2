@@ -1,6 +1,6 @@
 
 
-
+ajouter un champ label qui peut être multivalué parmi une liste, voir comment faire ressortir cela visuellement
 
   SL: taille des logos de l'about en mode mobile
   remplacer logo La Fonderie par le logo Région ? ou attendre le logo final

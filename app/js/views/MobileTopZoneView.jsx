@@ -104,8 +104,8 @@ module.exports = React.createClass({
                   <div className="row">
                       <div className="col-xs-4">
                           <div className="navbar-header">
-                              <a className="navbar-brand" href="http://www.techonmap.fr">
-                                  <img src="images/logo-01.svg" />
+                              <a className="navbar-brand" href="http://lpm.ubimix.com">
+                                  <img src="images/logo-02.svg" />
                               </a>
                           </div>
                       </div>

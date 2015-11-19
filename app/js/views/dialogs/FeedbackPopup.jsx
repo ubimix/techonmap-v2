@@ -33,16 +33,16 @@ var schema = {
                 required : "Une adresse e-mail est requise.",
                 allowEmpty : "L'adresse e-mail ne doit pas être vide.",
                 format : "L'adresse e-mail saisie semble incorrecte.",
-            }                
+            }
         },
         reason : {
             description : 'Objet de votre message',
             type : 'string',
-            enum : [ '[TechOnMap] Suggestion', '[TechOnMap] Question technique', '[TechOnMap] Question sur les données', '[TechOnMap] Autre question' ],
+            enum : [ '[LivingPACAmap] Suggestion', '[LivingPACAmap] Question technique', '[LivingPACAmap] Question sur les données', '[LivingPACAmap] Autre question' ],
             required : true,
             messages : {
                 required : "Merci d'indiquer l'objet de votre envoi."
-            }                  
+            }
         },
         content : {
             description : 'Votre message',
@@ -51,7 +51,7 @@ var schema = {
             messages : {
                 required : "Un contenu est requis.",
                 allowEmpty : "Le contenu ne doit pas être vide."
-            }                 
+            }
         }
     }
 };
@@ -148,7 +148,7 @@ var FeedbackPopup = Mosaic.Class.extend(DomUtils, I18NMixin, MessageBoxMixin,
             }
         });
     },
- 
+
 });
 
 module.exports = FeedbackPopup;

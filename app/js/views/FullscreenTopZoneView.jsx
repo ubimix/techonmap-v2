@@ -17,10 +17,10 @@ module.exports = React.createClass({
         return this.props.app;
     },
     componentDidMount : function(){
-        document.addEventListener('click', this._closeOpenSearchBlock, true);  
+        document.addEventListener('click', this._closeOpenSearchBlock, true);
     },
     componentWillUnmount : function(){
-        document.removeEventListener('click', this._closeOpenSearchBlock, true);  
+        document.removeEventListener('click', this._closeOpenSearchBlock, true);
     },
     getInitialState : function(){
         return this._newState();
@@ -183,7 +183,7 @@ module.exports = React.createClass({
       ev.stopPropagation();
       ev.preventDefault();
   },
-  
+
   _showFeedbackPopup : function(ev){
       PopupPanel.closePopup();
       var feedbackPopup = new FeedbackPopup({
@@ -248,7 +248,7 @@ module.exports = React.createClass({
             </li>
         );
     },
-    
+
     render : function(){
         var app = this.props.app;
         var className = (this.props.className || '') + ' navbar navbar-default';
@@ -266,7 +266,7 @@ module.exports = React.createClass({
                                   <span className="icon-bar"></span>
                               </button>
                               <a className="navbar-brand" href="#">
-                                  <img src="images/logo-01.svg" />
+                                  <img src="images/logo-02.svg" />
                               </a>
                               <h2 className="baseline">{this._getLabel('topmenu.baseline')}</h2>
                           </div>
@@ -284,7 +284,7 @@ module.exports = React.createClass({
                       <div className="col-xs-3">
                           <div className="navbar-form navbar-right">
                               <div className="btn-group">
-                                  <button type="button" className="btn btn-primary" 
+                                  <button type="button" className="btn btn-primary"
                                       onClick={this._onClickAdd}>
                                       {this._getLabel('topmenu.btn.add')}
                                   </button>
@@ -293,7 +293,7 @@ module.exports = React.createClass({
                       </div>
                   </div>
               </div>
-          </nav>                
+          </nav>
         );
     },
 });
