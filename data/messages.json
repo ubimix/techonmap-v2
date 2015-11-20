@@ -124,8 +124,8 @@
             "search.panel.label.input" : "Rechercher : ",
             "search.panel.label.filters" : "Filtrer par : ",
             "search.panel.label.filters.applied" : "Filtres appliqués : ",
-            "search.panel.label.zones" : "Départements : ",
-            "search.panel.label.zones.all" : "Toutes",
+            "search.panel.label.zones" : "Pays : ",
+            "search.panel.label.zones.all" : "Tous",
             "search.panel.label.categories" : "Catégories : ",
             "search.panel.label.categories.all" : "Toutes",
             "search.panel.label.tags" : "Tags : ",
@@ -152,7 +152,7 @@
             "topmenu.btn.add" : "Ajouter une organisation",
             "toolbar.left.label.tags" : "Tag : ",
             "toolbar.left.label.categories" : "Catégorie : ",
-            "toolbar.left.label.zone" : "Département : ",
+            "toolbar.left.label.zone" : "Pays : ",
             "toolbar.left.label.query" : "Recherche : ",
 
             "validationMessages" : {
@@ -314,7 +314,7 @@
             "search.panel.label.input" : "Search:",
             "search.panel.label.filters" : "Filters:",
             "search.panel.label.filters.applied" : "Applied filters : ",
-            "search.panel.label.zones" : "Zones: ",
+            "search.panel.label.zones" : "Countries: ",
             "search.panel.label.zones.all" : "All",
             "search.panel.label.categories" : "Categories: ",
             "search.panel.label.categories.all" : "All",
@@ -343,7 +343,7 @@
             "topmenu.baseline" : "The Map of Digital Actors in Paris Region",
             "toolbar.left.label.tags" : "Tag: ",
             "toolbar.left.label.categories" : "Category: ",
-            "toolbar.left.label.zone" : "Department: ",
+            "toolbar.left.label.zone" : "Country: ",
             "toolbar.left.label.query" : "Query : ",
 
             "validationMessages" : {

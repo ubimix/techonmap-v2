@@ -1,42 +1,81 @@
-[
-    {
-        "key" : "75",
-        "icon" : "icon-dept-75",
-        "label" : "Paris"
-    },
-    {
-        "key" : "91",
-        "icon" : "icon-dept-91",
-        "label" : "Essonne"
-    },
-    {
-        "key" : "92",
-        "icon" : "icon-dept-92",
-        "label" : "Hauts-de-Seine"
-    },
-    {
-        "key" : "93",
-        "icon" : "icon-dept-93",
-        "label" : "Seine-Saint-Denis"
-    },
-    {
-        "key" : "77",
-        "icon" : "icon-dept-77",
-        "label" : "Seine-et-Marne"
-    },
-    {
-        "key" : "94",
-        "icon" : "icon-dept-94",
-        "label" : "Val-de-Marne"
-    },
-    {
-        "key" : "95",
-        "icon" : "icon-dept-95",
-        "label" : "Val-d'Oise"
-    },
-    {
-        "key" : "78",
-        "icon" : "icon-dept-78",
-        "label" : "Yvelines"
-    }
-]
+[{
+  "key": "2",
+  "icon": "icon-dept-75",
+  "label": "Bénin"
+}, {
+  "key": "3",
+  "icon": "icon-dept-75",
+  "label": "Burkina Faso"
+}, {
+  "key": "4",
+  "icon": "icon-dept-75",
+  "label": "Cameroun"
+}, {
+  "key": "5",
+  "icon": "icon-dept-75",
+  "label": "Caméroun"
+}, {
+  "key": "6",
+  "icon": "icon-dept-75",
+  "label": "Congo"
+}, {
+  "key": "7",
+  "icon": "icon-dept-75",
+  "label": "Cote d'Ivoire"
+}, {
+  "key": "8",
+  "icon": "icon-dept-75",
+  "label": "Côte d'Ivoire"
+}, {
+  "key": "9",
+  "icon": "icon-dept-75",
+  "label": "Gabon"
+}, {
+  "key": "10",
+  "icon": "icon-dept-75",
+  "label": "Guinée"
+}, {
+  "key": "11",
+  "icon": "icon-dept-75",
+  "label": "Madagascar"
+}, {
+  "key": "12",
+  "icon": "icon-dept-75",
+  "label": "Mali"
+}, {
+  "key": "13",
+  "icon": "icon-dept-75",
+  "label": "Mauritanie"
+}, {
+  "key": "14",
+  "icon": "icon-dept-75",
+  "label": "Niger"
+}, {
+  "key": "15",
+  "icon": "icon-dept-75",
+  "label": "RDCongo"
+}, {
+  "key": "16",
+  "icon": "icon-dept-75",
+  "label": "RD Congo"
+}, {
+  "key": "17",
+  "icon": "icon-dept-75",
+  "label": "République centrafricaine"
+}, {
+  "key": "18",
+  "icon": "icon-dept-75",
+  "label": "République Démocratique du Congo"
+}, {
+  "key": "19",
+  "icon": "icon-dept-75",
+  "label": "Sénégal"
+}, {
+  "key": "20",
+  "icon": "icon-dept-75",
+  "label": "Tchad"
+}, {
+  "key": "21",
+  "icon": "icon-dept-75",
+  "label": "Togo"
+}]

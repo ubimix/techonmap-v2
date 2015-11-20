@@ -1,6 +1,8 @@
 
 x geoloc plus précise
 x catégorie investisseur
+- ajouter recherche par pays
+- ajouter le champ 'country' dans la recherche full texte
 - heatmap à paramétrer
 - nouveau formulaire d'inscription
   https://docs.google.com/document/d/1k0fL1ffQ5IwGHFq8F7bJJmpUiAp3wisHYMSDfU2SQjg/edit
