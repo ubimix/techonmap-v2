@@ -3,11 +3,10 @@
         "key" : "Entreprise",
         "icon" : "company",
         "label" : "Entreprises",
-        "tags" : [
-          "applications mobiles",
+        "tags" : ["applications mobiles",
           "logiciels"
           "webdesign",
-          "B2B"
+          "B2B",
           "marketplace",
           "ecommerce",
           "paiement",
@@ -20,7 +19,6 @@
           "actualités",
           "éducation",
           "emploi"
-
          ]
     },
     {
