@@ -5,6 +5,7 @@ x ajouter recherche par pays
 x ajouter le champ 'country' dans la recherche full texte
 x tags prioritaires
 - heatmap à paramétrer
+- il y ades points qui apparaissent en France: ce sont ceux qui n'ont pas pu être géolocalisés automatiquement, il faudra les géolocaliser manuellement
 
 # Formulaire
   x Identifiant Afrique numérique
