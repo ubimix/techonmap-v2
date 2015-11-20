@@ -34,7 +34,7 @@
             "dialog.export.msg.prepare" : "Préparation des données...",
             "dialog.export.label.export.filtered" : "votre séléction",
             "dialog.export.label.export.all" : "l'intégralité des données",
-            "dialog.export.description" : "Dans le prolongement de la démarche régionale d’ouverture des données publiques lancée par la Région Ile-de-France, les données de TechOnMap font l’objet d’une diffusion libre et gratuite sous licence ODbL.",
+            "dialog.export.description" : "Dans le prolongement de la démarche régionale d’ouverture des données publiques lancée par la Région Provence Alpes Côte d'Azur, les données de LivingPACAmap font l’objet d’une diffusion libre et gratuite sous licence ODbL.",
             "dialog.help.msg.contact" : "Pour toute autre question : ",
             "dialog.help.btn.contact" : "Contactez-nous",
             "dialog.contact.btn.cancel" : "Revenir à la carte",
