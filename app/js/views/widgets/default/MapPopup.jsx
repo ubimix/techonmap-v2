@@ -24,7 +24,7 @@ module.exports = React.createClass({
             resourceId : id
         }).then(function(){
             app.ui.focusView('list');
-        });        
+        });
         ev.preventDefault();
         ev.stopPropagation();
     },
@@ -36,11 +36,11 @@ module.exports = React.createClass({
                 <a href="#" onClick={this._onClick}>
                     {this._renderName()}
                 </a>
+                {this._renderLabels(true)}
                 <div>{this._renderTags(true)}</div>
                 {this._renderAddress()}
                 {this._renderSocialNetworks()}
             </div>
-        );            
+        );
     },
 });
- 
