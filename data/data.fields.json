@@ -4,7 +4,7 @@
         "type" : "ref",
         "boost": 1
       },
-      "properties.name": { 
+      "properties.name": {
         "type" : "field",
         "boost": 10
       },
@@ -34,6 +34,11 @@
       "properties.city" : {
         "type" : "field",
         "boost": 2
+      },
+      "properties.country" : {
+        "type" : "field",
+        "boost": 1,
+        "filter" : "prefix"
       },
       "properties.url" : {
         "type" : "field",
