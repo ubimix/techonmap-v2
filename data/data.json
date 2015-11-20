@@ -1,150 +1,1273 @@
 {
   "type": "FeatureCollection",
-  "features": [
-    {
-      "id": "123-venture",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.3307433640004547,
-          48.874847057000466
-        ]
-      },
-      "properties": {
-        "id": "123-venture",
-        "category": "Investisseur",
-        "name": "123 Venture",
-        "tags": [
-          "capital risque",
-          "mezzanine"
-        ],
-        "address": "94 rue de la Victoire",
-        "postcode": "75009",
-        "city": "Paris",
-        "creationyear": "2000",
-        "url": "http://www.123venture.com",
-        "twitter": "123Venture",
-        "linkedin": "http://www.linkedin.com/company/79342",
-        "viadeo": "http://fr.viadeo.com/fr/company/123venture",
-        "description": "123Venture est une société de gestion indépendante avec plus de 1.000M€ investis dans le capital-investissement et l'immobilier.",
-        "updated": 1418739904000
-      }
+  "features": [{
+    "id": "27-delvalle",
+    "type": "Feature",
+    "properties": {
+      "id": "27-delvalle",
+      "type": "organization",
+      "name": "27 Delvalle",
+      "url": "",
+      "category": "Tiers-Lieu",
+      "tags": ["living lab"],
+      "labels": "",
+      "description": "",
+      "address": "27, rue du Professeur Delvalle",
+      "postcode": "6000",
+      "city": "Nice",
+      "country": "",
+      "email": "piovano.v@chu-nice.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
     },
-    {
-      "id": "50-partners",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.34367000000043,
-          48.8641399960005
-        ]
-      },
-      "properties": {
-        "id": "50-partners",
-        "category": "Incubateur",
-        "name": "50 Partners",
-        "tags": [],
-        "address": "62 rue Jean-Jacques Rousseau",
-        "postcode": "75001",
-        "city": "Paris",
-        "creationyear": "2012",
-        "url": "http://www.50partners.com",
-        "twitter": "50partners",
-        "facebook": "https://www.facebook.com/investirendirect",
-        "description": "Espace de Coworking : location de postes à conditions très flexibles et entrepreneuriales (www.leloft50partners.com) et Incubateur de Startups : mentoring par 50 entrepreneurs stars, bureaux, écosystème, financement (www.50partners.fr)",
-        "updated": 1389989562000
-      }
-    },
-    {
-      "id": "eseniors",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.38606,
-          48.855919
-        ]
-      },
-      "properties": {
-        "id": "eseniors",
-        "category": "Communauté",
-        "name": "Eseniors",
-        "tags": [
-          "seniors",
-          "handicap",
-          "intergenerationnel"
-        ],
-        "address": "19 cité de Phalsbourg",
-        "postcode": "75011",
-        "city": "Paris",
-        "creationyear": "2005",
-        "url": "http://www.e-seniors.asso.fr",
-        "facebook": "https://www.facebook.com/pages/E-seniors/108732705910346",
-        "description": "Eseniors est une association dont l'activité consiste à initier les seniors et les handicapés aux TICs avec pour objectif de réduire la fracture numérique entre générations et de désenclaver les seniors de leur situation d’isolement.",
-        "updated": 1389989606000
-      }
-    },
-    {
-      "id": "actlab",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.332946262000405,
-          48.923972585000456
-        ]
-      },
-      "properties": {
-        "name": "Actlab",
-        "id": "actlab",
-        "category": "Tiers-lieu",
-        "tags": [
-          "fablab",
-          "recyclage",
-          "architecture"
-        ],
-        "address": "9 Quai Chatelier",
-        "postcode": "93450",
-        "city": "L'Ile Saint Denis",
-        "creationyear": "2013",
-        "url": "http://actlab.tumblr.com/http://www.bellastock.com/category/projet-fr/actlab/le-laboratoire/",
-        "twitter": "bellastock",
-        "facebook": "https://www.facebook.com/bellastock",
-        "description": "Laboratoire de création pour expérimenter le réemploi en architecture.",
-        "updated": 1423582685000
-      }
-    },
-    {
-      "id": "42",
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.3186,
-          48.896229
-        ]
-      },
-      "properties": {
-        "id": "42",
-        "category": "École",
-        "name": "42",
-        "tags": [
-          "développeur",
-          "heartofcode"
-        ],
-        "address": "96 boulevard Bessières",
-        "postcode": "75017",
-        "city": "Paris",
-        "creationyear": "2013",
-        "url": "http://www.42.fr",
-        "twitter": "42born2code",
-        "facebook": "https://www.facebook.com/ecole42",
-        "googleplus": "https://plus.google.com/114371889748884562535",
-        "description": "42 est une école gratuite, financée par la fondation Free, qui développe une méthodologie d'apprentissage par projet pour former de jeunes talents aux métiers informatiques et à la programmation.",
-        "updated": 1429801727000
-      }
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.2842169, 43.7232224]
     }
-  ]
+  }, {
+    "id": "arborescence",
+    "type": "Feature",
+    "properties": {
+      "id": "arborescence",
+      "type": "organization",
+      "name": "Arborescence",
+      "url": "http://www.quartiersdevie.org",
+      "category": "Tiers-Lieu",
+      "tags": ["EPN", " fablab", "Eric", "Eric Service", "Eric LAb"],
+      "labels": ["eric", "eric-services", "eric-lab"],
+      "description": "",
+      "address": "374, rue de Lyon",
+      "postcode": "13015",
+      "city": "Marseille",
+      "country": "",
+      "email": "arbo@arborescence.net",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3626723, 43.33841779999999]
+    }
+  }, {
+    "id": "cafe-pixel",
+    "type": "Feature",
+    "properties": {
+      "id": "cafe-pixel",
+      "type": "organization",
+      "name": "Caf\u00e9 Pixel",
+      "url": "http://lecafepixel.com",
+      "category": "Communaut\u00e9",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "Place Bargemon",
+      "postcode": "13002",
+      "city": "Marseille",
+      "country": "",
+      "email": "contact@lecafepixel.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3695908, 43.297663]
+    }
+  }, {
+    "id": "centre-culturel-georges-sand",
+    "type": "Feature",
+    "properties": {
+      "id": "centre-culturel-georges-sand",
+      "type": "organization",
+      "name": "Centre culturel Georges Sand",
+      "url": "http://www.vitrolles13.fr/s-enrichir-se-cultiver/les-mediatheques/portail-des-mediatheques/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking", " EPN", " fablab", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "Place de Provence",
+      "postcode": "13127",
+      "city": "Vitrolles",
+      "country": "",
+      "email": "julien.teisseire@ville-vitrolles13.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.249003, 43.44733799999999]
+    }
+  }, {
+    "id": "centre-socio-culturel-jean-paul-coste",
+    "type": "Feature",
+    "properties": {
+      "id": "centre-socio-culturel-jean-paul-coste",
+      "type": "organization",
+      "name": "Centre socio culturel Jean-Paul Coste",
+      "url": "http://www.cscjeanpaulcoste.com",
+      "category": "Tiers-Lieu",
+      "tags": ["EPN", " fablab", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "217, avenue Jean-Paul Coste",
+      "postcode": "13100",
+      "city": "Aix-en-Provence",
+      "country": "",
+      "email": "contact@cscjeanpaulcoste.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.4566687, 43.5135331]
+    }
+  }, {
+    "id": "cosens",
+    "type": "Feature",
+    "properties": {
+      "id": "cosens",
+      "type": "organization",
+      "name": "Cosens",
+      "url": "http://www.cosens.fr",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "2, Rue de Rome",
+      "postcode": "13001",
+      "city": "Marseille",
+      "country": "",
+      "email": "info@cosens.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3783721, 43.2951994]
+    }
+  }, {
+    "id": "ecolab-cote-d-azur",
+    "type": "Feature",
+    "properties": {
+      "id": "ecolab-cote-d-azur",
+      "type": "organization",
+      "name": "Ecolab C\u00f4te d'Azur",
+      "url": "http://www.ecolab-cotedazur.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["fablab"],
+      "labels": "",
+      "description": "",
+      "address": "1, boulevard Ma\u00eetre Maurice Slama",
+      "postcode": "6000",
+      "city": "Nice",
+      "country": "",
+      "email": "vincent.gaunord@ecolab-cotedazur.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.202428599999998, 43.683329]
+    }
+  }, {
+    "id": "fab-alpes",
+    "type": "Feature",
+    "properties": {
+      "id": "fab-alpes",
+      "type": "organization",
+      "name": "FAB'ALPES",
+      "url": "http://www.fabalpes.org",
+      "category": "Tiers-Lieu",
+      "tags": ["fablab"],
+      "labels": "",
+      "description": "",
+      "address": "5, rue Olphe-Gaillard",
+      "postcode": "5000",
+      "city": "Gap",
+      "country": "",
+      "email": "contact@fabalpes.org",
+      "phone": "",
+      "twitter": "fabalpes",
+      "facebook": "https://www.facebook.com/fabalpes",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [6.087662330000455, 44.56412137300049]
+    }
+  }, {
+    "id": "fablab-marseille",
+    "type": "Feature",
+    "properties": {
+      "id": "fablab-marseille",
+      "type": "organization",
+      "name": "FabLab Marseille",
+      "url": "http://fablab.centrale-marseille.fr",
+      "category": "Tiers-Lieu",
+      "tags": ["fablab"],
+      "labels": "",
+      "description": "",
+      "address": "38, Rue Fr\u00e9d\u00e9ric Joliot-Curie",
+      "postcode": "13451",
+      "city": "Marseille",
+      "country": "",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.435724203000461, 43.34175516300047]
+    }
+  }, {
+    "id": "fuvlab",
+    "type": "Feature",
+    "properties": {
+      "id": "fuvlab",
+      "type": "organization",
+      "name": "FuvLab",
+      "url": "http://www.fuvlab.org/",
+      "category": "Tiers-Lieu",
+      "tags": ["fablab"],
+      "labels": "",
+      "description": "",
+      "address": "94-132, Avenue Ferdinand Arnaud",
+      "postcode": "13850",
+      "city": "Gr\u00e9asque",
+      "country": "",
+      "email": "contact@fuvlab.org",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.5396683, 43.4341181]
+    }
+  }, {
+    "id": "group--union",
+    "type": "Feature",
+    "properties": {
+      "id": "group--union",
+      "type": "organization",
+      "name": "Group' Union",
+      "url": "http://www.groupunion.fr/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "55, rue Paradis",
+      "postcode": "13006",
+      "city": "Marseille",
+      "country": "",
+      "email": "christophe.gauthier@groupunion.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3776413, 43.2919206]
+    }
+  }, {
+    "id": "ict-usage-lab",
+    "type": "Feature",
+    "properties": {
+      "id": "ict-usage-lab",
+      "type": "organization",
+      "name": "ICT Usage Lab",
+      "url": "http://www.ictusagelab.fr/",
+      "category": "Tiers-Lieu",
+      "tags": ["living lab"],
+      "labels": "",
+      "description": "",
+      "address": "2004, route des Lucioles",
+      "postcode": "6902",
+      "city": "Valbonne",
+      "country": "",
+      "email": "brigitte.trousse@inria.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.068379999999999, 43.6158131]
+    }
+  }, {
+    "id": "lab-06",
+    "type": "Feature",
+    "properties": {
+      "id": "lab-06",
+      "type": "organization",
+      "name": "LAB 06",
+      "url": "https://e-zy06.departement06.fr/le-lab-06-9488.html",
+      "category": "Tiers-Lieu",
+      "tags": ["living lab"],
+      "labels": "",
+      "description": "",
+      "address": "147, boulevard du Mercantour",
+      "postcode": "6000",
+      "city": "Nice",
+      "country": "",
+      "email": "mbarnoin@departement06.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.199333800000001, 43.6749249]
+    }
+  }, {
+    "id": "la-bo[a]te",
+    "type": "Feature",
+    "properties": {
+      "id": "la-bo[a]te",
+      "type": "organization",
+      "name": "La Bo[a]te",
+      "url": "http://laboate.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking", " EPN", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "35, rue de la paix marcel paul",
+      "postcode": "13001",
+      "city": "Marseille",
+      "country": "",
+      "email": "flo@laboate.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3728868, 43.2921459]
+    }
+  }, {
+    "id": "la-charbonnerie",
+    "type": "Feature",
+    "properties": {
+      "id": "la-charbonnerie",
+      "type": "organization",
+      "name": "La Charbonnerie",
+      "url": "http://www.lacharbonnerie.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking", " fablab"],
+      "labels": "",
+      "description": "",
+      "address": "38, rue de l'Ev\u00e9ch\u00e9",
+      "postcode": "13002",
+      "city": "Marseille",
+      "country": "",
+      "email": "contact@lacharbonnerie.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.366160499999999, 43.2989177]
+    }
+  }, {
+    "id": "la-fabulerie",
+    "type": "Feature",
+    "properties": {
+      "id": "la-fabulerie",
+      "type": "organization",
+      "name": "La Fabulerie",
+      "url": "http://lafabulerie.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking", " fablab", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "4, rue de la bibliotheque",
+      "postcode": "13001",
+      "city": "Marseille",
+      "country": "",
+      "email": "contact@lafabulerie.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3839109, 43.2952366]
+    }
+  }, {
+    "id": "la-fruitere-numerique",
+    "type": "Feature",
+    "properties": {
+      "id": "la-fruitere-numerique",
+      "type": "organization",
+      "name": "La Fruit\u00e8re Num\u00e9rique",
+      "url": "http://www.lafruitierenumerique.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["EPN", " fablab", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "Avenue du 8 Mai",
+      "postcode": "84160",
+      "city": "Lourmarin",
+      "country": "",
+      "email": "epn@lourmarin.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.369848, 43.735268]
+    }
+  }, {
+    "id": "la-locomotive",
+    "type": "Feature",
+    "properties": {
+      "id": "la-locomotive",
+      "type": "organization",
+      "name": "La Locomotive",
+      "url": "http://lalocomotive.colabs.fr",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "1, rue Elis\u00e9e",
+      "postcode": "5000",
+      "city": "Gap",
+      "country": "",
+      "email": "lalocomotive@colabs.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [6.0801206, 44.5590808]
+    }
+  }, {
+    "id": "la-ruche",
+    "type": "Feature",
+    "properties": {
+      "id": "la-ruche",
+      "type": "organization",
+      "name": "La Ruche",
+      "url": "http://la-ruche-marseille.org/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "28, Bd National",
+      "postcode": "13001",
+      "city": "Marseille",
+      "country": "",
+      "email": "hello@la-ruche-marseille.org",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.386834899999999, 43.3029062]
+    }
+  }, {
+    "id": "l-auberge-marseille",
+    "type": "Feature",
+    "properties": {
+      "id": "l-auberge-marseille",
+      "type": "organization",
+      "name": "L'Auberge Marseille",
+      "url": "http://auberge.50a.fr/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "25, Rue Barbaroux",
+      "postcode": "13001",
+      "city": "Marseille",
+      "country": "",
+      "email": "nicolas@50a.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.387811, 43.2983053]
+    }
+  }, {
+    "id": "le-carrefour-de-l-innovation",
+    "type": "Feature",
+    "properties": {
+      "id": "le-carrefour-de-l-innovation",
+      "type": "organization",
+      "name": "Le carrefour de l'innovation",
+      "url": "",
+      "category": "Communaut\u00e9",
+      "tags": ["coworking", " fablab"],
+      "labels": "",
+      "description": "",
+      "address": "rue des b\u0153ufs",
+      "postcode": "13100",
+      "city": "Aix-en-Provence",
+      "country": "",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.4369068, 43.5277416]
+    }
+  }, {
+    "id": "le-hublot",
+    "type": "Feature",
+    "properties": {
+      "id": "le-hublot",
+      "type": "organization",
+      "name": "Le Hublot",
+      "url": "http://www.lehublot.net/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "16, rue de Roquebilli\u00e8re",
+      "postcode": "6300",
+      "city": "Nice",
+      "country": "",
+      "email": "fa@lehublot.net",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.2889964, 43.7141806]
+    }
+  }, {
+    "id": "le-lab",
+    "type": "Feature",
+    "properties": {
+      "id": "le-lab",
+      "type": "organization",
+      "name": "Le L.A.B",
+      "url": "http://labaixbidouille.com",
+      "category": "Tiers-Lieu",
+      "tags": ["fablab"],
+      "labels": "",
+      "description": "",
+      "address": "43, Avenue Gaston Berger",
+      "postcode": "13625",
+      "city": "Aix-en-Provence",
+      "country": "",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.4466297, 43.51365939999999]
+    }
+  }, {
+    "id": "les-6-degres",
+    "type": "Feature",
+    "properties": {
+      "id": "les-6-degres",
+      "type": "organization",
+      "name": "Les 6 degr\u00e9s",
+      "url": "http://les6degres.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "8 rue Andr\u00e9 Chaude",
+      "postcode": "6400",
+      "city": "Cannes",
+      "country": "",
+      "email": "laureen@les6degres.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.0177977, 43.5556389]
+    }
+  }, {
+    "id": "les-satellites",
+    "type": "Feature",
+    "properties": {
+      "id": "les-satellites",
+      "type": "organization",
+      "name": "Les satellites",
+      "url": "http://www.lessatellites.fr/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "6, rue du Congr\u00e8s",
+      "postcode": "6000",
+      "city": "Nice",
+      "country": "",
+      "email": "contact@lessatellites.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.2633507, 43.6959904]
+    }
+  }, {
+    "id": "lfo",
+    "type": "Feature",
+    "properties": {
+      "id": "lfo",
+      "type": "organization",
+      "name": "LFO",
+      "url": "http://lfofablab.org/",
+      "category": "Tiers-Lieu",
+      "tags": ["fablab", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "41, rue Jobin \u00e0 Marseille",
+      "postcode": "13003",
+      "city": "Marseille",
+      "country": "",
+      "email": "contact@lfofablab.org",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3906713, 43.3102736]
+    }
+  }, {
+    "id": "logis-des-jeunes-de-provence",
+    "type": "Feature",
+    "properties": {
+      "id": "logis-des-jeunes-de-provence",
+      "type": "organization",
+      "name": "Logis des Jeunes de Provence",
+      "url": "http://www.logisdesjeunes.asso.fr/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking", " EPN", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "5, rue Mimont",
+      "postcode": "6400",
+      "city": "Cannes",
+      "country": "",
+      "email": "eric@logisdesjeunes.asso.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.0198528, 43.5549652]
+    }
+  }, {
+    "id": "luci(s)",
+    "type": "Feature",
+    "properties": {
+      "id": "luci(s)",
+      "type": "organization",
+      "name": "LUCI(s)",
+      "url": "",
+      "category": "Communaut\u00e9",
+      "tags": ["living lab"],
+      "labels": "",
+      "description": "",
+      "address": "37, rue Guibal",
+      "postcode": "13003",
+      "city": "Marseille",
+      "country": "",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3900945, 43.3092087]
+    }
+  }, {
+    "id": "make-it-marseille",
+    "type": "Feature",
+    "properties": {
+      "id": "make-it-marseille",
+      "type": "organization",
+      "name": "Make it Marseille",
+      "url": "http://www.makeitmarseille.com/",
+      "category": "Communaut\u00e9",
+      "tags": ["coworking", " fablab"],
+      "labels": "",
+      "description": "",
+      "address": "108, rue Breteuil",
+      "postcode": "13006",
+      "city": "Marseille",
+      "country": "",
+      "email": "contact@makeitmarseille.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3774842, 43.2861534]
+    }
+  }, {
+    "id": "marseille-3013",
+    "type": "Feature",
+    "properties": {
+      "id": "marseille-3013",
+      "type": "organization",
+      "name": "Marseille 3013",
+      "url": "http://www.marseille3013.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "58, rue de la R\u00e9publique",
+      "postcode": "13002",
+      "city": "Marseille",
+      "country": "",
+      "email": "stephane@marseille3013.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3707868, 43.3007545]
+    }
+  }, {
+    "id": "mediatheque-municipale-de-mouans-sartoux",
+    "type": "Feature",
+    "properties": {
+      "id": "mediatheque-municipale-de-mouans-sartoux",
+      "type": "organization",
+      "name": "M\u00e9diath\u00e8que municipale de Mouans Sartoux",
+      "url": "http://www.lamediatheque.net/",
+      "category": "Tiers-Lieu",
+      "tags": ["EPN", " repair caf\u00e9", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "201, avenue de Cannes",
+      "postcode": "6370",
+      "city": "Mouans Sartoux",
+      "country": "",
+      "email": "kartafr@yahoo.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [6.971838099999999, 43.619778]
+    }
+  }, {
+    "id": "mod-&-lab-(ex-dragolab)",
+    "type": "Feature",
+    "properties": {
+      "id": "mod-&-lab-(ex-dragolab)",
+      "type": "organization",
+      "name": "Mod & Lab (ex Dragolab)",
+      "url": "http://www.modlab.fr/",
+      "category": "Tiers-Lieu",
+      "tags": ["EPN", " fablab", "Eric", "Eric Service", "Eric LAb"],
+      "labels": "",
+      "description": "",
+      "address": "53, Bd des martyrs de la Resistance",
+      "postcode": "83300",
+      "city": "Draguignan",
+      "country": "",
+      "email": "contact@modlab.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [6.4650777, 43.5344467]
+    }
+  }, {
+    "id": "navlab",
+    "type": "Feature",
+    "properties": {
+      "id": "navlab",
+      "type": "organization",
+      "name": "NavLab",
+      "url": "http://navlab.avitys.com",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking", " fablab", " hackerspace"],
+      "labels": "",
+      "description": "",
+      "address": "3, Boulevard du Pr\u00e9sident Wilson",
+      "postcode": "6600",
+      "city": "Antibes",
+      "country": "",
+      "email": "contact@navlab.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.1206983, 43.5794445]
+    }
+  }, {
+    "id": "nicelab",
+    "type": "Feature",
+    "properties": {
+      "id": "nicelab",
+      "type": "organization",
+      "name": "Nicelab",
+      "url": "https://blog.nicelab.org/",
+      "category": "Tiers-Lieu",
+      "tags": ["fablab", " hackerspace"],
+      "labels": "",
+      "description": "",
+      "address": "19, rue Louis Garneray",
+      "postcode": "6300",
+      "city": "Nice",
+      "country": "",
+      "email": "contact@nicelab.org",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.294293, 43.7065634]
+    }
+  }, {
+    "id": "pobot",
+    "type": "Feature",
+    "properties": {
+      "id": "pobot",
+      "type": "organization",
+      "name": "PoBot",
+      "url": "http://www.pobot.org",
+      "category": "Communaut\u00e9",
+      "tags": ["fablab", " makerspace"],
+      "labels": "",
+      "description": "",
+      "address": "467, impasse des Rossignols",
+      "postcode": "6410",
+      "city": "Biot",
+      "country": "",
+      "email": "julien@pobot.org",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.0608267, 43.6323382]
+    }
+  }, {
+    "id": "point-sud-coworking",
+    "type": "Feature",
+    "properties": {
+      "id": "point-sud-coworking",
+      "type": "organization",
+      "name": "Point Sud Coworking",
+      "url": "http://www.point-sud.fr/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "33, rue Alphonse Karr",
+      "postcode": "83700",
+      "city": "Saint-Raphael",
+      "country": "",
+      "email": "contact@point-sud.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [6.767142300000001, 43.4238647]
+    }
+  }, {
+    "id": "potentielles",
+    "type": "Feature",
+    "properties": {
+      "id": "potentielles",
+      "type": "organization",
+      "name": "Potentielles",
+      "url": "http://www.potentielles.fr",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "128, Bd de la Lib\u00e9ration",
+      "postcode": "13004",
+      "city": "Marseille",
+      "country": "",
+      "email": "contact@potentielles.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3924794, 43.3013195]
+    }
+  }, {
+    "id": "repair-cafe-marseille",
+    "type": "Feature",
+    "properties": {
+      "id": "repair-cafe-marseille",
+      "type": "organization",
+      "name": "Repair Caf\u00e9 Marseille",
+      "url": "http://repaircafemarseille.fr/",
+      "category": "Communaut\u00e9",
+      "tags": ["repair caf\u00e9"],
+      "labels": "",
+      "description": "",
+      "address": "93, La Canebi\u00e8re",
+      "postcode": "13001",
+      "city": "Marseille",
+      "country": "",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/repaircafemarseille",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3816936, 43.2981887]
+    }
+  }, {
+    "id": "repair-cafe-nice",
+    "type": "Feature",
+    "properties": {
+      "id": "repair-cafe-nice",
+      "type": "organization",
+      "name": "Repair Caf\u00e9 Nice",
+      "url": "https://www.facebook.com/RepairCafeNice",
+      "category": "Tiers-Lieu",
+      "tags": ["repair caf\u00e9"],
+      "labels": "",
+      "description": "",
+      "address": "4, Rue Vernier",
+      "postcode": "6000",
+      "city": "Nice",
+      "country": "",
+      "email": "repaircafenice@gmail.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.262671800000001, 43.7075123]
+    }
+  }, {
+    "id": "repair-cafe-sophia-antipolis",
+    "type": "Feature",
+    "properties": {
+      "id": "repair-cafe-sophia-antipolis",
+      "type": "organization",
+      "name": "Repair Caf\u00e9 Sophia-Antipolis",
+      "url": "http://www.repaircafesophia.org/",
+      "category": "Tiers-Lieu",
+      "tags": ["repair caf\u00e9"],
+      "labels": "",
+      "description": "",
+      "address": "408, Chemin de la Verri\u00e8re",
+      "postcode": "6560",
+      "city": "Valbonne",
+      "country": "",
+      "email": "contact@repaircafesophia.org",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.034956500000001, 43.6410507]
+    }
+  }, {
+    "id": "reso-nance-numerique",
+    "type": "Feature",
+    "properties": {
+      "id": "reso-nance-numerique",
+      "type": "organization",
+      "name": "Reso-nance num\u00e9rique",
+      "url": "http://reso-nance.org",
+      "category": "Communaut\u00e9",
+      "tags": ["makerspace"],
+      "labels": "",
+      "description": "",
+      "address": "41, rue Jobin",
+      "postcode": "13003",
+      "city": "Marseille",
+      "country": "",
+      "email": "info@reso-nance.org",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.3906713, 43.3102736]
+    }
+  }, {
+    "id": "smak",
+    "type": "Feature",
+    "properties": {
+      "id": "smak",
+      "type": "organization",
+      "name": "Smak",
+      "url": "http://smack-coworking.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "13, rue Combalat",
+      "postcode": "13006",
+      "city": "Marseille",
+      "country": "",
+      "email": "supercontact@smack-coworking.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.376441, 43.2898211]
+    }
+  }, {
+    "id": "sofab-by-telecom-valley",
+    "type": "Feature",
+    "properties": {
+      "id": "sofab-by-telecom-valley",
+      "type": "organization",
+      "name": "Sofab by Telecom Valley",
+      "url": "http://www.sofab.tv/",
+      "category": "Tiers-Lieu",
+      "tags": ["fablab"],
+      "labels": "",
+      "description": "",
+      "address": "Route des Colles",
+      "postcode": "6410",
+      "city": "Biot Sophia Antipolis",
+      "country": "",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.075729900000001, 43.61630539999999]
+    }
+  }, {
+    "id": "the-carrosserie",
+    "type": "Feature",
+    "properties": {
+      "id": "the-carrosserie",
+      "type": "organization",
+      "name": "The Carrosserie",
+      "url": "http://www.thecarrosserie.com/",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "7, cours Gouffr\u00e9",
+      "postcode": "13006",
+      "city": "Marseille",
+      "country": "",
+      "email": "contact@thecarrosserie.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.386619899999999, 43.2863351]
+    }
+  }, {
+    "id": "toulon-var-technologies",
+    "type": "Feature",
+    "properties": {
+      "id": "toulon-var-technologies",
+      "type": "organization",
+      "name": "Toulon Var Technologies",
+      "url": "http://www.lacantine-toulon.org",
+      "category": "Tiers-Lieu",
+      "tags": ["acc\u00e9l\u00e9rateur", " coworking", " fablab", " p\u00e9pini\u00e8re"],
+      "labels": "",
+      "description": "",
+      "address": "1, Place G. Pompidou",
+      "postcode": "83500",
+      "city": "Toulon",
+      "country": "",
+      "email": "cantines@tvt.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [5.939041943000461, 43.12012096000046]
+    }
+  }, {
+    "id": "un-jour-ici",
+    "type": "Feature",
+    "properties": {
+      "id": "un-jour-ici",
+      "type": "organization",
+      "name": "Un jour ICI",
+      "url": "http://www.unjourici.fr",
+      "category": "Tiers-Lieu",
+      "tags": ["coworking"],
+      "labels": "",
+      "description": "",
+      "address": "500, route des Lucioles",
+      "postcode": "6560",
+      "city": "Valbonne Sophia Antipolis",
+      "country": "",
+      "email": "emmanuelle@unjourici.fr",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/unjourici06/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [7.0501988, 43.6167921]
+    }
+  }, {
+    "id": "vegeconso",
+    "type": "Feature",
+    "properties": {
+      "id": "vegeconso",
+      "type": "organization",
+      "name": "VEGECONSO",
+      "url": "",
+      "category": "Communaut\u00e9",
+      "tags": ["living lab"],
+      "labels": "",
+      "description": "",
+      "address": "Rue Pierre Bayle",
+      "postcode": "84000",
+      "city": "Avignon",
+      "country": "",
+      "email": "contact@pole-terralia.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [4.879618799999999, 43.9260335]
+    }
+  }]
 }

@@ -36,6 +36,11 @@ module.exports = {
         return this._filterToLowerCase(values);
     },
 
+    getResourceLabels : function(resource) {
+        var values = this._getPropertyArray(resource, 'labels');
+        return values;
+    },
+
     /** Returns a list of normalized categories for the specified resource. */
     getResourceCategories : function(resource) {
         var values = this._getPropertyArray(resource, 'category');

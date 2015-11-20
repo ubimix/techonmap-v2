@@ -2,6 +2,7 @@
 var _ = require('underscore');
 var React = require('react');
 var TagsMixin = require('../utils/TagsMixin.jsx');
+var LabelsMixin = require('../utils/LabelsMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 var Formats = require('../utils/Formats');
 var ResourceUtils = require('../../tools/ResourceUtilsMixin');
@@ -20,14 +21,14 @@ module.exports = _.extend({
         ev.preventDefault();
         ev.stopPropagation();
     },
-    
+
     _renderName : function(){
         var name = ResourceUtils.getResourceName(this.props.resource);
         return (
            <span className="name">{name}</span>
         );
     },
-    
+
     _renderShortDescription : function(type) {
         var creationYear = ResourceUtils.getResourceCreationYear(this.props.resource);
         var creationYearText = '';
@@ -42,7 +43,7 @@ module.exports = _.extend({
             {creationYearText}
         </div>
     },
-    
+
     _renderUrl : function(){
         var urlStr = ResourceUtils._getFirstProperty(this.props.resource, 'url');
         var url = Formats._formatUrl(urlStr);
@@ -50,7 +51,7 @@ module.exports = _.extend({
             <a href={url.url} className="website" target="_blank">{url.label}</a>
         </div>
     },
-    
+
     _renderAddress : function() {
         var resource = this.props.resource;
         var address = Formats._formatAddr(resource.properties);
@@ -60,7 +61,7 @@ module.exports = _.extend({
     },
 
     _renderSocialNetworks : function(isSelected) {
-        var showLabels = !!isSelected; 
+        var showLabels = !!isSelected;
         return <div className="social-networks">
             <ul>
                 {this._getIconLink('url', showLabels)}
@@ -72,17 +73,17 @@ module.exports = _.extend({
             </ul>
         </div>
     },
-    
+
     _renderDescription : function(isSelected) {
         if (isSelected) {
             var desc = ResourceUtils._getFirstProperty(this.props.resource, 'description');
             return <div className="description">
                     {desc}
             </div>
-        } else 
+        } else
             return;
     },
-    
+
     _renderShare : function(isSelected) {
         if (isSelected) {
             var id = ResourceUtils._getFirstProperty(this.props.resource, 'id');
@@ -100,26 +101,26 @@ module.exports = _.extend({
                 <div className="right">
                     <a href={twitter} target="_blank">
                         <img src="images/share/twitter.png" alt={this._getLabel("list.item.share.twitter")} />
-                    </a> 
+                    </a>
                     <a href={facebook} target="_blank">
                         <img src="images/share/facebook.png" alt={this._getLabel("list.item.share.facebook")} />
-                    </a> 
+                    </a>
                     <a href={linkedin} target="_blank">
                         <img src="images/share/linkedin.png" alt={this._getLabel("list.item.share.linkedin")} />
-                    </a> 
+                    </a>
                     <a href={viadeo} target="_blank">
                         <img src="images/share/viadeo.png" alt={this._getLabel("list.item.share.viadeo")} />
-                    </a> 
+                    </a>
                     <a href={googlePlus} target="_blank">
                         <img src="images/share/google-plus.png" alt={this._getLabel("list.item.share.googleplus")}/>
                     </a>
                 </div>
                 <div className="clear"></div>
-            </div>);            
-        } else 
+            </div>);
+        } else
             return;
-    },    
-    
+    },
+
     _getIconLink : function(propName, withLabel) {
         var propIcons = {'url':'web', 'googleplus': 'google-plus'};
         var propValue = ResourceUtils._getFirstProperty(this.props.resource, propName);
@@ -137,10 +138,10 @@ module.exports = _.extend({
                 </a></li>
             } else {
             	var urlAndLabel = Formats._formatUrl(propValue);
-            	var url = urlAndLabel.url; 
+            	var url = urlAndLabel.url;
                 return <a href={url} target="_blank">
                 <i className={iconClassName}></i>
-                </a>    
+                </a>
             }
         } else {
             iconClassName += " icon-off";
@@ -148,24 +149,24 @@ module.exports = _.extend({
                 return  <i className={iconClassName}></i>;
             return;
         }
-        
+
     },
-    
+
     _getTwitterUrl : function(account) {
         if (!account)
             return null;
         if (account.indexOf('http') != 0)
             return 'https://twitter.com/'+account;
         return account;
-        
+
     },
-    
+
     /** Renders an icon element. */
     _renderIcon  : function(iconOptions) {
         var src = iconOptions.src;
         var img;
         if (src) {
-            img = <img src={src}/>; 
+            img = <img src={src}/>;
         }
         var isStar = iconOptions.isStar;
         if (isStar) {
@@ -182,5 +183,5 @@ module.exports = _.extend({
             </div>
         );
     },
-    
-}, TagsMixin, I18NMixin);
+
+}, TagsMixin, I18NMixin, LabelsMixin);
