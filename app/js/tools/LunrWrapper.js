@@ -285,7 +285,7 @@ var LunrWrapper = Mosaic.Class.extend(Mosaic.Events.prototype, {
                     "type" : "field",
                     "boost" : 1
                 },
-                "properties.postcode" : {
+                "properties.country" : {
                     "type" : "field",
                     "boost" : 1,
                     "filter" : "prefix"

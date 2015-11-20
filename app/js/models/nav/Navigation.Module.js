@@ -61,7 +61,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             language : 'language',
             category : 'search.category',
             tags : 'search.tags',
-            postcode : 'search.postcode',
+            country : 'search.country',
             q : 'search.q',
             mode : 'mode',
             header : 'header'
@@ -111,7 +111,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             language : 'language',
             category : 'search.category',
             tags : 'search.tags',
-            postcode : 'search.postcode',
+            country : 'search.country',
             q : 'search.q',
             mode : 'mode',
             header : 'header'

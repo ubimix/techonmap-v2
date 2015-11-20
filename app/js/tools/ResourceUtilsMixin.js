@@ -44,10 +44,7 @@ module.exports = {
 
     /** Returns a geographic zone for this resource. */
     getResourceZone : function(resource) {
-        var code = this._getFirstProperty(resource, 'postcode');
-        if (code && code.length > 2) {
-            code = code.substring(0, 2);
-        }
+        var code = this._getFirstProperty(resource, 'country');
         return code;
     },
 

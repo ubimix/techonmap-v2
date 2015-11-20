@@ -559,7 +559,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     /** Toggles geographic zones. */
     toggleZones : function(zones) {
         zones = _.map(zones, this.getZoneKey, this);
-        return this._toggleSearchCriteria('postcode', zones);
+        return this._toggleSearchCriteria('country', zones);
     },
 
     /** Returns filtering zones */
@@ -576,7 +576,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     /** Returns a list of all zones used to fileter values. */
     getFilterZoneKeys : function() {
         var criteria = this.getSearchCriteria();
-        return this._toArray(criteria.postcode);
+        return this._toArray(criteria.country);
     },
 
     /** Returns a zone description corresponding to the specified key. */
@@ -814,7 +814,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             var events = [ //
             'configuration:begin', 'configuration:end', //
             'indexing:begin', 'indexing:end',//
-            'search:begin', 'search:end'// 
+            'search:begin', 'search:end'//
             ];
             _.each(events, function(eventType) {
                 index.on(eventType, function() {
