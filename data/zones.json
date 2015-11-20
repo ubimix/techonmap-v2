@@ -1,81 +1,81 @@
 [{
-  "key": "2",
+  "key": "Bénin",
   "icon": "icon-dept-75",
   "label": "Bénin"
 }, {
-  "key": "3",
+  "key": "Burkina Faso",
   "icon": "icon-dept-75",
   "label": "Burkina Faso"
 }, {
-  "key": "4",
+  "key": "Cameroun",
   "icon": "icon-dept-75",
   "label": "Cameroun"
 }, {
-  "key": "5",
+  "key": "Caméroun",
   "icon": "icon-dept-75",
   "label": "Caméroun"
 }, {
-  "key": "6",
+  "key": "Congo",
   "icon": "icon-dept-75",
   "label": "Congo"
 }, {
-  "key": "7",
+  "key": "Cote d'Ivoire",
   "icon": "icon-dept-75",
   "label": "Cote d'Ivoire"
 }, {
-  "key": "8",
+  "key": "Côte d'Ivoire",
   "icon": "icon-dept-75",
   "label": "Côte d'Ivoire"
 }, {
-  "key": "9",
+  "key": "Gabon",
   "icon": "icon-dept-75",
   "label": "Gabon"
 }, {
-  "key": "10",
+  "key": "Guinée",
   "icon": "icon-dept-75",
   "label": "Guinée"
 }, {
-  "key": "11",
+  "key": "Madagascar",
   "icon": "icon-dept-75",
   "label": "Madagascar"
 }, {
-  "key": "12",
+  "key": "Mali",
   "icon": "icon-dept-75",
   "label": "Mali"
 }, {
-  "key": "13",
+  "key": "Mauritanie",
   "icon": "icon-dept-75",
   "label": "Mauritanie"
 }, {
-  "key": "14",
+  "key": "Niger",
   "icon": "icon-dept-75",
   "label": "Niger"
 }, {
-  "key": "15",
+  "key": "RDCongo",
   "icon": "icon-dept-75",
   "label": "RDCongo"
 }, {
-  "key": "16",
+  "key": "RD Congo",
   "icon": "icon-dept-75",
   "label": "RD Congo"
 }, {
-  "key": "17",
+  "key": "République centrafricaine",
   "icon": "icon-dept-75",
   "label": "République centrafricaine"
 }, {
-  "key": "18",
+  "key": "République Démocratique du Congo",
   "icon": "icon-dept-75",
   "label": "République Démocratique du Congo"
 }, {
-  "key": "19",
+  "key": "Sénégal",
   "icon": "icon-dept-75",
   "label": "Sénégal"
 }, {
-  "key": "20",
+  "key": "Tchad",
   "icon": "icon-dept-75",
   "label": "Tchad"
 }, {
-  "key": "21",
+  "key": "Togo",
   "icon": "icon-dept-75",
   "label": "Togo"
 }]
