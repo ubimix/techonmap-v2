@@ -416,7 +416,7 @@ module.exports = React.createClass({
 
     _renderWebSiteUrl : function(){
         return this._renderInputGroup({
-            mandatory : true,
+            mandatory : false,
             fieldKey : 'properties.url',
             labelKey : 'dialog.edit.url.label',
             placeholderKey :  'dialog.edit.url.placeholder',
