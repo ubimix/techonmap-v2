@@ -266,7 +266,7 @@ module.exports = React.createClass({
                                   <span className="icon-bar"></span>
                               </button>
                               <a className="navbar-brand" href="#">
-                                  <img src="images/logo-02.svg" />
+                                  <img src="images/logo-01.svg" />
                               </a>
                               <h2 className="baseline">{this._getLabel('topmenu.baseline')}</h2>
                           </div>

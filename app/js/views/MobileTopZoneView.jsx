@@ -105,7 +105,7 @@ module.exports = React.createClass({
                       <div className="col-xs-4">
                           <div className="navbar-header">
                               <a className="navbar-brand" href="http://lpm.ubimix.com">
-                                  <img src="images/logo-02.svg" />
+                                  <img src="images/logo-01.svg" />
                               </a>
                           </div>
                       </div>
