@@ -24,9 +24,9 @@ La Région Provence-Alpes-Côte d’Azur remercie la Fonderie et la Région Île
 </p>
 
 <div class="row text-center about">
-    <div class="col-xs-4 with-border with-border-right umx">
+    <div class="col-xs-4 with-border with-border-right">
         <h2>Design</h2>
-        <a href="http://www.regionpaca.fr/" target="_blank"><img src="images/region-paca.png" border="0" /></a>
+        <a href="http://www.regionpaca.fr/" target="_blank"><img src="images/arii-paca.png" border="0" style="max-width: 100%"/></a>
     </div>
     <div class="col-xs-4 with-border with-border-right">
         <h2>Conception</h2>
