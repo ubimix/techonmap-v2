@@ -10,3 +10,7 @@ ajouter un champ label qui peut être multivalué parmi une liste, voir comment 
   move dist/mapapp.js to another place than app/ ? (pas pratique pour la recherche)
 
 pouvoir sélectionner les labels
+
+fil twitter up to date
+
+cerclage des marqueurs

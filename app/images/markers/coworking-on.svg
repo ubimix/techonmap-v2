@@ -19,7 +19,7 @@
    enable-background="new 566.5 7.138 33 40"
    xml:space="preserve"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="coworking-on.svg"
+   sodipodi:docname="coworking.svg"
    inkscape:export-filename="/home/slauriere/git/techonmap-v2/app/images/markers/community-new.png"
    inkscape:export-xdpi="236"
    inkscape:export-ydpi="236"><metadata
@@ -40,7 +40,7 @@
      id="namedview21"
      showgrid="false"
      inkscape:zoom="16.68772"
-     inkscape:cx="6.0610701"
+     inkscape:cx="4.862584"
      inkscape:cy="14.95017"
      inkscape:current-layer="maquette_techonmap_oct_2014.fw-Sprite"
      fit-margin-top="0"
@@ -52,7 +52,7 @@
      id="path5"
      d="m 598.67672,23.389855 c 0,-8.732707 -7.07798,-15.8050125 -15.805,-15.8050125 -8.72705,0 -15.80503,7.0779735 -15.80503,15.8050125 0,7.90535 5.80291,14.456317 13.37957,15.623678 l 0,0 0,0 c 0.11332,0.01712 0.22101,0.03402 0.33434,0.04534 1.1844,0.328683 2.09111,2.357434 2.09111,4.811208 0,-2.459445 0.90669,-4.482525 2.09107,-4.811208 0.11331,-0.01691 0.22668,-0.02828 0.33435,-0.04534 l 0,0 0,0 c 7.58233,-1.167361 13.37958,-7.718328 13.37958,-15.623678 z"
      class="st0" /><path
-     style="fill:#a33e88;fill-opacity:1;stroke:none;stroke-width:1.13338208;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
+     style="fill:#ee7035;fill-opacity:1;stroke:none;stroke-width:1.13338208;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1"
      inkscape:connector-curvature="0"
      id="path5-9"
      d="m 598.19732,23.410364 c 0,-8.500938 -6.89013,-15.3855432 -15.38553,-15.3855432 -8.49543,0 -15.38556,6.8901222 -15.38556,15.3855432 0,7.695539 5.6489,14.072641 13.02447,15.20902 l 0,0 0,0 c 0.11031,0.01667 0.21515,0.03312 0.32547,0.04414 1.15296,0.31996 2.03561,2.294867 2.03561,4.683517 0,-2.394171 0.88263,-4.363557 2.03557,-4.683517 0.1103,-0.01646 0.22067,-0.02753 0.32548,-0.04414 l 0,0 0,0 c 7.38109,-1.136379 13.02448,-7.513481 13.02448,-15.20902 z"
