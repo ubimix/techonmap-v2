@@ -39,8 +39,9 @@ module.exports = React.createClass({
         var that = this;
         var app = this.props.app;
         var siteUrl = app.options.siteUrl;
+	//baseUrl : siteUrl + 'api/twitter/last'
         var client = Teleport.HttpClient.newInstance({
-            baseUrl : siteUrl + 'api/twitter/last'
+            baseUrl : siteUrl + 'xwiki/bin/view/mobo/LastTweet'
         });
 
         return client.exec({
