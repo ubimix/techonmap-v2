@@ -12,7 +12,7 @@ var ContentPopupMixin = require('../utils/ContentPopupMixin');
 var EditEntityForm = require('./EditEntityForm.jsx');
 var MessageBoxMixin = require('../utils/MessageBoxMixin.jsx');
 
-var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin, MessageBoxMixin, // 
+var EditEntityPopup = Mosaic.Class.extend(DomUtils, I18NMixin, MessageBoxMixin, //
 Mosaic.Events.prototype, ContentPopupMixin, {
 
     initialize : function(options) {
@@ -27,7 +27,7 @@ Mosaic.Events.prototype, ContentPopupMixin, {
         app.edit.validateResource().then(function(results){
             if (app.edit.isValid()) {
                 app.edit.endEdit({
-                   save : true 
+                   save : true
                 }).then(function(result){
                     var title = that._getLabel('dialog.edit.result.ok.title');
                     var msg = that._getLabel('dialog.edit.result.ok');
@@ -94,17 +94,17 @@ Mosaic.Events.prototype, ContentPopupMixin, {
                     dialog = null;
                 },
                 verticalMargin : 40
-            });            
+            });
         });
     },
     open : function(resource) {
         var that = this;
         var app = that.options.app;
-       
+
         var user =  app.user.getUserInfo();
         if (!!user) {
             return that._openPopup(resource);
-        } 
+        }
         return that._login().then(function(){
             return app.user.loadUserInfo().then(function(user){
                 if (!!user) {
@@ -121,7 +121,7 @@ Mosaic.Events.prototype, ContentPopupMixin, {
             that._showMessage(title, msg);
         });
     },
-    
+
     _login : function(){
         var that = this;
         var app = that.getApp();
@@ -148,7 +148,7 @@ Mosaic.Events.prototype, ContentPopupMixin, {
             if (wnd) {
                 wnd.close();
             }
-        }        
+        }
         window.onLoginFinished = onLoginFinished;
         var popupWidth = 850;
         var popupHeight = 500;
@@ -159,11 +159,11 @@ Mosaic.Events.prototype, ContentPopupMixin, {
         var minTop = 100;
         var left = Math.max(Math.round((windowWidth - popupWidth)/ 2), minLeft);
         var top = Math.max(Math.round((windowHeight - popupHeight) / 2), minTop);
-        var options = 'location=no,resizable=yes,menubar=no,' + 
+        var options = 'location=no,resizable=yes,menubar=no,' +
         'scrollbars=no,status=no,titlebar=no,toolbar=no,' +
         'width=' + popupWidth + ',height=' + popupHeight + ',' +
         'top=' + top + ',left=' + left + '';
-        wnd = window.open('./login.html', 'login', options);
+        wnd = window.open('./xwiki/bin/login/XWiki/XWikiLogin?xredirect=%2Fxwiki%2Fbin%2Fview%2Fmobo%2FLoggedIn%3Fxpage%3Dplain&mode=dialog', 'login', options);
         checkLoginWindow.timerId = setInterval(checkLoginWindow, 500);
         return deferred.promise;
     }
