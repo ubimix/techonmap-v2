@@ -173,7 +173,7 @@ function newSchema(options) {
                                 v = parseInt(v);
                                 v += '';
                                 var dept = v.substring(0, 2);
-                                var idfDepts = ['75', '77', '78', '91', '92', '93', '94', '95'];
+                                var idfDepts = ['04', '05', '06', '13', '83', '84'];
                                 return v.length === 5 && idfDepts.indexOf(dept) >= 0;
                             } catch (e) {
                                 return false;
