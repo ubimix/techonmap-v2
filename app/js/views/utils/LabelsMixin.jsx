@@ -23,9 +23,9 @@ module.exports =  {
     },
     _renderLabel : function(label){
         var app = this.props.app;
-        //var selected = app.res.isFilteredByTag(tag);
+        var selected = app.res.isFilteredByLabel(tag);
         var selected = false;
-        //tag = app.res.getTagKey(label);
+        //label = app.res.getTagKey(label);
         var labelName = LABELS[label];
         var className = selected ? 'badge selected' : 'badge';
         return (
