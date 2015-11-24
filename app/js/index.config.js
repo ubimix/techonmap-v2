@@ -6,7 +6,7 @@ module.exports = {
     contentSaveUrl : './xwiki/bin/view/mobo/Saver?id=',
     contactApiUrl : './xwiki/bin/view/mobo/Mailer',
     userInfoApiUrl : './xwiki/bin/view/mobo/User',
-    logoutApiUrl : './xwiki/bin/logout/XWiki/XWikiLogout',
+    logoutApiUrl : './xwiki/bin/logout/XWiki/XWikiLogout?xredirect=%2Fxwiki%2Fbin%2Fview%2Fmobo%2FUser',
     searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
     messages : './data/messages.json',
