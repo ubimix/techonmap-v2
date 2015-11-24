@@ -15,7 +15,7 @@ module.exports = React.createClass({
 
     displayName : 'EditEntityForm',
     mixins: [I18NMixin],
-    
+
     getApp: function(){
         return this.props.app;
     },
@@ -153,7 +153,7 @@ module.exports = React.createClass({
                 this.props.app.edit.updateFields(fields);
 // if (options.fieldKey && options.fieldKey === 'properties.category')
 // this._renderTags();
-            }.bind(this)            
+            }.bind(this)
         }));
     },
 
@@ -171,14 +171,14 @@ module.exports = React.createClass({
         var newEntity = this._isNewResource();
         return this._renderInputGroup({
             mandatory : true,
-            type : newEntity ? 'text' : 'hidden', 
-            addons : 'techonmap.fr/#',
+            type : newEntity ? 'text' : 'hidden',
+            addons : 'livingpacamap.fr/#',
             fieldKey : 'properties.id',
             labelKey : 'dialog.edit.id.label',
             placeholderKey : 'dialog.edit.id.placeholder'
         });
     },
-    
+
     _renderMail : function(){
         var mandatory = this._isNewResource();
         return this._renderInputGroup({
@@ -209,13 +209,13 @@ module.exports = React.createClass({
         return this._renderInputGroup({
             type : 'select',
             options : categoryOptions,
-            selected : categoryKey, 
+            selected : categoryKey,
             mandatory : true,
             fieldKey : 'properties.category',
             labelKey : 'dialog.edit.category.label',
         });
     },
-    
+
     _renderTags : function(){
         var app = this.props.app;
         var categoryKey = app.edit.getResourceValue('properties.category');
@@ -226,7 +226,7 @@ module.exports = React.createClass({
             tagsIndex[tag] = true;
             return toTagObject(tag);
         });
-        
+
         function toTagObject(val) {
             var suffix = '';
             return {
@@ -235,7 +235,7 @@ module.exports = React.createClass({
                 label : val + suffix,
             };
         }
-        
+
         var that = this;
         function onTagChange(val, list) {
             var fields = {};
@@ -277,10 +277,10 @@ module.exports = React.createClass({
                 });
             }, 10);
         };
-        
+
         var tagsList = app.res.getTagsSuggestion(categoryKey);
         var suggestions = _.map(tagsList, toTagObject);
-        
+
         var tagSelector = <Select
             ref="tagSelector"
             key="tagSelector"
@@ -309,7 +309,7 @@ module.exports = React.createClass({
         components.push(this._renderTags());
         return components;
     },
-    
+
     _renderAddressAndCoordinates : function(){
         var app = this.props.app;
         var mapOptions = app.map.getMapOptions();
@@ -370,12 +370,12 @@ module.exports = React.createClass({
                 style : {width: '100%', height:'200px'},
             }
         });
-        
+
         var errorMsg = this._getFieldError('geometry.coordinates');
         var edit = this.props.app.edit;
         console.log('renderAddressAndCoordinates: coords=', coords);
         return [
-            this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address-group.label', 
+            this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address-group.label',
                 <GeolocationWidget
                     info = {this._addressInfo}
                     tilesUrl={tilesUrl}
@@ -394,9 +394,9 @@ module.exports = React.createClass({
                         }, this);
                         this.props.app.edit.updateFields(fields);
                     }.bind(this)}/>),
-        ];        
+        ];
     },
-    
+
     _renderCreationYear : function(){
         return this._renderInputGroup({
             mandatory : true,
@@ -405,7 +405,7 @@ module.exports = React.createClass({
             placeholderKey :  'dialog.edit.year.placeholder',
         });
     },
-    
+
     _renderSiret : function(){
         return this._renderInputGroup({
             fieldKey : 'properties.taxID',
@@ -413,57 +413,57 @@ module.exports = React.createClass({
             placeholderKey : 'dialog.edit.siret.placeholder',
         });
     },
-    
+
     _renderWebSiteUrl : function(){
         return this._renderInputGroup({
             mandatory : true,
             fieldKey : 'properties.url',
-            labelKey : 'dialog.edit.url.label', 
+            labelKey : 'dialog.edit.url.label',
             placeholderKey :  'dialog.edit.url.placeholder',
-        });        
+        });
     },
-    
+
     _renderTwitterAccount : function(){
         return this._renderInputGroup({
             addons : '@' ,
             fieldKey : 'properties.twitter',
-            labelKey : 'dialog.edit.twitter.label', 
+            labelKey : 'dialog.edit.twitter.label',
             placeholderKey :  'dialog.edit.twitter.placeholder',
-        });        
-    }, 
-    
+        });
+    },
+
     _renderFacebookAccount : function(){
         return this._renderInputGroup({
             fieldKey : 'properties.facebook',
-            labelKey : 'dialog.edit.facebook.label', 
+            labelKey : 'dialog.edit.facebook.label',
             placeholderKey :  'dialog.edit.facebook.placeholder',
-        });        
-    }, 
-    
+        });
+    },
+
     _renderLinkedInAccount : function(){
         return this._renderInputGroup({
             fieldKey : 'properties.linkedin',
-            labelKey : 'dialog.edit.linkedin.label', 
+            labelKey : 'dialog.edit.linkedin.label',
             placeholderKey :  'dialog.edit.linkedin.placeholder',
         });
     },
-    
+
     _renderGooglePlusAccount : function(){
         return this._renderInputGroup({
             fieldKey : 'properties.googleplus',
-            labelKey : 'dialog.edit.googleplus.label', 
+            labelKey : 'dialog.edit.googleplus.label',
             placeholderKey :  'dialog.edit.googleplus.placeholder',
         });
     },
-    
+
     _renderViadeoAccount : function(){
         return this._renderInputGroup({
             fieldKey : 'properties.viadeo',
-            labelKey : 'dialog.edit.viadeo.label', 
+            labelKey : 'dialog.edit.viadeo.label',
             placeholderKey :  'dialog.edit.viadeo.placeholder',
         });
     },
- 
+
     render : function(){
         return (
         <form className="form-horizontal edit">
@@ -475,14 +475,14 @@ module.exports = React.createClass({
                 {this._renderDescription()}
                 {this._renderCreationYear()}
             </section>
-            
+
             <h2>{this._getLabel('dialog.edit.contacts.title')}</h2>
             <section>
                 {this._renderMail()}
                 {this._renderWebSiteUrl()}
                 {this._renderAddressAndCoordinates()}
             </section>
-            
+
             <h2>{this._getLabel('dialog.edit.sn.title')}</h2>
             <section>
                 {this._renderTwitterAccount()}
@@ -494,5 +494,5 @@ module.exports = React.createClass({
         </form>
         );
     }
-    
+
 });
