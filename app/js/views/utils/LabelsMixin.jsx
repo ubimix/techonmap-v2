@@ -6,6 +6,17 @@ var ResourceUtils = require('../../tools/ResourceUtilsMixin');
 var LABELS = {"eric": "Eric", "eric-services" : "Eric Services", "eric-lab": "Eric LAb", "lab-1": "Living PACA Lab catégorie 1", "lab-2": "Living PACA Lab catégorie 2", "lab-3": "Living PACA Lab catégorie 3"};
 
 module.exports =  {
+    _selectLabel : function(label, ev) {
+        var app = this.props.app;
+        if (app.ui.canChangeSearchQueries()) {
+            app.res.toggleLabels([label]);
+            if (this._onSelectLabel){
+                this._onSelectLabel(ev);
+            }
+        }
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
     _renderLabels : function(hideEmpty){
         var labels = ResourceUtils.getResourceLabels(this.props.resource);
         return this._renderLabelList(labels, hideEmpty);
@@ -19,6 +30,7 @@ module.exports =  {
         var className = selected ? 'badge selected' : 'badge';
         return (
             <span
+                onClick={_.bind(this._selectLabel, this, label)}
                 className={className}
                 key={label}>
                 <span className='tag-label'>{labelName + ' '}</span>

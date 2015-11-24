@@ -4,7 +4,7 @@
         "type" : "ref",
         "boost": 1
       },
-      "properties.name": { 
+      "properties.name": {
         "type" : "field",
         "boost": 10
       },
@@ -18,6 +18,11 @@
         "filter" : true
       },
       "properties.tags": {
+        "type" : "field",
+        "boost" : 15,
+        "filter" : true
+      },
+      "properties.labels": {
         "type" : "field",
         "boost" : 15,
         "filter" : true

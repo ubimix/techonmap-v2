@@ -647,6 +647,43 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return tags.length ? tags[0] : null;
     },
 
+    /**
+     * Toggle labels in the search criteria.
+     */
+    toggleLabels : function(labels) {
+        return this._toggleSearchCriteria('labels', labels);
+    },
+
+    /** Returns an array of labels used as a search criteria. */
+    getFilterLabels : function() {
+        var criteria = this.getSearchCriteria();
+        return this._toArray(criteria.labels);
+    },
+
+    /**
+     * Returns <code>true</code> if the specified label is selected (it is
+     * present in the search criteria).
+     */
+    isFilteredByLabel : function(labels) {
+        var criteria = this.prepareFilterValues(this.getFilterLabels());
+        var labels = this.prepareFilterValues(label);
+        return this.filterValues(criteria, labels);
+    },
+
+    /** Returns <code>true</code> if there are tags used in the filters. */
+    hasFilterLabels : function() {
+        var labels = this.getFilterLabels();
+        return !!labels.length;
+    },
+
+    /** Returns a "normalized" tag representation */
+    getLabelKey : function(label) {
+        return label;
+        //var labels = this.prepareFilterValues(label);
+        //return labels.length ? labels[0] : null;
+    },
+
+
     // ------------------------------------------------------------------
 
     /** Returns all search criteria */
@@ -814,7 +851,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             var events = [ //
             'configuration:begin', 'configuration:end', //
             'indexing:begin', 'indexing:end',//
-            'search:begin', 'search:end'// 
+            'search:begin', 'search:end'//
             ];
             _.each(events, function(eventType) {
                 index.on(eventType, function() {
