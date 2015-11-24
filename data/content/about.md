@@ -14,7 +14,7 @@ LivingPACAmap a pour objectif de renforcer la visibilité de cet écosystème et
 Initiative portée par l’Agence Régionale de l’Innovation et de l’Internationalisation des entreprises (ARII – PACA), et soutenue par la Région Provence Alpes Côte d’Azur dans le cadre du volet <a href="http://emergences-numeriques.regionpaca.fr/innovation-et-economie-numeriques/programme-paca-labs-2014-2020.html">Living PACA Labs</a> de son programme <a href="http://emergences-numeriques.regionpaca.fr/innovation-et-economie-numeriques/programme-paca-labs-2014-2020.html">PACA Labs</a>, LivingPACAmap est une carte ouverte et collaborative des acteurs du soutien à l’innovation en Région Provence-Alpes-Côte d’Azur. Elle permet de collecter, d'organiser, de visualiser et de partager les données sur les acteurs de l'écosystème : leur diversité, les activités qu'ils développent, leur implantation sur le territoire.
 </p>
 <p>
- est entièrement gratuit. Vous pouvez embarquer la carte sur votre site, en exporter les données (une sélection ou en intégralité) et les réutiliser librement (licence OdBL).
+LivingPACAmap est entièrement gratuit. Vous pouvez embarquer la carte sur votre site, en exporter les données (une sélection ou en intégralité) et les réutiliser librement (licence OdBL).
 </p>
 <p>
 Vous ne retrouvez pas votre organisation sur la carte ?  Merci de vous inscrire <a href="#" data-action="inscription">ici</a>.
