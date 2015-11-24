@@ -470,7 +470,6 @@ module.exports = React.createClass({
             <section>
                 {this._renderName()}
                 {this._renderId()}
-                {this._renderSiret()}
                 {this._renderCategoriesAndTags()}
                 {this._renderDescription()}
                 {this._renderCreationYear()}

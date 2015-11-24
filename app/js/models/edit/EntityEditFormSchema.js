@@ -160,25 +160,9 @@ function newSchema(options) {
                     postcode : {
                         label : msg('field.postcode'),
                         description : msg('field.postcode.description'),
-                        type : 'integer',
-                        allowEmpty : false,
-                        required : true,
-                        messages : {
-                            required : msg('field.postcode.msg.required'),
-                            allowEmpty : msg('field.postcode.msg.allowEmpty'),
-                            conform : msg('field.postcode.msg.conform')
-                        },
-                        conform : function(v) {
-                            try {
-                                v = parseInt(v);
-                                v += '';
-                                var dept = v.substring(0, 2);
-                                var idfDepts = ['75', '77', '78', '91', '92', '93', '94', '95'];
-                                return v.length === 5 && idfDepts.indexOf(dept) >= 0;
-                            } catch (e) {
-                                return false;
-                            }
-                        }
+                        type : 'string',
+                        allowEmpty : true,
+                        required : false,
                     },
                     city : {
                         label : msg('field.city'),

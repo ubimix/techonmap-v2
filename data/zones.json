@@ -11,17 +11,9 @@
   "icon": "icon-dept-75",
   "label": "Cameroun"
 }, {
-  "key": "Caméroun",
-  "icon": "icon-dept-75",
-  "label": "Caméroun"
-}, {
   "key": "Congo",
   "icon": "icon-dept-75",
   "label": "Congo"
-}, {
-  "key": "Cote d'Ivoire",
-  "icon": "icon-dept-75",
-  "label": "Cote d'Ivoire"
 }, {
   "key": "Côte d'Ivoire",
   "icon": "icon-dept-75",
@@ -51,10 +43,6 @@
   "icon": "icon-dept-75",
   "label": "Niger"
 }, {
-  "key": "RDCongo",
-  "icon": "icon-dept-75",
-  "label": "RDCongo"
-}, {
   "key": "RD Congo",
   "icon": "icon-dept-75",
   "label": "RD Congo"
@@ -62,10 +50,6 @@
   "key": "République centrafricaine",
   "icon": "icon-dept-75",
   "label": "République centrafricaine"
-}, {
-  "key": "République Démocratique du Congo",
-  "icon": "icon-dept-75",
-  "label": "République Démocratique du Congo"
 }, {
   "key": "Sénégal",
   "icon": "icon-dept-75",
