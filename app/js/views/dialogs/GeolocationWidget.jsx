@@ -174,7 +174,7 @@ var GeolocationWidget = React.createClass({
     _setLatLng : function(lat, lng){
         var info = this._getInfo();
         var bbox = info.bbox;
-        if (bbox) {
+        if (false && bbox) {
             function checkIn(val, a, b){
                 var min = Math.min(a, b);
                 var max = Math.max(a, b);
