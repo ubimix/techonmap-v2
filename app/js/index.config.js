@@ -3,7 +3,7 @@ var currentUrl = URL.parse(window.location.href, true);
 module.exports = {
     baseUrl : './',
     contentBaseUrl : './data/content/',
-    contentSaveUrl : './api/resources/',
+    contentSaveUrl : './xwiki/bin/view/mobo/Saver?id=',
     contactApiUrl : './xwiki/bin/view/mobo/Mailer',
     //contactApiUrl : './api/mail',
     //userInfoApiUrl : './api/auth/user',

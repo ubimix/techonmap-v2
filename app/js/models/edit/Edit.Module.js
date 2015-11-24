@@ -412,7 +412,7 @@ module.exports = Api.extend(ResourceUtils, {
             baseUrl : baseUrl
         });
         return client.exec({
-            method : 'PUT',
+            method : 'POST',
             path : path,
             body : resource,
             headers : {
