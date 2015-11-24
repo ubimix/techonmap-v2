@@ -664,7 +664,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
      * Returns <code>true</code> if the specified label is selected (it is
      * present in the search criteria).
      */
-    isFilteredByLabel : function(labels) {
+    isFilteredByLabel : function(label) {
         var criteria = this.prepareFilterValues(this.getFilterLabels());
         var labels = this.prepareFilterValues(label);
         return this.filterValues(criteria, labels);
