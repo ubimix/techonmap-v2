@@ -71,8 +71,15 @@ module.exports = React.createClass({
             }
         }
 
+
+        var labels = resource.properties.labels;
+        var hasLabel = false;
+        if (labels && labels.length > 0)
+          hasLabel = true;
         var icon = app.res.getCategoryIcon(resourceType);
         var pictoClassName = 'picto ' + icon;
+        if (hasLabel)
+          pictoClassName = pictoClassName + ' star';
         var iconClassName = 'icon icon-' + icon;
         className += resourceType;
         return (
