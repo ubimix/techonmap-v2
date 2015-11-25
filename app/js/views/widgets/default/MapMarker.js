@@ -5,11 +5,15 @@ module.exports = function(options) {
     var app = options.app;
     var mapOptions = app.options.map;
     var resource = options.resource;
+    var labels = resource.properties.labels;
+    var hasLabel = false;
+    if (labels && labels.length > 0)
+      hasLabel = true;
     var icon = app.res.getCategoryIcon(options.type);
     function getIcon(selected) {
         var iconType = icon;
-        if (selected) {
-            iconType += '-on';
+        if (hasLabel) {
+            iconType += '-star';
         }
         return L.icon({
             iconUrl : './images/markers/' + iconType + '.svg',
