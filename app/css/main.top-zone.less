@@ -55,7 +55,6 @@
                     text-align: center;
                     white-space: nowrap;
                     margin: 0em;
-                    display: none;
                 }
                 &:hover, &.open {
                     > span.label {
@@ -99,14 +98,12 @@
                 // Open search panel
                 &.open {
                     > a {
-                        background-color: white;
-                        border-color: #eee;
-                        border-bottom-color: white;
+                        background-color: inherit;
                         &.menu-search {
                             color: @red-main;
                         }
                         > span.label {
-                            color: black;
+                            color: white;
                         }
                     }
                     > .dropdown-menu {
