@@ -7,6 +7,10 @@
   "icon": "icon-dept-75",
   "label": "Burkina Faso"
 }, {
+  "key": "Burundi",
+  "icon": "icon-dept-75",
+  "label": "Burundi"
+}, {
   "key": "Cameroun",
   "icon": "icon-dept-75",
   "label": "Cameroun"
@@ -18,6 +22,10 @@
   "key": "Côte d'Ivoire",
   "icon": "icon-dept-75",
   "label": "Côte d'Ivoire"
+}, {
+  "key": "Djibouti",
+  "icon": "icon-dept-75",
+  "label": "Djibouti"
 }, {
   "key": "Gabon",
   "icon": "icon-dept-75",
@@ -50,6 +58,10 @@
   "key": "République centrafricaine",
   "icon": "icon-dept-75",
   "label": "République centrafricaine"
+}, {
+  "key": "Rwanda",
+  "icon": "icon-dept-75",
+  "label": "Rwanda"
 }, {
   "key": "Sénégal",
   "icon": "icon-dept-75",
