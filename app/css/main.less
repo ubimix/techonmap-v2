@@ -3,8 +3,8 @@
     padding: 0;
 }
 
-@social-height: 25px;
-@social-height-mobile: 25px;
+@social-height: 0px;
+@social-height-mobile: 0px;
 
 @top-height: 70px;
 @top-height-mobile: 43px;
@@ -55,7 +55,7 @@
     .closable-tag;
     .text-size(0.9em);
     color : @red-main;
-    margin-right: 0.5em; 
+    margin-right: 0.5em;
     &::before {
         content: " #";
     }
@@ -90,7 +90,7 @@ a:hover .category, a:hover .category * { color:black; }
     .closable-tag-container;
     .category {}
     .label { font-weight: normal; }
-    
+
 }
 .categories-inline {
     .category {
@@ -99,7 +99,7 @@ a:hover .category, a:hover .category * { color:black; }
 //            font-weight: bold;
 //            font-size: 0.9em;
         }
-        
+
         > .icon {
             margin-right: 0.3em;
         }
@@ -122,19 +122,19 @@ a:hover .category, a:hover .category * { color:black; }
         }
         &.icon-dept-91 {
             background-image: url(../images/departments/dept-91.png);
-        }                                    
+        }
         &.icon-dept-92 {
             background-image: url(../images/departments/dept-92.png);
-        }                                    
+        }
         &.icon-dept-93 {
             background-image: url(../images/departments/dept-93.png);
-        }                                    
+        }
         &.icon-dept-94 {
             background-image: url(../images/departments/dept-94.png);
-        }                                    
+        }
         &.icon-dept-95 {
             background-image: url(../images/departments/dept-95.png);
-        }                                    
+        }
     }
     .zone-label {}
 }
@@ -143,8 +143,8 @@ a:hover .category, a:hover .category * { color:black; }
     .zone {}
     .label { font-weight: normal; }
 }
-.zones-inline { 
-    .zone { 
+.zones-inline {
+    .zone {
         vertical-align: inherit;
         .zone-label {}
         > .icon { margin-right: 0.3em; }
@@ -159,9 +159,9 @@ a:hover .zone, a:hover .zone * { color:black; }
 
 .social-networks {
     font-size: 1em;
-    
+
     color: #3f3f3f;
-    
+
     ul {
         list-style-type: none;
         padding-left: 0px;
@@ -173,7 +173,7 @@ a:hover .zone, a:hover .zone * { color:black; }
             }
         }
     }
-    
+
     a {
         color: #3f3f3f;
         padding-right: 0.5em;
@@ -181,11 +181,11 @@ a:hover .zone, a:hover .zone * { color:black; }
             text-decoration: none;
         }
     }
-    
+
     .icon-off {
         color: #ccc;
         padding-right: 0.5em;
-    }  
+    }
 }
 
 @import url('./main.twitter.less');
@@ -194,5 +194,3 @@ a:hover .zone, a:hover .zone * { color:black; }
 @import url('./main.bottom-zone.less');
 @import url('./main.middle-zone.less');
 @import url('./main.leaflet.less');
-    
-

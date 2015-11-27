@@ -5,7 +5,6 @@ var React = require('react');
 var MobileTopZoneView = require('./MobileTopZoneView.jsx');
 var MobileMiddleZoneView =  require('./MobileMiddleZoneView.jsx');
 var BottomZoneView = require('./BottomZoneView.jsx');
-var TopSocialBar = require('./TopSocialBar.jsx');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
 
 module.exports = React.createClass({
@@ -18,10 +17,9 @@ module.exports = React.createClass({
         var app = this.props.app;
         var showHeaders = app.ui.showHeader();
         var className = 'main-zone mobile-mode';
-        var topHeaders; 
+        var topHeaders;
         if (showHeaders) {
             topHeaders = [
-               <TopSocialBar app={app} className="social" />
             ];
         } else {
             className += ' no-headers';

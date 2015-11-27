@@ -1,11 +1,17 @@
 .top-zone {
     .fit(@social-height, 0px, auto, 0px);
-    z-index: 1001; // To be just before floating bootstrap elements
-    height: @top-height;
-    min-height : inherit;
-    margin-bottom: 0px;
-    background-color: white;
-    border-radius: 0;
+
+    &.navbar {
+      z-index: 1001; // To be just before floating bootstrap elements
+      height: @top-height;
+      min-height : inherit;
+      margin-bottom: 0px;
+      background-color: white;
+      border-radius: 0;
+      border-bottom: solid 5px #e0e0e3;
+      border-top: 0px;
+
+    }
 
     .navbar-header {
         min-width: 100px;
@@ -13,7 +19,7 @@
             float: left;
             height: auto;
             font-size: 1em;
-            padding: 10px 15px 5px 10px;
+            padding: 0px 15px;
             line-height: 1.42857143;
             img { max-width: 100% }
         }
@@ -32,10 +38,14 @@
     ul.top-navigation {
         z-index: 1002;
         border-bottom: none;
-        padding-top: 5px;
         background-color: #3ea4c0;
+        border-bottom: 5px solid #4697b1;
+        height: @top-height;
 
         > li {
+          height: @top-height - 4;
+          padding-top: 5px;
+          border-left: #00698c solid 1px;
             > a {
                 border: 1px solid transparent;
                 text-align: center;
@@ -44,7 +54,7 @@
                 padding: 0px;
                 padding-top: 0.3em;
                 > i.icon {
-                    .icon(24px);
+                    .icon(34px);
                     color: white;
                 }
                 > span.label {

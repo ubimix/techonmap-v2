@@ -17,10 +17,10 @@ module.exports = React.createClass({
         return this.props.app;
     },
     componentDidMount : function(){
-        document.addEventListener('click', this._closeOpenSearchBlock, true);  
+        document.addEventListener('click', this._closeOpenSearchBlock, true);
     },
     componentWillUnmount : function(){
-        document.removeEventListener('click', this._closeOpenSearchBlock, true);  
+        document.removeEventListener('click', this._closeOpenSearchBlock, true);
     },
     getInitialState : function(){
         return this._newState();
@@ -129,7 +129,6 @@ module.exports = React.createClass({
             <a href="#" className="menu-search icon about dropdown-toggle"
                     onClick={this._switchSearchBlock}>
                 <i className="icon icon-search"></i>
-                <span className="label">{this._getLabel('topmenu.label.search')}</span>
             </a>
             {panel}
         </li>
@@ -140,7 +139,6 @@ module.exports = React.createClass({
         <li ref="about">
             <a href="#" className="menu-info" onClick={this._showAboutInfo}>
                 <i className="icon icon-info"></i>
-                <span className="label">{this._getLabel('topmenu.label.about')}</span>
             </a>
         </li>
         );
@@ -183,7 +181,7 @@ module.exports = React.createClass({
       ev.stopPropagation();
       ev.preventDefault();
   },
-  
+
   _showFeedbackPopup : function(ev){
       PopupPanel.closePopup();
       var feedbackPopup = new FeedbackPopup({
@@ -198,7 +196,6 @@ module.exports = React.createClass({
             <li key="help">
                 <a href="#" className="menu-faq" onClick={this._showHelp}>
                     <i className="icon icon-faq"></i>
-                    <span className="label">{this._getLabel('topmenu.label.help')}</span>
                 </a>
             </li>
         );
@@ -208,7 +205,6 @@ module.exports = React.createClass({
             <li key="share">
                 <a href="#" className="menu-share" onClick={this._showShareDialog}>
                     <i className="icon icon-share"></i>
-                    <span className="label">{this._getLabel('topmenu.label.share')}</span>
                 </a>
             </li>
         );
@@ -218,7 +214,6 @@ module.exports = React.createClass({
             <li key="export">
                 <a href="#" className="menu-export" onClick={this._showExportDialog}>
                     <i className="icon icon-export"></i>
-                    <span className="label">{this._getLabel('topmenu.label.export')}</span>
                 </a>
             </li>
         );
@@ -243,12 +238,11 @@ module.exports = React.createClass({
             <li>
                 <a href="#" className={className} onClick={this._showHeatmap}>
                     <i className="icon icon-heatmap"></i>
-                    <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
                 </a>
             </li>
         );
     },
-    
+
     render : function(){
         var app = this.props.app;
         var className = (this.props.className || '') + ' navbar navbar-default';
@@ -256,7 +250,7 @@ module.exports = React.createClass({
              <nav className={className}>
                 <div className="container-fluid">
                   <div className="row">
-                      <div className="col-xs-9">
+                      <div className="col-xs-12">
                           <div className="navbar-header">
                               <button type="button" className="navbar-toggle"
                                   onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
@@ -266,9 +260,8 @@ module.exports = React.createClass({
                                   <span className="icon-bar"></span>
                               </button>
                               <a className="navbar-brand" href="#">
-                                  <img src="images/logo-01.svg" />
+                                  <img src="images/afrique-numerique-logo-03.svg" />
                               </a>
-                              <h2 className="baseline">{this._getLabel('topmenu.baseline')}</h2>
                           </div>
                           <div className="navbar-collapse collapse" ref="navbar">
                             <ul className="nav navbar-nav navbar-right top-navigation">
@@ -281,19 +274,9 @@ module.exports = React.createClass({
                             </ul>
                           </div>
                       </div>
-                      <div className="col-xs-3">
-                          <div className="navbar-form navbar-right">
-                              <div className="btn-group">
-                                  <button type="button" className="btn btn-primary" 
-                                      onClick={this._onClickAdd}>
-                                      {this._getLabel('topmenu.btn.add')}
-                                  </button>
-                              </div>
-                          </div>
-                      </div>
                   </div>
               </div>
-          </nav>                
+          </nav>
         );
     },
 });
