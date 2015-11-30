@@ -35,6 +35,13 @@ body {
 @purple: #a880c2;
 @beige: #d1c37e;
 
+@coworking: #ec3a30;
+@community: #368a1e;
+@investor: #1663be;
+@incubator: #fa6b00;
+@education: #00a073;
+@company: #ab2b6f;
+
 .btn {
     border-radius: 0px;
     outline: none;
@@ -67,45 +74,45 @@ body {
         &::last-child {
             > a, > span {
                 border-top-right-radius: 0px;
-                border-bottom-right-radius: 0px;    
+                border-bottom-right-radius: 0px;
             }
         }
-    
+
         > a, > span {
             color: #666;
             border-color: #eee;
-            
+
             &:hover, &:focus {
                 color: #666;
                 background-color: #eee;
                 border-color: #eee;
             }
-        }     
+        }
     }
-    
+
     > .disabled {
          > span,  > span:hover, > span:focus, > a, > a:hover, a:focus {
-            border-color: #eee;       
+            border-color: #eee;
          }
     }
-    
+
     > .active {
         > a, > span, > a:hover, > span:hover, > a:focus,  > span:focus {
             color: #666;
             background-color: #eee;
             border-color: #eee;
-        } 
+        }
     }
 }
 
 @import url('./index.macros.less');
 
 .main-zone {
-    
+
     @import (less) url('../../node_modules/leaflet/dist/leaflet.css');
-    
+
     @import (less) url('../../node_modules/leaflet.markercluster/dist/MarkerCluster.css');
-    
+
     @import (less) url('../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css');
 
     @import url('./main.less');
