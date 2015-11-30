@@ -19,7 +19,7 @@ module.exports = {
             test : /react-typeahead.*$/,
             loader : "jsx"
         }, {
-            test : /\.(png|svg|woff|eot|ttf)/,
+            test : /\.(png|svg|jpg|woff|eot|ttf)/,
             loader : 'url-loader?limit=8192'
         } ]
     },

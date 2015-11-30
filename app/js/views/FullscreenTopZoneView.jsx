@@ -16,17 +16,21 @@ module.exports = React.createClass({
     getApp : function(){
         return this.props.app;
     },
+    componentWillMount : function() {
+        this._checkUserState();
+    },
     componentDidMount : function(){
         document.addEventListener('click', this._closeOpenSearchBlock, true);
     },
     componentWillUnmount : function(){
         document.removeEventListener('click', this._closeOpenSearchBlock, true);
+        app.user.removeChangeListener(this._onUserChange);
     },
     getInitialState : function(){
         return this._newState();
     },
     _newState : function(options){
-        return _.extend({ showSearchMenu : false }, this.state, options);
+        return _.extend({ showSearchMenu : false,  user : null }, this.state, options);
     },
     _toggleNavigation : function(ref, ev) {
         var nav = this.refs[ref];
@@ -129,6 +133,7 @@ module.exports = React.createClass({
             <a href="#" className="menu-search icon about dropdown-toggle"
                     onClick={this._switchSearchBlock}>
                 <i className="icon icon-search"></i>
+                <span className="label">{this._getLabel('topmenu.label.search')}</span>
             </a>
             {panel}
         </li>
@@ -139,6 +144,7 @@ module.exports = React.createClass({
         <li ref="about">
             <a href="#" className="menu-info" onClick={this._showAboutInfo}>
                 <i className="icon icon-info"></i>
+                <span className="label">{this._getLabel('topmenu.label.about')}</span>
             </a>
         </li>
         );
@@ -196,6 +202,7 @@ module.exports = React.createClass({
             <li key="help">
                 <a href="#" className="menu-faq" onClick={this._showHelp}>
                     <i className="icon icon-faq"></i>
+                    <span className="label">{this._getLabel('topmenu.label.help')}</span>
                 </a>
             </li>
         );
@@ -205,6 +212,7 @@ module.exports = React.createClass({
             <li key="share">
                 <a href="#" className="menu-share" onClick={this._showShareDialog}>
                     <i className="icon icon-share"></i>
+                    <span className="label">{this._getLabel('topmenu.label.share')}</span>
                 </a>
             </li>
         );
@@ -214,6 +222,7 @@ module.exports = React.createClass({
             <li key="export">
                 <a href="#" className="menu-export" onClick={this._showExportDialog}>
                     <i className="icon icon-export"></i>
+                    <span className="label">{this._getLabel('topmenu.label.export')}</span>
                 </a>
             </li>
         );
@@ -238,9 +247,53 @@ module.exports = React.createClass({
             <li>
                 <a href="#" className={className} onClick={this._showHeatmap}>
                     <i className="icon icon-heatmap"></i>
+                    <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
                 </a>
             </li>
         );
+    },
+
+    _renderAddMenuItem : function(){
+        return (
+            <li key="add">
+                <a href="#" className="menu-export" onClick={this._onClickAdd}>
+                    <i className="icon icon-export"></i>
+                    <span className="label">Ajouter</span>
+                </a>
+            </li>
+        );
+    },
+
+    _renderProfileMenuItem : function(){
+        return (
+            <li key="profile">
+                <a href="#" className="menu-heatmap" onClick={this._onClickAdd}>
+                    <i className="icon icon-heatmap"></i>
+                    <span className="label">Déconnexion</span>
+                </a>
+            </li>
+        );
+    },
+
+    _checkUserState : function() {
+        var app = this.props.app;
+        var that = this;
+        app.user.addChangeListener(this._onUserChange);
+        app.user.loadUserInfo().then(function(user) {
+          that.setState({user : user});
+        });
+    },
+
+    logout : function() {
+        var app = this.props.app;
+        var that = this;
+        app.user.logout().then(function(obj){
+        	that.setState({user : null});
+         });
+    },
+
+    _onUserChange : function() {
+        this._checkUserState();
     },
 
     render : function(){
@@ -271,6 +324,8 @@ module.exports = React.createClass({
                                 {this._renderExportMenuItem()}
                                 {this._renderHeatmapMenuItem()}
                                 {this._renderSearchMenuItem()}
+                                {this._renderAddMenuItem()}
+                                {this._renderProfileMenuItem()}
                             </ul>
                           </div>
                       </div>

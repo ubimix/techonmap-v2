@@ -1,77 +1,77 @@
 [{
   "key": "Bénin",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-benin",
   "label": "Bénin"
 }, {
   "key": "Burkina Faso",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-burkina",
   "label": "Burkina Faso"
 }, {
   "key": "Burundi",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-burundi",
   "label": "Burundi"
 }, {
   "key": "Cameroun",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-cameroun",
   "label": "Cameroun"
 }, {
   "key": "Congo",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-congo",
   "label": "Congo"
 }, {
   "key": "Côte d'Ivoire",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-cote-d-ivoire",
   "label": "Côte d'Ivoire"
 }, {
   "key": "Djibouti",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-djibouti",
   "label": "Djibouti"
 }, {
   "key": "Gabon",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-gabon",
   "label": "Gabon"
 }, {
   "key": "Guinée",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-guinee",
   "label": "Guinée"
 }, {
   "key": "Madagascar",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-madagascar",
   "label": "Madagascar"
 }, {
   "key": "Mali",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-mali",
   "label": "Mali"
 }, {
   "key": "Mauritanie",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-mauritanie",
   "label": "Mauritanie"
 }, {
   "key": "Niger",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-niger",
   "label": "Niger"
 }, {
   "key": "RD Congo",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-rd-congo",
   "label": "RD Congo"
 }, {
   "key": "République centrafricaine",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-centrafrique",
   "label": "République centrafricaine"
 }, {
   "key": "Rwanda",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-rwanda",
   "label": "Rwanda"
 }, {
   "key": "Sénégal",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-senegal",
   "label": "Sénégal"
 }, {
   "key": "Tchad",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-tchad",
   "label": "Tchad"
 }, {
   "key": "Togo",
-  "icon": "icon-dept-75",
+  "icon": "icon-flag-togo",
   "label": "Togo"
 }]
