@@ -47,20 +47,24 @@
           padding-top: 5px;
           border-left: #00698c solid 1px;
           cursor: pointer;
-          &:hover, &.open {
-              span.label {
-                font-size: 0.9em;
-                padding-top: 0.9em;
-                font-weight: bold;
-                line-height: 1;
-                text-align: center;
-                white-space: nowrap;
-                margin: 0em;
-                display: block;
-              }
-              i.icon {
-                  display: none;
-              }
+          &.menu-btn {
+            &:hover {
+                > a {
+                  i.icon {
+                    display: none;
+                  }
+                  span.label {
+                    font-size: 0.8em;
+                    padding-top: 0.9em;
+                    font-weight: bold;
+                    line-height: 1;
+                    text-align: center;
+                    white-space: nowrap;
+                    margin: 0em;
+                    display: block;
+                  }
+                }
+            }
           }
           > a {
               border: 1px solid transparent;
@@ -75,30 +79,6 @@
               }
               > span.label {
                   display: none;
-              }
-              &:hover, &.open {
-
-                  &.menu-info {
-                      color: @blue;
-                  }
-                  &.menu-faq {
-                      color: #a880c2;
-                  }
-                  &.menu-share {
-                      color: #69a387;
-                  }
-
-                  &.menu-export {
-                      color: @beige;
-                  }
-                  &.menu-heatmap {
-                      color: #b76555;
-                  }
-
-                  &.menu-search {
-                      color: @red-main;
-                  }
-
               }
             }
             /* Drop-down search panel  */
