@@ -267,7 +267,7 @@ module.exports = React.createClass({
                   <span className="label">Ajouter</span>
               </a>
           </li>
-          <li className="menu-btn menu-profile" key="profile" onClick={this._onClickAdd}>
+          <li className="menu-btn menu-profile" key="profile" onClick={this.logout}>
               <a href="#" className="menu-profile">
                   <i className="icon icon-toolbar-profile"></i>
                   <span className="label">Déconnex.</span>
