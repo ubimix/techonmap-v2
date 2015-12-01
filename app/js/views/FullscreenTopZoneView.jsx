@@ -24,6 +24,7 @@ module.exports = React.createClass({
     },
     componentWillUnmount : function(){
         document.removeEventListener('click', this._closeOpenSearchBlock, true);
+        var app = this.getApp();
         app.user.removeChangeListener(this._onUserChange);
     },
     getInitialState : function(){
@@ -253,26 +254,27 @@ module.exports = React.createClass({
         );
     },
 
-    _renderAddMenuItem : function(){
-        return (
-            <li className="menu-btn menu-add" key="add" onClick={this._onClickAdd}>
-                <a href="#" className="menu-add">
-                    <i className="icon icon-toolbar-add"></i>
-                    <span className="label">Ajouter</span>
-                </a>
-            </li>
-        );
-    },
-
-    _renderProfileMenuItem : function(){
-        return (
-            <li className="menu-btn menu-profile" key="profile" onClick={this._onClickAdd}>
-                <a href="#" className="menu-profile">
-                    <i className="icon icon-toolbar-profile"></i>
-                    <span className="label">Déconnex.</span>
-                </a>
-            </li>
-        );
+    _renderEditMenu : function(){
+      var mobileMode = this.props.app.ui.isMobileMode();
+      console.log('>>> MOBILE MODE', mobileMode);
+      if (mobileMode)
+        return;
+      return (
+        <ul className="nav navbar-nav navbar-right top-navigation top-navigation-add">
+          <li className="menu-btn menu-add" key="add" onClick={this._onClickAdd}>
+              <a href="#" className="menu-add">
+                  <i className="icon icon-toolbar-add"></i>
+                  <span className="label">Ajouter</span>
+              </a>
+          </li>
+          <li className="menu-btn menu-profile" key="profile" onClick={this._onClickAdd}>
+              <a href="#" className="menu-profile">
+                  <i className="icon icon-toolbar-profile"></i>
+                  <span className="label">Déconnex.</span>
+              </a>
+          </li>
+        </ul>
+      );
     },
 
     _checkUserState : function() {
@@ -317,10 +319,7 @@ module.exports = React.createClass({
                               </a>
                           </div>
                           <div className="navbar-collapse collapse" ref="navbar">
-                            <ul className="nav navbar-nav navbar-right top-navigation top-navigation-add">
-                              {this._renderAddMenuItem()}
-                              {this._renderProfileMenuItem()}
-                            </ul>
+                            {this._renderEditMenu()}
                             <ul className="nav navbar-nav navbar-right top-navigation">
                                 {this._renderAboutMenuItem()}
                                 {this._renderHelpMenuItem()}

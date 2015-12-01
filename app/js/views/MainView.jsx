@@ -4,7 +4,7 @@ var React = require('react');
 
 var FullscreenLayout = require('./FullscreenLayout.jsx');
 var MobileLayout = require('./MobileLayout.jsx');
- 
+
 module.exports = React.createClass({
     displayName : 'MainView',
     getInitialState : function(){

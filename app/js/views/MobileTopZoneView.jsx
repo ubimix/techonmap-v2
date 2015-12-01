@@ -38,9 +38,9 @@ module.exports = React.createClass({
         var className = this._getClassName('about');
         className += ' li-info';
         return (
-            <li className={className}>
-                <a href="#" className="menu-info" onClick={this._showAboutInfo}>
-                    <i className="icon icon-info"></i>
+            <li className={className} onClick={this._showAboutInfo}>
+                <a href="#" className="menu-info">
+                    <i className="icon icon-toolbar-info"></i>
                 </a>
             </li>
         );
@@ -59,7 +59,7 @@ module.exports = React.createClass({
             <li className={className}>
                 <a href="#" className="menu-search icon"
                     onClick={this._activateView.bind(this, 'search')}>
-                    <i className="icon icon-search-mobile"></i>
+                    <i className="icon icon-toolbar-search"></i>
                 </a>
             </li>
         );
@@ -69,9 +69,8 @@ module.exports = React.createClass({
         var className = this._getClassName('map');
         className += ' li-map';
         return (
-            <li className={className}>
-                <a href="#" className="menu-map"
-                        onClick={this._activateView.bind(this, 'map')}>
+            <li className={className} onClick={this._activateView.bind(this, 'map')}>
+                <a href="#" className="menu-map">
                     <i className="icon icon-map"></i>
                 </a>
             </li>
@@ -88,8 +87,8 @@ module.exports = React.createClass({
         var className = this._getClassName('list');
         className += ' li-list';
         return (
-            <li className={className}>
-                <a href="#" className="menu-list" onClick={this._activateListView}>
+            <li className={className} onClick={this._activateListView}>
+                <a href="#" className="menu-list">
                     <i className="icon icon-list"></i>
                 </a>
             </li>
@@ -102,14 +101,14 @@ module.exports = React.createClass({
             <nav className={className} role="navigation">
               <div className="container-fluid">
                   <div className="row">
-                      <div className="col-xs-4">
+                      <div className="col-xs-5">
                           <div className="navbar-header">
                               <a className="navbar-brand" href="http://www.techonmap.fr">
                                   <img src="images/afrique-numerique-logo-03.svg" />
                               </a>
                           </div>
                       </div>
-                      <div className="col-xs-8">
+                      <div className="col-xs-7">
                           <ul className="nav nav-tabs pull-right top-navigation mobile">
                               {this._renderAboutMenuItem()}
                               {this._renderSearchMenuItem()}

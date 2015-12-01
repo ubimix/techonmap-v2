@@ -150,6 +150,7 @@ form[role="search"] {
     ul.top-navigation {
         > li {
             width: 64px;
+            height: 43px;
         }
    }
 }
@@ -158,6 +159,7 @@ form[role="search"] {
     ul.top-navigation {
         > li {
             width: 72px;
+
         }
    }
 }
@@ -203,51 +205,26 @@ form[role="search"] {
 
     ul.top-navigation {
         padding-top: 0px;
+        height: @top-height-mobile;
+
         > li {
             width: inherit !important;
-//            text-align: center;
-//            padding: 0.5em 0px;
-            margin: 0 0.5em;
+            height: @top-height-mobile - 1;
+            margin: 0;
+            padding: 0.2em 1em;
             > a {
                 color: gray;
-            }
-            &:hover, &.active {
-
-                &.li-info {
-                    border-bottom: 4px solid @blue;
-                    a {
-                        color: @blue;
-                    }
+                background-color: inherit;
+                > i.icon {
+                    .icon(18px);
+                    color: white;
                 }
 
-                &.li-search {
-                    border-bottom: 4px solid @red-main;
-                    a {
-                        color: @red-main;
-                    }
+                &:hover, &:focus, &:active {
+                  background-color: inherit;
                 }
-
-                &.li-map {
-                    border-bottom: 4px solid @purple;
-                    a {
-                        color: @purple;
-                    }
-                }
-
-                &.li-list {
-                    border-bottom: 4px solid @beige;
-                    a {
-                        color: @beige;
-                    }
-                }
-
-
             }
         }
-    }
-    .nav > li > a:hover,
-    .nav > li > a:focus {
-        background: none;
     }
   }
   &.no-headers {
