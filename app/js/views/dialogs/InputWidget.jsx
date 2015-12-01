@@ -2,13 +2,13 @@ var _ = require('underscore');
 var React = require('react');
 
 var InputWidget = React.createClass({
-    
+
     displayName : 'InputWidget',
 
     getInitialState : function() {
         return this._getUpdatedState(this.props);
     },
-    
+
     componentWillReceiveProps : function(props){
         var state = this._getUpdatedState(props);
         this.setState(state);
@@ -27,7 +27,7 @@ var InputWidget = React.createClass({
             }
         }
     },
-        
+
     render : function() {
         var className = 'form-group';
         var messageBlock = null;
@@ -53,7 +53,19 @@ var InputWidget = React.createClass({
                </div>
             );
         }
-        
+
+        if (!label) {
+          return (
+              <div className={className} key={key} placeholder={label}>
+                  <div className="col-sm-12" key="right">
+                      {mandatoryMarker}
+                      {this._renderInputs()}
+                      {messageBlock}
+                  </div>
+              </div>
+          );
+        }
+
         return (
             <div className={className} key={key} placeholder={label}>
                 <label htmlFor={id} className="col-sm-4 control-label" key="left">
@@ -64,7 +76,7 @@ var InputWidget = React.createClass({
                     {this._renderInputs()}
                     {messageBlock}
                 </div>
-            </div>        
+            </div>
         );
     },
 
@@ -86,7 +98,7 @@ var InputWidget = React.createClass({
         var newValues = [];
         var i;
         for (i=0; i<values.length; i++) {
-            newValues[i] = values[i];  
+            newValues[i] = values[i];
         }
         for (; i<=idx; i++) {
             newValues.push(undefined);
@@ -100,19 +112,19 @@ var InputWidget = React.createClass({
             this.props.onChange(newValues);
         }
     },
-    
+
     _renderMandatoryFieldMarker : function(){
         return <i className="icon icon-star mandatory">*</i>;
     },
-    
+
     _toArray : function(values, defaultValue) {
         if (!values)
             return defaultValue;
-        if (_.isArray(values)) 
+        if (_.isArray(values))
             return values;
         return [values];
     },
-    
+
     _renderInputs : function(){
          var fieldsNumber = this.props.fieldsNumber || 1;
          var inputs = [];
@@ -137,9 +149,9 @@ var InputWidget = React.createClass({
 
      _getInputKey : function(idx) {
          var fieldKey = this._getFieldKey();
-         return fieldKey + '-' + idx;   
+         return fieldKey + '-' + idx;
      },
-     
+
      _renderInput : function(idx, value, addon){
          idx = idx || 0;
          var key = this._getInputKey(idx);
@@ -149,7 +161,7 @@ var InputWidget = React.createClass({
          if (!!addon) {
              addonLabel = <span className="input-group-addon">{addon}</span>;
              className = "input-group";
-         }  
+         }
          var onChange = function(ev) {
              var val = ev.target.value;
              that._setValue(idx, val);
@@ -173,7 +185,7 @@ var InputWidget = React.createClass({
              label = <span className="form-control">{value}</span>;
              return (
                <$input ref={key} key={key} value={value}
-                     type={type}></$input>             
+                     type={type}></$input>
              );
          }
          var that = this;
@@ -187,11 +199,11 @@ var InputWidget = React.createClass({
                      onChange={onChange}
                      selected={this.props.selected}
                  >{$children}</$input>
-                 {label} 
+                 {label}
              </div>
-         ); 
+         );
      },
-     
+
      _validateValues : function(values) {
          if (this.props.validate) {
              var newValues = this.props.validate(values);

@@ -78,6 +78,8 @@
             "dialog.edit.year.placeholder" : "Année de création",
             "dialog.edit.url.label" : "Site Web",
             "dialog.edit.url.placeholder" : "Adresse du site Web de votre organisation",
+            "dialog.edit.phone.label" : "N° de téléphone",
+            "dialog.edit.phone.placeholder" : "Numéro de téléphone de votre organisation",
             "dialog.edit.twitter.label" : "Compte Twitter",
             "dialog.edit.twitter.placeholder" : "Nom du compte Twitter de votre organisation",
             "dialog.edit.facebook.label" : "Page Facebook",

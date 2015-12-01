@@ -133,6 +133,13 @@ function newSchema(options) {
                         enum : options.getCategoryKeys(),
                         required : true
                     },
+                    country : {
+                        label : msg('field.country'),
+                        description : msg('field.category.description'),
+                        type : 'string',
+                        enum : options.getCountryKeys(),
+                        required : true
+                    },
                     tags : {
                         label : msg('field.tags.label'),
                         description : msg('field.tags'),
@@ -185,6 +192,12 @@ function newSchema(options) {
                             format : msg('field.url.msg.format'),
                             pattern : msg('field.url.msg.format'),
                         }
+                    },
+                    phone : {
+                        label : msg('field.phone'),
+                        description : msg('field.phone.description'),
+                        type : 'string',
+                        required : false
                     },
                     creationyear : {
                         label : msg('field.creationyear'),

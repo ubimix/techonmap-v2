@@ -284,6 +284,7 @@ module.exports = Api.extend(ResourceUtils, {
             var property = err.property;
             this._validationResults.errorIndex[property] = err;
         }, this);
+        console.log('>>> VALIDATION RESULTS: ', this._validationResults);
         return this._validationResults;
     },
 
@@ -375,6 +376,10 @@ module.exports = Api.extend(ResourceUtils, {
             getCategoryKeys : function(key) {
                 // FIXME:
                 return app.res.getCategoryKeys();
+            },
+            getCountryKeys : function(key) {
+                // FIXME:
+                return app.res.getCountryKeys();
             }
         });
         return newSchema(options);

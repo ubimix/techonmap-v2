@@ -9,7 +9,7 @@ var EditEntityPopup = require('../../dialogs/EditEntityPopup.jsx');
 module.exports = React.createClass({
     displayName : 'List.Default',
     mixins: [ListItemMixin, ViewActivationMixin],
- 
+
     _renderViewFocusButtons : function(){
         return(
             <div className="toolbar">
@@ -20,16 +20,16 @@ module.exports = React.createClass({
             </div>
         )
     },
-    
+
     _editResource : function(ev){
         ev.stopPropagation();
         ev.preventDefault();
         var editPopup = new EditEntityPopup({
             app : this.props.app
          });
-         editPopup.open(this.props.resource);  
+         editPopup.open(this.props.resource);
     },
-    
+
     _renderEditButton : function() {
         var id = ResourceUtils._getFirstProperty(this.props.resource, 'id');
         var editLink = this._getLabel("list.item.edit.link", { id: id });
@@ -44,13 +44,13 @@ module.exports = React.createClass({
             </div>
         )
     },
-    
+
     _handleClick : function(ev){
         this.props.onClick(ev);
         ev.preventDefault();
         ev.stopPropagation();
     },
-    
+
     render: function() {
         var app = this.props.app;
         var resource = this.props.resource;
@@ -70,7 +70,7 @@ module.exports = React.createClass({
                 toolbar.push(this._renderEditButton());
             }
         }
-        
+
         var icon = app.res.getCategoryIcon(resourceType);
         var pictoClassName = 'picto ' + icon;
         var iconClassName = 'icon icon-' + icon;
@@ -97,13 +97,13 @@ module.exports = React.createClass({
                   {this._renderTags(true)}
                   {this._renderDescription(selected)}
                   {this._renderAddress()}
+                  {this._renderPhone(selected)}
                   {this._renderSocialNetworks(selected)}
                   {
                       // this._renderShare(selected)
                   }
                 </div>
             </div>
-        );            
+        );
     },
 });
- 

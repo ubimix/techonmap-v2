@@ -425,6 +425,12 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         });
     },
 
+    getCountryKeys : function() {
+        return _.map(this._countries, function(entry) {
+            return entry.key;
+        });
+    },
+
     getCategoryIcon : function(category) {
         var key = this.getCategoryKey(category);
         category = this.getCategoryByKey(key);
@@ -434,7 +440,9 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         }
         return icon;
     },
-
+    getCountries : function() {
+        return this._countries;
+    },
     /**
      * Toggle tags in the search criteria. This methods sets all new tags and
      * removes already existing tags from the specified tag array.
@@ -736,6 +744,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return Mosaic.P.then(
                 function() {
                     return Mosaic.P.all([ that._loadCategories(),
+                            that._loadCountries(),
                             that._loadGeographicZones() ]);
                 })//
         .then(function() {
@@ -773,6 +782,17 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 path : that.options.app.options.categoriesUrl
             })).then(function(categories) {
                 that._categories = categories;
+            });
+        });
+    },
+
+    _loadCountries : function() {
+        var that = this;
+        return Mosaic.P.then(function() {
+            return that._getJson(_.extend({}, {
+                path : that.options.app.options.zonesUrl
+            })).then(function(countries) {
+                that._countries = countries;
             });
         });
     },

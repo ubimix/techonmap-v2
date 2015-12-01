@@ -378,6 +378,8 @@ module.exports = React.createClass({
             this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address-group.label',
                 <GeolocationWidget
                     info = {this._addressInfo}
+                    app = {this.props.app}
+                    _renderInputGroup = {this._renderInputGroup}
                     tilesUrl={tilesUrl}
                     center={coords}
                     zoom={zoom}
@@ -420,6 +422,15 @@ module.exports = React.createClass({
             fieldKey : 'properties.url',
             labelKey : 'dialog.edit.url.label',
             placeholderKey :  'dialog.edit.url.placeholder',
+        });
+    },
+
+    _renderPhone : function(){
+        return this._renderInputGroup({
+            mandatory : false,
+            fieldKey : 'properties.phone',
+            labelKey : 'dialog.edit.phone.label',
+            placeholderKey :  'dialog.edit.phone.placeholder',
         });
     },
 
@@ -480,6 +491,7 @@ module.exports = React.createClass({
                 {this._renderMail()}
                 {this._renderWebSiteUrl()}
                 {this._renderAddressAndCoordinates()}
+                {this._renderPhone()}
             </section>
 
             <h2>{this._getLabel('dialog.edit.sn.title')}</h2>

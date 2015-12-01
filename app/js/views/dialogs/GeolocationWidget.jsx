@@ -12,7 +12,7 @@ var GeolocationWidget = React.createClass({
         this._setLatLng = _.debounce(this._setLatLng, 100);
         this._geolocService = new EsriGeoLocation();
     },
-    
+
     getInitialState : function(){
         return this._newState();
     },
@@ -30,7 +30,7 @@ var GeolocationWidget = React.createClass({
             }
         }, this);
     },
-    
+
     _newState : function(options){
         options = options || {};
         var state = {};
@@ -79,14 +79,14 @@ var GeolocationWidget = React.createClass({
         }
         return this._info;
     },
-    
+
     _onChange : function(field, ev) {
         var options = {};
         var obj = options[field] = options[field] || {};
         obj.value = ev.target.value;
         this._updateInfo(options);
     },
-    
+
     _updateInfo : function(obj) {
         var info = this._getInfo();
         this._copy(obj, info);
@@ -95,15 +95,15 @@ var GeolocationWidget = React.createClass({
             this.props.onAddressChange(info);
         }
     },
-    
+
     componentDidUpdate : function(){
         this._focusMap(false);
     },
-    
+
     _focusMap : function(updateZoom){
         if (this._map) {
             var latlng = this._getMarkerCoordinates();
-            var newMarker = this.props.marker; 
+            var newMarker = this.props.marker;
             if (this._marker !== newMarker) {
                 if (this._marker){
                     this._map.removeLayer(this._marker);
@@ -130,7 +130,7 @@ var GeolocationWidget = React.createClass({
             }
         }
     },
-    
+
     _getMarkerCoordinates : function(){
         var info = this._getInfo();
         var center = this.props.center;
@@ -149,9 +149,9 @@ var GeolocationWidget = React.createClass({
         var lat = info.latitude.value || center[1];
         var lng = info.longitude.value || center[0];
         var result = L.latLng(lat, lng);
-        return result; 
+        return result;
     },
-    
+
     _onMapAdd : function(map){
         this._map = map;
         this._tiles = L.tileLayer(this.props.tilesUrl, {
@@ -194,6 +194,25 @@ var GeolocationWidget = React.createClass({
             }
         });
     },
+
+
+    _renderCountries : function(){
+        var app = this.props.app;
+        var countryKey = app.edit.getResourceValue('properties.countries');
+        var countryOptions = {'country' :'Pays'};
+        var countries = app.res.getCountries();
+        _.each(countries, function(entry) {
+            countryOptions[entry.key] = entry.label;
+        });
+        return this.props._renderInputGroup({
+            type : 'select',
+            options : countryOptions,
+            selected : countryKey,
+            mandatory : false,
+            fieldKey : 'properties.country'
+        });
+    },
+
     render : function() {
         var info = this._getInfo();
         var addrInfo = info.address;
@@ -206,15 +225,15 @@ var GeolocationWidget = React.createClass({
 
         var postcodeInfo = info.postcode;
         var postcodeInput = <input type="text" className="form-control"
-            name={postcodeInfo.name} 
+            name={postcodeInfo.name}
             ref="postcode"
             placeholder={postcodeInfo.placeholder}
-            value={postcodeInfo.value} 
+            value={postcodeInfo.value}
             onChange={this._onChange.bind(this, 'postcode')} />;
 
         var cityInfo = info.city;
         var cityInput = <input type="text" className="form-control"
-            name={cityInfo.name} 
+            name={cityInfo.name}
             ref="city"
             placeholder={cityInfo.placeholder}
             value={cityInfo.value}
@@ -249,7 +268,7 @@ var GeolocationWidget = React.createClass({
             if (postcode) {array.push(postcode);}
             if (city) {array.push(city);}
             array.push('France');
-            
+
             var address = array.join(', ');
             var that = this;
             that._geolocService.geolocalize({
@@ -277,16 +296,16 @@ var GeolocationWidget = React.createClass({
                 {info.localizeBtn.label}
             </button>
         );
-            
+
         var mapView = (
             <MosaicLeaflet.ReactMap
                 onMapAdd={this._onMapAdd}
                 onMapRemove={this._onMapRemove}
                 style={info.map.style}/>
         );
-        
+
         var className = 'form-group';
-        var errorsIndex = {};  
+        var errorsIndex = {};
         var errors = _.filter(info, function(obj, name) {
             var hasError = !!obj.error;
             if (hasError) {
@@ -296,7 +315,7 @@ var GeolocationWidget = React.createClass({
         });
         if (errors.length) {
             className = 'form-group has-error';
-        } 
+        }
         function getClassName(){
             var className = 'form-group';
             if (_.find(arguments, function(name) {
@@ -314,7 +333,7 @@ var GeolocationWidget = React.createClass({
                     return ;
                 result.push(<div className="alert alert-warning" key={pos}>
                         {obj.error}
-                </div>);   
+                </div>);
             });
             if (result.length) {
                 return (
@@ -325,13 +344,16 @@ var GeolocationWidget = React.createClass({
             }
             return '';
         }
-        
+
         return (
             <div>
                 <div className={getClassName('address', 'postcode', 'city')}>
                     <div className="col-sm-5">{addressInput}</div>
                     <div className="col-sm-3">{postcodeInput}</div>
                     <div className="col-sm-4">{cityInput}</div>
+                </div>
+                <div className={getClassName('country')}>
+                    <div className="col-sm-12">{this._renderCountries()}</div>
                 </div>
                 {formatErrors('address', 'postcode', 'city')}
                 <div className={getClassName('latitude', 'longitude')}>
