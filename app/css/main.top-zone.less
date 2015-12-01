@@ -39,9 +39,12 @@
         z-index: 1002;
         border-bottom: none;
         background-color: #3ea4c0;
-        border-bottom: 5px solid #4697b1;
         height: @top-height;
+        border-bottom: 5px solid #4697b1;
 
+        &.top-navigation-add {
+          border-bottom: 5px solid #8ec317;
+        }
         > li {
           height: @top-height - 4;
           padding-top: 5px;
@@ -64,6 +67,9 @@
                     display: block;
                   }
                 }
+            }
+            &.menu-add, &.menu-profile {
+              background-color: @highlight;
             }
           }
           > a {

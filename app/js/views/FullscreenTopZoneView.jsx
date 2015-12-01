@@ -130,10 +130,9 @@ module.exports = React.createClass({
         }
         className += ' menu-btn';
         return (
-        <li className={className} key="search" ref="search">
-            <a href="#" className="menu-search icon about dropdown-toggle"
-                    onClick={this._switchSearchBlock}>
-                <i className="icon icon-search"></i>
+        <li className={className} key="search" ref="search" onClick={this._switchSearchBlock}>
+            <a href="#" className="menu-search icon about dropdown-toggle">
+                <i className="icon icon-toolbar-search"></i>
                 <span className="label">{this._getLabel('topmenu.label.search')}</span>
             </a>
             {panel}
@@ -144,7 +143,7 @@ module.exports = React.createClass({
         return (
         <li className="menu-btn" ref="about" onClick={this._showAboutInfo}>
             <a href="#" className="menu-info">
-                <i className="icon icon-info"></i>
+                <i className="icon icon-toolbar-info"></i>
                 <span className="label">{this._getLabel('topmenu.label.about')}</span>
             </a>
         </li>
@@ -202,7 +201,7 @@ module.exports = React.createClass({
         return (
             <li className="menu-btn" key="help" onClick={this._showHelp}>
                 <a href="#" className="menu-faq">
-                    <i className="icon icon-faq"></i>
+                    <i className="icon icon-toolbar-faq"></i>
                     <span className="label">{this._getLabel('topmenu.label.help')}</span>
                 </a>
             </li>
@@ -212,7 +211,7 @@ module.exports = React.createClass({
         return (
             <li className="menu-btn" key="share" onClick={this._showShareDialog}>
                 <a href="#" className="menu-share">
-                    <i className="icon icon-share"></i>
+                    <i className="icon icon-toolbar-share"></i>
                     <span className="label">{this._getLabel('topmenu.label.share')}</span>
                 </a>
             </li>
@@ -222,7 +221,7 @@ module.exports = React.createClass({
         return (
             <li className="menu-btn" key="export" onClick={this._showExportDialog}>
                 <a href="#" className="menu-export">
-                    <i className="icon icon-export"></i>
+                    <i className="icon icon-toolbar-export"></i>
                     <span className="label">{this._getLabel('topmenu.label.export')}</span>
                 </a>
             </li>
@@ -247,7 +246,7 @@ module.exports = React.createClass({
         return (
             <li className="menu-btn" onClick={this._showHeatmap}>
                 <a href="#" className={className}>
-                    <i className="icon icon-heatmap"></i>
+                    <i className="icon icon-toolbar-heatmap"></i>
                     <span className="label">{this._getLabel('topmenu.label.heatmap')}</span>
                 </a>
             </li>
@@ -256,9 +255,9 @@ module.exports = React.createClass({
 
     _renderAddMenuItem : function(){
         return (
-            <li className="menu-btn" key="add" onClick={this._onClickAdd}>
-                <a href="#" className="menu-export">
-                    <i className="icon icon-export"></i>
+            <li className="menu-btn menu-add" key="add" onClick={this._onClickAdd}>
+                <a href="#" className="menu-add">
+                    <i className="icon icon-toolbar-add"></i>
                     <span className="label">Ajouter</span>
                 </a>
             </li>
@@ -267,9 +266,9 @@ module.exports = React.createClass({
 
     _renderProfileMenuItem : function(){
         return (
-            <li className="menu-btn" key="profile" onClick={this._onClickAdd}>
-                <a href="#" className="menu-heatmap">
-                    <i className="icon icon-heatmap"></i>
+            <li className="menu-btn menu-profile" key="profile" onClick={this._onClickAdd}>
+                <a href="#" className="menu-profile">
+                    <i className="icon icon-toolbar-profile"></i>
                     <span className="label">Déconnex.</span>
                 </a>
             </li>
@@ -318,6 +317,10 @@ module.exports = React.createClass({
                               </a>
                           </div>
                           <div className="navbar-collapse collapse" ref="navbar">
+                            <ul className="nav navbar-nav navbar-right top-navigation top-navigation-add">
+                              {this._renderAddMenuItem()}
+                              {this._renderProfileMenuItem()}
+                            </ul>
                             <ul className="nav navbar-nav navbar-right top-navigation">
                                 {this._renderAboutMenuItem()}
                                 {this._renderHelpMenuItem()}
@@ -325,8 +328,6 @@ module.exports = React.createClass({
                                 {this._renderExportMenuItem()}
                                 {this._renderHeatmapMenuItem()}
                                 {this._renderSearchMenuItem()}
-                                {this._renderAddMenuItem()}
-                                {this._renderProfileMenuItem()}
                             </ul>
                           </div>
                       </div>

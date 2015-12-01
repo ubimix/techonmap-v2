@@ -47,32 +47,19 @@
     content: "\e605";
 }
 
-.icon-export:before {
-    content: "\e606";
-}
 
 .icon-facebook:before {
     content: "\e607";
 }
 
-.icon-faq:before {
-    content: "\e608";
-}
 
 .icon-google-plus:before {
     content: "\e609";
 }
 
-.icon-heatmap:before {
-    content: "\e60a";
-}
 
 .icon-incubator:before {
     content: "\e60b";
-}
-
-.icon-info:before {
-    content: "\e60c";
 }
 
 .icon-investor:before {
@@ -95,18 +82,6 @@
     content: "\e611";
 }
 
-.icon-search:before {
-    content: "\e612";
-}
-
-.icon-search-mobile:before {
-    content: "\e613";
-}
-
-.icon-share:before {
-    content: "\e614";
-}
-
 .icon-sync:before {
     content: "\e615";
 }
@@ -121,4 +96,57 @@
 
 .icon-web:before {
     content: "\e618";
+}
+
+
+
+@font-face {
+	font-family: 'toolbar-icons-font';
+	src:url('../fonts/toolbar-icons-font.eot?1q2uaf');
+	src:url('../fonts/toolbar-icons-font.eot?1q2uaf#iefix') format('embedded-opentype'),
+		url('../fonts/toolbar-icons-font.ttf?1q2uaf') format('truetype'),
+		url('../fonts/toolbar-icons-font.woff?1q2uaf') format('woff'),
+		url('../fonts/toolbar-icons-font.svg?1q2uaf#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-toolbar-"], [class*=" icon-toolbar-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'toolbar-icons-font' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-toolbar-info:before {
+	content: "\e900";
+}
+.icon-toolbar-add:before {
+	content: "\e901";
+}
+.icon-toolbar-export:before {
+	content: "\e902";
+}
+.icon-toolbar-faq:before {
+	content: "\e903";
+}
+.icon-toolbar-heatmap:before {
+	content: "\e904";
+}
+.icon-toolbar-profile:before {
+	content: "\e905";
+}
+.icon-toolbar-search:before {
+	content: "\e906";
+}
+.icon-toolbar-share:before {
+	content: "\e907";
 }
