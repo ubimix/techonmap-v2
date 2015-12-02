@@ -58,7 +58,7 @@ var EsriGeoLocation = Mosaic.Class.extend({
         if (location && location.feature && location.feature.attributes) {
             var type = location.feature.attributes.Addr_Type;
             result = ("PointAddress" == type || "StreetAddress" == type || //
-            "StreetName" == type);
+            "StreetName" == type || "POI" == type);
         }
         return result;
     },

@@ -57,6 +57,10 @@ var GeolocationWidget = React.createClass({
                     placeholder  : 'City',
                     value: ''
                 },
+                country: {
+                  name : 'properties.country',
+                  placeholder  : 'Country',
+                },
                 latitude : {
                     name: 'geometry.coordinates.0',
                     type: 'hidden',
@@ -89,6 +93,7 @@ var GeolocationWidget = React.createClass({
 
     _updateInfo : function(obj) {
         var info = this._getInfo();
+        console.log('>>> updateInfo', info);
         this._copy(obj, info);
         this.setState(this._newState({}));
         if (this.props.onAddressChange) {
@@ -198,7 +203,7 @@ var GeolocationWidget = React.createClass({
 
     _renderCountries : function(){
         var app = this.props.app;
-        var countryKey = app.edit.getResourceValue('properties.countries');
+        var countryKey = app.edit.getResourceValue('properties.country');
         var countryOptions = {'country' :'Pays'};
         var countries = app.res.getCountries();
         _.each(countries, function(entry) {
@@ -215,6 +220,7 @@ var GeolocationWidget = React.createClass({
 
     render : function() {
         var info = this._getInfo();
+        console.log('>>> Info:', info);
         var addrInfo = info.address;
         var addressInput = <input type="text" className="form-control"
             name={addrInfo.name}
@@ -263,11 +269,12 @@ var GeolocationWidget = React.createClass({
             var addr = info.address.value;
             var postcode = info.postcode.value;
             var city = info.city.value;
+            var country = info.country.value;
             var array = [];
-            if (addr) {array.push(addr);}
-            if (postcode) {array.push(postcode);}
+            //if (addr) {array.push(addr);}
+            //if (postcode) {array.push(postcode);}
             if (city) {array.push(city);}
-            array.push('France');
+            if (country) {array.push(country);}
 
             var address = array.join(', ');
             var that = this;
