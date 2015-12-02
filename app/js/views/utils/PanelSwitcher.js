@@ -8,7 +8,7 @@ var PanelSwitcher = React.createClass({
     activate : function(key) {
         this.setState(this._newState({
             active : key
-        }));
+        }), this.props.onPanelUpdate);
     },
     _newState : function(options) {
         var state = _.extend({

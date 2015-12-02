@@ -23,16 +23,18 @@ module.exports = React.createClass({
 
     render : function() {
         return (
-            <div className="search-result-stats" onClick={this.props.onToggleResults}>
-                <span className="label hidden-xs">{this._getLabel('search.label.results')}</span>
-                <span className="count">
-                    <span className="current">{this.state.currentNumber}</span>
-                    <span className="separator">/</span>
-                    <span className="total">{this.state.totalNumber}</span>
+            <div className="search-result-stats">
+                <span  onClick={this.props.onToggleResults}>
+                    <span className="label hidden-xs">{this._getLabel('search.label.results')}</span>
+                    <span className="count">
+                        <span className="current">{this.state.currentNumber}</span>
+                        <span className="separator">/</span>
+                        <span className="total">{this.state.totalNumber}</span>
+                    </span>
+                    {React.Children.map(this.props.children, function(child){
+                        return child;
+                    })}
                 </span>
-                {React.Children.map(this.props.children, function(child){
-                    return child;
-                })}
             </div>
         );
     },

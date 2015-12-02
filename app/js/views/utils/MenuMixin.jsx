@@ -36,9 +36,10 @@ var MenuMixin = {
         if (!key) {
             key = _.uniqueId('menu-');
         }
+        var headingPanel = !!heading ? <div className="panel-heading">{heading}</div> : null; 
         return (
              <div className="panel" key={key}>
-                 <div className="panel-heading">{heading}</div>
+                 {headingPanel}
                  {body}
              </div>
         );
@@ -52,7 +53,11 @@ var MenuMixin = {
     _renderMenuPanels : function(){
         var panels = toArray(arguments);
         return (
-            <PanelSwitcher className="container" key="panels" ref="panels">
+            <PanelSwitcher
+                className="container"
+                key="panels"
+                ref="panels"
+                onPanelUpdate={this.props.onPanelUpdate}>
                 {panels}
             </PanelSwitcher>
        );

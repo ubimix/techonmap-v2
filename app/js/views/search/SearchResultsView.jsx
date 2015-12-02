@@ -2,12 +2,14 @@
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('../utils/DomUtils');
+var SearchPanel = require('./SearchPanel.jsx');
 var SearchResultsListView = require('./SearchResultsListView.jsx');
 var SearchResultsInfoView = require('./SearchResultsInfoView.jsx');
 var SearchResultsOrderView = require('./SearchResultsOrderView.jsx');
 
 module.exports = React.createClass({
     displayName : 'SearchResultsView',
+    mixins : [ DomUtils ],
     getInitialState : function(){
         return this._newState();
     },
@@ -27,24 +29,64 @@ module.exports = React.createClass({
             <a href="#" className="switcher"><i className={iconClassName} /></a>
         );
     },
+    componentWillMount: function(){
+        this._addResizeListener(this._fixResultsListHeight, this);
+    },
+    componentWillUnmount: function(){
+        this._removeResizeListener(this._fixResultsListHeight, this);
+    },
+    componentDidMount : function(){
+        this._fixResultsListHeight();
+    },
+    componentDidUpdate : function(){
+        this._fixResultsListHeight();
+    },
+    _fixResultsListHeight : function(){
+        var containerElm = this.getDOMNode();
+        var containerBox = containerElm.getBoundingClientRect();
+        
+        var topPanelElm = this.refs.topPanel.getDOMNode();
+        var topPanelBox = topPanelElm.getBoundingClientRect();
+        
+        var height = (containerBox.bottom - topPanelBox.bottom);
+
+        var listElm = this.refs.searchResultsList.getDOMNode();
+        var listBox = listElm.getBoundingClientRect();
+        if (!this.listBoxHidden) {
+            height -= containerBox.bottom - listBox.bottom;
+        }
+        
+        if (height <= 20) {
+            this.listBoxHidden = true;
+            listElm.style.display = 'none';
+            listElm.style.height = '0px';
+        } else {
+            this.listBoxHidden = false;
+            listElm.style.display = 'block';
+            listElm.style.height = height + 'px';
+        }
+        console.log('XXXX', height);
+    },
     render : function() {
         var app = this.props.app;
         var className = 'search-results';
         if (!this.state.showList){
             className += ' reduced';
         }
-        
         return (
             <div className={className}>
-                <SearchResultsInfoView
-                    app={app}
-                    className="stats"
-                    onToggleResults={this._toggleList}
-                    open={this.state.showList}>
-                    {this._renderSwitcher()}
-                </SearchResultsInfoView>
-                <SearchResultsOrderView app={app} />
-                <SearchResultsListView app={app} />
+                <div ref="topPanel">
+                    <SearchResultsInfoView
+                        app={app}
+                        className="stats"
+                        onToggleResults={this._toggleList}
+                        open={this.state.showList}>
+                        {this._renderSwitcher()}
+                    </SearchResultsInfoView>
+                    <SearchPanel app={app} onPanelUpdate={this._fixResultsListHeight.bind(this)} />
+                    <SearchResultsOrderView app={app} />
+                </div>
+                <SearchResultsListView app={app} ref="searchResultsList"/>
             </div>
         );
     },
