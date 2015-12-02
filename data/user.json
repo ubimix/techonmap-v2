@@ -1,0 +1,7 @@
+{
+  "accountId": "XWiki.jdoe",
+  "displayName": "jdoe",
+  "provider": "twitter",
+  "id": "XWiki.jdoe",
+  "userRoles": ["guest", "loggued"]
+}

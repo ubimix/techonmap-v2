@@ -351,6 +351,12 @@ module.exports = React.createClass({
                 value: this._getResourceField('properties.city'),
                 error : this._getFieldError('properties.city')
             },
+            country : {
+                name : 'properties.country',
+                placeholder  : this._getLabel('dialog.edit.country.placeholder'),
+                value: this._getResourceField('properties.country'),
+                error : this._getFieldError('properties.country')
+            },
             longitude : {
                 name: 'geometry.coordinates.0',
                 type: 'hidden',
@@ -385,7 +391,7 @@ module.exports = React.createClass({
                     zoom={zoom}
                     marker={marker}
                     onAddressChange={function(info){
-                        console.log('>>>>>>>>>', JSON.stringify(info));
+                        console.log('>>> EditEntityForm.onAddressChange', JSON.stringify(info));
                         var fields = {};
                         _.each(info, function(field) {
                             var name = field.name;
