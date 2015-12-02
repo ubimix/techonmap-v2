@@ -40,7 +40,11 @@ var SearchPanel = React.createClass({
     },
     render : function(){
         return (
-             <PanelSwitcher className="container searchpanel" ref="panels" key="switch-panel">
+             <PanelSwitcher
+                 className="container-fluid searchpanel"
+                 ref="panels"
+                 key="switch-panel"
+                 onPanelUpdate={this.props.onPanelUpdate}>
                  {this._renderMainPanel()}
                  {this._renderZonesPanel()}
                  {this._renderCategoriesPanel()}
@@ -103,15 +107,11 @@ var SearchPanel = React.createClass({
         return this._renderMenuPanelGroup(
            'main', 
            this._renderMenuPanel(
-               <h3 className="panel-title">
-                   {this._getLabel('search.panel.label.input')}
-               </h3>, 
+               null, 
                <SearchInputBoxView app={app}/>
            ), 
            this._renderMenuPanel(
-               <h3 className="panel-title">
-                   {this._getLabel('search.panel.label.filters')}
-               </h3>,
+               null,
                <div className="search-filter-items">
                    {this._renderMenuItems(
                        this._renderMenuRef(

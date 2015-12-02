@@ -6,7 +6,6 @@ var DomUtils = require('./utils/DomUtils');
 var I18NMixin = require('./utils/I18NMixin');
 var ViewActivationMixin = require('./utils/ViewActivationMixin');
 var ContentPopupMixin = require('./utils/ContentPopupMixin');
-var SearchPanel = require('./search/SearchPanel.jsx');
 var SharePopup = require('./dialogs/SharePopup.jsx');
 var ExportPopup = require('./dialogs/ExportPopup.jsx');
 var PopupPanel = require('mosaic-core').React.PopupPanel;

@@ -3,7 +3,6 @@ var React = require('react');
 var DomUtils = require('./utils/DomUtils');
 var I18NMixin = require('./utils/I18NMixin');
 var ContentPopupMixin = require('./utils/ContentPopupMixin');
-var SearchPanel = require('./search/SearchPanel.jsx');
 var SharePopup = require('./dialogs/SharePopup.jsx');
 var ExportPopup = require('./dialogs/ExportPopup.jsx');
 var FeedbackPopup = require('./dialogs/FeedbackPopup.jsx');
@@ -114,31 +113,6 @@ module.exports = React.createClass({
         this.setState(this._newState({
             showSearchMenu : !this.state.showSearchMenu
         }));
-    },
-    _renderSearchMenuItem : function(){
-        var panel = null;
-        var className = 'dropdown';
-        if (this.state.showSearchMenu) {
-            var app = this.getApp();
-            panel = (
-              <ul className="dropdown-menu dropdown" role="menu">
-                  <li>
-                      <SearchPanel app={app}></SearchPanel>
-                  </li>
-              </ul>
-            );
-            className += ' open';
-        }
-        className += ' menu-btn';
-        return (
-        <li className={className} key="search" ref="search" onClick={this._switchSearchBlock}>
-            <a href="#" className="menu-search icon about dropdown-toggle">
-                <i className="icon icon-toolbar-search"></i>
-                <span className="label">{this._getLabel('topmenu.label.search')}</span>
-            </a>
-            {panel}
-        </li>
-        );
     },
     _renderAboutMenuItem : function(){
         return (
@@ -326,7 +300,6 @@ module.exports = React.createClass({
                                 {this._renderShareMenuItem()}
                                 {this._renderExportMenuItem()}
                                 {this._renderHeatmapMenuItem()}
-                                {this._renderSearchMenuItem()}
                             </ul>
                           </div>
                       </div>
