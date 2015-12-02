@@ -1,0 +1,4814 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+    "id": "242tech",
+    "type": "Feature",
+    "properties": {
+      "id": "242tech",
+      "type": "organization",
+      "name": "242Tech",
+      "url": "http://www.242tech.com/",
+      "category": "Entreprise",
+      "tags": ["m\u00e9dia", "actualit\u00e9s", "portail"],
+      "description": "242Tech est un portail d'information sur l'\u00e9conomie num\u00e9rique au Congo et dans le monde.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Brazzaville",
+      "country": "RD Congo",
+      "email": "",
+      "phone": "",
+      "twitter": "@242Tech",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [15.2428853, -4.2633597]
+    }
+  }, {
+    "id": "24-labs",
+    "type": "Feature",
+    "properties": {
+      "id": "24-labs",
+      "type": "organization",
+      "name": "24 Labs",
+      "url": "http://www.24labs.cm/",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "bureaux partag\u00e9s", "entrepreneurs"],
+      "description": "24Labs est un espace de coworking au c\u0153ur des usages de la culture num\u00e9rique, n\u00e9 de la volont\u00e9 de proposer une alternative aux ind\u00e9pendants qui travaillent a\u0300 leur domicile en fonction de leurs besoins.",
+      "address": "Derri\u00e8re la station MrS Ndokoti",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "24labs@gmail.com",
+      "phone": "(+237) 676 07 21 86",
+      "twitter": "@24_Labs",
+      "facebook": "https://www.facebook.com/24LabsCowork",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.742429099999999, 4.043488]
+    }
+  }, {
+    "id": "2b-interaktive",
+    "type": "Feature",
+    "properties": {
+      "id": "2b-interaktive",
+      "type": "organization",
+      "name": "2B INTERAKTIVE",
+      "url": "http://www.2bi.sn/",
+      "category": "Entreprise",
+      "tags": ["webdesign", "communication", "B2B"],
+      "description": "2B Interaktive\u00a0est une Agence de communication bas\u00e9e \u00e0 Dakar. Elle est sp\u00e9cialis\u00e9e dans le conseil en strat\u00e9gie internet et en cr\u00e9ation de sites web.",
+      "address": "Yoof Ndeugagne, route de l'a\u00e9roport, X My ice cream",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "contact@2bi.sn",
+      "phone": "(+221) 78 302 30 30",
+      "twitter": "@2binteraktive",
+      "facebook": "https://www.facebook.com/2B.INTERAKTIVE",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "2isoft",
+    "type": "Feature",
+    "properties": {
+      "id": "2isoft",
+      "type": "organization",
+      "name": "2iSoft",
+      "url": "http://www.2isoft.com/",
+      "category": "Entreprise",
+      "tags": ["logiciels", "webdesign", "B2B"],
+      "description": "2iSoft est une startup sp\u00e9cialis\u00e9e dans le domaine de l'informatique qui a plusieurs types de prestations : logiciels, site web, infographie et formations.",
+      "address": "Rue du Nig\u00e9ria - Quartier nouveau march\u00e9",
+      "postcode": "",
+      "city": "Niamey",
+      "country": "Niger",
+      "email": "2isoft.com@gmail.com",
+      "phone": "(+227) 20 74 30 60",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/2isoft/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.1253854, 13.5115963]
+    }
+  }, {
+    "id": "academie-internet-univ-douala",
+    "type": "Feature",
+    "properties": {
+      "id": "academie-internet-univ-douala",
+      "type": "organization",
+      "name": "Acad\u00e9mie internet - Univ Douala",
+      "url": "http://www.univ-douala.com/index.php?option=com_content&view=article&id=91",
+      "category": "\u00c9cole",
+      "tags": ["SIG", "Cisco", "informatique"],
+      "description": "L'acad\u00e9mie internet de l'universit\u00e9 de Douala forme aux SIG et au dipl\u00f4me Cisco.",
+      "address": "Centre- ville",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "infos.ai@univ-douala.com",
+      "phone": "(+237) 99 86 23 08",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.7678687, 4.0510564]
+    }
+  }, {
+    "id": "activspaces",
+    "type": "Feature",
+    "properties": {
+      "id": "activspaces",
+      "type": "organization",
+      "name": "ActivSpaces",
+      "url": "http://activspaces.com/index.php",
+      "category": "Incubateur",
+      "tags": ["coworking", "acc\u00e9l\u00e9rateur", "mentorat"],
+      "description": "A la fois espace de coworking et incubateur de projets, ActivSpaces Douala encourage l\u2019entrepreneuriat et l\u2019innovation au Cameroun par l\u2019aide au prototypage (Labs et mentorat), la mise en r\u00e9seau (meet up) et la confrontation d\u2019id\u00e9es business.",
+      "address": "Immeuble TECNO, Boulevard de la Libert\u00e9",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "info@activspaces.com",
+      "phone": "(+237) 33 32 35 54",
+      "twitter": "@activspaces",
+      "facebook": "www.facebook.com/ActivSpaces",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.6983936, 4.054238]
+    }
+  }, {
+    "id": "afoup",
+    "type": "Feature",
+    "properties": {
+      "id": "afoup",
+      "type": "organization",
+      "name": "Afoup",
+      "url": "http://www.kisskissbankbank.com/fr/projects/financer-la-creation-d-une-plateforme-web-innovante-dedie-a-l-agriculture-camerounaise",
+      "category": "Entreprise",
+      "tags": ["agriculture", "marketplace", "ecommerce"],
+      "description": "Afoup est un projet de plateforme de conseil, d'expo-vente de produits de l'agriculture camerounaise.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "enganemoul@yahoo.fr",
+      "phone": "(+237) 672 08 82 26",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Afoup",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "afribaba",
+    "type": "Feature",
+    "properties": {
+      "id": "afribaba",
+      "type": "organization",
+      "name": "Afribaba",
+      "url": "http://www.afribaba.sn/",
+      "category": "Entreprise",
+      "tags": ["ecommerce", "annonces", "marketplace"],
+      "description": "Afribaba est un site web d'annonces gratuites au Cameroun.",
+      "address": "Bonamoussadi",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "(+237)\u00a0233 47 27 07",
+      "twitter": "@afribabaSN",
+      "facebook": "https://www.facebook.com/afribaba.senegal",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.742777499999999, 4.089185]
+    }
+  }, {
+    "id": "afrikrea",
+    "type": "Feature",
+    "properties": {
+      "id": "afrikrea",
+      "type": "organization",
+      "name": "Afrikrea",
+      "url": "www.afrikrea.com",
+      "category": "Entreprise",
+      "tags": ["ecommerce", "marketplace", "cr\u00e9ateurs"],
+      "description": "Afrikrea.com\u00a0est un site d'ecommerce d\u00e9di\u00e9e \u00e0 la cr\u00e9ation, il r\u00e9unit des centaines des cr\u00e9ateurs du\u00a0monde entier.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Bamako",
+      "country": "Mali",
+      "email": "contact@afrikrea.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/afrikrea",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-8.0028892, 12.6392316]
+    }
+  }, {
+    "id": "agro-hub",
+    "type": "Feature",
+    "properties": {
+      "id": "agro-hub",
+      "type": "organization",
+      "name": "Agro-Hub",
+      "url": "http://www.agro-hub.com/",
+      "category": "Entreprise",
+      "tags": ["agriculture", "ESS", "distribution"],
+      "description": "AGRO-HUB est une entreprise sociale qui cherchent \u00e0 rompre le cycle de la pauvret\u00e9 qui a pi\u00e9g\u00e9 la plupart des familles vivant dans les communaut\u00e9s agricoles rurales du Cameroun. Pour cela, elle contribue notamment \u00e0 \u00e9largir les canaux de distribution de nourriture.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Bu\u00e9a",
+      "country": "Cameroun",
+      "email": "helpdesk@agro-hub.com",
+      "phone": "(+237) 7973 1059",
+      "twitter": "@AGROHUB",
+      "facebook": "https://www.facebook.com/agrohub/info/?tab=page_info",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.245301999999999, 4.1481842]
+    }
+  }, {
+    "id": "akendewa",
+    "type": "Feature",
+    "properties": {
+      "id": "akendewa",
+      "type": "organization",
+      "name": "Akendewa",
+      "url": "http://www.akendewa.org/",
+      "category": "Communaut\u00e9",
+      "tags": ["soci\u00e9t\u00e9 civile", "activisme citoyen", "r\u00e9seaux sociaux"],
+      "description": "Akendewa est une ONG dont l'un des objectifs est de promouvoir l'activisme citoyen pour des \u00e9lections apais\u00e9es et transparentes en C\u00f4te d'Ivoire sur les m\u00e9dias sociaux.",
+      "address": "Rue des Lagunes, Marcory",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "(+225) 20 01 20 34",
+      "twitter": "@akendewa",
+      "facebook": "https://www.facebook.com/akendewa/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.992423, 5.3123267]
+    }
+  }, {
+    "id": "akendewa-techhub",
+    "type": "Feature",
+    "properties": {
+      "id": "akendewa-techhub",
+      "type": "organization",
+      "name": "Akendewa Techhub",
+      "url": "http://www.akendewa.org/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "d\u00e9mocratie", "ONG"],
+      "description": "Premier hub num\u00e9rique ivoirien, lanc\u00e9 en 2009.",
+      "address": "Cocody Deux plateaux perles, rue de l'ambassade de chine",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "contact@akendawa.org",
+      "phone": "(+225) 20 01 20 34",
+      "twitter": "@akendewa",
+      "facebook": "https://www.facebook.com/akendewa",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "amn-coworking-space",
+    "type": "Feature",
+    "properties": {
+      "id": "amn-coworking-space",
+      "type": "organization",
+      "name": "AMN Coworking Space",
+      "url": "http://amncoworkingspace.com",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "bureaux partag\u00e9s", "entrepreneurs"],
+      "description": "AMN Co Working Space est un espace collaboratif destin\u00e9 aux innovateurs \u00e9voluant dans les secteurs suivants: le web design, le d\u00e9veloppement d'applications, le web journalisme, la photographie, l'illustration, la r\u00e9alisation video...",
+      "address": "E 128",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "tapefr@gmail.com",
+      "phone": "(+225) 22 47 15 05",
+      "twitter": "@Frederictape",
+      "facebook": "https://www.facebook.com/AMN-Co-Working-Space-137309499647828/timeline/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.966379, 5.3553063]
+    }
+  }, {
+    "id": "aywajieune",
+    "type": "Feature",
+    "properties": {
+      "id": "aywajieune",
+      "type": "organization",
+      "name": "Aywajieune",
+      "url": "http://aywajieune.com/",
+      "category": "Entreprise",
+      "tags": ["marketplace", "p\u00eache", "environnement"],
+      "description": "Aywajieune est la premi\u00e8re plateforme s\u00e9n\u00e9galaise d'annonces, de mise en relation et de vente de produits halieutiques.",
+      "address": "159 Hann montagne 5",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "Contact@aywajieune.com",
+      "phone": "(+221) 77 267 17 29",
+      "twitter": "@aywajieune",
+      "facebook": "https://www.facebook.com/aywajieune",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "babylab",
+    "type": "Feature",
+    "properties": {
+      "id": "babylab",
+      "type": "organization",
+      "name": "Babylab",
+      "url": "",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "recyclage", "entrepreneurs"],
+      "description": "Fablab f\u00e9d\u00e9rant une communaut\u00e9 ivoirienne tr\u00e8s active autour de la fabrication num\u00e9rique.",
+      "address": "Abobo, Habitat",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "guiako.o@gmail.com",
+      "phone": "(+225) 48671804",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/groups/babylab/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.016232599999999, 5.432057299999999]
+    }
+  }, {
+    "id": "bantu-hub",
+    "type": "Feature",
+    "properties": {
+      "id": "bantu-hub",
+      "type": "organization",
+      "name": "Bantu Hub",
+      "url": "www.bantuhub.com",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "coworking", "communaut\u00e9"],
+      "description": "La Fondation BantuHub est une communaut\u00e9 d'entrepreneurs innovants et un espace de coworking permettant aux jeunes entrepreneurs d'am\u00e9liorer leurs id\u00e9es par un acc\u00e8s permanent \u00e0 internet et une immersion professionnelle dans un cadre propice \u00e0 la cr\u00e9ation, en vue de les aider \u00e0 d\u00e9velopper leurs projets.",
+      "address": "2 Avenue de la Base - Batignolles",
+      "postcode": "",
+      "city": "Brazzaville",
+      "country": "Congo",
+      "email": "bzv@bantuhub.com",
+      "phone": "(+242) 06 529 60 60",
+      "twitter": "@bantuhub",
+      "facebook": "https://www.facebook.com/pages/Bantuhub/1545542262360948?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [15.2428853, -4.2633597]
+    }
+  }, {
+    "id": "blolab",
+    "type": "Feature",
+    "properties": {
+      "id": "blolab",
+      "type": "organization",
+      "name": "Blolab",
+      "url": "www.udl-benin.org",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "coworking", "hackerspace"],
+      "description": "Le BloLab est un Laboratoire de Fabrication Num\u00e9rique, le 1er au B\u00e9nin. Sa caract\u00e9ristique principale est l'\"ouverture\", il s'agit d'un tiers lieux de ressources open hardware.",
+      "address": "Universit\u00e9 d'Abomey-Calavi",
+      "postcode": "",
+      "city": "Abomey Calavi",
+      "country": "B\u00e9nin",
+      "email": "",
+      "phone": "",
+      "twitter": "@BLOLAB_BENIN",
+      "facebook": "https://www.facebook.com/Blolab-Cotonou-1548381855428588/timeline/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3468195, 6.4503024]
+    }
+  }, {
+    "id": "blueline",
+    "type": "Feature",
+    "properties": {
+      "id": "blueline",
+      "type": "organization",
+      "name": "Blueline",
+      "url": "http://www.guinee2020.com/",
+      "category": "Entreprise",
+      "tags": ["formation", "jeunes", "\u00e9ducation"],
+      "description": "Blueline est une startup dont l'objectif est de cr\u00e9er plusieurs espaces permettant l'acc\u00e8s aux nouvelles technologies au plus grand nombre. Ces espaces ont vocation \u00e0 devenir des espaces \u00e9ducatifs, des incubateurs de jeunes talents y compris dans les zones les plus isol\u00e9es.",
+      "address": "Rue KA 050",
+      "postcode": "",
+      "city": "Conakry",
+      "country": "Guin\u00e9e",
+      "email": "guineebybluesolutions@gmail.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Blueline-Guin%C3%A9e-1492352214373670/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-13.705382, 9.513471599999999]
+    }
+  }, {
+    "id": "bool-drc",
+    "type": "Feature",
+    "properties": {
+      "id": "bool-drc",
+      "type": "organization",
+      "name": "Bool-DRC",
+      "url": "http://www.beornot.com/",
+      "category": "Entreprise",
+      "tags": ["B2B", "d\u00e9veloppeur", "conseil"],
+      "description": "Notre entreprise consiste en : l'observation de l'\u00e9volution des technologies ; Le choix des solutions qui r\u00e9pondent \u00e0 vos besoins sp\u00e9cifiques ; La personnalisation des solutions selon votre demande ; L'int\u00e9gration compl\u00e8te ou partielle",
+      "address": "Avenue de l'Equateur, Gombe",
+      "postcode": "",
+      "city": "Kinshasa",
+      "country": "Congo",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/beornot01",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [15.3105655, -4.3017768]
+    }
+  }, {
+    "id": "by-filling",
+    "type": "Feature",
+    "properties": {
+      "id": "by-filling",
+      "type": "organization",
+      "name": "By Filling",
+      "url": "http://www.byfilling.com/",
+      "category": "Entreprise",
+      "tags": ["communication", "marketing", "applications mobiles"],
+      "description": "Agence de communication digitale qui accompagne les marques dans leur transformation digitale.",
+      "address": "3 rue B\u00e9ranger F\u00e9raud",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 822 22 10",
+      "twitter": "@ByFilling",
+      "facebook": "https://www.facebook.com/byfilling",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4306432, 14.6691984]
+    }
+  }, {
+    "id": "cafe-des-tics",
+    "type": "Feature",
+    "properties": {
+      "id": "cafe-des-tics",
+      "type": "organization",
+      "name": "Caf\u00e9 des TICs",
+      "url": "http://www.cafedestics.com",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "association", "communaut\u00e9"],
+      "description": "Le caf\u00e9 des TICs est un espace de coworking, d'intelligence collective et d'innovation sociale dans le domaine des TICs B\u00e9nin.",
+      "address": "Godomey",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "",
+      "phone": "(+229) 66 51 95 29",
+      "twitter": "@cafedestics",
+      "facebook": "https://www.facebook.com/cafedestics",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3123031, 6.413202399999999]
+    }
+  }, {
+    "id": "cardiopad",
+    "type": "Feature",
+    "properties": {
+      "id": "cardiopad",
+      "type": "organization",
+      "name": "Cardiopad",
+      "url": "",
+      "category": "Entreprise",
+      "tags": ["sant\u00e9", "tablette", "cardiologie"],
+      "description": "Le Cardiopad est un syst\u00e8me embarqu\u00e9 \u00e0 usage m\u00e9dical. C\u2019est une tablette qui permet de mesurer les donn\u00e9es physiologiques du c\u0153ur puis de les transmettre \u00e0 un cardiologue.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "(+237) 94 42 61 25",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/cardiopad",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "chaperone",
+    "type": "Feature",
+    "properties": {
+      "id": "chaperone",
+      "type": "organization",
+      "name": "Chaperone",
+      "url": "http://www.getchaperone.com/",
+      "category": "Entreprise",
+      "tags": ["tutoriels", "applications mobiles", "formation"],
+      "description": "Chaperone est un logiciel permetant de cr\u00e9er rapidement et partager des tutoriels interactifs.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "",
+      "phone": "",
+      "twitter": "@GetChaperone",
+      "facebook": "https://www.facebook.com/getchaperone",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3912362, 6.3702928]
+    }
+  }, {
+    "id": "cheik-anta-diop",
+    "type": "Feature",
+    "properties": {
+      "id": "cheik-anta-diop",
+      "type": "organization",
+      "name": "Cheik Anta Diop",
+      "url": "http://www.ucad.sn/index.php?option=com_content&view=article&id=1523&Itemid=354",
+      "category": "\u00c9cole",
+      "tags": ["multim\u00e9dia", "s\u00e9curit\u00e9", "informatique"],
+      "description": "Premi\u00e8re universit\u00e9 publique de Dakar, Cheik Anta Diop forme dans son d\u00e9partement Sciences et techniques sur des th\u00e9matiques telles que la s\u00e9curit\u00e9 des donn\u00e9es, l'informatique ou la cr\u00e9ation multim\u00e9dia",
+      "address": "Fann",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 825 55 96",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/UniversiteCheikhAntaDiopDeDakar",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4706438, 14.69115]
+    }
+  }, {
+    "id": "cic",
+    "type": "Feature",
+    "properties": {
+      "id": "cic",
+      "type": "organization",
+      "name": "CIC",
+      "url": "http://www.cic.univ-lome.tg",
+      "category": "\u00c9cole",
+      "tags": ["d\u00e9veloppeur", "ing\u00e9nieur", "maintenance"],
+      "description": "Le centre d'informatique et de calcul est directement rattach\u00e9 \u00e0 l'universit\u00e9 de Lom\u00e9. Il repose sur des formations cibl\u00e9es en informatique, g\u00e9nie logiciel, r\u00e9seaux et maintenance. Il b\u00e9n\u00e9ficie d'une communaut\u00e9 d'\u00e9tudiants dynamiques et de cycle de conf\u00e9rences en lien avec le d\u00e9veloppement des nouvelles technologies dans le pays.",
+      "address": "Universit\u00e9 de Lom\u00e9",
+      "postcode": "",
+      "city": "Lom\u00e9",
+      "country": "Togo",
+      "email": "eliossfr@yahoo.fr",
+      "phone": "(+228) 225 33 29",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/groups/190930537595763/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.2059746, 6.145216899999999]
+    }
+  }, {
+    "id": "cipmen",
+    "type": "Feature",
+    "properties": {
+      "id": "cipmen",
+      "type": "organization",
+      "name": "CIPMEN",
+      "url": "http://www.cipmen.org/lp/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "environnement", "\u00e9nergies"],
+      "description": "CIPMEN est le premier incubateur de PME au Niger. Il accompagne principalement les startups de trois secteurs d'activit\u00e9 \u00e0 fort potentiel de croissance : TIC, \u00e9nergies renouvelables et environnement.",
+      "address": "Quartier Koira Kano dans les locaux de SINERGI",
+      "postcode": "",
+      "city": "Niamey",
+      "country": "Niger",
+      "email": "contact@cipmen.org",
+      "phone": "(+227) 90 52 95 05",
+      "twitter": "@Cipmen",
+      "facebook": "https://www.facebook.com/incubateurCIPMEN/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.1253854, 13.5115963]
+    }
+  }, {
+    "id": "cntmad",
+    "type": "Feature",
+    "properties": {
+      "id": "cntmad",
+      "type": "organization",
+      "name": "CNTMAD",
+      "url": "http://www.cntemad.mg",
+      "category": "\u00c9cole",
+      "tags": ["formation \u00e0 distance", "informatique", "communication"],
+      "description": "Le centre national de t\u00e9l\u00e9-enseignement de Madagascar est un dispositif du minist\u00e8re de l'enseignement sup\u00e9rieur et de la recherche pour favoriser l'enseignement \u00e0 distance. Les diplomes existent dans les domaines du droit, de l'informatique, de la gestion et de la communication",
+      "address": "Lot IVC6 Ambatomitsangana",
+      "postcode": "",
+      "city": "Antananarivo",
+      "country": "Madagascar",
+      "email": "cntemad@cntemad.mg",
+      "phone": "(+261) 22 600 57",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [47.5211364, -18.8984855]
+    }
+  }, {
+    "id": "continental-com-corporate",
+    "type": "Feature",
+    "properties": {
+      "id": "continental-com-corporate",
+      "type": "organization",
+      "name": "Continental Com Corporate",
+      "url": "http://www.continentalcom.net/news/gabon-continental-com-corporate-au-salon-parisien-des-entrepreneurs/",
+      "category": "Entreprise",
+      "tags": ["public", "citoyens", "communication"],
+      "description": "Continental Com Corporate est une startup gabonaise de communication publique et territoriale.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Libreville",
+      "country": "Gabon",
+      "email": "",
+      "phone": "(+241) 06 01 76 82",
+      "twitter": "@ContinentalComC",
+      "facebook": "https://www.facebook.com/continentalcom.mombonziengui?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.4672676, 0.4161976]
+    }
+  }, {
+    "id": "dakarwebstore",
+    "type": "Feature",
+    "properties": {
+      "id": "dakarwebstore",
+      "type": "organization",
+      "name": "DakarWebStore",
+      "url": "www.dakarwebstore.com",
+      "category": "Entreprise",
+      "tags": ["ecommerce", "marketplace", "livraison"],
+      "description": "Comparateur de prix de produits de consommation au S\u00e9n\u00e9gal.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 867 09 05",
+      "twitter": "@dakarwebstore",
+      "facebook": "https://www.facebook.com/Dakarwebstore-175457432529416/info/?tab=page_info",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "donilab",
+    "type": "Feature",
+    "properties": {
+      "id": "donilab",
+      "type": "organization",
+      "name": "Donilab",
+      "url": "http://www.donilab.ml/",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "ess", "innovation sociale"],
+      "description": "DoniLab est un espace de travail collaboratif et d'innovation sociale \u00e0 Bamako au Mali. En effet, Donilab offre aux entrepreneurs sociaux la possibilit\u00e9 de travailler dans un espace offrant les m\u00eames commodit\u00e9s que dans un bureau classique avec un acc\u00e8s internet 24h/7jours.",
+      "address": "Soutba ACI Rue des arm\u00e9es",
+      "postcode": "",
+      "city": "Bamako",
+      "country": "Mali",
+      "email": "bienvenue@donilab.org",
+      "phone": "(+223) 66 66 88 13",
+      "twitter": "@Donilab1",
+      "facebook": "https://www.facebook.com/donilab.officiel/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-8.0028892, 12.6392316]
+    }
+  }, {
+    "id": "dr-linkup",
+    "type": "Feature",
+    "properties": {
+      "id": "dr-linkup",
+      "type": "organization",
+      "name": "Dr Linkup",
+      "url": "http://www.drlinkup.com/",
+      "category": "Entreprise",
+      "tags": ["r\u00e9seaux sociaux", "sant\u00e9", "m\u00e9decins"],
+      "description": "Premier r\u00e9seau social priv\u00e9, s\u00e9n\u00e9galais et africain r\u00e9serv\u00e9 aux m\u00e9decins.",
+      "address": "3 rue B\u00e9ranger F\u00e9raud",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "",
+      "twitter": "@DrLinkUP",
+      "facebook": "https://www.facebook.com/drlinkup",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4306432, 14.6691984]
+    }
+  }, {
+    "id": "ebene",
+    "type": "Feature",
+    "properties": {
+      "id": "ebene",
+      "type": "organization",
+      "name": "Eb\u00e8ne",
+      "url": "",
+      "category": "Entreprise",
+      "tags": ["communication", "applications mobiles", "webdesign"],
+      "description": "Eb\u00e8ne est une agence digitale sp\u00e9cialis\u00e9e dans la conception de sites & applis web.",
+      "address": "Villa Kadija, Route du Ngor Diarama",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 77 672 61 61",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/ebenesn",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "ecole-nationale-d-informatique",
+    "type": "Feature",
+    "properties": {
+      "id": "ecole-nationale-d-informatique",
+      "type": "organization",
+      "name": "Ecole nationale d'informatique",
+      "url": "http://www.univ-fianar.mg/?page_id=58",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "ing\u00e9nieur", "r\u00e9seaux"],
+      "description": "L'\u00e9cole nationale d'informatique est rattach\u00e9e \u00e0 l'universit\u00e9 de Fianarantsoa et forme sp\u00e9cifiquement aux m\u00e9tiers de l'informatique.",
+      "address": "Lambondreo",
+      "postcode": "",
+      "city": "Fianarantsoa",
+      "country": "Madagascar",
+      "email": "eni@univ-fianar.mg",
+      "phone": "(+261) 75 508 01",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [47.1112439, -21.4663082]
+    }
+  }, {
+    "id": "ecole-polytechnique-d-abomey-calavi",
+    "type": "Feature",
+    "properties": {
+      "id": "ecole-polytechnique-d-abomey-calavi",
+      "type": "organization",
+      "name": "Ecole polytechnique d'Abomey Calavi",
+      "url": "www.epac.bj.refer.org",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "informatique", "t\u00e9l\u00e9coms"],
+      "description": "L\u2019\u00e9cole Polytechnique d\u2019ABOMEY\u2013Calavi (EPAC) est un \u00e9tablissement d\u2019enseignement sup\u00e9rieur et professionnel ayant statut de Grande Ecole. L\u2019\u00e9cole est rattach\u00e9e au Centre universitaire d\u2019Abomey-Calavi.",
+      "address": "Centre- ville",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "epac@bj.refer.org",
+      "phone": "(+229) 36 09 93",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/ECOLE-POLYTECHNIQUE-DABOMEY-CALAVI-133060996713621/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3912362, 6.3702928]
+    }
+  }, {
+    "id": "ecole-polytechnique-de-makusu",
+    "type": "Feature",
+    "properties": {
+      "id": "ecole-polytechnique-de-makusu",
+      "type": "organization",
+      "name": "Ecole polytechnique de Makusu",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": ["polytechnique", "\u00e9lectronique", "informatique"],
+      "description": "L'\u00e9cole polytechnique de Makusu \u00e0 Franceville est rattach\u00e9e \u00e0 l'universit\u00e9 des sciences et techniques. Elle forme en informatique et r\u00e9seau des techniciens sup\u00e9rieurs et en \u00e9lectronique des ing\u00e9nieurs. Il s'agit de l'unique \u00e9cole polytechnique publique du pays.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Franceville",
+      "country": "Gabon",
+      "email": "",
+      "phone": "(+241) 67 75 77",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/PolytechMasuku",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [13.6015463, -1.6196441]
+    }
+  }, {
+    "id": "ecole-superieure-polytechnique-d-antananarivo",
+    "type": "Feature",
+    "properties": {
+      "id": "ecole-superieure-polytechnique-d-antananarivo",
+      "type": "organization",
+      "name": "Ecole Sup\u00e9rieure Polytechnique d'Antananarivo",
+      "url": "http://www.espa-tana.mg/article.php?rub=1&langue=fr",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "SIG", "t\u00e9l\u00e9coms"],
+      "description": "L'\u00e9cole sup\u00e9rieure polytechnique d'Antananarivo issue du regroupement de plusieurs \u00e9coles d'ing\u00e9nieurs et rattach\u00e9e \u00e0 l'universit\u00e9 propose 13 mentions diff\u00e9rentes, notamment dans les domaines de l'information g\u00e9ographique, de l'\u00e9lectronique, et des t\u00e9l\u00e9coms",
+      "address": "Vontovorona, Campus Universitaire Ambohitsaina",
+      "postcode": "",
+      "city": "Antananarivo",
+      "country": "Madagascar",
+      "email": "poly_ac@gmail.com",
+      "phone": "(+261) 20 22 326 39",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [47.5079055, -18.8791902]
+    }
+  }, {
+    "id": "emig",
+    "type": "Feature",
+    "properties": {
+      "id": "emig",
+      "type": "organization",
+      "name": "EMIG",
+      "url": "http://www.emig-niger.org",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "informatique", "mines"],
+      "description": "L'\u00e9cole des mines, de l'industrie et de la g\u00e9ologie est une grande \u00e9cole d'ing\u00e9nieurs de la capitale nig\u00e9rienne.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Niamey",
+      "country": "Niger",
+      "email": "emig@intnet.ne",
+      "phone": "(+227) 20. 31.51.00",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.1253854, 13.5115963]
+    }
+  }, {
+    "id": "eni-abderhamane-baba-toure",
+    "type": "Feature",
+    "properties": {
+      "id": "eni-abderhamane-baba-toure",
+      "type": "organization",
+      "name": "ENI Abderhamane Baba Tour\u00e9",
+      "url": "http://www.eni-abt.com",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "\u00e9lectronique", "t\u00e9l\u00e9coms"],
+      "description": "L'\u00e9cole nationale d'ing\u00e9nieur Abderhame Baba Tour\u00e9 forme des techniciens et des ing\u00e9nieurs. Elle propose notamment des cursus en automatisme, \u00e9lectronique, \u00e9lectricit\u00e9, r\u00e9seaux et t\u00e9l\u00e9coms ainsi que d'autres champs scientifiques",
+      "address": "Avenue Van Vollenhoven",
+      "postcode": "",
+      "city": "Bamako",
+      "country": "Mali",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-7.997245200000001, 12.6501791]
+    }
+  }, {
+    "id": "ensi",
+    "type": "Feature",
+    "properties": {
+      "id": "ensi",
+      "type": "organization",
+      "name": "ENSI",
+      "url": "http://www.ensi.univ-lome.tg/index.php",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "\u00e9lectronique", "informatique"],
+      "description": "L'Ecole Nationale Sup\u00e9rieure d'Ing\u00e9nieur de l'universit\u00e9 de Lom\u00e9 est une \u00e9cole publique sur concours qui forme au g\u00e9nie civil, m\u00e9canique et \u00e9lectronique. Elle a de nombreux partenariats institutionnels (chambre de commerce, autorit\u00e9 de r\u00e9glementation des t\u00e9l\u00e9coms) et dans le monde des entreprises.",
+      "address": "Campus Universitaire, Route d'Atakpam\u00e9",
+      "postcode": "",
+      "city": "Lom\u00e9",
+      "country": "Togo",
+      "email": "ensi_ul@yahoo.fr",
+      "phone": "(+228) 225 66 42",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/ENSI-113699362134056/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.2313618, 6.1724969]
+    }
+  }, {
+    "id": "ensit",
+    "type": "Feature",
+    "properties": {
+      "id": "ensit",
+      "type": "organization",
+      "name": "ENSIT",
+      "url": "http://www.ensit.ci",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "ing\u00e9nieur", "francophonie"],
+      "description": "L'\u00e9cole nouvelle sup\u00e9rieure d'ing\u00e9nieurs et de technologie est une \u00e9cole d'ing\u00e9nieurs du r\u00e9seau de l'Agence universitaire de la Francophonie. Elle a pour vocation la formation d'ing\u00e9nieurs qualifi\u00e9s dans les nouvelles technologies.",
+      "address": "K 22",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "(+225) 22 41 65 63",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Ensit2Plateaux",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.000783, 5.3634276]
+    }
+  }, {
+    "id": "ensp-brazzaville",
+    "type": "Feature",
+    "properties": {
+      "id": "ensp-brazzaville",
+      "type": "organization",
+      "name": "ENSP Brazzaville",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "t\u00e9l\u00e9coms", "\u00e9nergie"],
+      "description": "L'\u00e9cole nationale sup\u00e9rieure polytechnique est une \u00e9cole d'ing\u00e9nierie et de recherche. Elle est un pole de d\u00e9veloppement, d'innovation et d'excellence",
+      "address": "Mak\u00e9l\u00e9k\u00e9l\u00e9 universit\u00e9 Marien Ngouabi",
+      "postcode": "",
+      "city": "Brazzaville",
+      "country": "Congo",
+      "email": "",
+      "phone": "(+242) 81 52 88",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Ecole-Nationale-Sup\u00e9rieure-Polytechnique-ENSP-de-Brazzaville-288692494595626/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [15.254406, -4.274765100000001]
+    }
+  }, {
+    "id": "ensp-yaounde",
+    "type": "Feature",
+    "properties": {
+      "id": "ensp-yaounde",
+      "type": "organization",
+      "name": "ENSP Yaound\u00e9",
+      "url": "http://www.polytechnique.cm",
+      "category": "\u00c9cole",
+      "tags": ["Ing\u00e9nieur", "t\u00e9l\u00e9coms", "\u00e9nergie"],
+      "description": "L'\u00e9cole nationale sup\u00e9rieure polytechnique est une \u00e9cole d'ing\u00e9nierie et de recherche. Elle est un pole de d\u00e9veloppement, d'innovation et d'excellence.",
+      "address": "Rte de Melen",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "(+237) 22 23 12 26",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Club-informatique-de-lENSP-de-Yaound\u00e9-370732759724282/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5002627, 3.8629955]
+    }
+  }, {
+    "id": "enstic",
+    "type": "Feature",
+    "properties": {
+      "id": "enstic",
+      "type": "organization",
+      "name": "ENSTIC",
+      "url": "http://upa-benin.org/public/enseignement_formations/ecole/enstic/",
+      "category": "\u00c9cole",
+      "tags": ["d\u00e9veloppeur", "multim\u00e9dia", "entrepreneur"],
+      "description": "L'\u00e9cole nationale des sciences et techniques de l'information et de la communication, qui vient juste de diplomer ses premiers \u00e9l\u00e8ves, forme aux m\u00e9tiers de la conception web et multim\u00e9dia, \u00e0 la gestion d'entreprise, \u00e0 la production audiovisuelle et au journalisme .",
+      "address": "Centre universitaire de Savalou",
+      "postcode": "",
+      "city": "Savalou",
+      "country": "B\u00e9nin",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Ensticsavalou-182786075235736/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.9710284, 7.930136500000001]
+    }
+  }, {
+    "id": "esiac",
+    "type": "Feature",
+    "properties": {
+      "id": "esiac",
+      "type": "organization",
+      "name": "ESIAC",
+      "url": "www.esiac.net",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "informatique", "\u00e9nergie"],
+      "description": "Institution priv\u00e9 d'enseignement sup\u00e9rieur qui forme aux m\u00e9tiers de l'informatique, des t\u00e9l\u00e9communications et de l'\u00e9nergie du BTS au dipl\u00f4me d'ing\u00e9nieur",
+      "address": "Douala-Bassa",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "(+237) 33377411",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.736870099999999, 4.0552484]
+    }
+  }, {
+    "id": "esias-polytechnique",
+    "type": "Feature",
+    "properties": {
+      "id": "esias-polytechnique",
+      "type": "organization",
+      "name": "ESIAS Polytechnique",
+      "url": "http://www.groupeadamasanogo.com/index.php/les-ecoles/esias-polytechnique/12-ecole-superieur-esias-2.html",
+      "category": "\u00c9cole",
+      "tags": ["marketing", "t\u00e9l\u00e9coms", "ing\u00e9nieur"],
+      "description": "L'\u00e9cole Sup\u00e9rieure Internationale Polytechnique ADAMA SANOGO (ESIAS) est une grande \u00e9cole qui offre des formations techniques et professionnelles d\u00e9bouchant sur des m\u00e9tiers autour du marketing, de l'informatique et sa maintenance, du logiciel ainsi que d'autres formations tertiaires",
+      "address": "13 RCI Plateau Dokui",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "(+225) 24 39 01 94",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0101705, 5.3906199]
+    }
+  }, {
+    "id": "esis",
+    "type": "Feature",
+    "properties": {
+      "id": "esis",
+      "type": "organization",
+      "name": "ESIS",
+      "url": "http://www.esisalama.org/vue/index.php",
+      "category": "\u00c9cole",
+      "tags": ["r\u00e9seaux", "webdesign", "logiciels"],
+      "description": "L\u2019ESIS positionne l\u2019entreprise au c\u0153ur de son enseignement : stages en entreprises, corps professoral comptant de nombreux professionnels en activit\u00e9, Junior Entreprises, services aux entreprises via le CREDIA (Centre de Recherche et de D\u00e9veloppement en Informatique Appliqu\u00e9e) sont les maitres-mots de la vision de l\u2019\u00e9quipe de direction de l\u2019ESIS.",
+      "address": "Avenue du Cadastre",
+      "postcode": "",
+      "city": "Lubumbashi",
+      "country": "RD Congo",
+      "email": "info@esisalama.org",
+      "phone": "(+243) 81 5952839",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [27.4805357, -11.6794951]
+    }
+  }, {
+    "id": "esma",
+    "type": "Feature",
+    "properties": {
+      "id": "esma",
+      "type": "organization",
+      "name": "ESMA",
+      "url": "http://esma-edu.com",
+      "category": "\u00c9cole",
+      "tags": ["webdesign", "community management", "d\u00e9veloppeur"],
+      "description": "L'\u00e9cole de sp\u00e9cialit\u00e9 multim\u00e9dia d'Abidjan forme \u00e0 tous les m\u00e9tiers de la communication digitale et de la cr\u00e9ation sur le web. Elle propose des dipl\u00f4mes du BTS au master en passant par des certifications professionnelles (cameraman,technicien du son\u2026). L'\u00e9cole est partenaire de son homologue parisien, l'\u00e9cole multim\u00e9dia de Paris.",
+      "address": "Marcory sur le Bd Val\u00e9rie Giscard d'Estaing en face du Cap Sud.",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "(+225) 21 26 23 23",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/ESMA-Abidjan-562111977196071/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "esmat",
+    "type": "Feature",
+    "properties": {
+      "id": "esmat",
+      "type": "organization",
+      "name": "ESMAT",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": ["d\u00e9veloppeur", "informatique", "r\u00e9seaux"],
+      "description": "L'\u00e9cole sup\u00e9rieure de management et technologies appliqu\u00e9es dispense des formations en management, marketing, gestion de projet et des licences professionnelles et syst\u00e8me d'information et en t\u00e9l\u00e9coms.",
+      "address": "Boulevard des Tensoba, secteur 18",
+      "postcode": "",
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.5196603, 12.3714277]
+    }
+  }, {
+    "id": "esmt",
+    "type": "Feature",
+    "properties": {
+      "id": "esmt",
+      "type": "organization",
+      "name": "ESMT",
+      "url": "http://www.esmt.sn",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "t\u00e9l\u00e9coms", "international"],
+      "description": "L'Ecole sup\u00e9rieure multinationale des t\u00e9l\u00e9communications est une initiative de sept pays d'afrique et du PNUD situ\u00e9e \u00e0 Dakar pour former des ing\u00e9nieurs en t\u00e9l\u00e9communications",
+      "address": "Grand Dakar",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 824 98 06",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/ESMT-de-Dakar-447828995286504/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4528979, 14.7037636]
+    }
+  }, {
+    "id": "esp",
+    "type": "Feature",
+    "properties": {
+      "id": "esp",
+      "type": "organization",
+      "name": "ESP",
+      "url": "http://www.esp.sn",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "\u00e9lectronique", "informatique"],
+      "description": "Fond\u00e9e en 1964, l'\u00e9cole sup\u00e9rieure polytechnique du S\u00e9n\u00e9gal est rattach\u00e9e \u00e0 l'universit\u00e9 Cheik Anta Diop et forme des ing\u00e9nieurs technique ou de conception. Elle a \u00e9t\u00e9 prim\u00e9e lors du forum co-innovation organis\u00e9e par l'op\u00e9rateur t\u00e9l\u00e9com Sonatel.",
+      "address": "Universit\u00e9 Cheikh Anta Diop, Fann",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 869 24 00",
+      "twitter": "@isp_dakar",
+      "facebook": "https://www.facebook.com/espdakar",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.461401, 14.6915121]
+    }
+  }, {
+    "id": "espace-de-coworking-institut-francais",
+    "type": "Feature",
+    "properties": {
+      "id": "espace-de-coworking-institut-francais",
+      "type": "organization",
+      "name": "Espace de coworking Institut Fran\u00e7ais",
+      "url": "http://www.institutfrancais-senegal.com/-Dakar-.html",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "culture", "m\u00e9diath\u00e8que"],
+      "description": "Afin d\u2019impulser des dynamiques cr\u00e9atrices de valeur pour l\u2019\u00e9cosyst\u00e8me technologique notamment celles li\u00e9es aux industries cr\u00e9atives, l\u2019Institut fran\u00e7ais a ouvert un espace de travail collaboratif \u00e0 la m\u00e9diath\u00e8que. Il est destin\u00e9 \u00e0 accueillir tous les professionnels du secteur ainsi que l\u2019ensemble des acteurs culturels. L'espace est anim\u00e9 par Jokkolabs.",
+      "address": "89 rue Joseph T. Gomis",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "ifdakar@jokkolabs.net",
+      "phone": "(+221) 33 823 03 20",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "esp-antsiranana",
+    "type": "Feature",
+    "properties": {
+      "id": "esp-antsiranana",
+      "type": "organization",
+      "name": "ESP Antsiranana",
+      "url": "http://www.univ-antsiranana.edu.mg/polytechnique/category/preacutesentation-de-lecole",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "\u00e9lectronique", "informatique"],
+      "description": "Ecole sup\u00e9rieure polytechnique situ\u00e9e au sein de l'universit\u00e9 d'Antsiranana au nord du pays.",
+      "address": "Pr\u00e8s de l'universit\u00e9 d'Antsiranana",
+      "postcode": "",
+      "city": "Antsiranana",
+      "country": "Madagascar",
+      "email": "espantsiranana@gmail.com",
+      "phone": "(+261) 32 02 510 80",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [49.2942833, -12.3231349]
+    }
+  }, {
+    "id": "esta",
+    "type": "Feature",
+    "properties": {
+      "id": "esta",
+      "type": "organization",
+      "name": "ESTA",
+      "url": "www.esta.bf",
+      "category": "\u00c9cole",
+      "tags": ["t\u00e9l\u00e9coms", "informatique", "\u00e9lectronique"],
+      "description": "L'ESTA d\u00e9livre plusieurs dipl\u00f4mes li\u00e9s \u00e0 l'informatique, aux r\u00e9seaux et syst\u00e8mes d'information et \u00e0 l'\u00e9lectronique industrielle. Elle est acad\u00e9mie Microsoft et Oracle et en partenariat acad\u00e9mique avec l'universit\u00e9 publique, un laboratoire de signaux \u00e0 Abidjan et l'universit\u00e9 de la C\u00f4te d'Opale en France",
+      "address": "Arrondissement n\u00b04 du secteur 18",
+      "postcode": "",
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "email": "info@esta.bf",
+      "phone": "(+226) 50 35 56 87",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/esta.burkinafaso/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.5196603, 12.3714277]
+    }
+  }, {
+    "id": "estm",
+    "type": "Feature",
+    "properties": {
+      "id": "estm",
+      "type": "organization",
+      "name": "ESTM",
+      "url": "http://www.estm.sn",
+      "category": "\u00c9cole",
+      "tags": ["t\u00e9l\u00e9coms", "management", "environnement"],
+      "description": "L'\u00e9cole sup\u00e9rieure de technologie et de management est une \u00e9cole d'ing\u00e9nieurs et de sp\u00e9cialistes du management. Elle poss\u00e8de un incubateur et est partenaire de grandes entreprises internationales comme CISCO et Microsoft",
+      "address": "Avenue Cheikh Anta Diop (\u00e9galement Route du Front de Terre x Bourguiba)",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 825 28 89",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/EstmSN?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "e-triblabs",
+    "type": "Feature",
+    "properties": {
+      "id": "e-triblabs",
+      "type": "organization",
+      "name": "E-Triblabs",
+      "url": "http://www.etrilabs.com",
+      "category": "Incubateur",
+      "tags": ["coworking", "acc\u00e9l\u00e9rateur", "formations"],
+      "description": "P\u00f4le d\u2019innovation au service du d\u00e9veloppement, nous offrons l\u2019environnement et l\u2019infrastructure n\u00e9cessaires pour l\u2019\u00e9closion de technologie de rupture en Afrique.",
+      "address": "158 Rue 2348A, Fidjrosse",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "info@etrilabs.com",
+      "phone": "(+229) 20 21 64 43",
+      "twitter": "@EtriLabs",
+      "facebook": "https://www.facebook.com/ETRILABS/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3691923, 6.353721699999999]
+    }
+  }, {
+    "id": "everjobs",
+    "type": "Feature",
+    "properties": {
+      "id": "everjobs",
+      "type": "organization",
+      "name": "Everjobs",
+      "url": "https://www.everjobs.cm/",
+      "category": "Entreprise",
+      "tags": ["recrutement", "emploi", "plateforme"],
+      "description": "Everjobs est une plateforme de recrutement o\u00f9 employeurs et candidats peuvent dialoguer comme sur un r\u00e9seau social.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "",
+      "twitter": "@EverjobsCM",
+      "facebook": "https://www.facebook.com/Everjobs/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.7678687, 4.0510564]
+    }
+  }, {
+    "id": "eyolab",
+    "type": "Feature",
+    "properties": {
+      "id": "eyolab",
+      "type": "organization",
+      "name": "Eyolab",
+      "url": "http://www.eyolab.ci",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "opensource", "coworking"],
+      "description": "Hub de cr\u00e9ation, de partage et de cr\u00e9ativit\u00e9. Avec sa biblioth\u00e8que, son laboratoire du libre et son coworking et son sharing Space, c'est aussi un creuset pour l'\u00e9panouissement et la croissance de la philosophie de l'entreprenariat .",
+      "address": "Yaou",
+      "postcode": "",
+      "city": "Bonoua",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "info@eyolab.ci",
+      "phone": "(+225) 59 319 600",
+      "twitter": "@EyoLab",
+      "facebook": "https://www.facebook.com/eyolabci",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.5861731, 5.2720363]
+    }
+  }, {
+    "id": "fablab-defko-ak-niep",
+    "type": "Feature",
+    "properties": {
+      "id": "fablab-defko-ak-niep",
+      "type": "organization",
+      "name": "Fablab \"Defko Ak Ni\u00ebp\"",
+      "url": "http://www.ker-thiossane.org/spip.php?article137",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "prototypage", "opensource"],
+      "description": "Defko Ak Ni\u00ebp est un espace de mutualisation des savoirs-faire traditionnels et de machines de fabrication et technologies num\u00e9rique, inscrit dans une d\u00e9marche d\u2019essaimage de la culture libre.",
+      "address": "S.I.C.A.P. Liberte 2",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "defkoakniep@gmail.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/DefkoakniepLab/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4595525, 14.712386]
+    }
+  }, {
+    "id": "facturexpress",
+    "type": "Feature",
+    "properties": {
+      "id": "facturexpress",
+      "type": "organization",
+      "name": "FactureXpress",
+      "url": "http://facturexpress.com/",
+      "category": "Entreprise",
+      "tags": ["paiement", "applications mobiles", "factures"],
+      "description": "FactureXpress est un syst\u00e8me de paiement \u00e9l\u00e9ctronique qui permet aux utilisateurs de payer des factures par mobile.",
+      "address": "Lot 29 PK10",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "ijolasun@iosystemes.com",
+      "phone": "(+229) 21 339622",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3912362, 6.3702928]
+    }
+  }, {
+    "id": "faculte-des-sciences-et-techniques",
+    "type": "Feature",
+    "properties": {
+      "id": "faculte-des-sciences-et-techniques",
+      "type": "organization",
+      "name": "Facult\u00e9 des sciences et techniques",
+      "url": "http://www.usttb.edu.ml",
+      "category": "\u00c9cole",
+      "tags": ["sciences", "informatique", "ing\u00e9nieur"],
+      "description": "L'universit\u00e9 des sciences et technique de Bamako est l'universit\u00e9 publique scientifique de la capitale malienne.",
+      "address": "Colline de Badalabougou",
+      "postcode": "",
+      "city": "Bamako",
+      "country": "Mali",
+      "email": "usttb-edu@gmail.com",
+      "phone": "(+223) 20 22 32 44",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/USTTB-292047914225416/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-7.994711700000001, 12.6195385]
+    }
+  }, {
+    "id": "feem-wifi",
+    "type": "Feature",
+    "properties": {
+      "id": "feem-wifi",
+      "type": "organization",
+      "name": "Feem Wifi",
+      "url": "http://www.tryfeem.com/",
+      "category": "Entreprise",
+      "tags": ["applications mobiles", "partage fichiers", "wifi"],
+      "description": "Feem est une application mobile permettant le partage de fichiers quelque soit leur taille ou leur type \u00e0 travers un r\u00e9seau WiFi et sans passer par Internet.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Buea",
+      "country": "Cameroun",
+      "email": "info@feeperfect.com",
+      "phone": "",
+      "twitter": "@FeemWiFi",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.245301999999999, 4.1481842]
+    }
+  }, {
+    "id": "futuris-formation",
+    "type": "Feature",
+    "properties": {
+      "id": "futuris-formation",
+      "type": "organization",
+      "name": "Futuris Formation",
+      "url": "http://www.futuris.sn",
+      "category": "\u00c9cole",
+      "tags": ["vid\u00e9o", "webdesign", "graphisme"],
+      "description": "La formation regroupe les m\u00e9tiers autour de la conception de site web, de montage video et production d'images.",
+      "address": "62, rue Carnot",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 77 762 35 85",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/FUTURIS-FORMATIONS-213466488676342/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.435082, 14.6677549]
+    }
+  }, {
+    "id": "gifted-mom",
+    "type": "Feature",
+    "properties": {
+      "id": "gifted-mom",
+      "type": "organization",
+      "name": "Gifted Mom",
+      "url": "http://www.giftedmom.org/",
+      "category": "Entreprise",
+      "tags": ["sant\u00e9", "maternit\u00e9", "hotline"],
+      "description": "Plateforme web qui permet d\u2019utiliser \u00e0 moindre co\u00fbt les technologies (SMS) pour envoyer des messages de rappel pour les vaccins ou les consultations pr\u00e9natales des femmes enceintes par exemple. Cet outil est tr\u00e8s utile en zone rurale notamment.",
+      "address": "Technipole - Polytechnique",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "info@giftedmom.org",
+      "phone": "(+237)24 28 96 480",
+      "twitter": "@theGiftedMom",
+      "facebook": "https://www.facebook.com/thegiftedmom?ref=hl",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "gounna",
+    "type": "Feature",
+    "properties": {
+      "id": "gounna",
+      "type": "organization",
+      "name": "Gounna",
+      "url": "http://gounna.com/",
+      "category": "Entreprise",
+      "tags": ["m\u00e9dia", "plateforme", "actualit\u00e9s"],
+      "description": "Agr\u00e9gateur d'informations \u00e0 la une, d'actualit\u00e9s et de nouvelles africaines.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "contacts@gounaamail.com",
+      "phone": "(+229)96 61 97 96",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Gounna-112220592190724/info/?tab=page_info",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3912362, 6.3702928]
+    }
+  }, {
+    "id": "graines-de-talent",
+    "type": "Feature",
+    "properties": {
+      "id": "graines-de-talent",
+      "type": "organization",
+      "name": "Graines de Talent",
+      "url": "http://www.graines-de-talent.org/",
+      "category": "Incubateur",
+      "tags": ["p\u00e9pini\u00e8re", "coworking", "formations"],
+      "description": "La p\u00e9pini\u00e8re d'entreprises \u00abGraines de Talent\u00bb, install\u00e9e \u00e0 Yaound\u00e9 au Cameroun depuis 2010 et en partenariat avec 3 centres de formations de la capitale, s\u2019est donn\u00e9e pour mission de promouvoir l\u2019entrepreneuriat local en accompagnant les futurs entrepreneurs dans\u00a0le processus de\u00a0cr\u00e9ation d\u2019entreprise.",
+      "address": "114, Av. Kennedy, Immeuble les Galeries",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "(+237) 22 23 10 25",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/GrainesDeTalent",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "groupe-afi",
+    "type": "Feature",
+    "properties": {
+      "id": "groupe-afi",
+      "type": "organization",
+      "name": "Groupe AFI",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": ["entrepreneur", "management", "informatique"],
+      "description": "Le groupe AFI, l'institut de l'entreprise, propose des formations en management et informatique. Il dispose d'un incubateur. Il fait partie du r\u00e9seau FEDE qui permet aussi bien de passer les diplomes nationaux qu'europ\u00e9ens. Il est partenaire de l'universit\u00e9 d'Evry Val d'Essonnes",
+      "address": "Rue G, Zone B, Dakar Libert\u00e9",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 824 71 70",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/pages/AFI/155148711315812",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4536993, 14.7187531]
+    }
+  }, {
+    "id": "hadina-rim-tic",
+    "type": "Feature",
+    "properties": {
+      "id": "hadina-rim-tic",
+      "type": "organization",
+      "name": "Hadina Rim TIC",
+      "url": "http://hadinarimtic.org/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "mentorat", "ing\u00e9nieurs"],
+      "description": "Hadina Rim TIC est un acc\u00e9l\u00e9rateur charg\u00e9 de la promotion de l'innovation et de sourcer les meilleurs projets soutenus par les jeunes ing\u00e9nieurs mauritaniens pour les accompagner, de l'id\u00e9e vers la cr\u00e9ation d'un v\u00e9ritable business viable.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Nouakchott",
+      "country": "Mauritanie",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/hadinarimtic/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-15.9582372, 18.0735299]
+    }
+  }, {
+    "id": "hakaba-innovation-hub",
+    "type": "Feature",
+    "properties": {
+      "id": "hakaba-innovation-hub",
+      "type": "organization",
+      "name": "Hakaba Innovation Hub",
+      "url": "http://www.habaka.org/",
+      "category": "Incubateur",
+      "tags": ["coworking", "acc\u00e9l\u00e9rateur", "\u00e9v\u00e9nements"],
+      "description": "Hub destin\u00e9 \u00e0 l'innovation et la communaut\u00e9 technologique \u00e0 Madagascar : coworking, \u00e9v\u00e8nements, formation et d\u00e9veloppement des startups technologiques.",
+      "address": "21, rue Fernand Kassanga Tsimbazaza",
+      "postcode": "",
+      "city": "Antananarivo",
+      "country": "Madagascar",
+      "email": "",
+      "phone": "",
+      "twitter": "@HabakaMG",
+      "facebook": "https://www.facebook.com/habakamg/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [47.5079055, -18.8791902]
+    }
+  }, {
+    "id": "himore-medical",
+    "type": "Feature",
+    "properties": {
+      "id": "himore-medical",
+      "type": "organization",
+      "name": "Himore Medical",
+      "url": "",
+      "category": "Entreprise",
+      "tags": ["sant\u00e9", "syst\u00e8mes embarqu\u00e9s", "h\u00f4pitaux"],
+      "description": "Himore Medical est une entreprise qui con\u00e7oit et fabrique des syst\u00e8mes embarqu\u00e9s (syst\u00e8mes \u00e9lectronique et informatique autonome) \u00e0 usage m\u00e9dical et qui fournit des services aux h\u00f4pitaux en leur apportant le mat\u00e9riel n\u00e9cessaire pour faire des examens \u00e0 distances et \u00e0 bas prix.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "(+237) 94426125",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/cardiopad/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "hsad",
+    "type": "Feature",
+    "properties": {
+      "id": "hsad",
+      "type": "organization",
+      "name": "HSAD",
+      "url": "",
+      "category": "Entreprise",
+      "tags": ["logiciels", "gestion", "applications mobiles"],
+      "description": "HSAD est une startup sp\u00e9cialis\u00e9e dans la conception des logiciels de gestion des entreprises en vue d\u2019optimiser leur rendement. L'entreprise d\u00e9veloppe des applications innovantes sur mesure pour les entreprises togolaises et \u00e9trang\u00e8res.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Lom\u00e9",
+      "country": "Togo",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/HSAD-1445996609006720/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.2313618, 6.1724969]
+    }
+  }, {
+    "id": "hyboo",
+    "type": "Feature",
+    "properties": {
+      "id": "hyboo",
+      "type": "organization",
+      "name": "Hyboo",
+      "url": "http://www.hyboo.org/",
+      "category": "Entreprise",
+      "tags": ["\u00e9ducation", "langues", "applications mobiles"],
+      "description": "Hyboo est la premi\u00e8re plateforme web et mobile d\u00e9di\u00e9e \u00e0 l'apprentissage des langues et traditions africaines.",
+      "address": "Akwa est",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "contact@hyboo.org",
+      "phone": "(+237)679718206",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/hyboocameroun",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.7678687, 4.0510564]
+    }
+  }, {
+    "id": "iai",
+    "type": "Feature",
+    "properties": {
+      "id": "iai",
+      "type": "organization",
+      "name": "IAI",
+      "url": "http://www.iaicameroun.com/v2/",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "international", "r\u00e9seaux"],
+      "description": "L'institut africain d'informatique regroupe onze Etats membres d'Afrique centrale et forme des ing\u00e9nieurs autour des th\u00e9matiques des syst\u00e8mes et r\u00e9seaux et des logiciels",
+      "address": "Anja Brandt Allee",
+      "postcode": "",
+      "city": "Liberville",
+      "country": "Gabon",
+      "email": "",
+      "phone": "(+237) 22 72 99 58",
+      "twitter": "@iai_cameroun",
+      "facebook": "https://www.facebook.com/IAI-Cameroun-1396033267341731/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.4802591, 0.3648778]
+    }
+  }, {
+    "id": "ict4devci",
+    "type": "Feature",
+    "properties": {
+      "id": "ict4devci",
+      "type": "organization",
+      "name": "ICT4dev.ci",
+      "url": "www.lorbouor.org",
+      "category": "Entreprise",
+      "tags": ["agriculture", "B2B", "marketplace"],
+      "description": "IT4dev.ci propose une plateforme de solutions interactives pour une agriculture moderne et efficace.",
+      "address": "Cocody Angr\u00e9, 7\u00e8me tranche derri\u00e8re l'Ambassade de Chine, Tech Hub Akendewa",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "info@ict4dev.ci",
+      "phone": "(+225) 22 00 41 64",
+      "twitter": "@lorbouor",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "iftic",
+    "type": "Feature",
+    "properties": {
+      "id": "iftic",
+      "type": "organization",
+      "name": "IFTIC",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": ["public", "audiovisuel", "communication"],
+      "description": "L'Institut de formation aux techniques de l'information et de la communication forme aux m\u00e9tiers de la communication audiovisuelle, du journalisme et de la m\u00e9diation num\u00e9rique",
+      "address": "Corniche Yantala",
+      "postcode": "",
+      "city": "Niamey",
+      "country": "Niger",
+      "email": "direction-iftic@iftic.ne",
+      "phone": "(+227) 73 37 06",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/IFTIC-254262901259566/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0959429, 13.5465259]
+    }
+  }, {
+    "id": "iftic-sup",
+    "type": "Feature",
+    "properties": {
+      "id": "iftic-sup",
+      "type": "organization",
+      "name": "IFTIC-SUP",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": ["t\u00e9l\u00e9coms", "innovation", "commerce"],
+      "description": "L\u2019Institut Sup\u00e9rieur de Formation aux M\u00e9tiers des t\u00e9l\u00e9communications, de l'innovation technologique, de commerce et de gestion est un \u00e9tablissement d\u2019enseignement sup\u00e9rieur universitaire. Il s'agit d'une \u00e9cole reconnue qui a nou\u00e9 de nombreux partenariats.",
+      "address": "Route Yaound\u00e9 Mfou",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "contact@iftic-sup.net",
+      "phone": "(+237) 33 01 32 33",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/IfticSup",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5590868, 3.8211763]
+    }
+  }, {
+    "id": "imani-hub",
+    "type": "Feature",
+    "properties": {
+      "id": "imani-hub",
+      "type": "organization",
+      "name": "Imani Hub",
+      "url": "http://imanihub.net/",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "incubateur", "entrepreneurs"],
+      "description": "Imani Hub est \u00e0 la fois un espace de coworking pour les travailleurs ind\u00e9pendants du secteur NTIC, mais aussi un Tech Hub, laboratoire d\u2019innovation et incubateur de startups.",
+      "address": "1295, avenue de la R\u00e9volution 3\u00e8me Rue (Quartier R\u00e9sidentiel-Limete)",
+      "postcode": "",
+      "city": "Kinshasa",
+      "country": "RD Congo",
+      "email": "contact@imanihub.net",
+      "phone": "(+243) 854 861 592",
+      "twitter": "@ImaniHub",
+      "facebook": "https://www.facebook.com/imanihub",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0, 48.0]
+    }
+  }, {
+    "id": "ime",
+    "type": "Feature",
+    "properties": {
+      "id": "ime",
+      "type": "organization",
+      "name": "IME",
+      "url": "http://www.ime-school.com",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "management", "commerce"],
+      "description": "L'institut sup\u00e9rieur de management et de l'entrepreneuriat reconnu par le minist\u00e8re et sous la tutelle acad\u00e9mique de l'universit\u00e9 de Ngaound\u00e9r\u00e9 vise \u00e0 repondre \u00e0 la demande de formation de haut niveau en management. Il s'agit de la seule formation acad\u00e9mique d'Afrique centrale reconnue ISO 9001.",
+      "address": "Bonamoussadi, derri\u00e8re la Mairie de Douala 5\u00e8me",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "info@ime-school.com",
+      "phone": "(+237) 33 47 88 01",
+      "twitter": "@imedouala",
+      "facebook": "https://www.facebook.com/pages/IME-School/300344096787041",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.7678687, 4.0510564]
+    }
+  }, {
+    "id": "incubateur-2ie",
+    "type": "Feature",
+    "properties": {
+      "id": "incubateur-2ie",
+      "type": "organization",
+      "name": "Incubateur 2IE",
+      "url": "http://www.2ie-edu.org/technopole/favoriser-lemergence-dentreprises-innovantes/#incubateur",
+      "category": "Incubateur",
+      "tags": ["recherche", "environnement", "ESS"],
+      "description": "Incubateur de l'Institut International d'Ing\u00e9nierie de l\u2019Eau et de l\u2019Environnement. Le dispositif d\u2019accompagnement \u00e0 la cr\u00e9ation d\u2019entreprise propos\u00e9 par 2iE est ouvert \u00e0 tout porteur de projet d\u2019entreprise innovante en Afrique.",
+      "address": "Rue de la Science",
+      "postcode": "",
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "email": "technopole@2ie-edu.org",
+      "phone": "(+226) 25 49 28 00",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.5196603, 12.3714277]
+    }
+  }, {
+    "id": "incubateur-ctic",
+    "type": "Feature",
+    "properties": {
+      "id": "incubateur-ctic",
+      "type": "organization",
+      "name": "Incubateur CTIC",
+      "url": "http://www.cticdakar.com/fr/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "entrepreneurs", "\u00e9v\u00e9nements"],
+      "description": "L'incubateur TIC de Dakar vise \u00e0 accueillir et accompagner des entreprises dans le domaine des TIC.",
+      "address": "3, Rue B\u00e9ranger F\u00e9raud",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "contact@cticdakar.com",
+      "phone": "(+221) 33 889 77 88",
+      "twitter": "@cticdakar",
+      "facebook": "https://www.facebook.com/cticdakar/info?tab=overview",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4306432, 14.6691984]
+    }
+  }, {
+    "id": "incubateur-douala",
+    "type": "Feature",
+    "properties": {
+      "id": "incubateur-douala",
+      "type": "organization",
+      "name": "Incubateur Douala",
+      "url": "http://www.incubateurdouala.com/",
+      "category": "Incubateur",
+      "tags": ["coworking", "mentorat", "international"],
+      "description": "L'Incubateur des entreprises est un espace \u00e0 disposition des jeunes talents camerounais (actuellement en Italie, en Europe et au Cameroun) qui veulent d\u00e9finir et d\u00e9velopper leurs propres id\u00e9es de cr\u00e9ations d\u2019entreprises innovantes.",
+      "address": "Rez-de-chauss\u00e9e de la Mairie de Douala 5\u00e8me, quartier Bonamoussadi",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "cameroun@incubateurdouala.com",
+      "phone": "(+237) 243 24 58 74",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Incubateur-dEntreprises-de-Douala-512041788901720/info/?tab=page_info",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.742777499999999, 4.089185]
+    }
+  }, {
+    "id": "incubateur-ensp",
+    "type": "Feature",
+    "properties": {
+      "id": "incubateur-ensp",
+      "type": "organization",
+      "name": "Incubateur ENSP",
+      "url": "http://www.polytechnique.cm/#",
+      "category": "Incubateur",
+      "tags": ["incubation", "recherche", "sciences"],
+      "description": "Incubateur num\u00e9rique de l'Ecole Nationale Sup\u00e9rieure Polytechnique de Yaound\u00e9.",
+      "address": "Route de Melen",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "awonoonana.charles@gmail.com",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5002627, 3.8629955]
+    }
+  }, {
+    "id": "incubateur-essec-de-douala",
+    "type": "Feature",
+    "properties": {
+      "id": "incubateur-essec-de-douala",
+      "type": "organization",
+      "name": "Incubateur Essec de Douala",
+      "url": "https://collectifentrepreneuriat.wordpress.com/tag/incubateur/",
+      "category": "Incubateur",
+      "tags": ["incubation", "universit\u00e9", "\u00e9tudiants"],
+      "description": "Incubateur de l'ESSEC de Douala, premi\u00e8re Ecole de commerce d'Afrique centrale par le volume de sa formation scientifique et de la qualit\u00e9 de sa formation.",
+      "address": "Carrefour Ange Raphael",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "essecdla@yahoo.fr",
+      "phone": "(+237) 33 40 53 41",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.7678687, 4.0510564]
+    }
+  }, {
+    "id": "infinity-space",
+    "type": "Feature",
+    "properties": {
+      "id": "infinity-space",
+      "type": "organization",
+      "name": "Infinity Space",
+      "url": "http://www.infinityspace.fr/",
+      "category": "Entreprise",
+      "tags": ["marketplace", "ecommerce", "tontine"],
+      "description": "Bas\u00e9e au Cameroun, Kenya et en France, Infinity Space a d\u00e9velopp\u00e9 WeSHOPUp, une nouvelle solution d'achat mixant crowdfunding et ecommerce.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "weshopup@infinityspace.fr",
+      "phone": "(+237)75 34 05 50",
+      "twitter": "",
+      "facebook": "https://fr-fr.facebook.com/myinfinityspace",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "inovis",
+    "type": "Feature",
+    "properties": {
+      "id": "inovis",
+      "type": "organization",
+      "name": "Inovis",
+      "url": "http://www.inovis.ci/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "universit\u00e9", "entrepreneurs"],
+      "description": "Centre d'incubation et d\u2019acc\u00e9l\u00e9ration d'entreprise, au sein de l'Universit\u00e9 F\u00e9lix Houphouet Boigny \u00e0 Bingerville.",
+      "address": "Ex ESIE Bingerville",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Inovis-Abidjan-220193701512605/timeline/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.8757119, 5.3503589]
+    }
+  }, {
+    "id": "inphb",
+    "type": "Feature",
+    "properties": {
+      "id": "inphb",
+      "type": "organization",
+      "name": "INPHB",
+      "url": "http://inphb.chez.com/infogene.html",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "polytechnique", "industrie"],
+      "description": "L'institut national Polytechnique F\u00e9lix Houphouet Boigny, rattach\u00e9 \u00e0 l'universit\u00e9, est le regroupement de plusieurs grandes \u00e9coles d'ing\u00e9nieurs publiques.",
+      "address": "Centre- ville",
+      "postcode": "",
+      "city": "Yamoussoukro",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "(+225) 30 64 66 66",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/INP-HB-288159941203868/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-5.2893433, 6.827622799999999]
+    }
+  }, {
+    "id": "inptic",
+    "type": "Feature",
+    "properties": {
+      "id": "inptic",
+      "type": "organization",
+      "name": "INPTIC",
+      "url": "http://www.inptic.com/?page_id=89",
+      "category": "\u00c9cole",
+      "tags": ["public", "t\u00e9l\u00e9coms", "informatique"],
+      "description": "l\u2019Institut National de la Poste des Technologies de l\u2019Information et de la Communication est un \u00e9tablissement public professionnel d\u2019enseignement sup\u00e9rieur. Seul \u00e9tablissement au GABON dans le domaine des Technologies de l\u2019Information et de la Communication, T\u00e9l\u00e9communications et Economie Num\u00e9rique, l\u2019INPTIC offre des formations professionnelles, sp\u00e9cialis\u00e9es, dipl\u00f4mantes et qualifiantes.",
+      "address": "Centre- ville",
+      "postcode": "",
+      "city": "Libreville",
+      "country": "Gabon",
+      "email": "info@inptic.com",
+      "phone": "(+241) 01 73 81 31",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.4672676, 0.4161976]
+    }
+  }, {
+    "id": "institut-de-formation-et-de-recherche-en-informatique",
+    "type": "Feature",
+    "properties": {
+      "id": "institut-de-formation-et-de-recherche-en-informatique",
+      "type": "organization",
+      "name": "Institut de formation et de recherche en informatique",
+      "url": "www.ifri-uac.net",
+      "category": "\u00c9cole",
+      "tags": ["d\u00e9veloppeur", "logiciels", "s\u00e9curit\u00e9"],
+      "description": "L'IFRI est un jeune institut dynamique et ouvert aux mouvements de la soci\u00e9t\u00e9. Il est en partenariat avec plusieurs entit\u00e9s de l'Universit\u00e9 d'Abomey-Calavi et des universit\u00e9s \u00e9trang\u00e8res. L'institut forme des dipl\u00f4m\u00e9s en licence, en master et en doctorat. Il r\u00e9pond aux valeurs du r\u00e9seau d'excellence pour l'enseignement sup\u00e9rieur en Afrique de l'Ouest.",
+      "address": "Campus d'Abomey-Calavi, rue Agro Maquis",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "contact@ifri-uac.net",
+      "phone": "(+229) 97915061",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/IFRI.UAC/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3912362, 6.3702928]
+    }
+  }, {
+    "id": "institut-superieur-de-technologie-d-antsiranana",
+    "type": "Feature",
+    "properties": {
+      "id": "institut-superieur-de-technologie-d-antsiranana",
+      "type": "organization",
+      "name": "Institut sup\u00e9rieur de technologie d'Antsiranana",
+      "url": "http://www.ist-antsiranana.mg",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "informatique", "t\u00e9l\u00e9coms"],
+      "description": "L'institut sup\u00e9rieur de technologie d'Antsiranana forme des techniciens sup\u00e9rieurs et des ing\u00e9nieurs aux m\u00e9tiers du g\u00e9nie industrielle, \u00e0 la maintenance r\u00e9seau (fixe et mobile) ainsi qu'aux fonctions de management. Elle compte quatre cents \u00e9l\u00e8ves pour environ cinquante enseignants.",
+      "address": "Bd De G Bayer",
+      "postcode": "",
+      "city": "Antsiranana",
+      "country": "Madagascar",
+      "email": "istd@ist-antsiranana.mg",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/ISTDiego/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [49.2874722, -12.2800334]
+    }
+  }, {
+    "id": "institut-superieur-d-informatique,-programmation-et-analyse",
+    "type": "Feature",
+    "properties": {
+      "id": "institut-superieur-d-informatique,-programmation-et-analyse",
+      "type": "organization",
+      "name": "Institut sup\u00e9rieur d'informatique, programmation et analyse",
+      "url": "http://www.isipa.cd/index.php/fr/",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "gestion", "d\u00e9veloppeur"],
+      "description": "L\u2019objectif poursuivi par l\u2019Institut Sup\u00e9rieur d\u2019Informatique, Programmation et Analyse, se r\u00e9sume essentiellement par la formation des cadres universitaires en Informatique en sciences commerciales et financi\u00e8res",
+      "address": "Camp kokolo",
+      "postcode": "",
+      "city": "Kinshasa",
+      "country": "RD Congo",
+      "email": "contact@isipa.cd",
+      "phone": "(+243) 812 371 324",
+      "twitter": "@isipa_rdc",
+      "facebook": "https://www.facebook.com/ISIPA-Officiel-1427170390924658/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [15.2843148, -4.3030045]
+    }
+  }, {
+    "id": "institut-universitaire-des-sciences-et-techniques-d-abeche",
+    "type": "Feature",
+    "properties": {
+      "id": "institut-universitaire-des-sciences-et-techniques-d-abeche",
+      "type": "organization",
+      "name": "Institut universitaire des sciences et techniques d'Ab\u00e9ch\u00e9",
+      "url": "http://iusta.lescigales.org/presentation.html",
+      "category": "\u00c9cole",
+      "tags": ["public", "informatique", "industrie"],
+      "description": "L'institut universitaire des sciences et techniques d'Ab\u00e9ch\u00e9 existe depuis 1997. Il a d\u00e9velopp\u00e9 de nombreux partenariats, notamment avec Lyon et plusieurs pays d'Afrique de l'Ouest",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Ab\u00e9ch\u00e9",
+      "country": "Tchad",
+      "email": "mahamat.abakar@univ-st-etienne.fr",
+      "phone": "(+235) 625 12 90",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/iusta.abeche?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [20.8433709, 13.8359124]
+    }
+  }, {
+    "id": "institut-universitaire-de-technologie-de-l-universite-de-parakou",
+    "type": "Feature",
+    "properties": {
+      "id": "institut-universitaire-de-technologie-de-l-universite-de-parakou",
+      "type": "organization",
+      "name": "Institut universitaire de technologie de l'universit\u00e9 de Parakou",
+      "url": "http://www.univ-parakou.bj/index.php",
+      "category": "\u00c9cole",
+      "tags": ["marketing", "gestion", "informatique"],
+      "description": "Rattach\u00e9 \u00e0 l'universit\u00e9 de Parakou, deuxi\u00e8me universit\u00e9 publique, au nord du B\u00e9nin, l'institut universitaire de technologie forme au niveau BTS ou licence professionnelle aux m\u00e9tiers de la gestion, du marketing, et de l'informatique de gestion",
+      "address": "Centre- ville",
+      "postcode": "",
+      "city": "Parakou",
+      "country": "B\u00e9nin",
+      "email": "contacts@univ-parakou.com",
+      "phone": "(+229) 23 61 07 12",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.6090043, 9.3466822]
+    }
+  }, {
+    "id": "institut-universitaire-polytechnique-de-mongo",
+    "type": "Feature",
+    "properties": {
+      "id": "institut-universitaire-polytechnique-de-mongo",
+      "type": "organization",
+      "name": "Institut universitaire polytechnique de Mongo",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": ["public", "ing\u00e9nieur", "informatique"],
+      "description": "L'institut universitaire polytechnique de Mongo situ\u00e9 au centre du pays propose des formations d'ing\u00e9nieurs en g\u00e9nie industriel, m\u00e9canique, chimique et civil.",
+      "address": "Route d'Aboud\u00e9ia",
+      "postcode": "",
+      "city": "Mongo",
+      "country": "Tchad",
+      "email": "iupm@intnet.td",
+      "phone": "(+235) 51 80 64",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/Institut-Universitaire-Polytechnique-de-Mongo_IUPM-295060577198007/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [18.6917922, 12.1862546]
+    }
+  }, {
+    "id": "intc",
+    "type": "Feature",
+    "properties": {
+      "id": "intc",
+      "type": "organization",
+      "name": "INTC",
+      "url": "http://intc-madagascar.com/",
+      "category": "Entreprise",
+      "tags": ["webdesign", "conseil", "communication"],
+      "description": "L'agence con\u00e7oit des solutions web pour am\u00e9liorer les performances des entreprises de toutes tailles.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Antananarivo",
+      "country": "Madagascar",
+      "email": "http://intc-madagascar.com/",
+      "phone": "(+261) 32 05 113 26",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/intc.madagascar/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [47.5079055, -18.8791902]
+    }
+  }, {
+    "id": "irao",
+    "type": "Feature",
+    "properties": {
+      "id": "irao",
+      "type": "organization",
+      "name": "IRAO",
+      "url": "http://www.rusta-irao.org/",
+      "category": "Incubateur",
+      "tags": ["incubation", "recherche", "\u00e9tudiants"],
+      "description": "L'IRAO, incubateur r\u00e9gional d'Afrique de l'Ouest propose des programmes d'immersion et d'insertion professionnelles aux \u00e9tudiants et jeunes dipl\u00f4m\u00e9s africains.",
+      "address": "Cocody, Deux Plateaux Les Vallons (angle des rues J113 et J068)",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "irao.afrique@gmail.com",
+      "phone": "(+225) 22 41 15 43",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/IRAO-Incubateur-R%C3%A9gional-dAfrique-de-lOuest-259368107413207/?fref=photo",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "iseg",
+    "type": "Feature",
+    "properties": {
+      "id": "iseg",
+      "type": "organization",
+      "name": "ISEG",
+      "url": "http://isegcesmi.com",
+      "category": "\u00c9cole",
+      "tags": ["communication", "formation \u00e0 distance", "informatique"],
+      "description": "L'institut sup\u00e9rieur d'entrepreneurship et de gestion fonde son expertise sur l'enseignement \u00e0 distance afin de r\u00e9duire les in\u00e9galit\u00e9s g\u00e9ographiques de l'enseignement sup\u00e9rieur.Ses formations sont certifi\u00e9es CAMES. Elle poss\u00e8de un incubateur et est a cr\u00e9\u00e9 des partenariats avec des institutions am\u00e9ricaines et europ\u00e9enne.",
+      "address": "Sicap Sacr\u00e9 Coeur 1 N\u00b08469",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "isegcesmi@gmail.com",
+      "phone": "(+221) 33 864 26 60",
+      "twitter": "@iseggroup",
+      "facebook": "https://www.facebook.com/Isegfamily?ref=br_rs",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4501539, 14.7259871]
+    }
+  }, {
+    "id": "isfmi",
+    "type": "Feature",
+    "properties": {
+      "id": "isfmi",
+      "type": "organization",
+      "name": "ISFMI",
+      "url": "http://www.isfmi.net",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "Cisco", "d\u00e9veloppeur"],
+      "description": "L'Institut Sup\u00e9rieur de formation aux m\u00e9tiers de l'informatique propose des BTS et des dipl\u00f4mes d'ing\u00e9nieurs autour des m\u00e9tiers de l'informatique notamment R\u00e9seaux et t\u00e9l\u00e9coms et g\u00e9nie logiciel",
+      "address": "Rue du Commerce, Immeuble Kissimala",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "infos@isfmi.net",
+      "phone": "(+225) 20 32 83 89",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "isicom",
+    "type": "Feature",
+    "properties": {
+      "id": "isicom",
+      "type": "organization",
+      "name": "ISICOM",
+      "url": "http://isicom-edu.com",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "communication", "partenariats"],
+      "description": "Institution priv\u00e9e d'enseignement sup\u00e9rieur qui forme aux m\u00e9tiers de l'informatique et de la communication et qui d\u00e9veloppe des partenariats avec les universit\u00e9s environnantes.",
+      "address": "Logbessou Douala Littoral",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "(+237) 76 48 19 57",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100006099316554&fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.736870099999999, 4.0552484]
+    }
+  }, {
+    "id": "istci",
+    "type": "Feature",
+    "properties": {
+      "id": "istci",
+      "type": "organization",
+      "name": "ISTCI",
+      "url": "www.rusta-istci.org",
+      "category": "\u00c9cole",
+      "tags": ["t\u00e9l\u00e9coms", "maintenance", "\u00e9lectronique"],
+      "description": "L'institut sup\u00e9rieur de technologie de C\u00f4te d'Ivoire forme du BTS au Bac +5 autour de l'informatique, de la maintenance de r\u00e9seaux et des t\u00e9l\u00e9coms.",
+      "address": "5 Boulevard Angoulvant, Quartier du Plateau",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "(+225) 20 22 70 82",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/pages/Institut-sup\u00e9rieur-de-technologie-de-C\u00f4te-dIvoire/171351536277377?fref=ts&rf=108063502627988",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0217613, 5.326050599999999]
+    }
+  }, {
+    "id": "it-kola",
+    "type": "Feature",
+    "properties": {
+      "id": "it-kola",
+      "type": "organization",
+      "name": "IT KOLA",
+      "url": "http://itkola.org/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "coworking", "ESS"],
+      "description": "IT-kola est une plateforme de d\u00e9veloppement collectif des id\u00e9es ax\u00e9es sur l\u2019innovation et les technologies durables et d\u2019acc\u00e9l\u00e9ration du d\u00e9veloppement.",
+      "address": "Ngoa Ekele",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "info@itkola.org",
+      "phone": "(+237) 243 23 60 84",
+      "twitter": "@ItKola",
+      "facebook": "https://www.facebook.com/itkola?_rdr=p",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.4992343, 3.8555642]
+    }
+  }, {
+    "id": "izoe",
+    "type": "Feature",
+    "properties": {
+      "id": "izoe",
+      "type": "organization",
+      "name": "Izoe",
+      "url": "",
+      "category": "Entreprise",
+      "tags": ["applications mobiles", "SSII", "logiciels"],
+      "description": "Zo\u00e9 est une soci\u00e9t\u00e9 de services en ing\u00e9nierie informatique proposant une palette de services diversifi\u00e9s .",
+      "address": "Secteur 28, Dassasgho",
+      "postcode": "",
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "email": "info@izoe-afrique.com",
+      "phone": "(+226) 78 57 48 92",
+      "twitter": "@izoeafrique",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.5196603, 12.3714277]
+    }
+  }, {
+    "id": "jappositive",
+    "type": "Feature",
+    "properties": {
+      "id": "jappositive",
+      "type": "organization",
+      "name": "Jappositive",
+      "url": "",
+      "category": "Incubateur",
+      "tags": ["coworking", "mentorat", "\u00e9v\u00e9nements"],
+      "description": "Jappositive est un incubateur et un espace de coworking pour la communaut\u00e9 des entrepreneurs de St Louis.",
+      "address": "246, Ndiolof\u00e9ne",
+      "postcode": "",
+      "city": "Saint-Louis",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 77 206 95 22",
+      "twitter": "@jappositive",
+      "facebook": "https://www.facebook.com/jappositive/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-16.4818167, 16.0326307]
+    }
+  }, {
+    "id": "jerrys",
+    "type": "Feature",
+    "properties": {
+      "id": "jerrys",
+      "type": "organization",
+      "name": "Jerrys",
+      "url": "http://youandjerrycan.org/",
+      "category": "Communaut\u00e9",
+      "tags": ["r\u00e9seau", "bidouille", "r\u00e9cup\u00e9ration"],
+      "description": "Un peu partout dans le monde, la communaut\u00e9 des \u00ab\u00a0Jerrys\u00a0\u00bb s\u2019affaire \u00e0 organiser des ateliers pour fabriquer des ordis de r\u00e9cup\u2019. L\u2019id\u00e9e\u00a0: lutter contre la fracture num\u00e9rique et se r\u00e9approprier de fa\u00e7on ludique la technologie.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Bamako",
+      "country": "Mali",
+      "email": "hello@youandjerrycan.org",
+      "phone": "",
+      "twitter": "@jerryDIT",
+      "facebook": "https://www.facebook.com/Jerry-Do-It-Together-518513301524401/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-8.0028892, 12.6392316]
+    }
+  }, {
+    "id": "jerrys-1",
+    "type": "Feature",
+    "properties": {
+      "id": "jerrys-1",
+      "type": "organization",
+      "name": "Jerrys",
+      "url": "http://youandjerrycan.org/",
+      "category": "Communaut\u00e9",
+      "tags": ["r\u00e9seau", "bidouille", "r\u00e9cup\u00e9ration"],
+      "description": "Un peu partout dans le monde, la communaut\u00e9 des \u00ab\u00a0Jerrys\u00a0\u00bb s\u2019affaire \u00e0 organiser des ateliers pour fabriquer des ordis de r\u00e9cup\u2019. L\u2019id\u00e9e\u00a0: lutter contre la fracture num\u00e9rique et se r\u00e9approprier de fa\u00e7on ludique la technologie.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "hello@youandjerrycan.org",
+      "phone": "",
+      "twitter": "@jerryDIT",
+      "facebook": "https://www.facebook.com/Jerry-Do-It-Together-518513301524401/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "jerrys-2",
+    "type": "Feature",
+    "properties": {
+      "id": "jerrys-2",
+      "type": "organization",
+      "name": "Jerrys",
+      "url": "http://youandjerrycan.org/",
+      "category": "Communaut\u00e9",
+      "tags": ["r\u00e9seau", "bidouille", "r\u00e9cup\u00e9ration"],
+      "description": "Un peu partout dans le monde, la communaut\u00e9 des \u00ab\u00a0Jerrys\u00a0\u00bb s\u2019affaire \u00e0 organiser des ateliers pour fabriquer des ordis de r\u00e9cup\u2019. L\u2019id\u00e9e\u00a0: lutter contre la fracture num\u00e9rique et se r\u00e9approprier de fa\u00e7on ludique la technologie.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yamoussoukro",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "hello@youandjerrycan.org",
+      "phone": "",
+      "twitter": "@jerryDIT",
+      "facebook": "https://www.facebook.com/Jerry-Do-It-Together-518513301524401/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-5.2893433, 6.827622799999999]
+    }
+  }, {
+    "id": "jerrys-3",
+    "type": "Feature",
+    "properties": {
+      "id": "jerrys-3",
+      "type": "organization",
+      "name": "Jerrys",
+      "url": "http://youandjerrycan.org/",
+      "category": "Communaut\u00e9",
+      "tags": ["r\u00e9seau", "bidouille", "r\u00e9cup\u00e9ration"],
+      "description": "Un peu partout dans le monde, la communaut\u00e9 des \u00ab\u00a0Jerrys\u00a0\u00bb s\u2019affaire \u00e0 organiser des ateliers pour fabriquer des ordis de r\u00e9cup\u2019. L\u2019id\u00e9e\u00a0: lutter contre la fracture num\u00e9rique et se r\u00e9approprier de fa\u00e7on ludique la technologie.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "hello@youandjerrycan.org",
+      "phone": "",
+      "twitter": "@jerryDIT",
+      "facebook": "https://www.facebook.com/Jerry-Do-It-Together-518513301524401/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3912362, 6.3702928]
+    }
+  }, {
+    "id": "jerrys-4",
+    "type": "Feature",
+    "properties": {
+      "id": "jerrys-4",
+      "type": "organization",
+      "name": "Jerrys",
+      "url": "http://youandjerrycan.org/",
+      "category": "Communaut\u00e9",
+      "tags": ["r\u00e9seau", "bidouille", "r\u00e9cup\u00e9ration"],
+      "description": "Un peu partout dans le monde, la communaut\u00e9 des \u00ab\u00a0Jerrys\u00a0\u00bb s\u2019affaire \u00e0 organiser des ateliers pour fabriquer des ordis de r\u00e9cup\u2019. L\u2019id\u00e9e\u00a0: lutter contre la fracture num\u00e9rique et se r\u00e9approprier de fa\u00e7on ludique la technologie.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Lom\u00e9",
+      "country": "Togo",
+      "email": "hello@youandjerrycan.org",
+      "phone": "",
+      "twitter": "@jerryDIT",
+      "facebook": "https://www.facebook.com/Jerry-Do-It-Together-518513301524401/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.2313618, 6.1724969]
+    }
+  }, {
+    "id": "jerrys-5",
+    "type": "Feature",
+    "properties": {
+      "id": "jerrys-5",
+      "type": "organization",
+      "name": "Jerrys",
+      "url": "http://youandjerrycan.org/",
+      "category": "Communaut\u00e9",
+      "tags": ["r\u00e9seau", "bidouille", "r\u00e9cup\u00e9ration"],
+      "description": "Un peu partout dans le monde, la communaut\u00e9 des \u00ab\u00a0Jerrys\u00a0\u00bb s\u2019affaire \u00e0 organiser des ateliers pour fabriquer des ordis de r\u00e9cup\u2019. L\u2019id\u00e9e\u00a0: lutter contre la fracture num\u00e9rique et se r\u00e9approprier de fa\u00e7on ludique la technologie.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "hello@youandjerrycan.org",
+      "phone": "",
+      "twitter": "@jerryDIT",
+      "facebook": "https://www.facebook.com/Jerry-Do-It-Together-518513301524401/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "jjiguene-tech-hub",
+    "type": "Feature",
+    "properties": {
+      "id": "jjiguene-tech-hub",
+      "type": "organization",
+      "name": "Jjigu\u00e8ne Tech Hub",
+      "url": "www.jjiguenetech.com",
+      "category": "Incubateur",
+      "tags": ["formations", "femmes", "acc\u00e9l\u00e9rateur"],
+      "description": "Jjigu\u00e8ne est un acc\u00e9l\u00e9rateur destin\u00e9 aux femmes. Son but est d'encourager les femmes \u00e0 int\u00e9grer l'\u00e9cosyst\u00e8me des nouvelles technologies au S\u00e9n\u00e9gal en leur apportant un r\u00e9seau, du mentoring, partage de comp\u00e9tences...",
+      "address": "54, Sacre Coeur 3 - Residence Diaba",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "contact@jjiguenetech.com",
+      "phone": "",
+      "twitter": "@jjiguenetech",
+      "facebook": "facebook.com/jthsenegal",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "jokkolabs-abidjan",
+    "type": "Feature",
+    "properties": {
+      "id": "jokkolabs-abidjan",
+      "type": "organization",
+      "name": "Jokkolabs Abidjan",
+      "url": "http://jokkolabs.net",
+      "category": "Incubateur",
+      "tags": ["coworking", "acc\u00e9l\u00e9rateur", "formations"],
+      "description": "Espace de coworking et action tank qui recherche des approches innovantes li\u00e9es aux nouvelles technologies pour r\u00e9pondre aux enjeux sociaux-\u00e9conomiques actuels.",
+      "address": "II Plateaux, Rue des jardins",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "",
+      "twitter": "@JKLAbidjan",
+      "facebook": "https://m.facebook.com/profile.php?id=1590274527884581",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.9897028, 5.3642321]
+    }
+  }, {
+    "id": "jokkolabs-bamako",
+    "type": "Feature",
+    "properties": {
+      "id": "jokkolabs-bamako",
+      "type": "organization",
+      "name": "Jokkolabs Bamako",
+      "url": "www.bamako.jokkolabs.net",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "\u00e9v\u00e9nements", "citoyennet\u00e9"],
+      "description": "Jokkolabs Bamako est un espace de coworking o\u00f9 tout le monde peut travailler, rencontrer, apprendre, partager et \u00e9changer.",
+      "address": "Hippodrome, Rue 240",
+      "postcode": "",
+      "city": "Bamako",
+      "country": "Mali",
+      "email": "rgaudin@jokkolabs.net",
+      "phone": "(+223) 73 12 08 96",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/JokkolabsBamako?_rdr=p",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-7.971440599999999, 12.6563305]
+    }
+  }, {
+    "id": "jokkolabs-cotonou",
+    "type": "Feature",
+    "properties": {
+      "id": "jokkolabs-cotonou",
+      "type": "organization",
+      "name": "Jokkolabs Cotonou",
+      "url": "http://jokkolabs.net/",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "acc\u00e9l\u00e9rateur", "formations"],
+      "description": "Coworkingspace et action tank qui recherche des approches innovantes li\u00e9es aux nouvelles technologies pour r\u00e9pondre aux enjeux sociaux-\u00e9conomiques actuels.",
+      "address": "239 avenue de la Lib\u00e9ration Jericho",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "f.masson@jokkolabs.net",
+      "phone": "",
+      "twitter": "@JklCotonou",
+      "facebook": "https://www.facebook.com/Jokkolabs-Cotonou-651807744964572",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.4258254, 6.373627399999999]
+    }
+  }, {
+    "id": "jokkolabs-dakar",
+    "type": "Feature",
+    "properties": {
+      "id": "jokkolabs-dakar",
+      "type": "organization",
+      "name": "Jokkolabs Dakar",
+      "url": "http://www.jokkolabs.net",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "acc\u00e9l\u00e9rateur", "communaut\u00e9"],
+      "description": "Jokkolabs Dakar est un espace de travail partag\u00e9 professionnel avec une atmosph\u00e8re communautaire. C'est un espace ouvert, qui accueille tout entrepreneur cherchant \u00e0 d\u00e9velopper son r\u00e9seau, rencontrer de nouveaux collaborateurs, \u00e9changer sur ses pratiques et d\u00e9velopper ses projets professionnels, personnels ou associatifs.",
+      "address": "Sacr\u00e9-C\u0153ur 3, Villa n\u00b09653, 4\u00e8me Phase, Rue 41",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 827 38 31",
+      "twitter": "@Jokkolabs",
+      "facebook": "https://www.facebook.com/jokkolabs?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.449646, 14.6892002]
+    }
+  }, {
+    "id": "jokkolabs-ouagadougou",
+    "type": "Feature",
+    "properties": {
+      "id": "jokkolabs-ouagadougou",
+      "type": "organization",
+      "name": "Jokkolabs Ouagadougou",
+      "url": "http://ouaga.jokkolabs.net/",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "acc\u00e9l\u00e9rateur", "communaut\u00e9"],
+      "description": "Jokkolabs est le 1er espace de coworking en Afrique de l'Ouest lanc\u00e9 le 10/10/2010 pour promouvoir l'innovation et l'entrepreneuriat en Afrique et dans le monde.",
+      "address": "Rue 6.15, Immeuble Nikiema - Gare TCV, Quartier Kamsoghin",
+      "postcode": "",
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "email": "",
+      "phone": "(+226) 65 81 55 00",
+      "twitter": "@Jokkolabs",
+      "facebook": "https://www.facebook.com/jokkolabs",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.5196603, 12.3714277]
+    }
+  }, {
+    "id": "jokkolabs-saint-louis",
+    "type": "Feature",
+    "properties": {
+      "id": "jokkolabs-saint-louis",
+      "type": "organization",
+      "name": "Jokkolabs Saint-Louis",
+      "url": "http://saintlouis.jokkolabs.net",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "acc\u00e9l\u00e9rateur", "communaut\u00e9"],
+      "description": "Jokkolabs Saint-Louis est un espace ouvert pour les technologues, les concepteurs et les entrepreneurs \u00e0 Saint-Louis.",
+      "address": "Rue NDN 11 , Ndiolof\u00e8ne du Nord",
+      "postcode": "",
+      "city": "Saint-Louis",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "info@ndarnumerique.com",
+      "phone": "(+221) 33 961 96 40",
+      "twitter": "@Jokkolabs",
+      "facebook": "https://www.facebook.com/JokkolabsSaintLouis/info?tab=page_info",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-16.4818167, 16.0326307]
+    }
+  }, {
+    "id": "kabako-bamako",
+    "type": "Feature",
+    "properties": {
+      "id": "kabako-bamako",
+      "type": "organization",
+      "name": "Kabako Bamako",
+      "url": "https://www.fablabs.io/kabakobamako",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "jeunes", "formations"],
+      "description": "Kabako Bamako est un fablab qui travaille avec des jeunes qui n'ont pas forc\u00e9ment acc\u00e8s \u00e0 la technologie.",
+      "address": "HAMDALLAYE",
+      "postcode": "",
+      "city": "Bamako",
+      "country": "Mali",
+      "email": "moussaseydouhan@gmail.com",
+      "phone": "(+223) 75154284",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-8.031517899999999, 12.6454919]
+    }
+  }, {
+    "id": "kamerstartup",
+    "type": "Feature",
+    "properties": {
+      "id": "kamerstartup",
+      "type": "organization",
+      "name": "Kamerstartup",
+      "url": "http://www.graines-de-talent.org/",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "entrepreneurs", "p\u00e9pini\u00e8re"],
+      "description": "KamerStartup est un produit de \"Graines de talent \" p\u00e9pini\u00e8re d'entreprise. Il est un espace de de coworking d\u00e9di\u00e9 aux start-ups du num\u00e9rique dans la r\u00e9gion du centre du Cameroun.",
+      "address": "114, Av. Kennedy, immeuble les Galeries",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "(+237) 222 16 57",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/KamerStartup",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "kiro-o-games-studio",
+    "type": "Feature",
+    "properties": {
+      "id": "kiro-o-games-studio",
+      "type": "organization",
+      "name": "Kiro'o Games Studio",
+      "url": "http://www.kiroogames.com/",
+      "category": "Entreprise",
+      "tags": ["jeux vid\u00e9o", "studio", "d\u00e9veloppeur"],
+      "description": "Kiro'o Games Studio est le premier studio de cr\u00e9ation de jeux vid\u00e9os en Afrique Centrale.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "contact@kiroogames.com",
+      "phone": "",
+      "twitter": "@KIROOGames",
+      "facebook": "https://www.facebook.com/AurionheritageDesKoriodan",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "koomzo",
+    "type": "Feature",
+    "properties": {
+      "id": "koomzo",
+      "type": "organization",
+      "name": "Koomzo",
+      "url": "http://koomzo.com/",
+      "category": "Entreprise",
+      "tags": ["\u00e9ducation", "cloud", "logiciels"],
+      "description": "Koomzo est un logiciel pour l'organisation de la vie interne des \u00e9tablissements scolaires et la communication avec les parents.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "support@koomzo.com",
+      "phone": "",
+      "twitter": "@koomzo",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "labtic-inphb-abidjan",
+    "type": "Feature",
+    "properties": {
+      "id": "labtic-inphb-abidjan",
+      "type": "organization",
+      "name": "LABTIC INPHB Abidjan",
+      "url": "http://labtic.net",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "recherche", "\u00e9ducation"],
+      "description": "Le LABTIC est le Laboratoire Libre et Open Source de Recherche en TIC de l'antenne d'Abidjan de l'Institut National Polytechnique F\u00e9lix Houphou\u00ebt Boigny. Equip\u00e9 d\u2019une salle r\u00e9seau d\u2019une vingtaine de machines, il propose une m\u00e9thodologie d\u2019acquisition de savoir-faire en mati\u00e8re d\u2019Internet visant l\u2019administration ivoirienne, les \u00e9tablissements de recherche et d\u2019enseignement sup\u00e9rieur en C\u00f4te d\u2019Ivoire.",
+      "address": "Antenne INPHB, Cocody Danga",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "contact@labtic.net",
+      "phone": "(+225) 22 006 551",
+      "twitter": "@labtic_ci",
+      "facebook": "https://www.facebook.com/Labtic-601815533271216/timeline/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0069802, 5.3377756]
+    }
+  }, {
+    "id": "l-incubateur-multisectoriel-de-libreville",
+    "type": "Feature",
+    "properties": {
+      "id": "l-incubateur-multisectoriel-de-libreville",
+      "type": "organization",
+      "name": "L'incubateur multisectoriel de Libreville",
+      "url": "http://www.apjagabon.org/",
+      "category": "Incubateur",
+      "tags": ["incubation", "entrepreneurs", "public"],
+      "description": "L\u2019incubateur APJA est une structure d\u2019assistance technique visant \u00e0 accompagner les porteurs de projets de cr\u00e9ation d\u2019entreprise et les entrepreneurs dans la mise en place d\u2019une activit\u00e9 entreprenariale viable et durable.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Libreville",
+      "country": "Gabon",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.4672676, 0.4161976]
+    }
+  }, {
+    "id": "malisante",
+    "type": "Feature",
+    "properties": {
+      "id": "malisante",
+      "type": "organization",
+      "name": "Malisant\u00e9",
+      "url": "http://www.malisante.net/",
+      "category": "Entreprise",
+      "tags": ["sant\u00e9", "annuaire", "m\u00e9dia"],
+      "description": "Malisant\u00e9 est un portail sur la sant\u00e9 au Mali et r\u00e9pertorie notamment les diff\u00e9rentes structures sanitaires ainsi que les m\u00e9decins maliens.",
+      "address": "Sotuba ACI",
+      "postcode": "",
+      "city": "Bamako",
+      "country": "Mali",
+      "email": "Info@malisante.net",
+      "phone": "(+223) 66 66 88 13",
+      "twitter": "@Malisante",
+      "facebook": "https://www.facebook.com/malisante.net",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-7.987500599999999, 12.646844]
+    }
+  }, {
+    "id": "megasoft",
+    "type": "Feature",
+    "properties": {
+      "id": "megasoft",
+      "type": "organization",
+      "name": "Megasoft",
+      "url": "http://www.megasoftcm.com/",
+      "category": "Entreprise",
+      "tags": ["logiciels", "B2B", "webdesign"],
+      "description": "Megasoft est une entreprise qui a pour mission de r\u00e9aliser des sites web, d\u00e9velopper des logiciels, faire de la maintenance technique\u2026",
+      "address": "Immeuble SOBAF, Ngodi",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "megasoft@megasoftcm.com",
+      "phone": "(+237)22 04 15 95",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "mgsoft",
+    "type": "Feature",
+    "properties": {
+      "id": "mgsoft",
+      "type": "organization",
+      "name": "MGSoft",
+      "url": "",
+      "category": "Entreprise",
+      "tags": ["applications mobiles", "boutique", "plateforme"],
+      "description": "MGSoft d\u00e9veloppe depuis 2014 Mboa-Store, la boutique en ligne qui permet de t\u00e9l\u00e9charger gratuitement et d\u2019acheter les applications africaines et camerounaises pour terminaux mobiles.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "mgsoftwareltd@gmail.com",
+      "phone": "",
+      "twitter": "@mgsoftlimited",
+      "facebook": "https://www.facebook.com/mgsoftwareltd/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "minodoo",
+    "type": "Feature",
+    "properties": {
+      "id": "minodoo",
+      "type": "organization",
+      "name": "Minodoo",
+      "url": "http://minodoo.com/",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "innovation sociale", "nomade"],
+      "description": "Minodoo [\"mi no dou\" en langue locale = soyons ensemble] est un tiers-lieu nomade togolais qui regroupe une communaut\u00e9 de jeunes dynamiques regroup\u00e9s autour des valeurs du travail collaboratif, du partage, de l'engagement citoyen \u00e0 travers les TICs, mais aussi l\u2019entrepreneuriat jeune. C\u2019est une fabrique d'innovation sociale et un espace d\u2019appropriation de l\u2019outil informatique.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Lom\u00e9",
+      "country": "Togo",
+      "email": "",
+      "phone": "",
+      "twitter": "@minodoo228",
+      "facebook": "https://www.facebook.com/Minodoo-651385388262303/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.2313618, 6.1724969]
+    }
+  }, {
+    "id": "mlouma",
+    "type": "Feature",
+    "properties": {
+      "id": "mlouma",
+      "type": "organization",
+      "name": "Mlouma",
+      "url": "http://www.mlouma.com/",
+      "category": "Entreprise",
+      "tags": ["marketplace", "agriculture", "circuits courts"],
+      "description": "Mlouma est un service web et mobile d\u00e9di\u00e9 aux acteurs du milieu agricole.",
+      "address": "3, Rue B\u00e9ranger F\u00e9raud Dakar Plateaux",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "contact@mlouma.com",
+      "phone": "(+221) 77 534 89 19",
+      "twitter": "@mlouma_sn",
+      "facebook": "https://www.facebook.com/mloumasolutions",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4306432, 14.6691984]
+    }
+  }, {
+    "id": "moaga-studios",
+    "type": "Feature",
+    "properties": {
+      "id": "moaga-studios",
+      "type": "organization",
+      "name": "Moaga Studios",
+      "url": "https://moagastudios.com",
+      "category": "Entreprise",
+      "tags": ["webdesign", "B2B", "logiciels"],
+      "description": "Agence de conception et de r\u00e9alisation de sites web et de services en ligne.",
+      "address": "Secteur 52",
+      "postcode": "",
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "email": "contact@moagastudios.com",
+      "phone": "(+226)73 69 51",
+      "twitter": "@Moagastudios",
+      "facebook": "https://www.facebook.com/moagastudios",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.5196603, 12.3714277]
+    }
+  }, {
+    "id": "mtick",
+    "type": "Feature",
+    "properties": {
+      "id": "mtick",
+      "type": "organization",
+      "name": "Mtick",
+      "url": "http://blog.mtick.ci/",
+      "category": "Entreprise",
+      "tags": ["paiement", "mobilit\u00e9", "bus"],
+      "description": "mTick est une solution digitale globale et modulable de gestion de tickets de bus inter-urbains en afrique francophone.",
+      "address": "Yopougon",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "(+225) 08 89 52 20",
+      "twitter": "@gomtick",
+      "facebook": "https://www.facebook.com/mobileticket",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0899911, 5.317666099999999]
+    }
+  }, {
+    "id": "mymoneymobile",
+    "type": "Feature",
+    "properties": {
+      "id": "mymoneymobile",
+      "type": "organization",
+      "name": "MyMoneyMobile",
+      "url": "http://fr.mymoneymobile.com/",
+      "category": "Entreprise",
+      "tags": ["paiement", "d\u00e9mat\u00e9rialisation", "applications mobiles"],
+      "description": "MyMoneyMobile est une entreprise qui propose d'\u00e9changer facilement de l'argent en donnant \u00e0 tous un moyen s\u00e9curis\u00e9 de d\u00e9poser, retirer ou payer.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "mymoneymobile@mymoneymobile.com",
+      "phone": "",
+      "twitter": "@MyMoneyMobile",
+      "facebook": "https://www.facebook.com/mymoneymobile",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.7678687, 4.0510564]
+    }
+  }, {
+    "id": "new-data-soft",
+    "type": "Feature",
+    "properties": {
+      "id": "new-data-soft",
+      "type": "organization",
+      "name": "New Data Soft",
+      "url": "http://www.nds-cameroun.com/",
+      "category": "Entreprise",
+      "tags": ["logiciels", "B2B", "webdesign"],
+      "description": "New Data Soft accompagne dans la mise en \u0153uvre de solution innovantes, performantes pour une politique informatique r\u00e9ussie au sein de l'entreprise.",
+      "address": "75 Rue de l'Union Francaise",
+      "postcode": "",
+      "city": "Douala",
+      "country": "Cameroun",
+      "email": "contact@nds-cameroun.com",
+      "phone": "(+237) 33 03 67 52",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.6956813, 4.0379911]
+    }
+  }, {
+    "id": "njorku",
+    "type": "Feature",
+    "properties": {
+      "id": "njorku",
+      "type": "organization",
+      "name": "Njorku",
+      "url": "http://www.njorku.com/",
+      "category": "Entreprise",
+      "tags": ["emploi", "recrutement", "plateforme"],
+      "description": "Njorku est un site de recherche qui permet aux chercheurs d'emploi un acc\u00e8s gratuit et illimit\u00e9 \u00e0 des offres d'emploi dans plusieurs pays d'afrique (Nig\u00e9ria, Cameroun, Afrique du Sud, Ghana, Kenya, Egypte, Ouganda).",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Bu\u00e9a",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "",
+      "twitter": "@njorku",
+      "facebook": "https://www.facebook.com/NjorkuJobs/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.245301999999999, 4.1481842]
+    }
+  }, {
+    "id": "no-bakchich",
+    "type": "Feature",
+    "properties": {
+      "id": "no-bakchich",
+      "type": "organization",
+      "name": "No Bakchich",
+      "url": "http://nobakchich.org",
+      "category": "Entreprise",
+      "tags": ["applications mobiles", "citoyennet\u00e9", "anticorruption"],
+      "description": "No Bakchich est une application web et mobile qui donne aux usagers qui l\u2019ont t\u00e9l\u00e9charg\u00e9e la possibilit\u00e9 de d\u00e9noncer une demande de pot-de-vin.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "ogooue-labs",
+    "type": "Feature",
+    "properties": {
+      "id": "ogooue-labs",
+      "type": "organization",
+      "name": "Ogooue Labs",
+      "url": "http://www.ogoouelabs.com",
+      "category": "Tiers-lieu",
+      "tags": ["coworking", "entrepreneurs", "\u00e9v\u00e9nements"],
+      "description": "Ogoou\u00e9 Labs, premier espace de coworking au Gabon, est un espace de travail partag\u00e9 et collaboratif pour les entrepreneurs libres, ouverts et agiles.",
+      "address": "Ancienne SOBRAGA Libreville, Estuaire",
+      "postcode": "",
+      "city": "Libreville",
+      "country": "Gabon",
+      "email": "infos@ogoouelabs.com",
+      "phone": "(+241) 07 16 18 84",
+      "twitter": "@ogooue labs",
+      "facebook": "https://fr-fr.facebook.com/OgooueLabs",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.4672676, 0.4161976]
+    }
+  }, {
+    "id": "oolu",
+    "type": "Feature",
+    "properties": {
+      "id": "oolu",
+      "type": "organization",
+      "name": "Oolu",
+      "url": "http://www.oolusolar.com/",
+      "category": "Entreprise",
+      "tags": ["environnement", "smartgrids", "\u00e9nergies"],
+      "description": "Oolu est une entreprise innovatrice d\u2019\u00e9nergie solaire hors-r\u00e9seau, bas\u00e9e en Afrique de l\u2019Ouest. Le mod\u00e8le est d\u00e9velopp\u00e9 en collaboration avec des communaut\u00e9s locales, cela permet d\u2019acc\u00e9der aux villages ruraux qui sont hors-r\u00e9seau et de leur offrir un acc\u00e8s moderne \u00e0 l\u2019\u00e9nergie.",
+      "address": "N\u00b0354 Cartier Mboul, Ouakam",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "info@oolusolar.com",
+      "phone": "",
+      "twitter": "@Oolu_solar",
+      "facebook": "https://www.facebook.com/oolusolarUS/timeline/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4943069, 14.72305]
+    }
+  }, {
+    "id": "openstreetmap-cameroun",
+    "type": "Feature",
+    "properties": {
+      "id": "openstreetmap-cameroun",
+      "type": "organization",
+      "name": "OpenStreetMap Cameroun",
+      "url": "",
+      "category": "Communaut\u00e9",
+      "tags": ["cartographie", "collaboratif", "opendata"],
+      "description": "OpenStreetMap est un projet visant \u00e0 cr\u00e9er et fournir des donn\u00e9es g\u00e9ographiques libres telles que les cartes de la rue \u00e0 ceux qui en veulent .",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Yaound\u00e9",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "",
+      "twitter": "@OSMCameroun",
+      "facebook": "https://www.facebook.com/groups/openstreetmap.cameroun/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.5020752, 3.8480325]
+    }
+  }, {
+    "id": "openstreetmap-cote-d-ivoire",
+    "type": "Feature",
+    "properties": {
+      "id": "openstreetmap-cote-d-ivoire",
+      "type": "organization",
+      "name": "OpenStreetMap C\u00f4te d'Ivoire",
+      "url": "http://www.openstreetmap.ci/",
+      "category": "Communaut\u00e9",
+      "tags": ["cartographie", "collaboratif", "opendata"],
+      "description": "OpenStreetMap est un projet visant \u00e0 cr\u00e9er et fournir des donn\u00e9es g\u00e9ographiques libres telles que les cartes de la rue \u00e0 ceux qui en veulent .",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "",
+      "twitter": "@OSMCI",
+      "facebook": "https://www.facebook.com/openstreetmapci/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "openstreetmap-niger",
+    "type": "Feature",
+    "properties": {
+      "id": "openstreetmap-niger",
+      "type": "organization",
+      "name": "OpenStreetMap Niger",
+      "url": "",
+      "category": "Communaut\u00e9",
+      "tags": ["cartographie", "collaboratif", "opendata"],
+      "description": "OpenStreetMap est un projet visant \u00e0 cr\u00e9er et fournir des donn\u00e9es g\u00e9ographiques libres telles que les cartes de la rue \u00e0 ceux qui en veulent .",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Niamey",
+      "country": "Niger",
+      "email": "",
+      "phone": "",
+      "twitter": "@OSM_NE",
+      "facebook": "https://www.facebook.com/Communaut%C3%A9-Openstreetmap-Niger-286598368203969/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.1253854, 13.5115963]
+    }
+  }, {
+    "id": "openstreetmap-rdc",
+    "type": "Feature",
+    "properties": {
+      "id": "openstreetmap-rdc",
+      "type": "organization",
+      "name": "OpenStreetMap RDC",
+      "url": "",
+      "category": "Communaut\u00e9",
+      "tags": ["cartographie", "collaboratif", "opendata"],
+      "description": "OpenStreetMap est un projet visant \u00e0 cr\u00e9er et fournir des donn\u00e9es g\u00e9ographiques libres telles que les cartes de la rue \u00e0 ceux qui en veulent .",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Kinshasa",
+      "country": "RD Congo",
+      "email": "",
+      "phone": "",
+      "twitter": "@OSM_CD",
+      "facebook": "https://www.facebook.com/OpenStreetMap.RDC?_rdr=p",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [15.3102877, -4.3070974]
+    }
+  }, {
+    "id": "openstreetmap-senegal",
+    "type": "Feature",
+    "properties": {
+      "id": "openstreetmap-senegal",
+      "type": "organization",
+      "name": "OpenStreetMap S\u00e9n\u00e9gal",
+      "url": "",
+      "category": "Communaut\u00e9",
+      "tags": ["cartographie", "collaboratif", "opendata"],
+      "description": "OpenStreetMap est un projet visant \u00e0 cr\u00e9er et fournir des donn\u00e9es g\u00e9ographiques libres telles que les cartes de la rue \u00e0 ceux qui en veulent .",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "",
+      "twitter": "@OpenStreetMapSn",
+      "facebook": "https://www.facebook.com/OpenStreetMap.Senegal?_rdr=p",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "openstreetmap-togo",
+    "type": "Feature",
+    "properties": {
+      "id": "openstreetmap-togo",
+      "type": "organization",
+      "name": "OpenStreetMap Togo",
+      "url": "",
+      "category": "Communaut\u00e9",
+      "tags": ["cartographie", "collaboratif", "opendata"],
+      "description": "OpenStreetMap est un projet visant \u00e0 cr\u00e9er et fournir des donn\u00e9es g\u00e9ographiques libres telles que les cartes de la rue \u00e0 ceux qui en veulent .",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Lom\u00e9",
+      "country": "Togo",
+      "email": "",
+      "phone": "",
+      "twitter": "@OSMTogo",
+      "facebook": "https://www.facebook.com/OpenstreetmapTogo/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.2313618, 6.1724969]
+    }
+  }, {
+    "id": "orange-fab-abidjan",
+    "type": "Feature",
+    "properties": {
+      "id": "orange-fab-abidjan",
+      "type": "organization",
+      "name": "Orange Fab Abidjan",
+      "url": "http://www.orangefab.ci/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "Orange", "entrepreneurs"],
+      "description": "Acc\u00e9l\u00e9rateur de start-ups s\u00e9lectif lanc\u00e9 par Orange, il propose un programme de coaching de 12 semaines. Orange Fab C\u00f4te-d\u2019Ivoire est con\u00e7u pour des start-ups bas\u00e9es en C\u00f4te-d\u2019Ivoire dont le produit existant pourrait b\u00e9n\u00e9ficier d\u2019un acc\u00e8s privil\u00e9gi\u00e9 aux canaux de distribution, aux march\u00e9s, \u00e0 l\u2019expertise des \u00e9quipes et de la pr\u00e9sence mondiale d\u2019Orange.",
+      "address": "Marcory Zone 4",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "tom.wright@orange.com",
+      "phone": "(+225) 21 23 07 07",
+      "twitter": "@CI_Orange",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.983775, 5.300939]
+    }
+  }, {
+    "id": "ouagalab",
+    "type": "Feature",
+    "properties": {
+      "id": "ouagalab",
+      "type": "organization",
+      "name": "Ouagalab",
+      "url": "http://www.ouagalab.org/",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "hackerspace", "recyclage"],
+      "description": "Oaugalab est le premier fablab d\u2019Afrique de l\u2019Ouest, n\u00e9 en 2011. Il rassemble les passionn\u00e9s de la cr\u00e9ation num\u00e9rique afin de stimuler l\u2019esprit de cr\u00e9ativit\u00e9 et de partage de connaissances.",
+      "address": "Kalgond\u00e9",
+      "postcode": "",
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "email": "contact@ouagalab.org",
+      "phone": "(+226) 70 76 63 80",
+      "twitter": "@ouagalab1",
+      "facebook": "https://www.facebook.com/ouaglab.org",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.4990814, 12.3508797]
+    }
+  }, {
+    "id": "ovillage",
+    "type": "Feature",
+    "properties": {
+      "id": "ovillage",
+      "type": "organization",
+      "name": "Ovillage",
+      "url": "http://www.ovillage.ci/",
+      "category": "Incubateur",
+      "tags": ["coworking", "innovation sociale", "citoyens"],
+      "description": "Ovillage est un espace d'intelligence collective et d'Innovation Sociale. C'est aussi un incubateur et acc\u00e9l\u00e9rateur de projets citoyens.",
+      "address": "Abidjan Zone 4, Rue Paul Langevin, Immeuble BADEYA",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "info@ovillage.ci",
+      "phone": "(+225) 21 25 99 01",
+      "twitter": "@OvillageCi",
+      "facebook": "https://www.facebook.com/OvillageCi",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "passcoursescom",
+    "type": "Feature",
+    "properties": {
+      "id": "passcoursescom",
+      "type": "organization",
+      "name": "Passcourses.com",
+      "url": "http://www.passcourses.com/",
+      "category": "Entreprise",
+      "tags": ["ecommerce", "paiement", "diaspora"],
+      "description": "www.passcourses.com permet \u00e0 la diaspora de faire du shopping et de livrer \u00e0 la famille au S\u00e9n\u00e9gal. La plateforme permet \u00e9galement aux personnes qui\u00a0r\u00e9sident au S\u00e9n\u00e9gal de commander en ligne et de payer \u00e0 la livraison.",
+      "address": "Rue 466, cit\u00e9 des Mamelles, villa 85",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221)781736565",
+      "twitter": "@passcourses",
+      "facebook": "https://www.facebook.com/PassCoursescom-174814759393248/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "passdocteur",
+    "type": "Feature",
+    "properties": {
+      "id": "passdocteur",
+      "type": "organization",
+      "name": "PassDocteur",
+      "url": "https://www.passdocteur.com/",
+      "category": "Entreprise",
+      "tags": ["sant\u00e9", "paiement", "diaspora"],
+      "description": "PassDocteur cible directement le domaine de la sant\u00e9, en donnant aux expatri\u00e9s s\u00e9n\u00e9galais la possibilit\u00e9 de prendre en charge, \u00e0 distance et int\u00e9gralement, les d\u00e9penses m\u00e9dicales de leurs familles rest\u00e9es au pays : visite chez le m\u00e9decin, achats de m\u00e9dicaments, etc.",
+      "address": "Rue 466, cit\u00e9 des Mamelles, villa 85",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221)781736565",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "people-input",
+    "type": "Feature",
+    "properties": {
+      "id": "people-input",
+      "type": "organization",
+      "name": "People Input",
+      "url": "http://www.peopleinput.com",
+      "category": "Entreprise",
+      "tags": ["webdesign", "B2B", "applications mobiles"],
+      "description": "Agence digitale leader en Afrique avec une offre \u00e0 360\u00b0 pour r\u00e9aliser diff\u00e9rents projets: social m\u00e9dia, apps, sites web...",
+      "address": "Libert\u00e9 6 Extension - Immeuble Soda Mari\u00e8me, 26543",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "contact@peopleinput.com",
+      "phone": "(+221) 33 827 31 45",
+      "twitter": "@PeopleInput",
+      "facebook": "https://www.facebook.com/peopleinput",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "pikiz",
+    "type": "Feature",
+    "properties": {
+      "id": "pikiz",
+      "type": "organization",
+      "name": "Pikiz",
+      "url": "http://getpikiz.com/",
+      "category": "Entreprise",
+      "tags": ["photo", "applications mobiles", "r\u00e9seaux sociaux"],
+      "description": "Pikiz est une startup incub\u00e9e par TEKXL \u00e0 Cotonou, elle propose un outil d\u2019\u00e9dition et de viralisation de photos en ligne.",
+      "address": "Quartier Zongo",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "yo@getpikiz.com",
+      "phone": "",
+      "twitter": "@getpikiz",
+      "facebook": "https://www.facebook.com/getpikiz",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.4562424, 6.362181]
+    }
+  }, {
+    "id": "pliby",
+    "type": "Feature",
+    "properties": {
+      "id": "pliby",
+      "type": "organization",
+      "name": "Pliby",
+      "url": "http://pliby.com/pliby/",
+      "category": "Entreprise",
+      "tags": ["musique", "streaming", "marketplace"],
+      "description": "Pliby.com est une plateforme musicale de d\u00e9couverte d'artistes africains ind\u00e9pendants ou m\u00e9connus. Cette startup a \u00e9t\u00e9 retenue parmis les vingt meilleures startups d'Afrique de l'Ouest en mars 2014 au AngelFair \u00e0 Lagos.",
+      "address": "Immeuble BOA, Quartier Zongo",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "",
+      "phone": "",
+      "twitter": "@plibymusic",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.408521, 6.3622381]
+    }
+  }, {
+    "id": "prestadesk",
+    "type": "Feature",
+    "properties": {
+      "id": "prestadesk",
+      "type": "organization",
+      "name": "Prestadesk",
+      "url": "www.prestadesk.com",
+      "category": "Entreprise",
+      "tags": ["logiciels", "paiement", "microfinance"],
+      "description": "Prestadesk est logiciel pour la microfinance, destins aux agences de transfert d'argent et aux instititutions de microfinance.",
+      "address": "8 rue M'Pokolo, Petit s\u00e9minaire St Gabriel",
+      "postcode": "",
+      "city": "Brazzaville",
+      "country": "RD Congo",
+      "email": "info@prestadesk.com",
+      "phone": "(+242) 05 579 89 82",
+      "twitter": "@PRESTADESK",
+      "facebook": "https://www.facebook.com/Prestadesk-469996093117845/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0, 48.0]
+    }
+  }, {
+    "id": "pursar",
+    "type": "Feature",
+    "properties": {
+      "id": "pursar",
+      "type": "organization",
+      "name": "Pursar",
+      "url": "http://mypursar.com/",
+      "category": "Entreprise",
+      "tags": ["API", "paiement", "ecommerce"],
+      "description": "L'objectif de Pursar est de garantir des transactions quotidiennes simplifi\u00e9es et s\u00e9curis\u00e9es en ligne et de d\u00e9mocratiser l\u2019inclusion financi\u00e8re.  http://www.afriqueitnews.com/2014/10/07/startupwatch-lafricamobile-pulsar-et-afrimarket/#sthash.s4yeb2dP.dpuf",
+      "address": "Shop 4, Fakoship Plaza",
+      "postcode": "",
+      "city": "Buea",
+      "country": "Cameroun",
+      "email": "",
+      "phone": "",
+      "twitter": "@PursarPay",
+      "facebook": "https://www.facebook.com/Pursar",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [9.245301999999999, 4.1481842]
+    }
+  }, {
+    "id": "riminder-africa",
+    "type": "Feature",
+    "properties": {
+      "id": "riminder-africa",
+      "type": "organization",
+      "name": "Riminder Africa",
+      "url": "Tevragh-Zeina Ilot ZRF Lot 260",
+      "category": "Entreprise",
+      "tags": ["emploi", "recrutement", "plateforme"],
+      "description": "Riminder est une startup sp\u00e9cialis\u00e9e dans la recherche d'emplois en permettant via une plateforme de matcher les offres d'emplois non pourvues et les candidats.",
+      "address": "Tevragh-Zeina Ilot ZRF Lot 260",
+      "postcode": "",
+      "city": "Nouakchott",
+      "country": "Mauritanie",
+      "email": "",
+      "phone": "(+222) 45 25 16 04",
+      "twitter": "@RiminderAfrica",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-15.9582372, 18.0735299]
+    }
+  }, {
+    "id": "sahel-fablab",
+    "type": "Feature",
+    "properties": {
+      "id": "sahel-fablab",
+      "type": "organization",
+      "name": "Sahel Fablab",
+      "url": "http://www.innovrim.org/web/blog/contextsahel#",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "prototypage", "bidouillage"],
+      "description": "Le SahelFabLab propose un ensemble de services et de moyens qui permettent aux professionnels, amateurs et bricoleurs curieux, de fabriquer un outillage adapt\u00e9 et de moderniser les pratiques actuelles en vue d\u2019accro\u00eetre la productivit\u00e9. Il est ouvert \u00e0 tous pour exp\u00e9rimenter, apprendre, fabriquer ensemble et partager le savoir-faire.",
+      "address": "Immeuble El MAMI (centre ville)",
+      "postcode": "",
+      "city": "Nouakchott",
+      "country": "Mauritanie",
+      "email": "innovrim@gmail.com",
+      "phone": "(+222) 48 52 61 05",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-15.9582372, 18.0735299]
+    }
+  }, {
+    "id": "secteur-28),(+226)-25-36-71-73,info@esmatbfcom,http://esmatburkinacom,,https://wwwfacebookcom/ecole-superieure-de-management-et-de-technologies-appliquees-esmat-267524400066163/",
+    "type": "Feature",
+    "properties": {
+      "id": "secteur-28),(+226)-25-36-71-73,info@esmatbfcom,http://esmatburkinacom,,https://wwwfacebookcom/ecole-superieure-de-management-et-de-technologies-appliquees-esmat-267524400066163/",
+      "type": "organization",
+      "name": "Secteur 28),(+226) 25 36 71 73,info@esmatbf.com,http://esmatburkina.com,,https://www.facebook.com/Ecole-Sup\u00e9rieure-de-Management-et-de-Technologies-appliqu\u00e9es-ESMAT-267524400066163/",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": [],
+      "description": "",
+      "address": "",
+      "postcode": "",
+      "city": "",
+      "country": "",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0, 48.0]
+    }
+  }, {
+    "id": "senmobile",
+    "type": "Feature",
+    "properties": {
+      "id": "senmobile",
+      "type": "organization",
+      "name": "SenMobile",
+      "url": "http://www.senmobile.com/officialsenmobile/",
+      "category": "Entreprise",
+      "tags": ["applications mobiles", "conseil", "formations"],
+      "description": "SenMobile est une startup sp\u00e9cialis\u00e9e dans les solutions mobiles innovantes pour tous. Elle fournit actuellement des solutions mobiles centr\u00e9es sur l'apprentissage pour les enfants de maternelle, la sant\u00e9 avec une solution pour les pharmacies, le divertissement (sport), et la comptabilit\u00e9 avec des applications pour les petites entreprises.",
+      "address": "Sud Est Stade Lat Dior, Villa 42",
+      "postcode": "",
+      "city": "Thi\u00e8s",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "senmobile@senmobile.com",
+      "phone": "(+221) 33 954 10 78",
+      "twitter": "@senmobile",
+      "facebook": "https://www.facebook.com/senmobile/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-16.9358604, 14.7910052]
+    }
+  }, {
+    "id": "smartsell",
+    "type": "Feature",
+    "properties": {
+      "id": "smartsell",
+      "type": "organization",
+      "name": "SmartSell",
+      "url": "http://smartsell.orangefab.ci/",
+      "category": "Entreprise",
+      "tags": ["SSII", "logiciels", "CRM"],
+      "description": "SmartSell Technologies est une entreprise cr\u00e9\u00e9e en 2014 et sp\u00e9cialis\u00e9e dans la conception de solutions d\u2019int\u00e9gration dans le domaine des Technologies de l\u2019Information et de la Communication",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "smartsell.ci@gmail.com",
+      "phone": "(+225) 47 93 78 70",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "socialspot",
+    "type": "Feature",
+    "properties": {
+      "id": "socialspot",
+      "type": "organization",
+      "name": "SocialSpot",
+      "url": "http://www.socialspot.ci/",
+      "category": "Entreprise",
+      "tags": ["m\u00e9dias sociaux", "hotspots", "applications mobiles"],
+      "description": "SocialSpot est une entreprise sociale. L'entreprise donne la possibilit\u00e9 aux propri\u00e9taires d'espaces (comme les restaurants, bars, maquis...), d'offrir gratuitement Internet \u00e0 leurs clients via Hotspots, et aux annonceurs de diffuser leur publicit\u00e9 sur une plateforme.",
+      "address": "2016 Abidjan/Riviera St.Famille",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "contacts@socialspot.ci",
+      "phone": "(+225) 06 86 52 09",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/socialspotcorp",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "sportif-225",
+    "type": "Feature",
+    "properties": {
+      "id": "sportif-225",
+      "type": "organization",
+      "name": "Sportif 225",
+      "url": "http://sportif225.com/",
+      "category": "Entreprise",
+      "tags": ["sport", "actualit\u00e9s", "m\u00e9dia"],
+      "description": "Sportif 225 est une plateforme web diffusant des informations sportives ivoiriennes et d'ailleurs.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "agence@planete-sportsci.com",
+      "phone": "(+225) 598 6761",
+      "twitter": "@Sportif225",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "spracto-technologies",
+    "type": "Feature",
+    "properties": {
+      "id": "spracto-technologies",
+      "type": "organization",
+      "name": "Spracto Technologies",
+      "url": "https://www.spracto.com/",
+      "category": "Entreprise",
+      "tags": ["B2B", "webdesign", "h\u00e9bergement"],
+      "description": "Spracto accompagne les entreprises et les particuliers dans les nouvelles technologies avec des offres tr\u00e8s attractives sur les services d'enregistrement, de nom de domaine, l'h\u00e9bergement web, la messagerie, les certificats SSL etc.",
+      "address": "Pointe-Noire, centre-ville",
+      "postcode": "",
+      "city": "Brazzaville",
+      "country": "RD Congo",
+      "email": "contact@spracto.com",
+      "phone": "(+242) 04 102 9292",
+      "twitter": "@spractotech",
+      "facebook": "https://www.facebook.com/spractotech",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [11.866362, -4.7691623]
+    }
+  }, {
+    "id": "startup-mauritania",
+    "type": "Feature",
+    "properties": {
+      "id": "startup-mauritania",
+      "type": "organization",
+      "name": "Startup Mauritania",
+      "url": "http://www.startupmauritania.com/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "\u00e9v\u00e9nements", "international"],
+      "description": "Startup Mauritania est le premier acc\u00e9l\u00e9rateur de startups en Mauritanie. Il d\u00e9tecte les jeunes talents et entrepreneurs via ses programmes et les aide ensuite \u00e0 lancer leurs startups le plus efficacement possible et surtout de fa\u00e7on durable.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Nouakchott",
+      "country": "Mauritanie",
+      "email": "",
+      "phone": "",
+      "twitter": "@StartupRIM",
+      "facebook": "https://www.facebook.com/StartupMauritania/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-15.9582372, 18.0735299]
+    }
+  }, {
+    "id": "sup-imax",
+    "type": "Feature",
+    "properties": {
+      "id": "sup-imax",
+      "type": "organization",
+      "name": "Sup'Imax",
+      "url": "http://www.supimax.com",
+      "category": "\u00c9cole",
+      "tags": ["communication", "webdesign", "community management"],
+      "description": "La formation propos\u00e9e par Sup'imax, l'\u00e9cole des arts et m\u00e9tiers du num\u00e9rique, appartient au groupe sup'info. Elle vise \u00e0 pr\u00e9parer les jeunes africains aux m\u00e9tiers de la communication digitale",
+      "address": "88, Boulevard du Pr\u00e9sident Habib Bourguiba",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "supimax@supimax.com",
+      "phone": "(+221) 33 869 00 00",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/supimax",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4611215, 14.7060127]
+    }
+  }, {
+    "id": "sup-intel",
+    "type": "Feature",
+    "properties": {
+      "id": "sup-intel",
+      "type": "organization",
+      "name": "Sup'Intel",
+      "url": "http://www.gea-ci.com/supintel.html",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "\u00e9lectronique", "t\u00e9l\u00e9coms"],
+      "description": "Ecole priv\u00e9e d'ing\u00e9nieurs en cinq ans sp\u00e9cialis\u00e9e dans l'informatique, l'\u00e9lectronique et les t\u00e9l\u00e9communications.",
+      "address": "Cocody 2 Plateaux",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "info@gea-ci.com",
+      "phone": "(+225) 22 00 40 28",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.9972572, 5.362877999999999]
+    }
+  }, {
+    "id": "sycelim",
+    "type": "Feature",
+    "properties": {
+      "id": "sycelim",
+      "type": "organization",
+      "name": "Sycelim",
+      "url": "http://www.sycelim.com/",
+      "category": "Entreprise",
+      "tags": ["d\u00e9veloppeur", "logiciels", "sant\u00e9"],
+      "description": "Sycelim est une entreprise informatique, sp\u00e9cialis\u00e9e en d\u00e9veloppement de syst\u00e8mes et r\u00e9seaux informatiques. L'entreprise a notamment d\u00e9velopp\u00e9 une plateforme de gestion d'assurance m\u00e9dicale, Sycelim E-sant\u00e9.",
+      "address": "Cocody, Angr\u00e9, 8e Tranche, Soleil 3",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "contact@sycelim.com",
+      "phone": "(+225) 22 50 90 66",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.9862122, 5.3954282]
+    }
+  }, {
+    "id": "tchad-technologies",
+    "type": "Feature",
+    "properties": {
+      "id": "tchad-technologies",
+      "type": "organization",
+      "name": "Tchad Technologies",
+      "url": "http://www.tchad-technologies.com/",
+      "category": "Entreprise",
+      "tags": ["logiciels", "webdesign", "B2B"],
+      "description": "Tchad Technologies est une startup tchadienne sp\u00e9cialis\u00e9e dans la prestation de services informatiques notamment la cr\u00e9ation de sites et de portails web, de syst\u00e8mes d\u2019information et dans la vente de mat\u00e9riel informatique.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "N'Djam\u00e9na",
+      "country": "Tchad",
+      "email": "contact@tchad-technologies.com",
+      "phone": "",
+      "twitter": "@TCHADTECHNOLOGY",
+      "facebook": "https://www.facebook.com/tchadtechnologies/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0, 48.0]
+    }
+  }, {
+    "id": "tech-in-congo",
+    "type": "Feature",
+    "properties": {
+      "id": "tech-in-congo",
+      "type": "organization",
+      "name": "Tech In Congo",
+      "url": "http://www.techincongo.net/",
+      "category": "Entreprise",
+      "tags": ["B2B", "logiciels", "webdesign"],
+      "description": "Tech in Congo est une startup qui propose plusieurs services informatiques dont du d\u00e9veloppement web.",
+      "address": "Boulevard Reine Elisabeth, Bukavu",
+      "postcode": "",
+      "city": "Kinshasa",
+      "country": "Congo",
+      "email": "",
+      "phone": "(+243) 999 995 262",
+      "twitter": "@tecHinCongo",
+      "facebook": "https://www.facebook.com/TechInCD.net",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [28.8565671, -2.4892292]
+    }
+  }, {
+    "id": "tekci",
+    "type": "Feature",
+    "properties": {
+      "id": "tekci",
+      "type": "organization",
+      "name": "Tekci",
+      "url": "http://tekci.co/",
+      "category": "Entreprise",
+      "tags": ["ecommerce", "annonces", "marketplace"],
+      "description": "Tekci a \u00e9t\u00e9 cr\u00e9\u00e9 par la startup \u00c9b\u00e8ne qui a pour activit\u00e9 principale la r\u00e9alisation de sites et d'applications web. Tekci est un service nouveau o\u00f9 l'acheteur propose lui-m\u00eame le prix qu'il d\u00e9sire payer.",
+      "address": "Villa Kadija, Route du Ngor Diarama",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 77 672 61 61",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/tekcisn/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.3660286, 14.7645042]
+    }
+  }, {
+    "id": "tekxl",
+    "type": "Feature",
+    "properties": {
+      "id": "tekxl",
+      "type": "organization",
+      "name": "TEKXL",
+      "url": "http://www.tekxl.com/",
+      "category": "Incubateur",
+      "tags": ["acc\u00e9l\u00e9rateur", "learn2code", "entrepreneurs"],
+      "description": "Incubateur acc\u00e9l\u00e9rateur qui propose des services de networking, du mentoring et un encadrement technique aux jeunes b\u00e9ninois souhaitantr\u00e9ussir dans l'entreprenariat num\u00e9rique.",
+      "address": "quartier Zongo",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "contact@tekxl.com",
+      "phone": "(+229) 95 02 57 12",
+      "twitter": "@TEKXLLLC",
+      "facebook": "https://www.facebook.com/TEKXL",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.4562424, 6.362181]
+    }
+  }, {
+    "id": "tms-consulting",
+    "type": "Feature",
+    "properties": {
+      "id": "tms-consulting",
+      "type": "organization",
+      "name": "TMS Consulting",
+      "url": "http://www.tms-consulting.pro/",
+      "category": "Entreprise",
+      "tags": ["conseil", "webdesign", "logiciels"],
+      "description": "TMS Consulting est une soci\u00e9t\u00e9 de services informatiques.",
+      "address": "Lot IBF 34 A Antsahavola",
+      "postcode": "",
+      "city": "Antananarivo",
+      "country": "Madagascar",
+      "email": "contact@tms-consulting.pro",
+      "phone": "(+261) 20 26 321 43",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/TMSCONSULTINGOCEANINDIEN/timeline",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [47.5079055, -18.8791902]
+    }
+  }, {
+    "id": "ucao-uut",
+    "type": "Feature",
+    "properties": {
+      "id": "ucao-uut",
+      "type": "organization",
+      "name": "UCAO-UUT",
+      "url": "http://www.ucao-uut.tg",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "technologie", "ing\u00e9nieur"],
+      "description": "L'unit\u00e9 universitaire du Togo est une entit\u00e9 r\u00e9cemment cr\u00e9\u00e9e. Elle appartient au r\u00e9seau de l'universit\u00e9 catholique de l'Afrique de l'Ouest. Elle comporte notamment des formations en technologie et informatique",
+      "address": "Campus de Sangu\u00e9ra",
+      "postcode": "",
+      "city": "Lom\u00e9",
+      "country": "Togo",
+      "email": "",
+      "phone": "(+228) 23 20 67 03",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.2313618, 6.1724969]
+    }
+  }, {
+    "id": "ufr-sfa",
+    "type": "Feature",
+    "properties": {
+      "id": "ufr-sfa",
+      "type": "organization",
+      "name": "UFR SFA",
+      "url": "http://www.univ-na.edu.ci/index.php/facultes/ufr-sfa",
+      "category": "\u00c9cole",
+      "tags": ["Ing\u00e9nieur", "informatique", "gestion"],
+      "description": "L'UFR de l'universit\u00e9 Nangui Abrogoua propose des formations scientifiques notamment en g\u00e9nie informatique et en informatique appliqu\u00e9 \u00e0 l'\u00e9conomie et \u00e0 la gestion. partenariat est men\u00e9 avec Microsoft",
+      "address": "Autoroute d'Abobo",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "",
+      "phone": "(+225) 20 30 42 00",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/UniversiteNanguiAbrogoua?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0210631, 5.386536]
+    }
+  }, {
+    "id": "unidaf",
+    "type": "Feature",
+    "properties": {
+      "id": "unidaf",
+      "type": "organization",
+      "name": "UNIDAF",
+      "url": "http://unidaf.com",
+      "category": "\u00c9cole",
+      "tags": ["t\u00e9l\u00e9coms", "international", "living lab"],
+      "description": "L'universit\u00e9 internationale des diasporas africaines veut aider aux transferts de connaissance entre la diaspora africaine, pr\u00e9sente dans le monde entier et notamment en Europe, et les \u00e9tudiants qui sont les cadres africains de demain. L'\u00e9cole, en partenariat avec l'ISEG, dispose d'un living lab certifi\u00e9 par le label europ\u00e9en ENOLL. Ce programme a pour objectif de f\u00e9d\u00e9rer des initiatives locales, pour qu'elles puissent agir et d\u00e9velopper leurs initiatives en r\u00e9seaux.",
+      "address": "Sacr\u00e9-coeur 1 n\u00b08469",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "unidaf@unidaf.com",
+      "phone": "(+221) 33 864 26 60",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/UNIDAFAMILY?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4501539, 14.7259871]
+    }
+  }, {
+    "id": "universite-abdou-moumouni",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-abdou-moumouni",
+      "type": "organization",
+      "name": "Universit\u00e9 Abdou Moumouni",
+      "url": "http://uam.refer.ne",
+      "category": "\u00c9cole",
+      "tags": ["francophonie", "informatique", "ing\u00e9nieur"],
+      "description": "L'universit\u00e9 Abdou Moumouni est la principale universit\u00e9 publique du pays et la plus ancienne. Elle comporte plusieurs facult\u00e9s dont un d\u00e9partement math\u00e9matique et informatique. Elle accueille le campus num\u00e9rique francophone de Niamey.",
+      "address": "Centre-ville",
+      "postcode": "",
+      "city": "Niamey",
+      "country": "Niger",
+      "email": "",
+      "phone": "",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.1253854, 13.5115963]
+    }
+  }, {
+    "id": "universite-de-bangui-faculte-des-sciences",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-de-bangui-faculte-des-sciences",
+      "type": "organization",
+      "name": "Universit\u00e9 de Bangui - Facult\u00e9 des sciences",
+      "url": "http://www.univ-bangui.org",
+      "category": "\u00c9cole",
+      "tags": ["\u00e9nergie", "informatique", "ing\u00e9nieur"],
+      "description": "Le d\u00e9partement des sciences de l'universit\u00e9 de Bangui, seule universit\u00e9 publique du pays, comprend l'ensemble des disciplines scientifiques dont l'informatique.",
+      "address": "Avenue des Martyrs",
+      "postcode": "",
+      "city": "Bangui",
+      "country": "R\u00e9publique centrafricaine",
+      "email": "",
+      "phone": "(+236) 21 61 20 05",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [18.5571053, 4.3882385]
+    }
+  }, {
+    "id": "universite-des-sciences-et-technologie-du-benin",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-des-sciences-et-technologie-du-benin",
+      "type": "organization",
+      "name": "Universit\u00e9 des sciences et technologie du B\u00e9nin",
+      "url": "",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "communication", "international"],
+      "description": "Cette \u00e9cole priv\u00e9e reconnue par l'Etat et le Cames dispose de six facult\u00e9s, d'un centre de recherche et de cinq \u00e9coles sp\u00e9cialis\u00e9es (notamment en informatique appliqu\u00e9e et en communication). Elle dispose en tout de 80 diplomes diff\u00e9rents. Elle fait partie du r\u00e9seau des universit\u00e9s des sciences et technologies des pays d'Afrique au sud du Sahara et a d\u00e9velopp\u00e9 un partenariat avec l'universit\u00e9 de Poitiers.",
+      "address": "Lot 413 Bis Domaine Universitaire de Kpond\u00e9hou 03",
+      "postcode": "",
+      "city": "Cotonou",
+      "country": "B\u00e9nin",
+      "email": "info@ustbenin.org",
+      "phone": "(+229) 33 60 10",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.3912362, 6.3702928]
+    }
+  }, {
+    "id": "universite-de-technologie-du-congo",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-de-technologie-du-congo",
+      "type": "organization",
+      "name": "Universit\u00e9 de technologie du Congo",
+      "url": "http://www.myutc.org/Presentation_r3.html",
+      "category": "\u00c9cole",
+      "tags": ["polytechnique", "informatique", "\u00e9conomie"],
+      "description": "L'universit\u00e9 de Technologie du Congo est un \u00e9tablissement \u00e0 caract\u00e8re scientifique, culturel et professionnel. Il  s'agit du meilleur institut polytechnique reconnu par le minist\u00e8re de l'enseignement sup\u00e9rieur. Il permet \u00e9galement des travaux de recherche et d'innovation.",
+      "address": "19,  Avenue Miabi, Quartier Gombele / Righini, Commune de Lemba",
+      "postcode": "",
+      "city": "Kinshasa",
+      "country": "RD Congo",
+      "email": "info@myutc.org",
+      "phone": "(+243) 15 16 8200",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0, 48.0]
+    }
+  }, {
+    "id": "universite-houphouet-boigny-ufr-math-info",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-houphouet-boigny-ufr-math-info",
+      "type": "organization",
+      "name": "Universit\u00e9 Houphouet Boigny-UFR Math Info",
+      "url": "http://univ-fhb.edu.ci/fr/index.php/offre-de-formation-recherche/structures-de-formation-recherche/ufr-math-info",
+      "category": "\u00c9cole",
+      "tags": ["informatique", "m\u00e9canique", "\u00e9nergie"],
+      "description": "Les formations propos\u00e9es par l'universit\u00e9 Houphouet Boigny permettent d\u2019acqu\u00e9rir des comp\u00e9tences en math\u00e9matiques fondamentales et appliqu\u00e9es, en informatique fondamental et appliqu\u00e9, en gestion d\u2019entreprises par des m\u00e9thodes math\u00e9matiques et informatiques, en m\u00e9canique et en sciences pour l\u2019ing\u00e9nieur",
+      "address": "Abidjan 22",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "ufrmi@univ-fhb.edu.ci",
+      "phone": "(+225) 22 48 01 40",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/univfhb?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.10353, 5.336210599999999]
+    }
+  }, {
+    "id": "universite-ndjamena",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-ndjamena",
+      "type": "organization",
+      "name": "Universit\u00e9 Ndjamena",
+      "url": "http://www.univ-ndjamena.org/contact.asp",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "informatique", "sciences"],
+      "description": "L'universit\u00e9 de Ndjamena est la premi\u00e8re universit\u00e9 publique du pays. Elle offre des cursus dans toutes les disciplines dont les mati\u00e8res scientifiques et informatiques.",
+      "address": "Avenue Mobutu",
+      "postcode": "",
+      "city": "N'Djamena",
+      "country": "Tchad",
+      "email": "rectorat@intnet.td",
+      "phone": "(+235) 251 44 44",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [15.0606608, 12.0964809]
+    }
+  }, {
+    "id": "universite-polytechnique-d-abomey",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-polytechnique-d-abomey",
+      "type": "organization",
+      "name": "Universit\u00e9 polytechnique d'Abomey",
+      "url": "http://upa-benin.org/public/upa/contact/",
+      "category": "\u00c9cole",
+      "tags": ["ing\u00e9nieur", "recherche", "formation \u00e0 distance"],
+      "description": "Cr\u00e9\u00e9 pour faire face \u00e0 la demande d'ad\u00e9quation entre la formation des \u00e9tudiants et le march\u00e9 du travail, l'universit\u00e9 polytechnique d'Abomey rassemble plusieurs \u00e9coles techniques ou \u00e0 vocation technologique dans l'arri\u00e8re pays b\u00e9ninois.",
+      "address": "Centre- ville",
+      "postcode": "",
+      "city": "Abomey",
+      "country": "B\u00e9nin",
+      "email": "upa@upabenin.org",
+      "phone": "",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/upabenin.org/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.9979411, 7.1854773]
+    }
+  }, {
+    "id": "universite-polytechnique-de-bobo-dioulasso",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-polytechnique-de-bobo-dioulasso",
+      "type": "organization",
+      "name": "Universit\u00e9 polytechnique de Bobo Dioulasso",
+      "url": "http://www.univ-bobo.bf",
+      "category": "\u00c9cole",
+      "tags": ["partenariat", "informatique", "recherche"],
+      "description": "L'universit\u00e9 Polytechnique de Bobo Dioulasso comprend une \u00e9cole et quatre instituts autour des questions scientifiques. L'\u00e9cole d\u00e9veloppe \u00e9galement des th\u00e9matiques de recherches et est partenaire de plusieurs universit\u00e9s europ\u00e9ennes dont Paris XII, le CNAM et l'universit\u00e9 d'Evry en France",
+      "address": "Houet",
+      "postcode": "",
+      "city": "Nasso",
+      "country": "Burkina Faso",
+      "email": "info@univ-bobo.bf",
+      "phone": "(+226) 20 98 06 35",
+      "twitter": "",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0, 48.0]
+    }
+  }, {
+    "id": "universite-virtuelle-du-senegal",
+    "type": "Feature",
+    "properties": {
+      "id": "universite-virtuelle-du-senegal",
+      "type": "organization",
+      "name": "Universit\u00e9 virtuelle du S\u00e9n\u00e9gal",
+      "url": "http://www.uvs.sn/?page_id=380",
+      "category": "\u00c9cole",
+      "tags": ["math\u00e9matiques", "formation \u00e0 distance", "informatique"],
+      "description": "Universit\u00e9 num\u00e9rique bas\u00e9e sur des \u00ab Espaces num\u00e9riques ouverts \u00bb mis en place sur l'ensemble du territoire. Formations en math\u00e9matiques appliqu\u00e9es et informatique, sciences \u00e9conomiques et juridiques, anglais, sociologie...",
+      "address": "Libert\u00e9 6 extension, cit\u00e9 COMICO",
+      "postcode": "",
+      "city": "Dakar",
+      "country": "S\u00e9n\u00e9gal",
+      "email": "",
+      "phone": "(+221) 33 867 12 67",
+      "twitter": "",
+      "facebook": "https://www.facebook.com/groups/face.uvs/?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-17.4716606, 14.731744]
+    }
+  }, {
+    "id": "vename",
+    "type": "Feature",
+    "properties": {
+      "id": "vename",
+      "type": "organization",
+      "name": "Vename",
+      "url": "http://www.vename.ci",
+      "category": "Entreprise",
+      "tags": ["heb\u00e9rgement", "nom de domaine", "logiciels"],
+      "description": "VENAME est une plate-forme de promotion, de gestion et de ventes des noms de domaine des pays africains, avec paiement via mobile.",
+      "address": "Immeuble Gyam, 6\u00e8me \u00e9tage",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "infos@vename.ci",
+      "phone": "(+225) 23 00 83 95",
+      "twitter": "@venameci",
+      "facebook": "https://www.facebook.com/pages/vename/539570012760348?ref=hl",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "waleya-tech-hub",
+    "type": "Feature",
+    "properties": {
+      "id": "waleya-tech-hub",
+      "type": "organization",
+      "name": "Waleya Tech Hub",
+      "url": "http://www.waleya.com",
+      "category": "Incubateur",
+      "tags": ["coworking", "investisseurs", "networking"],
+      "description": "Centre de promotion de l'innovation qui connecte entrepreneurs et investisseurs.",
+      "address": "Cocody 2 plateaux vallons, zone 12\u00e8me arrondissement, Rue J65, villa 332",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "contact@waleya.com",
+      "phone": "(+225) 21 01 58 33",
+      "twitter": "@diabymohamed",
+      "facebook": "",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-4.0082563, 5.3599517]
+    }
+  }, {
+    "id": "woelab",
+    "type": "Feature",
+    "properties": {
+      "id": "woelab",
+      "type": "organization",
+      "name": "Woelab",
+      "url": "http://www.www.woelabo.com",
+      "category": "Tiers-lieu",
+      "tags": ["fablab", "acc\u00e9l\u00e9rateur", "entrepreneurs"],
+      "description": "Le Woelab accueille, forme, incube et acc\u00e9l\u00e8re des projets de startups \u00e0 forte valeur ajout\u00e9.",
+      "address": "Quartier B\u00e9-Klikam\u00e9, Abov\u00e9, 209 rue Klala Bar Lakaza|",
+      "postcode": "",
+      "city": "Lom\u00e9",
+      "country": "Togo",
+      "email": "",
+      "phone": "(+228) 93 54 08 26",
+      "twitter": "@woelab",
+      "facebook": "https://www.facebook.com/WoeLab-Prime-384002801760599/timeline/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [1.2313618, 6.1724969]
+    }
+  }, {
+    "id": "wops",
+    "type": "Feature",
+    "properties": {
+      "id": "wops",
+      "type": "organization",
+      "name": "Wops",
+      "url": "http://www.wops.pro/",
+      "category": "Entreprise",
+      "tags": ["webdesign", "B2B", "applications mobiles"],
+      "description": "WOPS\u00a0est une agence professionnelle sp\u00e9cialis\u00e9e en web.",
+      "address": "Cit\u00e9 Ade Mensah, Bingerville",
+      "postcode": "",
+      "city": "Abidjan",
+      "country": "C\u00f4te d'Ivoire",
+      "email": "info @ wops.pro",
+      "phone": "(+225) 22 00 73 92",
+      "twitter": "@WopsPro",
+      "facebook": "https://www.facebook.com/WopsPro",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-3.8757119, 5.3503589]
+    }
+  }, {
+    "id": "yam-pukri",
+    "type": "Feature",
+    "properties": {
+      "id": "yam-pukri",
+      "type": "organization",
+      "name": "Yam Pukri",
+      "url": "http://www.yam-pukri.org/",
+      "category": "Incubateur",
+      "tags": ["incubation", "formations", "jeunes"],
+      "description": "Structure proposant notamment la formation et l'incubation des jeunes pour faciliter leur insertion dans le march\u00e9 de l\u2019emploi.",
+      "address": "Rue Naba Bilgo",
+      "postcode": "",
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "email": "yam-pukri@yam-pukri.org",
+      "phone": "(+226) 50 37 39 74",
+      "twitter": "@YamPukri",
+      "facebook": "https://www.facebook.com/Yam-pukri-454144031373045/timeline/",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-1.5094034, 12.3433048]
+    }
+  }, {
+    "id": "y-ems-group",
+    "type": "Feature",
+    "properties": {
+      "id": "y-ems-group",
+      "type": "organization",
+      "name": "Y'ems Group",
+      "url": "http://www.yemsgroupinc.com",
+      "category": "Entreprise",
+      "tags": ["webdesign", "B2B", "conseil"],
+      "description": "Y'ems Group est une entreprise qui offre des services de consulting, de web d\u00e9veloppement et de management.",
+      "address": "Blue Pearl Hotel Building, S-Bend, Mile 3 Nkwen",
+      "postcode": "",
+      "city": "Bameda",
+      "country": "Cameroun",
+      "email": "contact@yemsgroupinc.com",
+      "phone": "(+237) 65 31 92 559",
+      "twitter": "@yemsgroup",
+      "facebook": "https://www.facebook.com/yemsgroup",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0, 48.0]
+    }
+  }, {
+    "id": "ziyara",
+    "type": "Feature",
+    "properties": {
+      "id": "ziyara",
+      "type": "organization",
+      "name": "Ziyara",
+      "url": "http://www.ziyara.td/",
+      "category": "Entreprise",
+      "tags": ["B2B", "webdesign", "logiciels"],
+      "description": "Ziyara est une startup sp\u00e9cialis\u00e9e dans la prestation de services informatiques notamment la cr\u00e9ation de sites et portails web.",
+      "address": "Quartier Goudji, Porte 684",
+      "postcode": "",
+      "city": "N'Djam\u00e9na",
+      "country": "Tchad",
+      "email": "contact@ziyara.td",
+      "phone": "(+235) 66 27 42 84",
+      "twitter": "@ziyaratech",
+      "facebook": "https://www.facebook.com/ziyaratech?fref=ts",
+      "googlePlue": "",
+      "linkedIn": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [2.0, 48.0]
+    }
+  }]
+}
