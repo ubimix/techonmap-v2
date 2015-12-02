@@ -47,25 +47,21 @@ module.exports = React.createClass({
         
         var topPanelElm = this.refs.topPanel.getDOMNode();
         var topPanelBox = topPanelElm.getBoundingClientRect();
+
+        var bottomPanelElm = this.refs.bottomPanel.getDOMNode();
+        var bottomPanelBox = bottomPanelElm.getBoundingClientRect();
         
         var height = (containerBox.bottom - topPanelBox.bottom);
 
-        var listElm = this.refs.searchResultsList.getDOMNode();
-        var listBox = listElm.getBoundingClientRect();
-        if (!this.listBoxHidden) {
-            height -= containerBox.bottom - listBox.bottom;
-        }
-        
         if (height <= 20) {
             this.listBoxHidden = true;
-            listElm.style.display = 'none';
-            listElm.style.height = '0px';
+            bottomPanelElm.style.display = 'none';
+            bottomPanelElm.style.height = '0px';
         } else {
             this.listBoxHidden = false;
-            listElm.style.display = 'block';
-            listElm.style.height = height + 'px';
+            bottomPanelElm.style.display = 'block';
+            bottomPanelElm.style.height = height + 'px';
         }
-        console.log('XXXX', height);
     },
     render : function() {
         var app = this.props.app;
@@ -75,7 +71,7 @@ module.exports = React.createClass({
         }
         return (
             <div className={className}>
-                <div ref="topPanel">
+                <div ref="topPanel" className="top-panel">
                     <SearchResultsInfoView
                         app={app}
                         className="stats"
@@ -83,10 +79,12 @@ module.exports = React.createClass({
                         open={this.state.showList}>
                         {this._renderSwitcher()}
                     </SearchResultsInfoView>
-                    <SearchPanel app={app} onPanelUpdate={this._fixResultsListHeight.bind(this)} />
-                    <SearchResultsOrderView app={app} />
                 </div>
-                <SearchResultsListView app={app} ref="searchResultsList"/>
+                <div ref="bottomPanel" className="bottom-panel">
+                    <SearchResultsOrderView app={app} />
+                    <SearchPanel app={app} onPanelUpdate={this._fixResultsListHeight.bind(this)} />
+                    <SearchResultsListView app={app} ref="searchResultsList"/>
+                </div>
             </div>
         );
     },
