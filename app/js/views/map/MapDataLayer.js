@@ -125,6 +125,9 @@ module.exports = AbstractMapLayer.extend({
         var data = app.res.getResources();
         var that = this;
         var options = {};
+        data = _.sortBy([].concat(data), function(r){
+            return r.id || '';
+        });
         _.each(data, function(d) {
             var id = app.res.getResourceId(d);
             if (!id)
