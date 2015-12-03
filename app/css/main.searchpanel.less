@@ -4,10 +4,11 @@
     border-bottom: 1px solid #eee;
     // Individual panels in the dropdown
     .panel-group {
-       margin: 0.5em 0px;
+       margin: 0px;
        > .panel {
             margin: 0;
             .box-shadow(none);
+            border: none;
             > .panel-heading {
                 padding: 0px;
                 margin: 0;
@@ -24,7 +25,8 @@
                 h4.header {
                   color: white;
                   background-color: #99db00;
-                  padding: 5px;
+                  padding: 5px 1em;
+                  margin: 0px;
                 }
             }
 
@@ -49,9 +51,16 @@
             margin: 0.5em 0;
             border-bottom: 1px solid #eee;
             .list-group-item {
-                padding: 0.3em 0px;
+                padding: 0.5em 1em;
                 border: none;
                 font-size: 1.3em;
+                margin-bottom: 0px;
+                border-bottom: 1px solid #e6e6e6;
+                border-radius: 0px;
+                height: inherit;
+                &:last-child {
+                  border-bottom: none;
+                }
                 > a {
                     display: block;
 //                  padding: 0.2em;
@@ -101,10 +110,6 @@
         .search-filter-items {
             .list-group {
                 border-bottom: none;
-                .list-group-item {
-                    font-size: 1em;
-                    height: 2.2em;
-                }
             }
         }
         .header {

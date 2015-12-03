@@ -41,7 +41,7 @@ var SearchPanel = React.createClass({
     render : function(){
         return (
              <PanelSwitcher
-                 className="container-fluid searchpanel"
+                 className="searchpanel"
                  ref="panels"
                  key="switch-panel"
                  onPanelUpdate={this.props.onPanelUpdate}>
