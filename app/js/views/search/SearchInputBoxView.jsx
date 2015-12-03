@@ -17,17 +17,19 @@ var SearchInputBoxView = React.createClass({
         var value = this.state.value||'';
         return (
             <form className={this.props.className} role="search" id={this.props.id}>
+               <h4 className="header">Rechercher</h4>
                <div className="input-group">
-                   {this._renderSearchButton()}
                    <input ref="inputBox" type="text" className="form-control"
                        onChange={this._onInputChange}
                        onKeyDown={this._onKeyDown}
                        value={value}
                        placeholder={this._getLabel('search.panel.placeholder.input')}/>
                    {this._renderClearButton()}
+                   {this._renderSearchButton()}
                </div>
+
            </form>
-       ); 
+       );
     },
     _renderSearchButton : function(){
         return (
@@ -56,7 +58,7 @@ var SearchInputBoxView = React.createClass({
         app.res.addSearchCriteriaChangeListener(this._onSearch);
     },
     componentDidMount : function(){
-        this.refs.inputBox.getDOMNode().focus(); 
+        this.refs.inputBox.getDOMNode().focus();
     },
     componentWillUnmount : function(){
          var app = this.props.app;
@@ -82,9 +84,9 @@ var SearchInputBoxView = React.createClass({
     },
     _newState : function(options){
         var query = this.props.app.res.getSearchQuery();
-        return _.extend({ 
+        return _.extend({
             value : query
-        }, this.state, options); 
+        }, this.state, options);
     },
     _onInputChange : function(ev){
         var query = ev.target.value;
@@ -117,4 +119,3 @@ var SearchInputBoxView = React.createClass({
 });
 
 module.exports = SearchInputBoxView;
- 

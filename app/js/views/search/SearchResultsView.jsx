@@ -44,13 +44,13 @@ module.exports = React.createClass({
     _fixResultsListHeight : function(){
         var containerElm = this.getDOMNode();
         var containerBox = containerElm.getBoundingClientRect();
-        
+
         var topPanelElm = this.refs.topPanel.getDOMNode();
         var topPanelBox = topPanelElm.getBoundingClientRect();
 
         var bottomPanelElm = this.refs.bottomPanel.getDOMNode();
         var bottomPanelBox = bottomPanelElm.getBoundingClientRect();
-        
+
         var height = (containerBox.bottom - topPanelBox.bottom);
 
         if (height <= 20) {
@@ -81,8 +81,8 @@ module.exports = React.createClass({
                     </SearchResultsInfoView>
                 </div>
                 <div ref="bottomPanel" className="bottom-panel">
-                    <SearchResultsOrderView app={app} />
                     <SearchPanel app={app} onPanelUpdate={this._fixResultsListHeight.bind(this)} />
+                    <SearchResultsOrderView app={app} />
                     <SearchResultsListView app={app} ref="searchResultsList"/>
                 </div>
             </div>
@@ -93,5 +93,5 @@ module.exports = React.createClass({
         ev.preventDefault();
         ev.stopPropagation();
     }
-    
+
 });
