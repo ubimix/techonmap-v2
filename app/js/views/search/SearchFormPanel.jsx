@@ -39,9 +39,13 @@ var SearchFormPanel = React.createClass({
         return this.props.app;
     },
     render : function(){
+        var className="search-form-panel";
+        var mobileMode = this.getApp().ui.isMobileMode();
+        if (mobileMode)
+          className += " container-fluid";
         return (
              <PanelSwitcher
-                 className="search-form-panel"
+                 className={className}
                  ref="panels"
                  key="switch-panel"
                  onPanelUpdate={this.props.onPanelUpdate}>
