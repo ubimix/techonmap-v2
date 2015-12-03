@@ -6,7 +6,7 @@ var TagsMixin = require('../utils/TagsMixin.jsx');
 var I18NMixin = require('../utils/I18NMixin');
 
 module.exports = React.createClass({
-    displayName : 'TagsSearchPanel',
+    displayName : 'TagsSearchFormPanel',
     mixins : [ AppViewMixin, TagsMixin, I18NMixin ],
     componentWillMount : function() {
         var app = this.props.app;

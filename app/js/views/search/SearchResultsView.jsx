@@ -2,7 +2,7 @@
 var _ = require('underscore');
 var React = require('react');
 var DomUtils = require('../utils/DomUtils');
-var SearchPanel = require('./SearchPanel.jsx');
+var SearchFormPanel = require('./SearchFormPanel.jsx');
 var SearchResultsListView = require('./SearchResultsListView.jsx');
 var SearchResultsInfoView = require('./SearchResultsInfoView.jsx');
 var SearchResultsOrderView = require('./SearchResultsOrderView.jsx');
@@ -81,7 +81,7 @@ module.exports = React.createClass({
                     </SearchResultsInfoView>
                 </div>
                 <div ref="bottomPanel" className="bottom-panel">
-                    <SearchPanel app={app} onPanelUpdate={this._fixResultsListHeight.bind(this)} />
+                    <SearchFormPanel app={app} onPanelUpdate={this._fixResultsListHeight.bind(this)} />
                     <SearchResultsOrderView app={app} />
                     <SearchResultsListView app={app} ref="searchResultsList"/>
                 </div>
