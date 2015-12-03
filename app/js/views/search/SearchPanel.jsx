@@ -8,7 +8,7 @@ var SearchResultsInfoView = require('./SearchResultsInfoView.jsx');
 var SearchResultsOrderView = require('./SearchResultsOrderView.jsx');
 
 module.exports = React.createClass({
-    displayName : 'SearchResultsView',
+    displayName : 'SearchPanel',
     mixins : [ DomUtils ],
     getInitialState : function(){
         return this._newState();
