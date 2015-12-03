@@ -4,17 +4,17 @@ var DomUtils = require('../utils/DomUtils');
 var I18NMixin = require('../utils/I18NMixin');
 var MenuMixin = require('../utils/MenuMixin.jsx');
 var PanelSwitcher = require('../utils/PanelSwitcher');
-var CategoriesSearchFormPanel = require('./CategoriesSearchFormPanel.jsx');
+var CategoriesSearchPanel = require('./CategoriesSearchPanel.jsx');
 var SearchInputBoxView = require('./SearchInputBoxView.jsx');
 var ZoneInfoView = require('./ZoneInfoView.jsx');
-var ZonesSearchFormPanel = require('./ZonesSearchFormPanel.jsx');
+var ZonesSearchPanel = require('./ZonesSearchPanel.jsx');
 var TagsInfoView = require('./TagsInfoView.jsx');
-var TagsSearchFormPanel = require('./TagsSearchFormPanel.jsx');
+var TagsSearchPanel = require('./TagsSearchPanel.jsx');
 var CategoriesInfoView = require('./CategoriesInfoView.jsx');
-var SelectedCategorySearchFormPanel = require('./SelectedCategorySearchFormPanel.jsx');
+var SelectedCategorySearchPanel = require('./SelectedCategorySearchPanel.jsx');
 
-var SearchFormPanel = React.createClass({
-    displayName : 'SearchFormPanel',
+var SearchPanel = React.createClass({
+    displayName : 'SearchPanel',
     mixins : [ DomUtils, I18NMixin, MenuMixin ],
     componentWillMount : function(){
         var app = this.getApp();
@@ -41,7 +41,7 @@ var SearchFormPanel = React.createClass({
     render : function(){
         return (
              <PanelSwitcher
-                 className="search-form-panel"
+                 className="searchpanel"
                  ref="panels"
                  key="switch-panel"
                  onPanelUpdate={this.props.onPanelUpdate}>
@@ -73,21 +73,21 @@ var SearchFormPanel = React.createClass({
         var app = this.getApp();
         return this._renderMenuPanelGroup('zones',
                 this._renderMenuReturnRef(),
-                this._renderFluidPanel(<ZonesSearchFormPanel app={app} />)
+                this._renderFluidPanel(<ZonesSearchPanel app={app} />)
         );
     },
     _renderTagsPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('tags',
                 this._renderMenuReturnRef(),
-                this._renderFluidPanel(<TagsSearchFormPanel app={app} />)
+                this._renderFluidPanel(<TagsSearchPanel app={app} />)
         );
     },
     _renderCategoriesPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('categories',
                 this._renderMenuReturnRef(),
-                this._renderFluidPanel(<CategoriesSearchFormPanel app={app}
+                this._renderFluidPanel(<CategoriesSearchPanel app={app}
                     onSelectCategory={this._onCategorySelect}/>)
         );
     },
@@ -97,7 +97,7 @@ var SearchFormPanel = React.createClass({
                 this._renderMenuReturnRef('categories',
                         'search.panel.button.return.to.categories'),
                 this._renderFluidPanel(
-                    <SelectedCategorySearchFormPanel app={app}
+                    <SelectedCategorySearchPanel app={app}
                     onExit={_.bind(this._toggleMenuPanel, this, 'categories')}/>
                 )
         );
@@ -137,4 +137,4 @@ var SearchFormPanel = React.createClass({
     },
 });
 
-module.exports = SearchFormPanel;
+module.exports = SearchPanel;

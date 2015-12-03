@@ -123,19 +123,16 @@
 form[role="search"] {
     > .input-group {
         background-color: white;
+        padding: .5em;
         .input-group-addon {
-            border-radius: 0;
             color: silver;
             background-color: transparent;
+            border: none;
         }
         input {
             .box-shadow(none);
-            border-left: none;
-            border-right: none;
-            &:first-child { border-left: 1px solid #ccc; }
-            &:last-child { border-right: 1px solid #ccc; }
-            &:focus { border-color: #ccc; }
-            padding-left: 0;
+            border: none;
+            padding-left: 1em;
             border-radius: 0;
         }
 
