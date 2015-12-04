@@ -46,10 +46,15 @@ var ListView = React.createClass({
                 bottomPagination={true}
                 getItemsNumber={this._getItemsNumber}
                 renderItems={this._renderItems}
+                scroller={this.props.scroller || this._getScrollerElement}
             />
         );
     },
 
+    _getScrollerElement : function() {
+        return this.getDOMNode();
+    },
+    
     // -----------------------------------------------------------------------
     // Methods used by the scroller
 

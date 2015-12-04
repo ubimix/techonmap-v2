@@ -26,10 +26,10 @@ module.exports = React.createClass({
         }, this.state, options);
     },
     _mobileLayout : function(){
-        return <MobileLayout app={this.props.app}/>
+        return <MobileLayout app={this.props.app} key="layout"/>
     },
     _fullscreenLayout : function(){
-        return <FullscreenLayout app={this.props.app}/>
+        return <FullscreenLayout app={this.props.app} key="layout"/>
     },
     render : function() {
         var app = this.props.app;

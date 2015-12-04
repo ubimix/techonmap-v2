@@ -21,26 +21,18 @@ var MenuMixin = {
             </ul>
         );
     },
-    _renderMenuPanel : function(key){
-        var args = toArray(arguments);
-        var heading = args.shift();
-        args = _.filter(args, function(val){
-            return !!val;
-        });
-        var body = null;
-        var key;
-        if (args.length) {
-            body = <div className="panel-body">{args}</div>;
-            key = args[0].key;
-        }
-        if (!key) {
-            key = _.uniqueId('menu-');
-        }
-        var headingPanel = !!heading ? <div className="panel-heading">{heading}</div> : null; 
+    _renderMenuPanel : function(options){
+        var key = options.key || _.uniqueId('menu-');
+        
+        var heading = options.heading;
+        var headingPanel = !!heading ? <div key={key + '-heading'} className="panel-heading">{heading}</div> : null;
+        
+        var body = options.view;
+        var bodyPanel = !!body ? <div key={key + '-body'} className="panel-body">{body}</div> : null;  
         return (
              <div className="panel" key={key}>
                  {headingPanel}
-                 {body}
+                 {bodyPanel}
              </div>
         );
     },
