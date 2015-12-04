@@ -226,15 +226,7 @@ function newSchema(options) {
                         label : msg('field.facebook'),
                         description : msg('field.facebook.description'),
                         type : 'string',
-                        maxLength : 800,
-                        conform : function(v) {
-                            return !!v
-                                    && v
-                                            .match(/^https?:\/\/([^\.]*)\.?facebook\.com\/.*$/g);
-                        },
-                        messages : {
-                            conform : msg('field.facebook.msg.confirm')
-                        }
+                        maxLength : 800
                     },
                     googleplus : {
                         label : msg('field.googleplus'),
