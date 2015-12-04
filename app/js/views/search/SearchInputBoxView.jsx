@@ -34,7 +34,7 @@ var SearchInputBoxView = React.createClass({
     _renderSearchButton : function(){
         return (
             <a href="#" className="input-group-addon search-run" onClick={this._runSearch}>
-                <i className="glyphicon glyphicon-search"></i>
+                <i className="icon icon-toolbar-search"></i>
             </a>
         );
     },
