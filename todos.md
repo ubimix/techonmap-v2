@@ -29,6 +29,7 @@
   - les 8 adresses geoloc en France
   - couleurs pictos : il reste les demi-tons foncé pour les sélctions: anto doit fournir les codes couleur
 
+  les couleurs des pictos dans la liste changent de couleur à la sélection avec mauvaise couleur
 
 # Intégration
   - Intégration de l'ensemble du design
