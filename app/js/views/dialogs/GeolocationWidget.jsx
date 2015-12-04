@@ -290,7 +290,6 @@ var GeolocationWidget = React.createClass({
                 country: country
               },
               {
-                city: city,
                 country: country
               }
             ];
