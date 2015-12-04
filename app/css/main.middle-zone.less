@@ -155,24 +155,22 @@
         .top-panel {
 
           .search-result-stats {
-              padding: 0.5em 0;
+              padding: 0.5em;
               margin: 0;
-              border-bottom: 1px solid #eee;
-
               .label {
-                  font-size: 1em;
+                  font-size: 1.4em;
                   color: gray;
                   font-weight: normal;
               }
 
-              @chevron-h : 40px;
+              @chevron-w: 40px;
+              @chevron-h: 50px;
               .switcher {
                   .fit(0, 0, auto, auto);
-                  border-left: 1px solid #eee;
-                  width: @chevron-h;
+                  width: @chevron-w;
                   height: @chevron-h;
                   .chevron {
-                      width: @chevron-h;
+                      width: @chevron-w;
                       height: @chevron-h;
                       margin: 0px;
                       padding: 0px;
@@ -189,7 +187,7 @@
                   }
               }
               .count {
-                  font-size: 1.2em;
+                  font-size: 1.8em;
                   .current { color: @dark-gray; padding: 0em 0.1em; font-weight: 300; font-size: 1.1em;}
                   .separator { color: @red-dark; padding: 0em;  font-weight: 100;}
                   .total { color: @red-dark; padding: 0em 0.1em; font-weight: 800; font-size: 1.2em; }
@@ -236,7 +234,6 @@
             @import url('./main.search-form-panel.less');
         }
         .search-results-order {
-            border-bottom: none;
             > li {
                 > * {
                     font-size: smaller;
@@ -290,6 +287,10 @@
                 margin-top: 0px;
                 margin-bottom: 0px;
 
+                &:first-child {
+                  margin-top: .5em;
+                }
+
                 .picto {
                     border-radius: 4px;
                     text-align: center;
@@ -313,13 +314,13 @@
                 &.selected {
                     background-color: #eee;
                     .picto {
-                        &.community { background-color: #25553E; }
-                        &.company { background-color: #8B9B63; }
-                        &.coworking { background-color: #BF8A20; }
-                        &.education { background-color: #7FA1B6; }
-                        &.incubator { background-color: #253F5F; }
-                        &.investor { background-color: #5B3F71; }
-                        &.org {background-color: #A44646;}
+                        // &.community { background-color: #25553E; }
+                        // &.company { background-color: #8B9B63; }
+                        // &.coworking { background-color: #BF8A20; }
+                        // &.education { background-color: #7FA1B6; }
+                        // &.incubator { background-color: #253F5F; }
+                        // &.investor { background-color: #5B3F71; }
+                        // &.org {background-color: #A44646;}
                     }
                 }
 

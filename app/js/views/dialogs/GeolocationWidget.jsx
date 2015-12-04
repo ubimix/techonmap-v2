@@ -3,14 +3,14 @@ var React = require('react');
 var Mosaic = require('mosaic-commons');
 var MosaicLeaflet = require('mosaic-core').Leaflet;
 var L = require('leaflet');
-var EsriGeoLocation = require('./EsriGeoLocation');
+var GeolocationClient = require('./OsmGeolocation');
 
 var GeolocationWidget = React.createClass({
     displayName : 'GeolocationWidget',
 
     componentWillMount : function(){
         this._setLatLng = _.debounce(this._setLatLng, 100);
-        this._geolocService = new EsriGeoLocation();
+        this._geolocService = new GeolocationClient();
     },
 
     getInitialState : function(){
@@ -278,22 +278,39 @@ var GeolocationWidget = React.createClass({
 
             var address = array.join(', ');
             var that = this;
-            that._geolocService.geolocalize({
-                address : address
-            }).then(function(result) {
-                var obj = result[0];
-                if (obj) {
-                    that._setLatLng(obj.lat, obj.lng);
-                    var latLng = that._getMarkerCoordinates();
-                    that._map.setView(latLng, 16);
-                }
-            }, function(err) {
-                this._updateInfo({
-                    address : {
-                        error: err
+            var addresses = [{
+                street: addr,
+                city: city,
+                postcode: postcode,
+                country: country
+              },
+              {
+                city: city,
+                postcode: postcode,
+                country: country
+              },
+              {
+                country: country
+              }
+            ];
+
+            Mosaic.P.all(
+              addresses.map(function(address) {
+                return that._geolocService.geolocalize(address)
+              })).then(function(results) {
+                  for (var i = 0; i < results.length; i++) {
+                    var obj = results[i];
+                    if (obj) {
+                        that._setLatLng(obj.lat, obj.lng);
+                        var latLng = that._getMarkerCoordinates();
+                        that._map.setView(latLng, 16);
+                        break;
                     }
+                  }
+                }, function(err) {
+                  console.log('>>> ERR', err);
                 });
-            });
+
             ev.preventDefault();
             ev.stopPropagation();
         }
