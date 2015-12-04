@@ -407,7 +407,7 @@ module.exports = React.createClass({
 
     _renderCreationYear : function(){
         return this._renderInputGroup({
-            mandatory : true,
+            mandatory : false,
             fieldKey : 'properties.creationyear',
             labelKey : 'dialog.edit.year.label',
             placeholderKey :  'dialog.edit.year.placeholder',

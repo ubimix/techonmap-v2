@@ -117,7 +117,7 @@ function newSchema(options) {
                         label : msg('field.description'),
                         description : msg('field.description.descripton'),
                         type : 'string',
-                        maxLength : 250,
+                        maxLength : 800,
                         required : true,
                         messages : {
                             required : msg('field.description.required'),
@@ -186,11 +186,10 @@ function newSchema(options) {
                         description : msg('field.url.description'),
                         type : 'string',
                         required : false,
-                        pattern : /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})(:\d+)?\/?([\/\da-z\s\.-]+)*(\?.*)?$/i,
+                        maxLength : 800,
                         messages : {
                             allowEmpty : msg('field.url.msg.allowEmpty'),
-                            format : msg('field.url.msg.format'),
-                            pattern : msg('field.url.msg.format'),
+                            format : msg('field.url.msg.format')
                         }
                     },
                     phone : {
@@ -203,12 +202,11 @@ function newSchema(options) {
                         label : msg('field.creationyear'),
                         description : msg('field.creationyear.description'),
                         type : 'number',
-                        required : true,
+                        required : false,
                         conform : function(v) {
                             try {
                                 v = parseInt(v);
-                                return v >= 1900
-                                        && v <= new Date().getFullYear();
+                                return true;
                             } catch (e) {
                                 return false;
                             }
@@ -221,12 +219,14 @@ function newSchema(options) {
                     twitter : {
                         label : msg('field.twitter'),
                         description : msg('field.twitter.description'),
+                        maxLength : 800,
                         type : 'string',
                     },
                     facebook : {
                         label : msg('field.facebook'),
                         description : msg('field.facebook.description'),
                         type : 'string',
+                        maxLength : 800,
                         conform : function(v) {
                             return !!v
                                     && v
