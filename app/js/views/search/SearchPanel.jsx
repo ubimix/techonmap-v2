@@ -70,8 +70,8 @@ module.exports = React.createClass({
             className += ' reduced';
         }
         return (
-            <div className={className}>
-                <div ref="topPanel" className="top-panel">
+            <div className={className} key="searchFormPanel">
+                <div key="topPanel" ref="topPanel" className="top-panel">
                     <SearchResultsInfoView
                         app={app}
                         className="stats"
@@ -80,13 +80,20 @@ module.exports = React.createClass({
                         {this._renderSwitcher()}
                     </SearchResultsInfoView>
                 </div>
-                <div ref="bottomPanel" className="bottom-panel">
-                    <SearchFormPanel app={app} onPanelUpdate={this._fixResultsListHeight.bind(this)} />
-                    <SearchResultsOrderView app={app} />
-                    <SearchResultsListView app={app} ref="searchResultsList"/>
+                <div key="bottomPanel" ref="bottomPanel" className="bottom-panel">
+                    <SearchFormPanel key="searchFormPanel" app={app} onPanelUpdate={this._fixResultsListHeight} />
+                    <SearchResultsOrderView key="searchResultsOrder" app={app} />
+                    <SearchResultsListView
+                        key="searchResultsList"
+                        app={app}
+                        ref="searchResultsList"
+                        scroller={this._getScrollerElement}/>
                 </div>
             </div>
         );
+    },
+    _getScrollerElement: function(){
+        return this.refs.bottomPanel.getDOMNode();
     },
     _toggleList : function(ev){
         this._updateState({showList : !this.state.showList});

@@ -39,10 +39,10 @@ module.exports = React.createClass({
             }
             return (
                 <div className="row search-filter-choice" key={key}>
-                    <div className="col-xs-10">
+                    <div key="left" className="col-xs-10">
                         <a href="#">{this._renderCategory(category)}</a>
                     </div>
-                    <div className="col-xs-2">
+                    <div key="right" className="col-xs-2">
                         <span className={className}>{stats}</span>
                     </div>
                 </div>
