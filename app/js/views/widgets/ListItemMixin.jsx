@@ -31,9 +31,9 @@ module.exports = _.extend({
 
     _renderShortDescription : function(type) {
         var creationYear = ResourceUtils.getResourceCreationYear(this.props.resource);
+        var app = this.getApp();
         var shortDescriptionText = app.res.getCategoryIcon(type);
         if (creationYear){
-            var app = this.getApp();
             var i18n = app.i18n;
             var msgKey = 'list.item.view.' + typeKey + '.creationYear';
             shortDescriptionText = i18n.getMessage(msgKey, { year: creationYear });
