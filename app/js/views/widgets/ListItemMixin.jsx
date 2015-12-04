@@ -31,16 +31,15 @@ module.exports = _.extend({
 
     _renderShortDescription : function(type) {
         var creationYear = ResourceUtils.getResourceCreationYear(this.props.resource);
-        var creationYearText = '';
+        var shortDescriptionText = app.res.getCategoryIcon(type);
         if (creationYear){
             var app = this.getApp();
             var i18n = app.i18n;
-            var typeKey = app.res.getCategoryIcon(type);
             var msgKey = 'list.item.view.' + typeKey + '.creationYear';
-            creationYearText = i18n.getMessage(msgKey, { year: creationYear });
+            shortDescriptionText = i18n.getMessage(msgKey, { year: creationYear });
         }
         return <div className="short-description">
-            {creationYearText}
+            {shortDescriptionText}
         </div>
     },
 
