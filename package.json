@@ -31,7 +31,7 @@
     "page": "^1.5.0",
     "react": "^0.12.1",
     "revalidator": "latest",
-    "react-select": "git+https://github.com/ubimix/react-select.git",
+    "react-select": "git+https://github.com/ubimix/react-select.git#v0.4.7-umx",
     "underscore": "~1.7.0"
   },
   "devDependencies": {
