@@ -10,3 +10,6 @@ npm-debug.log
 /TODO.txt
 *~
 /notes/
+logs
+data/tweet.json
+config.yaml
