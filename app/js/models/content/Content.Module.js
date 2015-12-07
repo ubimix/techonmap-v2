@@ -33,7 +33,7 @@ module.exports = Api.extend({}, {
         } else {
             href = options.url;
         }
-        return that._loadText(href).then(function(text) {
+        return that._loadText(href+'?xpage=plain&raw=2').then(function(text) {
             var obj = new ContentResource(text);
             obj.setOptions(options);
             return obj;
