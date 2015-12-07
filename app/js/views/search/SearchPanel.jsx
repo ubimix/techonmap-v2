@@ -7,9 +7,11 @@ var PanelSwitcher = require('../utils/PanelSwitcher');
 var CategoriesSearchPanel = require('./CategoriesSearchPanel.jsx');
 var SearchInputBoxView = require('./SearchInputBoxView.jsx');
 var ZoneInfoView = require('./ZoneInfoView.jsx');
-var ZonesSearchPanel = require('./ZonesSearchPanel.jsx'); 
+var ZonesSearchPanel = require('./ZonesSearchPanel.jsx');
 var TagsInfoView = require('./TagsInfoView.jsx');
 var TagsSearchPanel = require('./TagsSearchPanel.jsx');
+var LabelsInfoView = require('./LabelsInfoView.jsx');
+var LabelsSearchPanel = require('./LabelsSearchPanel.jsx');
 var CategoriesInfoView = require('./CategoriesInfoView.jsx');
 var SelectedCategorySearchPanel = require('./SelectedCategorySearchPanel.jsx');
 
@@ -26,7 +28,7 @@ var SearchPanel = React.createClass({
     },
     componentDidMount : function(){
         this._toggleMenuPanel('main');
-    }, 
+    },
     componentDidUpdate : function(){
         this._toggleMenuPanel('main');
     },
@@ -46,6 +48,7 @@ var SearchPanel = React.createClass({
                  {this._renderCategoriesPanel()}
                  {this._renderSelectedCategoryPanel()}
                  {this._renderTagsPanel()}
+                 {this._renderLabelsPanel()}
              </PanelSwitcher>
         );
     },
@@ -79,6 +82,13 @@ var SearchPanel = React.createClass({
                 this._renderFluidPanel(<TagsSearchPanel app={app} />)
         );
     },
+    _renderLabelsPanel : function(){
+        var app = this.getApp();
+        return this._renderMenuPanelGroup('labels',
+                this._renderMenuReturnRef(),
+                this._renderFluidPanel(<LabelsSearchPanel app={app} />)
+        );
+    },
     _renderCategoriesPanel : function(){
         var app = this.getApp();
         return this._renderMenuPanelGroup('categories',
@@ -101,13 +111,13 @@ var SearchPanel = React.createClass({
     _renderMainPanel : function(){
         var app = this.props.app;
         return this._renderMenuPanelGroup(
-           'main', 
+           'main',
            this._renderMenuPanel(
                <h3 className="panel-title">
                    {this._getLabel('search.panel.label.input')}
-               </h3>, 
+               </h3>,
                <SearchInputBoxView app={app}/>
-           ), 
+           ),
            this._renderMenuPanel(
                <h3 className="panel-title">
                    {this._getLabel('search.panel.label.filters')}
@@ -125,15 +135,19 @@ var SearchPanel = React.createClass({
                        this._renderMenuRef(
                                'search.panel.label.tags',
                                'tags',
-                               <TagsInfoView app={app} />)
+                               <TagsInfoView app={app} />),
+                       this._renderMenuRef(
+                               'search.panel.label.labels',
+                               'labels',
+                               <LabelsInfoView app={app} />)
                    )}
                </div>
-           ), 
+           ),
            React.Children.map(this.props.children, function(child){
                return child;
            })
         );
     },
 });
-               
+
 module.exports = SearchPanel;

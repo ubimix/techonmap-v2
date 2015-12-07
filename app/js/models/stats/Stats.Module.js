@@ -55,6 +55,9 @@ module.exports = Api.extend({
             var tags = ResourceUtils.getResourceTags(resource);
             this._updateStats(result.tags, tags);
 
+            var labels = ResourceUtils.getResourceLabels(resource);
+            this._updateStats(result.labels, labels);
+
             var categories = ResourceUtils.getResourceCategories(resource);
             this._updateStats(result.categories, categories);
 
@@ -72,7 +75,8 @@ module.exports = Api.extend({
         return {
             zones : {},
             tags : {},
-            categories : {}
+            categories : {},
+            labels : {}
         }
     },
 

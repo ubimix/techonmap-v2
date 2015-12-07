@@ -3,6 +3,7 @@ var _ = require('underscore');
 var React = require('react');
 var AppViewMixin = require('../AppViewMixin');
 var TagsInfoView = require('./TagsInfoView.jsx');
+var LabelsInfoView = require('./LabelsInfoView.jsx');
 var QueryInfoView = require('./QueryInfoView.jsx');
 var CategoriesInfoView = require('./CategoriesInfoView.jsx');
 var ZoneInfoView = require('./ZoneInfoView.jsx');
@@ -17,25 +18,25 @@ module.exports = React.createClass({
     _getStore : function(){
         return this.props.app.res;
     },
-    
+
     _newState : function(){
         return { };
     },
-    
+
     componentWillMount : function(){
          var app = this.props.app;
          app.res.addSearchCriteriaChangeListener(this._onSearchCriteriaUpdate);
     },
-    
+
     componentWillUnmount : function(){
          var app = this.props.app;
          app.res.removeSearchCriteriaChangeListener(this._onSearchCriteriaUpdate);
     },
-    
+
     _onSearchCriteriaUpdate : function(){
         this.setState(this._newState());
     },
-    
+
     _renderSearchQueryInfo : function(){
         var app = this.props.app;
         if (!app.res.hasSearchQuery())
@@ -74,10 +75,29 @@ module.exports = React.createClass({
         );
     },
 
+    _renderLabelsInfo : function(){
+        var app = this.props.app;
+        if (!app.res.hasFilterLabels())
+            return '';
+        return (
+            <ul className="list-group search-tags">
+                <li className="list-group-item">
+                    <span className="criteria-reminder-title">{this._getLabel('toolbar.left.label.labels')}</span>
+                    <LabelsInfoView app={app} hideEmpty={true}/>
+                    {this._renderRemoveBtn({
+                        onClick: function(){
+                            app.res.toggleLabels([]);
+                        }
+                    })}
+                </li>
+            </ul>
+        );
+    },
+
     _renderRemoveBtn : function(options){
         var app = this.props.app;
         var removeBtn = '';
-        if (!app.ui.canChangeSearchQueries()) 
+        if (!app.ui.canChangeSearchQueries())
             return ;
         return [
             <span className="bar"></span>,
@@ -86,7 +106,7 @@ module.exports = React.createClass({
                 ev.stopPropagation();
                 ev.preventDefault();
             }}></a>
-        ]; 
+        ];
     },
 
     _renderCategoriesInfo : function(){
@@ -135,6 +155,7 @@ module.exports = React.createClass({
                 {this._renderZonesInfo()}
                 {this._renderCategoriesInfo()}
                 {this._renderTagsInfo()}
+                {this._renderLabelsInfo()}
             </div>
         );
     }

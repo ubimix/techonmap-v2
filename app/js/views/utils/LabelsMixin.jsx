@@ -48,6 +48,6 @@ module.exports =  {
                </span>
             ];
         }
-        return <div className="labels">{tags}</div>
+        return <span className="labels">{tags}</span>
     },
 };
