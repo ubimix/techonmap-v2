@@ -15,7 +15,7 @@ var ListView = React.createClass({
         var app = this.getApp();
         var results = app.res.getResources();
         if (!results || !results.length) {
-            
+
             var item = app.viewManager.newView('listItemEmpty', 'default', {
                 app : app
             });
@@ -25,7 +25,7 @@ var ListView = React.createClass({
                 </div>
             );
         }
-        
+
         var activeResourceId = app.res.getSelectedResourceId()
                 || this._prevActiveResourceId;
         var focusedIdx;
@@ -37,13 +37,13 @@ var ListView = React.createClass({
         return (
             <PaginatedListView
                 key="list-view"
-                className="list-group search-results-list" 
-                paginationClassName="pagination pagination-sm" 
+                className="list-group search-results-list"
+                paginationClassName="pagination pagination-sm"
                 pageSize={pageSize}
                 index={focusedIdx}
                 buttonsNumber={3}
                 topPagination={true}
-                bottomPagination={true}
+                bottomPagination={false}
                 getItemsNumber={this._getItemsNumber}
                 renderItems={this._renderItems}
             />
@@ -70,7 +70,7 @@ var ListView = React.createClass({
     componentDidMount : function(){
         this.setState({});
     },
-    
+
     componentWillUnmount : function() {
         var store = this._getStore();
         store.removeSelectListener(this._updateState, this);
