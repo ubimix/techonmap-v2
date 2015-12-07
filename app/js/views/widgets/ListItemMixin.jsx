@@ -72,8 +72,8 @@ module.exports = _.extend({
     },
 
     _renderDescription : function(isSelected) {
-        if (isSelected) {
-            var desc = ResourceUtils._getFirstProperty(this.props.resource, 'description');
+        var desc = ResourceUtils._getFirstProperty(this.props.resource, 'description');
+        if (isSelected && !this._isEmpty(desc)) {
             return <div className="description">
                     {desc}
             </div>
@@ -180,5 +180,12 @@ module.exports = _.extend({
             </div>
         );
     },
+
+    _isEmpty : function(str) {
+        if (!str || str === '')
+            return true;
+        str = str.replace(/^[\s\r\n]+|[\s\r\n]+$/gim, '');
+        return str === '';
+    }
 
 }, TagsMixin, I18NMixin, LabelsMixin);
