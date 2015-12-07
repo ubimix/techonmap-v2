@@ -32,7 +32,8 @@
     "react": "^0.12.1",
     "revalidator": "latest",
     "react-select": "git+https://github.com/ubimix/react-select.git",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "ntwitter": "*"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
