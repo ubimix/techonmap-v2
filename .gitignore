@@ -11,3 +11,4 @@ npm-debug.log
 *~
 /notes/
 data/data.json
+/node_modules*/
