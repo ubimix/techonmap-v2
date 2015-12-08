@@ -25,10 +25,10 @@ module.exports = React.createClass({
             className += ' no-headers';
         }
         return (
-            <div className={className}>
+            <div className={className} key={this.props.key}>
                 {topHeaders}
-                <MobileTopZoneView app={app} className="top-zone"/>
-                <MobileMiddleZoneView app={app} className="middle-zone"/>
+                <MobileTopZoneView key="top" app={app} className="top-zone"/>
+                <MobileMiddleZoneView key="middle" app={app} className="middle-zone"/>
             </div>
         );
     }

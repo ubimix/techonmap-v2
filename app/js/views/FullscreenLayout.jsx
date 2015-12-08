@@ -20,16 +20,16 @@ module.exports = React.createClass({
         var headers;
         if (showHeaders) {
             headers = [
-                <FullscreenTopZoneView app={app} className="top-zone"/>
+                <FullscreenTopZoneView key="top" app={app} className="top-zone"/>
             ];
         } else {
             className += ' no-headers';
         }
         return (
-            <div className={className}>
+            <div key={this.props.key} className={className}>
                 {headers}
-                <FullscreenMiddleZoneView app={app} className="middle-zone"/>
-                <BottomZoneView app={app} className="bottom-zone"/>
+                <FullscreenMiddleZoneView key="middle" app={app} className="middle-zone"/>
+                <BottomZoneView key="bottom" app={app} className="bottom-zone"/>
             </div>
         );
     }
