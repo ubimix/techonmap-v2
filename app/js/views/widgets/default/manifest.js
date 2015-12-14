@@ -6,6 +6,7 @@ module.exports = [ {
         'listItemEmpty' : require('./ListItemEmpty.jsx'),
         'mapPopup' : require('./MapPopup.jsx'),
         'mapMarker' : require('./MapMarker'),
+        'mapLayer' : require('./MapLayer'),
         // 'mapClusterMarker' : require('./MapClusterMarker'),
         'mapClusterOptions' : require('./MapClusterOptions')
     }

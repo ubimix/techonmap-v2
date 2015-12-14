@@ -1,4 +1,5 @@
 [{
+  "id" : "Benin",
   "key": "Bénin",
   "icon": "icon-flag-benin",
   "label": "Bénin"
@@ -11,10 +12,12 @@
   "icon": "icon-flag-burundi",
   "label": "Burundi"
 }, {
+  "id" : "Cameroon",
   "key": "Cameroun",
   "icon": "icon-flag-cameroun",
   "label": "Cameroun"
 }, {
+  "id" : "Republic of the Congo",
   "key": "Congo",
   "icon": "icon-flag-congo",
   "label": "Congo"

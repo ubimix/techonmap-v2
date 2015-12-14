@@ -425,11 +425,9 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         });
     },
 
-    getCountryKeys : function() {
-        return _.map(this._countries, function(entry) {
-            return entry.key;
-        });
-    },
+    
+    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------
 
     getCategoryIcon : function(category) {
         var key = this.getCategoryKey(category);
@@ -440,9 +438,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         }
         return icon;
     },
-    getCountries : function() {
-        return this._countries;
-    },
+    
     /**
      * Toggle tags in the search criteria. This methods sets all new tags and
      * removes already existing tags from the specified tag array.
@@ -557,6 +553,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     getZones : function() {
         return this._toArray(this._zones);
     },
+    
+    getZoneGeometries: function(){
+        return this.getZones();
+    },
 
     /** Returns true if there are geographical filters applied */
     hasZonesFilter : function() {
@@ -581,7 +581,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         return result;
     },
 
-    /** Returns a list of all zones used to fileter values. */
+    /** Returns a list of all zones used to filter values. */
     getFilterZoneKeys : function() {
         var criteria = this.getSearchCriteria();
         return this._toArray(criteria.country);
@@ -600,8 +600,13 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Returns key of the specified zone. */
     getZoneKey : function(zone) {
-        var key = _.isObject(zone) ? zone.key : zone;
+        var key = _.isObject(zone) ? zone.properties.key : zone;
         return key;
+    },
+
+    /** Returns keys of all geographic zones. */
+    getZoneKeys : function() {
+        return this.getFilterZoneKeys();
     },
 
     /**
@@ -743,9 +748,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         var that = this;
         return Mosaic.P.then(
                 function() {
-                    return Mosaic.P.all([ that._loadCategories(),
-                            that._loadCountries(),
-                            that._loadGeographicZones() ]);
+                    return Mosaic.P.all([
+                        that._loadCategories(),
+                        that._loadGeographicZones()
+                    ]);
                 })//
         .then(function() {
             // return that._copySearchCriteriaFromUrl();
@@ -764,10 +770,11 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     _loadGeographicZones : function() {
         var that = this;
         return Mosaic.P.then(function() {
-            return that._getJson(_.extend({}, {
-                path : that.options.app.options.zonesUrl
-            })).then(function(zones) {
-                that._zones = zones;
+            var path = that.options.app.options.zonesUrl;
+            return that._getGeoJsonArray(_.extend({}, {
+                path : path
+            })).then(function(data) {
+                that._zones = data;
             });
         });
     },
@@ -782,17 +789,6 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                 path : that.options.app.options.categoriesUrl
             })).then(function(categories) {
                 that._categories = categories;
-            });
-        });
-    },
-
-    _loadCountries : function() {
-        var that = this;
-        return Mosaic.P.then(function() {
-            return that._getJson(_.extend({}, {
-                path : that.options.app.options.zonesUrl
-            })).then(function(countries) {
-                that._countries = countries;
             });
         });
     },
@@ -918,9 +914,9 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             var selectedResourceId = that.getSelectedResourceId();
             that.notify();
             if (selectedResourceId !== undefined) {
-                // return that.selectResource({
-                // resourceId : selectedResourceId
-                // });
+                 return that.selectResource({
+                     resourceId : selectedResourceId
+                 });
             }
         });
     },

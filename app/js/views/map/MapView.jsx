@@ -14,6 +14,7 @@ var MapBackgroundLayer = require('./MapBackgroundLayer');
 var MapHeatmapLayer = require('./MapHeatmapLayer');
 var MapDataLayer = require('./MapDataLayer');
 var MapDebugLayer = require('./MapDebugLayer');
+var MapCountriesLayer = require('./MapCountriesLayer');
 
 /**
  * This class is responsible for creation of a map and showing data on it.
@@ -157,6 +158,7 @@ module.exports = React.createClass({
         that._layers = {};
         that._layers.debug = new MapDebugLayer(options);
         that._layers.tiles = new MapBackgroundLayer(options);
+        that._layers.countries = new MapCountriesLayer(options);
 
         that._layers.data = new MapDataLayer(options);
         that._layers.heatmap = new MapHeatmapLayer(options);

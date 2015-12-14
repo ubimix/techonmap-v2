@@ -21,7 +21,7 @@ var ZoneMixin = {
             <span
                 onClick={_.bind(this._selectZone, this, zone)}
                 className={className} key={zoneKey}>
-                <i className={'icon ' + zone.icon} />
+                <i className={'icon ' + zone.properties.icon} />
                 <span className='zone-label'>{zoneLabel + ' '}</span>
             </span>
         );
