@@ -1,4 +1,19 @@
 
+x Design: intégrer les couleurs foncés pour les pictos
+x Sur la page d'accueil, le champ de recherche n'est pas visible, il faut scroller  pour y avoir accès
+x Heatmap ne fonctionne pas : en plus, si deux clics sur Heatmap, ça zoom
+
+Partage: - il y a un problème lié aux accents:  par exemple, le filtre "écoles" ne fonctionne pas (voir aussi sur TechonMap), ou le filtre "réseau"
+Export:
+  bug export: dans l'export CSV il manque l'info sur les pays, attention à l'ordre des champs!
+  bug export écoles CSV:
+  - ligne 38, Institut Supérieur d'Informatique, Programmation et Analyse: le nom pas exporté correctement, décalage dans les colonnes- à cause de la virgule du titre;
+  - bug Izoe : une entreprise dans le fichier Ecoles en bas, mal afichée
+  bug export tiers lieux: Minodoo
+- Contact dans A propos :  adresse mail pour réception des mails: afriquenumerique@lafonderie-idf.fr
+- Cluster : éclater les clusters si moins de 5 entités avec des adresses diférentes
+- bug de géoloc : structures avec adresses remplies mais géolocalisées centre-ville ex: Abidjan, voir Ovillage et la géoloc Google / Abidjan Zone 4, Rue Paul Langevin, Immeuble BADEYA, Abidjan
+
 # Dév
   - Formulaire: prise en compte du champ pays pour la géolocalisation
   - Authentification via Facebook et Google+
@@ -37,6 +52,25 @@
   - marge blanche à droite des boutons
   - favicon ?
   - agrandir police de résultats
+  Couleurs
+    entreprise :
+    #ab2b6f
+    #681749
+    tiers-lieux :
+    #ec3a30
+    #7f1f1c
+    ecoles :
+    #17a075
+    #10664a
+    communautés :
+    #3a8927
+    #1d4213
+    incubateurs :
+    #f96c12
+    #9e4310
+    investisseurs :
+    #1e66bc
+    #133e68
 
 # MK
   Déplacer le formulaire de recherche au-dessus de la liste des résultats

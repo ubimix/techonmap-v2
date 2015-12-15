@@ -33,7 +33,7 @@ var ListView = React.createClass({
             focusedIdx = app.res.getResourcePosition(activeResourceId);
             this._prevActiveResourceId = activeResourceId;
         }
-        var pageSize = 15;
+        var pageSize = 50;
         return (
             <PaginatedListView
                 key="list-view"
@@ -54,7 +54,7 @@ var ListView = React.createClass({
     _getScrollerElement : function() {
         return this.getDOMNode();
     },
-    
+
     // -----------------------------------------------------------------------
     // Methods used by the scroller
 

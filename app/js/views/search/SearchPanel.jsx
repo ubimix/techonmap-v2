@@ -79,10 +79,10 @@ module.exports = React.createClass({
                         open={this.state.showList}>
                         {this._renderSwitcher()}
                     </SearchResultsInfoView>
-                </div>
-                <div key="bottomPanel" ref="bottomPanel" className="bottom-panel">
                     <SearchFormPanel key="searchFormPanel" app={app} onPanelUpdate={this._fixResultsListHeight} />
                     <SearchResultsOrderView key="searchResultsOrder" app={app} />
+                </div>
+                <div key="bottomPanel" ref="bottomPanel" className="bottom-panel">
                     <SearchResultsListView
                         key="searchResultsList"
                         app={app}

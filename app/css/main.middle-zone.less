@@ -221,19 +221,18 @@
           	}
 
           }
-
-
-
+        @import url('./main.search-form-panel.less');
         }
         .bottom-panel {
             .fit(auto, 0, 0, 0);
             overflow-x: hidden;
             overflow-y: auto;
             border-top: 1px solid #eee;
-
-            @import url('./main.search-form-panel.less');
         }
         .search-results-order {
+            &.nav-tabs {
+              border-bottom: none;
+            }
             > li {
                 > * {
                     font-size: smaller;
@@ -241,6 +240,7 @@
                     line-height: @nav-size;
                     padding: 0 0.6em;
                     border-top: none;
+                    border-bottom: none;
                     border-radius: 0;
                     color: @dark-gray;
                 }
@@ -314,12 +314,12 @@
                 &.selected {
                     background-color: #eee;
                     .picto {
-                        // &.community { background-color: #25553E; }
-                        // &.company { background-color: #8B9B63; }
-                        // &.coworking { background-color: #BF8A20; }
-                        // &.education { background-color: #7FA1B6; }
-                        // &.incubator { background-color: #253F5F; }
-                        // &.investor { background-color: #5B3F71; }
+                        &.community { background-color:@community-on; }
+                        &.company { background-color: @company-on; }
+                        &.coworking { background-color: @coworking-on; }
+                        &.education { background-color: @education-on; }
+                        &.incubator { background-color: @incubator-on; }
+                        &.investor { background-color: @investor-on; }
                         // &.org {background-color: #A44646;}
                     }
                 }
