@@ -18,7 +18,7 @@ module.exports = {
     messages : './data/messages.json',
     dataFieldsUrl : './data/data.fields.json',
     categoriesUrl : './data/categories.json',
-    zonesUrl : './data/zones.json',
+    zonesUrl : './data/africa.geo.json',
     mode : currentUrl.query.mode,
     siteUrl : currentUrl.protocol + '//' + currentUrl.host
             + currentUrl.pathname,

@@ -129,7 +129,6 @@ module.exports = Api.extend(ResourceUtils, {
                 that._checkIdField(resource);
                 that._checkTaxIdField(resource);
                 that._checkYearField(resource);
-                console.log('updateFields: ', JSON.stringify(this._resource, null, 2),  JSON.stringify(resource, null, 2))
                 that._resource = resource;
                 that._validateResource();
             }
@@ -284,7 +283,6 @@ module.exports = Api.extend(ResourceUtils, {
             var property = err.property;
             this._validationResults.errorIndex[property] = err;
         }, this);
-        console.log('>>> VALIDATION RESULTS: ', this._validationResults);
         return this._validationResults;
     },
 
@@ -379,7 +377,7 @@ module.exports = Api.extend(ResourceUtils, {
             },
             getCountryKeys : function(key) {
                 // FIXME:
-                return app.res.getCountryKeys();
+                return app.res.getZoneKeys();
             }
         });
         return newSchema(options);

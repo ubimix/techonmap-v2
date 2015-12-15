@@ -379,7 +379,6 @@ module.exports = React.createClass({
 
         var errorMsg = this._getFieldError('geometry.coordinates');
         var edit = this.props.app.edit;
-        console.log('renderAddressAndCoordinates: coords=', coords);
         return [
             this._renderHorizontalFormGroup('properties.address', 'dialog.edit.address-group.label',
                 <GeolocationWidget
@@ -391,7 +390,6 @@ module.exports = React.createClass({
                     zoom={zoom}
                     marker={marker}
                     onAddressChange={function(info){
-                        console.log('>>> EditEntityForm.onAddressChange', JSON.stringify(info));
                         var fields = {};
                         _.each(info, function(field) {
                             var name = field.name;

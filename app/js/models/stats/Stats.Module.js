@@ -50,8 +50,6 @@ module.exports = Api.extend({
 
     /** Calculates and returns statistics about the specified set of resources. */
     _calculateStats : function(list) {
-        console.log('_calculateStats');
-        
         var result = this._newStatsObject();
         _.each(list, function(resource) {
             var tags = ResourceUtils.getResourceTags(resource);
@@ -61,6 +59,7 @@ module.exports = Api.extend({
             this._updateStats(result.categories, categories);
 
             var zone = ResourceUtils.getResourceZone(resource);
+            zone =  this.app.res.getZoneKey(zone);
             this._updateStats(result.zones, [ zone ]);
         }, this);
         return result;
