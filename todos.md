@@ -19,17 +19,10 @@
   - traduction des messages de social auth
   - http://tam.ubimix.com:8090/ masquer Tomcat
 
-  - La geoloc c'est le plus important!
-  - auth réseaux
-  - boutons couleur auth
+  - auth Google+
   - le filtrage par catégorie en place mais pas fonctionnel
   - dans le formulaire, j'ai eu des difficultés à inscrire une entité, alors même que j'ai utilisé une adresse complète, avec code postal etc..
   - envoi de mail formulaire contact
-  - pb de clustering : cela change en fonction du tri : par nom/ par date et  "de a à z" ou "de z à a"
-  - les 8 adresses geoloc en France
-  - couleurs pictos : il reste les demi-tons foncé pour les sélctions: anto doit fournir les codes couleur
-
-  les couleurs des pictos dans la liste changent de couleur à la sélection avec mauvaise couleur
 
 # Intégration
   - Intégration de l'ensemble du design
