@@ -597,6 +597,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Returns a zone description corresponding to the specified key. */
     getZoneByKey : function(key) {
+        key = this.getZoneKey(key);
         return this._zonesIndex[key];
     },
 

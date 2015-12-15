@@ -205,9 +205,9 @@ var GeolocationWidget = React.createClass({
         var countryKey = app.edit.getResourceValue('properties.country');
         var countryOptions = {'country' :'Pays'};
         var countries = app.res.getZones();
-        console.log('XXXXXXXXXX', countries);
         _.each(countries, function(entry) {
-            countryOptions[entry.key] = entry.label;
+            var key = app.res.getZoneKey(entry);
+            countryOptions[key] = entry.properties.label;
         });
         return this.props._renderInputGroup({
             type : 'select',
@@ -220,7 +220,6 @@ var GeolocationWidget = React.createClass({
 
     render : function() {
         var info = this._getInfo();
-        console.log('>>> Info:', info);
         var addrInfo = info.address;
         var addressInput = <input type="text" className="form-control"
             name={addrInfo.name}
