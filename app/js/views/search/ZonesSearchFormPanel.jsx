@@ -31,17 +31,21 @@ module.exports = React.createClass({
     render : function() {
         var app = this.props.app;
         var zones = app.res.getZones();
-        var array = _.map(zones, function(zone, i) {
-            var key = zone.key;
+        var array = [];
+        _.each(zones, function(zone, i) {
+            var zoneView = this._renderZone(zone);
+            if (!zoneView)
+                return ;
+            var key = app.res.getZoneKey(zone);
             var stats = this.state.stats[key] || 0;
             var className = 'label label-default pull-right';
             if (!stats) {
                 className += ' label-empty';
             }
-            return (
+            array.push(
                 <div className="row search-filter-choice" key={key}>
                     <div className="col-xs-10">
-                        <a href="#">{this._renderZone(zone)}</a>
+                        <a href="#">{zoneView}</a>
                     </div>
                     <div className="col-xs-2">
                         <span className={className}>{stats}</span>

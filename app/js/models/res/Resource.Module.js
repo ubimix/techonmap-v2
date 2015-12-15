@@ -17,6 +17,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
         // Search criteria
         this._categories = [];
         this._zones = [];
+        this._zonesIndex = {};
 
         this._fields = {
             fields : {}
@@ -566,8 +567,15 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Toggles geographic zones. */
     toggleZones : function(zones) {
-        zones = _.map(zones, this.getZoneKey, this);
-        return this._toggleSearchCriteria('country', zones);
+        var ids = [];
+        _.each(zones, function(zone){
+            var id = this.getZoneKey(zone);
+            if (id) {
+                ids.push(id);
+            }
+        }, this);
+        console.log('?????????????', zones, ids);
+        return this._toggleSearchCriteria('country', ids);
     },
 
     /** Returns filtering zones */
@@ -589,18 +597,18 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
 
     /** Returns a zone description corresponding to the specified key. */
     getZoneByKey : function(key) {
-        var criteria = this.prepareFilterValues(key);
-        var result = _.find(this._zones, function(zone) {
-            var key = this.getZoneKey(zone);
-            var keys = this.prepareFilterValues(key);
-            return this.filterValues(criteria, keys);
-        }, this);
-        return result;
+        return this._zonesIndex[key];
     },
 
     /** Returns key of the specified zone. */
     getZoneKey : function(zone) {
-        var key = _.isObject(zone) ? zone.properties.key : zone;
+        var key = zone;
+        if (_.isObject(zone)) {
+            key = zone.properties.key || zone.properties.label;
+        }
+        if (!!key) {
+            key = key.toLowerCase();
+        }
         return key;
     },
 
@@ -774,7 +782,14 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
             return that._getGeoJsonArray(_.extend({}, {
                 path : path
             })).then(function(data) {
-                that._zones = data;
+                that._zones = data || [];
+                that._zonesIndex = {};
+                _.each(that._zones, function(zone) {
+                    var key = that.getZoneKey(zone);
+                    if (key) {
+                        that._zonesIndex[key] = zone;
+                    }
+                });
             });
         });
     },

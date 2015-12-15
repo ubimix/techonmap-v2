@@ -19,11 +19,12 @@ module.exports = function(options) {
     });
     var layer = L.GeoJSON.geometryToLayer(resource, null, L.GeoJSON.coordsToLatLng, options);
     function updateStyle(){
-        var maxWidth = 24;
+        var maxWidth = 64;
+        var maxZoom = 8;
+        var maxOpacity = 0.7;
         var zoom = layer._zoom || 0;
-        var k = Math.pow(2, zoom - 7);
-        var width = Math.max(Math.round(maxWidth * k), 1);
-        var maxOpacity = 0.9;
+        var k = Math.pow(2, zoom - maxZoom);
+        var width = Math.min(maxWidth, Math.max(Math.round(maxWidth * k), 1));
         var opacity = maxOpacity * Math.min(1 / (+k ? k : 1) , 1);
         var style = _.extend({}, layer._selected ? selectedOptions : options, {
             weight : width,
