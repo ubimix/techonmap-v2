@@ -93,7 +93,6 @@ var GeolocationWidget = React.createClass({
 
     _updateInfo : function(obj) {
         var info = this._getInfo();
-        console.log('>>> updateInfo', info);
         this._copy(obj, info);
         this.setState(this._newState({}));
         if (this.props.onAddressChange) {
@@ -205,9 +204,10 @@ var GeolocationWidget = React.createClass({
         var app = this.props.app;
         var countryKey = app.edit.getResourceValue('properties.country');
         var countryOptions = {'country' :'Pays'};
-        var countries = app.res.getCountries();
+        var countries = app.res.getZones();
         _.each(countries, function(entry) {
-            countryOptions[entry.key] = entry.label;
+            var key = app.res.getZoneKey(entry);
+            countryOptions[key] = entry.properties.label;
         });
         return this.props._renderInputGroup({
             type : 'select',
@@ -220,7 +220,6 @@ var GeolocationWidget = React.createClass({
 
     render : function() {
         var info = this._getInfo();
-        console.log('>>> Info:', info);
         var addrInfo = info.address;
         var addressInput = <input type="text" className="form-control"
             name={addrInfo.name}
