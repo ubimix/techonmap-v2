@@ -1,7 +1,5 @@
 
-x Design: intégrer les couleurs foncés pour les pictos
-x Sur la page d'accueil, le champ de recherche n'est pas visible, il faut scroller  pour y avoir accès
-x Heatmap ne fonctionne pas : en plus, si deux clics sur Heatmap, ça zoom
+Attention quand on ajoute ?mobile pb de layout
 
 Partage: - il y a un problème lié aux accents:  par exemple, le filtre "écoles" ne fonctionne pas (voir aussi sur TechonMap), ou le filtre "réseau"
 Export:
