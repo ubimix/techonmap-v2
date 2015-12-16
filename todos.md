@@ -1,5 +1,6 @@
 
 Attention quand on ajoute ?mobile pb de layout
+Couleur de la scrollbar
 
 Partage: - il y a un problème lié aux accents:  par exemple, le filtre "écoles" ne fonctionne pas (voir aussi sur TechonMap), ou le filtre "réseau"
 Export:
