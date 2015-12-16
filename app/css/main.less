@@ -7,7 +7,7 @@
 @social-height-mobile: 0px;
 
 @top-height: 70px;
-@top-height-mobile: 43px;
+@top-height-mobile: 83px;
 
 @panel-margin: 10px;
 @bar-size : 40px;
@@ -69,7 +69,14 @@ a:hover .tag, a:hover .tag * {color:black;}
 .tags {
     .closable-tag-container;
 	.tag {}
-    .label { font-weight: normal; }
+  .label { font-weight: normal; }
+  li.list-group-item {
+    background-color: @red-dark !important;
+    > a.return {
+      color: white !important;
+      margin-bottom: 0 !important;
+    }
+  }
 }
 .tags-inline {
     .tag {}
@@ -84,11 +91,17 @@ a:hover .tag, a:hover .tag * {color:black;}
     &.selected {}
 }
 a:hover .category, a:hover .category * { color:black; }
-.categories {
+.categories, .selected-category {
     .closable-tag-container;
     .category {}
     .label { font-weight: normal; }
-
+    li.list-group-item {
+      background-color: @red-dark !important;
+      > a.return {
+        color: white !important;
+        margin-bottom: 0 !important;
+      }
+    }
 }
 .categories-inline {
     .category {
@@ -180,6 +193,13 @@ a:hover .category, a:hover .category * { color:black; }
     .closable-tag-container;
     .zone {}
     .label { font-weight: normal; }
+    li.list-group-item {
+      background-color: @red-dark !important;
+      > a.return {
+        color: white !important;
+        margin-bottom: 0 !important;
+      }
+    }
 }
 .zones-inline {
     .zone {

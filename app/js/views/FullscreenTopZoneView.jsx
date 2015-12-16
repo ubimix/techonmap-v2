@@ -279,30 +279,28 @@ module.exports = React.createClass({
              <nav className={className}>
                 <div className="container-fluid">
                   <div className="row">
-                      <div className="col-xs-12">
-                          <div className="navbar-header">
-                              <button type="button" className="navbar-toggle"
-                                  onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
-                                  <span className="sr-only"></span>
-                                  <span className="icon-bar"></span>
-                                  <span className="icon-bar"></span>
-                                  <span className="icon-bar"></span>
-                              </button>
-                              <a className="navbar-brand" href="#">
-                                  <img src="images/afrique-numerique-logo-03.svg" />
-                              </a>
-                          </div>
-                          <div className="navbar-collapse collapse" ref="navbar">
-                            {this._renderEditMenu()}
-                            <ul className="nav navbar-nav navbar-right top-navigation">
-                                {this._renderAboutMenuItem()}
-                                {this._renderHelpMenuItem()}
-                                {this._renderShareMenuItem()}
-                                {this._renderExportMenuItem()}
-                                {this._renderHeatmapMenuItem()}
-                            </ul>
-                          </div>
-                      </div>
+                    <div className="navbar-header">
+                        <button type="button" className="navbar-toggle"
+                            onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
+                            <span className="sr-only"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                        </button>
+                        <a className="navbar-brand" href="#">
+                            <img src="images/afrique-numerique-logo-03.svg" />
+                        </a>
+                    </div>
+                    <div className="navbar-collapse collapse" ref="navbar">
+                      {this._renderEditMenu()}
+                      <ul className="nav navbar-nav navbar-right top-navigation">
+                          {this._renderAboutMenuItem()}
+                          {this._renderHelpMenuItem()}
+                          {this._renderShareMenuItem()}
+                          {this._renderExportMenuItem()}
+                          {this._renderHeatmapMenuItem()}
+                      </ul>
+                    </div>
                   </div>
               </div>
           </nav>

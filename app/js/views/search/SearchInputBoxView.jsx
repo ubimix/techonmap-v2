@@ -15,6 +15,7 @@ var SearchInputBoxView = React.createClass({
     },
     render : function(){
         var value = this.state.value||'';
+        //{this._renderClearButton()}
         return (
             <form className={this.props.className} role="search" id={this.props.id}>
                <h4 className="header">Rechercher</h4>
@@ -24,7 +25,6 @@ var SearchInputBoxView = React.createClass({
                        onKeyDown={this._onKeyDown}
                        value={value}
                        placeholder={this._getLabel('search.panel.placeholder.input')}/>
-                   {this._renderClearButton()}
                    {this._renderSearchButton()}
                </div>
 

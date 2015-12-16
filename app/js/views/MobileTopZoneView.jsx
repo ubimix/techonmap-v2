@@ -100,21 +100,17 @@ module.exports = React.createClass({
             <nav className={className} role="navigation">
               <div className="container-fluid">
                   <div className="row">
-                      <div className="col-xs-5">
-                          <div className="navbar-header">
-                              <a className="navbar-brand" href="http://www.techonmap.fr">
-                                  <img src="images/afrique-numerique-logo-03.svg" />
-                              </a>
-                          </div>
-                      </div>
-                      <div className="col-xs-7">
-                          <ul className="nav nav-tabs pull-right top-navigation mobile">
-                              {this._renderAboutMenuItem()}
-                              {this._renderSearchMenuItem()}
-                              {this._renderMapMenuItem()}
-                              {this._renderListMenuItem()}
-                          </ul>
-                      </div>
+                    <div className="navbar-header">
+                        <a className="navbar-brand" href="">
+                            <img src="images/afrique-numerique-logo-03.svg" />
+                        </a>
+                    </div>
+                    <ul className="nav nav-tabs top-navigation mobile">
+                        {this._renderAboutMenuItem()}
+                        {this._renderSearchMenuItem()}
+                        {this._renderMapMenuItem()}
+                        {this._renderListMenuItem()}
+                    </ul>
                   </div>
               </div>
           </nav>
