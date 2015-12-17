@@ -90,7 +90,8 @@ module.exports = AbstractMapLayer.extend({
                 points.push(point);
             }, this);
             this._heatmap = L.heatLayer(points, {
-                radius : 25,
+                scaleRadius: false,
+                radius : 40,
                 blur : 50
             });
             this._map.addLayer(this._heatmap);
