@@ -5,7 +5,7 @@ module.exports = {
     contentBaseUrl : './data/content/',
     contentSaveUrl : './xwiki/bin/view/mobo/Saver?id=',
     //contactApiUrl : './xwiki/bin/view/mobo/Mailer',
-    contactApiUrl : './',
+    contactApiUrl : './api/mail',
     //dataUrl : './xwiki/bin/view/mobo/Api',
     dataUrl : './data/data.json',
     //userInfoApiUrl : './xwiki/bin/view/mobo/User',

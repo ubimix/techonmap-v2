@@ -10,6 +10,7 @@
     {"label": "N° et nom de rue", "field": "properties.address" },
     {"label": "CP", "field": "properties.postcode" },
     {"label": "Ville", "field": "properties.city" },
+    {"label": "Pays", "field": "properties.country" },
     {"label": "Année de création", "field": "properties.creationyear" },
     {"label": "Url site web", "field": "properties.url" },
     {"label": "Nom compte Twitter", "field": "properties.twitter" },

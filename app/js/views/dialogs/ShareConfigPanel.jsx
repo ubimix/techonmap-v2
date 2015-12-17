@@ -23,7 +23,7 @@ var ShareConfigPanel = React.createClass({
     },
     _newState : function(options){
         var app = this.getApp();
-        var useQuery = app.res.hasSearchCriteria(); 
+        var useQuery = app.res.hasSearchCriteria();
         return _.extend({
             width: 1024,
             height: 800,
@@ -53,14 +53,16 @@ var ShareConfigPanel = React.createClass({
             });
         }
         var url = app.nav.getExportUrl(options);
-        url = encodeURI(url);
+        //don't encode twice
+        //url = encodeURI(url);
+        console.log('>>> URL', url)
         url = app.options.siteUrl + url;
         return url;
     },
     _showPreview : function(ev){
         var width = this.state.width;
         var height = this.state.height;
-        var url = this._getExportUrl(); 
+        var url = this._getExportUrl();
         var wnd = window.open(url,'name',
                 'height=' + (height) + 'px,width=' + (width) + 'px');
     },
@@ -71,11 +73,11 @@ var ShareConfigPanel = React.createClass({
         var url = this._getExportUrl();
         var width = this.state.width;
         var height = this.state.height;
-        return '<iframe ' + 
-                'width="' + width + '" ' + 
+        return '<iframe ' +
+                'width="' + width + '" ' +
                 'height="' + height + '" ' +
-                'src="' + url + '" ' + 
-                'frameborder="0">' + 
+                'src="' + url + '" ' +
+                'frameborder="0">' +
                 '</iframe>';
     },
     getWidth : function(){
@@ -104,7 +106,7 @@ var ShareConfigPanel = React.createClass({
         this.setState(this._newState({ mode : checked ? 'mobile' : 'full' }));
     },
     _onBlur : function(key, minValue, ev) {
-        var value = parseInt(ev.target.value) || minValue; 
+        var value = parseInt(ev.target.value) || minValue;
         var newValue = Math.max(value, minValue);
         if (value != newValue) {
             var options = {};
