@@ -2,22 +2,18 @@
 Attention quand on ajoute ?mobile pb de layout
 Couleur de la scrollbar
 
-Partage: - il y a un problème lié aux accents:  par exemple, le filtre "écoles" ne fonctionne pas (voir aussi sur TechonMap), ou le filtre "réseau"
+x Partage: - il y a un problème lié aux accents:  par exemple, le filtre "écoles" ne fonctionne pas (voir aussi sur TechonMap), ou le filtre "réseau"
 Export:
-  bug export: dans l'export CSV il manque l'info sur les pays, attention à l'ordre des champs!
-  bug export écoles CSV:
-  - ligne 38, Institut Supérieur d'Informatique, Programmation et Analyse: le nom pas exporté correctement, décalage dans les colonnes- à cause de la virgule du titre;
-  - bug Izoe : une entreprise dans le fichier Ecoles en bas, mal afichée
-  bug export tiers lieux: Minodoo
-- Contact dans A propos :  adresse mail pour réception des mails: afriquenumerique@lafonderie-idf.fr
+  x bug export: dans l'export CSV il manque l'info sur les pays,
+  attention à l'ordre des champs!
+  - Contact dans A propos :  adresse mail pour réception des mails: afriquenumerique@lafonderie-idf.fr
+
+
 - Cluster : éclater les clusters si moins de 5 entités avec des adresses diférentes
 - bug de géoloc : structures avec adresses remplies mais géolocalisées centre-ville ex: Abidjan, voir Ovillage et la géoloc Google / Abidjan Zone 4, Rue Paul Langevin, Immeuble BADEYA, Abidjan
 
 # Dév
-  - Formulaire: prise en compte du champ pays pour la géolocalisation
-  - Authentification via Facebook et Google+
-  - utiliser une autre API de géolocalisation: OSM ?
-  - Auth: préfixer le login avec le nom du réseau pour davantage de clarté (les doublons sont déjà évités dans le plugin socialauth d'XWiki)
+  x Authentification Google+
   - supprimer les xredirect inutiles vers LoggedIn?xpage=plain
   - Paramétrage heatmap
   - Mise en valeur des pays au survol de la souris + filtrage
@@ -46,39 +42,12 @@ Export:
   les couleurs des pictos dans la liste changent de couleur à la sélection avec mauvaise couleur
 
 # Intégration
-  - Intégration de l'ensemble du design
-  - Formulaire: amélioration de la fenêtre d'authentification
-  - marge blanche à droite des boutons
-  - favicon ?
-  - agrandir police de résultats
-  Couleurs
-    entreprise :
-    #ab2b6f
-    #681749
-    tiers-lieux :
-    #ec3a30
-    #7f1f1c
-    ecoles :
-    #17a075
-    #10664a
-    communautés :
-    #3a8927
-    #1d4213
-    incubateurs :
-    #f96c12
-    #9e4310
-    investisseurs :
-    #1e66bc
-    #133e68
-
-# MK
-  Déplacer le formulaire de recherche au-dessus de la liste des résultats
-  Mise en évidence des pays + déclencher le filtre
+  x marge blanche à droite des boutons
+    chevrons de couleur
 
 # Back-office
   - Rendre opérationnel l'envoi de mail
   - Liste de pays dans le form
-  - Géoloc des 8 points qui apparaissent en France: il faudrait les positonner manuellement au bon endroit depuis le backoffice
 
 http://nominatim.openstreetmap.org/search.php?street=89%20rue%20Joseph%20T.%20Gomis&city=Dakar&country=S%C3%A9n%C3%A9gal
 http://nominatim.openstreetmap.org/search.php?street=89%20rue%20Joseph%20T.%20Gomis&city=Dakar&country=S%C3%A9n%C3%A9gal&format=json
