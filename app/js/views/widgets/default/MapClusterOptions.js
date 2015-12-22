@@ -5,7 +5,6 @@ module.exports = function(options) {
     return {
         // maxClusterRadius : 50,
         showCoverageOnHover : false,
-        showCoverageOnHover : true,
         iconCreateFunction : _.bind(function(cluster) {
             var clusterOptions = _.extend({}, options, {
                 cluster : cluster
