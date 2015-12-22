@@ -251,20 +251,23 @@ module.exports = React.createClass({
         return;
       var app = this.props.app;
       var user =  app.user.getUserInfo();
+      console.log('>> USER:', user);
       var label = 'Déconnexion';
       var liClasses = 'menu-btn menu-profile';
       var ulClasses = 'nav navbar-nav navbar-right top-navigation top-navigation-add';
+      var onClick = this.logout;
       if (!user) {
         label = 'Connexion';
         ulClasses = 'nav navbar-nav navbar-right top-navigation';
         liClasses = 'menu-btn menu-profile off';
+        onClick = this._onClickAdd;
       }
       return (
         <ul className={ulClasses}>
-          <li className={liClasses} key="profile" onClick={this.logout}>
+          <li className={liClasses} key="profile" onClick={onClick}>
               <a href="#" className="menu-profile">
                   <i className="icon icon-toolbar-profile"></i>
-                  <span className="label">Déconnex.</span>
+                  <span className="label">{label}</span>
               </a>
           </li>
         </ul>
