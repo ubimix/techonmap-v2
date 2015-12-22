@@ -228,9 +228,8 @@ module.exports = React.createClass({
         );
     },
 
-    _renderEditMenu : function(){
+    _renderAddAction : function() {
       var mobileMode = this.props.app.ui.isMobileMode();
-      console.log('>>> MOBILE MODE', mobileMode);
       if (mobileMode)
         return;
       return (
@@ -241,14 +240,36 @@ module.exports = React.createClass({
                   <span className="label">Ajouter</span>
               </a>
           </li>
-          <li className="menu-btn menu-profile" key="profile" onClick={this.logout}>
+        </ul>
+        );
+
+    },
+
+    _renderConnectionAction : function() {
+      var mobileMode = this.props.app.ui.isMobileMode();
+      if (mobileMode)
+        return;
+      var app = this.props.app;
+      var user =  app.user.getUserInfo();
+      var label = 'Déconnexion';
+      var liClasses = 'menu-btn menu-profile';
+      var ulClasses = 'nav navbar-nav navbar-right top-navigation top-navigation-add';
+      if (!user) {
+        label = 'Connexion';
+        ulClasses = 'nav navbar-nav navbar-right top-navigation';
+        liClasses = 'menu-btn menu-profile off';
+      }
+      return (
+        <ul className={ulClasses}>
+          <li className={liClasses} key="profile" onClick={this.logout}>
               <a href="#" className="menu-profile">
                   <i className="icon icon-toolbar-profile"></i>
                   <span className="label">Déconnex.</span>
               </a>
           </li>
         </ul>
-      );
+        );
+
     },
 
     _checkUserState : function() {
@@ -292,7 +313,8 @@ module.exports = React.createClass({
                         </a>
                     </div>
                     <div className="navbar-collapse collapse" ref="navbar">
-                      {this._renderEditMenu()}
+                      {this._renderConnectionAction()}
+                      {this._renderAddAction()}
                       <ul className="nav navbar-nav navbar-right top-navigation">
                           {this._renderAboutMenuItem()}
                           {this._renderHelpMenuItem()}
