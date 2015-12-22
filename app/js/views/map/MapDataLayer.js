@@ -98,7 +98,6 @@ module.exports = AbstractMapLayer.extend({
             spiderfyOnMaxZoom : true,
             zoomToBoundsOnClick : true,
         }, mapOptions.cluster, clusterOptions);
-        console.log('>>> >OPTIONS', clusterOptions);
         this._clusterLayer = new L.MarkerClusterGroup(clusterOptions);
         this._map.addLayer(this._clusterLayer);
     },

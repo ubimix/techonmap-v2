@@ -9,6 +9,7 @@ var ContentPopupMixin = require('./utils/ContentPopupMixin');
 var SharePopup = require('./dialogs/SharePopup.jsx');
 var ExportPopup = require('./dialogs/ExportPopup.jsx');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
+var EditEntityPopup = require('./dialogs/EditEntityPopup.jsx');
 
 module.exports = React.createClass({
     displayName : 'MobileTopZoneView',
@@ -93,6 +94,30 @@ module.exports = React.createClass({
             </li>
         );
     },
+
+    _onClickAdd : function(ev) {
+        var editPopup = new EditEntityPopup({
+           app : this.props.app
+        });
+        editPopup.open();
+        ev.stopPropagation();
+        ev.preventDefault();
+    },
+
+    _renderAddAction : function() {
+      var className = this._getClassName('list');
+      className += ' li-list';
+      return (
+          <li className="className" key="add" onClick={this._onClickAdd}>
+              <a href="#" className="menu-add">
+                  <i className="icon icon-list"></i>
+              </a>
+          </li>
+        );
+
+    },
+
+
     render : function() {
         var app = this.props.app;
         var className = this.props.className + " navbar navbar-default";
@@ -110,6 +135,7 @@ module.exports = React.createClass({
                         {this._renderSearchMenuItem()}
                         {this._renderMapMenuItem()}
                         {this._renderListMenuItem()}
+                        {this._renderAddAction()}
                     </ul>
                   </div>
               </div>
