@@ -94,6 +94,7 @@ module.exports = AbstractMapLayer.extend({
             app : app
         }) || {};
         var clusterOptions = _.extend({
+            showCoverageOnHover: false,
             spiderfyOnMaxZoom : true,
             zoomToBoundsOnClick : true,
         }, mapOptions.cluster, clusterOptions);

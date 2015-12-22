@@ -1,13 +1,14 @@
 
+x bug affichage de l'année de création dans la liste des entités: lorsque le champ année n'est pas complété, cela affiche Année de création 0. (exemple Y'ems Group)
+x bug effet périmètre du cluster : quand tu passes avec la souris sur un cluster, le périmètre s'affiche aléatoirement: soit trop grand, soit trop petit, soit ne s'affiche pas du tout
+x l'idéal serait d'avoir une différence visuelle du bouton connexion/déconnexion, quand déconnexion vert, connexion bleu.
+- la heatmap c'est mieux mais pas encore top, parlos-en!
+- ok pour les partage sélection tout va bien. Juste un problème de décalage des colonnes pour Minodoo, c'est peut-être un problème avec le fichier d'origine qu'on vous a passé.
+- si tu arrives à reproduire ce bug, ça m'est arrivé plusieurs fois et Boudour aussi : tu es connecté, tu te déconnectes, puis la fen^tre avec l'inscription s'affiche, mais avant de sélectionner une des 4 modalités d'inscription, s'affiche un message d'erreur d'authentification.
+
+
 Attention quand on ajoute ?mobile pb de layout
 Couleur de la scrollbar
-
-x Partage: - il y a un problème lié aux accents:  par exemple, le filtre "écoles" ne fonctionne pas (voir aussi sur TechonMap), ou le filtre "réseau"
-Export:
-  x bug export: dans l'export CSV il manque l'info sur les pays,
-  attention à l'ordre des champs!
-  - Contact dans A propos :  adresse mail pour réception des mails: afriquenumerique@lafonderie-idf.fr
-
 
 - Cluster : éclater les clusters si moins de 5 entités avec des adresses diférentes
 - bug de géoloc : structures avec adresses remplies mais géolocalisées centre-ville ex: Abidjan, voir Ovillage et la géoloc Google / Abidjan Zone 4, Rue Paul Langevin, Immeuble BADEYA, Abidjan
