@@ -2,7 +2,7 @@ var URL = require('url');
 var currentUrl = URL.parse(window.location.href, true);
 module.exports = {
     baseUrl : './',
-    contentBaseUrl : './xwiki/bin/view/mobo/Content/',
+    contentBaseUrl : './xwiki/bin/view/mobo/ContentApi?page=',
     dataUrl : './xwiki/bin/view/mobo/Api',
     contentSaveUrl : './xwiki/bin/view/mobo/Saver?id=',
     contactApiUrl : './xwiki/bin/view/mobo/Mailer',
