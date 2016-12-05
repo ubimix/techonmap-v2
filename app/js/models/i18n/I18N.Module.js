@@ -2,9 +2,10 @@ var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 var App = require('mosaic-core').App;
 var Api = App.Api;
+var AppStateMixin = require('../AppStateMixin');
 
 /** An API allowing to manage I18N lines visibility. */
-module.exports = Api.extend({
+module.exports = Api.extend({}, AppStateMixin, {
 
     /**
      * Initializes internal fields.
@@ -36,9 +37,16 @@ module.exports = Api.extend({
     stop : function() {
     },
 
+    /** Returns the current language */
+    getLanguage : function(){
+        return this._getAppState('language') || this._defaultLanguageKey;
+    },
+    
+    
     /** Returns a message/label corresponding to the specified key. */
     getMessage : function(key) {
-        var msg = this._messages[this._languageKey][key];
+        var language = this.getLanguage();
+        var msg = this._messages[language][key];
         if (!msg) {
             msg = this._messages[this._defaultLanguageKey][key];
         }
@@ -56,7 +64,7 @@ module.exports = Api.extend({
         msg = templ.apply(this, args);
         return msg;
     },
-    
+
     getMessage1 : function(key) {
         var messages = this._getMessagesDictionary();
         var args = [ messages ].concat(_.toArray(arguments));
