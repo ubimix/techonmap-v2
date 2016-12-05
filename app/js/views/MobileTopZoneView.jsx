@@ -28,24 +28,6 @@ module.exports = React.createClass({
         return _.extend({ showSearchMenu : false }, this.state, options);
     },
 
-    _showAboutInfo : function(ev) {
-        var app = this.props.app;
-        app.ui.focusView('about');
-        ev.preventDefault();
-        ev.stopPropagation();
-    },
-    _renderAboutMenuItem : function(){
-        var className = this._getClassName('about');
-        className += ' li-info';
-        return (
-            <li className={className}>
-                <a href="#" className="menu-info" onClick={this._showAboutInfo}>
-                    <i className="icon icon-info"></i>
-                </a>
-            </li>
-        );
-    },
-
     _getClassName : function(key) {
         var app = this.props.app;
         var activeKey = app.ui.getFocusedViewKey();
@@ -102,16 +84,8 @@ module.exports = React.createClass({
             <nav className={className} role="navigation">
               <div className="container-fluid">
                   <div className="row">
-                      <div className="col-xs-4">
-                          <div className="navbar-header">
-                              <a className="navbar-brand" href="http://www.techonmap.fr">
-                                  <img src="images/logo-01.svg" />
-                              </a>
-                          </div>
-                      </div>
-                      <div className="col-xs-8">
+                      <div className="col-xs-12">
                           <ul className="nav nav-tabs pull-right top-navigation mobile">
-                              {this._renderAboutMenuItem()}
                               {this._renderSearchMenuItem()}
                               {this._renderMapMenuItem()}
                               {this._renderListMenuItem()}

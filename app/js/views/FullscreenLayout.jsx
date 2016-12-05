@@ -4,8 +4,6 @@ var React = require('react');
 
 var FullscreenTopZoneView = require('./FullscreenTopZoneView.jsx');
 var FullscreenMiddleZoneView =  require('./FullscreenMiddleZoneView.jsx');
-var BottomZoneView = require('./BottomZoneView.jsx');
-var TopSocialBar = require('./TopSocialBar.jsx');
 var PopupPanel = require('mosaic-core').React.PopupPanel;
 
 module.exports = React.createClass({
@@ -21,7 +19,6 @@ module.exports = React.createClass({
         var headers; 
         if (showHeaders) {
             headers = [
-                <TopSocialBar app={app} className="social" />,
                 <FullscreenTopZoneView app={app} className="top-zone"/>
             ];
         } else {
@@ -31,7 +28,6 @@ module.exports = React.createClass({
             <div className={className}>
                 {headers}
                 <FullscreenMiddleZoneView app={app} className="middle-zone"/>
-                <BottomZoneView app={app} className="bottom-zone"/>
             </div>
         );
     }
