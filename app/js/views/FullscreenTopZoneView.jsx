@@ -96,28 +96,22 @@ module.exports = React.createClass({
         var className = (this.props.className || '') + ' navbar navbar-default';
         return (
              <nav className={className}>
-                <div className="container-fluid">
-                  <div className="row">
-                      <div className="col-xs-12">
-                          <div className="navbar-header">
-                              <button type="button" className="navbar-toggle"
-                                  onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
-                                  <span className="sr-only"></span>
-                                  <span className="icon-bar"></span>
-                                  <span className="icon-bar"></span>
-                                  <span className="icon-bar"></span>
-                              </button>
-                          </div>
-                          <div className="navbar-collapse collapse" ref="navbar">
-                            <ul className="nav navbar-nav navbar-right top-navigation">
-                                {this._renderHeatmapMenuItem()}
-                                {this._renderSearchMenuItem()}
-                            </ul>
-                          </div>
-                      </div>
+                  <div className="navbar-header">
+                      <button type="button" className="navbar-toggle"
+                          onClick={_.bind(this._toggleNavigation, this, 'navbar')}>
+                          <span className="sr-only"></span>
+                          <span className="icon-bar"></span>
+                          <span className="icon-bar"></span>
+                          <span className="icon-bar"></span>
+                      </button>
                   </div>
-              </div>
-          </nav>                
+                  <div className="navbar-collapse collapse" ref="navbar">
+                    <ul className="nav navbar-nav navbar-right top-navigation">
+                        {this._renderHeatmapMenuItem()}
+                        {this._renderSearchMenuItem()}
+                    </ul>
+                  </div>
+             </nav>                
         );
     },
 });
