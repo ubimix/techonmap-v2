@@ -1,0 +1,69 @@
+[
+    {
+        "key" : "Entreprise",
+        "icon" : "company",
+        "label" : "Companies",
+        "tags" : [
+            "ecommerce",
+            "B2B",
+            "marketplace",
+            "santé",
+            "éducation",
+            "culture",
+            "environnement",
+            "mobilité",
+            "tourisme",
+            "big data",
+            "applications mobiles",
+            "services de proximité",
+            "indépendants",
+            "webdesign",
+            "graphisme",
+            "marketing",
+            "communication",
+            "conseil",
+            "télécoms",
+            "SSII",
+            "opensource",
+            "jeux vidéo",
+            "réseaux sociaux",
+            "cloud"
+         ]
+    },
+    {
+        "key" : "Tiers-lieu",
+        "icon" : "coworking",
+        "label" : "Third spaces",
+        "tags" : ["fablab", "makerspace", "hackerspace", "coworking", "bureaux partagés", "télécentre" ]
+    },
+    {
+        "key" : "École",
+        "icon" : "education",
+        "label" : "Schools / Universities",
+        "tags" : ["ingénieur", "développeurs", "manager", "audiovisuel", "webdesign", "informatique", "télécoms", "jeux vidéo"]
+    },
+    {
+        "key" : "Communauté",
+        "icon" : "community",
+        "label" : "Communities",
+        "tags" : ["association", "syndicat", "fédération", "cluster"]
+    },
+    {
+        "key" : "Incubateur",
+        "icon" : "incubator",
+        "label" : "Incubators",
+        "tags" : ["pépinière", "couveuse", "accélérateur", "incubateur"]
+    },
+    {
+        "key" : "Investisseur",
+        "icon" : "investor",
+        "label" : "Investors",
+        "tags" : ["capital risque", "business angel", "hightech", "cleantech"]
+    },
+    {
+        "key" : "Acteur public",
+        "icon" : "org",
+        "label" : "Public sector",
+        "tags" : []
+    }
+]
