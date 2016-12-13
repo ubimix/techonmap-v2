@@ -30,9 +30,11 @@ module.exports = App.extend({
      */
     initModules : function() {
         this.state = new Navigation();
+        this._defaultLanguageKey = this.options.defaultLanguage || 'en';
         this.viewManager = new ViewManager();
         initWidgets(this);
         var modules = {
+            i18n : I18NModule,
             user : UserModule,
             content : ContentModule,
             contact : ContactModule,
@@ -43,7 +45,6 @@ module.exports = App.extend({
             serialize : SerializeModule,
             // search : SearchModule,
             // selection : SelectionModule,
-            i18n : I18NModule,
             ui : UIModule,
             nav : NavigationModule,
         };
@@ -71,6 +72,11 @@ module.exports = App.extend({
         this[name] = api;
     },
 
+    /** Returns the current language */
+    getLanguage : function(){ return this.state.getValue('language') || this.getDefaultLanguage(); },
+    getDefaultLanguage : function(){ return this._defaultLanguageKey; },
+    setLanguage : function(language){ this.state.setValue('language', language); },
+
     _applyToModules : function(modules, onoff) {
         var that = this;
         var promise = Mosaic.P();
@@ -96,7 +102,10 @@ module.exports = App.extend({
      * Pre-loads data for this application and returns a promise with results.
      */
     preloadData : function() {
-        return this._applyToModules(this.modules, 'start');
+        var that = this;
+        return this._applyToModules(this.modules, 'start').then(function(){
+            that.modules.i18n
+        });
     },
 
     /** Closes all modules */
