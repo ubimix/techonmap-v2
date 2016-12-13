@@ -1,10 +1,10 @@
 .top-zone {
-    .fit(@social-height, 0px, auto, 0px);
+    background-color: transparent;
+    .fit(@social-height, @panel-margin, auto, auto);
     z-index: 1001; // To be just before floating bootstrap elements
     height: @top-height;
     min-height : inherit;
     margin-bottom: 0px;
-    background-color: white;
     border-radius: 0;
     
     .navbar-header {
@@ -36,6 +36,7 @@
 
         > li {
             > a {
+                background-color: white;
                 border: 1px solid transparent;
                 text-align: center;
                 margin: 0px;
@@ -88,17 +89,20 @@
                 > .dropdown-menu {
                     .box-shadow();
                     display: none;
-                    //margin-top: -2px;
+                    margin-top: -2px;
                     z-index: -1;
-                    border: none;
+                    // border: none;
                     border-radius: 0px;
                     border-bottom: 2px solid @red-main;
+                    border-color: silver;
+                    z-index : 999;
                 }
                 // Open search panel
                 &.open {
                     > a {
                         background-color: white;
-                        border-color: #eee;
+                        border-color: silver;
+                        z-index : 1000;
                         border-bottom-color: white;
                         &.menu-search {
                             color: @red-main;
