@@ -9,11 +9,15 @@ module.exports = {
     logoutApiUrl : './api/logout',
     searchServiceUrl : './service/organizations',
     exportFields : 'data/export.fields.json',
+    defaultLanguage : 'fr',
     messages : './data/messages.json',
     dataUrl : './data/data.json',
     // dataUrl : './api/resources/export',
     dataFieldsUrl : './data/data.fields.json',
-    categoriesUrl : './data/categories.json',
+    categoriesUrl : function(language) {
+        console.log(' I MA HERE', language);
+        return './data/' + language + '/categories.json';
+    },
     zonesUrl : './data/zones.json',
     mode : currentUrl.query.mode,
     siteUrl : currentUrl.protocol + '//' + currentUrl.host
