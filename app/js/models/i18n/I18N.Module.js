@@ -2,9 +2,10 @@ var _ = require('underscore');
 var Mosaic = require('mosaic-commons');
 var App = require('mosaic-core').App;
 var Api = App.Api;
+var AppStateMixin = require('../AppStateMixin');
 
 /** An API allowing to manage I18N lines visibility. */
-module.exports = Api.extend({
+module.exports = Api.extend({}, AppStateMixin, {
 
     /**
      * Initializes internal fields.
@@ -13,8 +14,6 @@ module.exports = Api.extend({
         this._messages = {
             en : {}
         };
-        this._defaultLanguageKey = 'en';
-        this._languageKey = this._defaultLanguageKey;
     },
 
     /**
@@ -25,8 +24,6 @@ module.exports = Api.extend({
         return Mosaic.P.then(function() {
             return that._loadMessages().then(function(config) {
                 that._messages = config.messages;
-                that._defaultLanguageKey = config.defaultLanguage;
-                that._languageKey = that._defaultLanguageKey;
                 that.notify();
             });
         });
@@ -38,9 +35,11 @@ module.exports = Api.extend({
 
     /** Returns a message/label corresponding to the specified key. */
     getMessage : function(key) {
-        var msg = this._messages[this._languageKey][key];
+        var languageKey = this.getLanguage();
+        var msg = this._messages[languageKey][key];
         if (!msg) {
-            msg = this._messages[this._defaultLanguageKey][key];
+            languageKey = this.getDefaultLanguage();
+            msg = this._messages[languageKey][key];
         }
         if (!msg) {
             msg = key;
@@ -56,7 +55,7 @@ module.exports = Api.extend({
         msg = templ.apply(this, args);
         return msg;
     },
-    
+
     getMessage1 : function(key) {
         var messages = this._getMessagesDictionary();
         var args = [ messages ].concat(_.toArray(arguments));
@@ -74,14 +73,17 @@ module.exports = Api.extend({
     },
 
     getFormValidationMessages : function() {
-        var obj = this._messages[this._languageKey] || {};
+        var language = this.getLanguage();
+        var obj = this._messages[language] || {};
         return obj['validationMessages'];
     },
 
     _getMessagesDictionary : function() {
-        var messages = this._messages[this._languageKey];
+        var languageKey = this.getLanguage();
+        var messages = this._messages[languageKey];
         if (!messages) {
-            messages = this._messages[this._defaultLanguageKey] || {};
+            languageKey = this.getDefaultLanguage();
+            messages = this._messages[languageKey] || {};
         }
         return messages;
     },
@@ -112,9 +114,9 @@ module.exports = Api.extend({
         if (!_.has(this.messages, languageKey)) {
             console.log('ERROR! try to use an inavailable language: ',
                     languageKey);
-            languageKey = this._defaultLanguageKey;
+            languageKey = this.getDefaultLanguage();
         }
-        this._languageKey = languageKey;
+        this.setLanguage(languageKey);
     },
 
     _loadMessages : function() {

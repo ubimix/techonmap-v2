@@ -22,7 +22,7 @@
     "lunr": "^0.5.6",
     "marked": "~0.3.2",
     "mosaic-commons": "0.0.15",
-    "mosaic-core": "~0.0.25",
+    "mosaic-core": "~0.0.31",
     "mosaic-scroller": "~0.0.9",
     "mosaic-teleport": "^0.0.22",
     "mosaic-teleport-server": "0.0.8",
@@ -31,7 +31,7 @@
     "page": "^1.5.0",
     "react": "^0.12.1",
     "revalidator": "latest",
-    "react-select": "git+https://github.com/ubimix/react-select.git",
+    "react-select": "git+https://github.com/ubimix/react-select.git#v0.4.7-umx",
     "underscore": "~1.7.0"
   },
   "devDependencies": {
@@ -49,9 +49,10 @@
     "jsx-loader": "^0.12.2",
     "mocha": "^2.0.1",
     "css-loader": "^0.9.1",
-    "style-loader": "^0.8.2",
+    "style-loader": "^0.12.3",
     "file-loader": "^0.8.1",
-    "url-loader": "^0.5.5",
+    "url-loader": "^0.5.6",
+    "less": "^2.5.1",
     "less-loader": "^2.0.0"
   },
   "scripts": {

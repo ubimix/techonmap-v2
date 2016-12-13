@@ -28,4 +28,9 @@ module.exports = {
         return state.getValue(path);
     },
 
+    /** Returns the current language */
+    getLanguage : function(){ return this.options.app.getLanguage(); },
+    getDefaultLanguage : function(){ return this.options.app.getDefaultLanguage(); },
+    setLanguage : function(languageKey){ this.options.app.setLanguage(languageKey); }
+
 };

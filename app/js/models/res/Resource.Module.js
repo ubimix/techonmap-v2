@@ -113,6 +113,7 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
                     });
                 }.bind(this), 100);
             }
+            return this._loadCategories();
         }.bind(this));
     },
 
@@ -769,8 +770,10 @@ module.exports = Api.extend({}, ResourceUtils, AppStateMixin, {
     _loadCategories : function() {
         var that = this;
         return Mosaic.P.then(function() {
+            var language = that.getLanguage();
+            var categoriesUrl = that.options.app.options.categoriesUrl(language);
             return that._getJson(_.extend({}, {
-                path : that.options.app.options.categoriesUrl
+                path : categoriesUrl
             })).then(function(categories) {
                 that._categories = categories;
             });

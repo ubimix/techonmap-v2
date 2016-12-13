@@ -1,11 +1,13 @@
 == Formulaire
 
+regarder pb du champ linkedin : msg indiquant 'champ devant être du type string'
+
 x vérification que le xy est bien en idf (code postal)
 - Régler le pb des liens longs dans le formulaire facebook xxx non accepté
 - info de validation lorsque le point n'a pas été géolocalisé
 
 ? fermer le panneau de suggestion de tags une fois qu'un a été sélectionné
-- ESC > fermer le formulaire 
+- ESC > fermer le formulaire
 N afficher les messages de problème de validation uniquement à la fin quand on soumet le formulaire
 * nouvelle entité créée -> la sélectionner sur la carte ensuite
 - délai d'attente long lors du premier chargement
@@ -44,7 +46,7 @@ x positionnement absolu de l'icône d'édition car pour les longs noms elle éta
 
 x splash screen pour mobile
 - les popups sur mobile sont trop larges
-x pb affichage des boutons de tri 
+x pb affichage des boutons de tri
 
 == Autres
 
@@ -69,4 +71,3 @@ x pb affichage des boutons de tri
 == Backoffice
 
 - bug backoffice : quand on crée une entité avec un id qui avait effacé il y a une erreur qui n'est pas transmise au client (ex : minarty)
-
