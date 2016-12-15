@@ -163,7 +163,8 @@ Mosaic.Events.prototype, ContentPopupMixin, {
         'scrollbars=no,status=no,titlebar=no,toolbar=no,' +
         'width=' + popupWidth + ',height=' + popupHeight + ',' +
         'top=' + top + ',left=' + left + '';
-        wnd = window.open('./login.html', 'login', options);
+        //wnd = window.open('./login.html', 'login', options);
+	wnd = window.open('./xwiki/bin/login/XWiki/XWikiLogin?xredirect=%2Fxwiki%2Fbin%2Fview%2Fmobo%2FLoggedIn%3Fxpage%3Dplain&mode=dialog', 'login', options);
         checkLoginWindow.timerId = setInterval(checkLoginWindow, 500);
         return deferred.promise;
     }

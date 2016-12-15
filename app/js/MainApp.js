@@ -30,7 +30,8 @@ module.exports = App.extend({
      */
     initModules : function() {
         this.state = new Navigation();
-        this._defaultLanguageKey = this.options.defaultLanguage || 'en';
+        this._defaultLanguageKey = this.options.defaultLanguage || 'fr';
+	console.log('>>>> LANG KEY:', this._defaultLanguageKey);
         this.viewManager = new ViewManager();
         initWidgets(this);
         var modules = {
