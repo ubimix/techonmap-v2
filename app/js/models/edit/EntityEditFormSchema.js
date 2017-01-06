@@ -231,11 +231,7 @@ function newSchema(options) {
                         label : msg('field.facebook'),
                         description : msg('field.facebook.description'),
                         type : 'string',
-                        conform : function(v) {
-                            return !!v
-                                    && v
-                                            .match(/^https?:\/\/([^\.]*)\.?facebook\.com\/.*$/g);
-                        },
+                        required: false,
                         messages : {
                             conform : msg('field.facebook.msg.confirm')
                         }
