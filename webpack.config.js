@@ -8,18 +8,18 @@ module.exports = {
     module : {
         loaders : [ {
             test : /\.less$/,
-            loader : "style!css!less"
+            loader : "style-loader!css-loader!less-loader"
         }, {
             test : /\.css$/,
-            loader : "style!css"
+            loader : "style-loader!css-loader"
         }, {
             test : /\.jsx$/,
-            loader : "jsx"
+            loader : "jsx-loader"
         }, {
             test : /react-typeahead.*$/,
-            loader : "jsx"
+            loader : "jsx-loader"
         }, {
-            test : /\.(png|svg|jpg|woff|eot|ttf)/,
+            test : /\.(png|jpg|svg|woff|eot|ttf)/,
             loader : 'url-loader?limit=8192'
         } ]
     },
